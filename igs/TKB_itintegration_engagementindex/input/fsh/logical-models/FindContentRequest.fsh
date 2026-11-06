@@ -90,3 +90,6 @@ Characteristics: #can-be-target
     System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert FindContentRequestFieldDescriptions

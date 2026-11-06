@@ -133,3 +133,6 @@ Characteristics: #can-be-target
 * referralTypes 1..1 BackboneElement "referralTypes" "referralTypes"
   * referralType 0..* string "referralType" "referralType"
 * DN 1..1 string "DN" "DN"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHsaUnitFieldDescriptions

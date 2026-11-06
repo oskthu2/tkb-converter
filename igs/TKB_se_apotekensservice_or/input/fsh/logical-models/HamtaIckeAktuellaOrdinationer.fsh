@@ -582,3 +582,6 @@ Characteristics: #can-be-target
       * sparradUppgiftKlartext 0..1 string "sparradUppgiftKlartext" "Klartext för spärrad uppgift i receptet."
   * personnummer 0..1 string "personnummer" "Patientens personnummer."
   * underlagsversion 0..1 integer "underlagsversion" "Version på Ordinationslista. Används för att verifiera att klientsystemet har rätt underlag vid uppdateringar."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaIckeAktuellaOrdinationerFieldDescriptions

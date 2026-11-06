@@ -22,3 +22,6 @@ Characteristics: #can-be-target
   * healthCareProviderEndDate 0..1 dateTime "Slutdatum för vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]."
   * feignedHealthCareProvider 0..1 boolean "true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]."
   * archivedHealthCareProvider 0..1 boolean "true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthCareProviderFieldDescriptions

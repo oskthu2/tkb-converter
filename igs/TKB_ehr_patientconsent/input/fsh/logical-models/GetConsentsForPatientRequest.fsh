@@ -18,3 +18,6 @@ Characteristics: #can-be-target
   """
   PersonIdValue — personnummer, samordningsnummer eller reservnummer. Max 12 tecken.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetConsentsForPatientRequestFieldDescriptions

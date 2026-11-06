@@ -31,7 +31,8 @@
         "id": "registercertificate-request.svarPa",
         "path": "registercertificate-request.svarPa",
         "short": "Referens till meddelande som detta intyg svarar på (komplettering)",
-        "definition": "Ska anges om intyget utfärdas som svar på en kompletteringsbegäran.\nreferensId ska anges om det skickades i frågan.",
+        "definition": "Om intyget utfärdas som ett svar på en fråga från intygsmottagaren (t.ex. en begäran om komplettering) ska referens till meddelandet skickas.",
+        "comment": "TKB-fält: `svarPa*` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id\n\n**Modellanteckning:** Ska anges om intyget utfärdas som svar på en kompletteringsbegäran.\nreferensId ska anges om det skickades i frågan.",
         "min": 0,
         "max": "1",
         "type": [
@@ -70,7 +71,8 @@
         "id": "registercertificate-request.intyg",
         "path": "registercertificate-request.intyg",
         "short": "Intyget som ska registreras",
-        "definition": "Komplett intyg inkl. patient, skapadAv, enhet och vårdgivare.\nmottagare ska ej anges vid registrering.\nskickatTidpunkt ska ange aktuell tidpunkt.",
+        "definition": "Ett intyg.",
+        "comment": "TKB-fält: `intyg*` (`Intyg (se 7.1.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id, Metadata.signerattidpunkt\n\n**Modellanteckning:** Komplett intyg inkl. patient, skapadAv, enhet och vårdgivare.\nmottagare ska ej anges vid registrering.\nskickatTidpunkt ska ange aktuell tidpunkt.",
         "min": 1,
         "max": "1",
         "type": [

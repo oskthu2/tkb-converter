@@ -33,6 +33,9 @@ Characteristics: #can-be-target
   Söker personer efter förnamn. Kan anges 0 eller fler.
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHospPersonForPublicHealthcareRequestFieldDescriptions
+
 Invariant: gethosppersonforpublichealthcare-request-search-criteria
 Description: "Antingen anges personId, eller minst ett av efternamn, fornamn och fodelsedatum."
 Expression: "personId.exists() or efternamn.exists() or fornamn.exists() or fodelsedatum.exists()"

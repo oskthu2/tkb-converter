@@ -32,6 +32,7 @@
         "path": "findcontent.engagement",
         "short": "Engagemangspost",
         "definition": "En post i engagemangsindex som matchar sökkriterierna.\nEn tjänstekonsument kan få noll eller flera poster i svaret.\nKardinalitet: Valfri, lista.",
+        "comment": "TKB-fält: `engagement` (`EngagementType`, kardinalitet 0..*).\n\n**Modellanteckning:** En post i engagemangsindex som matchar sökkriterierna.\nEn tjänstekonsument kan få noll eller flera poster i svaret.",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "findcontent.engagement.registeredResidentIdentification",
         "path": "findcontent.engagement.registeredResidentIdentification",
         "short": "Personidentitet",
-        "definition": "Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),\neller nationellt reservnummer enligt Ineras definition (12 tecken).\nFormat: CCYYMMDDNNNN (personnummer/samordningsnummer) eller XXYYMMDNNGC (reservidentitet).\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt formatregler i meddelandemodell",
+        "comment": "TKB-fält: `engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).\n\n**Modellanteckning:** Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),\neller nationellt reservnummer enligt Ineras definition (12 tecken).\nFormat: CCYYMMDDNNNN (personnummer/samordningsnummer) eller XXYYMMDNNGC (reservidentitet).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "findcontent.engagement.serviceDomain",
         "path": "findcontent.engagement.serviceDomain",
         "short": "Tjänstedomänens namnrymd (URN)",
-        "definition": "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+        "definition": "Namnrymd för Tjänstedomän\n\nexempel:\n\nurn:riv:clinicalprocess:activity:request",
+        "comment": "TKB-fält: `engagement.serviceDomain` (`URN`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "findcontent.engagement.categorization",
         "path": "findcontent.engagement.categorization",
         "short": "Kategorisering",
-        "definition": "Kategorisering enligt den tillämpande tjänstedomänens dokumentation.\nExakt betydelse definieras av respektive tjänstedomän.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagement.categorization` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Kategorisering enligt den tillämpande tjänstedomänens dokumentation.\nExakt betydelse definieras av respektive tjänstedomän.",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "findcontent.engagement.logicalAddress",
         "path": "findcontent.engagement.logicalAddress",
         "short": "Logisk adress",
-        "definition": "Logisk adress för den tjänsteproducent som har information för posten.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagement.logicalAddress` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Logisk adress för den tjänsteproducent som har information för posten.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "findcontent.engagement.businessObjectInstanceIdentifier",
         "path": "findcontent.engagement.businessObjectInstanceIdentifier",
         "short": "Affärsobjektets instansidentifierare",
-        "definition": "Identifierare för det specifika affärsobjekt som posten avser.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nObs: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för det specifika affärsobjekt som posten avser.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nObs: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "findcontent.engagement.clinicalProcessInterestId",
         "path": "findcontent.engagement.clinicalProcessInterestId",
         "short": "Kliniskt processintresse-ID",
-        "definition": "Identifierare för kliniskt processintresse.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,\nmen i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.\nAnvänd 0..1 tills verifiering mot XSD-schema är gjord.\nKardinalitet: Valfri (se öppen fråga om diskrepans).",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagement.clinicalProcessInterestId` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Identifierare för kliniskt processintresse.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,\nmen i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.\nAnvänd 0..1 tills verifiering mot XSD-schema är gjord.",
         "min": 0,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "findcontent.engagement.mostRecentContent",
         "path": "findcontent.engagement.mostRecentContent",
         "short": "Senast relevant innehållstidpunkt",
-        "definition": "Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning av detta attribut bestäms av den tillämpande tjänstedomänens\ntjänstekontraktsbeskrivning. Från version 1.0.9 tas centrala EI-regler kring\nMostRecentContent bort ur denna TKB.\nKardinalitet: Valfri.",
+        "definition": "YYYYMMDDhhmmss",
+        "comment": "TKB-fält: `engagement.mostRecentContent` (`TS`, kardinalitet 0..1).\n\n**Modellanteckning:** Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning av detta attribut bestäms av den tillämpande tjänstedomänens\ntjänstekontraktsbeskrivning. Från version 1.0.9 tas centrala EI-regler kring\nMostRecentContent bort ur denna TKB.",
         "min": 0,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "findcontent.engagement.sourceSystem",
         "path": "findcontent.engagement.sourceSystem",
         "short": "Källsystem (HSA-id)",
-        "definition": "HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren\nsom är master för informationen.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+        "definition": "Källsystemet som innehåller den information som EI-posten pekar ut.\n\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.",
+        "comment": "TKB-fält: `engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "findcontent.engagement.creationTime",
         "path": "findcontent.engagement.creationTime",
         "short": "Tidpunkt för skapande av indexpost",
-        "definition": "Tidpunkt då EI-posten skapades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nSätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.\nOBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,\nmen finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.\nKardinalitet: Obligatorisk.",
+        "definition": "YYYYMMDDhhmmss",
+        "comment": "TKB-fält: `engagement.creationTime` (`TS`, kardinalitet 1..1).\n\n**Modellanteckning:** Tidpunkt då EI-posten skapades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nSätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.\nOBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,\nmen finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.",
         "min": 1,
         "max": "1",
         "type": [
@@ -161,7 +171,8 @@
         "id": "findcontent.engagement.updateTime",
         "path": "findcontent.engagement.updateTime",
         "short": "Tidpunkt för senaste uppdatering av indexpost",
-        "definition": "Tidpunkt då EI-posten senast uppdaterades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nSätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.\nOBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,\nmen finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.\nKardinalitet: Valfri.",
+        "definition": "YYYYMMDDhhmmss",
+        "comment": "TKB-fält: `engagement.updateTime` (`TS`, kardinalitet 0..1).\n\n**Modellanteckning:** Tidpunkt då EI-posten senast uppdaterades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nSätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.\nOBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,\nmen finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.",
         "min": 0,
         "max": "1",
         "type": [
@@ -174,7 +185,8 @@
         "id": "findcontent.engagement.dataController",
         "path": "findcontent.engagement.dataController",
         "short": "Personuppgiftsansvarig organisation",
-        "definition": "Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern\nidentitet för PUA. Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll\nsom personuppgiftsansvarig för sin information i engagemangsindex.\nOBS: Fältet kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.\nKardinalitet: Obligatorisk.",
+        "definition": "Identitet för den PUA som ansvarar för postens innehåll.\n\nI första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)\n\nViktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.",
+        "comment": "TKB-fält: `engagement.dataController` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -187,7 +199,8 @@
         "id": "findcontent.engagement.owner",
         "path": "findcontent.engagement.owner",
         "short": "Ägande index (HSA-id)",
-        "definition": "HSA-id för den organisation vars index tog emot uppdateringsbegäran.\nAnvänds för att spåra var en indexpost ursprungligen registrerades.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nSätts av engagemangsindex — ska INTE sättas av konsumenten.\nKardinalitet: Obligatorisk.",
+        "definition": "HSA-id för den organisations vars index tog emot uppdateringsbegäran.",
+        "comment": "TKB-fält: `engagement.owner` (`HSA-id`, kardinalitet 1..1).\n\n**Modellanteckning:** HSA-id för den organisation vars index tog emot uppdateringsbegäran.\nAnvänds för att spåra var en indexpost ursprungligen registrerades.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nSätts av engagemangsindex — ska INTE sättas av konsumenten.",
         "min": 1,
         "max": "1",
         "type": [

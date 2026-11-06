@@ -22,6 +22,9 @@ Characteristics: #can-be-target
 * fromDate 0..1 date "Startdatum för sökning på utfärdandedatum"
 * toDate 0..1 date "Slutdatum för sökning på utfärdandedatum"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListCertificatesRequestFieldDescriptions
+
 
 Logical: ListCertificates
 Id: listcertificates
@@ -52,3 +55,6 @@ Characteristics: #can-be-target
 * result.infoText 0..1 string "Extra information om anropets utgång"
 * result.errorId 0..1 string "Felkategori"
 * result.errorText 0..1 string "Beskrivande text för felet"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListCertificatesFieldDescriptions

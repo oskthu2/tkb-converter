@@ -20,3 +20,6 @@ Characteristics: #can-be-target
   * nplid 1..1 string "nplid" "nplid"
   * nplpackid 1..1 string "nplpackid" "nplpackid"
   * glnkod 0..* string "glnkod" "glnkod"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaLokaltProduktsortimentFieldDescriptions

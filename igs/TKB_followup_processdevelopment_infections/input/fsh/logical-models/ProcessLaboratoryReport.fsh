@@ -55,6 +55,9 @@ Characteristics: #can-be-target
   Kodverk KV Kön, OID: 1.2.752.129.2.2.1.1
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessLaboratoryReportRequestFieldDescriptions
+
 Logical: ProcessLaboratoryReportResponse
 Id: processlaboratoryreport-response
 Title: "ProcessLaboratoryReport — Response"
@@ -76,3 +79,6 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessLaboratoryReportResponseFieldDescriptions

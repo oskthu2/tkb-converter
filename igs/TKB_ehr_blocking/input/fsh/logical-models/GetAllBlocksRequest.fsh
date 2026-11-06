@@ -11,3 +11,6 @@ Characteristics: #can-be-target
 * ^version = "2.0"
 * careProviderIds 0..* string "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla spärrar oavsett organisation."
 * createdOnOrAfter 0..1 dateTime "Startdatum — returnerar endast spärrar lagrade/förändrade på eller efter detta datum."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAllBlocksRequestFieldDescriptions

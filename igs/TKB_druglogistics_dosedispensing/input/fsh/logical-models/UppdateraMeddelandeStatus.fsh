@@ -20,3 +20,6 @@ Characteristics: #can-be-target
   * meddelandestatus 1..1 code "meddelandestatus" "meddelandestatus"
   * meddelandestatus from MeddelandeStatusVS (required)
   * statustidpunkt 1..1 dateTime "statustidpunkt" "statustidpunkt"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UppdateraMeddelandeStatusFieldDescriptions

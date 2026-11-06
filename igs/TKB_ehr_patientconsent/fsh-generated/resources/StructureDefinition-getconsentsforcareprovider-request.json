@@ -31,7 +31,8 @@
         "id": "getconsentsforcareprovider-request.careProviderId",
         "path": "getconsentsforcareprovider-request.careProviderId",
         "short": "HSA-id på den vårdgivare vars samtycken skall hämtas",
-        "definition": "Identifierare för vårdgivare. system = urn:oid:1.2.752.129.2.1.4.1. Max 32 tecken.",
+        "definition": "HSA-id på den vårdgivare vars samtycken skall hämtas.",
+        "comment": "TKB-fält: `careProviderId` (`patientconsent:HsaId`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för vårdgivare. system = urn:oid:1.2.752.129.2.1.4.1. Max 32 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getconsentsforcareprovider-request.createdOnOrAfter",
         "path": "getconsentsforcareprovider-request.createdOnOrAfter",
         "short": "Ej obligatoriskt startdatum för hur gamla samtyckesintyg som skall hämtas",
-        "definition": "Om angivet returneras endast samtyckesintyg som är giltiga i tjänsten på eller efter denna tidpunkt.\nAnvändbart vid upprepande förfrågningar för att undvika att data som redan inhämtats returneras.",
+        "definition": "Ej obligatoriskt startdatum för hur gamla samtyckesintyg som skall hämtas. Om angivet returneras endast samtyckesintyg som är giltiga i tjänsten på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.",
+        "comment": "TKB-fält: `createdOnOrAfter` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getconsentsforcareprovider-request.getCancelledFlag",
         "path": "getconsentsforcareprovider-request.getCancelledFlag",
         "short": "Flagga som avgör om makulerade och återkallade samtyckesintyg skall returneras",
-        "definition": "Om true returneras även makulerade och återkallade intyg som inte är utgångna.\nUtgångna intyg (giltigt t o m har passerats) returneras ej oavsett makulering eller återkallning.",
+        "definition": "Flagga som avgör om makulerade och återkallade samtyckesintyg som ej är utgångna (giltigt t o m har passerats) skall returneras.",
+        "comment": "TKB-fält: `getCancelledFlag` (`xs:boolean`, kardinalitet 1..1).\n\n**Modellanteckning:** Om true returneras även makulerade och återkallade intyg som inte är utgångna.\nUtgångna intyg (giltigt t o m har passerats) returneras ej oavsett makulering eller återkallning.",
         "min": 1,
         "max": "1",
         "type": [

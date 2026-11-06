@@ -44,7 +44,8 @@
         "id": "processexemptionstatuses-request.requestId",
         "path": "processexemptionstatuses-request.requestId",
         "short": "requestId",
-        "definition": "requestId",
+        "definition": "Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses.",
+        "comment": "TKB-fält: `requestId` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "processexemptionstatuses-request.requestId.root",
         "path": "processexemptionstatuses-request.requestId.root",
         "short": "root",
-        "definition": "root",
+        "definition": "Unikt Id för begäran om utlämnandet, ska förmedlas så som ett uuid.",
+        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +72,8 @@
         "id": "processexemptionstatuses-request.requestId.iiExtension",
         "path": "processexemptionstatuses-request.requestId.iiExtension",
         "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
+        "definition": "Ska utelämnas, då id förmedlas som ett uuid.",
+        "comment": "TKB-fält: `../extension` (kardinalitet 0..0).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -83,7 +86,8 @@
         "id": "processexemptionstatuses-request.feeExemption",
         "path": "processexemptionstatuses-request.feeExemption",
         "short": "feeExemption",
-        "definition": "feeExemption",
+        "definition": "Returnerar en patients högkostnadsskyddstatus",
+        "comment": "TKB-fält: `feeExemption` (`FeeExemptionType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -96,7 +100,8 @@
         "id": "processexemptionstatuses-request.feeExemption.patientId",
         "path": "processexemptionstatuses-request.feeExemption.patientId",
         "short": "patientId",
-        "definition": "patientId",
+        "definition": "Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten.\n\nDvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR.\n\nFältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare.\n\nFältet root sätts till typ av identifierare.\n\nFör personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas.\n\nExempel:\n\n`<patientId>`\n\n`<root>`1.2.752.129.2.1.3.1`</root>`\n\n`<extension>`196705053723`</extension>`\n\n`</patientId>`",
+        "comment": "TKB-fält: `../patientId` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -110,6 +115,7 @@
         "path": "processexemptionstatuses-request.feeExemption.patientId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -123,6 +129,7 @@
         "path": "processexemptionstatuses-request.feeExemption.patientId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -136,6 +143,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions",
         "short": "transactions",
         "definition": "transactions",
+        "comment": "TKB-fält: `../transactions` (`TransactionType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -149,6 +157,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee",
         "short": "fee",
         "definition": "fee",
+        "comment": "TKB-fält: `../../fee` (`AmountType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -161,7 +170,8 @@
         "id": "processexemptionstatuses-request.feeExemption.transactions.fee.amount",
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.amount",
         "short": "amount",
-        "definition": "amount",
+        "definition": "Belopp med högst två decimaler.",
+        "comment": "TKB-fält: `../../../amount` (`decimal`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -174,7 +184,8 @@
         "id": "processexemptionstatuses-request.feeExemption.transactions.fee.currency",
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency",
         "short": "currency",
-        "definition": "currency",
+        "definition": "Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK.\n\ncode: SEK\n\ncodeSystem: ”1.0.4217”",
+        "comment": "TKB-fält: `../../../currency*` (`CVType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -188,6 +199,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency.cvCode",
         "short": "cvCode",
         "definition": "cvCode Heter code i schemat.",
+        "comment": "TKB-fält: `../../../../code` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -201,6 +213,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystem",
         "short": "codeSystem",
         "definition": "codeSystem",
+        "comment": "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -214,6 +227,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemName",
         "short": "codeSystemName",
         "definition": "codeSystemName",
+        "comment": "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -227,6 +241,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemVersion",
         "short": "codeSystemVersion",
         "definition": "codeSystemVersion",
+        "comment": "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -240,6 +255,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency.displayName",
         "short": "displayName",
         "definition": "displayName",
+        "comment": "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -253,6 +269,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.fee.currency.originalText",
         "short": "originalText",
         "definition": "originalText",
+        "comment": "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -266,6 +283,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit",
         "short": "dateOfVisit",
         "definition": "dateOfVisit",
+        "comment": "TKB-fält: `../../dateOfVisit` (`DateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -279,6 +297,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration",
         "short": "timeOfRegistration",
         "definition": "timeOfRegistration",
+        "comment": "TKB-fält: `../../timeOfRegistration` (`TimeStampType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -292,6 +311,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.typeOfFee",
         "short": "typeOfFee",
         "definition": "typeOfFee",
+        "comment": "TKB-fält: `../../typeOfFee` (`TypeOfExemptionEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -309,6 +329,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.careGiver",
         "short": "careGiver",
         "definition": "careGiver",
+        "comment": "TKB-fält: `../../careGiver` (`IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -322,6 +343,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.careGiver.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -335,6 +357,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.careGiver.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -348,6 +371,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.careUnit",
         "short": "careUnit",
         "definition": "careUnit",
+        "comment": "TKB-fält: `../../careUnit` (`IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -361,6 +385,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.careUnit.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -374,6 +399,7 @@
         "path": "processexemptionstatuses-request.feeExemption.transactions.careUnit.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -387,6 +413,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions",
         "short": "exemptions",
         "definition": "exemptions",
+        "comment": "TKB-fält: `../exemptions` (`ExemptionType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -400,6 +427,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.exemptionId",
         "short": "exemptionId",
         "definition": "exemptionId Heter id i schemat.",
+        "comment": "TKB-fält: `../../id` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** exemptionId Heter id i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -413,6 +441,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod",
         "short": "highCostProtectionPeriod",
         "definition": "highCostProtectionPeriod",
+        "comment": "TKB-fält: `../../highCostProtectionPeriod` (`DatePeriodType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -425,7 +454,8 @@
         "id": "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.start",
         "path": "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.start",
         "short": "start",
-        "definition": "start",
+        "definition": "Startdatum för högkostnadsskydd.",
+        "comment": "TKB-fält: `../../../start` (`DateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -438,7 +468,8 @@
         "id": "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.end",
         "path": "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.end",
         "short": "end",
-        "definition": "end",
+        "definition": "Slutdatum för högkostnadsskydd.",
+        "comment": "TKB-fält: `../../../end` (`DateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -452,6 +483,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod",
         "short": "exemptionPeriod",
         "definition": "exemptionPeriod",
+        "comment": "TKB-fält: `../../exemptionPeriod` (`DatePeriodType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -464,7 +496,8 @@
         "id": "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.start",
         "path": "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.start",
         "short": "start",
-        "definition": "start",
+        "definition": "Startdatum för frikort.",
+        "comment": "TKB-fält: `../../../start` (`DateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -477,7 +510,8 @@
         "id": "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.end",
         "path": "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.end",
         "short": "end",
-        "definition": "end",
+        "definition": "Slutdatum för frikort.",
+        "comment": "TKB-fält: `../../../end` (`DateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -491,6 +525,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption",
         "short": "typeOfExemption",
         "definition": "typeOfExemption",
+        "comment": "TKB-fält: `../../typeOfExemption` (`TypeOfExemptionEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -508,6 +543,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.region",
         "short": "region",
         "definition": "region",
+        "comment": "TKB-fält: `../../region` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -521,6 +557,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.region.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -534,6 +571,7 @@
         "path": "processexemptionstatuses-request.feeExemption.exemptions.region.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [

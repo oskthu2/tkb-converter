@@ -110,3 +110,6 @@ Characteristics: #can-be-target
         3 = Pågående, 4 = Avbruten, 5 = Avslutad.
         """
     * careContactStatus from CareContactStatusVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCareContactsFieldDescriptions

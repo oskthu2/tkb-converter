@@ -17,6 +17,9 @@ Characteristics: #can-be-target
 * careGiverId 1..1 Identifier "Vårdgivarens HSA-id"
 * questionId 0..* string "Ärendelådans identitet på frågor som skall tas bort"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteQuestionsRequestFieldDescriptions
+
 
 Logical: DeleteQuestions
 Id: deletequestions
@@ -33,3 +36,6 @@ Characteristics: #can-be-target
 * result.infoText 0..1 string "Extra information om anropets utgång"
 * result.errorId 0..1 string "Felkategori"
 * result.errorText 0..1 string "Beskrivande text för felet"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteQuestionsFieldDescriptions

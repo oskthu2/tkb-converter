@@ -19,3 +19,6 @@ Characteristics: #can-be-target
   * hasConsent 1..1 boolean "hasConsent" "hasConsent"
   * assertionType 0..1 code "assertionType" "assertionType"
   * assertionType from AssertionTypeVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CheckConsentFieldDescriptions

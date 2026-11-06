@@ -39,3 +39,6 @@ Characteristics: #can-be-target
     * ownerId 0..1 string "ownerId" "ownerId"
   * nextCreatedOnOrAfter 1..1 dateTime "nextCreatedOnOrAfter" "nextCreatedOnOrAfter"
   * latestCancellation 1..1 dateTime "latestCancellation" "latestCancellation"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetBlocksFieldDescriptions

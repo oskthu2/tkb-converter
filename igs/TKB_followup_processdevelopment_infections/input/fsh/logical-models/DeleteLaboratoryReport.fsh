@@ -20,6 +20,9 @@ Characteristics: #can-be-target
   Kardinalitet: Obligatorisk.
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteLaboratoryReportRequestFieldDescriptions
+
 Logical: DeleteLaboratoryReportResponse
 Id: deletelaboratoryreport-response
 Title: "DeleteLaboratoryReport — Response"
@@ -41,3 +44,6 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteLaboratoryReportResponseFieldDescriptions

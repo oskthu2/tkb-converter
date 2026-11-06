@@ -13,3 +13,6 @@ Characteristics: #can-be-target
   """
   Ref. person-id (personalIdentityNumber) [R5].
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHospCredentialsForPersonRequestFieldDescriptions

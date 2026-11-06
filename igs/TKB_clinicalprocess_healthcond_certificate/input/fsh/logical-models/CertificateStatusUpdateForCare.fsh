@@ -20,6 +20,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CertificateStatusUpdateForCareFieldDescriptions
+
 Logical: CertificateStatusUpdateForCareRequest
 Id: certificatestatusupdateforcare-request
 Title: "CertificateStatusUpdateForCare — Request"
@@ -64,3 +67,6 @@ Characteristics: #can-be-target
 * mottagnaFragor.hanterade 1..1 integer "Antal hanterade mottagna frågor"
 * ref 0..1 string "Referens till entitet i integrerande vårdsystem (t.ex. vårdkontakt-id)"
 * hanteratAv 0..1 Identifier "HSA-id för HoS-personal som hanterar intyget"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CertificateStatusUpdateForCareRequestFieldDescriptions

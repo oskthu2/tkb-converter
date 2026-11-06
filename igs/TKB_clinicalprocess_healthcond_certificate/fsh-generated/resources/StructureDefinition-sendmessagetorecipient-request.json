@@ -31,7 +31,8 @@
         "id": "sendmessagetorecipient-request.meddelandeId",
         "path": "sendmessagetorecipient-request.meddelandeId",
         "short": "Unikt ID för meddelandet (GUID)",
-        "definition": "Unikt ID för meddelandet (GUID)",
+        "definition": "Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID.",
+        "comment": "TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.meddelande-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "sendmessagetorecipient-request.referensId",
         "path": "sendmessagetorecipient-request.referensId",
         "short": "Valfri referens till entitet hos sändande part",
-        "definition": "Valfri referens till entitet hos sändande part",
+        "definition": "Valfri referens till entitet hos sändande part. Behöver ej vara unikt.",
+        "comment": "TKB-fält: `referens-id` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.referens-id",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "sendmessagetorecipient-request.skickatTidpunkt",
         "path": "sendmessagetorecipient-request.skickatTidpunkt",
         "short": "Tidpunkt då meddelandet skickades",
-        "definition": "Tidpunkt då meddelandet skickades",
+        "definition": "Tidpunkt då meddelandet skickades.",
+        "comment": "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.avsänt tidpunkt",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "sendmessagetorecipient-request.intygsId",
         "path": "sendmessagetorecipient-request.intygsId",
         "short": "Unikt ID för det intyg meddelandet hör till",
-        "definition": "Unikt ID för det intyg meddelandet hör till",
+        "definition": "Unikt ID för det intyg som meddelandet hör till.",
+        "comment": "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.intygs-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "sendmessagetorecipient-request.patientPersonId",
         "path": "sendmessagetorecipient-request.patientPersonId",
         "short": "Person- eller samordningsnummer för patienten",
-        "definition": "Person- eller samordningsnummer för patienten",
+        "definition": "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.",
+        "comment": "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "sendmessagetorecipient-request.logiskAdressMottagare",
         "path": "sendmessagetorecipient-request.logiskAdressMottagare",
         "short": "Logisk adress för intygsmottagaren",
-        "definition": "Logisk adress för intygsmottagaren",
+        "definition": "Logisk adress för den intygsmottagare som intygstjänsten ska vidarebefordra meddelandet till.",
+        "comment": "TKB-fält: `logiskAdressMottagare` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Intygsmottagare.logisk adress",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "sendmessagetorecipient-request.amne",
         "path": "sendmessagetorecipient-request.amne",
         "short": "Ämne för frågan/meddelandet",
-        "definition": "Ämne för frågan/meddelandet",
+        "definition": "Kodat värde som anger ämnet för frågan.",
+        "comment": "TKB-fält: `amne*` (`Amneskod (se 7.2.1)`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.ämne",
         "min": 1,
         "max": "1",
         "type": [
@@ -126,7 +133,8 @@
         "id": "sendmessagetorecipient-request.rubrik",
         "path": "sendmessagetorecipient-request.rubrik",
         "short": "Valfri rubrik",
-        "definition": "Valfri rubrik",
+        "definition": "En valfri rubrik som beskriver meddelandet.",
+        "comment": "TKB-fält: `rubrik` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.rubrik",
         "min": 0,
         "max": "1",
         "type": [
@@ -140,6 +148,7 @@
         "path": "sendmessagetorecipient-request.meddelande",
         "short": "Meddelandets text",
         "definition": "Meddelandets text",
+        "comment": "TKB-fält: `meddelande` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.meddelande",
         "min": 1,
         "max": "1",
         "type": [
@@ -152,7 +161,8 @@
         "id": "sendmessagetorecipient-request.paminnelseMeddelandeId",
         "path": "sendmessagetorecipient-request.paminnelseMeddelandeId",
         "short": "ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)",
-        "definition": "ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)",
+        "definition": "Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om.",
+        "comment": "TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.meddelande-id",
         "min": 0,
         "max": "1",
         "type": [
@@ -165,7 +175,8 @@
         "id": "sendmessagetorecipient-request.svarPa",
         "path": "sendmessagetorecipient-request.svarPa",
         "short": "Referens till fråga från intygsmottagaren om detta är ett svar",
-        "definition": "Referens till fråga från intygsmottagaren om detta är ett svar",
+        "definition": "Om detta meddelande är ett svar på en fråga från intygsmottagaren ska referens till frågan skickas",
+        "comment": "TKB-fält: `svarPa` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id",
         "min": 0,
         "max": "1",
         "type": [
@@ -204,7 +215,8 @@
         "id": "sendmessagetorecipient-request.skickatAv",
         "path": "sendmessagetorecipient-request.skickatAv",
         "short": "HoS-personal som skickar meddelandet",
-        "definition": "HoS-personal som skickar meddelandet",
+        "definition": "Information om den hälso- och sjukvårdspersonal som skickar meddelandet. Anges eftersom det inte behöver vara samma som signerade intyget.",
+        "comment": "TKB-fält: `skickatAv` (`HosPersonal (se 7.1.4)`, kardinalitet 1..1).\n\n**Mappning DIM:** HoS-personal, Enhet, Vårdgivare",
         "min": 1,
         "max": "1",
         "type": [
@@ -295,7 +307,8 @@
         "id": "sendmessagetorecipient-request.sistaDatumForSvar",
         "path": "sendmessagetorecipient-request.sistaDatumForSvar",
         "short": "Datum då vården senast vill ha svar (endast vid fråga)",
-        "definition": "Datum då vården senast vill ha svar (endast vid fråga)",
+        "definition": "Datum då vården senast vill ha ett svar.",
+        "comment": "TKB-fält: `sistaDatumForSvar` (`DateType`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.sista datum för svar",
         "min": 0,
         "max": "1",
         "type": [

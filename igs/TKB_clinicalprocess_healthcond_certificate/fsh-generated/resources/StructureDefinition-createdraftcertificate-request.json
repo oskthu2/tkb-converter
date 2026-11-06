@@ -31,7 +31,8 @@
         "id": "createdraftcertificate-request.intyg",
         "path": "createdraftcertificate-request.intyg",
         "short": "Utkast till intyg",
-        "definition": "Utkast till intyg",
+        "definition": "Utkast till intyg.",
+        "comment": "TKB-fält: `intyg` (`Intyg (lokalt definierad i kontraktet)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "createdraftcertificate-request.intyg.typAvIntyg",
         "path": "createdraftcertificate-request.intyg.typAvIntyg",
         "short": "Kodat värde som anger intygstypen",
-        "definition": "Kodat värde som anger intygstypen",
+        "definition": "Kodat värde som anger intygstypen.",
+        "comment": "TKB-fält: `../typAvIntyg` (`TypAvIntyg (se 7.2.11)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.typ",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "createdraftcertificate-request.intyg.patient",
         "path": "createdraftcertificate-request.intyg.patient",
         "short": "Uppgifter om den patient som intyg skapas för",
-        "definition": "Uppgifter om den patient som intyg skapas för",
+        "definition": "Uppgifter om den patient som intyg skapas för.",
+        "comment": "TKB-fält: `../patient*` (`Patient (se 7.1.8)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient",
         "min": 1,
         "max": "1",
         "type": [
@@ -161,7 +164,8 @@
         "id": "createdraftcertificate-request.intyg.skapadAv",
         "path": "createdraftcertificate-request.intyg.skapadAv",
         "short": "HoS-personal som skapar intyget",
-        "definition": "Namn hämtas från vårdsystemet — ej från HSA — och skickas med i anropet.\nUppgifter om vårdgivare ska ej skickas, utan hämtas från HSA via enhets-id.",
+        "definition": "Hälso- och sjukvårdspersonal som skapar intyg.",
+        "comment": "TKB-fält: `../skapadAv` (`HosPersonal (lokalt definierad i kontraktet)`, kardinalitet 1..1).\n\n**Mappning DIM:** Hos-personal\n\n**Modellanteckning:** Namn hämtas från vårdsystemet — ej från HSA — och skickas med i anropet.\nUppgifter om vårdgivare ska ej skickas, utan hämtas från HSA via enhets-id.",
         "min": 1,
         "max": "1",
         "type": [
@@ -174,7 +178,8 @@
         "id": "createdraftcertificate-request.intyg.skapadAv.personalId",
         "path": "createdraftcertificate-request.intyg.skapadAv.personalId",
         "short": "HSA-id för hälso- och sjukvårdspersonalen",
-        "definition": "HSA-id för hälso- och sjukvårdspersonalen",
+        "definition": "HSA-id för hälso- och sjukvårdspersonalen som skapar intygsutkastet.",
+        "comment": "TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** HoS-personal.personal-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -187,7 +192,8 @@
         "id": "createdraftcertificate-request.intyg.skapadAv.fullstandigtNamn",
         "path": "createdraftcertificate-request.intyg.skapadAv.fullstandigtNamn",
         "short": "Personalens förnamn + efternamn (från vårdsystemet)",
-        "definition": "Personalens förnamn + efternamn (från vårdsystemet)",
+        "definition": "Personalens förnamn + efternamn.",
+        "comment": "TKB-fält: `../../fullstandigtNamn` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** HoS-personal.fullständigt namn",
         "min": 1,
         "max": "1",
         "type": [
@@ -200,7 +206,8 @@
         "id": "createdraftcertificate-request.intyg.skapadAv.enhet",
         "path": "createdraftcertificate-request.intyg.skapadAv.enhet",
         "short": "Enhet som intyget skapas på",
-        "definition": "Enhet som intyget skapas på",
+        "definition": "Enhet som intyg skapas på.",
+        "comment": "TKB-fält: `../../enhet` (`Enhet (lokalt definierad i kontraktet)`, kardinalitet 1..1).\n\n**Mappning DIM:** Enhet",
         "min": 1,
         "max": "1",
         "type": [
@@ -213,7 +220,8 @@
         "id": "createdraftcertificate-request.intyg.skapadAv.enhet.enhetsId",
         "path": "createdraftcertificate-request.intyg.skapadAv.enhet.enhetsId",
         "short": "HSA-id för enheten",
-        "definition": "HSA-id för enheten",
+        "definition": "HSA-id för enheten.",
+        "comment": "TKB-fält: `../../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** Enhet.enhets-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -226,7 +234,8 @@
         "id": "createdraftcertificate-request.intyg.skapadAv.enhet.enhetsnamn",
         "path": "createdraftcertificate-request.intyg.skapadAv.enhet.enhetsnamn",
         "short": "Enhetens namn (från vårdsystemet)",
-        "definition": "Enhetens namn (från vårdsystemet)",
+        "definition": "Enhetens namn.",
+        "comment": "TKB-fält: `../../../enhetsnamn` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Enhet.enhetsnamn",
         "min": 1,
         "max": "1",
         "type": [
@@ -239,7 +248,8 @@
         "id": "createdraftcertificate-request.intyg.ref",
         "path": "createdraftcertificate-request.intyg.ref",
         "short": "Referens till något i det integrerande vårdsystemet (t.ex. vårdkontakt-id)",
-        "definition": "Referens till något i det integrerande vårdsystemet (t.ex. vårdkontakt-id)",
+        "definition": "Referens till något i det integrerande vårdsystemet som ska kopplas ihop med intyget. Kan exempelvis vara ett id för en vårdkontakt.",
+        "comment": "TKB-fält: `../ref` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Referens.ref",
         "min": 0,
         "max": "1",
         "type": [

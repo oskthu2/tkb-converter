@@ -31,7 +31,8 @@
         "id": "findcontent-request.registeredResidentIdentification",
         "path": "findcontent-request.registeredResidentIdentification",
         "short": "Personidentitet (sökkriterium)",
-        "definition": "Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),\neller nationellt reservnummer enligt Ineras definition (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt formatregler i meddelandemodellen",
+        "comment": "TKB-fält: `registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).\n\n**Modellanteckning:** Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),\neller nationellt reservnummer enligt Ineras definition (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "findcontent-request.serviceDomain",
         "path": "findcontent-request.serviceDomain",
         "short": "Tjänstedomänens namnrymd (sökkriterium)",
-        "definition": "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+        "definition": "Namnrymd för Tjänstedomän\n\nexempel:\n\nurn:riv:clinicalprocess:activity:request",
+        "comment": "TKB-fält: `serviceDomain` (`URN`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "findcontent-request.categorization",
         "path": "findcontent-request.categorization",
         "short": "Kategorisering (sökkriterium)",
-        "definition": "Kodverk enligt den tillämpande tjänstedomänens dokumentation.\nOm angivet filtreras svaret till poster med exakt matchning på detta attribut.\nKardinalitet: Valfri.",
+        "definition": "Kodverk enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `categorization` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Kodverk enligt den tillämpande tjänstedomänens dokumentation.\nOm angivet filtreras svaret till poster med exakt matchning på detta attribut.",
         "min": 0,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "findcontent-request.logicalAddress",
         "path": "findcontent-request.logicalAddress",
         "short": "Logisk adress (sökkriterium)",
-        "definition": "Filtrerar svaret till poster med angiven logisk adress.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Valfri.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `logicalAddress` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Filtrerar svaret till poster med angiven logisk adress.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.",
         "min": 0,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "findcontent-request.businessObjectInstanceIdentifier",
         "path": "findcontent-request.businessObjectInstanceIdentifier",
         "short": "Affärsobjektets instansidentifierare (sökkriterium)",
-        "definition": "Filtrerar svaret till poster med angiven affärsobjektidentifierare.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.\nKardinalitet: Valfri.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Filtrerar svaret till poster med angiven affärsobjektidentifierare.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.",
         "min": 0,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "findcontent-request.clinicalProcessInterestId",
         "path": "findcontent-request.clinicalProcessInterestId",
         "short": "Kliniskt processintresse-ID (sökkriterium)",
-        "definition": "Filtrerar svaret till poster med angivet kliniskt processintresse-ID.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,\nmen i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.\nBehöver verifiering mot XSD-schema.\nKardinalitet: Valfri (se öppen fråga om diskrepans).",
+        "definition": "Enligt tjänstedomänens dokumentation",
+        "comment": "TKB-fält: `clinicalProcessInterestId` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Filtrerar svaret till poster med angivet kliniskt processintresse-ID.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,\nmen i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.\nBehöver verifiering mot XSD-schema.",
         "min": 0,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "findcontent-request.mostRecentContent",
         "path": "findcontent-request.mostRecentContent",
         "short": "Senast relevant innehållstidpunkt (sökkriterium)",
-        "definition": "Filtrerar svaret till poster med mostRecentContent >= angivet värde.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nKardinalitet: Valfri.",
+        "definition": "YYYYMMDDhhmmss.",
+        "comment": "TKB-fält: `mostRecentContent` (`TS`, kardinalitet 0..1).\n\n**Modellanteckning:** Filtrerar svaret till poster med mostRecentContent >= angivet värde.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).",
         "min": 0,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "findcontent-request.sourceSystem",
         "path": "findcontent-request.sourceSystem",
         "short": "Källsystem (sökkriterium)",
-        "definition": "HSA-id för källsystemet. Filtrerar svaret till poster med angivet källsystem.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Valfri.",
+        "definition": "Källsystemet som innehåller den information som EI-posten pekar ut.\n\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.",
+        "comment": "TKB-fält: `sourceSystem` (`HSA-id`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för källsystemet. Filtrerar svaret till poster med angivet källsystem.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).",
         "min": 0,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "findcontent-request.dataController",
         "path": "findcontent-request.dataController",
         "short": "Personuppgiftsansvarig organisation (sökkriterium)",
-        "definition": "Identitet för PUA. Filtrerar svaret till poster med angiven dataController.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet.\nKardinalitet: Valfri.",
+        "definition": "Identitet för den PUA som ansvarar för postens innehåll.\n\nI första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)\n\nViktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.",
+        "comment": "TKB-fält: `dataController` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Identitet för PUA. Filtrerar svaret till poster med angiven dataController.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet.",
         "min": 0,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "findcontent-request.owner",
         "path": "findcontent-request.owner",
         "short": "Ägande index (sökkriterium)",
-        "definition": "HSA-id för den organisation vars index tog emot uppdateringsbegäran.\nFiltrerar svaret till poster som registrerats i angivet index.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Valfri.",
+        "definition": "HSA-id för den organisations vars index tog emot uppdateringsbegäran.",
+        "comment": "TKB-fält: `owner` (`HSA-id`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för den organisation vars index tog emot uppdateringsbegäran.\nFiltrerar svaret till poster som registrerats i angivet index.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).",
         "min": 0,
         "max": "1",
         "type": [

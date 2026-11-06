@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * careProviderId 1..1 string "careProviderId" "careProviderId"
 * createdOnOrAfter 0..1 dateTime "createdOnOrAfter" "createdOnOrAfter"
 * getCancelledFlag 1..1 boolean "getCancelledFlag" "getCancelledFlag"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetConsentsForCareProviderRequestFieldDescriptions

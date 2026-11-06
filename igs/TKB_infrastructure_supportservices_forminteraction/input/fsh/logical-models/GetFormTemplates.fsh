@@ -36,6 +36,9 @@ Characteristics: #can-be-target
     Globalt/nationellt hälsoärende ID. Filtrerar formulär kopplade till ett eller flera hälsoärenden.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFormTemplatesRequestFieldDescriptions
+
 
 Logical: GetFormTemplates
 Id: getformtemplates
@@ -71,3 +74,6 @@ Characteristics: #can-be-target
   * minNumberOfPages 1..1 integer "Minimalt antal sidor i formuläret"
   * maxNumberOfQuestion 1..1 integer "Maximalt antal frågor i formuläret"
   * minNumberOfQuestion 1..1 integer "Minimalt antal frågor i formuläret"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFormTemplatesFieldDescriptions

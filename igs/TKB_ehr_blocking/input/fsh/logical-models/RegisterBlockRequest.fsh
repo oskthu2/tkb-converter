@@ -22,3 +22,6 @@ Characteristics: #can-be-target
     * infoTypeId 1..1 string "ID för informationstypen"
     * infoTypeDescription 1..1 string "Beskrivning av informationstypen"
   * ownerId 0..1 string "System som registrerar spärren"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterBlockRequestFieldDescriptions

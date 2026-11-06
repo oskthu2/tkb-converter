@@ -16,3 +16,6 @@ Characteristics: #can-be-target
 * meddelandetext 1..1 string "meddelandetext" "meddelandetext"
 * meddelandeid 1..1 integer "meddelandeid" "meddelandeid"
 * meddelande 0..1 integer "meddelande" "meddelande"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SkickaMeddelandenFieldDescriptions

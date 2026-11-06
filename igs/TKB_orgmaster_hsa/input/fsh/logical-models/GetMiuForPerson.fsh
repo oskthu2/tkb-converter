@@ -32,3 +32,6 @@ Characteristics: #can-be-target
     * paTitleCode 0..* string "paTitleCode" "paTitleCode"
   * givenName 1..1 string "givenName" "givenName"
   * middleAndSurName 1..1 string "middleAndSurName" "middleAndSurName"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMiuForPersonFieldDescriptions

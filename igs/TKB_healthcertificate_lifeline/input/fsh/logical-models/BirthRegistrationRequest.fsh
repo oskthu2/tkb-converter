@@ -70,6 +70,9 @@ Characteristics: #can-be-target
   * KontaktTelefon4 0..1 string "KontaktTelefon4" "KontaktTelefon4"
   * KontaktTelefon5 0..1 string "KontaktTelefon5" "KontaktTelefon5"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert BirthRegistrationRequestFieldDescriptions
+
 Invariant: birthregistration-request-moder-id-choice
 Description: "Exakt ett av Fodelsedatum och PersonNummer ska anges för modern (xs:choice i schemat)."
 Expression: "Fodelsedatum.exists() xor PersonNummer.exists()"

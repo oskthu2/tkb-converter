@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * fromDate 1..1 dateTime "Obligatoriskt startdatum för rapportuttaget"
 * toDate 1..1 dateTime "Obligatoriskt slutdatum för rapportuttaget"
 * queuedReportId 0..1 string "Id på en pågående rapport (UUID, 36 tecken)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetInfoLogsForPatientRequestFieldDescriptions

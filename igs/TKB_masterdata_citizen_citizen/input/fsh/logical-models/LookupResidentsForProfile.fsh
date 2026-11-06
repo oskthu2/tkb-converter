@@ -190,3 +190,6 @@ Characteristics: #can-be-target
           * postalAddress2 0..1 string "postalAddress2" "postalAddress2"
           * postalCode 0..1 integer "postalCode" "postalCode"
           * city 0..1 string "city" "city"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert LookupResidentsForProfileFieldDescriptions

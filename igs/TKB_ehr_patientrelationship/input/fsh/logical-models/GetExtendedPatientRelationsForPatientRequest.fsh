@@ -12,3 +12,6 @@ Characteristics: #can-be-target
 * careProviderId 1..1 Identifier "HSA-id på den vårdgivare vars patientrelationer skall hämtas"
 * patientId 1..1 string "Patientens personnummer alternativt samordningsnummer (max 12 tecken)"
 * getCancelledFlag 1..1 boolean "Flagga som avgör om ogiltiga patientrelationer (makulerade, återkallade, utgångna) skall returneras"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetExtendedPatientRelationsForPatientRequestFieldDescriptions

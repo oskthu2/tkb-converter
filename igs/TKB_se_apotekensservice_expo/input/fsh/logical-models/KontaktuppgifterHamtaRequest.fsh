@@ -34,3 +34,6 @@ Characteristics: #can-be-target
   * systemversion 0..1 string "systemversion" "systemversion"
   * systemIp 0..1 string "systemIp" "systemIp"
 * orgNr 0..1 string "orgNr" "Aktörens organisationsnummer (xs:long i schemat.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KontaktuppgifterHamtaRequestFieldDescriptions

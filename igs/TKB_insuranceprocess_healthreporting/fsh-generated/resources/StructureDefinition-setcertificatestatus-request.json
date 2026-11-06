@@ -31,7 +31,8 @@
         "id": "setcertificatestatus-request.certificateId",
         "path": "setcertificatestatus-request.certificateId",
         "short": "Identitet på intyget (GUID)",
-        "definition": "ASSUME: Tabellrubriken är förväxlad med nationalIdentityNumber i källdokumentet.\nTolkat som att certificateId = intygets GUID-identitet.\nSe QUESTIONS.md BLOCK-HR-002.",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "comment": "TKB-fält: `certificateId` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** ASSUME: Tabellrubriken är förväxlad med nationalIdentityNumber i källdokumentet.\nTolkat som att certificateId = intygets GUID-identitet.\nSe QUESTIONS.md BLOCK-HR-002.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "setcertificatestatus-request.nationalIdentityNumber",
         "path": "setcertificatestatus-request.nationalIdentityNumber",
         "short": "Patientens personnummer eller samordningsnummer",
-        "definition": "Patientens personnummer eller samordningsnummer",
+        "definition": "Tidpunkt då meddelandet skickades från vården",
+        "comment": "TKB-fält: `nationalIdentityNumber` (`datumtid`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "setcertificatestatus-request.target",
         "path": "setcertificatestatus-request.target",
         "short": "Mottagare för statusändringen (t.ex. FK)",
-        "definition": "Mottagare för statusändringen (t.ex. FK)",
+        "definition": "Mottagare för en status. Ex FK",
+        "comment": "TKB-fält: `target` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "setcertificatestatus-request.certificateStatus",
         "path": "setcertificatestatus-request.certificateStatus",
         "short": "Typ av statusändring för intyget",
-        "definition": "Typ av statusändring för intyget",
+        "definition": "Typ av statusändring för intyget.",
+        "comment": "TKB-fält: `status` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -88,6 +92,7 @@
         "path": "setcertificatestatus-request.timestamp",
         "short": "När anropet sattes för intyget",
         "definition": "När anropet sattes för intyget",
+        "comment": "TKB-fält: `timestamp` (`datetime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

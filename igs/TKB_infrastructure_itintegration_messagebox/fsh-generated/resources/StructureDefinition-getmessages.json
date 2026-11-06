@@ -31,7 +31,8 @@
         "id": "getmessages.result",
         "path": "getmessages.result",
         "short": "result",
-        "definition": "Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
+        "definition": "Resultat",
+        "comment": "TKB-fält: `result` (kardinalitet 1..1).\n\n**Modellanteckning:** Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getmessages.result.resultCode",
         "path": "getmessages.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode Heter code i schemat.",
+        "definition": "Information om anropet gick bra(OK, ERROR, INFO)",
+        "comment": "TKB-fält: `result.code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Heter code i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -61,7 +63,8 @@
         "id": "getmessages.result.errorId",
         "path": "getmessages.result.errorId",
         "short": "errorId",
-        "definition": "errorId",
+        "definition": "Enda möjliga är 1=INTERNAL",
+        "comment": "TKB-fält: `result.errorId` (`int`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -74,7 +77,8 @@
         "id": "getmessages.result.errorMessage",
         "path": "getmessages.result.errorMessage",
         "short": "errorMessage",
-        "definition": "errorMessage",
+        "definition": "Text som ytterliggare beskriver felet",
+        "comment": "TKB-fält: `result.errorMessage` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -87,7 +91,8 @@
         "id": "getmessages.responses",
         "path": "getmessages.responses",
         "short": "responses",
-        "definition": "responses",
+        "definition": "Svar",
+        "comment": "TKB-fält: `responses` (kardinalitet 0..n).",
         "min": 0,
         "max": "*",
         "type": [
@@ -101,6 +106,7 @@
         "path": "getmessages.responses.messageId",
         "short": "messageId",
         "definition": "messageId (xs:long i schemat.)",
+        "comment": "TKB-fält: `../messageId` (`long`, kardinalitet 1..1).\n\n**Modellanteckning:** messageId (xs:long i schemat.)",
         "min": 1,
         "max": "1",
         "type": [
@@ -114,6 +120,7 @@
         "path": "getmessages.responses.targetOrganization",
         "short": "targetOrganization",
         "definition": "targetOrganization",
+        "comment": "TKB-fält: `../targetOrganization` (`LogicalAddressType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -127,6 +134,7 @@
         "path": "getmessages.responses.serviceContractType",
         "short": "serviceContractType",
         "definition": "Type which describes a service contract. Used in interaction GetSupportedServiceContracts.",
+        "comment": "TKB-fält: `../serviceContractType` (`ServiceContractType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -140,6 +148,7 @@
         "path": "getmessages.responses.serviceContractType.ServiceContractNamespace",
         "short": "ServiceContractNamespace",
         "definition": "ServiceContractNamespace",
+        "comment": "TKB-fält: `../../ServiceContractNamespace` (`anyURI`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -153,6 +162,7 @@
         "path": "getmessages.responses.message",
         "short": "message",
         "definition": "message",
+        "comment": "TKB-fält: `../message` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

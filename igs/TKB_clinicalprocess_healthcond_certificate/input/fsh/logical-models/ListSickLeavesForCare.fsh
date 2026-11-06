@@ -35,6 +35,9 @@ Characteristics: #can-be-target
 * sjukfallLista.sjukfall.sjukskrivningsgrad.grader 1..1 BackboneElement "Samtliga sjukskrivningsgrader i giltigt intyg"
 * sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad 1..4 integer "Sjukskrivningsgrad (%)"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListSickLeavesForCareFieldDescriptions
+
 Logical: ListSickLeavesForCareRequest
 Id: listsickleavesforcare-request
 Title: "ListSickLeavesForCare — Request"
@@ -47,3 +50,6 @@ Characteristics: #can-be-target
 * minstaSjukskrivningslangd 0..1 integer "Minimal sjukskrivningslängd i dagar"
 * maxSjukskrivningslangd 0..1 integer "Maximal sjukskrivningslängd i dagar"
 * personalId 0..* Identifier "HSA-id för HoS-person som signerat nuvarande intyg (filter)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListSickLeavesForCareRequestFieldDescriptions

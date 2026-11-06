@@ -31,7 +31,8 @@
         "id": "getactivities-request.patientId",
         "path": "getactivities-request.patientId",
         "short": "Personidentifierare för patient",
-        "definition": "Begränsar sökningen till angiven personidentifierare för en patient (IIType).\nTjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten.\nroot = OID för typ (personnummer: 1.2.752.129.2.1.3.1,\nsamordningsnummer: 1.2.752.129.2.1.3.3). Se Regel 1.1.\nKardinalitet: Obligatorisk.",
+        "definition": "Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.\n\nRegel 1.1",
+        "comment": "TKB-fält: `patientId` (`IIType`, kardinalitet 1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getactivities-request.time",
         "path": "getactivities-request.time",
         "short": "Sökintervall (tidsperiod)",
-        "definition": "Begränsar sökningen till det angivna tidsintervallet (TimePeriodType).\nOm sökningen begränsas med detta attribut ska poster som saknar Activity.Time inte returneras.\nstart och end är båda valfria (0..1 vardera) — format ÅÅÅÅMMDDttmmss.\nKardinalitet: Valfri.",
+        "definition": "Begränsar sökningen till det angivna intervallet. Om tidsattributet Activity.Time i svaret är en tidpunkt innebär begränsningen att endast poster returneras där Activity.Time i svaret ligger inom sökintervallets start- och sluttidpunkt.\n\nOm tidsattributet Activity.Time i svaret är ett intervall innebär begränsningen att endast poster returneras där tidsintervallet som anges i attributet Activity.Time i svaret, överlappar med det angivna sökintervallet, dvs.\n\ndet bildade intervallets starttidpunkt ligger inom sökintervallets start- och sluttidpunkt\n\ndet bildade intervallets sluttidpunkt ligger inom sökintervallets start- och sluttidpunkt\n\ndet bildade intervallets starttidpunkt ligger före sökintervallets starttidpunkt och sluttidpunkt ligger efter sökintervallets sluttidpunkt\n\nOm sökningen begränsas med detta attribut ska poster som saknar Activity.Time inte returneras. Om sökningen inte begränsas med detta attribut returneras även poster som saknar Activity.Time.",
+        "comment": "TKB-fält: `time` (`TimePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getactivities-request.activityCode",
         "path": "getactivities-request.activityCode",
         "short": "Filter på typ av aktivitet",
-        "definition": "Begränsar sökningen till en viss typ av aktivitet (CVType).\nMotsvarar activity.code i svaret.\ncode och codeSystem är obligatoriska; displayName, codeSystemName, codeSystemVersion ska ignoreras.\nKardinalitet: Valfri, lista.",
+        "definition": "Begränsar sökningen till en viss typ av aktivitet. Motsvarar activity.code i svaret.",
+        "comment": "TKB-fält: `activityCode` (`CVType`, kardinalitet 0..*).\n\n**Modellanteckning:** Begränsar sökningen till en viss typ av aktivitet (CVType).\nMotsvarar activity.code i svaret.\ncode och codeSystem är obligatoriska; displayName, codeSystemName, codeSystemVersion ska ignoreras.",
         "min": 0,
         "max": "*",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getactivities-request.activityId",
         "path": "getactivities-request.activityId",
         "short": "Filter på aktivitetsidentifierare",
-        "definition": "Unikt värde för aktiviteten som också refererar till vilket källsystem informationen kommer ifrån.\nMotsvarar activity/id i svaret (IIType).\nroot = källsystemets HSA-id, extension = unikt id i källsystemet.\nKardinalitet: Valfri, lista.",
+        "definition": "Ett unikt värde för själva aktiviteten som också refererar till vilket källsystem informationen kommer ifrån. Motsvarar activity/id i svaret.",
+        "comment": "TKB-fält: `activityId` (`IIType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -83,7 +87,8 @@
         "id": "getactivities-request.sourceSystemId",
         "path": "getactivities-request.sourceSystemId",
         "short": "Filter på källsystem",
-        "definition": "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för källsystemet.\nKardinalitet: Valfri.",
+        "definition": "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem. Motsvarar activityGroup/sourceSystem i svaret.",
+        "comment": "TKB-fält: `sourceSystemId` (`IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "getactivities-request.careGiverId",
         "path": "getactivities-request.careGiverId",
         "short": "Filter på vårdgivare",
-        "definition": "Begränsar sökningen till aktivitet från en specifik vårdgivare (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för vårdgivaren.\nKardinalitet: Valfri.",
+        "definition": "Begränsar sökningen till aktivitet från en specifik vårdgivare. Motsvarar activityGroup/performerRole/careUnit/ careGiver i svaret.",
+        "comment": "TKB-fält: `careGiverId` (`IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "getactivities-request.careUnitId",
         "path": "getactivities-request.careUnitId",
         "short": "Filter på vårdenhet",
-        "definition": "Begränsar sökningen till en vårdenhet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för PDL-vårdenheten.\nKardinalitet: Valfri.",
+        "definition": "Begränsar sökningen till en vårdenhet (se [R15] förytterligare information om begreppet vårdenhet) som har ansvar för dokumentationen av en aktivitet. Motsvarar activityGroup/performerRole/careUnit/ i svaret.",
+        "comment": "TKB-fält: `careUnitId` (`IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** Begränsar sökningen till en vårdenhet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för PDL-vårdenheten.",
         "min": 0,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "getactivities-request.interactionAgreementId",
         "path": "getactivities-request.interactionAgreementId",
         "short": "Interaktionsöverenskommelse-id",
-        "definition": "Används inte i denna version. Ange alltid UUID: 2866a7c4-9c60-433f-9035-a4d779ffe7a1.\nKardinalitet: Obligatorisk.",
+        "definition": "Detta attribut används inte. Ange alltid UUID\n\n2866a7c4-9c60-433f-9035-a4d779ffe7a1",
+        "comment": "TKB-fält: `interactionAgreementId` (`UUIDType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "getactivities-request.relation",
         "path": "getactivities-request.relation",
         "short": "Filter på relationer",
-        "definition": "Begränsar sökningen till aktiviteter med avseende på hur de är relaterade till\nandra uppgifter i journalsystem (RelationFilterType).\nMinst en av relation.typeCode och relation.relationId ska vara angiven.\nKardinalitet: Valfri, lista.",
+        "definition": "Begränsar sökningen till aktiviteter med avseende på hur de är relaterade till andra uppgifter i journalsystem. Endast de poster med relationer som matchar villkoren i denna lista skall returneras. Om listan är tom filtreras inte aktiviteter på deras relationer. Motsvarar activityGroup/activity/relation i svaret.\n\nMinst en av relation.typeCode och relation.id skall vara angiven.",
+        "comment": "TKB-fält: `relation` (`RelationFilterType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -157,7 +166,8 @@
         "id": "getactivities-request.relation.typeCode",
         "path": "getactivities-request.relation.typeCode",
         "short": "Filter på relations-/sambandstyp",
-        "definition": "Filtrera på relations-/sambandstyp (CVType).\ncode och codeSystem är valfria; displayName, codeSystemName, codeSystemVersion ska ignoreras.\nKardinalitet: Valfri.",
+        "definition": "Filtrera på relations-/sambandstyp",
+        "comment": "TKB-fält: `relation.typeCode` (`CVType`, kardinalitet 0..1).\n\n**Modellanteckning:** Filtrera på relations-/sambandstyp (CVType).\ncode och codeSystem är valfria; displayName, codeSystemName, codeSystemVersion ska ignoreras.",
         "min": 0,
         "max": "1",
         "type": [
@@ -170,7 +180,8 @@
         "id": "getactivities-request.relation.relationId",
         "path": "getactivities-request.relation.relationId",
         "short": "Filter på identitet i relation",
-        "definition": "Begränsar sökningen till aktiviteter med den identitet som anges i sambandet (IIType).\nExempelvis möjlighet att söka alla aktiviteter med relation till en viss observation.\nKardinalitet: Valfri.",
+        "definition": "Begränsar sökningen till aktiviteter med den identitet som anges i sambandet/relationen. Detta ger exempelvis möjlighet att söka ut alla aktiviteter som har en relation till en viss observation.",
+        "comment": "TKB-fält: `relation.id` (`IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -183,7 +194,8 @@
         "id": "getactivities-request.relation.referredInformationType",
         "path": "getactivities-request.relation.referredInformationType",
         "short": "Typ av refererad information",
-        "definition": "Den typ av uppgift i patientjournal som sambandet pekar ut.\nKod från Categorization i engagemangsindexposten.\nMöjliga värden: 'chb-o' (observation), 'caa-ga' (aktivitet).\nKardinalitet: Obligatorisk.",
+        "definition": "Den typ av uppgift i patientjournal som sambandet pekar ut. Detta är en kod från Categorization i engagemangsindexposten. I denna version av tjänstekontraktet är följande typer möjliga:\n\nchb-o  (observation)\n\ncaa-ga (aktivitet)",
+        "comment": "TKB-fält: `relation. referredInformationType` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

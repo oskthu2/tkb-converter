@@ -55,3 +55,6 @@ Characteristics: #can-be-target
   Begränsar sökningen till den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet.
   Identiteten är unik inom källsystemet.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetVaccinationHistoryRequestFieldDescriptions

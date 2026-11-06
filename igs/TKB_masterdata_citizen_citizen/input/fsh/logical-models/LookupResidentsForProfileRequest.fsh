@@ -17,3 +17,6 @@ Characteristics: #can-be-target
   * personalIdentityType 1..1 string "personalIdentityType" "personalIdentityType Heter type i schemat."
 * profile 1..1 code "profile" "profile"
 * profile from LookupProfileVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert LookupResidentsForProfileRequestFieldDescriptions

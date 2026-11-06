@@ -30,3 +30,6 @@ Characteristics: #can-be-target
     Personnummer för invånaren, för att begränsa/utöka svarslistan.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAllPerformersRequestFieldDescriptions

@@ -37,3 +37,6 @@ Characteristics: #can-be-target
 * newListingCounty 0..1 BackboneElement "newListingCounty" "newListingCounty"
   * root 1..1 string "root" "root"
   * iIExtension 0..1 string "iIExtension" "iIExtension Heter extension i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateListingRequestFieldDescriptions

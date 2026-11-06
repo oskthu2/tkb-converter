@@ -20,3 +20,6 @@ Characteristics: #can-be-target
   * changeTime 0..1 string "changeTime" "changeTime"
   * attributes 0..* BackboneElement "attributes" "attributes"
     * masterDataAttribute 1..1 string "masterDataAttribute" "masterDataAttribute"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMasterDataChangeSetFieldDescriptions

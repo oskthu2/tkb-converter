@@ -13,3 +13,6 @@ Characteristics: #can-be-target
 * ^version = "1.0"
 * serviceContractNamespace 0..* BackboneElement "serviceContractNamespace" "Type which describes a service contract."
   * ServiceContractNamespace 1..1 uri "ServiceContractNamespace" "ServiceContractNamespace"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetSupportedServiceContractsFieldDescriptions

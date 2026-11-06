@@ -70,6 +70,9 @@ Characteristics: #can-be-target
   * tillstandsstatus 0..1 string "tillstandsstatus" "Expeditionsställets tillståndsstatus."
   * webbadress 0..1 string "webbadress" "Webbadress till apotekets webbtjänster. Apotekens Service använder adressen för att skicka notifieringsmeddelanden. Används endast av dosproducenter."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaApoteksinfoEgetFieldDescriptions
+
 Invariant: hamtaapoteksinfoeget-dosmottagare-adress-when-d
 Description: "adress och postort ska anges när typ = 'D' (direktleverans)."
 Expression: "typ = 'D' implies (adress.exists() and postort.exists())"

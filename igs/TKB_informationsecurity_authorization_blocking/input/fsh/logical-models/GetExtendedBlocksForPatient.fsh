@@ -101,3 +101,6 @@ Characteristics: #can-be-target
       * ownerId 0..1 string "ownerId" "ownerId"
     * ownerId 0..1 string "ownerId" "ownerId"
     * locallyCreated 1..1 boolean "locallyCreated" "locallyCreated"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetExtendedBlocksForPatientFieldDescriptions

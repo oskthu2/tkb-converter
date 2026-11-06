@@ -37,6 +37,9 @@ Characteristics: #can-be-target
 * intygsLista.intyg.status.statuskod from StatuskodVS (required)
 * intygsLista.intyg.status.tidpunkt 1..1 dateTime "Tidpunkt då statusen sattes"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListCertificatesForCareFieldDescriptions
+
 Invariant: listcertificatesforcare-request-vardgivare-xor-enhet
 Description: "Antingen vardgivareId eller enhetsId ska anges, inte båda (xs:choice i schemat)."
 Expression: "vardgivareId.exists() xor enhetsId.exists()"
@@ -61,3 +64,6 @@ Characteristics: #can-be-target
   HSA-id för en eller flera enheter vars intyg ska sökas. Kan ej kombineras med vardgivareId.
   Villkorlig kardinalitet: antingen enhetsId eller vardgivareId ska anges.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListCertificatesForCareRequestFieldDescriptions

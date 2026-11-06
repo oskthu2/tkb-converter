@@ -88,3 +88,6 @@ Characteristics: #can-be-target
     ENG = engångssamtycke, SAM = samtycke (tillsvidaresamtycke), NOD = nödåtkomst.
     """
 * atkomsttyp from AtkomsttypVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetDispensedDrugsRequestFieldDescriptions

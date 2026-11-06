@@ -21,3 +21,6 @@ Characteristics: #can-be-target
     Listningstyp saknar centralt kodverk — värden är fritext (se QUESTIONS.md).
     Kardinalitet: Valfri, lista.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetListingTypesFieldDescriptions

@@ -144,3 +144,6 @@ Characteristics: #can-be-target
     Notifiering till producent.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert MakeBookingRequestFieldDescriptions

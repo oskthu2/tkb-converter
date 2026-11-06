@@ -17,3 +17,6 @@ Characteristics: #can-be-target
   * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
 * careProviderIds 0..* string "careProviderIds" "careProviderIds"
 * createdOnOrAfter 0..1 dateTime "createdOnOrAfter" "createdOnOrAfter"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetBlocksRequestFieldDescriptions

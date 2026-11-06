@@ -11,3 +11,6 @@ Description: """
 Characteristics: #can-be-target
 * ^version = "1.0"
 * communicatePCDDataResponse 1..1 string "CommunicatePCDDataResponse" "HL7 v2.6-kvittens (ACK) i ER7-format enligt Continua Design Guidelines (H.812)."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeviceObservationConsumerFieldDescriptions

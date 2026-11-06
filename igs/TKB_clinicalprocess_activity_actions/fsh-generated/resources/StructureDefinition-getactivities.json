@@ -31,7 +31,8 @@
         "id": "getactivities.activityGroup",
         "path": "getactivities.activityGroup",
         "short": "Grupp av aktiviteter",
-        "definition": "Grupp av aktiviteter som delar samma patient, utförare, signerare, ytterligare deltagare,\nkällsystem, vårdprocess-id, utrustning, samt plats. Teknisk optimering för att minska\nredundant data i de fall då flera aktiviteter gjorts med samma medverkande.\nKardinalitet: Valfri, lista.",
+        "definition": "Grupp av aktiviteter som delar samma patient, utförare (m. tillhörande organisatorisk knytning), signerare, ytterligare deltagare, källsystem, vårdprocess-id, utrustning, samt plats. Denna nivå är framförallt till för att kunna begränsa mängden redundant data i överföringen i de fall då flera aktiviteter gjorts med samma medverkande (exempelvis de aktiviteter som utförts under ett visst operationstillfälle). Denna klass är en teknisk optimering som inte speglas i NI 2015:1.",
+        "comment": "TKB-fält: `activityGroup` (`ActivityGroupType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getactivities.activityGroup.patient",
         "path": "getactivities.activityGroup.patient",
         "short": "Patient som aktivitetsgruppen avser",
-        "definition": "Den patient som aktivitetsgruppen avser (PatientType).\nKardinalitet: Obligatorisk.",
+        "definition": "Den patient som aktivitetsgruppen avser.",
+        "comment": "TKB-fält: `patient` (`PatientType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +98,8 @@
         "id": "getactivities.activityGroup.performerRole",
         "path": "getactivities.activityGroup.performerRole",
         "short": "Den som utfört aktiviteter inom gruppen",
-        "definition": "Den som utfört aktiviteter inom gruppen (PerformerRoleType).\nKardinalitet: Obligatorisk.",
+        "definition": "Den som utfört aktiviteter inom gruppen.",
+        "comment": "TKB-fält: `performerRole` (`PerformerRoleType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -252,7 +255,8 @@
         "id": "getactivities.activityGroup.legalAuthenticator",
         "path": "getactivities.activityGroup.legalAuthenticator",
         "short": "Den som signerat aktiviteterna",
-        "definition": "Den som signerat aktiviteterna inom gruppen (LegalAuthenticatorType).\nSe Regel 2.4.\nKardinalitet: Valfri.",
+        "definition": "Den som signerat aktiviteterna inom gruppen.",
+        "comment": "TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -313,7 +317,8 @@
         "id": "getactivities.activityGroup.additionalParticipant",
         "path": "getactivities.activityGroup.additionalParticipant",
         "short": "Övriga deltagare",
-        "definition": "Övriga deltagare relaterat till aktiviteterna inom gruppen (AdditionalParticipantType).\nKardinalitet: Valfri, lista.",
+        "definition": "Övriga deltagare relaterat till aktiviteterna inom gruppen.",
+        "comment": "TKB-fält: `additionalParticipant` (`AdditionalParticipantType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -465,7 +470,8 @@
         "id": "getactivities.activityGroup.additionalParticipant.device",
         "path": "getactivities.activityGroup.additionalParticipant.device",
         "short": "Deltagande medicinskteknisk produkt",
-        "definition": "Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location.\nKardinalitet: Valfri.",
+        "definition": "Deltagande artefakt\n\nAnvänd dessa i additionalParticipant i stället.",
+        "comment": "TKB-fält: `device` (`DeviceType`, kardinalitet 0..0).\n\n**Modellanteckning:** Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location.",
         "min": 0,
         "max": "1",
         "type": [
@@ -517,7 +523,8 @@
         "id": "getactivities.activityGroup.additionalParticipant.location",
         "path": "getactivities.activityGroup.additionalParticipant.location",
         "short": "Deltagande plats",
-        "definition": "Deltagande plats (LocationType). Exklusiv med person, organisation, device.\nKardinalitet: Valfri.",
+        "definition": "Plats för aktiviteten\n\nAnvänd dessa i additionalParticipant i stället.",
+        "comment": "TKB-fält: `location` (`LocationType`, kardinalitet 0..0).\n\n**Modellanteckning:** Deltagande plats (LocationType). Exklusiv med person, organisation, device.",
         "min": 0,
         "max": "1",
         "type": [
@@ -556,7 +563,8 @@
         "id": "getactivities.activityGroup.careProcessId",
         "path": "getactivities.activityGroup.careProcessId",
         "short": "UUID för individanpassad vårdprocess",
-        "definition": "UUID för den individanpassade vårdprocess som denna aktivitet ingår i.\nKardinalitet: Valfri.",
+        "definition": "UUID för den individanpassade vårdprocess som denna aktivitet ingår i",
+        "comment": "TKB-fält: `careProcessId` (`UUIDType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -569,7 +577,8 @@
         "id": "getactivities.activityGroup.sourceSystem",
         "path": "getactivities.activityGroup.sourceSystem",
         "short": "Källsystem",
-        "definition": "Källsystem som aktivitetsgruppen lagras i (SourceSystemType).\nKardinalitet: Obligatorisk.",
+        "definition": "Källsystem som aktivitetsgruppen lagras i.",
+        "comment": "TKB-fält: `sourceSystem` (`SourceSystemType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -595,7 +604,8 @@
         "id": "getactivities.activityGroup.activity",
         "path": "getactivities.activityGroup.activity",
         "short": "Aktiviteter i gruppen",
-        "definition": "De aktiviteter som ligger inom denna grupp (ActivityType).\nKardinalitet: Obligatorisk, lista (minst en).",
+        "definition": "De aktiviteter som ligger inom denna grupp av aktiviteter.",
+        "comment": "TKB-fält: `activity` (`ActivityType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [

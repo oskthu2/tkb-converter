@@ -31,7 +31,8 @@
         "id": "getblocks.blockHeader",
         "path": "getblocks.blockHeader",
         "short": "blockHeader",
-        "definition": "Datatyp som representerar spärrdata, antingen innehållandes endast spärrdata, eller spärrdata tillsammans med avregistrerade spärrar, beroende på hur klienten efterfrågat data. Datatypen utökar datatypen Result.",
+        "definition": "Lista över funna spärrar som är aktiva.",
+        "comment": "TKB-fält: `blockHeader` (`urn:riv:informationsecurity:authorization:blocking:4:BlockHeaderType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som representerar spärrdata, antingen innehållandes endast spärrdata, eller spärrdata tillsammans med avregistrerade spärrar, beroende på hur klienten efterfrågat data. Datatypen utökar datatypen Result.",
         "min": 1,
         "max": "1",
         "type": [
@@ -45,6 +46,7 @@
         "path": "getblocks.blockHeader.result",
         "short": "result",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
+        "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "getblocks.blockHeader.result.resultCode",
         "short": "resultCode",
         "definition": "resultCode",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -75,6 +78,7 @@
         "path": "getblocks.blockHeader.result.resultText",
         "short": "resultText",
         "definition": "resultText",
+        "comment": "TKB-fält: `../../resultText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -88,6 +92,7 @@
         "path": "getblocks.blockHeader.blocks",
         "short": "blocks",
         "definition": "Datatyp som representerar en existerande spärr med alla dess attribut. Datatypen beskriver grundformatet för en spärr.",
+        "comment": "TKB-fält: `../blocks` (`BlockType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -101,6 +106,7 @@
         "path": "getblocks.blockHeader.blocks.blockId",
         "short": "blockId",
         "definition": "blockId",
+        "comment": "TKB-fält: `../../blockId` (`Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -114,6 +120,7 @@
         "path": "getblocks.blockHeader.blocks.blockType",
         "short": "blockType",
         "definition": "blockType",
+        "comment": "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -131,6 +138,7 @@
         "path": "getblocks.blockHeader.blocks.informationStartDate",
         "short": "informationStartDate",
         "definition": "informationStartDate",
+        "comment": "TKB-fält: `../../informationStartDate` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -144,6 +152,7 @@
         "path": "getblocks.blockHeader.blocks.informationEndDate",
         "short": "informationEndDate",
         "definition": "informationEndDate",
+        "comment": "TKB-fält: `../../informationEndDate` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -157,6 +166,7 @@
         "path": "getblocks.blockHeader.blocks.informationCareUnitId",
         "short": "informationCareUnitId",
         "definition": "informationCareUnitId",
+        "comment": "TKB-fält: `../../informationCareUnitId` (`HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -170,6 +180,7 @@
         "path": "getblocks.blockHeader.blocks.informationCareProviderId",
         "short": "informationCareProviderId",
         "definition": "informationCareProviderId",
+        "comment": "TKB-fält: `../../informationCareProviderId` (`HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -183,6 +194,7 @@
         "path": "getblocks.blockHeader.blocks.patientId",
         "short": "patientId",
         "definition": "En universellt unik identifierare.",
+        "comment": "TKB-fält: `../../patientId` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -196,6 +208,7 @@
         "path": "getblocks.blockHeader.blocks.patientId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -209,6 +222,7 @@
         "path": "getblocks.blockHeader.blocks.patientId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -222,6 +236,7 @@
         "path": "getblocks.blockHeader.blocks.excludedInformationTypes",
         "short": "excludedInformationTypes",
         "definition": "Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation",
+        "comment": "TKB-fält: `../../excludedInformationTypes` (`InformationTypeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -235,6 +250,7 @@
         "path": "getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeId",
         "short": "infoTypeId",
         "definition": "infoTypeId",
+        "comment": "TKB-fält: `../../../infoTypeId` (`InformationTypeIdValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -248,6 +264,7 @@
         "path": "getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeDescription",
         "short": "infoTypeDescription",
         "definition": "infoTypeDescription",
+        "comment": "TKB-fält: `../../../infoTypeDescription` (`InformationTypeDescription`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -261,6 +278,7 @@
         "path": "getblocks.blockHeader.blocks.temporaryRevokes",
         "short": "temporaryRevokes",
         "definition": "Datatyp som representerar en tillfällig hävning för en spärr med alla dess attribut. En tillfällig hävning tillhör alltid en spärr. Datatypen beskriver grundformatet för en tillfällig hävning.",
+        "comment": "TKB-fält: `../../temporaryRevokes` (`TemporaryRevokeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -274,6 +292,7 @@
         "path": "getblocks.blockHeader.blocks.temporaryRevokes.temporaryRevokeId",
         "short": "temporaryRevokeId",
         "definition": "temporaryRevokeId",
+        "comment": "TKB-fält: `../../../temporaryRevokeId` (`Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -287,6 +306,7 @@
         "path": "getblocks.blockHeader.blocks.temporaryRevokes.endDate",
         "short": "endDate",
         "definition": "endDate",
+        "comment": "TKB-fält: `../../../endDate` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -300,6 +320,7 @@
         "path": "getblocks.blockHeader.blocks.temporaryRevokes.revokedForCareUnitId",
         "short": "revokedForCareUnitId",
         "definition": "revokedForCareUnitId",
+        "comment": "TKB-fält: `../../../revokedForCareUnitId` (`HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -313,6 +334,7 @@
         "path": "getblocks.blockHeader.blocks.temporaryRevokes.revokedForEmployeeId",
         "short": "revokedForEmployeeId",
         "definition": "revokedForEmployeeId",
+        "comment": "TKB-fält: `../../../revokedForEmployeeId` (`HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -326,6 +348,7 @@
         "path": "getblocks.blockHeader.blocks.temporaryRevokes.ownerId",
         "short": "ownerId",
         "definition": "ownerId",
+        "comment": "TKB-fält: `../../../ownerId` (`OwnerId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -339,6 +362,7 @@
         "path": "getblocks.blockHeader.blocks.ownerId",
         "short": "ownerId",
         "definition": "ownerId",
+        "comment": "TKB-fält: `../../ownerId` (`OwnerId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -352,6 +376,7 @@
         "path": "getblocks.blockHeader.nextCreatedOnOrAfter",
         "short": "nextCreatedOnOrAfter",
         "definition": "nextCreatedOnOrAfter",
+        "comment": "TKB-fält: `../nextCreatedOnOrAfter` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -365,6 +390,7 @@
         "path": "getblocks.blockHeader.latestCancellation",
         "short": "latestCancellation",
         "definition": "latestCancellation",
+        "comment": "TKB-fält: `../latestCancellation` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

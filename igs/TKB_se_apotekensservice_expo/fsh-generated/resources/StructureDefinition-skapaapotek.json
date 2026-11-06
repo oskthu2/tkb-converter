@@ -32,6 +32,7 @@
         "path": "skapaapotek.allmTelefon",
         "short": "allmTelefon",
         "definition": "Expeditionsställets allmänna telefonnummer.",
+        "comment": "TKB-fält: `allmTelefon` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -45,6 +46,7 @@
         "path": "skapaapotek.besoksAdress",
         "short": "besoksAdress",
         "definition": "Expeditionsställets besöksadress.",
+        "comment": "TKB-fält: `besoksAdress` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "skapaapotek.besoksort",
         "short": "besoksort",
         "definition": "Expeditionsställets ort (besöksort).",
+        "comment": "TKB-fält: `besoksort` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,6 +74,7 @@
         "path": "skapaapotek.eRecept",
         "short": "eRecept",
         "definition": "Flagga som anger om expeditionsstället är ett apotek som kan hantera e-recept för besökande privat personer. Om eRecept är satt så är termerna kortNamn och recepturtelefon obligatoriska.",
+        "comment": "TKB-fält: `eRecept` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -84,6 +88,7 @@
         "path": "skapaapotek.eReceptDjur",
         "short": "eReceptDjur",
         "definition": "Markering om apoteket kan expediera elektroniska djurrecept eller ej. Om eReceptDjur är satt så är termerna kortNamn och recepturtelefon obligatoriska.",
+        "comment": "TKB-fält: `eReceptDjur` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,6 +102,7 @@
         "path": "skapaapotek.faxnummer",
         "short": "faxnummer",
         "definition": "Expeditionsställets faxnummer. Obligatoriskt om huvudorganisationskod = DX eller om Organisationskod = DOS",
+        "comment": "TKB-fält: `faxnummer` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -110,6 +116,7 @@
         "path": "skapaapotek.huvudOrgTypKod",
         "short": "huvudOrgTypKod",
         "definition": "Huvudtypkoden är till stöd för dagens lösning av vårdsystem. På sikt önskar Apotekens Service AB att dessa koder arbetas bort och byts ut mot organisationstypflaggorna (ADM, DIST, DJAP, DOS, EA, EH, GSL, SA, TILV) Möjliga värden: ADM, AP, DIAP, DJUR, DX, OAP, SA, TVAP ADM En organisatiorisk enhet inom ett företag som har rent administrativa uppgifter. AP Apotek för allmänheten - enhet för detaljhandel med läkemedel med farmaceutisk bemanning under öppethållandet. DIAP Distansapotek - Större apoteksenhet med ansvar att kunna distribuera apoteksvaror direkt till avtalskunder, apoteksombud eller privatpersoner DJUR Ett apotek som har utökat djursortiment. DX Dosapotek - enhet för produktion av dosdispenserade läkemedel. OAP Övriga apotek - gammal definition av apotek. Bör ej användas. SA Sjukhusapotek - apotek som ger service till slutenvårdsenheter TVAP Enhet som på beställning tillverkar specifika individanpassade läkemedel.",
+        "comment": "TKB-fält: `huvudOrgTypKod` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -123,6 +130,7 @@
         "path": "skapaapotek.idLista",
         "short": "idLista",
         "definition": "Lista innehållande en eller flera identifierare för expeditionsstället. En Identitet som ska gälla för ett expeditionsställe kan skickas en eller flera gånger och tas aldrig bort. Vid uppdatering av ett expeditionsställe skickas en eller flera identiteter som identifierare. Obs! GLN-kod måste alltid skickas med.",
+        "comment": "TKB-fält: `idLista` (`IdentitetResponse`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
@@ -136,6 +144,7 @@
         "path": "skapaapotek.idLista.exportId",
         "short": "exportId",
         "definition": "Obligatorisk för identitet med glnKod. Måste vara true om eRecept och/eller eReceptDjur är true. ExportId får ej sättas till true för en butikskod (används bara för GLN).",
+        "comment": "TKB-fält: `../exportId` (`boolean`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -149,6 +158,7 @@
         "path": "skapaapotek.idLista.glnKod",
         "short": "glnKod",
         "definition": "Expeditionsställets GLN-kod Måste sättas på en av identiteterna. Endast en glnkod per expeditionsställe är tillåtet.",
+        "comment": "TKB-fält: `../glnKod` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -162,6 +172,7 @@
         "path": "skapaapotek.kommun",
         "short": "kommun",
         "definition": "Expeditionsställets kommuntillhörighet, kod enligt SCB.",
+        "comment": "TKB-fält: `kommun` (`int`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -175,6 +186,7 @@
         "path": "skapaapotek.kortNamn",
         "short": "kortNamn",
         "definition": "Kortversion på apoteksnamn. Behövs i bla i vårdsystem. Om termen eRecept och/eller eReceptDjur är satt så är termerna kortNamn och recepturtelefon obligatoriska.",
+        "comment": "TKB-fält: `kortNamn` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -188,6 +200,7 @@
         "path": "skapaapotek.lan",
         "short": "lan",
         "definition": "Expeditionsställets länstillhörighet, kod enligt SCB.",
+        "comment": "TKB-fält: `lan` (`int`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -201,6 +214,7 @@
         "path": "skapaapotek.namn",
         "short": "namn",
         "definition": "Expeditionsställets officiella namn.",
+        "comment": "TKB-fält: `namn` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -214,6 +228,7 @@
         "path": "skapaapotek.oppetHallandeLista",
         "short": "oppetHallandeLista",
         "definition": "När expeditionsstället har öppet. Måste skickas med vid varje uppdatering. All tidigare öppethållande data raderas innan det nya öppethållande datat läggs in.",
+        "comment": "TKB-fält: `oppetHallandeLista` (`OppethallandeResponse`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -227,6 +242,7 @@
         "path": "skapaapotek.oppetHallandeLista.dagBenamning",
         "short": "dagBenamning",
         "definition": "Exempelvis \"Nyårsafton\".",
+        "comment": "TKB-fält: `../dagBenamning` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -240,6 +256,7 @@
         "path": "skapaapotek.oppetHallandeLista.lunchFrom",
         "short": "lunchFrom",
         "definition": "Om lunchstängt, \"stänger för lunch\". Format: HHmm H=Timme (0-24) m=Minut",
+        "comment": "TKB-fält: `../lunchFrom` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -253,6 +270,7 @@
         "path": "skapaapotek.oppetHallandeLista.lunchTom",
         "short": "lunchTom",
         "definition": "Om lunchstängt, \"Öppnar igen efter lunch kl\". Format: HHmm H=Timme (0-24) m=Minut",
+        "comment": "TKB-fält: `../lunchTom` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -266,6 +284,7 @@
         "path": "skapaapotek.oppetHallandeLista.oppnar",
         "short": "oppnar",
         "definition": "Öppningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-24) m=Minut",
+        "comment": "TKB-fält: `../oppnar` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -279,6 +298,7 @@
         "path": "skapaapotek.oppetHallandeLista.slutDatum",
         "short": "slutDatum",
         "definition": "Sista dagen i en period vid typ N, P eller S. Obligatorisk vid typ P, S eller D. Om typ D är slutdatum = startdatum.",
+        "comment": "TKB-fält: `../slutDatum` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -292,6 +312,7 @@
         "path": "skapaapotek.oppetHallandeLista.stanger",
         "short": "stanger",
         "definition": "Stängningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-24) m=Minut",
+        "comment": "TKB-fält: `../stanger` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -305,6 +326,7 @@
         "path": "skapaapotek.oppetHallandeLista.startDatum",
         "short": "startDatum",
         "definition": "Första dagen i en period vid typ N, P eller S. Vid typ D anges datum för aktuell dag exv 2010-12-24.",
+        "comment": "TKB-fält: `../startDatum` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -318,6 +340,7 @@
         "path": "skapaapotek.oppetHallandeLista.tfStangtOrsak",
         "short": "tfStangtOrsak",
         "definition": "Orsak till tillfällig stängning.",
+        "comment": "TKB-fält: `../tfStangtOrsak` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -331,6 +354,7 @@
         "path": "skapaapotek.oppetHallandeLista.typ",
         "short": "typ",
         "definition": "Typ av öppethållande. N = Normalt P = avvikande under angiven period D = avvikande under angiven dag S = tillfälligt stängt under angiven period",
+        "comment": "TKB-fält: `../typ` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -344,6 +368,7 @@
         "path": "skapaapotek.oppetHallandeLista.veckodagnr",
         "short": "veckodagnr",
         "definition": "Ett nummer för veckodagen 1-7 för Måndag till Söndag, V för vardagar.",
+        "comment": "TKB-fält: `../veckodagnr` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -356,7 +381,8 @@
         "id": "skapaapotek.orgNr",
         "path": "skapaapotek.orgNr",
         "short": "orgNr",
-        "definition": "Aktörens organisationsnummer (xs:long i schemat.)",
+        "definition": "Aktörens organisationsnummer",
+        "comment": "TKB-fält: `orgNr` (`long`, kardinalitet 1..1).\n\n**Modellanteckning:** Aktörens organisationsnummer (xs:long i schemat.)",
         "min": 1,
         "max": "1",
         "type": [
@@ -370,6 +396,7 @@
         "path": "skapaapotek.orgTypADM",
         "short": "orgTypADM",
         "definition": "Kod ADM som beskriver typ av expeditionsställe. En organisatiorisk enhet inom ett företag som har rent administrativa uppgifter.",
+        "comment": "TKB-fält: `orgTypADM` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -383,6 +410,7 @@
         "path": "skapaapotek.orgTypDIST",
         "short": "orgTypDIST",
         "definition": "Kod DIST som beskriver typ av expeditionsställe. Distansapotek - Större apoteksenhet med ansvar att kunna distribuera apoteksvaror direkt till avtalskunder, apoteksombud eller privatpersoner",
+        "comment": "TKB-fält: `orgTypDIST` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -396,6 +424,7 @@
         "path": "skapaapotek.orgTypDJAP",
         "short": "orgTypDJAP",
         "definition": "Kod DJAP som beskriver typ av expeditionsställe. Ett apotek som har utökat djursortiment.",
+        "comment": "TKB-fält: `orgTypDJAP` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -409,6 +438,7 @@
         "path": "skapaapotek.orgTypDOS",
         "short": "orgTypDOS",
         "definition": "Kod DOS som beskriver typ av expeditionsställe. Dosapotek - enhet för produktion av dosdispenserade läkemedel.",
+        "comment": "TKB-fält: `orgTypDOS` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -422,6 +452,7 @@
         "path": "skapaapotek.orgTypEA",
         "short": "orgTypEA",
         "definition": "Kod EA som beskriver typ av expeditionsställe. Apotek för allmänheten - enhet för detaljhandel med läkemedel med farmaceutisk bemanning under öppethållandet.",
+        "comment": "TKB-fält: `orgTypEA` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -435,6 +466,7 @@
         "path": "skapaapotek.orgTypEH",
         "short": "orgTypEH",
         "definition": "Kod EH som beskriver typ av expeditionsställe. En enhet som som kan lämna ut e-handel, dit man kan skicka e-handelspacket.",
+        "comment": "TKB-fält: `orgTypEH` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -448,6 +480,7 @@
         "path": "skapaapotek.orgTypGSL",
         "short": "orgTypGSL",
         "definition": "Kod GSL som beskriver typ av expeditionsställe. Alla expeditionställen som säljer sortimentet på 80-listan (t ex shopar) ska ha flaggan satt. \"General Sales list\" - även kallad för \"80-listan\", enbart varor som ej är receptbelagda och som ingår i 80-sortimentet. Alla expeditionställen som säljer sortimentet på 80-listan (t ex shopar) ska ha flaggan satt.",
+        "comment": "TKB-fält: `orgTypGSL` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -461,6 +494,7 @@
         "path": "skapaapotek.orgTypSA",
         "short": "orgTypSA",
         "definition": "Kod SA som beskriver typ av expeditionsställe. Sjukhusapotek - apotek som ger service till slutenvårdsenheter.",
+        "comment": "TKB-fält: `orgTypSA` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -474,6 +508,7 @@
         "path": "skapaapotek.orgTypTILV",
         "short": "orgTypTILV",
         "definition": "Kod TILV som beskriver typ av expeditionsställe. Enhet som på beställning tillverkar individanpassade specifika läkemedel.",
+        "comment": "TKB-fält: `orgTypTILV` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -487,6 +522,7 @@
         "path": "skapaapotek.postAdress",
         "short": "postAdress",
         "definition": "Expeditionsställets postAdress.",
+        "comment": "TKB-fält: `postAdress` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -500,6 +536,7 @@
         "path": "skapaapotek.postNr",
         "short": "postNr",
         "definition": "Expeditionsställets postNr.",
+        "comment": "TKB-fält: `postNr` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -513,6 +550,7 @@
         "path": "skapaapotek.postort",
         "short": "postort",
         "definition": "Expeditionsställets postort.",
+        "comment": "TKB-fält: `postort` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -526,6 +564,7 @@
         "path": "skapaapotek.recepturtelefon",
         "short": "recepturtelefon",
         "definition": "Expeditionsställets receptur telefonnummer. Om termen eRecept och/eller eReceptDjur är satt så är termerna kortNamn och recepturtelefon obligatoriska.",
+        "comment": "TKB-fält: `recepturtelefon` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -539,6 +578,7 @@
         "path": "skapaapotek.slutDatum",
         "short": "slutDatum",
         "definition": "Datum för avslut av verksamhet.",
+        "comment": "TKB-fält: `slutDatum` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -552,6 +592,7 @@
         "path": "skapaapotek.startDatum",
         "short": "startDatum",
         "definition": "Datum för start av verksamhet. Det datum som allmänheten kan använda Apoteket.",
+        "comment": "TKB-fält: `startDatum` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -565,6 +606,7 @@
         "path": "skapaapotek.tidigareGlnKod",
         "short": "tidigareGlnKod",
         "definition": "Expeditionsställets tidigare ägares GLN.",
+        "comment": "TKB-fält: `tidigareGlnKod` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

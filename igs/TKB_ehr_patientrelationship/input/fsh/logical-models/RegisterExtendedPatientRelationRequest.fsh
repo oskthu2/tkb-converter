@@ -35,3 +35,6 @@ Characteristics: #can-be-target
 * registrationAction.registeredBy.assignmentId 0..1 Identifier "Optionellt uppdragid (HSA-id)"
 * registrationAction.registeredBy.assignmentName 0..1 string "Optionellt uppdragsnamn (max 256 tecken)"
 * registrationAction.reasonText 0..1 string "Optionell orsak/anledning till registreringen (max 1024 tecken)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterExtendedPatientRelationRequestFieldDescriptions

@@ -17,6 +17,9 @@ Characteristics: #can-be-target
   * root 1..1 string "root" "root"
   * iiExtension 1..1 string "iiExtension" "iiExtension Heter extension i schemat."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetSealsRequestFieldDescriptions
+
 Invariant: getseals-request-patientid-pnr-sam
 Description: "ÖR6: patientId root ska vara OID för personnummer eller samordningsnummer, och extension ska ha formatet ÅÅÅÅMMDDNNNN utan bindestreck (testsvitens constraints.xml)."
 Expression: "(root = '1.2.752.129.2.1.3.1' or root = '1.2.752.129.2.1.3.3') and iiExtension.matches('^[0-9]{8}[0-9pPtTfF][0-9]{3}$')"

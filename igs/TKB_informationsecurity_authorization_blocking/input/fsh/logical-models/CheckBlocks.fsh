@@ -20,3 +20,6 @@ Characteristics: #can-be-target
     * checkResultStatus 1..1 code "checkResultStatus" "checkResultStatus Heter status i schemat."
     * checkResultStatus from CheckStatusVS (required)
     * rowNumber 1..1 integer "rowNumber" "rowNumber"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CheckBlocksFieldDescriptions

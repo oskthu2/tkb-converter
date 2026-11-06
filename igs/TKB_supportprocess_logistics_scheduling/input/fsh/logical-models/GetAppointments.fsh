@@ -16,3 +16,6 @@ Characteristics: #can-be-target
   * healthcareFacilityId 1..1 BackboneElement "healthcareFacilityId" "healthcareFacilityId"
     * root 1..1 string "root" "root"
     * hSAIdExtension 1..1 string "hSAIdExtension" "hSAIdExtension Heter extension i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAppointmentsFieldDescriptions

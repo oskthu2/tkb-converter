@@ -26,3 +26,6 @@ Characteristics: #can-be-target
   * informationCareProviderId 1..1 string "informationCareProviderId" "informationCareProviderId"
   * informationType 0..1 string "informationType" "informationType"
   * rowNumber 1..1 integer "rowNumber" "rowNumber"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CheckBlocksRequestFieldDescriptions

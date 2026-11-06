@@ -58,3 +58,6 @@ Characteristics: #can-be-target
       * end 0..1 date "end" "end"
     * digitalNotification 0..1 boolean "digitalNotification" "digitalNotification"
 * optoutPaperNotification 0..1 boolean "optoutPaperNotification" "optoutPaperNotification"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdatePersonContactInformationRequestFieldDescriptions

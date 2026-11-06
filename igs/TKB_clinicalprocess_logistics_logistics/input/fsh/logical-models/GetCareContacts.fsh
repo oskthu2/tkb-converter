@@ -247,6 +247,9 @@ Characteristics: #can-be-target
     Kardinalitet: Valfri.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCareContactsFieldDescriptions
+
 Invariant: getcarecontacts-timeperiod-start-or-end
 Description: "Minst ett av start och end ska anges i careContactTimePeriod."
 Expression: "start.exists() or end.exists()"

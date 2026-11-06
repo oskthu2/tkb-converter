@@ -27,3 +27,6 @@ Characteristics: #can-be-target
   Om inget anges ska alla ordinationer (Active och Inactive) returneras.
   """
 * prescriptionStatus from PrescriptionStatusVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMedicationHistoryRequestFieldDescriptions

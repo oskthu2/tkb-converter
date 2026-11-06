@@ -126,3 +126,6 @@ Characteristics: #can-be-target
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1 0..1 integer "Apgar-poäng 1 min"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore5 0..1 integer "Apgar-poäng 5 min"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore10 0..1 integer "Apgar-poäng 10 min"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMaternityMedicalHistoryFieldDescriptions

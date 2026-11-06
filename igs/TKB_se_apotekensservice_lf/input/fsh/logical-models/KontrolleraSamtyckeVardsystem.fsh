@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * samtycke 1..1 integer "samtycke" "Anger om aktuell förskrivare har samtycke av patient. Möjliga värden är: 0 = Samtycke att läsa Läkemedelsförteckningen saknas 1= Samtycke att läsa Läkemedelsförteckningen finns 2 = Samtycke att läsa Läkemedelsförteckningen har återkallats"
 * samtyckesgivare 1..1 string "samtyckesgivare" "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."
 * statusdatum 0..1 dateTime "statusdatum" "Datum då patient givit eller återkallat samtycke till förskrivare. Blank om uppgift om samtycke saknas."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KontrolleraSamtyckeVardsystemFieldDescriptions

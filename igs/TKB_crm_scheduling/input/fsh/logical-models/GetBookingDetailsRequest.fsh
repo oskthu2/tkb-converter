@@ -19,3 +19,6 @@ Characteristics: #can-be-target
     Intern bokningsidentitet.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetBookingDetailsRequestFieldDescriptions

@@ -31,7 +31,8 @@
         "id": "getcarecontacts.careContact",
         "path": "getcarecontacts.careContact",
         "short": "Vårdkontakter som matchar begäran",
-        "definition": "Lista med vårdkontakter för patienten. Varje post innehåller header (basinformation)\noch body (kontaktspecifik information).\nKardinalitet: Valfri lista (0..*).",
+        "definition": "De vårdkontakter som matchar begäran.",
+        "comment": "TKB-fält: `careContact` (`CareContactType`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med vårdkontakter för patienten. Varje post innehåller header (basinformation)\noch body (kontaktspecifik information).",
         "min": 0,
         "max": "*",
         "type": [
@@ -96,7 +97,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.authorTime",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.authorTime",
         "short": "Tidpunkt då informationen registrerades",
-        "definition": "Format YYYYMMDDhhmmss. Tidpunkt i lokal svensk tid (CET/CEST).\nRegel 2: Används för kontroll av tidsbegränsade spärrar i sammanhållen journalföring.\nKardinalitet: Obligatorisk.",
+        "definition": "Tidpunkt då informationen registrerades.\n\nRegel: Regel 2",
+        "comment": "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1).\n\n**Modellanteckning:** Format YYYYMMDDhhmmss. Tidpunkt i lokal svensk tid (CET/CEST).\nRegel 2: Används för kontroll av tidsbegränsade spärrar i sammanhållen journalföring.",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +111,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId",
         "short": "HSA-id för ansvarig personal",
-        "definition": "HSA-id för hälso- och sjukvårdspersonal som ansvarar för vårdkontakten. Typ HSAIdType.\nKardinalitet: Valfri.",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal som ansvar för vårdkontakten.",
+        "comment": "TKB-fält: `../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -122,7 +125,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName",
         "short": "Namn på ansvarig personal",
-        "definition": "Namn på hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "definition": "Namn på hälso- och sjukvårdspersonal.",
+        "comment": "TKB-fält: `../../../healthcareProfessionalName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -135,7 +139,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
         "short": "Befattning",
-        "definition": "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt ska\nKV Befattning (OID 1.2.752.129.2.2.1.4) användas. Typ CVType.\nKardinalitet: Valfri.",
+        "definition": "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Se referens [R6].",
+        "comment": "TKB-fält: `../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -148,7 +153,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
         "short": "Organisationsenhet för ansvarig personal",
-        "definition": "Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på.\nRegel 4: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.\nTyp OrgUnitType. Kardinalitet: Valfri.",
+        "definition": "Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på.\n\nRegel: Regel 4",
+        "comment": "TKB-fält: `../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1).\n\n**Modellanteckning:** Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på.\nRegel 4: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.\nTyp OrgUnitType. Kardinalitet: Valfri.",
         "min": 0,
         "max": "1",
         "type": [
@@ -161,7 +167,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
         "short": "HSA-id för org.enhet",
-        "definition": "HSA-id för organisationsenhet. Regel 4.\nKardinalitet: Valfri (se Regel 4 — ska anges vid NPÖ-kompatibilitet).",
+        "definition": "HSA-id för organisationsenhet.\n\nRegel: Regel 4",
+        "comment": "TKB-fält: `../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -174,7 +181,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
         "short": "Namn på org.enhet",
-        "definition": "Namn på den organisation som den ansvariga personalen är uppdragstagare på. Regel 4.\nKardinalitet: Valfri (se Regel 4).",
+        "definition": "Namnet på den organisation som den ansvariga hälso- och sjukvårdspersonalen är uppdragstagare på.\n\nRegel: Regel 4",
+        "comment": "TKB-fält: `../../../../orgUnitName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -187,7 +195,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
         "short": "Telefon till org.enhet",
-        "definition": "Telefon till organisationsenheten.\nKardinalitet: Valfri.",
+        "definition": "Telefon till organisationsenhet.",
+        "comment": "TKB-fält: `../../../../orgUnitTelecom` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -200,7 +209,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
         "short": "E-post till org.enhet",
-        "definition": "Epost till enhet.\nKardinalitet: Valfri.",
+        "definition": "Epost till enhet.",
+        "comment": "TKB-fält: `../../../../orgUnitEmail` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -213,7 +223,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
         "short": "Postadress för org.enhet",
-        "definition": "Postadress för organisationsenheten.\nKardinalitet: Valfri.",
+        "definition": "Postadress för den organisation som hälso- och sjukvårdspersonal en är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n\n”Storgatan 12\n\n468 91 Lilleby”",
+        "comment": "TKB-fält: `../../../../orgUnitAddress` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Postadress för organisationsenheten.",
         "min": 0,
         "max": "1",
         "type": [
@@ -226,7 +237,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
         "short": "Plats för org.enhet",
-        "definition": "Namn på plats eller ort för organisationens fysiska placering.\nKardinalitet: Valfri.",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+        "comment": "TKB-fält: `../../../../orgUnitLocation` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -239,7 +251,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
         "short": "HSA-id för vårdenhet",
-        "definition": "HSA-id för vårdenhet. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.\nKardinalitet: Valfri (se Regel 1).",
+        "definition": "HSA-id för vårdenhet.\n\nRegel: Regel 1",
+        "comment": "TKB-fält: `../../../healthcareProfessionalcareUnitHSAId*` (`HSAIdType`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för vårdenhet. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.",
         "min": 0,
         "max": "1",
         "type": [
@@ -252,7 +265,8 @@
         "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
         "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
         "short": "HSA-id för vårdgivare",
-        "definition": "HSA-id för vårdgivaren. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.\nKardinalitet: Valfri (se Regel 1).",
+        "definition": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som hälso- och sjukvårdspersonalen är uppdragstagare för.\n\nRegel :Regel 1",
+        "comment": "TKB-fält: `../../../healthcareProfessionalcareGiverHSAId*` (`HSAIdType`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för vårdgivaren. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.",
         "min": 0,
         "max": "1",
         "type": [
@@ -317,7 +331,8 @@
         "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId",
         "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId",
         "short": "HSA-id för kontaktenhet",
-        "definition": "HSA-id för organisationsenheten för kontakten. Regel 5.\nKardinalitet: Valfri (se Regel 5).",
+        "definition": "HSA-id för organisationsenhet.\n\nRegel: Regel 5",
+        "comment": "TKB-fält: `../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för organisationsenheten för kontakten. Regel 5.",
         "min": 0,
         "max": "1",
         "type": [
@@ -330,7 +345,8 @@
         "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitName",
         "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitName",
         "short": "Namn på kontaktenhet",
-        "definition": "Namn på organisationsenheten. Regel 5.\nKardinalitet: Valfri (se Regel 5).",
+        "definition": "Namn på organisationsenheten.\n\nRegel: Regel 5",
+        "comment": "TKB-fält: `../../../orgUnitName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -343,7 +359,8 @@
         "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom",
         "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom",
         "short": "Telefon till kontaktenhet",
-        "definition": "Telefon till organisationsenheten.\nKardinalitet: Valfri.",
+        "definition": "Telefon till organisationsenheten.",
+        "comment": "TKB-fält: `../../../orgUnitTelecom` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -356,7 +373,8 @@
         "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail",
         "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail",
         "short": "E-post till kontaktenhet",
-        "definition": "Epost till organisationsenheten.\nKardinalitet: Valfri.",
+        "definition": "Epost till organisationsenheten.",
+        "comment": "TKB-fält: `../../../orgUnitEmail` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -369,7 +387,8 @@
         "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress",
         "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress",
         "short": "Adress till kontaktenhet",
-        "definition": "Postadress till organisationsenheten.\nKardinalitet: Valfri.",
+        "definition": "Postadress till organisationsenheten.",
+        "comment": "TKB-fält: `../../../orgUnitAddress` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -382,7 +401,8 @@
         "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation",
         "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation",
         "short": "Plats för kontaktenhet",
-        "definition": "Plats/ort för organisationsenheten.\nKardinalitet: Valfri.",
+        "definition": "Text som anger namnet på plats eller ort för organisationsenhetens eller funktionens fysiska placering.",
+        "comment": "TKB-fält: `../../../orgUnitLocation` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Plats/ort för organisationsenheten.",
         "min": 0,
         "max": "1",
         "type": [
@@ -417,7 +437,8 @@
         "id": "getcarecontacts.careContact.careContactTimePeriod.start",
         "path": "getcarecontacts.careContact.careContactTimePeriod.start",
         "short": "Starttidpunkt för vårdkontakten",
-        "definition": "Vårdkontaktens starttidpunkt. Format YYYYMMDDhhmmss.\nMinst ett av fälten start och end måste anges.\nKardinalitet: Valfri (minst ett av start/end obligatoriskt).",
+        "definition": "Vårdkontaktens starttidpunkt. Minst ett av fälten start och end måste anges.",
+        "comment": "TKB-fält: `../../../start` (`TimeStampType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -430,7 +451,8 @@
         "id": "getcarecontacts.careContact.careContactTimePeriod.end",
         "path": "getcarecontacts.careContact.careContactTimePeriod.end",
         "short": "Sluttidpunkt för vårdkontakten",
-        "definition": "Vårdkontaktens sluttidpunkt. Format YYYYMMDDhhmmss.\nMinst ett av fälten start och end måste anges.\nKardinalitet: Valfri (minst ett av start/end obligatoriskt).",
+        "definition": "Vårdkontaktens sluttidpunkt. Minst ett av fälten start och end måste anges.",
+        "comment": "TKB-fält: `../../../end` (`TimeStampType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -469,7 +491,8 @@
         "id": "getcarecontacts.careContact.additionalPatientInformation.dateOfBirth",
         "path": "getcarecontacts.careContact.additionalPatientInformation.dateOfBirth",
         "short": "Patientens födelsedatum",
-        "definition": "Patientens födelsedatum. Partiellt datum (år, år+månad, eller fullständigt).\nFormat: YYYY, YYYYMM eller YYYYMMDD.\nKardinalitet: Valfri.",
+        "definition": "Patientens födelsedatum.",
+        "comment": "TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).\n\n**Modellanteckning:** Patientens födelsedatum. Partiellt datum (år, år+månad, eller fullständigt).\nFormat: YYYY, YYYYMM eller YYYYMMDD.",
         "min": 0,
         "max": "1",
         "type": [
@@ -482,7 +505,8 @@
         "id": "getcarecontacts.careContact.additionalPatientInformation.gender",
         "path": "getcarecontacts.careContact.additionalPatientInformation.gender",
         "short": "Patientens kön",
-        "definition": "Patientens kön. KV Kön (OID 1.2.752.129.2.2.1.1) bör användas. Typ CVType.\nKardinalitet: Valfri.",
+        "definition": "Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas. Se referens [R6].",
+        "comment": "TKB-fält: `../../../gender` (`CVType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -495,7 +519,8 @@
         "id": "getcarecontacts.result",
         "path": "getcarecontacts.result",
         "short": "Resultatkod för anropet",
-        "definition": "Innehåller information om begäran gick bra eller ej. Typ ResultType.\nKardinalitet: Obligatorisk.",
+        "definition": "Innehåller information om begäran gick bra eller ej.",
+        "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -508,7 +533,8 @@
         "id": "getcarecontacts.result.resultCode",
         "path": "getcarecontacts.result.resultCode",
         "short": "Resultatkod: OK, INFO eller ERROR",
-        "definition": "Kan endast vara OK, INFO eller ERROR. Typ ResultCodeEnum.\nKardinalitet: Obligatorisk.",
+        "definition": "Kan endast vara OK, INFO eller ERROR",
+        "comment": "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -521,7 +547,8 @@
         "id": "getcarecontacts.result.errorCode",
         "path": "getcarecontacts.result.errorCode",
         "short": "Felkod vid ERROR",
-        "definition": "Sätts endast om resultCode är ERROR. Möjliga värden: INVALID_REQUEST.\nKardinalitet: Valfri.",
+        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** Sätts endast om resultCode är ERROR. Möjliga värden: INVALID_REQUEST.",
         "min": 0,
         "max": "1",
         "type": [
@@ -534,7 +561,8 @@
         "id": "getcarecontacts.result.logId",
         "path": "getcarecontacts.result.logId",
         "short": "UUID för felsökning",
-        "definition": "En UUID som kan användas vid felanmälan för felsökning av producent.\nKardinalitet: Obligatorisk.",
+        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+        "comment": "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -547,7 +575,8 @@
         "id": "getcarecontacts.result.subCode",
         "path": "getcarecontacts.result.subCode",
         "short": "Subkod",
-        "definition": "Inga subkoder är specificerade i denna version.\nKardinalitet: Valfri.",
+        "definition": "Inga subkoder är specificerade.",
+        "comment": "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -560,7 +589,8 @@
         "id": "getcarecontacts.result.message",
         "path": "getcarecontacts.result.message",
         "short": "Beskrivande meddelande",
-        "definition": "En beskrivande text som kan visas för användaren. På svenska.\nKardinalitet: Valfri.",
+        "definition": "En beskrivande text som kan visas för användaren.",
+        "comment": "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

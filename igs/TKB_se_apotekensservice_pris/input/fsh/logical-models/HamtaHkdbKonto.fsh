@@ -33,3 +33,6 @@ Characteristics: #can-be-target
   * brutto 1..1 decimal "brutto" "Bruttobelopp i kronor och ören"
   * netto 1..1 decimal "netto" "Nettobelopp i kronor och ören"
 * persNr 1..1 string "persNr" "Personnummer för den som sökningen gäller."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaHkdbKontoFieldDescriptions

@@ -249,3 +249,6 @@ Characteristics: #can-be-target
         * referredType 1..1 string "Typ av uppgift som sambandet pekar ut — kod från Categorization i engagemangsindex, t.ex. chb-o."
         * informationOwner 1..1 BackboneElement "Vårdgivare som är informationsägare av den refererade informationen (InformationOwnerType)."
           * informationOwnerId 1..1 Identifier "Vårdgivarens HSA-id (IIType). root = 1.2.752.129.2.1.4.1."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetObservationsFieldDescriptions

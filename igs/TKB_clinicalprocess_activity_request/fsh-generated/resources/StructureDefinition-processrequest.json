@@ -40,7 +40,8 @@
         "id": "processrequest.requestId",
         "path": "processrequest.requestId",
         "short": "Remiss id",
-        "definition": "Remissens identitet. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken.",
+        "definition": "Remiss id\n\nRemissens identitet. Format: Källsystem-Id(HSA-ID)#lokalt-id\n\nExempel: SE2321000012-0001#987",
+        "comment": "TKB-fält: `request.requestId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken",
         "min": 1,
         "max": "1",
         "type": [
@@ -53,7 +54,8 @@
         "id": "processrequest.typeOfRequest",
         "path": "processrequest.typeOfRequest",
         "short": "Remisstyp",
-        "definition": "Typ av remiss. I denna version är enda giltiga kod 4 = allmänremiss.",
+        "definition": "Remisstyp\n\nAnger typ av remiss.\n\nI denna version är den giltiga koden ”4” – allmänremiss",
+        "comment": "TKB-fält: `request.typeOfRequest` (`CodeForRequestType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** codes:codeRequestOutcomeType",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +72,8 @@
         "id": "processrequest.versionTimeStamp",
         "path": "processrequest.versionTimeStamp",
         "short": "Versionstidpunkt",
-        "definition": "Tidpunkt då versionen skapades (ÅÅÅÅMMDDttmmss). Kan skilja sig från tidpunkten då remissen skickas.",
+        "definition": "Versionstidpunkt\n\nTidpunkt då versionen skapades.\n\nDenna tidpunkt kan skilja sig från tidpunkten då remissen skickas.",
+        "comment": "TKB-fält: `request.versionTimeStamp` (`TimeStampType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +86,8 @@
         "id": "processrequest.versionNumber",
         "path": "processrequest.versionNumber",
         "short": "Versionsnummer",
-        "definition": "Remissens versionsnummer. Startar på 1 och räknas upp vid ändrad remiss, vidareskickad remiss och ändrat betalningsansvar. XSD-mönster (0*[1-9]+|[1-9])\\d*.",
+        "definition": "Versionsnummer\n\nRemissens versionsnummer.\n\nVersion startar alltid på 1 och räknas sekventiellt upp för varje ny version.\n\nDenna räknas upp vid:\n\nÄndrad remiss\n\nVidareskickad remiss\n\nÄndrat betalnings-ansvar",
+        "comment": "TKB-fält: `request.versionNumber` (`VersionNumberType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (0*[1-9]+|[1-9])\\d*",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +100,8 @@
         "id": "processrequest.reasonForVersion",
         "path": "processrequest.reasonForVersion",
         "short": "Versionsorsak",
-        "definition": "Anger varför en ny version skapats.",
+        "definition": "Versionsorsak",
+        "comment": "TKB-fält: `request.reasonForVersion` (`ReasonForVersionType`, kardinalitet 1..1).\n\n**Modellanteckning:** Anger varför en ny version skapats.",
         "min": 1,
         "max": "1",
         "type": [
@@ -110,6 +115,7 @@
         "path": "processrequest.reasonForVersion.typeOfReason",
         "short": "Versionsorsak kod",
         "definition": "Kv e-remiss versionsorsak [R5]: NR, AR, VR, AB. RIV-TA: typeOfReason.code.",
+        "comment": "TKB-fält: `request.reasonForVersion.typeOfReason` (`CodeVersionReason`, kardinalitet 1..1).\n\n**Modellanteckning:** Kv e-remiss versionsorsak [R5]: NR, AR, VR, AB. RIV-TA: typeOfReason.code.",
         "min": 1,
         "max": "1",
         "type": [
@@ -126,7 +132,8 @@
         "id": "processrequest.careResponsibilityRemains",
         "path": "processrequest.careResponsibilityRemains",
         "short": "Vårdansvar kvarstår",
-        "definition": "true = vårdansvar kvarstår hos remitterande enhet; false = begäran om övertagande av vårdansvar.",
+        "definition": "Vårdansvar kvarstår\n\nAnger om remittent vill att vårdansvar ska kvarstå hos remitterande enhet eller om man vill att vårdansvar överförs till remissmottagande enhet.\n\nTvå alternativ:\n\nTrue = Vårdansvar kvarstår\n\nFalse = Begäran om övertagande av vårdansvar",
+        "comment": "TKB-fält: `request.careResponsibilityRemains` (`Boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -139,7 +146,8 @@
         "id": "processrequest.patient",
         "path": "processrequest.patient",
         "short": "Patient",
-        "definition": "Patient (PatientType).",
+        "definition": "Patient",
+        "comment": "TKB-fält: `request.patient` (`PatientType`, kardinalitet 1..1).\n\n**Modellanteckning:** Patient (PatientType).",
         "min": 1,
         "max": "1",
         "type": [
@@ -152,7 +160,8 @@
         "id": "processrequest.patient.personId",
         "path": "processrequest.patient.personId",
         "short": "Person id",
-        "definition": "Patientens identitet. value = personidentifierare (12 tecken utan skiljetecken för personnummer, samordningsnummer och nationellt reservId); system = OID för typ av personidentifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer), 1.2.752.74.9.1 (nationellt reservId). RIV-TA: personId.extension/root.",
+        "definition": "Person id\n\nPatientens identitet",
+        "comment": "TKB-fält: `request.patient.personId` (`PersonIdType`, kardinalitet 1..1).\n\n**Modellanteckning:** Patientens identitet. value = personidentifierare (12 tecken utan skiljetecken för personnummer, samordningsnummer och nationellt reservId); system = OID för typ av personidentifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer), 1.2.752.74.9.1 (nationellt reservId). RIV-TA: personId.extension/root.",
         "min": 1,
         "max": "1",
         "type": [
@@ -165,7 +174,8 @@
         "id": "processrequest.patient.address",
         "path": "processrequest.patient.address",
         "short": "Tillfällig adress",
-        "definition": "Används endast om tillfällig adress behöver anges, ej folkbokförd adress. Avsedd för kallelse; format enligt Skatteverkets Navet.",
+        "definition": "Tillfällig adress\n\nObservera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.",
+        "comment": "TKB-fält: `request.patient.address` (`AddressType`).\n\n**Modellanteckning:** Används endast om tillfällig adress behöver anges, ej folkbokförd adress. Avsedd för kallelse; format enligt Skatteverkets Navet.",
         "min": 0,
         "max": "1",
         "type": [

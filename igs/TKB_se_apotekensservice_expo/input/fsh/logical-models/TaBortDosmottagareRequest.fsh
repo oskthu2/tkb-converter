@@ -35,3 +35,6 @@ Characteristics: #can-be-target
   * systemIp 0..1 string "systemIp" "systemIp"
 * apoteksIdDosproducent 1..1 string "apoteksIdDosproducent" "Apoteks-id för dosproducent som dosmottagaren ska registreras på."
 * dosmottagarId 1..1 string "dosmottagarId" "Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert TaBortDosmottagareRequestFieldDescriptions

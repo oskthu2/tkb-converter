@@ -11,3 +11,6 @@ Description: """
 Characteristics: #can-be-target
 * ^version = "1.0"
 * lastSequenceNumber 1..1 unsignedInt "Senaste meddelandenummer" "Referens till det senaste mottagna meddelandet, så att bara nya poster hämtas. XSD-typen är unsignedLong; FHIR saknar motsvarande typ."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListInquiriesRequestFieldDescriptions

@@ -30,3 +30,6 @@ Characteristics: #can-be-target
     Om inget anges hämtas alla.
     Kardinalitet: Valfri, lista.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAvailableFacilitiesRequestFieldDescriptions

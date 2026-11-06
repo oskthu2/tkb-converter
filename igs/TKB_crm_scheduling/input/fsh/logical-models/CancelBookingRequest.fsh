@@ -25,3 +25,6 @@ Characteristics: #can-be-target
     Fältet kan bara skickas om värdet på message_allowed är 'true' i svaret från GetBookingDetails.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CancelBookingRequestFieldDescriptions

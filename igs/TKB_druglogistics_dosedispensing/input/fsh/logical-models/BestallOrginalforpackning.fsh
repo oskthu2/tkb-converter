@@ -47,3 +47,6 @@ Characteristics: #can-be-target
   * bestallarefornamn 1..1 string "bestallarefornamn" "bestallarefornamn"
   * bestallareefternamn 1..1 string "bestallareefternamn" "bestallareefternamn"
   * bestallarearbetsplats 1..1 string "bestallarearbetsplats" "bestallarearbetsplats"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert BestallOrginalforpackningFieldDescriptions

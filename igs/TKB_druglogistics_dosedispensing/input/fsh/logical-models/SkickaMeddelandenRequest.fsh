@@ -45,3 +45,6 @@ Characteristics: #can-be-target
   * prioritet 0..1 code "prioritet" "prioritet"
   * prioritet from MeddelandePrioritetVS (required)
   * meddelande 1..1 string "meddelande" "meddelande"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SkickaMeddelandenRequestFieldDescriptions

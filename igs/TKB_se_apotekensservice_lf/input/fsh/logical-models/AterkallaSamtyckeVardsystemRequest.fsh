@@ -39,3 +39,6 @@ Characteristics: #can-be-target
   * system 1..1 string "system" "GLN-kod för anropande system."
 * samtyckesgivare 1..1 string "samtyckesgivare" "Giltigt personnummer för patient vars samtycke ska återkallas."
 * samtyckestagareForskrivarkod 1..1 string "samtyckestagareForskrivarkod" "Förskrivarkod för förskrivare som vars samtycke ska återkallas, valideras mot FORS. Skall vara samma som användare i klientinformation."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert AterkallaSamtyckeVardsystemRequestFieldDescriptions

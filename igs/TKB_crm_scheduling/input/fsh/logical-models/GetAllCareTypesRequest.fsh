@@ -29,3 +29,6 @@ Characteristics: #can-be-target
     Personnummer för invånaren.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAllCareTypesRequestFieldDescriptions

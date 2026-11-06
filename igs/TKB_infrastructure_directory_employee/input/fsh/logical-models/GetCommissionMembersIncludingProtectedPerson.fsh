@@ -135,3 +135,6 @@ Characteristics: #can-be-target
     true: om personen är ett fingerat objekt.
     Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCommissionMembersIncludingProtectedPersonFieldDescriptions

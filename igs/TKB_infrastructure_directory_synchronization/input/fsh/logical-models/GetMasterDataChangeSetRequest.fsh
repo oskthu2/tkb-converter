@@ -24,3 +24,6 @@ Characteristics: #can-be-target
 * timePeriod 0..1 BackboneElement "timePeriod" "Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet YYYYMMDDhhmmss end: Slutdatum på formatet YYYYMMDDhhmmss"
   * start 0..1 string "start" "start"
   * end 0..1 string "end" "end"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMasterDataChangeSetRequestFieldDescriptions

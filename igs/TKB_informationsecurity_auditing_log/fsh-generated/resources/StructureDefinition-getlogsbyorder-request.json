@@ -44,7 +44,8 @@
         "id": "getlogsbyorder-request.careProviderId",
         "path": "getlogsbyorder-request.careProviderId",
         "short": "careProviderId",
-        "definition": "careProviderId",
+        "definition": "Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på",
+        "comment": "TKB-fält: `careProviderId` (`urn:riv:informationsecurity:auditing:log:2:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "getlogsbyorder-request.careUnitId",
         "path": "getlogsbyorder-request.careUnitId",
         "short": "careUnitId",
-        "definition": "careUnitId",
+        "definition": "Vårdenhet som är ägare till loggposter och som urvalet av loggposter baseras på",
+        "comment": "TKB-fält: `careUnitId` (`urn:riv:informationsecurity:auditing:log:2:HsaId`, kardinalitet 0..500).\n\nObs: modellen anger 0..* där TKB:n anger 0..500.",
         "min": 0,
         "max": "*",
         "type": [
@@ -70,7 +72,8 @@
         "id": "getlogsbyorder-request.patientId",
         "path": "getlogsbyorder-request.patientId",
         "short": "patientId",
-        "definition": "En universellt unik identifierare.",
+        "definition": "Patientens personnummer, samordningsnummer, alternativt reservnummer",
+        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:auditing:log:2:IIType`, kardinalitet 0..500).\n\nObs: modellen anger 0..* där TKB:n anger 0..500.\n\n**Modellanteckning:** En universellt unik identifierare.",
         "min": 0,
         "max": "*",
         "type": [
@@ -84,6 +87,7 @@
         "path": "getlogsbyorder-request.patientId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,6 +101,7 @@
         "path": "getlogsbyorder-request.patientId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -109,7 +114,8 @@
         "id": "getlogsbyorder-request.userId",
         "path": "getlogsbyorder-request.userId",
         "short": "userId",
-        "definition": "userId",
+        "definition": "Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigställts.",
+        "comment": "TKB-fält: `userId` (`urn:riv:informationsecurity:auditing:log:2:Id`, kardinalitet 0..500).\n\nObs: modellen anger 0..* där TKB:n anger 0..500.",
         "min": 0,
         "max": "*",
         "type": [
@@ -122,7 +128,8 @@
         "id": "getlogsbyorder-request.fromDate",
         "path": "getlogsbyorder-request.fromDate",
         "short": "fromDate",
-        "definition": "fromDate",
+        "definition": "Obligatoriskt startdatum för att begränsa rapportuttaget.",
+        "comment": "TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -135,7 +142,8 @@
         "id": "getlogsbyorder-request.toDate",
         "path": "getlogsbyorder-request.toDate",
         "short": "toDate",
-        "definition": "toDate",
+        "definition": "Obligatoriskt slutdatum för att begränsa rapportuttaget.",
+        "comment": "TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -148,7 +156,8 @@
         "id": "getlogsbyorder-request.maxResultsPerFile",
         "path": "getlogsbyorder-request.maxResultsPerFile",
         "short": "maxResultsPerFile",
-        "definition": "maxResultsPerFile",
+        "definition": "Antal loggposter/fil (max 10000/zipfil)",
+        "comment": "TKB-fält: `maxResultsPerFile` (`xs:int`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

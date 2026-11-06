@@ -23,3 +23,6 @@ Characteristics: #can-be-target
   * subcode 0..1 string "Subkod (inga subkoder specificerade i v1.0)"
   * logId 1..1 string "UUID för felanmälan"
   * message 0..1 string "Beskrivande text"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CheckMedicationListVersionFieldDescriptions

@@ -63,3 +63,6 @@ Characteristics: #can-be-target
     Matchar documentId i GetCareContacts-svaret.
     Kardinalitet: Valfri, lista (0..*).
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCarePlansRequestFieldDescriptions

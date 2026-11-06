@@ -16,3 +16,6 @@ Characteristics: #can-be-target
   * resultCode from ResultCodeVS (required)
   * resultText 0..1 string "resultText" "resultText"
 * orderId 0..1 string "orderId" "orderId"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogsByOrderFieldDescriptions

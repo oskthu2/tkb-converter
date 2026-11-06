@@ -24,3 +24,6 @@ Characteristics: #can-be-target
   * personid 1..1 string "personid" "Anvandarens personid"
   * lanskod 0..1 string "lanskod" "Anvandarens folkbokforda lanskod"
   * kommunkod 0..1 string "kommunkod" "Anvandarens folkbokforda kommunkod"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UppdateraVardtagareinformationFieldDescriptions

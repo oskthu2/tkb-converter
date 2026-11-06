@@ -24,3 +24,6 @@ Characteristics: #can-be-target
   * arrivalTime 1..1 dateTime "arrivalTime" "arrivalTime"
   * messageMetaStatus 1..1 code "messageMetaStatus" "messageMetaStatus Heter status i schemat."
   * messageMetaStatus from MessageStatusVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListMessagesFieldDescriptions

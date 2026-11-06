@@ -44,7 +44,8 @@
         "id": "deleteehrextract-request.ehr_system",
         "path": "deleteehrextract-request.ehr_system",
         "short": "ehr_system",
-        "definition": "ehr_system",
+        "definition": "Det värde som skickades för patientinformationen då anrop till tjänsten ReceiveEhrExtract gjordes.",
+        "comment": "TKB-fält: `ehr_system` (`II`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "deleteehrextract-request.subject_of_care",
         "path": "deleteehrextract-request.subject_of_care",
         "short": "subject_of_care",
-        "definition": "subject_of_care",
+        "definition": "Id för patienten. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes.",
+        "comment": "TKB-fält: `subject_of_care` (`II`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +72,8 @@
         "id": "deleteehrextract-request.deletion",
         "path": "deleteehrextract-request.deletion",
         "short": "deletion",
-        "definition": "deletion",
+        "definition": "Innehåller par av rcId och meaning. `<br>` rcId: `<br>` Globalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.) `<br>` meaning: `<br>` Den huvudinformationstyp som posten (som ska tas bort) gäller för.",
+        "comment": "TKB-fält: `deletion` (`DeletionType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
@@ -84,6 +87,7 @@
         "path": "deleteehrextract-request.deletion.rc_id",
         "short": "rc_id",
         "definition": "rc_id",
+        "comment": "TKB-fält: `../rc_id` (`II`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,6 +101,7 @@
         "path": "deleteehrextract-request.deletion.meaning",
         "short": "meaning",
         "definition": "meaning",
+        "comment": "TKB-fält: `../meaning` (`CD`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +114,8 @@
         "id": "deleteehrextract-request.parameters",
         "path": "deleteehrextract-request.parameters",
         "short": "parameters",
-        "definition": "parameters",
+        "definition": "Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten DeleteEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.",
+        "comment": "TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).\n\nObs: modellen anger 0..* där TKB:n anger 1..1.",
         "min": 0,
         "max": "*",
         "type": [
@@ -123,6 +129,7 @@
         "path": "deleteehrextract-request.parameters.parameterCode",
         "short": "parameterCode",
         "definition": "parameterCode Heter code i schemat.",
+        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).\n\n**Modellanteckning:** parameterCode Heter code i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -136,6 +143,7 @@
         "path": "deleteehrextract-request.parameters.parameterName",
         "short": "parameterName",
         "definition": "parameterName Heter name i schemat.",
+        "comment": "TKB-fält: `../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** parameterName Heter name i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -149,6 +157,7 @@
         "path": "deleteehrextract-request.parameters.parameterValue",
         "short": "parameterValue",
         "definition": "parameterValue Heter value i schemat.",
+        "comment": "TKB-fält: `../value` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** parameterValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [

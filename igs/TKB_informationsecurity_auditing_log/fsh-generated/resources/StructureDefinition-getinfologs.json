@@ -31,7 +31,8 @@
         "id": "getinfologs.infoLogsResult",
         "path": "getinfologs.infoLogsResult",
         "short": "infoLogsResult",
-        "definition": "Datatyp som returneras av tjänst. careProviders är ej satt vid eventuella fel.",
+        "definition": "Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK.\n\nVid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.",
+        "comment": "TKB-fält: `infoLogsResult` (`urn:riv:informationsecurity:auditing:log:2:InfoLogsResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som returneras av tjänst. careProviders är ej satt vid eventuella fel.",
         "min": 1,
         "max": "1",
         "type": [
@@ -45,6 +46,7 @@
         "path": "getinfologs.infoLogsResult.reportResult",
         "short": "reportResult",
         "definition": "reportResult",
+        "comment": "TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.result",
         "short": "result",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
+        "comment": "TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,6 +74,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.result.resultCode",
         "short": "resultCode",
         "definition": "resultCode",
+        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -88,6 +92,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.result.resultText",
         "short": "resultText",
         "definition": "resultText",
+        "comment": "TKB-fält: `../../../resultText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -101,6 +106,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.startInterval",
         "short": "startInterval",
         "definition": "startInterval",
+        "comment": "TKB-fält: `../../startInterval` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -114,6 +120,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.endInterval",
         "short": "endInterval",
         "definition": "endInterval",
+        "comment": "TKB-fält: `../../endInterval` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -127,6 +134,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.queuedReportId",
         "short": "queuedReportId",
         "definition": "queuedReportId",
+        "comment": "TKB-fält: `../../queuedReportId` (`Id`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -140,6 +148,7 @@
         "path": "getinfologs.infoLogsResult.reportResult.queueTime",
         "short": "queueTime",
         "definition": "queueTime",
+        "comment": "TKB-fält: `../../queueTime` (`int`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -153,6 +162,7 @@
         "path": "getinfologs.infoLogsResult.careProviders",
         "short": "careProviders",
         "definition": "Datatyp som håller lista med vårdgivare. Kan vara en tom lista.",
+        "comment": "TKB-fält: `../careProviders` (`CareProvidersType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -166,6 +176,7 @@
         "path": "getinfologs.infoLogsResult.careProviders.careProvider",
         "short": "careProvider",
         "definition": "Datatyp som representerar en vårdgivare.",
+        "comment": "TKB-fält: `../../careProvider` (`CareProviderType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -179,6 +190,7 @@
         "path": "getinfologs.infoLogsResult.careProviders.careProvider.careProviderId",
         "short": "careProviderId",
         "definition": "careProviderId",
+        "comment": "TKB-fält: `../../../careProviderId` (`HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -192,6 +204,7 @@
         "path": "getinfologs.infoLogsResult.careProviders.careProvider.careProviderName",
         "short": "careProviderName",
         "definition": "careProviderName",
+        "comment": "TKB-fält: `../../../careProviderName` (`CareProviderName`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

@@ -32,3 +32,6 @@ Characteristics: #can-be-target
   * start 0..1 dateTime "Från-datum"
   * end 0..1 dateTime "Till-datum"
 * registrationTime 0..1 dateTime "Hämta listan som den såg ut vid angiven tidpunkt (point-in-time)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMedicationPrescriptionsRequestFieldDescriptions

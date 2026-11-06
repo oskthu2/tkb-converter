@@ -33,3 +33,6 @@ Characteristics: #can-be-target
     Tjänstekonsumenten får inte binda logik till värden på dessa koder.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateListingFieldDescriptions

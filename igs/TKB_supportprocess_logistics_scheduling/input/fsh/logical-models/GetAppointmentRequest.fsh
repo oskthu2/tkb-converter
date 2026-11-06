@@ -27,3 +27,6 @@ Characteristics: #can-be-target
 * personId 1..1 BackboneElement "personId" "personId"
   * root 1..1 string "root" "Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3."
   * personIdExtension 1..1 string "personIdExtension" "personIdExtension Heter extension i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAppointmentRequestFieldDescriptions

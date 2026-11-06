@@ -104,3 +104,6 @@ Characteristics: #can-be-target
   * unitStartDate 0..1 dateTime "unitStartDate" "unitStartDate"
   * unitEndDate 0..1 dateTime "unitEndDate" "unitEndDate"
   * feignedUnit 0..1 boolean "feignedUnit" "feignedUnit"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetUnitFieldDescriptions

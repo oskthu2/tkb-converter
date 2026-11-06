@@ -44,7 +44,8 @@
         "id": "updateperson-request.actor",
         "path": "updateperson-request.actor",
         "short": "actor",
-        "definition": "Datatyp som identifierar en aktör.",
+        "definition": "Den som utför uppdateringen. Aktörens identitet ska även kompletteras med en organisatorisk identitet som kan peka ut PUA-ansvarig organisation. Se datatyp ActorType.",
+        "comment": "TKB-fält: `Actor` (`urn:riv:strategicresourcemanagement:persons:person:5:ActorType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som identifierar en aktör.",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "updateperson-request.actor.actorId",
         "path": "updateperson-request.actor.actorId",
         "short": "actorId",
-        "definition": "En universellt unik identifierare. Heter id i schemat.",
+        "definition": "En universellt unik identifierare.",
+        "comment": "TKB-fält: `../id` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,6 +73,7 @@
         "path": "updateperson-request.actor.actorId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -84,6 +87,7 @@
         "path": "updateperson-request.actor.actorId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -97,6 +101,7 @@
         "path": "updateperson-request.actor.professional",
         "short": "professional",
         "definition": "Datatyp som identifierar en aktör inom en profession.",
+        "comment": "TKB-fält: `../professional` (`ProfessionalType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -110,6 +115,7 @@
         "path": "updateperson-request.actor.professional.organizationId",
         "short": "organizationId",
         "definition": "En universellt unik identifierare.",
+        "comment": "TKB-fält: `../../organizationId` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -123,6 +129,7 @@
         "path": "updateperson-request.actor.professional.organizationId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -136,6 +143,7 @@
         "path": "updateperson-request.actor.professional.organizationId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -149,6 +157,7 @@
         "path": "updateperson-request.actor.updateTime",
         "short": "updateTime",
         "definition": "updateTime",
+        "comment": "TKB-fält: `../updateTime` (`Timestamp`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -161,7 +170,8 @@
         "id": "updateperson-request.personId",
         "path": "updateperson-request.personId",
         "short": "personId",
-        "definition": "En universellt unik identifierare.",
+        "definition": "Personens identitet",
+        "comment": "TKB-fält: `personId` (`urn:riv:strategicresourcemanagement:persons:person:5:IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** En universellt unik identifierare.",
         "min": 0,
         "max": "1",
         "type": [
@@ -175,6 +185,7 @@
         "path": "updateperson-request.personId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -188,6 +199,7 @@
         "path": "updateperson-request.personId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -200,7 +212,8 @@
         "id": "updateperson-request.gender",
         "path": "updateperson-request.gender",
         "short": "gender",
-        "definition": "gender",
+        "definition": "Kön (se kodverk, [R3])",
+        "comment": "TKB-fält: `gender` (`urn:riv:strategicresourcemanagement:persons:person:5:CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -213,7 +226,8 @@
         "id": "updateperson-request.versionToUpdate",
         "path": "updateperson-request.versionToUpdate",
         "short": "versionToUpdate",
-        "definition": "versionToUpdate",
+        "definition": "Håller reda på senast gällande version. Skall bifogas i de fall man genom en föregående läsning har erhållit detta attribut",
+        "comment": "TKB-fält: `versionToUpdate` (`urn:riv:strategicresourcemanagement:persons:person:5:Timestamp`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -226,7 +240,8 @@
         "id": "updateperson-request.updatePersonName",
         "path": "updateperson-request.updatePersonName",
         "short": "updatePersonName",
-        "definition": "Namn Heter name i schemat.",
+        "definition": "Personens alla namn",
+        "comment": "TKB-fält: `Name` (`urn:riv:strategicresourcemanagement:persons:person:5:NameType`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn Heter name i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -240,6 +255,7 @@
         "path": "updateperson-request.updatePersonName.givenNameIndicator",
         "short": "givenNameIndicator",
         "definition": "givenNameIndicator",
+        "comment": "TKB-fält: `../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -253,6 +269,7 @@
         "path": "updateperson-request.updatePersonName.givenName",
         "short": "givenName",
         "definition": "givenName",
+        "comment": "TKB-fält: `../givenName` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -266,6 +283,7 @@
         "path": "updateperson-request.updatePersonName.middleName",
         "short": "middleName",
         "definition": "middleName",
+        "comment": "TKB-fält: `../middleName` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -279,6 +297,7 @@
         "path": "updateperson-request.updatePersonName.surname",
         "short": "surname",
         "definition": "surname",
+        "comment": "TKB-fält: `../surname` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -292,6 +311,7 @@
         "path": "updateperson-request.updatePersonName.notificationName",
         "short": "notificationName",
         "definition": "notificationName",
+        "comment": "TKB-fält: `../notificationName` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -304,7 +324,8 @@
         "id": "updateperson-request.birth",
         "path": "updateperson-request.birth",
         "short": "birth",
-        "definition": "Uppgifter om födelse",
+        "definition": "Personens födelsedata",
+        "comment": "TKB-fält: `Birth` (`urn:riv:strategicresourcemanagement:persons:person:5:BirthType`, kardinalitet 0..1).\n\n**Modellanteckning:** Uppgifter om födelse",
         "min": 0,
         "max": "1",
         "type": [
@@ -318,6 +339,7 @@
         "path": "updateperson-request.birth.dateOfBirth",
         "short": "dateOfBirth",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -331,6 +353,7 @@
         "path": "updateperson-request.birth.dateOfBirth.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -348,6 +371,7 @@
         "path": "updateperson-request.birth.dateOfBirth.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -361,6 +385,7 @@
         "path": "updateperson-request.birth.placeOfBirthSweden",
         "short": "placeOfBirthSweden",
         "definition": "Uppgifter om hemort i Sverige",
+        "comment": "TKB-fält: `../placeOfBirthSweden` (`PlaceOfBirthSwedenType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -374,6 +399,7 @@
         "path": "updateperson-request.birth.placeOfBirthSweden.birthCountyCode",
         "short": "birthCountyCode",
         "definition": "birthCountyCode",
+        "comment": "TKB-fält: `../../birthCountyCode` (`String2`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -387,6 +413,7 @@
         "path": "updateperson-request.birth.placeOfBirthSweden.birthParish",
         "short": "birthParish",
         "definition": "birthParish",
+        "comment": "TKB-fält: `../../birthParish` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -400,6 +427,7 @@
         "path": "updateperson-request.birth.birthAbroad",
         "short": "birthAbroad",
         "definition": "Uppgifter om födelse i utlandet",
+        "comment": "TKB-fält: `../birthAbroad` (`BirthAbroadType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -413,6 +441,7 @@
         "path": "updateperson-request.birth.birthAbroad.placeOfBirthAbroad",
         "short": "placeOfBirthAbroad",
         "definition": "placeOfBirthAbroad",
+        "comment": "TKB-fält: `../../placeOfBirthAbroad` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -426,6 +455,7 @@
         "path": "updateperson-request.birth.birthAbroad.countryOfBirth",
         "short": "countryOfBirth",
         "definition": "countryOfBirth",
+        "comment": "TKB-fält: `../../countryOfBirth` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -438,7 +468,8 @@
         "id": "updateperson-request.relationship",
         "path": "updateperson-request.relationship",
         "short": "relationship",
-        "definition": "Grupp för relation",
+        "definition": "Personens relationer",
+        "comment": "TKB-fält: `relationship` (`urn:riv:strategicresourcemanagement:persons:person:5:RelationshipType`, kardinalitet 0..*).\n\n**Modellanteckning:** Grupp för relation",
         "min": 0,
         "max": "*",
         "type": [
@@ -452,6 +483,7 @@
         "path": "updateperson-request.relationship.relationshipId",
         "short": "relationshipId",
         "definition": "Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes.",
+        "comment": "TKB-fält: `../relationshipId` (`RelationshipIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -465,6 +497,7 @@
         "path": "updateperson-request.relationship.relationshipId.personalIdentity",
         "short": "personalIdentity",
         "definition": "En universellt unik identifierare.",
+        "comment": "TKB-fält: `../../personalIdentity` (`IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -478,6 +511,7 @@
         "path": "updateperson-request.relationship.relationshipId.personalIdentity.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -491,6 +525,7 @@
         "path": "updateperson-request.relationship.relationshipId.personalIdentity.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -504,6 +539,7 @@
         "path": "updateperson-request.relationship.relationshipId.dateOfBirth",
         "short": "dateOfBirth",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -517,6 +553,7 @@
         "path": "updateperson-request.relationship.relationshipId.dateOfBirth.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -534,6 +571,7 @@
         "path": "updateperson-request.relationship.relationshipId.dateOfBirth.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -547,6 +585,7 @@
         "path": "updateperson-request.relationship.relationshipType",
         "short": "relationshipType",
         "definition": "relationshipType",
+        "comment": "TKB-fält: `../relationshipType` (`CodedValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -560,6 +599,7 @@
         "path": "updateperson-request.relationship.relationshipFromDate",
         "short": "relationshipFromDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../relationshipFromDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -573,6 +613,7 @@
         "path": "updateperson-request.relationship.relationshipFromDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -590,6 +631,7 @@
         "path": "updateperson-request.relationship.relationshipFromDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -603,6 +645,7 @@
         "path": "updateperson-request.relationship.relationshipToDate",
         "short": "relationshipToDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../relationshipToDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -616,6 +659,7 @@
         "path": "updateperson-request.relationship.relationshipToDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -633,6 +677,7 @@
         "path": "updateperson-request.relationship.relationshipToDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -645,7 +690,8 @@
         "id": "updateperson-request.relationship.relationshipName",
         "path": "updateperson-request.relationship.relationshipName",
         "short": "relationshipName",
-        "definition": "Namn Heter name i schemat.",
+        "definition": "Namn",
+        "comment": "TKB-fält: `../name` (`NameType`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn Heter name i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -659,6 +705,7 @@
         "path": "updateperson-request.relationship.relationshipName.givenNameIndicator",
         "short": "givenNameIndicator",
         "definition": "givenNameIndicator",
+        "comment": "TKB-fält: `../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -672,6 +719,7 @@
         "path": "updateperson-request.relationship.relationshipName.givenName",
         "short": "givenName",
         "definition": "givenName",
+        "comment": "TKB-fält: `../../givenName` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -685,6 +733,7 @@
         "path": "updateperson-request.relationship.relationshipName.middleName",
         "short": "middleName",
         "definition": "middleName",
+        "comment": "TKB-fält: `../../middleName` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -698,6 +747,7 @@
         "path": "updateperson-request.relationship.relationshipName.surname",
         "short": "surname",
         "definition": "surname",
+        "comment": "TKB-fält: `../../surname` (`String80`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -711,6 +761,7 @@
         "path": "updateperson-request.relationship.relationshipName.notificationName",
         "short": "notificationName",
         "definition": "notificationName",
+        "comment": "TKB-fält: `../../notificationName` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -724,6 +775,7 @@
         "path": "updateperson-request.relationship.deregistration",
         "short": "deregistration",
         "definition": "Uppgifter om avregistrering",
+        "comment": "TKB-fält: `../deregistration` (`DeregistrationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -737,6 +789,7 @@
         "path": "updateperson-request.relationship.deregistration.deregistrationReasonCode",
         "short": "deregistrationReasonCode",
         "definition": "deregistrationReasonCode",
+        "comment": "TKB-fält: `../../deregistrationReasonCode` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -750,6 +803,7 @@
         "path": "updateperson-request.relationship.deregistration.deregistrationDate",
         "short": "deregistrationDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -763,6 +817,7 @@
         "path": "updateperson-request.relationship.deregistration.deregistrationDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -780,6 +835,7 @@
         "path": "updateperson-request.relationship.deregistration.deregistrationDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -793,6 +849,7 @@
         "path": "updateperson-request.relationship.deregistration.foundDeadAtDate",
         "short": "foundDeadAtDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -806,6 +863,7 @@
         "path": "updateperson-request.relationship.deregistration.foundDeadAtDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -823,6 +881,7 @@
         "path": "updateperson-request.relationship.deregistration.foundDeadAtDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -836,6 +895,7 @@
         "path": "updateperson-request.relationship.relationshipStatus",
         "short": "relationshipStatus",
         "definition": "relationshipStatus Heter status i schemat.",
+        "comment": "TKB-fält: `../status` (`CodedValue`, kardinalitet 0..1).\n\n**Modellanteckning:** relationshipStatus Heter status i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -848,7 +908,8 @@
         "id": "updateperson-request.givenAddress",
         "path": "updateperson-request.givenAddress",
         "short": "givenAddress",
-        "definition": "Svensk adress",
+        "definition": "Personen adress",
+        "comment": "TKB-fält: `givenAddress` (`urn:riv:strategicresourcemanagement:persons:person:5:ResidentialAddressType`, kardinalitet 0..1).\n\n**Modellanteckning:** Svensk adress",
         "min": 0,
         "max": "1",
         "type": [
@@ -862,6 +923,7 @@
         "path": "updateperson-request.givenAddress.careOf",
         "short": "careOf",
         "definition": "careOf",
+        "comment": "TKB-fält: `../careOf` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -875,6 +937,7 @@
         "path": "updateperson-request.givenAddress.postalAddress1",
         "short": "postalAddress1",
         "definition": "postalAddress1",
+        "comment": "TKB-fält: `../postalAddress1` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -888,6 +951,7 @@
         "path": "updateperson-request.givenAddress.postalAddress2",
         "short": "postalAddress2",
         "definition": "postalAddress2",
+        "comment": "TKB-fält: `../postalAddress2` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -901,6 +965,7 @@
         "path": "updateperson-request.givenAddress.postalCode",
         "short": "postalCode",
         "definition": "postalCode",
+        "comment": "TKB-fält: `../postalCode` (`PostalCode`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -914,6 +979,7 @@
         "path": "updateperson-request.givenAddress.city",
         "short": "city",
         "definition": "city",
+        "comment": "TKB-fält: `../city` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -926,7 +992,8 @@
         "id": "updateperson-request.deregistration",
         "path": "updateperson-request.deregistration",
         "short": "deregistration",
-        "definition": "Uppgifter om avregistrering",
+        "definition": "Avregistreringsorsak",
+        "comment": "TKB-fält: `deregistration` (`urn:riv:strategicresourcemanagement:persons:person:5:DeregistrationType`, kardinalitet 0..1).\n\n**Modellanteckning:** Uppgifter om avregistrering",
         "min": 0,
         "max": "1",
         "type": [
@@ -940,6 +1007,7 @@
         "path": "updateperson-request.deregistration.deregistrationReasonCode",
         "short": "deregistrationReasonCode",
         "definition": "deregistrationReasonCode",
+        "comment": "TKB-fält: `../deregistrationReasonCode` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -953,6 +1021,7 @@
         "path": "updateperson-request.deregistration.deregistrationDate",
         "short": "deregistrationDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../deregistrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -966,6 +1035,7 @@
         "path": "updateperson-request.deregistration.deregistrationDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -983,6 +1053,7 @@
         "path": "updateperson-request.deregistration.deregistrationDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -996,6 +1067,7 @@
         "path": "updateperson-request.deregistration.foundDeadAtDate",
         "short": "foundDeadAtDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1009,6 +1081,7 @@
         "path": "updateperson-request.deregistration.foundDeadAtDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1026,6 +1099,7 @@
         "path": "updateperson-request.deregistration.foundDeadAtDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1038,7 +1112,8 @@
         "id": "updateperson-request.administrativeInformation",
         "path": "updateperson-request.administrativeInformation",
         "short": "administrativeInformation",
-        "definition": "Klass för administrativa tilläggsuppgifter. Normalt tilläggsuppgifter kring en person med en reservidentitet som registreras i samband med uttag av reservidentitet (LRID/NRID).",
+        "definition": "Administrativa uppgifter som normalt knyts till personer med reservidentitet",
+        "comment": "TKB-fält: `administrativeInformation` (`urn:riv:strategicresourcemanagement:persons:person:5:AdministrativeInformationType`, kardinalitet 0..1).\n\n**Modellanteckning:** Klass för administrativa tilläggsuppgifter. Normalt tilläggsuppgifter kring en person med en reservidentitet som registreras i samband med uttag av reservidentitet (LRID/NRID).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1052,6 +1127,7 @@
         "path": "updateperson-request.administrativeInformation.categoryOfPerson",
         "short": "categoryOfPerson",
         "definition": "categoryOfPerson",
+        "comment": "TKB-fält: `../categoryOfPerson` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1065,6 +1141,7 @@
         "path": "updateperson-request.administrativeInformation.accountCode",
         "short": "accountCode",
         "definition": "accountCode",
+        "comment": "TKB-fält: `../accountCode` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1078,6 +1155,7 @@
         "path": "updateperson-request.administrativeInformation.comment",
         "short": "comment",
         "definition": "comment",
+        "comment": "TKB-fält: `../comment` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1090,7 +1168,8 @@
         "id": "updateperson-request.confirmedIdentity",
         "path": "updateperson-request.confirmedIdentity",
         "short": "confirmedIdentity",
-        "definition": "Klass för hur reservidentitetsuppgifter är styrkta.",
+        "definition": "Anger på vilket sätt en (reserv)identitet har styrkts",
+        "comment": "TKB-fält: `confirmedIdentity` (`urn:riv:strategicresourcemanagement:persons:person:5:ConfirmedIdentityType`, kardinalitet 0..*).\n\n**Modellanteckning:** Klass för hur reservidentitetsuppgifter är styrkta.",
         "min": 0,
         "max": "*",
         "type": [
@@ -1104,6 +1183,7 @@
         "path": "updateperson-request.confirmedIdentity.typeOfIdentification",
         "short": "typeOfIdentification",
         "definition": "typeOfIdentification",
+        "comment": "TKB-fält: `../typeOfIdentification` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1117,6 +1197,7 @@
         "path": "updateperson-request.confirmedIdentity.identificationNumber",
         "short": "identificationNumber",
         "definition": "identificationNumber",
+        "comment": "TKB-fält: `../identificationNumber` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1130,6 +1211,7 @@
         "path": "updateperson-request.confirmedIdentity.issuersOfId",
         "short": "issuersOfId",
         "definition": "issuersOfId",
+        "comment": "TKB-fält: `../issuersOfId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1143,6 +1225,7 @@
         "path": "updateperson-request.confirmedIdentity.validDatePeriod",
         "short": "validDatePeriod",
         "definition": "validDatePeriod",
+        "comment": "TKB-fält: `../validDatePeriod` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1156,6 +1239,7 @@
         "path": "updateperson-request.confirmedIdentity.validDatePeriod.start",
         "short": "start",
         "definition": "start",
+        "comment": "TKB-fält: `../../start` (`date`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1169,6 +1253,7 @@
         "path": "updateperson-request.confirmedIdentity.validDatePeriod.end",
         "short": "end",
         "definition": "end",
+        "comment": "TKB-fält: `../../end` (`date`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1182,6 +1267,7 @@
         "path": "updateperson-request.confirmedIdentity.attachmentId",
         "short": "attachmentId",
         "definition": "attachmentId",
+        "comment": "TKB-fält: `../attachmentId` (`string`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -1195,6 +1281,7 @@
         "path": "updateperson-request.confirmedIdentity.countryCode",
         "short": "countryCode",
         "definition": "countryCode",
+        "comment": "TKB-fält: `../countryCode` (`CountryCode`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1207,7 +1294,8 @@
         "id": "updateperson-request.addressAbroad",
         "path": "updateperson-request.addressAbroad",
         "short": "addressAbroad",
-        "definition": "Utlandsadress",
+        "definition": "Uppgiven utlandsadress",
+        "comment": "TKB-fält: `addressAbroad` (`urn:riv:strategicresourcemanagement:persons:person:5:AddressAbroadType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1221,6 +1309,7 @@
         "path": "updateperson-request.addressAbroad.postalAddress1",
         "short": "postalAddress1",
         "definition": "postalAddress1",
+        "comment": "TKB-fält: `../postalAddress1` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1234,6 +1323,7 @@
         "path": "updateperson-request.addressAbroad.postalAddress2",
         "short": "postalAddress2",
         "definition": "postalAddress2",
+        "comment": "TKB-fält: `../postalAddress2` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1247,6 +1337,7 @@
         "path": "updateperson-request.addressAbroad.postalAddress3",
         "short": "postalAddress3",
         "definition": "postalAddress3",
+        "comment": "TKB-fält: `../postalAddress3` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1260,6 +1351,7 @@
         "path": "updateperson-request.addressAbroad.countryCode",
         "short": "countryCode",
         "definition": "countryCode",
+        "comment": "TKB-fält: `../countryCode` (`String40`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1273,6 +1365,7 @@
         "path": "updateperson-request.addressAbroad.addressAbroadDate",
         "short": "addressAbroadDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../addressAbroadDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1286,6 +1379,7 @@
         "path": "updateperson-request.addressAbroad.addressAbroadDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1303,6 +1397,7 @@
         "path": "updateperson-request.addressAbroad.addressAbroadDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1316,6 +1411,7 @@
         "path": "updateperson-request.addressAbroad.votingDate",
         "short": "votingDate",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
+        "comment": "TKB-fält: `../votingDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1329,6 +1425,7 @@
         "path": "updateperson-request.addressAbroad.votingDate.format",
         "short": "format",
         "definition": "format",
+        "comment": "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1346,6 +1443,7 @@
         "path": "updateperson-request.addressAbroad.votingDate.partialDateValue",
         "short": "partialDateValue",
         "definition": "partialDateValue Heter value i schemat.",
+        "comment": "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
         "min": 1,
         "max": "1",
         "type": [

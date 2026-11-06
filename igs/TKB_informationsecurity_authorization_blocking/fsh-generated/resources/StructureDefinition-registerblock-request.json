@@ -44,7 +44,8 @@
         "id": "registerblock-request.blockId",
         "path": "registerblock-request.blockId",
         "short": "blockId",
-        "definition": "blockId",
+        "definition": "Unik, global identifierare för spärren. Anropande system ansvarar för att generera id:et.",
+        "comment": "TKB-fält: `blockId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "registerblock-request.blockType",
         "path": "registerblock-request.blockType",
         "short": "blockType",
-        "definition": "blockType",
+        "definition": "Enumerationsvärde som anger om spärren är en inre (inom vårdenhet) eller yttre (inom vårdgivare).",
+        "comment": "TKB-fält: `blockType` (`urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -74,7 +76,8 @@
         "id": "registerblock-request.patientId",
         "path": "registerblock-request.patientId",
         "short": "patientId",
-        "definition": "En universellt unik identifierare.",
+        "definition": "Personidentitet på patienten såsom personnummer, samordningsnummer eller reservnummer.",
+        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:blocking:4:IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** En universellt unik identifierare.",
         "min": 1,
         "max": "1",
         "type": [
@@ -88,6 +91,7 @@
         "path": "registerblock-request.patientId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -101,6 +105,7 @@
         "path": "registerblock-request.patientId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -113,7 +118,8 @@
         "id": "registerblock-request.informationStartDate",
         "path": "registerblock-request.informationStartDate",
         "short": "informationStartDate",
-        "definition": "informationStartDate",
+        "definition": "Ej obligatoriskt startdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller efter denna tidpunkt.",
+        "comment": "TKB-fält: `informationStartDate` (`xs:DateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -126,7 +132,8 @@
         "id": "registerblock-request.informationEndDate",
         "path": "registerblock-request.informationEndDate",
         "short": "informationEndDate",
-        "definition": "informationEndDate",
+        "definition": "Ej obligatoriskt slutdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller före denna tidpunkt.",
+        "comment": "TKB-fält: `informationEndDate` (`xs:DateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -139,7 +146,8 @@
         "id": "registerblock-request.informationCareUnitId",
         "path": "registerblock-request.informationCareUnitId",
         "short": "informationCareUnitId",
-        "definition": "informationCareUnitId",
+        "definition": "Obligatoriskt om spärren är en inre och endast då. Anger HSA-id för den vårdenhet spärren gäller för.",
+        "comment": "TKB-fält: `informationCareUnitId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -152,7 +160,8 @@
         "id": "registerblock-request.informationCareProviderId",
         "path": "registerblock-request.informationCareProviderId",
         "short": "informationCareProviderId",
-        "definition": "informationCareProviderId",
+        "definition": "Obligatoriskt HSA-id för den vårdgivare spärren gäller för.",
+        "comment": "TKB-fält: `informationCareProviderId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -165,7 +174,8 @@
         "id": "registerblock-request.excludedInformationTypes",
         "path": "registerblock-request.excludedInformationTypes",
         "short": "excludedInformationTypes",
-        "definition": "excludedInformationTypes",
+        "definition": "Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'.",
+        "comment": "TKB-fält: `excludedInformationTypes` (`urn:riv:informationsecurity:authorization:blocking:4:InformationTypeIdValue`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -178,7 +188,8 @@
         "id": "registerblock-request.temporaryRevokeRegistration",
         "path": "registerblock-request.temporaryRevokeRegistration",
         "short": "temporaryRevokeRegistration",
-        "definition": "Datatyp som representerar en registrering av en tillfällig hävning med de attribut som behövs.",
+        "definition": "Ej obligatorisk lista med tillfälliga hävningar. Detta möjliggör registrering/överföring av en spärr och tillhörande hävningar på en och samma gång. Denna lista lämnas tom i normalfallet.",
+        "comment": "TKB-fält: `temporaryRevokeRegistration` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeRegistrationType`, kardinalitet 0..*).\n\n**Modellanteckning:** Datatyp som representerar en registrering av en tillfällig hävning med de attribut som behövs.",
         "min": 0,
         "max": "*",
         "type": [
@@ -192,6 +203,7 @@
         "path": "registerblock-request.temporaryRevokeRegistration.temporaryRevokeId",
         "short": "temporaryRevokeId",
         "definition": "temporaryRevokeId",
+        "comment": "TKB-fält: `../temporaryRevokeId` (`Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -205,6 +217,7 @@
         "path": "registerblock-request.temporaryRevokeRegistration.blockId",
         "short": "blockId",
         "definition": "blockId",
+        "comment": "TKB-fält: `../blockId` (`Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -218,6 +231,7 @@
         "path": "registerblock-request.temporaryRevokeRegistration.endDate",
         "short": "endDate",
         "definition": "endDate",
+        "comment": "TKB-fält: `../endDate` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -231,6 +245,7 @@
         "path": "registerblock-request.temporaryRevokeRegistration.revokedForCareUnitId",
         "short": "revokedForCareUnitId",
         "definition": "revokedForCareUnitId",
+        "comment": "TKB-fält: `../revokedForCareUnitId` (`HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -244,6 +259,7 @@
         "path": "registerblock-request.temporaryRevokeRegistration.revokedForEmployeeId",
         "short": "revokedForEmployeeId",
         "definition": "revokedForEmployeeId",
+        "comment": "TKB-fält: `../revokedForEmployeeId` (`HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

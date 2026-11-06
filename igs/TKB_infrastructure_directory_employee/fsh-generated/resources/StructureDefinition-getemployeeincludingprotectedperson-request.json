@@ -40,7 +40,8 @@
         "id": "getemployeeincludingprotectedperson-request.personHsaId",
         "path": "getemployeeincludingprotectedperson-request.personHsaId",
         "short": "Sökt persons HSA-id",
-        "definition": "Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].\nKardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.",
+        "definition": "Sökt persons HSA-id.\n\nRef. HSA-id (hsaIdentity) [R5]",
+        "comment": "TKB-fält: `personHsaId *1)` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -53,7 +54,8 @@
         "id": "getemployeeincludingprotectedperson-request.personalIdentityNumber",
         "path": "getemployeeincludingprotectedperson-request.personalIdentityNumber",
         "short": "Sökt persons Person-id (personnummer eller samordningsnummer)",
-        "definition": "Sökt persons Person-id (personnummer eller samordningsnummer).\nRef. person-id (personalIdentityNumber) [R5].\nKardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.",
+        "definition": "Sökt persons Person-id (personnummer eller samordningsnummer). Ref. person-id (personalIdentityNumber) [R5]",
+        "comment": "TKB-fält: `personalIdentityNumber *1)` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -66,7 +68,8 @@
         "id": "getemployeeincludingprotectedperson-request.searchBase",
         "path": "getemployeeincludingprotectedperson-request.searchBase",
         "short": "Sökbas (DN)",
-        "definition": "Sökbas. Om ingen sökbas anges används c=SE som sökbas.\nKardinalitet: Valfri.",
+        "definition": "Sökbas. Om ingen sökbas anges används c=SE som sökbas.",
+        "comment": "TKB-fält: `searchBase *2)` (`DN`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -79,7 +82,8 @@
         "id": "getemployeeincludingprotectedperson-request.includeFeignedObject",
         "path": "getemployeeincludingprotectedperson-request.includeFeignedObject",
         "short": "Inkludera fingerade objekt",
-        "definition": "true: om metoden ska leverera svar med fingerade objekt.\nUteblivet värde tolkas som false. Kardinalitet: Valfri.",
+        "definition": "true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.",
+        "comment": "TKB-fält: `includeFeignedObject` (`boolean`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -92,7 +96,8 @@
         "id": "getemployeeincludingprotectedperson-request.profile",
         "path": "getemployeeincludingprotectedperson-request.profile",
         "short": "Profilval för returnerade attribut (BASIC, TITLE, CONTACT, FULL, extended1)",
-        "definition": "Anger vilka attribut som returneras i svaret.\nBASIC: personHsaId, givenName, middleAndSurName, nickname, dn, protectedPerson, feignedPerson.\nTITLE: Alla BASIC-attribut samt description, title, healthCareProfessionalLicence, m.fl.\nCONTACT: Alla BASIC-attribut samt mail, telefonnummer, adress m.fl.\nFULL: Alla BASIC-, TITLE- och CONTACT-attribut.\nextended1: Alla FULL-attribut samt age och gender.\nOm värdet utelämnas antas FULL.\nKardinalitet: Valfri.",
+        "definition": "Anger vilka attribut som returneras i svaret. Värde kan skrivas med både stora och/eller små bokstäver. Om värdet utelämnas antas värdet vara FULL. Följande värden kan användas: BASIC, TITLE, CONTACT, FULL, extended1.",
+        "comment": "TKB-fält: `profile` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Anger vilka attribut som returneras i svaret.\nBASIC: personHsaId, givenName, middleAndSurName, nickname, dn, protectedPerson, feignedPerson.\nTITLE: Alla BASIC-attribut samt description, title, healthCareProfessionalLicence, m.fl.\nCONTACT: Alla BASIC-attribut samt mail, telefonnummer, adress m.fl.\nFULL: Alla BASIC-, TITLE- och CONTACT-attribut.\nextended1: Alla FULL-attribut samt age och gender.\nOm värdet utelämnas antas FULL.",
         "min": 0,
         "max": "1",
         "type": [

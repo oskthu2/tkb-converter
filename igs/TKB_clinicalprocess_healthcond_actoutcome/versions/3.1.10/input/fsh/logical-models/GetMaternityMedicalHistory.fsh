@@ -530,3 +530,6 @@ Characteristics: #can-be-target
     En beskrivande text som kan visas för användaren.
     RIV-TA-typ: string. Kardinalitet i TKB: 0..1.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMaternityMedicalHistoryFieldDescriptions

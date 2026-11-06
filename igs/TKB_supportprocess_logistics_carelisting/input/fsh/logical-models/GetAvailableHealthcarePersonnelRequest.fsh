@@ -23,3 +23,6 @@ Characteristics: #can-be-target
   * codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
   * displayName 0..1 string "displayName" "displayName"
   * originalText 0..1 string "originalText" "originalText"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAvailableHealthcarePersonnelRequestFieldDescriptions

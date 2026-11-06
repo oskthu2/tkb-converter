@@ -23,3 +23,6 @@ Characteristics: #can-be-target
 * deletionAction.registeredBy.assignmentId 0..1 Identifier "Optionellt uppdragid (HSA-id)"
 * deletionAction.registeredBy.assignmentName 0..1 string "Optionellt uppdragsnamn (max 256 tecken)"
 * deletionAction.reasonText 0..1 string "Optionell anledning till makuleringen (max 1024 tecken)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteExtendedPatientRelationRequestFieldDescriptions

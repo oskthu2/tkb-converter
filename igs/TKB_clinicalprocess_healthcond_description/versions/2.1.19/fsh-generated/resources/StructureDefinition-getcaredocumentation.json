@@ -31,7 +31,8 @@
         "id": "getcaredocumentation.careDocumentation",
         "path": "getcaredocumentation.careDocumentation",
         "short": "De hälso- och sjukvårdsdokument som matchar begäran",
-        "definition": "De hälso- och sjukvårdsdokument som matchar begäran. TKB-typ: CareDocumentationType. Kardinalitet: 0..*.",
+        "definition": "De hälso- och sjukvårdsdokument som matchar begäran.",
+        "comment": "TKB-fält: `careDocumentation` (`CareDocumentationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader",
         "short": "Innehåller basinformation om dokumentet",
-        "definition": "Innehåller basinformation om dokumentet. TKB-typ: PatientSummaryHeaderType. Kardinalitet: 1..1.",
+        "definition": "Innehåller basinformation om dokumentet",
+        "comment": "TKB-fält: `../careDocumentationHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.documentId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.documentId",
         "short": "Dokumentets identitet som är unik inom källsystemet",
-        "definition": "Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. TKB-typ: string. Kardinalitet: 1..1.",
+        "definition": "Dokumentets identitet som är unik inom källsystemet.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+        "comment": "TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.sourceSystemHSAid",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.sourceSystemHSAid",
         "short": "HSA-id för det system som dokumentet är skapat i",
-        "definition": "HSA-id för det system som dokumentet är skapat i. / Notera att elementnamnet i de andra kontrakten är sourceSystemHSAId (med ett versalt I). Skälet till avvikelsen här är p.g.a. behovet av detta kontrakts bakåtkompatibilitet med kontraktet i version 2.0. TKB-typ: HSAIdType. Kardinalitet: 1..1.",
+        "definition": "HSA-id för det system som dokumentet är skapat i.\n\nNotera att elementnamnet i de andra kontrakten är sourceSystemHSAId (med ett versalt I). Skälet till avvikelsen här är p.g.a. behovet av detta kontrakts bakåtkompatibilitet med kontraktet i version 2.0.",
+        "comment": "TKB-fält: `../../sourceSystemHSAid` (`HSAIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTitle",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTitle",
         "short": "Titel som beskriver den information som sänds i dokumentet",
-        "definition": "Titel som beskriver den information som sänds i dokumentet. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Titel som beskriver den information som sänds i dokumentet.",
+        "comment": "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTime",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTime",
         "short": "Händelsetidpunkt",
-        "definition": "Händelsetidpunkt. Tidsangivelse för den händelse dokumentet gäller. TKB-typ: TimeStampType. Kardinalitet: 0..1.",
+        "definition": "Händelsetidpunkt. Tidsangivelse för den händelse dokumentet gäller.",
+        "comment": "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.patientId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.patientId",
         "short": "Identifierare för patient",
-        "definition": "Identifierare för patient. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) ), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) ), [R14].",
+        "definition": "Identifierare för patient.",
+        "comment": "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för patient. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) ), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) ), [R14].",
         "min": 1,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional",
         "short": "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas …",
-        "definition": "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare. TKB-typ: HealthcareProfessionalType. Kardinalitet: 1..1.",
+        "definition": "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare.",
+        "comment": "TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.authorTime",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.authorTime",
         "short": "Tidpunkt då informationen registrerades",
-        "definition": "Tidpunkt då informationen registrerades. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+        "definition": "Tidpunkt då informationen registrerades.",
+        "comment": "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
         "short": "Författarens HSA-id",
-        "definition": "Författarens HSA-id. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+        "definition": "Författarens HSA-id",
+        "comment": "TKB-fält: `../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1).\n\n**Modellanteckning:** Författarens HSA-id. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
         "min": 0,
         "max": "1",
         "type": [
@@ -161,7 +171,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalName",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalName",
         "short": "Namn på författaren",
-        "definition": "Namn på författaren. Om tillgängligt ska detta anges. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Namn på författaren. Om tillgängligt ska detta anges.",
+        "comment": "TKB-fält: `../../../healthcareProfessionalName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -174,7 +185,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
         "short": "Information om personens befattning",
-        "definition": "Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13]. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för befattningskod. | codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod. | displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+        "definition": "Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13].",
+        "comment": "TKB-fält: `../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).\n\n**Modellanteckning:** Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13]. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för befattningskod. | codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod. | displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
         "min": 0,
         "max": "1",
         "type": [
@@ -187,7 +199,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
         "short": "Den organisation som författaren är uppdragstagare på",
-        "definition": "Den organisation som författaren är uppdragstagare på. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). TKB-typ: OrgUnitType. Kardinalitet: 1..1.",
+        "definition": "Den organisation som författaren är uppdragstagare på. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).",
+        "comment": "TKB-fält: `../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -200,7 +213,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
         "short": "HSA-id för organisationsenhet",
-        "definition": "HSA-id för organisationsenhet. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). TKB-typ: HSAIdType. Kardinalitet: 1..1.",
+        "definition": "HSA-id för organisationsenhet. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).",
+        "comment": "TKB-fält: `../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -213,7 +227,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
         "short": "Namnet på den organisation som författaren är uppdragstagare på",
-        "definition": "Namnet på den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 1..1.",
+        "definition": "Namnet på den organisation som författaren är uppdragstagare på",
+        "comment": "TKB-fält: `../../../../orgUnitName` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -226,7 +241,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
         "short": "Telefon till organisationsenhet",
-        "definition": "Telefon till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Telefon till organisationsenhet",
+        "comment": "TKB-fält: `../../../../orgUnitTelecom` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -239,7 +255,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
         "short": "Epost till enhet",
-        "definition": "Epost till enhet. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Epost till enhet",
+        "comment": "TKB-fält: `../../../../orgUnitEmail` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -252,7 +269,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
         "short": "Postadress för den organisation som författaren är uppdragstagare på",
-        "definition": "Postadress för den organisation som författaren är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby”. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Postadress för den organisation som författaren är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n\n”Storgatan 12\n\n468 91 Lilleby”",
+        "comment": "TKB-fält: `../../../../orgUnitAddress` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -265,7 +283,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
         "short": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
-        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+        "comment": "TKB-fält: `../../../../orgUnitLocation` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -278,7 +297,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
         "short": "HSA-id för Vårdenhet",
-        "definition": "HSA-id för Vårdenhet / (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+        "definition": "HSA-id för Vårdenhet\n\n(Regel: 1)",
+        "comment": "TKB-fält: `../../../healthcareProfessionalCareUnitHSAId` (`HSAIdType`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för Vårdenhet / (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
         "min": 0,
         "max": "1",
         "type": [
@@ -291,7 +311,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
         "short": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för",
-        "definition": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. / (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+        "definition": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för.\n\n(Regel: 1)",
+        "comment": "TKB-fält: `../../../healthcareProfessionalCareGiverHSAId` (`HSAIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -304,7 +325,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator",
         "short": "Information om vem som signerat informationen i dokumentet",
-        "definition": "Information om vem som signerat informationen i dokumentet. TKB-typ: LegalAuthenticatorType. Kardinalitet: 0..1.",
+        "definition": "Information om vem som signerat informationen i dokumentet.",
+        "comment": "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -317,7 +339,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.signatureTime",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.signatureTime",
         "short": "Tidpunkt för signering",
-        "definition": "Tidpunkt för signering. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+        "definition": "Tidpunkt för signering",
+        "comment": "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).\n\n**Modellanteckning:** Tidpunkt för signering. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
         "min": 1,
         "max": "1",
         "type": [
@@ -330,7 +353,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorHSAId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorHSAId",
         "short": "HSA-id för person som signerat dokumentet",
-        "definition": "HSA-id för person som signerat dokumentet. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+        "definition": "HSA-id för person som signerat dokumentet",
+        "comment": "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -343,7 +367,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorName",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorName",
         "short": "Namnen i klartext för signerande person",
-        "definition": "Namnen i klartext för signerande person. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Namnen i klartext för signerande person.",
+        "comment": "TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -356,7 +381,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.approvedForPatient",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.approvedForPatient",
         "short": "Anger om information får delas till patient",
-        "definition": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. TKB-typ: boolean. Kardinalitet: 1..1.",
+        "definition": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+        "comment": "TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -369,7 +395,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.careContactId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.careContactId",
         "short": "Identitetet för den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet",
-        "definition": "Identitetet för den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Identitetet för den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+        "comment": "TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -382,7 +409,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.nullified",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.nullified",
         "short": "nullified",
-        "definition": "Används ej. TKB-typ: -. Kardinalitet: 0..0.",
+        "definition": "N/A",
+        "comment": "TKB-fält: `../../nullified` (kardinalitet 0..0).\n\n**Modellanteckning:** Används ej. TKB-typ: -. Kardinalitet: 0..0.",
         "min": 0,
         "max": "0",
         "type": [
@@ -395,7 +423,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationHeader.nullifiedReason",
         "path": "getcaredocumentation.careDocumentation.careDocumentationHeader.nullifiedReason",
         "short": "nullifiedReason",
-        "definition": "Används ej. TKB-typ: -. Kardinalitet: 0..0.",
+        "definition": "N/A",
+        "comment": "TKB-fält: `../../nullifiedReason` (kardinalitet 0..0).\n\n**Modellanteckning:** Används ej. TKB-typ: -. Kardinalitet: 0..0.",
         "min": 0,
         "max": "0",
         "type": [
@@ -409,6 +438,7 @@
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody",
         "short": "careDocumentationBody",
         "definition": "careDocumentationBody. TKB-typ: CareDocumentationBodyType. Kardinalitet: 1..1.",
+        "comment": "TKB-fält: `../careDocumentationBody` (`CareDocumentationBodyType`, kardinalitet 1..1).\n\n**Modellanteckning:** careDocumentationBody. TKB-typ: CareDocumentationBodyType. Kardinalitet: 1..1.",
         "min": 1,
         "max": "1",
         "type": [
@@ -421,7 +451,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote",
         "short": "Dokument/anteckning",
-        "definition": "Dokument/anteckning. TKB-typ: ClinicalDocumentNoteType. Kardinalitet: 1..1.",
+        "definition": "Dokument/anteckning.",
+        "comment": "TKB-fält: `../../clinicalDocumentNote` (`ClinicalDocumentNoteType`, kardinalitet 1..1).\n\n**Modellanteckning:** Dokument/anteckning. TKB-typ: ClinicalDocumentNoteType. Kardinalitet: 1..1.",
         "min": 1,
         "max": "1",
         "type": [
@@ -450,7 +481,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteCode",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteCode",
         "short": "Obligatoriskt om clinicalDocumentTypeCode saknas",
-        "definition": "Obligatoriskt om clinicalDocumentTypeCode saknas. Får annars inte anges samtidigt med clinicalDocumentTypeCode. / Typ av hälso- och sjukvårdsdokument. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11). / Tillåtna värden är: / utr = Utredning, / atb = åtgärd/Behandling, / sam = Sammanfattning, / sao = Samordning, / ins = Inskrivning, / slu = Slutanteckning, / auf = Anteckning utan fysiskt möte, / sva = Slutenvårdsanteckning, / bes = Besöksanteckning. TKB-typ: ClinicalDocumentNoteCodeEnum. Kardinalitet: 0..1.",
+        "definition": "Obligatoriskt om clinicalDocumentTypeCode saknas. Får annars inte anges samtidigt med clinicalDocumentTypeCode.\n\nTyp av hälso- och sjukvårdsdokument. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).\n\nTillåtna värden är:\n\nutr = Utredning,\n\natb = åtgärd/Behandling,\n\nsam = Sammanfattning,\n\nsao = Samordning,\n\nins = Inskrivning,\n\nslu = Slutanteckning,\n\nauf = Anteckning utan fysiskt möte,\n\nsva = Slutenvårdsanteckning,\n\nbes = Besöksanteckning.",
+        "comment": "TKB-fält: `../../../clinicalDocumentNoteCode` (`ClinicalDocumentNoteCodeEnum`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -467,7 +499,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentTypeCode",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentTypeCode",
         "short": "Obligatoriskt om clinicalDocumentNoteCode saknas",
-        "definition": "Obligatoriskt om clinicalDocumentNoteCode saknas. Får annars inte anges samtidigt med clinicalDocumentNoteCode. / Epikris = epi / Intagninganteckning = int / Daganteckning = dag / Öppenvårdsanteckning = ova Öppenvårdssammanfattning = ovs / Övrigt document = ovr. TKB-typ: ClinicalDocumentTypeCodeEnum. Kardinalitet: 0..0.",
+        "definition": "Obligatoriskt om clinicalDocumentNoteCode saknas. Får annars inte anges samtidigt med clinicalDocumentNoteCode.\n\nEpikris = epi\n\nIntagninganteckning = int\n\nDaganteckning = dag\n\nÖppenvårdsanteckning = ova Öppenvårdssammanfattning = ovs\n\nÖvrigt document = ovr",
+        "comment": "TKB-fält: `../../../clinicalDocumentTypeCode` (`ClinicalDocumentTypeCodeEnum`, kardinalitet 0..0).",
         "min": 0,
         "max": "0",
         "type": [
@@ -480,7 +513,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteTitle",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteTitle",
         "short": "Titel på dokument",
-        "definition": "Titel på dokument. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Titel på dokument",
+        "comment": "TKB-fält: `../../../clinicalDocumentNoteTitle` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Titel på dokument. TKB-typ: string. Kardinalitet: 0..1.",
         "min": 0,
         "max": "1",
         "type": [
@@ -493,7 +527,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteText",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteText",
         "short": "Dokumentets innehåll i text",
-        "definition": "Dokumentets innehåll i text. / Texten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3. / Obs Man kan välja att skicka dokumentets innehåll i elementet clinicalDocumentNoteText eller i multimediaEntry enligt respektive elements regler, man får inte skicka med båda elementen. Regeln finns med i constraints.xml (schematron) under katalogen test-suites och kan valideras med testsviten. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "Dokumentets innehåll i text.\n\nTexten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3.\n\nObs Man kan välja att skicka dokumentets innehåll i elementet clinicalDocumentNoteText eller i multimediaEntry enligt respektive elements regler, man får inte skicka med båda elementen. Regeln finns med i constraints.xml (schematron) under katalogen test-suites och kan valideras med testsviten.",
+        "comment": "TKB-fält: `../../../clinicalDocumentNoteText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -506,7 +541,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry",
         "short": "Dokumentets innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk …",
-        "definition": "Dokumentets innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet. / Obs Man kan välja att skicka dokumentets innehåll i elementet clinicalDocumentNoteText eller i multimediaEntry enligt respektive elements regler, man får inte skicka med båda elementen. Regeln finns med i constraints.xml(schematron) under katalogen test-suites och kan valideras med testsviten. TKB-typ: MultimediaType. Kardinalitet: 0..1.",
+        "definition": "Dokumentets innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet.\n\nObs Man kan välja att skicka dokumentets innehåll i elementet clinicalDocumentNoteText eller i multimediaEntry enligt respektive elements regler, man får inte skicka med båda elementen. Regeln finns med i constraints.xml(schematron) under katalogen test-suites och kan valideras med testsviten.",
+        "comment": "TKB-fält: `../../../multimediaEntry` (`MultimediaType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -528,7 +564,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.multimediaId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.multimediaId",
         "short": "id",
-        "definition": "Används ej. TKB-typ: -. Kardinalitet: 0..0. TKB-namn: id (används ej, 0..0). Döpt om eftersom id är reserverat i FHIR.",
+        "definition": "N/A",
+        "comment": "TKB-fält: `../../../../id` (kardinalitet 0..0).\n\n**Modellanteckning:** Används ej. TKB-typ: -. Kardinalitet: 0..0. TKB-namn: id (används ej, 0..0). Döpt om eftersom id är reserverat i FHIR.",
         "min": 0,
         "max": "0",
         "type": [
@@ -541,7 +578,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.mediaType",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.mediaType",
         "short": "Typ av multimedia (enligt HL7)",
-        "definition": "Typ av multimedia (enligt HL7). TKB-typ: MediaTypeEnum. Kardinalitet: 1..1.",
+        "definition": "Typ av multimedia (enligt HL7).",
+        "comment": "TKB-fält: `../../../../ mediaType` (`MediaTypeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** Typ av multimedia (enligt HL7). TKB-typ: MediaTypeEnum. Kardinalitet: 1..1.",
         "min": 1,
         "max": "1",
         "type": [
@@ -554,7 +592,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.value",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.value",
         "short": "Value är binärdata som representerar objektet",
-        "definition": "Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges. TKB-typ: base64Binary. Kardinalitet: 0..1.",
+        "definition": "Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges.",
+        "comment": "TKB-fält: `../../../../value` (`base64Binary`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -567,7 +606,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.reference",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.reference",
         "short": "Referens till extern bild i form av en URL. Ett och endast ett av attributen value och reference ska anges",
-        "definition": "Referens till extern bild i form av en URL. Ett och endast ett av attributen value och reference ska anges. TKB-typ: anyURI. Kardinalitet: 0..1.",
+        "definition": "Referens till extern bild i form av en URL. Ett och endast ett av attributen value och reference ska anges.",
+        "comment": "TKB-fält: `../../../../reference` (`anyURI`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -580,7 +620,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion",
         "short": "Om patienten eller någon för denna ansvarig person (exempelvis förälder eller god man) har lämnat en …",
-        "definition": "Om patienten eller någon för denna ansvarig person (exempelvis förälder eller god man) har lämnat en avvikande åsikt till journalnotatet. TKB-typ: DissentingOpinionType. Kardinalitet: 0..*. OBS: elementet heter dissentintOpinion i XSD:n (GetCareDocumentationResponder_2.1.xsd / clinicalprocess_healthcond_description_2.1.xsd).",
+        "definition": "Om patienten eller någon för denna ansvarig person (exempelvis förälder eller god man) har lämnat en avvikande åsikt till journalnotatet.",
+        "comment": "TKB-fält: `../../../dissentingOpinion` (`DissentingOpinionType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -593,7 +634,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.opinionId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.opinionId",
         "short": "En universellt unik identifierare för den avvikande åsikten",
-        "definition": "En universellt unik identifierare för den avvikande åsikten. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat. TKB-typ: IIType. Kardinalitet: 0..1. Underelement i IIType: root (string, 1..1): En universellt unik identifierare för den avvikande åsikten eller en identifierare som tillsammans med värdet för ”extension” ger en universellt unik identifierare. | extension (string, 0..1): Om värdet på root inte universellt unikt ska detta fält innehålla ett kompletterande värde som tillsammans med värdet för root ger en universellt unik identifierare.",
+        "definition": "En universellt unik identifierare för den avvikande åsikten. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat.",
+        "comment": "TKB-fält: `../../../../opinionId` (`IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** En universellt unik identifierare för den avvikande åsikten. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat. TKB-typ: IIType. Kardinalitet: 0..1. Underelement i IIType: root (string, 1..1): En universellt unik identifierare för den avvikande åsikten eller en identifierare som tillsammans med värdet för ”extension” ger en universellt unik identifierare. | extension (string, 0..1): Om värdet på root inte universellt unikt ska detta fält innehålla ett kompletterande värde som tillsammans med värdet för root ger en universellt unik identifierare.",
         "min": 0,
         "max": "1",
         "type": [
@@ -606,7 +648,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.authorTime",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.authorTime",
         "short": "Tidpunkten då den avvikande åsikten författades",
-        "definition": "Tidpunkten då den avvikande åsikten författades. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+        "definition": "Tidpunkten då den avvikande åsikten författades.",
+        "comment": "TKB-fält: `../../../../authorTime` (`TimeStampType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -619,7 +662,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.opinion",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.opinion",
         "short": "Text som innehåller själva den avvikande åsikten",
-        "definition": "Text som innehåller själva den avvikande åsikten. TKB-typ: string. Kardinalitet: 1..1.",
+        "definition": "Text som innehåller själva den avvikande åsikten.",
+        "comment": "TKB-fält: `../../../../opinion` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -632,7 +676,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.personId",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.personId",
         "short": "Id för författaren av den avvikande åsikten",
-        "definition": "Id för författaren av den avvikande åsikten. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till personens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1) ), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) ), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) ), [R14].",
+        "definition": "Id för författaren av den avvikande åsikten",
+        "comment": "TKB-fält: `../../../../personId` (`PersonIdType`, kardinalitet 1..1).\n\n**Modellanteckning:** Id för författaren av den avvikande åsikten. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till personens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1) ), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) ), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) ), [R14].",
         "min": 1,
         "max": "1",
         "type": [
@@ -645,7 +690,8 @@
         "id": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.personName",
         "path": "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentingOpinion.personName",
         "short": "Namnet på författaren av den avvikande åsikten",
-        "definition": "Namnet på författaren av den avvikande åsikten. TKB-typ: string. Kardinalitet: 1..1.",
+        "definition": "Namnet på författaren av den avvikande åsikten.",
+        "comment": "TKB-fält: `../../../../personName` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -658,7 +704,8 @@
         "id": "getcaredocumentation.result",
         "path": "getcaredocumentation.result",
         "short": "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för …",
-        "definition": "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl. TKB-typ: ResultType. Kardinalitet: 1..1.",
+        "definition": "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.",
+        "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -671,7 +718,8 @@
         "id": "getcaredocumentation.result.resultCode",
         "path": "getcaredocumentation.result.resultCode",
         "short": "Kan endast vara OK, INFO eller ERROR",
-        "definition": "Kan endast vara OK, INFO eller ERROR. TKB-typ: ResultCodeEnum. Kardinalitet: 1..1.",
+        "definition": "Kan endast vara OK, INFO eller ERROR",
+        "comment": "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -684,7 +732,8 @@
         "id": "getcaredocumentation.result.errorCode",
         "path": "getcaredocumentation.result.errorCode",
         "short": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information",
-        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information. TKB-typ: ErrorCodeEnum. Kardinalitet: 0..1.",
+        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -697,7 +746,8 @@
         "id": "getcaredocumentation.result.subcode",
         "path": "getcaredocumentation.result.subcode",
         "short": "Inga subkoder är specificerade",
-        "definition": "Inga subkoder är specificerade. TKB-typ: string. Kardinalitet: 0..1. OBS: elementet heter subCode i XSD:n.",
+        "definition": "Inga subkoder är specificerade.",
+        "comment": "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Inga subkoder är specificerade. TKB-typ: string. Kardinalitet: 0..1. OBS: elementet heter subCode i XSD:n.",
         "min": 0,
         "max": "1",
         "type": [
@@ -710,7 +760,8 @@
         "id": "getcaredocumentation.result.logId",
         "path": "getcaredocumentation.result.logId",
         "short": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent",
-        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent. TKB-typ: string. Kardinalitet: 1..1.",
+        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+        "comment": "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -723,7 +774,8 @@
         "id": "getcaredocumentation.result.message",
         "path": "getcaredocumentation.result.message",
         "short": "En beskrivande text som kan visas för användaren",
-        "definition": "En beskrivande text som kan visas för användaren. TKB-typ: string. Kardinalitet: 0..1.",
+        "definition": "En beskrivande text som kan visas för användaren.",
+        "comment": "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

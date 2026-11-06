@@ -16,3 +16,6 @@ Characteristics: #can-be-target
 * dosaktor 1..1 string "dosaktor" "dosaktor"
 * vardandeenhetnamn 1..1 string "vardandeenhetnamn" "vardandeenhetnamn"
 * vardandeenhetort 1..1 string "vardandeenhetort" "vardandeenhetort"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SokVardandeEnhetRequestFieldDescriptions

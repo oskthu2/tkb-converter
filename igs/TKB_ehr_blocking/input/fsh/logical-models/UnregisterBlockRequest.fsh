@@ -10,3 +10,6 @@ Characteristics: #can-be-target
 
 * ^version = "2.0"
 * blockId 1..1 string "Unik identifierare (UUID) för den spärr som skall avregistreras."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UnregisterBlockRequestFieldDescriptions

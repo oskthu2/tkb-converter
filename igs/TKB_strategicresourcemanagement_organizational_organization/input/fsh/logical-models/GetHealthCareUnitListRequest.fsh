@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * healthCareProviderHsaId 1..1 string "healthCareProviderHsaId" "healthCareProviderHsaId"
 * searchBase 0..1 string "searchBase" "searchBase"
 * includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthCareUnitListRequestFieldDescriptions

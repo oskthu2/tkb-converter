@@ -1,0 +1,44 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetVaccinationHistoryRequestFieldDescriptions
+* careUnitHSAid ^definition = "Begränsar sökningen till angivna informationsägande vårdenheter. Anges med HSA-id. Motsvarar careUnitHSAid i HealthCareProfessionalType i svaret.
+
+root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1).
+
+extension sätts till HSA-id för informationsägande vårdenhet."
+* careUnitHSAid ^comment = "TKB-fält: `careUnitHSAid` (`HSAIdType`, kardinalitet 0..*)."
+* patientId ^definition = "Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplade till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.
+
+id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
+
+type sätts till OID för typ av personidentifierare.
+
+För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För andra typer av personidentifierare sätts type till aktuell OID."
+* patientId ^comment = "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).
+
+**Modellanteckning:** Tjänsteproducenten ska i svaret enbart returnera information relaterad till angiven patient."
+* timePeriod ^definition = "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där tidpunkterna documentTime, authorTime, signatureTime eller registrationrecord.date i svaret ligger inom sökintervallets start- och slutdatum.
+
+Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse med tidpunkter ska hela det dygn som anges i slutdatum betraktas som en del av sökintervallet."
+* timePeriod ^comment = "TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1)."
+* sourceSystemHSAid ^definition = "Begränsar sökningen till journalposter som är skapade i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
+
+Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
+
+Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.
+
+Ska anges om careContactId angivits.
+
+Ska anges vid begäran på LRID.
+
+Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
+
+Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST."
+* sourceSystemHSAid ^comment = "TKB-fält: `sourceSystemHSAid` (`HSAIdType`, kardinalitet 0..1)."
+* careContactId ^definition = "Begränsar sökningen till den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet"
+* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*)."

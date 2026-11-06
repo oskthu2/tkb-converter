@@ -1,0 +1,28 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetHospPersonForIVORequestFieldDescriptions
+* personnummer ^definition = "Söker en person efter personnummer. Anges enligt formatet ÅÅÅÅMMDDXXXX"
+* personnummer ^comment = "TKB-fält: `personnummer` (`String`, kardinalitet 0..1)."
+* samordningsnummer ^definition = "Samordningsnummer"
+* samordningsnummer ^comment = "TKB-fält: `samordningsnummer` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Söker en person efter samordningsnummer. Format: ÅÅÅÅMMDDXXXX (12 siffror)."
+* efternamn ^definition = "Söker personer efter efternamn"
+* efternamn ^comment = "TKB-fält: `efternamn` (`String`, kardinalitet 0..1)."
+* fornamn ^definition = "Söker personer efter förnamn"
+* fornamn ^comment = "TKB-fält: `fornamn` (`String`, kardinalitet 0..1)."
+* fodelsedatum ^definition = "Söker personer efter födelsedatum"
+* fodelsedatum ^comment = "TKB-fält: `fodelseDatum` (`Date`, kardinalitet 0..1)."
+* lansKod ^definition = "Filtrerar sökning efter person utifrån länskod"
+* lansKod ^comment = "TKB-fält: `lansKod` (`String`, kardinalitet 0..1)."
+* kommunKod ^definition = "Filtrerar sökning efter person utifrån kommunkod"
+* kommunKod ^comment = "TKB-fält: `kommunKod` (`String`, kardinalitet 0..1)."
+* folkbokforingsort ^definition = "Filtrerar sökning efter person utifrån folkbokföringsort. Tillåter wildcard i angiven sträng."
+* folkbokforingsort ^comment = "TKB-fält: `folkbokforingsort*` (`String`, kardinalitet 0..1)."
+* forskrivarkod ^definition = "Filtrerar sökning efter person utifrån kommunkod"
+* forskrivarkod ^comment = "TKB-fält: `forskrivarkod` (`String`, kardinalitet 0..1)."
+* yrke ^definition = "Filtrerar sökning efter person utifrån grundyrke. Tillåter wildcard i angiven sträng."
+* yrke ^comment = "TKB-fält: `yrke*` (`String`, kardinalitet 0..1)."
+* specialistinriktning ^definition = "Filtrerar sökning efter person utifrån specialistinriktning, Tillåter wildcard i angiven sträng. Tillåter även att en av Socialstyrelsens specialistinriktningskoder anges."
+* specialistinriktning ^comment = "TKB-fält: `specialistinriktning*` (`String`, kardinalitet 0..1)."

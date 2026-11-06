@@ -102,3 +102,6 @@ Characteristics: #can-be-target
     * frantid 0..1 dateTime "frantid" "frantid"
     * tilltid 0..1 dateTime "tilltid" "tilltid"
   * vilandestatusorsak 0..* string "vilandestatusorsak" "vilandestatusorsak"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaVardtagareinformationFieldDescriptions

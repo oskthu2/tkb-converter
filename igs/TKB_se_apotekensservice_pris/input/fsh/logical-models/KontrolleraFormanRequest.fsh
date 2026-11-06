@@ -42,3 +42,6 @@ Characteristics: #can-be-target
   * session 1..1 string "session" "Sessionens id i anropande system."
   * system 1..1 string "system" "GLN-kod för anropande system."
 * fodelsedatum 0..1 string "fodelsedatum" "Födelsedatum. Anges på formen yyyymmdd. Används vid framtagning av förmånskod när varan är preventivmedel med förmånskod R. Om personen är under 21 år blir förmånskoden F för dessa varor. Gäller när lagen om gratis preventivmedel för personer under 21 år trätt i kraft. (Refererat element ur KontrolleraFormanResponder_1_ext_1.0.xsd, namnrymd urn:riv:se.apotekensservice:pris:KontrolleraFormanResponder:1:ext:1.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KontrolleraFormanRequestFieldDescriptions

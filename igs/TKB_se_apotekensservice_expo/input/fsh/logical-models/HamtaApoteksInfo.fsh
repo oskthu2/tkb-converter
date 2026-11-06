@@ -24,3 +24,6 @@ Characteristics: #can-be-target
   * ort 0..1 string "ort" "Expeditionsställets besöksort"
   * slutdatum 0..1 dateTime "slutdatum" "Datum för stängning av verksamhet"
   * startdatum 1..1 dateTime "startdatum" "Datum för start av verksamhet"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaApoteksInfoFieldDescriptions

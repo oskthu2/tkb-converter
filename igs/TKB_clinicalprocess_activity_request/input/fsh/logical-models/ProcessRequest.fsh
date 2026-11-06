@@ -109,3 +109,6 @@ Characteristics: #can-be-target
   * reference 0..0 uri "Referens" "URL för refererad bilaga. Används inte i denna version."
   * description 0..1 string "Beskrivning" "Beskrivning av bilaga. Maxlängd 256 tecken."
 * careProcessId 0..1 string "Vårdprocess id" "Identifierar den individanpassade vårdprocess som remissen är en del av."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessRequestFieldDescriptions

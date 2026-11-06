@@ -14,3 +14,6 @@ Characteristics: #can-be-target
   * bookingNumber 1..1 integer "Beställningsnummer" "Tolkportalens beställningsnummer (≥ 0)."
   * referenceNumber 1..1 string "Referensnummer" "Tolkförmedlingens referensnummer."
 * result 1..1 InterpretationResult "Resultat" "Information om anropets resultat (ResultType)."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateBookingResponseFieldDescriptions

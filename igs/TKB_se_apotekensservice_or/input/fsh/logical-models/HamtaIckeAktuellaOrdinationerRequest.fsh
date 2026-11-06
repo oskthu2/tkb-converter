@@ -39,3 +39,6 @@ Characteristics: #can-be-target
 * ordinationsId 0..1 string "ordinationsId" "OrdinationsId. Anges om bara en ordination ska returneras."
 * grupplegitimationskod 0..1 string "grupplegitimationskod" "Användarens 6-ställiga grupplegitimationskod. Obligatorisk för Apotekselev, receptarieelev, Teknikerelev och Europeisk farmaceut."
 * gruppforskrivarkod 0..1 string "gruppforskrivarkod" "Gruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men har via sin roll erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av eHälsomyndigheten."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaIckeAktuellaOrdinationerRequestFieldDescriptions

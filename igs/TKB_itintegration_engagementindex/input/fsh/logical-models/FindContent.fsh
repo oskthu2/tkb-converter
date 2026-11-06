@@ -124,3 +124,6 @@ Characteristics: #can-be-target
     Sätts av engagemangsindex — ska INTE sättas av konsumenten.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert FindContentFieldDescriptions

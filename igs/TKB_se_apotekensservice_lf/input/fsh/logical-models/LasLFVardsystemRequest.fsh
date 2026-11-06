@@ -48,6 +48,9 @@ Characteristics: #can-be-target
   * system 1..1 string "system" "Systemnamn för anropande system. GLN-kod krävs för anrop från MVK och LTj."
 * personnummer 1..1 string "personnummer" "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert LasLFVardsystemRequestFieldDescriptions
+
 Invariant: laslfvardsystem-request-arbetsplats
 Description: "arbetsplatskod ska anges, annars både arbetsplatsnamn och arbetsplatsort."
 Expression: "arbetsplatskod.exists() or (arbetsplatsnamn.exists() and arbetsplatsort.exists())"

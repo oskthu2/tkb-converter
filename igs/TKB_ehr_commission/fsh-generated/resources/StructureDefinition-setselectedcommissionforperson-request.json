@@ -40,7 +40,8 @@
         "id": "setselectedcommissionforperson-request.personalHsaId",
         "path": "setselectedcommissionforperson-request.personalHsaId",
         "short": "HSA-id för den aktör vars uppdragsval ska sättas",
-        "definition": "HSA-id för den person vars medarbetaruppdragsval ska registreras.\nMaxlängd: 32 tecken.\nVillkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.\nKardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.",
+        "definition": "HSA-id för den aktör som medarbetaruppdrag ska hämtas för.",
+        "comment": "TKB-fält: `personalHsaId *)` (`commissionservice:HsaId`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för den person vars medarbetaruppdragsval ska registreras.\nMaxlängd: 32 tecken.\nVillkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.",
         "min": 0,
         "max": "1",
         "type": [
@@ -53,7 +54,8 @@
         "id": "setselectedcommissionforperson-request.personalIdentityNumber",
         "path": "setselectedcommissionforperson-request.personalIdentityNumber",
         "short": "Personnummer för den aktör vars uppdragsval ska sättas",
-        "definition": "Personnummer eller samordningsnummer för den person vars uppdragsval ska registreras.\nMaxlängd: 12 tecken.\nVillkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.\nKardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.",
+        "definition": "Personnummer för den aktör som medarbetaruppdrag ska hämtas för.",
+        "comment": "TKB-fält: `personalIdentityNumber *)` (`commissionservice:PersonalIdentityNumber`, kardinalitet 0..1).\n\n**Modellanteckning:** Personnummer eller samordningsnummer för den person vars uppdragsval ska registreras.\nMaxlängd: 12 tecken.\nVillkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.",
         "min": 0,
         "max": "1",
         "type": [
@@ -66,7 +68,8 @@
         "id": "setselectedcommissionforperson-request.commissionHsaId",
         "path": "setselectedcommissionforperson-request.commissionHsaId",
         "short": "HSA-id för det valda uppdraget",
-        "definition": "HSA-id för det medarbetaruppdrag som ska väljas som aktivt.\nOm detta fält utelämnas nollställs uppdragsvalet.\nDetta kan användas av autentiseringstjänsten för att tvinga fram ett\nnytt uppdragsval (t.ex. funktionen Byta Uppdrag).\nMaxlängd: 32 tecken.\nKardinalitet: Valfri.",
+        "definition": "HsaId för vilket uppdrag som är valt. Om detta fält utelämnas, så blir inget uppdrag valt. Detta kan vara aktuellt vid utloggning från en tunn klient.",
+        "comment": "TKB-fält: `commissionHsaId` (`commissionservice:HsaId`, kardinalitet 0..1).\n\n**Modellanteckning:** HSA-id för det medarbetaruppdrag som ska väljas som aktivt.\nOm detta fält utelämnas nollställs uppdragsvalet.\nDetta kan användas av autentiseringstjänsten för att tvinga fram ett\nnytt uppdragsval (t.ex. funktionen Byta Uppdrag).\nMaxlängd: 32 tecken.",
         "min": 0,
         "max": "1",
         "type": [

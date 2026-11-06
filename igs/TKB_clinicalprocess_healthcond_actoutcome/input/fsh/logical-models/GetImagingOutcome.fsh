@@ -134,3 +134,6 @@ Characteristics: #can-be-target
 * imagingOutcome.imagingOutcomeBody.referral.attested.signatureTime 1..1 instant "Attesttidpunkt"
 * imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorHSAId 0..1 Identifier "HSA-id"
 * imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorName 0..1 string "Namn"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetImagingOutcomeFieldDescriptions

@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * personId 1..1 BackboneElement "personId" "En universellt unik identifierare."
   * root 1..1 string "root" "root"
   * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPersonContactInformationRequestFieldDescriptions

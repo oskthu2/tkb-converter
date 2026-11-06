@@ -18,3 +18,6 @@ Characteristics: #can-be-target
 * ResultCode 1..1 code "ResultCode" "ResultCode"
 * ResultCode from ResultCodeVS (required)
 * comment 0..1 string "comment" "comment"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetTerminologySubsetInformationFieldDescriptions

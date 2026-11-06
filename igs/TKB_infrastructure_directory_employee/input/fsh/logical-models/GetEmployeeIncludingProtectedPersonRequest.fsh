@@ -47,6 +47,9 @@ Characteristics: #can-be-target
     Kardinalitet: Valfri.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetEmployeeIncludingProtectedPersonRequestFieldDescriptions
+
 Invariant: getemployeeincludingprotectedperson-request-hsaid-xor-pnr
 Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges."
 Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"

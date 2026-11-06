@@ -1,0 +1,28 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: TaBortHkdbKontoFieldDescriptions
+* innevPeriod ^definition = "Innevarande högkostnadsperiod."
+* innevPeriod ^comment = "TKB-fält: `innevPeriod` (`PeriodResponse`, kardinalitet 0..1)."
+* innevPeriod.balans ^definition = "Ackumulerad balans"
+* innevPeriod.balans ^comment = "TKB-fält: `../balans` (`BalansResponse`, kardinalitet 1..1)."
+* innevPeriod.balans.brutto ^definition = "Bruttobelopp i kronor och ören"
+* innevPeriod.balans.brutto ^comment = "TKB-fält: `../../brutto` (`double`, kardinalitet 1..1)."
+* innevPeriod.balans.netto ^definition = "Nettobelopp i kronor och ören"
+* innevPeriod.balans.netto ^comment = "TKB-fält: `../../netto` (`double`, kardinalitet 1..1)."
+* innevPeriod.start ^definition = "Periodens startdatum."
+* innevPeriod.start ^comment = "TKB-fält: `../start` (`dateTime`, kardinalitet 0..1)."
+* kommandePeriod ^definition = "Kommande högkostnadsperiod."
+* kommandePeriod ^comment = "TKB-fält: `kommandePeriod` (`PeriodResponse`, kardinalitet 0..1)."
+* kommandePeriod.balans ^definition = "Ackumulerad balans"
+* kommandePeriod.balans ^comment = "TKB-fält: `../balans` (`BalansResponse`, kardinalitet 1..1)."
+* kommandePeriod.balans.brutto ^definition = "Bruttobelopp i kronor och ören"
+* kommandePeriod.balans.brutto ^comment = "TKB-fält: `../../brutto` (`double`, kardinalitet 1..1)."
+* kommandePeriod.balans.netto ^definition = "Nettobelopp i kronor och ören"
+* kommandePeriod.balans.netto ^comment = "TKB-fält: `../../netto` (`double`, kardinalitet 1..1)."
+* kommandePeriod.start ^definition = "Periodens startdatum."
+* kommandePeriod.start ^comment = "TKB-fält: `../start` (`dateTime`, kardinalitet 0..1)."
+* resultat ^definition = "Resultat av kontouppdatering i HKDB. True - Konto borttaget."
+* resultat ^comment = "TKB-fält: `resultat` (`boolean`, kardinalitet 1..1)."
+* samlingBort ^definition = "Anger om samlingskonto tagits bort i samband med anropet. True - Samlingskonto borttaget."
+* samlingBort ^comment = "TKB-fält: `samlingBort` (`boolean`, kardinalitet 1..1)."

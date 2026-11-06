@@ -33,3 +33,6 @@ Characteristics: #can-be-target
   """
   Begränsar sökning till specifika vårdkontakter. Valfri, lista.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetReferralOutcomeRequestFieldDescriptions

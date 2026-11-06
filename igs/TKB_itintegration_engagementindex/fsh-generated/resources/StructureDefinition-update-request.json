@@ -32,6 +32,7 @@
         "path": "update-request.engagementTransaction",
         "short": "Engagemangstransaktion",
         "definition": "En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.\nAlla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.\nOm duplikat hittas returneras ResultCode ERROR.\nKardinalitet: Obligatorisk, lista (minst en transaktion krävs).",
+        "comment": "TKB-fält: `engagementTransaction` (`EngagementTransactionType`, kardinalitet 1..*).\n\n**Modellanteckning:** En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.\nAlla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.\nOm duplikat hittas returneras ResultCode ERROR.",
         "min": 1,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "update-request.engagementTransaction.deleteFlag",
         "path": "update-request.engagementTransaction.deleteFlag",
         "short": "Raderingsflagga",
-        "definition": "Anger om posten ska skapas/uppdateras (false) eller tas bort (true).\ntrue: Posten med samma unikhetsnyckel raderas.\nfalse: Posten skapas om den inte finns, eller uppdateras om den redan finns.\nKardinalitet: Obligatorisk.",
+        "definition": "True anger att posten ska tas bort. False anger att posten ska skapas/uppdateras.",
+        "comment": "TKB-fält: `engagementTransaction.deleteFlag` (`Boolean`, kardinalitet 1..1).\n\n**Modellanteckning:** Anger om posten ska skapas/uppdateras (false) eller tas bort (true).\ntrue: Posten med samma unikhetsnyckel raderas.\nfalse: Posten skapas om den inte finns, eller uppdateras om den redan finns.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "update-request.engagementTransaction.engagement",
         "short": "Engagemangspost",
         "definition": "Engagemangspostens datavärden. Unikhet bestäms av en kombination av\nregisteredResidentIdentification, serviceDomain, categorization,\nlogicalAddress och businessObjectInstanceIdentifier.\nKardinalitet: Obligatorisk.",
+        "comment": "TKB-fält: `engagementTransaction .engagement` (`EngagementType`, kardinalitet 1..1).\n\n**Modellanteckning:** Engagemangspostens datavärden. Unikhet bestäms av en kombination av\nregisteredResidentIdentification, serviceDomain, categorization,\nlogicalAddress och businessObjectInstanceIdentifier.",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "update-request.engagementTransaction.engagement.registeredResidentIdentification",
         "path": "update-request.engagementTransaction.engagement.registeredResidentIdentification",
         "short": "Personidentitet",
-        "definition": "Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt formatregler i meddelandemodellen",
+        "comment": "TKB-fält: `engagementTransaction .engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).\n\n**Modellanteckning:** Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "update-request.engagementTransaction.engagement.serviceDomain",
         "path": "update-request.engagementTransaction.engagement.serviceDomain",
         "short": "Tjänstedomänens namnrymd (URN)",
-        "definition": "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+        "definition": "Namnrymd för Tjänstedomän\n\nexempel:\n\nurn:riv:clinicalprocess:activity:request",
+        "comment": "TKB-fält: `engagementTransaction .engagement.serviceDomain` (`URN`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "update-request.engagementTransaction.engagement.categorization",
         "path": "update-request.engagementTransaction.engagement.categorization",
         "short": "Kategorisering",
-        "definition": "Kategorisering enligt den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.categorization` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "update-request.engagementTransaction.engagement.logicalAddress",
         "path": "update-request.engagementTransaction.engagement.logicalAddress",
         "short": "Logisk adress",
-        "definition": "Logisk adress för den tjänsteproducent som har information för posten.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.logicalAddress` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Logisk adress för den tjänsteproducent som har information för posten.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.",
         "min": 1,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
         "path": "update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
         "short": "Affärsobjektets instansidentifierare",
-        "definition": "Identifierare för det specifika affärsobjekt som posten avser.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för det specifika affärsobjekt som posten avser.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.",
         "min": 1,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "update-request.engagementTransaction.engagement.clinicalProcessInterestId",
         "path": "update-request.engagementTransaction.engagement.clinicalProcessInterestId",
         "short": "Kliniskt processintresse-ID",
-        "definition": "Identifierare för kliniskt processintresse.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.clinicalProcess InterestId` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för kliniskt processintresse.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.",
         "min": 1,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "update-request.engagementTransaction.engagement.mostRecentContent",
         "path": "update-request.engagementTransaction.engagement.mostRecentContent",
         "short": "Senast relevant innehållstidpunkt",
-        "definition": "Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning bestäms av den tillämpande tjänstedomänens TKB.\nKardinalitet: Valfri.",
+        "definition": "Enligt tjänstedomänens dokumentation.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.mostRecentContent` (`TS`, kardinalitet 0..1).\n\n**Modellanteckning:** Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning bestäms av den tillämpande tjänstedomänens TKB.",
         "min": 0,
         "max": "1",
         "type": [
@@ -161,7 +171,8 @@
         "id": "update-request.engagementTransaction.engagement.sourceSystem",
         "path": "update-request.engagementTransaction.engagement.sourceSystem",
         "short": "Källsystem (HSA-id)",
-        "definition": "HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren\nsom är master för informationen.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+        "definition": "Källsystemet som innehåller den information som EI-posten pekar ut.\n\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -174,7 +185,8 @@
         "id": "update-request.engagementTransaction.engagement.dataController",
         "path": "update-request.engagementTransaction.engagement.dataController",
         "short": "Personuppgiftsansvarig organisation",
-        "definition": "Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern\nidentitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.\nKardinalitet: Obligatorisk.",
+        "definition": "Identitet för den PUA som ansvarar för postens innehåll.\n\nI första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)\n\nViktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.dataController` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern\nidentitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.",
         "min": 1,
         "max": "1",
         "type": [

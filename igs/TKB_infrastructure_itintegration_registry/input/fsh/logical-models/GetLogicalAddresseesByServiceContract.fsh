@@ -58,3 +58,6 @@ Characteristics: #can-be-target
     Kodverk enligt tjänstedomänens dokumentation. Matchning görs enligt
     R3 (TKB avsnitt 7.1) utan hänsyn till versaler/gemener (IgnoreCase).
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogicalAddresseesByServiceContractFieldDescriptions

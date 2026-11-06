@@ -48,6 +48,9 @@ Characteristics: #can-be-target
 * lakarutlatande.patient.personId 1..1 Identifier "Patientens personnummer eller samordningsnummer"
 * lakarutlatande.patient.fullstandigtNamn 1..1 string "Patientens namn"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ReceiveMedicalCertificateAnswerRequestFieldDescriptions
+
 
 Logical: ReceiveMedicalCertificateAnswer
 Id: receivemedicalcertificateanswer
@@ -64,3 +67,6 @@ Characteristics: #can-be-target
 * result.infoText 0..1 string "Extra information om anropets utgång"
 * result.errorId 0..1 string "Felkategori"
 * result.errorText 0..1 string "Beskrivande text för felet"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ReceiveMedicalCertificateAnswerFieldDescriptions

@@ -33,3 +33,6 @@ Characteristics: #can-be-target
       * userTitle 0..1 string "userTitle" "userTitle"
       * purpose 1..1 string "purpose" "purpose"
       * resourceType 1..1 string "resourceType" "resourceType"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAccessLogsForPatientFieldDescriptions

@@ -218,3 +218,6 @@ Characteristics: #can-be-target
     """
     Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetDispensedDrugsFieldDescriptions

@@ -22,3 +22,6 @@ Characteristics: #can-be-target
     Kardinalitet: Valfri.
     """
 * careUnitId 0..1 Identifier "HSA-id för specifik vårdenhet (valfritt filter)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogsForCareProviderRequestFieldDescriptions

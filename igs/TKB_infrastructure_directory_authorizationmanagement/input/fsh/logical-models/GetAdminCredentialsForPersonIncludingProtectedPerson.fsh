@@ -36,3 +36,6 @@ Characteristics: #can-be-target
         * objectName 1..1 string "Namn på objektet i organisationsomfånget"
         * feignedUnit 0..1 boolean "Objektet är ett fingerat objekt"
       * feignedAdminCommission 0..1 boolean "Administrativt medarbetaruppdrag är ett fingerat objekt"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAdminCredentialsForPersonIncludingProtectedPersonFieldDescriptions

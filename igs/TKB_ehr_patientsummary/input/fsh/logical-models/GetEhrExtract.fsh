@@ -219,3 +219,6 @@ Characteristics: #can-be-target
   * responseDetailText 1..1 string "responseDetailText" "responseDetailText Heter text i schemat."
   * type_code 0..1 code "type_code" "(XML-attribut.)"
   * type_code from ResponseDetailTypeCodesVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetEhrExtractFieldDescriptions

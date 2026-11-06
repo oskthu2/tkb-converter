@@ -24,3 +24,6 @@ Characteristics: #can-be-target
     * interpreterName 1..1 string "Tolkens namn" "Tolkens namn (minst ett tecken)."
     * phoneNumberForInterpretation 0..1 string "Telefonnummer för distanstolkning" "Telefonnummer som distanstolkning ska utföras på."
   * explainingText 0..1 string "Förklarande text" "Ytterligare information om svaret, t.ex. undantag och anledning till avslag."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert AnswerInquiryFieldDescriptions

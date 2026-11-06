@@ -160,3 +160,6 @@ Characteristics: #can-be-target
 
 * laboratoryOrderOutcome.body.contactInformation 0..1 BackboneElement "Kontaktinformation"
 * laboratoryOrderOutcome.body.contactInformation.text 1..1 string "Kontaktinformationstext"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLaboratoryOrderOutcomeFieldDescriptions

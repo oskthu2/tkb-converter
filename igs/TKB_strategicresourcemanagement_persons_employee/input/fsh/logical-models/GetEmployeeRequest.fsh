@@ -18,6 +18,9 @@ Characteristics: #can-be-target
 * searchBase 0..1 string "searchBase" "searchBase"
 * includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetEmployeeRequestFieldDescriptions
+
 Invariant: getemployee-request-hsaid-xor-pnr
 Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges (xs:choice i schemat)."
 Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"

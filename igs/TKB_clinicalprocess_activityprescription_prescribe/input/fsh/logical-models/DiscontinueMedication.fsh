@@ -28,3 +28,6 @@ Characteristics: #can-be-target
   * errorCode from ErrorCodeVS (required)
   * logId 1..1 string "UUID för felanmälan"
   * message 0..1 string "Beskrivande text"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DiscontinueMedicationFieldDescriptions

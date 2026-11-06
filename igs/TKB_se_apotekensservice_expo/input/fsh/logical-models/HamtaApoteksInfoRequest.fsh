@@ -35,3 +35,6 @@ Characteristics: #can-be-target
   * systemIp 0..1 string "systemIp" "systemIp"
 * glnKod 1..* string "glnKod" "Lista med en eller flera GLN-koder som identifierar de expeditionsställen man vill ha information om. GLN-koderna i listan ska vara unika."
 * tidpunkt 0..1 dateTime "tidpunkt" "Om givet så returneras information som gällde vid tidpunkten, annars aktuell information."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaApoteksInfoRequestFieldDescriptions

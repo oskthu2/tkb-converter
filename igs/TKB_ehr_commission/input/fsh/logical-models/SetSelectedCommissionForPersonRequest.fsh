@@ -44,3 +44,6 @@ Characteristics: #can-be-target
     Maxlängd: 32 tecken.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SetSelectedCommissionForPersonRequestFieldDescriptions

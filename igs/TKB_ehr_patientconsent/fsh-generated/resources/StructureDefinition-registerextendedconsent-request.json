@@ -31,7 +31,8 @@
         "id": "registerextendedconsent-request.assertionId",
         "path": "registerextendedconsent-request.assertionId",
         "short": "Unik, global identifierare för intyget (UUID-format, max 36 tecken)",
-        "definition": "Tjänstekonsumenten ansvarar för att generera id:et.",
+        "definition": "Unik, global identifierare för intyget. Tjänstekonsumenten ansvarar för att generera id:et.",
+        "comment": "TKB-fält: `assertionId` (`patientconsent:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "registerextendedconsent-request.assertionType",
         "path": "registerextendedconsent-request.assertionType",
         "short": "Typ av intyg (Consent eller Emergency)",
-        "definition": "Anger om intyget är ett patientsamtycke eller nödsituationsintyg.",
+        "definition": "Typ av intyg som ger direktåtkomst till information från andra vårdgivare enligt PDL. Kan vara patientens samtycke eller nödsituation.",
+        "comment": "TKB-fält: `assertionType` (`patientconsent:AssertionType`, kardinalitet 1..1).\n\n**Modellanteckning:** Anger om intyget är ett patientsamtycke eller nödsituationsintyg.",
         "min": 1,
         "max": "1",
         "type": [
@@ -61,7 +63,8 @@
         "id": "registerextendedconsent-request.scope",
         "path": "registerextendedconsent-request.scope",
         "short": "Omfånget/tillämpningsområde på intyget",
-        "definition": "Omfånget/tillämpningsområde på intyget",
+        "definition": "Omfånget/tillämpningsområde på intyget.",
+        "comment": "TKB-fält: `scope` (`patientconsent:Scope`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -78,7 +81,8 @@
         "id": "registerextendedconsent-request.patientId",
         "path": "registerextendedconsent-request.patientId",
         "short": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
-        "definition": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "definition": "Patientens personnummer alternativt samordningsnummer.",
+        "comment": "TKB-fält: `patientId` (`patientconsent:PersonIdValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -91,7 +95,8 @@
         "id": "registerextendedconsent-request.careProviderId",
         "path": "registerextendedconsent-request.careProviderId",
         "short": "HSA-id på den vårdgivare som intyget gäller för/kopplas till (max 32 tecken)",
-        "definition": "HSA-id på den vårdgivare som intyget gäller för/kopplas till (max 32 tecken)",
+        "definition": "Id på den vårdgivare som intyget gäller för/kopplas till.",
+        "comment": "TKB-fält: `careProviderId` (`patientconsent:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -104,7 +109,8 @@
         "id": "registerextendedconsent-request.careUnitId",
         "path": "registerextendedconsent-request.careUnitId",
         "short": "HSA-id på den vårdenhet som intyget gäller för/kopplas till (max 32 tecken)",
-        "definition": "HSA-id på den vårdenhet som intyget gäller för/kopplas till (max 32 tecken)",
+        "definition": "Id på den vårdenhet som intyget gäller för/kopplas till.",
+        "comment": "TKB-fält: `careUnitId` (`patientconsent:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -117,7 +123,8 @@
         "id": "registerextendedconsent-request.employeeId",
         "path": "registerextendedconsent-request.employeeId",
         "short": "Medarbetar-id — anges om samtycket är personligt (max 32 tecken)",
-        "definition": "Om samtycket gäller all behörig personal på angiven vårdenhet, skall inget medarbetarid anges.",
+        "definition": "Medarbetar id. Om samtycket är personligt anges id för den medarbetare som samtycket skall gälla för. Om samtycket gäller all behörig personal på angiven vårdenhet, skall inget medarbetarid anges.",
+        "comment": "TKB-fält: `employeeId` (`patientconsent:HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -130,7 +137,8 @@
         "id": "registerextendedconsent-request.startDate",
         "path": "registerextendedconsent-request.startDate",
         "short": "Ej obligatoriskt startdatum för intygets giltighetstid",
-        "definition": "Om ett startdatum är angivet gäller intyget fr.o.m denna tidpunkt, annars gäller samtycket fr.o.m registreringstidpunkten.",
+        "definition": "Ej obligatoriskt startdatum för intygets giltighetstid. Om ett startdatum är angivet gäller intyget fr.o.m denna tidpunkt, annars gäller samtycket fr.o.m aktuell tidpunkt (registreringstidpunkt).",
+        "comment": "TKB-fält: `startDate` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -143,7 +151,8 @@
         "id": "registerextendedconsent-request.endDate",
         "path": "registerextendedconsent-request.endDate",
         "short": "Ej obligatoriskt slutdatum för intygets giltighetstid",
-        "definition": "Om ett slutdatum är angivet gäller intyget t.o.m denna tidpunkt. Om inget slutdatum anges gäller samtycket tills återkallat/makulerat.",
+        "definition": "Ej obligatoriskt slutdatum för intygets giltighetstid. Om ett slutdatum är angivet gäller intyget t.o.m denna tidpunkt. Om inget slutdatum anges, gäller samtycket tills det blir återkallat eller makulerat.",
+        "comment": "TKB-fält: `endDate` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -156,7 +165,8 @@
         "id": "registerextendedconsent-request.representedBy",
         "path": "registerextendedconsent-request.representedBy",
         "short": "Ej obligatorisk företrädare/vårdnadshavare som företräder patienten (max 12 tecken)",
-        "definition": "Ej obligatorisk företrädare/vårdnadshavare som företräder patienten (max 12 tecken)",
+        "definition": "Ej obligatorisk företrädare/vårdnadshavare som företräder patienten.",
+        "comment": "TKB-fält: `representedBy` (`patientconsent:PersonIdValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -169,7 +179,8 @@
         "id": "registerextendedconsent-request.registrationAction",
         "path": "registerextendedconsent-request.registrationAction",
         "short": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter",
-        "definition": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter",
+        "definition": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter för dessa.",
+        "comment": "TKB-fält: `registrationAction` (`patientconsent:Action`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

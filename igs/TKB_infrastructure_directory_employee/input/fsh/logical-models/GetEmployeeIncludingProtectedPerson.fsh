@@ -172,3 +172,6 @@ Characteristics: #can-be-target
     Värdet beräknas från personens person- eller samordningsnummer [R5].
     Kardinalitet: Valfri (villkorlig — kräver profile=extended1).
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetEmployeeIncludingProtectedPersonFieldDescriptions

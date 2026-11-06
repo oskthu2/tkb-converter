@@ -16,3 +16,6 @@ Characteristics: #can-be-target
 * queryLanguage 1..1 string "queryLanguage" "queryLanguage"
 * profile 1..1 code "profile" "profile"
 * profile from LookupProfileVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SearchPersonsForProfileByOrderUnrestrictedRequestFieldDescriptions

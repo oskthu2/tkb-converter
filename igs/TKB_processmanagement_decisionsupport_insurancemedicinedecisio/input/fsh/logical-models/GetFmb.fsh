@@ -87,3 +87,6 @@ Characteristics: #can-be-target
 * fmbVersion 1..1 BackboneElement "Versionsinformation för hela FMB"
 * fmbVersion.senasteVersionsuppdatering 1..1 dateTime "Tidpunkt för senaste versionsuppdatering bland alla beslutsunderlag"
 * fmbVersion.senasteAndring 1..1 dateTime "Tidpunkt för senaste ändring bland alla beslutsunderlag"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFmbFieldDescriptions

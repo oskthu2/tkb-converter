@@ -335,6 +335,25 @@ def generate(pkg_dir: str):
         simple_el("StructureDefinition.description", "StructureDefinition.description", "markdown"),
     ]))
 
+    # ElementDefinition behövs för caret-regler på element (`* x ^definition = "..."`),
+    # som scripts/sync_field_descriptions.py genererar.
+    write("ElementDefinition", base_complex("ElementDefinition", extra_elements=[
+        simple_el("ElementDefinition.path", "ElementDefinition.path", "string", min_=1),
+        simple_el("ElementDefinition.sliceName", "ElementDefinition.sliceName", "string"),
+        simple_el("ElementDefinition.label", "ElementDefinition.label", "string"),
+        simple_el("ElementDefinition.short", "ElementDefinition.short", "string"),
+        simple_el("ElementDefinition.definition", "ElementDefinition.definition", "markdown"),
+        simple_el("ElementDefinition.comment", "ElementDefinition.comment", "markdown"),
+        simple_el("ElementDefinition.requirements", "ElementDefinition.requirements", "markdown"),
+        simple_el("ElementDefinition.alias", "ElementDefinition.alias", "string", max_="*"),
+        simple_el("ElementDefinition.min", "ElementDefinition.min", "unsignedInt"),
+        simple_el("ElementDefinition.max", "ElementDefinition.max", "string"),
+        simple_el("ElementDefinition.meaningWhenMissing", "ElementDefinition.meaningWhenMissing", "markdown"),
+        simple_el("ElementDefinition.mustSupport", "ElementDefinition.mustSupport", "boolean"),
+        simple_el("ElementDefinition.isModifier", "ElementDefinition.isModifier", "boolean"),
+        simple_el("ElementDefinition.isSummary", "ElementDefinition.isSummary", "boolean"),
+    ], base="http://hl7.org/fhir/StructureDefinition/BackboneElement"))
+
     write("CodeSystem", base_resource("CodeSystem", extra_elements=[
         simple_el("CodeSystem.url", "CodeSystem.url", "uri"),
         simple_el("CodeSystem.version", "CodeSystem.version", "string"),

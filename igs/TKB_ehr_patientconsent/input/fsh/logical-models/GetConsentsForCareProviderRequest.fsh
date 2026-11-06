@@ -24,3 +24,6 @@ Characteristics: #can-be-target
   Om true returneras även makulerade och återkallade intyg som inte är utgångna.
   Utgångna intyg (giltigt t o m har passerats) returneras ej oavsett makulering eller återkallning.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetConsentsForCareProviderRequestFieldDescriptions

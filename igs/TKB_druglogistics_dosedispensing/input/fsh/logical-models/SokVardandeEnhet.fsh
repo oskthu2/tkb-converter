@@ -21,3 +21,6 @@ Characteristics: #can-be-target
   * vardandeenhetnamn 1..1 string "vardandeenhetnamn" "vardandeenhetnamn"
   * vardandeenhetpostort 1..1 string "vardandeenhetpostort" "vardandeenhetpostort"
   * glnkod 1..1 string "glnkod" "glnkod"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SokVardandeEnhetFieldDescriptions

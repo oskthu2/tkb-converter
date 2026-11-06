@@ -48,3 +48,6 @@ Characteristics: #can-be-target
     * healthCareUnitMemberpostalCode 0..1 string "healthCareUnitMemberpostalCode" "healthCareUnitMemberpostalCode"
     * feignedHealthCareUnitMember 0..1 boolean "feignedHealthCareUnitMember" "feignedHealthCareUnitMember"
     * archivedHealthCareUnitMember 0..1 boolean "archivedHealthCareUnitMember" "archivedHealthCareUnitMember"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthCareUnitMembersFieldDescriptions

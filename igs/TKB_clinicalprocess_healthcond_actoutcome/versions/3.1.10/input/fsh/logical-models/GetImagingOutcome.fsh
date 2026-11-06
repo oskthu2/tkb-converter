@@ -618,6 +618,9 @@ Characteristics: #can-be-target
     RIV-TA-typ: string. Kardinalitet i TKB: 0..1.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetImagingOutcomeFieldDescriptions
+
 Invariant: getimagingoutcome-imagedata-value-xor-reference
 Description: "imageData: ett och endast ett av value och reference ska anges."
 Expression: "imageDataValue.exists() xor reference.exists()"

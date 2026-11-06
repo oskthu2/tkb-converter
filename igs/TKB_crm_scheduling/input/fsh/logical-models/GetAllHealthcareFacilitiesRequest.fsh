@@ -24,3 +24,6 @@ Characteristics: #can-be-target
     Internt bokningsid. Obligatoriskt när förfrågan gäller ombokning.
     Kardinalitet: Valfri (villkorlig: obligatorisk vid ombokning).
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAllHealthcareFacilitiesRequestFieldDescriptions

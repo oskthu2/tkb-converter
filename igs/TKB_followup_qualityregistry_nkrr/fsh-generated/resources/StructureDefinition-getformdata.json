@@ -31,7 +31,8 @@
         "id": "getformdata.formElement",
         "path": "getformdata.formElement",
         "short": "Svaret består av en lista med formulärets enskilda element",
-        "definition": "Svaret består av en lista med formulärets enskilda element.\nOm ett givet formulär innehåller N frågor kan en konsument förvänta sig M answer-element\ndär M ≤ N (R1 – Flexibel ifyllnadsgrad).",
+        "definition": "Svaret består av en lista med formulärets enskilda element.",
+        "comment": "TKB-fält: `formElement` (`FormElementType`, kardinalitet 0..*).\n\n**Modellanteckning:** Svaret består av en lista med formulärets enskilda element.\nOm ett givet formulär innehåller N frågor kan en konsument förvänta sig M answer-element\ndär M ≤ N (R1 – Flexibel ifyllnadsgrad).",
         "min": 0,
         "max": "*",
         "type": [
@@ -45,6 +46,7 @@
         "path": "getformdata.formElement.formID",
         "short": "Identifierare av mallen",
         "definition": "Identifierare av mallen.",
+        "comment": "TKB-fält: `formID` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "getformdata.formElement.query",
         "short": "Identitet för fråga",
         "definition": "Identitet för fråga.",
+        "comment": "TKB-fält: `query` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -71,6 +74,7 @@
         "path": "getformdata.formElement.answer",
         "short": "Svar på fråga",
         "definition": "Svar på fråga.",
+        "comment": "TKB-fält: `answer` (`AnswerType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -84,6 +88,7 @@
         "path": "getformdata.formElement.answer.value",
         "short": "Svar på fråga",
         "definition": "Svar på fråga.",
+        "comment": "TKB-fält: `value` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,6 +102,7 @@
         "path": "getformdata.formElement.answer.type",
         "short": "Typning av svaret",
         "definition": "Typning av svaret.",
+        "comment": "TKB-fält: `type` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -110,6 +116,7 @@
         "path": "getformdata.formElement.sourceData",
         "short": "Beskrivning på hur svaret framställts",
         "definition": "Beskrivning på hur svaret framställts. Kan visas för slutanvändare i konsumentapplikationen.",
+        "comment": "TKB-fält: `sourceData` (`SourceDataType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -123,6 +130,7 @@
         "path": "getformdata.formElement.sourceData.name",
         "short": "Domän + kontraktsnamn för grunddata",
         "definition": "Domän + kontraktsnamn för grunddata.",
+        "comment": "TKB-fält: `name` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -136,6 +144,7 @@
         "path": "getformdata.formElement.sourceData.entry",
         "short": "Del av underlaget för svaret",
         "definition": "Del av underlaget för svaret.",
+        "comment": "TKB-fält: `entry` (`SourceDataEntryType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
@@ -174,7 +183,8 @@
         "id": "getformdata.resultCode",
         "path": "getformdata.resultCode",
         "short": "Resultatkod",
-        "definition": "OK = Hämtningen av underlag utfört utan fel.\nERROR = Fel har uppstått. Felet beskrivs i elementet resultText.\nINFO = Information finns om hämtningen. Informationen beskrivs i elementet resultText.",
+        "definition": "OK = Hämtningen av underlag utfört utan fel.\n\nERROR = Fel har uppstått.\n\nFelet beskrivs i elementet resultText.\n\nINFO = Information finns om hämtningen. Informationen beskrivs i elementet resultText.",
+        "comment": "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -192,6 +202,7 @@
         "path": "getformdata.resultText",
         "short": "Beskrivning av fel eller information om genomförd registrering",
         "definition": "Beskrivning av fel som uppstått alternativt information om genomförd registrering.",
+        "comment": "TKB-fält: `resultText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -205,6 +216,7 @@
         "path": "getformdata.logId",
         "short": "Identifierare av loggpost hos tjänsteproducenten",
         "definition": "Identifierare av loggpost hos tjänsteproducenten, t.ex. ett UUID som kan användas vid felsökning.",
+        "comment": "TKB-fält: `logId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

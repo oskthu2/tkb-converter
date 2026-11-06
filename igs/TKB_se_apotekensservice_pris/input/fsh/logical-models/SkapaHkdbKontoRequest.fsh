@@ -41,3 +41,6 @@ Characteristics: #can-be-target
 * periodBrutto 0..1 decimal "periodBrutto" "Ackumulerat bruttobelopp i kronor och ören. Från och med version 10.3 ersätter periodBrutto periodNetto."
 * periodStart 0..1 dateTime "periodStart" "Eventuellt startdatum för innevarande högkostnadsperiod."
 * persNr 1..1 string "persNr" "Personnummer för den som ska anslutas."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SkapaHkdbKontoRequestFieldDescriptions

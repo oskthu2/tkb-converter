@@ -33,3 +33,6 @@ Characteristics: #can-be-target
       * assignmentId 0..1 string "HSA-id för medarbetaruppdrag"
       * assignmentName 0..1 string "Namn på medarbetaruppdrag"
     * reasonText 0..1 string "Orsak till spärren (fritext)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterExtendedBlockRequestFieldDescriptions

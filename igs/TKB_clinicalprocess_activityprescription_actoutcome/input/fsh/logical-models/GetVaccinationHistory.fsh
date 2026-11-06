@@ -123,3 +123,6 @@ Characteristics: #can-be-target
   * subcode 0..1 string "Inga subkoder specificerade"
   * logId 1..1 string "UUID för felsökning hos producent"
   * message 0..1 string "Beskrivande text för användaren"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetVaccinationHistoryFieldDescriptions

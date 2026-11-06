@@ -45,6 +45,9 @@ Characteristics: #can-be-target
 * postnummer 0..1 string "postnummer" "Postnummer till dosmottagare."
 * postort 0..1 string "postort" "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UppdateraDosmottagareRequestFieldDescriptions
+
 Invariant: uppdateradosmottagare-request-adress-when-d
 Description: "adress och postort ska anges när typ = 'D' (direktleverans)."
 Expression: "typ = 'D' implies (adress.exists() and postort.exists())"

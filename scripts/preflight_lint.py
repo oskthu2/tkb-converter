@@ -22,6 +22,7 @@ from urllib.parse import unquote
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tkb_version  # noqa: E402
 import gen_menu  # noqa: E402
+import sync_field_descriptions  # noqa: E402
 
 # Kraschar bevisligen IG Publisher/SUSHI på alla nivåer (krockar med Element.id/extension):
 RE_RESERVED_HARD = re.compile(r"(^\s*\*\s+|\.)(id|extension|modifierExtension|contained|implicitRules)\s+[0-9]+\.\.[0-9*]+")
@@ -269,6 +270,16 @@ def lint_menu(ig: Path, errors: list):
                       f"<?xml?>-deklaration ger trasig navigering) — kör scripts/gen_menu.py {ig}")
 
 
+def lint_field_descriptions(ig: Path, errors: list):
+    """Elementens definition/comment ska vara synkade från TKB:ns fälttabell (se tkb-fsh-model)."""
+    if not (ig / "sushi-config.yaml").exists():
+        return
+    changed, _ = sync_field_descriptions.sync_ig(ig.resolve(), check=True, quiet=True)
+    for f in changed:
+        errors.append(f"{f}: fältbeskrivningarna är inte synkade med fälttabellen i 7-tjanstekontrakt.md "
+                      f"— kör scripts/sync_field_descriptions.py {ig}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("dirs", nargs="*")
@@ -289,6 +300,7 @@ def main():
         lint_pages(ig, errors, warnings)
         lint_overview(ig, errors)
         lint_menu(ig, errors)
+        lint_field_descriptions(ig, errors)
         status = "OK" if not errors else f"{len(errors)} FEL"
         print(f"[preflight] {ig.name}: {status}, {len(warnings)} varning(ar)")
         for e in errors:

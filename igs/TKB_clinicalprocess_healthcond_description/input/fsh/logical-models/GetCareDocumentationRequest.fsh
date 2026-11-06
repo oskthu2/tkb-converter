@@ -45,3 +45,6 @@ Characteristics: #can-be-target
     Anropet måste då vara direktadresserat till den logiska adressen som angavs i hasMore.
     Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCareDocumentationRequestFieldDescriptions

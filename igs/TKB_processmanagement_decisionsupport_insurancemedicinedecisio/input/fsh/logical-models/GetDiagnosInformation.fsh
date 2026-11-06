@@ -60,3 +60,6 @@ Characteristics: #can-be-target
 * fmbVersion 1..1 BackboneElement "Versionsinformation för hela FMB"
 * fmbVersion.senasteVersionsuppdatering 1..1 dateTime "Tidpunkt för senaste versionsuppdatering bland all diagnosinformation"
 * fmbVersion.senasteAndring 1..1 dateTime "Tidpunkt för senaste ändring bland all diagnosinformation"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetDiagnosInformationFieldDescriptions

@@ -20,6 +20,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SetCertificateStatusFieldDescriptions
+
 Logical: SetCertificateStatusRequest
 Id: setcertificatestatus-request
 Title: "SetCertificateStatus — Request"
@@ -33,3 +36,6 @@ Characteristics: #can-be-target
 * certificateStatus 1..1 CodeableConcept "Kodat värde för intygsstatus"
 * certificateStatus from StatuskodVS (required)
 * tidpunkt 1..1 dateTime "Tidpunkt då statusen sattes"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SetCertificateStatusRequestFieldDescriptions

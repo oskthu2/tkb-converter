@@ -31,7 +31,8 @@
         "id": "getmaternitymedicalhistory-request.careUnitHSAid",
         "path": "getmaternitymedicalhistory-request.careUnitHSAid",
         "short": "HSA-id för vårdenhet (filter)",
-        "definition": "HSA-id för vårdenhet (filter)",
+        "definition": "Filtrering på Vårdenhet vilket motsvarar healthcareProfessionalCareUnitHSAId i accountableHealthcareProfessional.",
+        "comment": "TKB-fält: `careUnitHSAid` (`HSAIdType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getmaternitymedicalhistory-request.patientId",
         "path": "getmaternitymedicalhistory-request.patientId",
         "short": "Patientens personnummer eller samordningsnummer",
-        "definition": "PersonIdType — id och type-OID. Obligatorisk.",
+        "definition": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\nFältet type sätts till OID för typ av identifierare.\n\n1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\n2) För samordningsnummer ska Skatteverkets oid för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\n3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3).\n\nOBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.\n\nEn tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent.",
+        "comment": "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).\n\n**Modellanteckning:** PersonIdType — id och type-OID. Obligatorisk.",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getmaternitymedicalhistory-request.datePeriod",
         "path": "getmaternitymedicalhistory-request.datePeriod",
         "short": "Datumperiod för sökning",
-        "definition": "Datumperiod för sökning",
+        "definition": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som bildas av tidpunkterna documentTime, authorTime och signatureTime i svaret, helt eller delvis överlappar med det angivna sökintervallet, dvs.\n\ndet bildade intervallets startdatum ligger inom sökintervallets start- och slutdatumet,\n\ndet bildade intervallets slutdatum ligger inom sökintervallets start- och slutdatum,\n\ndet bildade intervallets startdatum ligger före sökintervallets startdatum och slutdatum ligger efter sökintervallets slutdatum.\n\nNotera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.\n\nObs I schemat är elementet felaktigt döpt till timePeriod, men är av rätt typ dvs DatePeriodType. Elementnamnet ändras i nästa majorversion.",
+        "comment": "TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getmaternitymedicalhistory-request.sourceSystemHSAId",
         "path": "getmaternitymedicalhistory-request.sourceSystemHSAId",
         "short": "HSA-id för källsystem (filter)",
-        "definition": "HSA-id för källsystem (filter)",
+        "definition": "Begränsar sökningen till dokument som är skapade i angivet system. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.\n\nVärdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).\n\nDet innebär i praktiken att aggregerande tjänster inte används när detta fält anges.\n\nSka anges om careContactId angivits.\n\nSka anges vid begäran på reservnummer.\n\nOm sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST\n\nOm careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST.",
+        "comment": "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "getmaternitymedicalhistory-request.careContactId",
         "path": "getmaternitymedicalhistory-request.careContactId",
         "short": "Vårdkontaktid (filter)",
-        "definition": "Vårdkontaktid (filter)",
+        "definition": "Begränsar sökningen till den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+        "comment": "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [

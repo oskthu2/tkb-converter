@@ -21,3 +21,6 @@ Characteristics: #can-be-target
   """
   Personnummer eller samordningsnummer för den patient vars information aktören önskar åtkomst till.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CheckPatientRelationRequestFieldDescriptions

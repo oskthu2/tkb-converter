@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * targetOrganizations 0..* string "targetOrganizations" "targetOrganizations"
 * serviceContractTypes 0..* BackboneElement "serviceContractTypes" "Type which describes a service contract. Used in interaction GetSupportedServiceContracts."
   * ServiceContractNamespace 1..1 uri "ServiceContractNamespace" "ServiceContractNamespace"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListMessagesRequestFieldDescriptions

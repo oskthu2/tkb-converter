@@ -20,3 +20,6 @@ Characteristics: #can-be-target
   * telefonnummer 1..1 string "telefonnummer" "Kontaktpersonens telefonnummer."
 * orgNr 0..1 string "orgNr" "Aktörens organisationsnummer (xs:long i schemat.)"
 * telefonnummerServicedesk 0..1 string "telefonnummerServicedesk" "Telefonnummer till aktörens servicedesk"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KontaktuppgifterHamtaFieldDescriptions

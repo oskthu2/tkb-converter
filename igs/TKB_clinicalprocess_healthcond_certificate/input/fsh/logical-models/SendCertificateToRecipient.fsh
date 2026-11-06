@@ -20,6 +20,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SendCertificateToRecipientFieldDescriptions
+
 Logical: SendCertificateToRecipientRequest
 Id: sendcertificatetorecipient-request
 Title: "SendCertificateToRecipient — Request"
@@ -42,6 +45,9 @@ Characteristics: #can-be-target
 * skickatAv.hosPersonal.enhet 1..1 BackboneElement "Enhet"
 * skickatAv.hosPersonal.enhet.enhetsId 1..1 Identifier "HSA-id för enheten"
 * skickatAv.personId 0..1 Identifier "Person- eller samordningsnummer (anges vid anrop från invånartjänst)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SendCertificateToRecipientRequestFieldDescriptions
 
 Invariant: sendcertificatetorecipient-request-skickatav-choice
 Description: "Exakt ett av hosPersonal och personId ska anges i skickatAv (xs:choice i schemat)."

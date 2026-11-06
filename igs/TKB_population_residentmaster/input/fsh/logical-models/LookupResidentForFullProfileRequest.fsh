@@ -52,3 +52,6 @@ Characteristics: #can-be-target
       värden vid denna tidpunkt. Kan inte kombineras med
       senasteAndringFolkbokforingFilter.
       """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert LookupResidentForFullProfileRequestFieldDescriptions

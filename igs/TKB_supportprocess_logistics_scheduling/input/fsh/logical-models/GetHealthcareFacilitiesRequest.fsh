@@ -18,3 +18,6 @@ Characteristics: #can-be-target
   * personIdExtension 1..1 string "personIdExtension" "personIdExtension Heter extension i schemat."
 * timeTypeCode 0..1 string "timeTypeCode" "timeTypeCode"
 * healthcareServiceCode 0..1 string "healthcareServiceCode" "healthcareServiceCode"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthcareFacilitiesRequestFieldDescriptions

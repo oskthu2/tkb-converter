@@ -43,6 +43,9 @@ Characteristics: #can-be-target
   """
 * obeys getimagingoutcome-request-sourcesystem-if-carecontact
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetImagingOutcomeRequestFieldDescriptions
+
 Invariant: getimagingoutcome-request-sourcesystem-if-carecontact
 Description: "sourceSystemHSAId ska anges om careContactId angivits."
 Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"

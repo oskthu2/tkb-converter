@@ -38,3 +38,6 @@ Characteristics: #can-be-target
     Begränsar sökningen till de diagnoser som dokumenterats vid angiven vårdkontakt.
     Kardinalitet: Valfri, lista.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetDiagnosisRequestFieldDescriptions

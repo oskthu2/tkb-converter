@@ -456,6 +456,9 @@ Characteristics: #can-be-target
     RIV-TA-typ: string. Kardinalitet i TKB: 0..1.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLaboratoryOrderOutcomeFieldDescriptions
+
 Invariant: getlaboratoryorderoutcome-analysistime-start-or-end
 Description: "Minst ett av start och end ska anges i analysisTime (TimePeriodType)."
 Expression: "start.exists() or end.exists()"

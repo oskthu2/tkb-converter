@@ -120,6 +120,9 @@ Characteristics: #can-be-target
   """
 * careEncounter.performerRole.careUnit.careGiver.name 0..1 string "Vårdgivarens namn"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessCareEncounterRequestFieldDescriptions
+
 Logical: ProcessCareEncounterResponse
 Id: processcareencounter-response
 Title: "ProcessCareEncounter — Response"
@@ -141,6 +144,9 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessCareEncounterResponseFieldDescriptions
 
 Invariant: processcareencounter-request-location-when-performer
 Description: "När performerRole.performerRoleId anges (vårdpersonal) ska minst location.name anges (TKB Övriga regler, Fält 2)."

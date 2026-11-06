@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * resultCode 1..1 code "resultCode" "resultCode"
 * resultCode from ResultCodeVS (required)
 * comment 0..1 string "comment" "comment"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessClaimSpecificationFieldDescriptions

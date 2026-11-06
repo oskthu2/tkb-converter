@@ -29,3 +29,6 @@ Characteristics: #can-be-target
 * originalAppointmentId 0..1 string "originalAppointmentId" "originalAppointmentId"
 * timeTypeCode 0..1 string "timeTypeCode" "timeTypeCode"
 * healthcareServiceCode 0..1 string "healthcareServiceCode" "healthcareServiceCode"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPractitionersRequestFieldDescriptions

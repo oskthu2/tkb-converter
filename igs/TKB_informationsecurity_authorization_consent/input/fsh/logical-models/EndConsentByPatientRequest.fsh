@@ -20,3 +20,6 @@ Characteristics: #can-be-target
   * root 1..1 string "root" "root"
   * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
 * endDateTime 0..1 dateTime "endDateTime" "endDateTime"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert EndConsentByPatientRequestFieldDescriptions

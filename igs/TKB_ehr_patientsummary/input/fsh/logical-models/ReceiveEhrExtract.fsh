@@ -12,3 +12,6 @@ Description: """
 Characteristics: #can-be-target
 * ^version = "1.0"
 * success 1..1 boolean "success" "success"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ReceiveEhrExtractFieldDescriptions

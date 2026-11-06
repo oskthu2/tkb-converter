@@ -13,3 +13,6 @@ Characteristics: #can-be-target
 * ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. National: The HSA-id of Inera AB (\"national\" aggregation service) Regional: The HSA-id of region (regional aggregation service) Specific Source system: The HSA-id of the source system"
 * getBinaryDataId 1..1 string "getBinaryDataId" "getBinaryDataId Heter id i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetBinaryDataRequestFieldDescriptions

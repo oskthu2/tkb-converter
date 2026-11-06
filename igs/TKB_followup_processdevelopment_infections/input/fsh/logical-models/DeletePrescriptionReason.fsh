@@ -33,6 +33,9 @@ Characteristics: #can-be-target
   Kardinalitet: Villkorlig — antingen activityId eller conditionId ska anges.
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeletePrescriptionReasonRequestFieldDescriptions
+
 Logical: DeletePrescriptionReasonResponse
 Id: deleteprescriptionreason-response
 Title: "DeletePrescriptionReason — Response"
@@ -54,3 +57,6 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeletePrescriptionReasonResponseFieldDescriptions

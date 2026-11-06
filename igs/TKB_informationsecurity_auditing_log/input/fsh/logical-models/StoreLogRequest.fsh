@@ -51,3 +51,6 @@ Characteristics: #can-be-target
       * careUnit 0..1 BackboneElement "careUnit" "Datatyp som representerar en vårdenhet."
         * careUnitId 1..1 string "careUnitId" "careUnitId"
         * careUnitName 0..1 string "careUnitName" "careUnitName"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert StoreLogRequestFieldDescriptions

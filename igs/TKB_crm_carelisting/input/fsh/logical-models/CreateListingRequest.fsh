@@ -41,3 +41,6 @@ Characteristics: #can-be-target
     Anger om personen vill ställa sig i kö om det är kö på vårdenheten/resursen.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateListingRequestFieldDescriptions

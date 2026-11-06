@@ -23,3 +23,6 @@ Characteristics: #can-be-target
   * start 0..1 dateTime "start" "Periodens startdatum."
 * resultat 1..1 boolean "resultat" "Resultat av kontouppdatering i HKDB. True - Konto borttaget."
 * samlingBort 1..1 boolean "samlingBort" "Anger om samlingskonto tagits bort i samband med anropet. True - Samlingskonto borttaget."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert TaBortHkdbKontoFieldDescriptions

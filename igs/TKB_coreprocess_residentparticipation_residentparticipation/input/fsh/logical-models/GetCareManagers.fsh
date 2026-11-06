@@ -291,3 +291,6 @@ Characteristics: #can-be-target
         * time 0..1 BackboneElement "time" "Används för att specificera ett tidsintervall med hjälp av start- och sluttid. start: Starttid på formatet HHmmss end: Sluttid på formatet HHmmss"
           * start 0..1 string "start" "start"
           * end 0..1 string "end" "end"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCareManagersFieldDescriptions

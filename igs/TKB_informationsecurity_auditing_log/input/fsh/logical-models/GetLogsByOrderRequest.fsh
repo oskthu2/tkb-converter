@@ -21,3 +21,6 @@ Characteristics: #can-be-target
 * fromDate 1..1 dateTime "fromDate" "fromDate"
 * toDate 1..1 dateTime "toDate" "toDate"
 * maxResultsPerFile 0..1 integer "maxResultsPerFile" "maxResultsPerFile"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogsByOrderRequestFieldDescriptions

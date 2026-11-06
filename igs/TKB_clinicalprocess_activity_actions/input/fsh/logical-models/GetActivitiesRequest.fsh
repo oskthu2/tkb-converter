@@ -102,6 +102,9 @@ Characteristics: #can-be-target
     Kardinalitet: Obligatorisk.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetActivitiesRequestFieldDescriptions
+
 Invariant: getactivities-request-relation-type-or-id
 Description: "Minst en av typeCode och relationId ska anges i ett relationsfilter (RelationFilterType)."
 Expression: "typeCode.exists() or relationId.exists()"

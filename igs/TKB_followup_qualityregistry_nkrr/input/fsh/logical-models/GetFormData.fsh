@@ -75,3 +75,6 @@ Characteristics: #can-be-target
     """
     Identifierare av loggpost hos tjänsteproducenten, t.ex. ett UUID som kan användas vid felsökning.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFormDataFieldDescriptions

@@ -181,6 +181,9 @@ Characteristics: #can-be-target
   * logId 1..1 string "UUID för felsökning hos producent"
   * message 0..1 string "Beskrivande text för användaren"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMedicationHistoryFieldDescriptions
+
 Invariant: getmedicationhistory-drug-choice
 Description: "Exakt ett av unstructuredDrugInformation, merchandise, drugArticle, drug och generics ska anges i läkemedelsvalet (DrugChoiceType, TKB 7.2)."
 Expression: "unstructuredDrugInformation.count() + merchandise.count() + drugArticle.count() + drug.count() + generics.count() = 1"

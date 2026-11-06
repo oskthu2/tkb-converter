@@ -27,3 +27,6 @@ Characteristics: #can-be-target
   * reasonText 0..1 string "reasonText" "reasonText"
 * cancelReasonText 0..1 string "cancelReasonText" "cancelReasonText"
 * replicationTimeout 1..1 integer "replicationTimeout" "replicationTimeout"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CancelTemporaryExtendedRevokeRequestFieldDescriptions

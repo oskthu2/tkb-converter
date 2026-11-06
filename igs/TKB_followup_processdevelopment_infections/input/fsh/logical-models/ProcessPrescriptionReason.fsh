@@ -95,6 +95,9 @@ Characteristics: #can-be-target
   Kardinalitet: Valfri.
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessPrescriptionReasonRequestFieldDescriptions
+
 Logical: ProcessPrescriptionReasonResponse
 Id: processprescriptionreason-response
 Title: "ProcessPrescriptionReason — Response"
@@ -116,3 +119,6 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessPrescriptionReasonResponseFieldDescriptions

@@ -31,7 +31,8 @@
         "id": "getallblocks-request.careProviderIds",
         "path": "getallblocks-request.careProviderIds",
         "short": "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla spärrar oavsett organisation.",
-        "definition": "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla spärrar oavsett organisation.",
+        "definition": "Ej obligatorisk lista med HSA-id på de vårdgivare vars spärrar skall hämtas. Om detta utelämnas hämtas alla spärrar oavsett organisationstillhörighet.",
+        "comment": "TKB-fält: `careProviderIds` (`blocking:HsaId`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getallblocks-request.createdOnOrAfter",
         "path": "getallblocks-request.createdOnOrAfter",
         "short": "Startdatum — returnerar endast spärrar lagrade/förändrade på eller efter detta datum.",
-        "definition": "Startdatum — returnerar endast spärrar lagrade/förändrade på eller efter detta datum.",
+        "definition": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas. Om angivet returneras endast spärrar och/eller tillfälliga hävningar lagrade/förändrade i tjänsten på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.",
+        "comment": "TKB-fält: `createdOnOrAfter` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

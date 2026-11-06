@@ -16,3 +16,6 @@ Characteristics: #can-be-target
     * hsaIdentity 1..1 string "hsaIdentity" "hsaIdentity"
     * unitListUnitName 1..1 string "unitListUnitName" "unitListUnitName Heter name i schemat."
     * parentHsaIdentity 0..1 string "parentHsaIdentity" "parentHsaIdentity"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHsaUnitListFieldDescriptions

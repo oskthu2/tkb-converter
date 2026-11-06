@@ -26,3 +26,6 @@ Characteristics: #can-be-target
 * identitetstyp 1..1 code "identitetstyp" "identitetstyp"
 * identitetstyp from IdentitetstypVS (required)
 * personid 1..1 string "personid" "personid"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaVardtagareinformationRequestFieldDescriptions

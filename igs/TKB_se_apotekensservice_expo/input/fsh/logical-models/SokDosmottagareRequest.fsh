@@ -40,3 +40,6 @@ Characteristics: #can-be-target
 * mottagarnamn 0..1 string "mottagarnamn" "Mottagarens namn. Inledande del av mottagarnamn kan anges"
 * postort 0..1 string "postort" "Arbetsplatsort till dosmottagare. Inledande del av arbetsplatsorten kan anges"
 * typ 0..1 string "typ" "Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SokDosmottagareRequestFieldDescriptions

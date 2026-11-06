@@ -39,3 +39,6 @@ Characteristics: #can-be-target
   * session 1..1 string "session" "Sessionens id i anropande system."
   * system 1..1 string "system" "GLN-kod för anropande system."
 * persNr 1..1 string "persNr" "Personnummer för den vars konto ska uppdateras."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KopplaBarnKontoRequestFieldDescriptions

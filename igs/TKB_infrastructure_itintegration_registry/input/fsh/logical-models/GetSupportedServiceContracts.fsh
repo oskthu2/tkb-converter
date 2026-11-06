@@ -23,3 +23,6 @@ Characteristics: #can-be-target
     avsnitt 7.2 "Övriga regler") till endast de kontrakt konsumenten har
     rättighet att använda.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetSupportedServiceContractsFieldDescriptions

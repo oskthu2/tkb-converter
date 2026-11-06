@@ -67,3 +67,6 @@ Characteristics: #can-be-target
   * explainingText 0..1 string "Förklarande text" "Ytterligare information om förfrågan."
 * lastSequenceNumber 1..1 unsignedInt "Senaste meddelandenummer" "Nummer på det senaste meddelandet i svaret. XSD-typen är unsignedLong; FHIR saknar motsvarande typ."
 * hasMoreEntries 1..1 boolean "Fler poster finns" "Anger om fler poster finns att hämta."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListInquiriesFieldDescriptions

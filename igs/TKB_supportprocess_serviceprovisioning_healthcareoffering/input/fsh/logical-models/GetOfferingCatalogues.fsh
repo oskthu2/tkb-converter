@@ -48,3 +48,6 @@ Characteristics: #can-be-target
     * minorVersion 0..1 integer "minorVersion" "minorVersion"
     * rivtaVersion 1..1 code "rivtaVersion" "rivtaVersion"
     * rivtaVersion from RIVTAVersionVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetOfferingCataloguesFieldDescriptions

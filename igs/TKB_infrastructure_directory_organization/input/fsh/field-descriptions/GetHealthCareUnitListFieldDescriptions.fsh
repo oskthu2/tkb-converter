@@ -1,0 +1,41 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetHealthCareUnitListFieldDescriptions
+* healthCareUnitList ^comment = "TKB-fält: `healthCareUnitList` (`HealthCareUnitListType`, kardinalitet 0..1).
+
+**Modellanteckning:** Aggregerat objekt med information om vårdgivaren och dess ingående vårdenheter."
+* healthCareUnitList.healthCareProviderHsaId ^definition = "Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]"
+* healthCareUnitList.healthCareProviderHsaId ^comment = "TKB-fält: `..healthCareProviderHsaId` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderName ^definition = "Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]"
+* healthCareUnitList.healthCareProviderName ^comment = "TKB-fält: `..healthCareProviderName` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderPublicName ^definition = "Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]"
+* healthCareUnitList.healthCareProviderPublicName ^comment = "TKB-fält: `..healthCareProviderPublicName` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderOrgNo ^definition = "Vårdgivarens organisationsnummer. Ref. organisationsnummer (orgNo) [R5]"
+* healthCareUnitList.healthCareProviderOrgNo ^comment = "TKB-fält: `..healthCareProviderOrgNo` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderStartDate ^definition = "Startdatum för vårdgivarens verksamhet. Ref. startdatum (startDate) [R5]"
+* healthCareUnitList.healthCareProviderStartDate ^comment = "TKB-fält: `..healthCareProviderStartDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareProviderEndDate ^definition = "Slutdatum för vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]"
+* healthCareUnitList.healthCareProviderEndDate ^comment = "TKB-fält: `..healthCareProviderEndDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.feignedHealthCareProvider ^definition = "true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]"
+* healthCareUnitList.feignedHealthCareProvider ^comment = "TKB-fält: `..feignedHealthCareProvider` (`Boolean`, kardinalitet 0..1)."
+* healthCareUnitList.archivedHealthCareProvider ^definition = "true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]"
+* healthCareUnitList.archivedHealthCareProvider ^comment = "TKB-fält: `..archivedHealthCareProvider` (`Boolean`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit ^definition = "Ingående vårdenhet enligt PDL"
+* healthCareUnitList.healthCareUnit ^comment = "TKB-fält: `..healthCareUnit` (`HealthCareUnitType`, kardinalitet 0..*).
+
+**Modellanteckning:** Lista av vårdenheter som tillhör vårdgivaren."
+* healthCareUnitList.healthCareUnit.healthCareUnitHsaId ^definition = "HSA-identitet ingående enhet. Ref. HSA-id (hsaIdentity) [R5]"
+* healthCareUnitList.healthCareUnit.healthCareUnitHsaId ^comment = "TKB-fält: `.. ..healthCareUnitHsaId` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitName ^definition = "Namn ingående enhet. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]"
+* healthCareUnitList.healthCareUnit.healthCareUnitName ^comment = "TKB-fält: `.. ..healthCareUnitName` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitPublicName ^definition = "Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]"
+* healthCareUnitList.healthCareUnit.healthCareUnitPublicName ^comment = "TKB-fält: `.. ..healthCareUnitPublicName` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitStartDate ^definition = "Startdatum för vårdenhetens verksamhet. Ref. startdatum (startDate) [R5]"
+* healthCareUnitList.healthCareUnit.healthCareUnitStartDate ^comment = "TKB-fält: `.. ..healthCareUnitStartDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitEndDate ^definition = "Slutdatum för vårdenhetens verksamhet. Ref. slutdatum (endDate) [R5]"
+* healthCareUnitList.healthCareUnit.healthCareUnitEndDate ^comment = "TKB-fält: `.. ..healthCareUnitEndDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit.feignedHealthCareUnit ^definition = "true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]"
+* healthCareUnitList.healthCareUnit.feignedHealthCareUnit ^comment = "TKB-fält: `.. ..feignedHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit.archivedHealthCareUnit ^definition = "true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]"
+* healthCareUnitList.healthCareUnit.archivedHealthCareUnit ^comment = "TKB-fält: `.. ..archivedHealthCareUnit` (`Boolean`, kardinalitet 0..1)."

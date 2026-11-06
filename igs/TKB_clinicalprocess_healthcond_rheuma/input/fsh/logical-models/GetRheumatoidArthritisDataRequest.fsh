@@ -16,3 +16,6 @@ Characteristics: #can-be-target
 * timePeriod 0..1 Period "Tidsintervall" "Endast svar där authorTime eller signatureTime ligger helt eller delvis inom intervallet returneras. start och end anges båda (ÅÅÅÅMMDD). TKB-tabellen kallar fältet datePeriod."
 * sourceSystemHSAId 0..1 Identifier "Källsystem" "Begränsar sökningen till dokument skapade i angivet system. Måste överensstämma med logicalAddress i anropets tekniska kuvertering."
 * careContactId 0..* string "Vård- och omsorgskontakt" "Begränsar sökningen till angivna vård- och omsorgskontakter."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetRheumatoidArthritisDataRequestFieldDescriptions

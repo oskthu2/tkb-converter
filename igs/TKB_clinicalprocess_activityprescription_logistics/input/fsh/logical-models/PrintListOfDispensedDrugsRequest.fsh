@@ -78,3 +78,6 @@ Characteristics: #can-be-target
         """
         Fältlängd 1..28.
         """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert PrintListOfDispensedDrugsRequestFieldDescriptions

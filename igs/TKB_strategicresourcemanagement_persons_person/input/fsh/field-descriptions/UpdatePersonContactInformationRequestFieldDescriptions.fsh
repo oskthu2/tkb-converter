@@ -1,0 +1,79 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: UpdatePersonContactInformationRequestFieldDescriptions
+* actor ^definition = "Den som utför uppdateringen."
+* actor ^comment = "TKB-fält: `actor` (`urn:riv:strategicresourcemanagement:persons:person:5:ActorType`, kardinalitet 1..1).
+
+**Modellanteckning:** Datatyp som identifierar en aktör."
+* actor.actorId ^definition = "En universellt unik identifierare."
+* actor.actorId ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1..1)."
+* actor.actorId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
+* actor.actorId.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* actor.professional ^definition = "Datatyp som identifierar en aktör inom en profession."
+* actor.professional ^comment = "TKB-fält: `../professional` (`ProfessionalType`, kardinalitet 0..1)."
+* actor.professional.organizationId ^definition = "En universellt unik identifierare."
+* actor.professional.organizationId ^comment = "TKB-fält: `../../organizationId` (`IIType`, kardinalitet 1..1)."
+* actor.professional.organizationId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
+* actor.professional.organizationId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* actor.updateTime ^comment = "TKB-fält: `../updateTime` (`Timestamp`, kardinalitet 0..1)."
+* personId ^definition = "Id på personen vars kontaktuppgifter ska uppdateras"
+* personId ^comment = "TKB-fält: `personId` (`urn:riv:strategicresourcemanagement:persons:person:5:IIType`, kardinalitet 1..1).
+
+**Modellanteckning:** En universellt unik identifierare."
+* personId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
+* personId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* versionToUpdate ^definition = "Den version av personposten som skall uppdateras. Se även Övriga regler.
+
+Tjänstekonsumenten får värdet genom en föregående hämtning av detta attribut (version i datatypen ContactInformationRecordType)."
+* versionToUpdate ^comment = "TKB-fält: `versionToUpdate` (`urn:riv:strategicresourcemanagement:persons:person:5:Timestamp`, kardinalitet 0..1)."
+* contactInformation ^definition = "Personens kontaktuppgifter"
+* contactInformation ^comment = "TKB-fält: `contactInformation` (`urn:riv:strategicresourcemanagement:persons:person:5:ContactInformationType`, kardinalitet 0..*).
+
+**Modellanteckning:** Klass för patientens egna angivna kontakuppgifter"
+* contactInformation.contactType ^comment = "TKB-fält: `../contactType` (`CodedValue`, kardinalitet 1..1)."
+* contactInformation.use ^comment = "TKB-fält: `../use` (`CodedValue`, kardinalitet 0..1)."
+* contactInformation.contactInformationValue ^comment = "TKB-fält: `../value` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** contactInformationValue Heter value i schemat."
+* contactInformation.rank ^comment = "TKB-fält: `../rank` (`int`, kardinalitet 0..1)."
+* contactInformation.comment ^comment = "TKB-fält: `../comment` (`string`, kardinalitet 0..1)."
+* contactInformation.period ^comment = "TKB-fält: `../period` (`DatePeriodType`, kardinalitet 0..1)."
+* contactInformation.period.start ^comment = "TKB-fält: `../../start` (`date`, kardinalitet 0..1)."
+* contactInformation.period.end ^comment = "TKB-fält: `../../end` (`date`, kardinalitet 0..1)."
+* contactInformation.digitalNotification ^comment = "TKB-fält: `../digitalNotification` (`boolean`, kardinalitet 0..1)."
+* contactPerson ^definition = "Uppgifter om personens kontaktpersoner"
+* contactPerson ^comment = "TKB-fält: `contactPerson` (`urn:riv:strategicresourcemanagement:persons:person:5:ContactPersonType`, kardinalitet 0..*)."
+* contactPerson.contactRelationshipType ^comment = "TKB-fält: `../contactRelationshipType` (`CodedValue`, kardinalitet 1..1)."
+* contactPerson.priorityOrder ^comment = "TKB-fält: `../priorityOrder` (`int`, kardinalitet 0..1)."
+* contactPerson.givenName ^comment = "TKB-fält: `../givenName` (`String80`, kardinalitet 0..1)."
+* contactPerson.surName ^comment = "TKB-fält: `../surName` (`String80`, kardinalitet 0..1)."
+* contactPerson.middleName ^comment = "TKB-fält: `../middleName` (`String80`, kardinalitet 0..1)."
+* contactPerson.contactPersonAddress ^definition = "Svensk adress"
+* contactPerson.contactPersonAddress ^comment = "TKB-fält: `../contactPersonAddress` (`ResidentialAddressType`, kardinalitet 0..1)."
+* contactPerson.contactPersonAddress.careOf ^comment = "TKB-fält: `../../careOf` (`String40`, kardinalitet 0..1)."
+* contactPerson.contactPersonAddress.postalAddress1 ^comment = "TKB-fält: `../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* contactPerson.contactPersonAddress.postalAddress2 ^comment = "TKB-fält: `../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* contactPerson.contactPersonAddress.postalCode ^comment = "TKB-fält: `../../postalCode` (`PostalCode`, kardinalitet 0..1)."
+* contactPerson.contactPersonAddress.city ^comment = "TKB-fält: `../../city` (`String40`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation ^definition = "Klass för patientens egna angivna kontakuppgifter"
+* contactPerson.contactPersonContactInformation ^comment = "TKB-fält: `../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*)."
+* contactPerson.contactPersonContactInformation.contactType ^comment = "TKB-fält: `../../contactType` (`CodedValue`, kardinalitet 1..1)."
+* contactPerson.contactPersonContactInformation.use ^comment = "TKB-fält: `../../use` (`CodedValue`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation.contactInformationValue ^comment = "TKB-fält: `../../value` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** contactInformationValue Heter value i schemat."
+* contactPerson.contactPersonContactInformation.rank ^comment = "TKB-fält: `../../rank` (`int`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation.comment ^comment = "TKB-fält: `../../comment` (`string`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation.period ^comment = "TKB-fält: `../../period` (`DatePeriodType`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation.period.start ^comment = "TKB-fält: `../../../start` (`date`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation.period.end ^comment = "TKB-fält: `../../../end` (`date`, kardinalitet 0..1)."
+* contactPerson.contactPersonContactInformation.digitalNotification ^comment = "TKB-fält: `../../digitalNotification` (`boolean`, kardinalitet 0..1)."
+* optoutPaperNotification ^definition = "Sätts till true om personen ej önskar pappersavisering"
+* optoutPaperNotification ^comment = "TKB-fält: `optoutPaperNotification*` (`Xs:Boolean`, kardinalitet 0..1)."
