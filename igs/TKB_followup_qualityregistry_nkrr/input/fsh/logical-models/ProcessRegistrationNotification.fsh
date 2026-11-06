@@ -32,3 +32,6 @@ Characteristics: #can-be-target
     """
     En beskrivande text som kan anges vid INFO eller ERROR.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessRegistrationNotificationFieldDescriptions

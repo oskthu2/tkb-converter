@@ -35,3 +35,6 @@ Characteristics: #can-be-target
   * systemversion 0..1 string "Systemversion" "Anropande systems version."
   * systemIp 0..1 string "System-IP" "Anropande systems IP-adress."
 * personnummer 1..1 string "Personnummer" "Giltigt personnummer för patient. Typen är xs:string i schemat (inte PersonIdType)."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaPatientInfoRequestFieldDescriptions

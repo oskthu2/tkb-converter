@@ -20,6 +20,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SendMessageToRecipientFieldDescriptions
+
 Logical: SendMessageToRecipientRequest
 Id: sendmessagetorecipient-request
 Title: "SendMessageToRecipient — Request"
@@ -49,3 +52,6 @@ Characteristics: #can-be-target
 * skickatAv.enhet.vardgivare 1..1 BackboneElement "Vårdgivare"
 * skickatAv.enhet.vardgivare.vardgivareId 1..1 Identifier "HSA-id för vårdgivaren"
 * sistaDatumForSvar 0..1 date "Datum då vården senast vill ha svar (endast vid fråga)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SendMessageToRecipientRequestFieldDescriptions

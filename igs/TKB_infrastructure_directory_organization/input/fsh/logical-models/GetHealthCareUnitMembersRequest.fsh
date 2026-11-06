@@ -23,3 +23,6 @@ Characteristics: #can-be-target
     Uteblivet värde tolkas som false.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthCareUnitMembersRequestFieldDescriptions

@@ -19,3 +19,6 @@ Characteristics: #can-be-target
     Pattern: (([1-9]\d{7})|(\d{6}))[\-]?\d{4}
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetListingTypesRequestFieldDescriptions

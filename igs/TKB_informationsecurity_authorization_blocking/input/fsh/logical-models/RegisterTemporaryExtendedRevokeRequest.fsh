@@ -33,3 +33,6 @@ Characteristics: #can-be-target
 * revokeReason from TemporaryRevokeReasonVS (required)
 * revokeReasonText 0..1 string "revokeReasonText" "revokeReasonText"
 * replicationTimeout 1..1 integer "replicationTimeout" "replicationTimeout"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterTemporaryExtendedRevokeRequestFieldDescriptions

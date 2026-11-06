@@ -38,3 +38,6 @@ Characteristics: #can-be-target
     Begränsar sökning till funktionsstatusobjekt kopplade till angiven vårdkontakt.
     Kardinalitet: Valfri, lista.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFunctionalStatusRequestFieldDescriptions

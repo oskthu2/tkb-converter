@@ -25,3 +25,6 @@ Characteristics: #can-be-target
     men som 'hasCareEngagement' i XSD. Normaliserat till camelCase i FHIR-modellen.
     Kardinaliteten anges som '1' (utan punktnotation) i TKB — tolkat som 1..1.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert AssertCareEngagementFieldDescriptions

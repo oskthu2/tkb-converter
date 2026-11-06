@@ -12,3 +12,6 @@ Description: """
 Characteristics: #can-be-target
 * ^version = "4.0"
 * ansluten 1..1 boolean "ansluten" "Personens högkostnadsstatus. False - Konto ej skapat True - Konto skapat"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SkapaHkdbKontoFieldDescriptions

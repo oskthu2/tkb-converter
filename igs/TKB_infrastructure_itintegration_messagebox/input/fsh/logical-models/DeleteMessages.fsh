@@ -17,3 +17,6 @@ Characteristics: #can-be-target
   * errorId 0..1 integer "errorId" "errorId"
   * errorMessage 0..1 string "errorMessage" "errorMessage"
 * deletedIds 0..* string "deletedIds" "deletedIds (xs:long i schemat.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteMessagesFieldDescriptions

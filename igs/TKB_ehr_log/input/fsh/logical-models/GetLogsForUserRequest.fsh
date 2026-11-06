@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * toDate 1..1 dateTime "Obligatoriskt slutdatum för rapportuttaget"
 * queuedReportId 0..1 string "Id på en pågående rapport (UUID, 36 tecken)"
 * careUnitId 0..1 Identifier "HSA-id för specifik vårdenhet (valfritt filter)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogsForUserRequestFieldDescriptions

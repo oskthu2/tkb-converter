@@ -80,3 +80,6 @@ Characteristics: #can-be-target
       """
       I denna version av tjänstekontraktet är följande typer möjliga: chb-o (observation), caa-a (aktivitet).
       """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetObservationsRequestFieldDescriptions

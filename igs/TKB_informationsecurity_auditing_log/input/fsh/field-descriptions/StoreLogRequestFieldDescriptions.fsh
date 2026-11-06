@@ -1,0 +1,64 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: StoreLogRequestFieldDescriptions
+* log ^definition = "En kollektion av loggposter som ska lagras i loggtjänsten."
+* log ^comment = "TKB-fält: `Log*` (`urn:riv:informationsecurity:auditing:log:2:LogType`, kardinalitet 1..*).
+
+**Modellanteckning:** Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost."
+* log.logId ^comment = "TKB-fält: `../logId` (`Id`, kardinalitet 1..1)."
+* log.system ^definition = "Datatyp som representerar ett system i loggposten. Det system som skapar loggposten."
+* log.system ^comment = "TKB-fält: `../system` (`SystemType`, kardinalitet 1..1)."
+* log.system.systemId ^comment = "TKB-fält: `../../systemId` (`HsaId`, kardinalitet 1..1)."
+* log.system.systemName ^comment = "TKB-fält: `../../systemName` (`SystemName`, kardinalitet 0..1)."
+* log.activity ^definition = "Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå, tidpunkt samt syftet med aktiviteten."
+* log.activity ^comment = "TKB-fält: `../activity` (`ActivityType`, kardinalitet 1..1)."
+* log.activity.activityType ^comment = "TKB-fält: `../../activityType` (`ActivityTypeValue`, kardinalitet 1..1)."
+* log.activity.activityLevel ^comment = "TKB-fält: `../../activityLevel` (`ActivityLevel`, kardinalitet 0..1)."
+* log.activity.activityArgs ^comment = "TKB-fält: `../../activityArgs` (`ActivityArgs`, kardinalitet 0..1)."
+* log.activity.startDate ^comment = "TKB-fält: `../../startDate` (`dateTime`, kardinalitet 1..1)."
+* log.activity.purpose ^comment = "TKB-fält: `../../purpose` (`PurposeDescription`, kardinalitet 1..1)."
+* log.user ^definition = "Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost."
+* log.user ^comment = "TKB-fält: `../user` (`UserType`, kardinalitet 1..1)."
+* log.user.userId ^comment = "TKB-fält: `../../userId` (`HsaId`, kardinalitet 1..1)."
+* log.user.userName ^comment = "TKB-fält: `../../name` (`UserName`, kardinalitet 0..1).
+
+**Modellanteckning:** userName Heter name i schemat."
+* log.user.personId ^definition = "En universellt unik identifierare."
+* log.user.personId ^comment = "TKB-fält: `../../personId` (`IIType`, kardinalitet 0..1)."
+* log.user.personId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
+* log.user.personId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* log.user.assignment ^comment = "TKB-fält: `../../assignment` (`Assignment`, kardinalitet 0..1)."
+* log.user.title ^comment = "TKB-fält: `../../title` (`UserTitle`, kardinalitet 0..1)."
+* log.user.careProvider ^definition = "Datatyp som representerar en vårdgivare."
+* log.user.careProvider ^comment = "TKB-fält: `../../careProvider` (`CareProviderType`, kardinalitet 1..1)."
+* log.user.careProvider.careProviderId ^comment = "TKB-fält: `../../../careProviderId` (`HsaId`, kardinalitet 1..1)."
+* log.user.careProvider.careProviderName ^comment = "TKB-fält: `../../../careProviderName` (`CareProviderName`, kardinalitet 0..1)."
+* log.user.careUnit ^definition = "Datatyp som representerar en vårdenhet."
+* log.user.careUnit ^comment = "TKB-fält: `../../careUnit` (`CareUnitType`, kardinalitet 1..1)."
+* log.user.careUnit.careUnitId ^comment = "TKB-fält: `../../../careUnitId` (`HsaId`, kardinalitet 1..1)."
+* log.user.careUnit.careUnitName ^comment = "TKB-fält: `../../../careUnitName` (`CareUnitName`, kardinalitet 0..1)."
+* log.resources ^definition = "Information om aktuella resurser. En loggpost kan hålla en eller flera resurser."
+* log.resources ^comment = "TKB-fält: `../resources` (`ResourcesType`, kardinalitet 1..1)."
+* log.resources.resource ^definition = "Datatyp som representerar en resurs i loggposten."
+* log.resources.resource ^comment = "TKB-fält: `../../resource` (`ResourceType`, kardinalitet 1..*)."
+* log.resources.resource.resourceType ^comment = "TKB-fält: `../../../resourceType` (`ResourceTypeValue`, kardinalitet 1..1)."
+* log.resources.resource.patient ^definition = "Datatyp som representerar en patient i en resurs."
+* log.resources.resource.patient ^comment = "TKB-fält: `../../../patient` (`PatientType`, kardinalitet 0..1)."
+* log.resources.resource.patient.patientId ^definition = "En universellt unik identifierare."
+* log.resources.resource.patient.patientId ^comment = "TKB-fält: `../../../../patientId` (`IIType`, kardinalitet 1..1)."
+* log.resources.resource.patient.patientId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
+* log.resources.resource.patient.patientId.iiExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* log.resources.resource.patient.patientName ^comment = "TKB-fält: `../../../../patientName` (`PatientName`, kardinalitet 0..1)."
+* log.resources.resource.careProvider ^definition = "Datatyp som representerar en vårdgivare."
+* log.resources.resource.careProvider ^comment = "TKB-fält: `../../../careProvider` (`CareProviderType`, kardinalitet 1..1)."
+* log.resources.resource.careProvider.careProviderId ^comment = "TKB-fält: `../../../../careProviderId` (`HsaId`, kardinalitet 1..1)."
+* log.resources.resource.careProvider.careProviderName ^comment = "TKB-fält: `../../../../careProviderName` (`CareProviderName`, kardinalitet 0..1)."
+* log.resources.resource.careUnit ^definition = "Datatyp som representerar en vårdenhet."
+* log.resources.resource.careUnit ^comment = "TKB-fält: `../../../careUnit` (`CareUnitType`, kardinalitet 0..1)."
+* log.resources.resource.careUnit.careUnitId ^comment = "TKB-fält: `../../../../careUnitId` (`HsaId`, kardinalitet 1..1)."
+* log.resources.resource.careUnit.careUnitName ^comment = "TKB-fält: `../../../../careUnitName` (`CareUnitName`, kardinalitet 0..1)."

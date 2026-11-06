@@ -59,3 +59,6 @@ Characteristics: #can-be-target
   1 = röntgenremiss, 2 = labbremiss, 4 = allmänremiss.
   """
 * typeOfRequest from KvFramstallantypVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetRequestActivitiesRequestFieldDescriptions

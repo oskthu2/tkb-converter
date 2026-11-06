@@ -57,3 +57,6 @@ Characteristics: #can-be-target
   * personnummer 0..1 string "personnummer" "Patientens personnummer."
 * varningsnivaUppnadd 1..1 boolean "varningsnivaUppnadd" "Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt."
 * avPatientSparradePosterArBorttagna 1..1 boolean "avPatientSparradePosterArBorttagna" "Markering som anger om poster plockats bort ur resultatet pga att patienten spärrat dessa, dvs det finns poster som är spärrade och därför inte är med i resultatet. (Refererat element ur LasLFVardsystemResponder_4.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4.1.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert LasLFVardsystemFieldDescriptions

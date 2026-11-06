@@ -378,6 +378,9 @@ Characteristics: #can-be-target
 // Fältregler från TKB avsnitt 7.1 (Regler i svaret) som FHIRPath-invarianter.
 // Uttrycken utvärderas i kontexten för det element som har obeys-regeln.
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetActivitiesFieldDescriptions
+
 Invariant: getactivities-additionalparticipant-one-participant
 Description: "Exakt en av person, organisation, device och location ska anges i additionalParticipant (TKB 7.1, AdditionalParticipantType: 'Endast en av nedanstående')."
 Expression: "person.count() + organisation.count() + device.count() + location.count() = 1"

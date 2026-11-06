@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * hsaIdentity 1..1 string "hsaIdentity" "hsaIdentity"
 * searchBase 0..1 string "searchBase" "searchBase"
 * getParentInfo 1..1 boolean "getParentInfo" "getParentInfo"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHsaUnitRequestFieldDescriptions

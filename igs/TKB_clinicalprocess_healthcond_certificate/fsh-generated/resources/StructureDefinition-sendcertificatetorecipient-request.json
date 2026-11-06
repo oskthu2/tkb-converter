@@ -31,7 +31,8 @@
         "id": "sendcertificatetorecipient-request.skickatTidpunkt",
         "path": "sendcertificatetorecipient-request.skickatTidpunkt",
         "short": "Tidpunkt då begäran om att skicka intyg skickas",
-        "definition": "Tidpunkt då begäran om att skicka intyg skickas",
+        "definition": "Tidpunkt då begäran om att skicka intyg skickas.",
+        "comment": "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).\n\n**Mappning DIM:** -",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "sendcertificatetorecipient-request.intygsId",
         "path": "sendcertificatetorecipient-request.intygsId",
         "short": "Identitet på intyget",
-        "definition": "Identitet på intyget",
+        "definition": "Identitet på intyget.",
+        "comment": "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.intygs-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "sendcertificatetorecipient-request.patientPersonId",
         "path": "sendcertificatetorecipient-request.patientPersonId",
         "short": "Person- eller samordningsnummer för patienten",
-        "definition": "Person- eller samordningsnummer för patienten",
+        "definition": "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska skickas. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.",
+        "comment": "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "sendcertificatetorecipient-request.mottagare",
         "path": "sendcertificatetorecipient-request.mottagare",
         "short": "Kodat värde för den part intyget ska skickas till",
-        "definition": "Kodat värde för den part intyget ska skickas till",
+        "definition": "Kodat värde som anger den part i intygshanteringsprocessen som intyget ska skickas till.",
+        "comment": "TKB-fält: `mottagare` (`Part (se 7.2.9)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intygsmottagare.part",
         "min": 1,
         "max": "1",
         "type": [
@@ -87,7 +91,8 @@
         "id": "sendcertificatetorecipient-request.skickatAv",
         "path": "sendcertificatetorecipient-request.skickatAv",
         "short": "Identifierar personen som skickar intyget",
-        "definition": "hosPersonal eller personId (invånare) — exklusivt val (XML schema choice).",
+        "definition": "Identifierar den person som skickar meddelandet. Denna information loggas men lagras inte i Intygstjänsten.",
+        "comment": "TKB-fält: `skickatAv`.\n\n**Mappning DIM:** -\n\n**Modellanteckning:** hosPersonal eller personId (invånare) — exklusivt val (XML schema choice).",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +114,8 @@
         "id": "sendcertificatetorecipient-request.skickatAv.hosPersonal",
         "path": "sendcertificatetorecipient-request.skickatAv.hosPersonal",
         "short": "HoS-personal (anges vid anrop från vården)",
-        "definition": "HoS-personal (anges vid anrop från vården)",
+        "definition": "Skall anges när anrop görs från vården, och enbart då.",
+        "comment": "TKB-fält: `../hosPersonal` (`HoSPersonal (se 7.1.4)`, kardinalitet 0..1).\n\n**Mappning DIM:** HoS-personal, Enhet, Vårdgivare",
         "min": 0,
         "max": "1",
         "type": [
@@ -161,7 +167,8 @@
         "id": "sendcertificatetorecipient-request.skickatAv.personId",
         "path": "sendcertificatetorecipient-request.skickatAv.personId",
         "short": "Person- eller samordningsnummer (anges vid anrop från invånartjänst)",
-        "definition": "Person- eller samordningsnummer (anges vid anrop från invånartjänst)",
+        "definition": "Skall anges när anrop görs från en invånartjänst, och enbart då.",
+        "comment": "TKB-fält: `../person-id` (`PersonId (se 7.2.10)`, kardinalitet 0..1).\n\n**Mappning DIM:** Patient.person-id",
         "min": 0,
         "max": "1",
         "type": [

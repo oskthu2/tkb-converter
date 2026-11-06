@@ -44,7 +44,8 @@
         "id": "registerblock-request.block.blockId",
         "path": "registerblock-request.block.blockId",
         "short": "Unik identifierare för spärren (UUID)",
-        "definition": "Unik identifierare för spärren (UUID)",
+        "definition": "Unik, global identifierare för spärren. Anropande system ansvarar för att generera id:et.",
+        "comment": "TKB-fält: `blockId` (`blocking:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "registerblock-request.block.blockType",
         "path": "registerblock-request.block.blockType",
         "short": "Typ av spärr",
-        "definition": "Typ av spärr",
+        "definition": "Enumerationsvärde som anger om spärren är en inre (inom vårdenhet) eller yttre (inom vårdgivare).",
+        "comment": "TKB-fält: `blockType` (`blocking:BlockType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -74,7 +76,8 @@
         "id": "registerblock-request.block.patientId",
         "path": "registerblock-request.block.patientId",
         "short": "Patientens personnummer eller samordningsnummer",
-        "definition": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer, 12 tecken.",
+        "comment": "TKB-fält: `patientId` (`blocking:PersonIdValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -87,7 +90,8 @@
         "id": "registerblock-request.block.informationStartDate",
         "path": "registerblock-request.block.informationStartDate",
         "short": "Startdatum för information som spärren gäller",
-        "definition": "Startdatum för information som spärren gäller",
+        "definition": "Ej obligatoriskt startdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller efter denna tidpunkt.",
+        "comment": "TKB-fält: `informationStartDate` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -100,7 +104,8 @@
         "id": "registerblock-request.block.informationEndDate",
         "path": "registerblock-request.block.informationEndDate",
         "short": "Slutdatum för information som spärren gäller",
-        "definition": "Slutdatum för information som spärren gäller",
+        "definition": "Ej obligatoriskt slutdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller före denna tidpunkt.",
+        "comment": "TKB-fält: `informationEndDate` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -113,7 +118,8 @@
         "id": "registerblock-request.block.informationCareUnitId",
         "path": "registerblock-request.block.informationCareUnitId",
         "short": "HSA-id för vårdenhet (vid inre spärr)",
-        "definition": "HSA-id för vårdenhet (vid inre spärr)",
+        "definition": "Obligatoriskt om spärren är en inre och endast då. Anger HSA-id för den vårdenhet spärren gäller för.",
+        "comment": "TKB-fält: `informationCareUnitId` (`blocking:HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -126,7 +132,8 @@
         "id": "registerblock-request.block.informationCareProviderId",
         "path": "registerblock-request.block.informationCareProviderId",
         "short": "HSA-id för vårdgivare vars information spärras",
-        "definition": "HSA-id för vårdgivare vars information spärras",
+        "definition": "Obligatoriskt HSA-id för den vårdgivare spärren gäller för.",
+        "comment": "TKB-fält: `informationCareProviderId` (`blocking:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -139,7 +146,8 @@
         "id": "registerblock-request.block.excludedInformationTypes",
         "path": "registerblock-request.block.excludedInformationTypes",
         "short": "Informationstyper undantagna från spärren",
-        "definition": "Informationstyper undantagna från spärren",
+        "definition": "Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'.",
+        "comment": "TKB-fält: `excludedInformationTypes` (`blocking:InformationTypeIdValue`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [

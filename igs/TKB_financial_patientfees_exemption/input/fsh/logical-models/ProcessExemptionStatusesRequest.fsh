@@ -52,3 +52,6 @@ Characteristics: #can-be-target
     * region 1..1 BackboneElement "region" "region"
       * root 1..1 string "root" "root"
       * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessExemptionStatusesRequestFieldDescriptions

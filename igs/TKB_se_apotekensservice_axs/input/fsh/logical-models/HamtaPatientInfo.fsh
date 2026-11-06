@@ -54,3 +54,6 @@ Characteristics: #can-be-target
     * rrdSamtyckeDatum 0..1 dateTime "Datum RRD-samtycke" "Datum för senaste ändring av RRD-samtycke."
   * statusKod 0..1 code "Statuskod" "Status på personen i FOLK, mappad från träffkoder i FOLK. Vissa statuskoder innebär att det inte finns någon personinformation i svaret."
   * statusKod from FolkStatusKodVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaPatientInfoFieldDescriptions

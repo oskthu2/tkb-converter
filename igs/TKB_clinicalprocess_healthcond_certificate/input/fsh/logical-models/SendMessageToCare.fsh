@@ -20,6 +20,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SendMessageToCareFieldDescriptions
+
 Logical: SendMessageToCareRequest
 Id: sendmessagetocare-request
 Title: "SendMessageToCare — Request"
@@ -58,3 +61,6 @@ Characteristics: #can-be-target
 * komplettering.instans 0..1 integer "Instansnummer för fråga med flera instanser (lägsta värde 1)"
 * komplettering.text 1..1 string "Kompletteringsmeddelande för specifik fråga"
 * sistaDatumForSvar 0..1 date "Datum då intygsmottagaren senast vill ha svar (endast vid fråga)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SendMessageToCareRequestFieldDescriptions

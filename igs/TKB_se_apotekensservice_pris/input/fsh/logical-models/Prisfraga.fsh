@@ -23,3 +23,6 @@ Characteristics: #can-be-target
   * bruttoPris 1..1 decimal "bruttoPris" "Apoteksaktörs utpris för receptrad inkl. ev. moms. Vid kreditering blir detta värde negativt."
   * prisTillagg 0..1 decimal "prisTillagg" "Radens ev. pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
   * radNr 1..1 integer "radNr" "Radnr."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert PrisfragaFieldDescriptions

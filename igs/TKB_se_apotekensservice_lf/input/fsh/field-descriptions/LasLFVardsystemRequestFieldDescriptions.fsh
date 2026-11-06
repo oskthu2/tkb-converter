@@ -1,0 +1,28 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: LasLFVardsystemRequestFieldDescriptions
+* anvandarnamn ^definition = "Användarnamn, används i kombination med HSA användar-id (klientinformation.anvandare) för att identifiera användare. Obligatoriskt om förskrivarkod saknas."
+* anvandarnamn ^comment = "TKB-fält: `anvandarnamn` (`string`, kardinalitet 0..1)."
+* arbetsplatsId ^definition = "HSA-id för arbetsplats."
+* arbetsplatsId ^comment = "TKB-fält: `arbetsplatsId` (`string`, kardinalitet 0..1)."
+* arbetsplatskod ^definition = "Förskrivarens arbetsplatskod, valideras mot ARKO. Obligatorisk om arbetsplatsnamn och arbetsplatsort inte anges."
+* arbetsplatskod ^comment = "TKB-fält: `arbetsplatskod` (`string`, kardinalitet 0..1)."
+* arbetsplatsnamn ^definition = "Namnet på användarens arbetsplats. Används istället för arbetsplatskod. Obligatorisk om arbetsplatskod inte anges."
+* arbetsplatsnamn ^comment = "TKB-fält: `arbetsplatsnamn` (`string`, kardinalitet 0..1)."
+* arbetsplatsort ^definition = "Orten för användarens arbetsplats. Används istället för arbetsplatskod. Obligatorisk om arbetsplatskod inte anges."
+* arbetsplatsort ^comment = "TKB-fält: `arbetsplatsort` (`string`, kardinalitet 0..1)."
+* atkomsttyp ^definition = "Treställig kod för typ av åtkomst. Tillåtna värden: ENG - Engångssamtycke SAM - Tillsvidaresamtycke NOD - Nödåtkomst"
+* atkomsttyp ^comment = "TKB-fält: `atkomsttyp` (`string`, kardinalitet 1..1)."
+* forskrivarkod ^definition = "Förskrivarens förskrivarkod, valideras mot FORS. Förskrivarkod skall även anges som användare i klientinformation."
+* forskrivarkod ^comment = "TKB-fält: `forskrivarkod` (`string`, kardinalitet 0..1)."
+* klientinformation ^definition = "Information om anropande system."
+* klientinformation ^comment = "TKB-fält: `klientinformation` (`KlientinformationRequest`, kardinalitet 1..1)."
+* klientinformation.anvandare ^definition = "Unikt användarid i anropande system."
+* klientinformation.anvandare ^comment = "TKB-fält: `../anvandare` (`string`, kardinalitet 1..1)."
+* klientinformation.session ^definition = "Sessionens id i anropande system."
+* klientinformation.session ^comment = "TKB-fält: `../session` (`string`, kardinalitet 1..1)."
+* klientinformation.system ^definition = "Systemnamn för anropande system. GLN-kod krävs för anrop från MVK och LTj."
+* klientinformation.system ^comment = "TKB-fält: `../system` (`string`, kardinalitet 1..1)."
+* personnummer ^definition = "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."
+* personnummer ^comment = "TKB-fält: `personnummer` (`string`, kardinalitet 1..1)."

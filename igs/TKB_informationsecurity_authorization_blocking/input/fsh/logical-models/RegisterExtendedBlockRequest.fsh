@@ -36,3 +36,6 @@ Characteristics: #can-be-target
     * assignmentName 0..1 string "assignmentName" "assignmentName"
   * reasonText 0..1 string "reasonText" "reasonText"
 * replicationTimeout 1..1 integer "replicationTimeout" "replicationTimeout"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterExtendedBlockRequestFieldDescriptions

@@ -1,0 +1,428 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetPersonsForProfileUnrestrictedFieldDescriptions
+* requestedPersonRecord ^comment = "TKB-fält: `requestedPersonRecord` (`RequestedPersonRecordType`, kardinalitet 1..*)."
+* requestedPersonRecord.requestedPersonalIdentity ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.requestedPersonalIdentity ^comment = "TKB-fält: `../requestedPersonalIdentity` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.requestedPersonalIdentity.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.requestedPersonalIdentity.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord ^definition = "Grupp för personpost"
+* requestedPersonRecord.personRecord ^comment = "TKB-fält: `../personRecord` (`PersonRecordType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personalIdentity ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.personalIdentity ^comment = "TKB-fält: `../../personalIdentity` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.personalIdentity.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.personalIdentity.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.identityLevel ^comment = "TKB-fält: `../../identityLevel` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.identityLevelDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.identityLevelDate ^comment = "TKB-fält: `../../identityLevelDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.identityLevelDate.format ^comment = "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.identityLevelDate.partialDateValue ^comment = "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.gender ^comment = "TKB-fält: `../../gender` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.protectedPersonIndicator ^comment = "TKB-fält: `../../protectedPersonIndicator` (`boolean`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.testIndicator ^comment = "TKB-fält: `../../testIndicator` (`boolean`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.primaryIdentity ^comment = "TKB-fält: `../../primaryIdentity` (`boolean`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.personRecordVersion ^comment = "TKB-fält: `../../version` (`Timestamp`, kardinalitet 0..1).
+
+**Modellanteckning:** personRecordVersion Heter version i schemat."
+* requestedPersonRecord.personRecord.personRecordName ^definition = "Namn"
+* requestedPersonRecord.personRecord.personRecordName ^comment = "TKB-fält: `../../name` (`NameType`, kardinalitet 0..1).
+
+**Modellanteckning:** Namn Heter name i schemat."
+* requestedPersonRecord.personRecord.personRecordName.givenNameIndicator ^comment = "TKB-fält: `../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personRecordName.givenName ^comment = "TKB-fält: `../../../givenName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personRecordName.middleName ^comment = "TKB-fält: `../../../middleName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personRecordName.surname ^comment = "TKB-fält: `../../../surname` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personRecordName.notificationName ^comment = "TKB-fält: `../../../notificationName` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.linkedIdentity ^definition = "Klass för att koppla ihop 2 identiteter. Ex en nationell reservidentitet till ett PNR"
+* requestedPersonRecord.personRecord.linkedIdentity ^comment = "TKB-fält: `../../linkedIdentity` (`LinkedIdentityType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.linkedIdentity.referredPersonalIdentity ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.linkedIdentity.referredPersonalIdentity ^comment = "TKB-fält: `../../../referredPersonalIdentity` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.linkedIdentity.referredPersonalIdentity.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.linkedIdentity.referredPersonalIdentity.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.linkedIdentity.assuranceLevel ^comment = "TKB-fält: `../../../assuranceLevel` (`CodedValue`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.linkedIdentity.primaryIdentity ^comment = "TKB-fält: `../../../primaryIdentity` (`boolean`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.referredPersonalIdentities ^definition = "Klass för Hänvisningspersonnummer. För de personer som bytt personnummer anges tidigare personnummer/samordningsnummer som hänvisningspersonnummer. Det gamla personnumret/samordningsnumret utgör även det en egen personpost. I det fallet anges det nya personnumret som hänvisningspersonnummer. En person kan få nytt personnummer efter exempelvis ändring av en persons födelsetid eller vid beslut om ändrad könstillhörighet. Klassen håller ihop personidentiteter av typerna personnummer och samordningsnummer enligt Skatteverket till skillnad från klassen KoppladIdenitet som är Personuppgiftstjänstens egna klass för att kunna koppla ihop alla typer av personidentiteter (inkl. reservidentiteter)."
+* requestedPersonRecord.personRecord.referredPersonalIdentities ^comment = "TKB-fält: `../../referredPersonalIdentities` (`ReferredPersonalIdentityType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.referredPersonalIdentities.referredPersonalIdentity ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.referredPersonalIdentities.referredPersonalIdentity ^comment = "TKB-fält: `../../../referredPersonalIdentity` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.referredPersonalIdentities.referredPersonalIdentity.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.referredPersonalIdentities.referredPersonalIdentity.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.referredPersonalIdentities.referredPersonalIdentityStatus ^comment = "TKB-fält: `../../../referredPersonalIdentityStatus` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth ^definition = "Uppgifter om födelse"
+* requestedPersonRecord.personRecord.birth ^comment = "TKB-fält: `../../birth` (`BirthType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.dateOfBirth ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.birth.dateOfBirth ^comment = "TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.dateOfBirth.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.birth.dateOfBirth.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.birth.placeOfBirthSweden ^definition = "Uppgifter om hemort i Sverige"
+* requestedPersonRecord.personRecord.birth.placeOfBirthSweden ^comment = "TKB-fält: `../../../placeOfBirthSweden` (`PlaceOfBirthSwedenType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.placeOfBirthSweden.birthCountyCode ^comment = "TKB-fält: `../../../../birthCountyCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.placeOfBirthSweden.birthParish ^comment = "TKB-fält: `../../../../birthParish` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.birthAbroad ^definition = "Uppgifter om födelse i utlandet"
+* requestedPersonRecord.personRecord.birth.birthAbroad ^comment = "TKB-fält: `../../../birthAbroad` (`BirthAbroadType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.birthAbroad.placeOfBirthAbroad ^comment = "TKB-fält: `../../../../placeOfBirthAbroad` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.birth.birthAbroad.countryOfBirth ^comment = "TKB-fält: `../../../../countryOfBirth` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality ^definition = "Uppgifter om folkbokföring"
+* requestedPersonRecord.personRecord.populationRegistrationLocality ^comment = "TKB-fält: `../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.populationRegistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.populationRegistrationDate ^comment = "TKB-fält: `../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.populationRegistrationDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.populationRegistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.countyCode ^comment = "TKB-fält: `../../../countyCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.municipalityCode ^comment = "TKB-fält: `../../../municipalityCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.parishCode ^comment = "TKB-fält: `../../../parishCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.propertyDesignation ^comment = "TKB-fält: `../../../propertyDesignation` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.fictitiousPropertyNumber ^comment = "TKB-fält: `../../../fictitiousPropertyNumber` (`FictitiousPropertyNumber`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.populationRegistrationType ^comment = "TKB-fält: `../../../populationRegistrationType` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.localRegistrationTime ^comment = "TKB-fält: `../../../localRegistrationTime` (`dateTime`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationLocality.localRegistrationEndTime ^comment = "TKB-fält: `../../../localRegistrationEndTime` (`dateTime`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord ^definition = "Folkbokföringspost"
+* requestedPersonRecord.personRecord.populationRegistrationRecord ^comment = "TKB-fält: `../../populationRegistrationRecord` (`PopulationRegistrationRecordType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.syncronizationTime ^comment = "TKB-fält: `../../../syncronizationTime` (`dateTime`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase ^definition = "Ärendeuppgifter"
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase ^comment = "TKB-fält: `../../../notificationCase` (`NotificationCaseType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.recordId ^comment = "TKB-fält: `../../../../recordId` (`RecordId`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.notificationType ^comment = "TKB-fält: `../../../../notificationType` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.modificationTime ^comment = "TKB-fält: `../../../../modificationTime` (`dateTime`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.totalRecord ^comment = "TKB-fält: `../../../../totalRecord` (`boolean`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.notificationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.notificationDate ^comment = "TKB-fält: `../../../../notificationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.notificationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.notificationCase.notificationDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords ^definition = "Grupp för historik"
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords ^comment = "TKB-fält: `../../../historicalRecords` (`HistoricalRecordsType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality ^definition = "Uppgifter om folkbokföring"
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality ^comment = "TKB-fält: `../../../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate ^comment = "TKB-fält: `../../../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.countyCode ^comment = "TKB-fält: `../../../../../countyCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.municipalityCode ^comment = "TKB-fält: `../../../../../municipalityCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.parishCode ^comment = "TKB-fält: `../../../../../parishCode` (`String2`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.propertyDesignation ^comment = "TKB-fält: `../../../../../propertyDesignation` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.fictitiousPropertyNumber ^comment = "TKB-fält: `../../../../../fictitiousPropertyNumber` (`FictitiousPropertyNumber`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationType ^comment = "TKB-fält: `../../../../../populationRegistrationType` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.localRegistrationTime ^comment = "TKB-fält: `../../../../../localRegistrationTime` (`dateTime`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.localRegistrationEndTime ^comment = "TKB-fält: `../../../../../localRegistrationEndTime` (`dateTime`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress ^definition = "Svensk adress"
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress ^comment = "TKB-fält: `../../../../historicalAddress` (`ResidentialAddressType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.careOf ^comment = "TKB-fält: `../../../../../careOf` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalAddress1 ^comment = "TKB-fält: `../../../../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalAddress2 ^comment = "TKB-fält: `../../../../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalCode ^comment = "TKB-fält: `../../../../../postalCode` (`PostalCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.city ^comment = "TKB-fält: `../../../../../city` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation ^definition = "Grupp för adressuppgifter"
+* requestedPersonRecord.personRecord.addressInformation ^comment = "TKB-fält: `../../addressInformation` (`AddressInformationType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress ^definition = "Svensk adress"
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress ^comment = "TKB-fält: `../../../residentialAddress` (`ResidentialAddressType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress.careOf ^comment = "TKB-fält: `../../../../careOf` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress.postalAddress1 ^comment = "TKB-fält: `../../../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress.postalAddress2 ^comment = "TKB-fält: `../../../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress.postalCode ^comment = "TKB-fält: `../../../../postalCode` (`PostalCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.residentialAddress.city ^comment = "TKB-fält: `../../../../city` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.nationalKeys ^definition = "Riksnycklar"
+* requestedPersonRecord.personRecord.addressInformation.nationalKeys ^comment = "TKB-fält: `../../../nationalKeys` (`NationalKeysType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.nationalKeys.propertyId ^comment = "TKB-fält: `../../../../propertyId` (`PropertyId`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.nationalKeys.addressPlaceId ^comment = "TKB-fält: `../../../../addressPlaceId` (`AddressPlaceId`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.nationalKeys.apartmentId ^comment = "TKB-fält: `../../../../apartmentId` (`ApartmentId`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.district ^definition = "Grupp för Distriktskod"
+* requestedPersonRecord.personRecord.addressInformation.district ^comment = "TKB-fält: `../../../district` (`DistrictType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.district.districtCode ^comment = "TKB-fält: `../../../../districtCode` (`DistrictCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress ^definition = "Svensk adress"
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress ^comment = "TKB-fält: `../../../specialPostalAddress` (`ResidentialAddressType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress.careOf ^comment = "TKB-fält: `../../../../careOf` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress.postalAddress1 ^comment = "TKB-fält: `../../../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress.postalAddress2 ^comment = "TKB-fält: `../../../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress.postalCode ^comment = "TKB-fält: `../../../../postalCode` (`PostalCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.specialPostalAddress.city ^comment = "TKB-fält: `../../../../city` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad ^definition = "Utlandsadress"
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad ^comment = "TKB-fält: `../../../addressAbroad` (`AddressAbroadType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.postalAddress1 ^comment = "TKB-fält: `../../../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.postalAddress2 ^comment = "TKB-fält: `../../../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.postalAddress3 ^comment = "TKB-fält: `../../../../postalAddress3` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.countryCode ^comment = "TKB-fält: `../../../../countryCode` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.addressAbroadDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.addressAbroadDate ^comment = "TKB-fält: `../../../../addressAbroadDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.addressAbroadDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.addressAbroadDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.votingDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.votingDate ^comment = "TKB-fält: `../../../../votingDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.votingDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.addressInformation.addressAbroad.votingDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.addressInformation.givenAddress ^definition = "Svensk adress"
+* requestedPersonRecord.personRecord.addressInformation.givenAddress ^comment = "TKB-fält: `../../../givenAddress` (`ResidentialAddressType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.givenAddress.careOf ^comment = "TKB-fält: `../../../../careOf` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.givenAddress.postalAddress1 ^comment = "TKB-fält: `../../../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.givenAddress.postalAddress2 ^comment = "TKB-fält: `../../../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.givenAddress.postalCode ^comment = "TKB-fält: `../../../../postalCode` (`PostalCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.givenAddress.city ^comment = "TKB-fält: `../../../../city` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.UUID ^definition = "UUID för fastighet, aderess och lägenhet"
+* requestedPersonRecord.personRecord.addressInformation.UUID ^comment = "TKB-fält: `../../../UUID` (`UUIDType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.UUID.propertyId ^comment = "TKB-fält: `../../../../propertyId` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.UUID.addressPlaceId ^comment = "TKB-fält: `../../../../addressPlaceId` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.addressInformation.UUID.apartmentId ^comment = "TKB-fält: `../../../../apartmentId` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation ^definition = "Klass för patientens egna angivna kontakuppgifter"
+* requestedPersonRecord.personRecord.contactInformation ^comment = "TKB-fält: `../../contactInformation` (`ContactInformationType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.contactInformation.contactType ^comment = "TKB-fält: `../../../contactType` (`CodedValue`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.contactInformation.use ^comment = "TKB-fält: `../../../use` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation.contactInformationValue ^comment = "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** contactInformationValue Heter value i schemat."
+* requestedPersonRecord.personRecord.contactInformation.rank ^comment = "TKB-fält: `../../../rank` (`int`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation.comment ^comment = "TKB-fält: `../../../comment` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation.period ^comment = "TKB-fält: `../../../period` (`DatePeriodType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation.period.start ^comment = "TKB-fält: `../../../../start` (`date`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation.period.end ^comment = "TKB-fält: `../../../../end` (`date`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactInformation.digitalNotification ^comment = "TKB-fält: `../../../digitalNotification` (`boolean`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson ^comment = "TKB-fält: `../../contactPerson` (`ContactPersonType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.contactPerson.contactRelationshipType ^comment = "TKB-fält: `../../../contactRelationshipType` (`CodedValue`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.contactPerson.priorityOrder ^comment = "TKB-fält: `../../../priorityOrder` (`int`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.givenName ^comment = "TKB-fält: `../../../givenName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.surName ^comment = "TKB-fält: `../../../surName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.middleName ^comment = "TKB-fält: `../../../middleName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress ^definition = "Svensk adress"
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress ^comment = "TKB-fält: `../../../contactPersonAddress` (`ResidentialAddressType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress.careOf ^comment = "TKB-fält: `../../../../careOf` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress.postalAddress1 ^comment = "TKB-fält: `../../../../postalAddress1` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress.postalAddress2 ^comment = "TKB-fält: `../../../../postalAddress2` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress.postalCode ^comment = "TKB-fält: `../../../../postalCode` (`PostalCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonAddress.city ^comment = "TKB-fält: `../../../../city` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation ^definition = "Klass för patientens egna angivna kontakuppgifter"
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation ^comment = "TKB-fält: `../../../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.contactType ^comment = "TKB-fält: `../../../../contactType` (`CodedValue`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.use ^comment = "TKB-fält: `../../../../use` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.contactInformationValue ^comment = "TKB-fält: `../../../../value` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** contactInformationValue Heter value i schemat."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.rank ^comment = "TKB-fält: `../../../../rank` (`int`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.comment ^comment = "TKB-fält: `../../../../comment` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.period ^comment = "TKB-fält: `../../../../period` (`DatePeriodType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.period.start ^comment = "TKB-fält: `../../../../../start` (`date`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.period.end ^comment = "TKB-fält: `../../../../../end` (`date`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.contactPerson.contactPersonContactInformation.digitalNotification ^comment = "TKB-fält: `../../../../digitalNotification` (`boolean`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity ^definition = "Klass för hur reservidentitetsuppgifter är styrkta."
+* requestedPersonRecord.personRecord.confirmedIdentity ^comment = "TKB-fält: `../../confirmedIdentity` (`ConfirmedIdentityType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.confirmedIdentity.typeOfIdentification ^comment = "TKB-fält: `../../../typeOfIdentification` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity.identificationNumber ^comment = "TKB-fält: `../../../identificationNumber` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity.issuersOfId ^comment = "TKB-fält: `../../../issuersOfId` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity.validDatePeriod ^comment = "TKB-fält: `../../../validDatePeriod` (`DatePeriodType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity.validDatePeriod.start ^comment = "TKB-fält: `../../../../start` (`date`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity.validDatePeriod.end ^comment = "TKB-fält: `../../../../end` (`date`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.confirmedIdentity.attachmentId ^comment = "TKB-fält: `../../../attachmentId` (`string`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.confirmedIdentity.countryCode ^comment = "TKB-fält: `../../../countryCode` (`CountryCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.administrativeInformation ^definition = "Klass för administrativa tilläggsuppgifter. Normalt tilläggsuppgifter kring en person med en reservidentitet som registreras i samband med uttag av reservidentitet (LRID/NRID)."
+* requestedPersonRecord.personRecord.administrativeInformation ^comment = "TKB-fält: `../../administrativeInformation` (`AdministrativeInformationType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.administrativeInformation.categoryOfPerson ^comment = "TKB-fält: `../../../categoryOfPerson` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.administrativeInformation.accountCode ^comment = "TKB-fält: `../../../accountCode` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.administrativeInformation.comment ^comment = "TKB-fält: `../../../comment` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.deregistration ^definition = "Uppgifter om avregistrering"
+* requestedPersonRecord.personRecord.deregistration ^comment = "TKB-fält: `../../deregistration` (`DeregistrationType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.deregistration.deregistrationReasonCode ^comment = "TKB-fält: `../../../deregistrationReasonCode` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.deregistration.deregistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.deregistration.deregistrationDate ^comment = "TKB-fält: `../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.deregistration.deregistrationDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.deregistration.deregistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.deregistration.foundDeadAtDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.deregistration.foundDeadAtDate ^comment = "TKB-fält: `../../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.deregistration.foundDeadAtDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.deregistration.foundDeadAtDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.maritalStatus ^definition = "Civistånd"
+* requestedPersonRecord.personRecord.maritalStatus ^comment = "TKB-fält: `../../maritalStatus` (`MaritalStatusType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.maritalStatus.maritalStatusCode ^comment = "TKB-fält: `../../../maritalStatusCode` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.maritalStatus.maritalStatusDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.maritalStatus.maritalStatusDate ^comment = "TKB-fält: `../../../maritalStatusDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.maritalStatus.maritalStatusDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.maritalStatus.maritalStatusDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.immigration ^definition = "Grupp för invandringsuppgifter"
+* requestedPersonRecord.personRecord.immigration ^comment = "TKB-fält: `../../immigration` (`ImmigrationType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.immigration.immigrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.immigration.immigrationDate ^comment = "TKB-fält: `../../../immigrationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.immigration.immigrationDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.immigration.immigrationDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.immigration.rightOfResidence ^comment = "TKB-fält: `../../../rightOfResidence` (`boolean`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.immigration.immigrationIdentity ^definition = "Grupp för personnummer och vilket land det är knutet till. Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo"
+* requestedPersonRecord.personRecord.immigration.immigrationIdentity ^comment = "TKB-fält: `../../../immigrationIdentity` (`ImmigrationIdentityType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.immigration.immigrationIdentity.personalIdentityNumber ^comment = "TKB-fält: `../../../../personalIdentityNumber` (`PersonalIdentityNumber`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.immigration.immigrationIdentity.country ^comment = "TKB-fält: `../../../../country` (`CountryCode`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.citizenship ^definition = "Grupp för medborgarskap"
+* requestedPersonRecord.personRecord.citizenship ^comment = "TKB-fält: `../../citizenship` (`CitizenshipType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.citizenship.citizenshipCountryCode ^comment = "TKB-fält: `../../../citizenshipCountryCode` (`CountryCode`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.citizenship.citizenshipDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.citizenship.citizenshipDate ^comment = "TKB-fält: `../../../citizenshipDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.citizenship.citizenshipDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.citizenship.citizenshipDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.citizenship.citizenshipStatus ^comment = "TKB-fält: `../../../status` (`CodedValue`, kardinalitet 0..1).
+
+**Modellanteckning:** citizenshipStatus Heter status i schemat."
+* requestedPersonRecord.personRecord.relationship ^definition = "Grupp för relation"
+* requestedPersonRecord.personRecord.relationship ^comment = "TKB-fält: `../../relationship` (`RelationshipType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.relationship.relationshipId ^definition = "Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes."
+* requestedPersonRecord.personRecord.relationship.relationshipId ^comment = "TKB-fält: `../../../relationshipId` (`RelationshipIdType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipId.personalIdentity ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.relationship.relationshipId.personalIdentity ^comment = "TKB-fält: `../../../../personalIdentity` (`IIType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipId.personalIdentity.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipId.personalIdentity.iiExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.relationship.relationshipId.dateOfBirth ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.relationship.relationshipId.dateOfBirth ^comment = "TKB-fält: `../../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipId.dateOfBirth.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipId.dateOfBirth.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.relationship.relationshipType ^comment = "TKB-fält: `../../../relationshipType` (`CodedValue`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipFromDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.relationship.relationshipFromDate ^comment = "TKB-fält: `../../../relationshipFromDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipFromDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipFromDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.relationship.relationshipToDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.relationship.relationshipToDate ^comment = "TKB-fält: `../../../relationshipToDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipToDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipToDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.relationship.relationshipName ^definition = "Namn"
+* requestedPersonRecord.personRecord.relationship.relationshipName ^comment = "TKB-fält: `../../../name` (`NameType`, kardinalitet 0..1).
+
+**Modellanteckning:** Namn Heter name i schemat."
+* requestedPersonRecord.personRecord.relationship.relationshipName.givenNameIndicator ^comment = "TKB-fält: `../../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipName.givenName ^comment = "TKB-fält: `../../../../givenName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipName.middleName ^comment = "TKB-fält: `../../../../middleName` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipName.surname ^comment = "TKB-fält: `../../../../surname` (`String80`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.relationshipName.notificationName ^comment = "TKB-fält: `../../../../notificationName` (`String40`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration ^definition = "Uppgifter om avregistrering"
+* requestedPersonRecord.personRecord.relationship.deregistration ^comment = "TKB-fält: `../../../deregistration` (`DeregistrationType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration.deregistrationReasonCode ^comment = "TKB-fält: `../../../../deregistrationReasonCode` (`CodedValue`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration.deregistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.relationship.deregistration.deregistrationDate ^comment = "TKB-fält: `../../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration.deregistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration.deregistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.relationship.deregistration.foundDeadAtDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.relationship.deregistration.foundDeadAtDate ^comment = "TKB-fält: `../../../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration.foundDeadAtDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.relationship.deregistration.foundDeadAtDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.relationship.relationshipStatus ^comment = "TKB-fält: `../../../status` (`CodedValue`, kardinalitet 0..1).
+
+**Modellanteckning:** relationshipStatus Heter status i schemat."
+* requestedPersonRecord.personRecord.coOrdinationNumberData ^definition = "Grupp för de personer som ej är folkbokförda men som har tilldelats ett samordningsnummer för identifiering av personen. Syftet med samordningsnummer är att myndigheter och andra samhällsfunktioner ska kunna identifiera personer även om de inte är folkbokförda i Sverige."
+* requestedPersonRecord.personRecord.coOrdinationNumberData ^comment = "TKB-fält: `../../coOrdinationNumberData` (`CoOrdinationNumberDataType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.allocationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.allocationDate ^comment = "TKB-fält: `../../../allocationDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.allocationDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.allocationDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.preliminaryTransferDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.preliminaryTransferDate ^comment = "TKB-fält: `../../../preliminaryTransferDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.preliminaryTransferDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.preliminaryTransferDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.renewalDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.renewalDate ^comment = "TKB-fält: `../../../renewalDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.renewalDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.renewalDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.deceasedDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.deceasedDate ^comment = "TKB-fält: `../../../deceasedDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.deceasedDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.coOrdinationNumberData.deceasedDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.personalIdentityStatus ^definition = "Klass som beskriver status för ett samordningsnummer. Status, datum och orsak ska vara obligatoriska uppgifter, när de finns, för aviseringar innehållande samordningsnummer."
+* requestedPersonRecord.personRecord.personalIdentityStatus ^comment = "TKB-fält: `../../personalIdentityStatus` (`PersonalIdentityStatusType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personalIdentityStatus.identityStatus ^comment = "TKB-fält: `../../../identityStatus` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personalIdentityStatus.identityStatusDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
+* requestedPersonRecord.personRecord.personalIdentityStatus.identityStatusDate ^comment = "TKB-fält: `../../../identityStatusDate` (`PartialDateType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.personalIdentityStatus.identityStatusDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.personalIdentityStatus.identityStatusDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+
+**Modellanteckning:** partialDateValue Heter value i schemat."
+* requestedPersonRecord.personRecord.personalIdentityStatus.identityStatusCause ^comment = "TKB-fält: `../../../identityStatusCause` (`string`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.updatePersonActor ^definition = "Datatyp som identifierar en aktör."
+* requestedPersonRecord.personRecord.updatePersonActor ^comment = "TKB-fält: `../../updatePersonActor` (`ActorType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.updatePersonActor.actorId ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.updatePersonActor.actorId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonActor.actorId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonActor.actorId.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.updatePersonActor.professional ^definition = "Datatyp som identifierar en aktör inom en profession."
+* requestedPersonRecord.personRecord.updatePersonActor.professional ^comment = "TKB-fält: `../../../professional` (`ProfessionalType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.updatePersonActor.professional.organizationId ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.updatePersonActor.professional.organizationId ^comment = "TKB-fält: `../../../../organizationId` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonActor.professional.organizationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonActor.professional.organizationId.iiExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.updatePersonActor.updateTime ^comment = "TKB-fält: `../../../updateTime` (`Timestamp`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor ^definition = "Datatyp som identifierar en aktör."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor ^comment = "TKB-fält: `../../updatePersonContactInformationActor` (`ActorType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.actorId ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.actorId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.actorId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.actorId.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.professional ^definition = "Datatyp som identifierar en aktör inom en profession."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.professional ^comment = "TKB-fält: `../../../professional` (`ProfessionalType`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.professional.organizationId ^definition = "En universellt unik identifierare."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.professional.organizationId ^comment = "TKB-fält: `../../../../organizationId` (`IIType`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.professional.organizationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** iiExtension Heter extension i schemat."
+* requestedPersonRecord.personRecord.updatePersonContactInformationActor.updateTime ^comment = "TKB-fält: `../../../updateTime` (`Timestamp`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.attachment ^definition = "Datatyp som beskriver en multimediatyp. Data kan förekomma som inbäddat element eller hänvisas via en referens URL."
+* requestedPersonRecord.personRecord.attachment ^comment = "TKB-fält: `../../attachment` (`MultimediaType`, kardinalitet 0..*)."
+* requestedPersonRecord.personRecord.attachment.multimediaId ^comment = "TKB-fält: `../../../id` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** multimediaId Heter id i schemat."
+* requestedPersonRecord.personRecord.attachment.mediaType ^comment = "TKB-fält: `../../../mediaType` (`CodedValue`, kardinalitet 1..1)."
+* requestedPersonRecord.personRecord.attachment.multimediaValue ^comment = "TKB-fält: `../../../value` (`base64Binary`, kardinalitet 0..1).
+
+**Modellanteckning:** multimediaValue Heter value i schemat."
+* requestedPersonRecord.personRecord.attachment.reference ^comment = "TKB-fält: `../../../reference` (`anyURI`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.optoutPaperNotification ^comment = "TKB-fält: `../../optoutPaperNotification` (`boolean`, kardinalitet 0..1)."
+* requestedPersonRecord.personRecord.protectedPopulationRecord ^comment = "TKB-fält: `../../protectedPopulationRecord` (`boolean`, kardinalitet 0..1)."

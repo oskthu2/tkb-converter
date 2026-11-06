@@ -31,7 +31,8 @@
         "id": "checkmedicationlistversion.isCurrentVersion",
         "path": "checkmedicationlistversion.isCurrentVersion",
         "short": "Sant om angiven version är den senaste versionen av läkemedelslistan",
-        "definition": "Sant om angiven version är den senaste versionen av läkemedelslistan",
+        "definition": "Sann om versionen som skickades in i begäran är den senaste versionen som finns registrerad i NOD. Annars falskt.",
+        "comment": "TKB-fält: `isCurrentVersion` (`boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "checkmedicationlistversion.result",
         "path": "checkmedicationlistversion.result",
         "short": "Resultat av begäran",
-        "definition": "Resultat av begäran",
+        "definition": "Innehåller information om begäran gick bra eller ej.",
+        "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "checkmedicationlistversion.result.resultCode",
         "path": "checkmedicationlistversion.result.resultCode",
         "short": "Svarskod",
-        "definition": "Svarskod",
+        "definition": "Kan endast vara OK, INFO eller ERROR",
+        "comment": "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -74,7 +77,8 @@
         "id": "checkmedicationlistversion.result.errorCode",
         "path": "checkmedicationlistversion.result.errorCode",
         "short": "Felkod",
-        "definition": "Felkod",
+        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
+        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -91,7 +95,8 @@
         "id": "checkmedicationlistversion.result.subcode",
         "path": "checkmedicationlistversion.result.subcode",
         "short": "Subkod (inga subkoder specificerade i v1.0)",
-        "definition": "Subkod (inga subkoder specificerade i v1.0)",
+        "definition": "Inga subkoder är specificerade.",
+        "comment": "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -104,7 +109,8 @@
         "id": "checkmedicationlistversion.result.logId",
         "path": "checkmedicationlistversion.result.logId",
         "short": "UUID för felanmälan",
-        "definition": "UUID för felanmälan",
+        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+        "comment": "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -117,7 +123,8 @@
         "id": "checkmedicationlistversion.result.message",
         "path": "checkmedicationlistversion.result.message",
         "short": "Beskrivande text",
-        "definition": "Beskrivande text",
+        "definition": "En beskrivande text som kan visas för användaren.",
+        "comment": "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

@@ -39,3 +39,6 @@ Characteristics: #can-be-target
   * system 1..1 string "system" "GLN-kod för anropande system."
 * maxantal 0..1 integer "maxantal" "Ställer in begränsning av maximala mängden returnerade transaktioner. T.ex innebär maxantal = 5, att endast de fem senaste transaktionerna hämtas. Om maxantal inte anges så är defaultvärde fem. Om man vill ha alla transaktioner sätts maxantal till -1."
 * persNr 1..1 string "persNr" "Personnummer för den som sökningen gäller."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaHkdbTransaktionerRequestFieldDescriptions

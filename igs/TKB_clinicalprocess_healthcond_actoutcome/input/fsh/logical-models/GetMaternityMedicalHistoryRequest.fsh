@@ -24,3 +24,6 @@ Characteristics: #can-be-target
 * sourceSystemHSAId 0..1 Identifier "HSA-id för källsystem (filter)"
 
 * careContactId 0..* string "Vårdkontaktid (filter)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMaternityMedicalHistoryRequestFieldDescriptions

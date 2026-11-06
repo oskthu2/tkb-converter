@@ -15,3 +15,6 @@ Characteristics: #can-be-target
   Användbart vid upprepande förfrågningar för att undvika att data som redan inhämtats returneras igen.
   """
 * getCancelledFlag 1..1 boolean "Flagga som avgör om makulerade och återkallade patientrelationer skall returneras"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPatientRelationsForCareProviderRequestFieldDescriptions

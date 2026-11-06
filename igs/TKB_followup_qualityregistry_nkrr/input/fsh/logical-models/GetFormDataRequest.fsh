@@ -50,3 +50,6 @@ Characteristics: #can-be-target
     employeePersonId anges (R3 – Registrator måste anges).
     I ett helautomatiserat förlopp efter en notifiering ska fälten inte anges.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFormDataRequestFieldDescriptions

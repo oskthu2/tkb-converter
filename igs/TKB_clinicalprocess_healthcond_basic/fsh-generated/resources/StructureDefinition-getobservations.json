@@ -31,7 +31,8 @@
         "id": "getobservations.observationGroup",
         "path": "getobservations.observationGroup",
         "short": "Grupp av observationer som delar samma patient, utförare, signerare, deltagare och källsystem (ObservationGroupType).",
-        "definition": "Denna nivå är framförallt till för att begränsa mängden redundant data i överföringen i de fall då flera\nobservationer gjorts med samma medverkande (exempelvis mätning av systoliskt och diastoliskt blodtryck).\nKlassen är en teknisk optimering som inte speglas i NI 2015:1.",
+        "definition": "Grupp av observationer som delar samma patient, utförare (m. tillhörande organisatorisk knytning), signerare, ytterligare deltagare, källsystem, vårdprocess-id, utrustning, samt plats. Denna nivå är framförallt till för att kunna begränsa mängden redundant data i överföringen i de fall då flera observationer gjorts med samma medverkande (exempelvis mätning av systoliskt och diastoliskt blodtryck). Denna klass är en teknisk optimering som inte speglas i NI 2015:1.",
+        "comment": "TKB-fält: `observationGroup` (`ObservationGroupType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getobservations.observationGroup.patient",
         "path": "getobservations.observationGroup.patient",
         "short": "Den patient som observationsgruppen avser (PatientType).",
-        "definition": "Den patient som observationsgruppen avser (PatientType).",
+        "definition": "Den patient som observationsgruppen avser.",
+        "comment": "TKB-fält: `patient` (`PatientType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +111,8 @@
         "id": "getobservations.observationGroup.performerRole",
         "path": "getobservations.observationGroup.performerRole",
         "short": "Den som utfört observationerna inom gruppen (PerformerRoleType).",
-        "definition": "Den som utfört observationerna inom gruppen (PerformerRoleType).",
+        "definition": "Den som utfört observationerna inom gruppen.",
+        "comment": "TKB-fält: `performerRole` (`PerformerRoleType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -283,7 +286,8 @@
         "id": "getobservations.observationGroup.legalAuthenticator",
         "path": "getobservations.observationGroup.legalAuthenticator",
         "short": "Den som signerat observationerna inom gruppen (LegalAuthenticatorType). Regel 2.3.",
-        "definition": "En kompakt och specifik version av AdditionalParticipation; indirekt en Professionell aktör med\ndeltagandetyp signerare enligt V-MIM.",
+        "definition": "Den som signerat observationerna inom gruppen.",
+        "comment": "TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).\n\n**Modellanteckning:** En kompakt och specifik version av AdditionalParticipation; indirekt en Professionell aktör med\ndeltagandetyp signerare enligt V-MIM.",
         "min": 0,
         "max": "1",
         "type": [
@@ -374,7 +378,8 @@
         "id": "getobservations.observationGroup.additionalParticipant",
         "path": "getobservations.observationGroup.additionalParticipant",
         "short": "Övriga deltagare relaterade till observationerna inom gruppen (AdditionalParticipantType). Regel 2.2.",
-        "definition": "Övriga deltagare relaterade till observationerna inom gruppen (AdditionalParticipantType). Regel 2.2.",
+        "definition": "Övriga deltagare relaterat till observationerna inom gruppen.",
+        "comment": "TKB-fält: `additionalParticipant` (`AdditionalParticipantType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -785,7 +790,8 @@
         "id": "getobservations.observationGroup.sourceSystem",
         "path": "getobservations.observationGroup.sourceSystem",
         "short": "Källsystem som observationsgruppen lagras i (SourceSystemType).",
-        "definition": "Källsystem som observationsgruppen lagras i (SourceSystemType).",
+        "definition": "Källsystem som observationsgruppen lagras i.",
+        "comment": "TKB-fält: `sourceSystem` (`SourceSystemType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -811,7 +817,8 @@
         "id": "getobservations.observationGroup.observation",
         "path": "getobservations.observationGroup.observation",
         "short": "De observationer som ligger inom gruppen (ObservationType).",
-        "definition": "De observationer som ligger inom gruppen (ObservationType).",
+        "definition": "De observationer som ligger inom denna grupp av observationer.",
+        "comment": "TKB-fält: `observation` (`ObservationType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [

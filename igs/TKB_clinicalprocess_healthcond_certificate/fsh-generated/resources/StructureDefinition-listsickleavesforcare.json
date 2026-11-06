@@ -31,7 +31,8 @@
         "id": "listsickleavesforcare.sjukfallLista",
         "path": "listsickleavesforcare.sjukfallLista",
         "short": "Lista med sjukfall",
-        "definition": "Lista med sjukfall",
+        "definition": "Lista med sjukfall.",
+        "comment": "TKB-fält: `sjukfallLista` (`SjukfallLista (lokalt definierad i kontraktet)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall",
         "short": "Ett pågående sjukfall",
-        "definition": "Ett pågående sjukfall",
+        "definition": "Pågående sjukfall.",
+        "comment": "TKB-fält: `../sjukfall` (`Sjukfall (lokalt definierad i kontraktet)`, kardinalitet 0..*).\n\n**Mappning DIM:** Sjukfall",
         "min": 0,
         "max": "*",
         "type": [
@@ -57,7 +59,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.personId",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.personId",
         "short": "Patientens person- eller samordningsnummer",
-        "definition": "Patientens person- eller samordningsnummer",
+        "definition": "Patientens person- eller samordningsnummer.",
+        "comment": "TKB-fält: `../../person-id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person.id",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.patientFullstandigtNamn",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.patientFullstandigtNamn",
         "short": "Patientens namn",
-        "definition": "Patientens namn",
+        "definition": "Patientens namn.",
+        "comment": "TKB-fält: `../../patientFullstandigtnamn` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Patient.förnamn\n\nPatient.mellannamn\n\nPatient.efternamn",
         "min": 0,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.enhetsId",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.enhetsId",
         "short": "HSA-id för enhet",
-        "definition": "HSA-id för enhet",
+        "definition": "HSA-id för enhet.",
+        "comment": "TKB-fält: `../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** Enhet.enhets-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.personalId",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.personalId",
         "short": "HSA-id för HoS-person som signerat nuvarande intyg",
-        "definition": "HSA-id för HoS-person som signerat nuvarande intyg",
+        "definition": "HSA-id för HoS-person som har signerat nuvarande intyg i sjukfallet.",
+        "comment": "TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** HoS-personal.personal-id",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.startdatum",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.startdatum",
         "short": "Datum då sjukfallet startade",
-        "definition": "Datum då sjukfallet startade",
+        "definition": "Datum då sjukfallet startade.",
+        "comment": "TKB-fält: `../../startdatum` (`DateType`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.startdatum",
         "min": 1,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.slutdatum",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.slutdatum",
         "short": "Datum då sjukfallet avslutas om det ej förlängs",
-        "definition": "Datum då sjukfallet avslutas om det ej förlängs",
+        "definition": "Datum då sjukfallet kommer att avslutas om det inte förlängs av nya intyg.",
+        "comment": "TKB-fält: `../../slutdatum` (`DateType`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.slutdatum",
         "min": 1,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod",
         "short": "Huvuddiagnoskod i giltigt intyg",
-        "definition": "Huvuddiagnoskod i giltigt intyg",
+        "definition": "Huvuddiagnoskod i det intyg som är giltigt vid datum för hämtning av sjukfall.",
+        "comment": "TKB-fält: `../../diagnoskod` (`Diagnoskod`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 1,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.code",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.code",
         "short": "Diagnoskod",
-        "definition": "Diagnoskod",
+        "definition": "Diagnoskod.",
+        "comment": "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 1,
         "max": "1",
         "type": [
@@ -161,7 +171,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystem",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystem",
         "short": "Identifierare för kodsystem (om känt)",
-        "definition": "Identifierare för kodsystem (om känt)",
+        "definition": "Identifierare för kodsystem, om känt.",
+        "comment": "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 0,
         "max": "1",
         "type": [
@@ -174,7 +185,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemName",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemName",
         "short": "Namn på kodsystem (används ej)",
-        "definition": "Namn på kodsystem (används ej)",
+        "definition": "Namn på kodsystem. Används ej.",
+        "comment": "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 0,
         "max": "1",
         "type": [
@@ -187,7 +199,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemVersion",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemVersion",
         "short": "Version på kodsystem (används ej)",
-        "definition": "Version på kodsystem (används ej)",
+        "definition": "Version på kodsystem. Används ej.",
+        "comment": "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 0,
         "max": "1",
         "type": [
@@ -200,7 +213,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.displayName",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.displayName",
         "short": "Klartext för kod (används ej)",
-        "definition": "Klartext för kod (används ej)",
+        "definition": "Klartext för kod. Används ej.",
+        "comment": "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 0,
         "max": "1",
         "type": [
@@ -213,7 +227,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.originalText",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.originalText",
         "short": "Beskrivande text (används ej)",
-        "definition": "Beskrivande text (används ej)",
+        "definition": "Beskrivande text. Används ej.",
+        "comment": "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Sjukfall.diagnoskod",
         "min": 0,
         "max": "1",
         "type": [
@@ -226,7 +241,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.antalIntyg",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.antalIntyg",
         "short": "Antal intyg som ingår i sjukfallet",
-        "definition": "Antal intyg som ingår i sjukfallet",
+        "definition": "Antal intyg som ingår i sjukfallet.",
+        "comment": "TKB-fält: `../../antalintyg` (`int`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.antal intyg",
         "min": 1,
         "max": "1",
         "type": [
@@ -239,7 +255,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningslangd",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningslangd",
         "short": "Sjukfallets totala längd i dagar",
-        "definition": "Sjukfallets totala längd i dagar",
+        "definition": "Sjukfallets totala längd i dagar.",
+        "comment": "TKB-fält: `../../sjukskrivningslangd` (`int`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.sjukskrivningslängd",
         "min": 1,
         "max": "1",
         "type": [
@@ -252,7 +269,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad",
         "short": "Sjukskrivningsgradsinfo",
-        "definition": "Sjukskrivningsgradsinfo",
+        "definition": "Platshållare för information om sjukfallets sjukskrivningsgrad.",
+        "comment": "TKB-fält: `../../sjukskrivningsgrad` (`Sjukskrivningsgrad`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.sjukskrivningsgrad\n\nSjukfall.aktiv sjukskrivnignsgrad",
         "min": 1,
         "max": "1",
         "type": [
@@ -265,7 +283,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad",
         "short": "Aktiv sjukskrivningsgrad (%) vid hämtningstidpunkt",
-        "definition": "Aktiv sjukskrivningsgrad (%) vid hämtningstidpunkt",
+        "definition": "Den sjukskrivningsgrad som är giltig vid datum för hämtning av sjukfall.",
+        "comment": "TKB-fält: `../../../aktivGrad` (`int`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.aktiv sjukskrivnignsgrad",
         "min": 1,
         "max": "1",
         "type": [
@@ -278,7 +297,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader",
         "short": "Samtliga sjukskrivningsgrader i giltigt intyg",
-        "definition": "Samtliga sjukskrivningsgrader i giltigt intyg",
+        "definition": "Platshållare för information om samtliga sjukskrivningsgrader i det intyg som är giltigt vid datum för hämtning av sjukfall.",
+        "comment": "TKB-fält: `../../../grader` (`Sjukskrivningsgrader`, kardinalitet 1..1).\n\n**Mappning DIM:** Sjukfall.sjukskrivningsgrad",
         "min": 1,
         "max": "1",
         "type": [
@@ -291,7 +311,8 @@
         "id": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad",
         "path": "listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad",
         "short": "Sjukskrivningsgrad (%)",
-        "definition": "Sjukskrivningsgrad (%)",
+        "definition": "Samtliga sjukskrivningsgrader i det intyg som är giltigt vid datum för hämtning av sjukfall.",
+        "comment": "TKB-fält: `../../../../grad` (`int`, kardinalitet 1..4).\n\n**Mappning DIM:** Sjukfall.sjukskrivningsgrad",
         "min": 1,
         "max": "4",
         "type": [

@@ -20,3 +20,6 @@ Characteristics: #can-be-target
   * mediaType 1..1 string "mediaType" "mediaType"
   * multimediaValue 0..1 base64Binary "multimediaValue" "multimediaValue Heter value i schemat."
   * reference 0..1 uri "reference" "reference"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFilesForOrderIdFieldDescriptions

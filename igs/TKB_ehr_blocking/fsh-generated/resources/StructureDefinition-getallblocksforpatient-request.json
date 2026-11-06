@@ -32,6 +32,7 @@
         "path": "getallblocksforpatient-request.patientId",
         "short": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas.",
         "definition": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas.",
+        "comment": "TKB-fält: `patientId` (`blocking:PersonIdValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getallblocksforpatient-request.careProviderIds",
         "path": "getallblocksforpatient-request.careProviderIds",
         "short": "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla.",
-        "definition": "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla.",
+        "definition": "Ej obligatorisk lista med HSA-id på de vårdgivare vars spärrar skall hämtas. Om detta utelämnas hämtas alla spärrar oavsett organisationstillhörighet.",
+        "comment": "TKB-fält: `careProviderIds` (`blocking:HsaId`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getallblocksforpatient-request.createdOnOrAfter",
         "path": "getallblocksforpatient-request.createdOnOrAfter",
         "short": "Startdatum för inkrementell hämtning.",
-        "definition": "Startdatum för inkrementell hämtning.",
+        "definition": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas. Om angivet returneras endast spärrar och/eller tillfälliga hävningar lagrade/förändrade i tjänsten på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.",
+        "comment": "TKB-fält: `createdOnOrAfter` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

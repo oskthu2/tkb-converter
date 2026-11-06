@@ -47,3 +47,6 @@ Characteristics: #can-be-target
     * careUnitId 1..1 Identifier "Enhet id" "HSA-id för enheten. Maxlängd 64 tecken."
 * outcome 1..1 BackboneElement "Bekräftelsemeddelande" "Bekräftelsemeddelande (RequestReceivedConfirmationOutcomeType)."
   * outcomeText 1..1 string "Svarstext" "Meddelande till remissens avsändare. Maxlängd 8192 tecken."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessRequestConfirmationFieldDescriptions

@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the receiving organisation."
 * serviceConsumerHsaId 1..1 string "serviceConsumerHsaId" "serviceConsumerHsaId"
 * logicalAdress 1..1 string "logicalAdress" "logicalAdress"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetSupportedServiceContractsRequestFieldDescriptions

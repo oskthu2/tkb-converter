@@ -120,3 +120,6 @@ Characteristics: #can-be-target
     * format 1..1 code "format" "format"
     * format from DateTypeFormatVS (required)
     * partialDateValue 1..1 string "partialDateValue" "partialDateValue Heter value i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdatePersonRequestFieldDescriptions

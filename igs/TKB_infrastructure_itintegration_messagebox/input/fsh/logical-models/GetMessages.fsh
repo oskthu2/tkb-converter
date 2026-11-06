@@ -22,3 +22,6 @@ Characteristics: #can-be-target
   * serviceContractType 1..1 BackboneElement "serviceContractType" "Type which describes a service contract. Used in interaction GetSupportedServiceContracts."
     * ServiceContractNamespace 1..1 uri "ServiceContractNamespace" "ServiceContractNamespace"
   * message 1..1 string "message" "message"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetMessagesFieldDescriptions

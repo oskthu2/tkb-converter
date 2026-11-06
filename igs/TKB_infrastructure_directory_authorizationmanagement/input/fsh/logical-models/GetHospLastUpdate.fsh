@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 
 * ^version = "1.0"
 * lastUpdate 1..1 dateTime "Tidpunkt då HOSP-informationen tillgängliggjorts efter senaste utlämnande"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHospLastUpdateFieldDescriptions

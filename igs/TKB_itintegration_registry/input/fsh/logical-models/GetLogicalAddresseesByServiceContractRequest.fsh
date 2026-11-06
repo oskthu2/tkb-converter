@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * serviceConsumerHsaId 1..1 string "serviceConsumerHsaId" "serviceConsumerHsaId"
 * serviceContractNameSpace 1..1 BackboneElement "serviceContractNameSpace" "Type which describes a service contract."
   * ServiceContractNamespace 1..1 uri "ServiceContractNamespace" "ServiceContractNamespace"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogicalAddresseesByServiceContractRequestFieldDescriptions

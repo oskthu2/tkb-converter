@@ -1,0 +1,41 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetCertificateFieldDescriptions
+* certificateMeta.certificateId ^definition = "Identitet på intyget. Är en GUID."
+* certificateMeta.certificateId ^comment = "TKB-fält: `meta.certificateId` (`string`, kardinalitet O)."
+* certificateMeta.certificateType ^definition = "Typ av intyg. Om inget anges returneras alla typer."
+* certificateMeta.certificateType ^comment = "TKB-fält: `meta.certificateType` (`string`, kardinalitet O)."
+* certificateMeta.validFrom ^definition = "Startdatum för sjukskrivningsperioden."
+* certificateMeta.validFrom ^comment = "TKB-fält: `meta.validFrom` (`datum`, kardinalitet O)."
+* certificateMeta.validTo ^definition = "Slutdatum för sjukskrivningsperioden."
+* certificateMeta.validTo ^comment = "TKB-fält: `meta.validTo` (`datum`, kardinalitet O)."
+* certificateMeta.issuerName ^definition = "Namn för Hos-person som utfärdat intyget"
+* certificateMeta.issuerName ^comment = "TKB-fält: `meta.issuerName` (`string`, kardinalitet O)."
+* certificateMeta.facilityName ^definition = "Namn på Hos-vårdenhet där intyget utfärdats"
+* certificateMeta.facilityName ^comment = "TKB-fält: `meta.facilityName` (`string`, kardinalitet O)."
+* certificateMeta.signDate ^definition = "Datum och tid när intyget signerades"
+* certificateMeta.signDate ^comment = "TKB-fält: `meta.signDate` (`datetime`, kardinalitet O)."
+* certificateMeta.available ^definition = "Anger om intyget är tillgängligt."
+* certificateMeta.available ^comment = "TKB-fält: `meta.available` (`string`, kardinalitet O)."
+* certificateMeta.certificateStatus ^definition = "En lista över statustyper för olika mottagare"
+* certificateMeta.certificateStatus ^comment = "TKB-fält: `meta.status`."
+* certificateMeta.certificateStatus.target ^definition = "Mottagare för en status. Ex FK"
+* certificateMeta.certificateStatus.target ^comment = "TKB-fält: `meta.status.target` (`string`, kardinalitet O)."
+* certificateMeta.certificateStatus.certificateStatusType ^definition = "Typ av statusändring för intyget."
+* certificateMeta.certificateStatus.certificateStatusType ^comment = "TKB-fält: `meta.status.type` (`string`, kardinalitet O)."
+* certificateMeta.certificateStatus.timestamp ^definition = "När statusen sattes för intyget"
+* certificateMeta.certificateStatus.timestamp ^comment = "TKB-fält: `meta.status.timestamp` (`datetime`, kardinalitet O)."
+* certificate ^definition = "Platshållare för intyget som är generisk. Typ av intyg anges i meta.certificateType."
+* certificate ^comment = "TKB-fält: `certificate` (`<any>`).
+
+**Modellanteckning:** ASSUME: Intyget är generiskt XML - mappat till string i avvaktan på formell FHIR-modell.
+Se QUESTIONS.md ASSUME-HR-002."
+* result.resultCode ^definition = "Information om anropet gick bra(OK, ERROR, INFO)"
+* result.resultCode ^comment = "TKB-fält: `result.resultCode` (`string`, kardinalitet O)."
+* result.infoText ^definition = "Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text."
+* result.infoText ^comment = "TKB-fält: `result.infoText` (`string`, kardinalitet V)."
+* result.errorId ^definition = "Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)"
+* result.errorId ^comment = "TKB-fält: `result.errorId` (`string`, kardinalitet V)."
+* result.errorText ^definition = "Text som ytterliggare beskriver felet"
+* result.errorText ^comment = "TKB-fält: `result.errorText` (`string`, kardinalitet V)."

@@ -38,3 +38,6 @@ Characteristics: #can-be-target
   * anvandare 1..1 string "anvandare" "Unikt användarid i anropande system."
   * session 1..1 string "session" "Sessionens id i anropande system."
   * system 1..1 string "system" "GLN-kod för anropande system."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaBarnRequestFieldDescriptions

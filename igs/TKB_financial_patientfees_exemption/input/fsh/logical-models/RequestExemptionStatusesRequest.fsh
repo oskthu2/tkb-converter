@@ -28,3 +28,6 @@ Characteristics: #can-be-target
     * root 1..1 string "root" "root"
     * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
 * responseLogicalAddress 1..1 string "responseLogicalAddress" "responseLogicalAddress"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RequestExemptionStatusesRequestFieldDescriptions

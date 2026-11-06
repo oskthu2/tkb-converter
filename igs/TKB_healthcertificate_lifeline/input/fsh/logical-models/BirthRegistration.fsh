@@ -28,6 +28,9 @@ Characteristics: #can-be-target
   * errorId from ErrorIdEnumVS (required)
   * errorText 0..1 string "errorText" "errorText"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert BirthRegistrationFieldDescriptions
+
 Invariant: birthregistration-personnummer-or-meddelande
 Description: "Exakt ett av PersonNummer och Meddelande ska anges i svaret (xs:choice i schemat)."
 Expression: "PersonNummer.exists() xor Meddelande.exists()"

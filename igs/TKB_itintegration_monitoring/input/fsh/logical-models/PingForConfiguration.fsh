@@ -36,3 +36,6 @@ Characteristics: #can-be-target
     """
 * configuration.configurationName 1..1 string "Namn på miljövariabel"
 * configuration.configurationValue 1..1 string "Värde på miljövariabel"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert PingForConfigurationFieldDescriptions

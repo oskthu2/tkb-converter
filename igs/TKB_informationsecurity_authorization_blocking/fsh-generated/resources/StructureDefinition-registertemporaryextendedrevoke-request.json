@@ -44,7 +44,8 @@
         "id": "registertemporaryextendedrevoke-request.temporaryRevokeId",
         "path": "registertemporaryextendedrevoke-request.temporaryRevokeId",
         "short": "temporaryRevokeId",
-        "definition": "temporaryRevokeId",
+        "definition": "Unik, global identifierare för den tillfälliga hävningen. Tjänstekonsumenten ansvarar för att generera id:et.",
+        "comment": "TKB-fält: `temporaryRevokeId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +58,8 @@
         "id": "registertemporaryextendedrevoke-request.blockId",
         "path": "registertemporaryextendedrevoke-request.blockId",
         "short": "blockId",
-        "definition": "blockId",
+        "definition": "Identifierare för den spärr som skall tillfälligt hävas.",
+        "comment": "TKB-fält: `blockId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +72,8 @@
         "id": "registertemporaryextendedrevoke-request.endDate",
         "path": "registertemporaryextendedrevoke-request.endDate",
         "short": "endDate",
-        "definition": "endDate",
+        "definition": "Den tillfälliga hävningens giltighetsdatum. Hävningen upphör att gälla då denna tidpunkt inträffat.",
+        "comment": "TKB-fält: `endDate` (`xs:DateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +86,8 @@
         "id": "registertemporaryextendedrevoke-request.revokedForCareUnitId",
         "path": "registertemporaryextendedrevoke-request.revokedForCareUnitId",
         "short": "revokedForCareUnitId",
-        "definition": "revokedForCareUnitId",
+        "definition": "Anger HSA-id för den vårdenhet hävningen gäller för.",
+        "comment": "TKB-fält: `revokedForCareUnitId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -96,7 +100,8 @@
         "id": "registertemporaryextendedrevoke-request.revokedForEmployeeId",
         "path": "registertemporaryextendedrevoke-request.revokedForEmployeeId",
         "short": "revokedForEmployeeId",
-        "definition": "revokedForEmployeeId",
+        "definition": "Anger HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten.",
+        "comment": "TKB-fält: `revokedForEmployeeId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -109,7 +114,8 @@
         "id": "registertemporaryextendedrevoke-request.registerAction",
         "path": "registertemporaryextendedrevoke-request.registerAction",
         "short": "registerAction",
-        "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+        "definition": "Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa.",
+        "comment": "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "min": 1,
         "max": "1",
         "type": [
@@ -123,6 +129,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.requestDate",
         "short": "requestDate",
         "definition": "requestDate",
+        "comment": "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -136,6 +143,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.requestedBy",
         "short": "requestedBy",
         "definition": "Datatyp som identifierar en medarbetare/person.",
+        "comment": "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -149,6 +157,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.requestedBy.employeeId",
         "short": "employeeId",
         "definition": "employeeId",
+        "comment": "TKB-fält: `../../employeeId` (`HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -162,6 +171,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentId",
         "short": "assignmentId",
         "definition": "assignmentId",
+        "comment": "TKB-fält: `../../assignmentId` (`HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -175,6 +185,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentName",
         "short": "assignmentName",
         "definition": "assignmentName",
+        "comment": "TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -188,6 +199,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.registrationDate",
         "short": "registrationDate",
         "definition": "registrationDate",
+        "comment": "TKB-fält: `../registrationDate` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -201,6 +213,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.registeredBy",
         "short": "registeredBy",
         "definition": "Datatyp som identifierar en medarbetare/person.",
+        "comment": "TKB-fält: `../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -214,6 +227,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.registeredBy.employeeId",
         "short": "employeeId",
         "definition": "employeeId",
+        "comment": "TKB-fält: `../../employeeId` (`HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -227,6 +241,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentId",
         "short": "assignmentId",
         "definition": "assignmentId",
+        "comment": "TKB-fält: `../../assignmentId` (`HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -240,6 +255,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentName",
         "short": "assignmentName",
         "definition": "assignmentName",
+        "comment": "TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -253,6 +269,7 @@
         "path": "registertemporaryextendedrevoke-request.registerAction.reasonText",
         "short": "reasonText",
         "definition": "reasonText",
+        "comment": "TKB-fält: `../reasonText` (`ReasonText`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -265,7 +282,8 @@
         "id": "registertemporaryextendedrevoke-request.revokeReason",
         "path": "registertemporaryextendedrevoke-request.revokeReason",
         "short": "revokeReason",
-        "definition": "revokeReason",
+        "definition": "Enumerationsvärde för orsak till tillfällig hävning.",
+        "comment": "TKB-fält: `revokeReason` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -282,7 +300,8 @@
         "id": "registertemporaryextendedrevoke-request.revokeReasonText",
         "path": "registertemporaryextendedrevoke-request.revokeReasonText",
         "short": "revokeReasonText",
-        "definition": "revokeReasonText",
+        "definition": "Kompletterande text för orsak till tillfällig hävning.",
+        "comment": "TKB-fält: `revokeReasonText` (`urn:riv:informationsecurity:authorization:blocking:4:ReasonText`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -295,7 +314,8 @@
         "id": "registertemporaryextendedrevoke-request.replicationTimeout",
         "path": "registertemporaryextendedrevoke-request.replicationTimeout",
         "short": "replicationTimeout",
-        "definition": "replicationTimeout",
+        "definition": "Anger hur replikering till nationell spärrtjänst ska ske.\n\n-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.\n\n-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.\n\n-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.",
+        "comment": "TKB-fält: `replicationTimeout` (`xs:Int`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

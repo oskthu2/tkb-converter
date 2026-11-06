@@ -40,6 +40,9 @@ Characteristics: #can-be-target
     * postort 0..1 string "postort" "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'."
     * typ 1..1 string "typ" "Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek)."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SokDosmottagareFieldDescriptions
+
 Invariant: sokdosmottagare-dosmottagare-adress-when-d
 Description: "adress och postort ska anges när typ = 'D' (direktleverans)."
 Expression: "typ = 'D' implies (adress.exists() and postort.exists())"

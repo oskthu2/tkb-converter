@@ -25,3 +25,6 @@ Characteristics: #can-be-target
     Fritext meddelande kopplat till resultatkoden.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdateBookingFieldDescriptions

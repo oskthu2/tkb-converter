@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * formansLista 1..* BackboneElement "formansLista" "Lista med förmånskoder per artikel."
   * formanskod 1..1 string "formanskod" "Förmånskod R, U, L, eller F"
   * formansInfoId 1..1 string "formansInfoId" "Id som representerar det id som var satt i motsvarande ArtikelIdentiteterTo. Det vill säga antingen GTIN, Förpackningsid eller Varunr beroende på vad som frågats efter. Heter id i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KontrolleraFormanFieldDescriptions

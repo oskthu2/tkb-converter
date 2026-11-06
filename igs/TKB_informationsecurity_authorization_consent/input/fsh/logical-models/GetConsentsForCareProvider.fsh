@@ -36,3 +36,6 @@ Characteristics: #can-be-target
   * cancelledAssertions 0..* BackboneElement "cancelledAssertions" "Datatyp som representerar ett makulerat eller återkallat samtycke samt tidpunkten när makuleringen eller återkallan utfördes."
     * assertionId 1..1 string "assertionId" "assertionId"
     * cancellationDate 1..1 dateTime "cancellationDate" "cancellationDate"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetConsentsForCareProviderFieldDescriptions

@@ -29,3 +29,6 @@ Characteristics: #can-be-target
   Anger om även ej aktiva beslutsunderlag skall hämtas.
   Anges ej attributet hämtas endast aktiva.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFmbRequestFieldDescriptions

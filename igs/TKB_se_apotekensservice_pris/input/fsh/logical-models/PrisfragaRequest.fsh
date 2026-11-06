@@ -47,3 +47,6 @@ Characteristics: #can-be-target
   * radNr 1..1 integer "radNr" "Radnr."
 * transaktionstid 0..1 dateTime "transaktionstid" "Transaktionsdag som priset ska beräknas för. Om värdet inte anges används dagens datum. För att garantera korrekt prisberäkning för en efterföljande transaktionsregistrering skall denna parameter ha samma värde som parametern transTid i RegistreraHkdbTransaktion. Får inte vara mer än ett år och en dag bakåt i tiden, eller två timmar framåt i tiden."
 * ursprungligTransaktionstid 0..1 dateTime "ursprungligTransaktionstid" "Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur PrisfragaResponder_4.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:PrisfragaResponder:4.1.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert PrisfragaRequestFieldDescriptions

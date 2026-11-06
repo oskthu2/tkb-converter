@@ -32,6 +32,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista",
         "short": "transaktionsLista",
         "definition": "Lista med de senaste transaktionerna för personens högkostnadskonto. Antalet som returneras kan ställas in med maxantal, men default är fem. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan.",
+        "comment": "TKB-fält: `transaktionsLista` (`TransaktionResponse`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -45,6 +46,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.anvandare",
         "short": "anvandare",
         "definition": "Användare som registrerat transaktionen.",
+        "comment": "TKB-fält: `../anvandare` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.apoteksNamn",
         "short": "apoteksNamn",
         "definition": "Apotek som registrerat transaktionen. Visas ej vid sekretesskydd.",
+        "comment": "TKB-fält: `../apoteksNamn` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -71,6 +74,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.apoteksOrt",
         "short": "apoteksOrt",
         "definition": "Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.",
+        "comment": "TKB-fält: `../apoteksOrt` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -84,6 +88,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.expeditionsId",
         "short": "expeditionsId",
         "definition": "Unikt expeditionsID.",
+        "comment": "TKB-fält: `../expeditionsId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,6 +102,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.flags",
         "short": "flags",
         "definition": "Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt.",
+        "comment": "TKB-fält: `../flags` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "hamtahkdbtransaktioner.transaktionsLista.inBrutto",
         "path": "hamtahkdbtransaktioner.transaktionsLista.inBrutto",
         "short": "inBrutto",
-        "definition": "Ingående brutto före transaktionen (xs:long i schemat.)",
+        "definition": "Ingående brutto före transaktionen",
+        "comment": "TKB-fält: `../inBrutto` (`long`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "hamtahkdbtransaktioner.transaktionsLista.inEgenavgift",
         "path": "hamtahkdbtransaktioner.transaktionsLista.inEgenavgift",
         "short": "inEgenavgift",
-        "definition": "Ingående högkostnadssaldo vid transaktionen (xs:long i schemat.)",
+        "definition": "Ingående högkostnadssaldo vid transaktionen",
+        "comment": "TKB-fält: `../inEgenavgift` (`long`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -136,6 +144,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.kommentar",
         "short": "kommentar",
         "definition": "Eventuell kommentar från korrigeringstransaktion",
+        "comment": "TKB-fält: `../kommentar` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -149,6 +158,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.orgAktorId",
         "short": "orgAktorId",
         "definition": "GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.",
+        "comment": "TKB-fält: `../orgAktorId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -162,6 +172,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.persNr",
         "short": "persNr",
         "definition": "Personnummer för den som transaktionen gäller.",
+        "comment": "TKB-fält: `../persNr` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -175,6 +186,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.sign",
         "short": "sign",
         "definition": "Typ av trans: +,-,ABC, ... Detta fält används enbart internt.",
+        "comment": "TKB-fält: `../sign` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -187,7 +199,8 @@
         "id": "hamtahkdbtransaktioner.transaktionsLista.transId",
         "path": "hamtahkdbtransaktioner.transaktionsLista.transId",
         "short": "transId",
-        "definition": "Aktörens expeditions-ID / verifikationsnr.",
+        "definition": "Aktörens expeditions-ID\n\nverifikationsnr.",
+        "comment": "TKB-fält: `../transId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -201,6 +214,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transPeriod",
         "short": "transPeriod",
         "definition": "Transaktionens högkostnadsuppgifter.",
+        "comment": "TKB-fält: `../transPeriod` (`PeriodResponse`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -214,6 +228,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transPeriod.balans",
         "short": "balans",
         "definition": "Ackumulerad balans",
+        "comment": "TKB-fält: `../../balans` (`BalansResponse`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -227,6 +242,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transPeriod.balans.brutto",
         "short": "brutto",
         "definition": "Bruttobelopp i kronor och ören",
+        "comment": "TKB-fält: `../../../brutto` (`double`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -240,6 +256,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transPeriod.balans.netto",
         "short": "netto",
         "definition": "Nettobelopp i kronor och ören",
+        "comment": "TKB-fält: `../../../netto` (`double`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -253,6 +270,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transPeriod.start",
         "short": "start",
         "definition": "Periodens startdatum.",
+        "comment": "TKB-fält: `../../start` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -266,6 +284,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transTid",
         "short": "transTid",
         "definition": "Transaktionstidpunkt.",
+        "comment": "TKB-fält: `../transTid` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -279,6 +298,7 @@
         "path": "hamtahkdbtransaktioner.transaktionsLista.transaktionBehandlades",
         "short": "transaktionBehandlades",
         "definition": "Tidpunkt då transaktionen behandlades av HKDB",
+        "comment": "TKB-fält: `../transaktionBehandlades` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

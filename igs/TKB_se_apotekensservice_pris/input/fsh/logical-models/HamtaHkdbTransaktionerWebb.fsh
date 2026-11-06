@@ -32,3 +32,6 @@ Characteristics: #can-be-target
     * start 0..1 dateTime "start" "Periodens startdatum."
   * transTid 1..1 dateTime "transTid" "Transaktionstidpunkt."
   * transaktionBehandlades 1..1 dateTime "transaktionBehandlades" "Tidpunkt då transaktionen behandlades av HKDB"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaHkdbTransaktionerWebbFieldDescriptions

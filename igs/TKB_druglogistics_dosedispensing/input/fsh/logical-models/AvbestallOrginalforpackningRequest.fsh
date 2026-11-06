@@ -42,3 +42,6 @@ Characteristics: #can-be-target
   * dosunderlagsversion 0..1 string "dosunderlagsversion" "dosunderlagsversion"
   * meddelandetillapotek 0..1 string "meddelandetillapotek" "meddelandetillapotek"
   * onskadleveranstid 0..1 dateTime "onskadleveranstid" "onskadleveranstid"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert AvbestallOrginalforpackningRequestFieldDescriptions

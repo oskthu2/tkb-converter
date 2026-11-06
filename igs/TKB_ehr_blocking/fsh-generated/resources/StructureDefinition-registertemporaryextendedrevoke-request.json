@@ -32,6 +32,7 @@
         "path": "registertemporaryextendedrevoke-request.temporaryRevokeId",
         "short": "Unik, global identifierare för den tillfälliga hävningen. Tjänstekonsumenten ansvarar för att generera id:et.",
         "definition": "Unik, global identifierare för den tillfälliga hävningen. Tjänstekonsumenten ansvarar för att generera id:et.",
+        "comment": "TKB-fält: `temporaryRevokeId` (`blocking:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -45,6 +46,7 @@
         "path": "registertemporaryextendedrevoke-request.blockId",
         "short": "Identifierare för den spärr som skall tillfälligt hävas.",
         "definition": "Identifierare för den spärr som skall tillfälligt hävas.",
+        "comment": "TKB-fält: `blockId` (`blocking:Id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,6 +60,7 @@
         "path": "registertemporaryextendedrevoke-request.endDate",
         "short": "Den tillfälliga hävningens giltighetsdatum. Hävningen upphör att gälla då denna tidpunkt inträffat.",
         "definition": "Den tillfälliga hävningens giltighetsdatum. Hävningen upphör att gälla då denna tidpunkt inträffat.",
+        "comment": "TKB-fält: `endDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "registertemporaryextendedrevoke-request.revokedForCareUnitId",
         "path": "registertemporaryextendedrevoke-request.revokedForCareUnitId",
         "short": "HSA-id för den vårdenhet hävningen gäller för.",
-        "definition": "HSA-id för den vårdenhet hävningen gäller för.",
+        "definition": "Anger HSA-id för den vårdenhet hävningen gäller för.",
+        "comment": "TKB-fält: `revokedForCareUnitId` (`blocking:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "registertemporaryextendedrevoke-request.revokedForEmployeeId",
         "path": "registertemporaryextendedrevoke-request.revokedForEmployeeId",
         "short": "HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten.",
-        "definition": "HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten.",
+        "definition": "Anger HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten.",
+        "comment": "TKB-fält: `revokedForEmployeeId` (`blocking:HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -239,7 +244,8 @@
         "id": "registertemporaryextendedrevoke-request.revokeReason",
         "path": "registertemporaryextendedrevoke-request.revokeReason",
         "short": "Enumerationsvärde för orsak till tillfällig hävning",
-        "definition": "Enumerationsvärde för orsak till tillfällig hävning",
+        "definition": "Enumerationsvärde för orsak till tillfällig hävning.",
+        "comment": "TKB-fält: `revokeReason` (`blocking:TemporaryRevokeReason`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -256,7 +262,8 @@
         "id": "registertemporaryextendedrevoke-request.revokeReasonText",
         "path": "registertemporaryextendedrevoke-request.revokeReasonText",
         "short": "Kompletterande text för orsak till tillfällig hävning",
-        "definition": "Kompletterande text för orsak till tillfällig hävning",
+        "definition": "Obligatorisk, kompletterande text för orsak till tillfällig hävning.",
+        "comment": "TKB-fält: `revokeReasonText` (`blocking:ReasonText`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -269,7 +276,8 @@
         "id": "registertemporaryextendedrevoke-request.replicationTimeout",
         "path": "registertemporaryextendedrevoke-request.replicationTimeout",
         "short": "Anger hur replikering till nationell spärrtjänst ska ske (millisekunder). -1 = anropet väntar på replikering (misslyckas vid timeout). 0 = anropet avslutas direkt, replikering sker asynkront. >0 = anropet väntar angiven tid innan det avslutas; ej klar replikering fortsätter asynkront.",
-        "definition": "Anger hur replikering till nationell spärrtjänst ska ske (millisekunder). -1 = anropet väntar på replikering (misslyckas vid timeout). 0 = anropet avslutas direkt, replikering sker asynkront. >0 = anropet väntar angiven tid innan det avslutas; ej klar replikering fortsätter asynkront.",
+        "definition": "Anger hur replikering till nationell spärrtjänst ska ske.\n\n-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.\n\n-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.\n\n-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.",
+        "comment": "TKB-fält: `replicationTimeout` (`xs:int`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

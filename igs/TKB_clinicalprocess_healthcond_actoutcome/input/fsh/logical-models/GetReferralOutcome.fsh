@@ -97,3 +97,6 @@ Characteristics: #can-be-target
 * referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalRoleCode 0..1 CodeableConcept "Yrkesroll"
 * referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit 0..1 BackboneElement "Org-enhet"
 * referralOutcome.referralOutcomeBody.referral.careContactId 0..1 string "Vårdkontaktid"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetReferralOutcomeFieldDescriptions

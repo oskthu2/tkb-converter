@@ -21,3 +21,6 @@ Characteristics: #can-be-target
   * parameterCode 0..1 CodeableConcept "parameterCode" "parameterCode Heter code i schemat."
   * parameterName 1..1 string "parameterName" "parameterName Heter name i schemat."
   * parameterValue 1..1 string "parameterValue" "parameterValue Heter value i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert DeleteEhrExtractRequestFieldDescriptions

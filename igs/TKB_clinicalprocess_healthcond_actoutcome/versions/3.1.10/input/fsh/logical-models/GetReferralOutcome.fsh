@@ -420,6 +420,9 @@ Characteristics: #can-be-target
     RIV-TA-typ: string. Kardinalitet i TKB: 0..1.
     """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetReferralOutcomeFieldDescriptions
+
 Invariant: getreferraloutcome-actresult-value-xor-reference
 Description: "actResult: ett och endast ett av value och reference ska anges."
 Expression: "actResultValue.exists() xor reference.exists()"

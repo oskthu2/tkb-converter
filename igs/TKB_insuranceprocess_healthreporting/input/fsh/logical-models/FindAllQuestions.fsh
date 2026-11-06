@@ -19,6 +19,9 @@ Characteristics: #can-be-target
   """
 * careGiverId 1..1 Identifier "Vårdgivarens HSA-id"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert FindAllQuestionsRequestFieldDescriptions
+
 
 Logical: FindAllQuestions
 Id: findallquestions
@@ -44,3 +47,6 @@ Characteristics: #can-be-target
   """
 * questions.question.receivedDate 1..1 date "Datum då frågan inkom"
 * questions.question.questionData 1..1 BackboneElement "Själva frågan (se ReceiveMedicalCertificateQuestion)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert FindAllQuestionsFieldDescriptions

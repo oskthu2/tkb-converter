@@ -61,3 +61,6 @@ Characteristics: #can-be-target
   Filtrerar sökning efter person utifrån specialistinriktning.
   Tillåter wildcard i angiven sträng. Tillåter även att en av Socialstyrelsens specialistinriktningskoder anges.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHospPersonForIVORequestFieldDescriptions

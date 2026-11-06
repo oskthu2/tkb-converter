@@ -12,3 +12,6 @@ Description: """
 Characteristics: #can-be-target
 * ^version = "1.0"
 * logicalAddress 0..* string "logicalAddress" "logicalAddress"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLogicalAddresseesByServiceContractFieldDescriptions

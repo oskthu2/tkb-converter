@@ -18,3 +18,6 @@ Characteristics: #can-be-target
   """
   Obligatorisk. Personnummer eller samordningsnummer för den patient vars patientrelationer skall hämtas.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPatientRelationsForPatientRequestFieldDescriptions

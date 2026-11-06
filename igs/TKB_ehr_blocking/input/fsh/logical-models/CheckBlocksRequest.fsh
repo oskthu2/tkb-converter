@@ -18,3 +18,6 @@ Characteristics: #can-be-target
   * informationCareUnitId 0..1 string "HSA-id för vårdenhet (krävs vid inre spärr)"
   * informationType 0..1 string "Informationstyp att kontrollera (lämna tomt för alla typer)"
 * patientId 1..1 string "Patientens personnummer eller samordningsnummer"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CheckBlocksRequestFieldDescriptions

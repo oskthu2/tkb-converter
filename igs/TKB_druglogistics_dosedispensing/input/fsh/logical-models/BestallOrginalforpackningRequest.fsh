@@ -48,3 +48,6 @@ Characteristics: #can-be-target
   * dosmottagarenamn 0..1 string "dosmottagarenamn" "dosmottagarenamn"
   * meddelandetillapotek 0..1 string "meddelandetillapotek" "meddelandetillapotek"
   * onskadleveransdatum 1..1 dateTime "onskadleveransdatum" "onskadleveransdatum"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert BestallOrginalforpackningRequestFieldDescriptions

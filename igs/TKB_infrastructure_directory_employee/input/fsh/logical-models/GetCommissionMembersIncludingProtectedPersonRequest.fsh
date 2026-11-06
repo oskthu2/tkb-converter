@@ -44,3 +44,6 @@ Characteristics: #can-be-target
     """
     true: om metoden ska leverera svar med fingerade objekt. Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCommissionMembersIncludingProtectedPersonRequestFieldDescriptions

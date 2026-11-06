@@ -18,3 +18,6 @@ Characteristics: #can-be-target
   * paTitleCode 0..* string "paTitleCode" "paTitleCode"
 * hsaTitles 1..1 BackboneElement "hsaTitles" "hsaTitles"
   * hsaTitle 0..* string "hsaTitle" "hsaTitle"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPersonsWithCommissionAtHealthCareUnitRequestFieldDescriptions

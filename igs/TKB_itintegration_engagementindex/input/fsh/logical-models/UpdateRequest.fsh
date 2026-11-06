@@ -133,3 +133,6 @@ Characteristics: #can-be-target
     vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
     Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdateRequestFieldDescriptions

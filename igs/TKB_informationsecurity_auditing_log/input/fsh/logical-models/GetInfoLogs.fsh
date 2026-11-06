@@ -25,3 +25,6 @@ Characteristics: #can-be-target
     * careProvider 0..* BackboneElement "careProvider" "Datatyp som representerar en vårdgivare."
       * careProviderId 1..1 string "careProviderId" "careProviderId"
       * careProviderName 0..1 string "careProviderName" "careProviderName"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetInfoLogsFieldDescriptions

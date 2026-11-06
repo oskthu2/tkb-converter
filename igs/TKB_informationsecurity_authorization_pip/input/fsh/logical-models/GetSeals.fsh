@@ -42,6 +42,9 @@ Characteristics: #can-be-target
       * end 1..1 string "end" "end"
   * fullSeal 0..1 BackboneElement "fullSeal" "fullSeal Typen har inga element utöver utökningspunkter."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetSealsFieldDescriptions
+
 Invariant: getseals-seal-one-scope
 Description: "ÖR1–ÖR3: exakt en av fullSeal, careProviderSeal och orgUnitSeal ska anges i en försegling."
 Expression: "fullSeal.count() + careProviderSeal.count() + orgUnitSeal.count() = 1"

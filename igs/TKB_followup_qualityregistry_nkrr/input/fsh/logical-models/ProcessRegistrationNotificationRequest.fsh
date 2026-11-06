@@ -77,3 +77,6 @@ Characteristics: #can-be-target
     Fältet root sätts till OID (1.2.752.129.2.1.4.1) för HSA.
     Fältet extension sätts till HSA-id på vårdenhet.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessRegistrationNotificationRequestFieldDescriptions

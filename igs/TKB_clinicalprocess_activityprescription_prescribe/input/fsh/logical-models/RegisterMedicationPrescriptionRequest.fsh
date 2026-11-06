@@ -35,3 +35,6 @@ Characteristics: #can-be-target
       * endTime 0..1 dateTime "Utsättningstidpunkt"
       * treatmentReason 0..1 BackboneElement "Behandlingsorsak"
       * medicationInformation 1..1 BackboneElement "Läkemedelsinformation"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterMedicationPrescriptionRequestFieldDescriptions

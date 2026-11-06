@@ -45,3 +45,6 @@ Characteristics: #can-be-target
   * personStartDate 0..1 dateTime "personStartDate" "personStartDate"
   * personEndDate 0..1 dateTime "personEndDate" "personEndDate"
   * feignedPerson 0..1 boolean "feignedPerson" "feignedPerson"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetEmployeeIncludingProtectedPersonFieldDescriptions

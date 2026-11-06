@@ -19,3 +19,6 @@ Characteristics: #can-be-target
 * fromDate 1..1 dateTime "fromDate" "fromDate"
 * toDate 1..1 dateTime "toDate" "toDate"
 * queuedReportId 0..1 string "queuedReportId" "queuedReportId"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetInfoLogsRequestFieldDescriptions

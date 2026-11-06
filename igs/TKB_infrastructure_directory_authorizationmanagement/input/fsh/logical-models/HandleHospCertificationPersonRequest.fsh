@@ -20,3 +20,6 @@ Characteristics: #can-be-target
 * operation from HospOperationVS (required)
 * certificationId 0..1 string "Alternativ id för personposten (frivillig)"
 * reason 0..1 string "Anledning till avregistrering (frivillig, loggas ej)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HandleHospCertificationPersonRequestFieldDescriptions

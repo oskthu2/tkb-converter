@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * logicalAddress 1..1 BackboneElement "logicalAddress" "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter."
 * glnkod 1..1 string "glnkod" "glnkod"
 * dosaktor 1..1 string "dosaktor" "dosaktor"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaLokaltProduktsortimentRequestFieldDescriptions

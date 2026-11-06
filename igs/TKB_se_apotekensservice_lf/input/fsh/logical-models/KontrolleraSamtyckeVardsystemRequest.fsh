@@ -39,3 +39,6 @@ Characteristics: #can-be-target
   * system 1..1 string "system" "GLN-kod för anropande system."
 * samtyckesgivare 1..1 string "samtyckesgivare" "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."
 * samtyckestagareForskrivarkod 1..1 string "samtyckestagareForskrivarkod" "Förskrivarkod för förskrivare vars samtycke ska kontrolleras. Ska vara identisk med användare i klientinformation. Valideras mot FORS."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert KontrolleraSamtyckeVardsystemRequestFieldDescriptions

@@ -39,3 +39,6 @@ Characteristics: #can-be-target
   OCH versionsuppdateringar bland alla producentens diagnosinformation. Det kan vara diagnosinformation
   som ej returnerats i svaret.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetVersionsFieldDescriptions

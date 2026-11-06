@@ -31,7 +31,8 @@
         "id": "getaccesslogsforpatient-request.patientId",
         "path": "getaccesslogsforpatient-request.patientId",
         "short": "Patientens personnummer, samordningsnummer eller reservnummer",
-        "definition": "Patientens personnummer, samordningsnummer eller reservnummer",
+        "definition": "Patientens personnummer, samordningsnummer, alternativt reservnummer som någon vårdgivare haft åtkomst till.",
+        "comment": "TKB-fält: `PatientId` (`log:PersonId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getaccesslogsforpatient-request.fromDate",
         "path": "getaccesslogsforpatient-request.fromDate",
         "short": "Obligatoriskt startdatum för rapportuttaget",
-        "definition": "Obligatoriskt startdatum för rapportuttaget",
+        "definition": "Obligatoriskt startdatum för att begränsa rapportuttaget.",
+        "comment": "TKB-fält: `FromDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getaccesslogsforpatient-request.toDate",
         "path": "getaccesslogsforpatient-request.toDate",
         "short": "Obligatoriskt slutdatum för rapportuttaget",
-        "definition": "Obligatoriskt slutdatum för rapportuttaget",
+        "definition": "Obligatoriskt slutdatum för att begränsa rapportuttaget.",
+        "comment": "TKB-fält: `ToDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getaccesslogsforpatient-request.queuedReportId",
         "path": "getaccesslogsforpatient-request.queuedReportId",
         "short": "Id på en pågående rapport (UUID) — ej vid aggregerande anrop",
-        "definition": "Id på en pågående rapport (UUID) — ej vid aggregerande anrop",
+        "definition": "Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.\n\nSkall inte användas när aggregerande tjänst anropas.",
+        "comment": "TKB-fält: `QueuedReportId` (`log:Id`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

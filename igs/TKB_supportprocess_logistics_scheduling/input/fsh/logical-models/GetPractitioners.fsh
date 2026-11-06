@@ -21,3 +21,6 @@ Characteristics: #can-be-target
 * resultCode 1..1 code "resultCode" "resultCode"
 * resultCode from ResultCodeVS (required)
 * resultText 0..1 string "resultText" "resultText"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPractitionersFieldDescriptions

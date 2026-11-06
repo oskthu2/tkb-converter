@@ -40,3 +40,6 @@ Characteristics: #can-be-target
     * requestTravelTimeCost 1..1 boolean "Begär restidsersättning" "Anger om tolkförmedlingen efterfrågar restidsersättning för uppdraget."
     * interpreterName 1..1 string "Tolkens namn" "Tolkens namn (minst ett tecken)."
     * phoneNumberForInterpretation 0..1 string "Telefonnummer för distanstolkning" "Telefonnummer som distanstolkning ska utföras på."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateBookingFieldDescriptions

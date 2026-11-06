@@ -40,3 +40,6 @@ Characteristics: #can-be-target
       * dagIPeriod 1..1 integer "dagIPeriod" "Dag i perioden nar intag skall goras. Exempel: Intag ska ske varje mandag och onsdag och startdatum ar pa en mandag. Mandag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period= 1. Onsdag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period=3."
   * dosmottagareid 0..1 string "dosmottagareid" "dosmottagareid"
   * dosmottagarenamn 0..1 string "dosmottagarenamn" "dosmottagarenamn"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SkapaVardtagareFieldDescriptions

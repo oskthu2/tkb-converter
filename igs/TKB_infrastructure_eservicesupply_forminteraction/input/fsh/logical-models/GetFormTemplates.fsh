@@ -29,6 +29,9 @@ Characteristics: #can-be-target
     * codeValue 0..1 string "Kodvärde" "Kodvärdet inom kodsystemet."
     * displayName 0..1 string "Visningsnamn" "Visningsnamn för koden."
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFormTemplatesFieldDescriptions
+
 Logical: GetFormTemplatesRequest
 Id: getformtemplates-request
 Title: "GetFormTemplates — Request"
@@ -42,3 +45,6 @@ Characteristics: #can-be-target
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn)."
 * templateIds 0..* string "Mall-id:n" "Typ av formulärmall. Om denna inte anges returneras ALLA tillgängliga formulärmallar för medborgaren."
 * clinicalProcessInterestIds 0..* Identifier "Hälsoärenden" "Hälsoärende-id:n för filtrering."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFormTemplatesRequestFieldDescriptions

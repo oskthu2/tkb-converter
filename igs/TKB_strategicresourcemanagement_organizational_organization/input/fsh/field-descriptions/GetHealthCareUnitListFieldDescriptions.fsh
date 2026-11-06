@@ -1,0 +1,28 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetHealthCareUnitListFieldDescriptions
+* healthCareUnitList ^comment = "TKB-fält: `healthCareUnitList` (`HealthCareUnitListType`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareProviderHsaId ^definition = "Vårdgivarens HSA-id"
+* healthCareUnitList.healthCareProviderHsaId ^comment = "TKB-fält: `..healthCareProviderHsaId` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderName ^definition = "Vårdgivarens namn"
+* healthCareUnitList.healthCareProviderName ^comment = "TKB-fält: `..healthCareProviderName` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderOrgNo ^comment = "TKB-fält: `../healthCareProviderOrgNo` (`string`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareProviderStartDate ^definition = "Startdatum för vårdgivarens verksamhet."
+* healthCareUnitList.healthCareProviderStartDate ^comment = "TKB-fält: `..healthCareProviderStartDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareProviderEndDate ^definition = "Slutdatum för vårdgivarens verksamhet."
+* healthCareUnitList.healthCareProviderEndDate ^comment = "TKB-fält: `..healthCareProviderEndDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit ^definition = "Ingående vårdenhet enligt PDL"
+* healthCareUnitList.healthCareUnit ^comment = "TKB-fält: `..healthCareUnit` (`HealthCareUnitType`, kardinalitet 0..n)."
+* healthCareUnitList.healthCareUnit.healthCareUnitHsaId ^definition = "HSA-identitet ingående enhet"
+* healthCareUnitList.healthCareUnit.healthCareUnitHsaId ^comment = "TKB-fält: `.. ..healthCareUnitHsaId` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitName ^definition = "Namn ingående enhet"
+* healthCareUnitList.healthCareUnit.healthCareUnitName ^comment = "TKB-fält: `.. ..healthCareUnitName` (`String`, kardinalitet 1..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitStartDate ^definition = "Startdatum för vårdenhetens verksamhet."
+* healthCareUnitList.healthCareUnit.healthCareUnitStartDate ^comment = "TKB-fält: `.. ..healthCareUnitStartDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit.healthCareUnitEndDate ^definition = "Slutdatum för vårdenhetens verksamhet."
+* healthCareUnitList.healthCareUnit.healthCareUnitEndDate ^comment = "TKB-fält: `.. ..healthCareUnitEndDate` (`dateTime`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit.feignedHealthCareUnit ^comment = "TKB-fält: `../../feignedHealthCareUnit` (`boolean`, kardinalitet 0..1)."
+* healthCareUnitList.healthCareUnit.archivedHealthCareUnit ^comment = "TKB-fält: `../../archivedHealthCareUnit` (`boolean`, kardinalitet 0..1)."
+* healthCareUnitList.feignedHealthCareProvider ^comment = "TKB-fält: `../feignedHealthCareProvider` (`boolean`, kardinalitet 0..1)."
+* healthCareUnitList.archivedHealthCareProvider ^comment = "TKB-fält: `../archivedHealthCareProvider` (`boolean`, kardinalitet 0..1)."

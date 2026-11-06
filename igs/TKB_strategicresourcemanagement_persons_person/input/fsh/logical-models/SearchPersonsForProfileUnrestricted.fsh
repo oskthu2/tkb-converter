@@ -300,3 +300,6 @@ Characteristics: #can-be-target
     * reference 0..1 uri "reference" "reference"
   * optoutPaperNotification 0..1 boolean "optoutPaperNotification" "optoutPaperNotification"
   * protectedPopulationRecord 0..1 boolean "protectedPopulationRecord" "protectedPopulationRecord"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SearchPersonsForProfileUnrestrictedFieldDescriptions

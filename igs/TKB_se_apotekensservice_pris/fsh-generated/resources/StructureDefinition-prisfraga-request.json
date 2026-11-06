@@ -318,6 +318,7 @@
         "path": "prisfraga-request.klientinformation",
         "short": "klientinformation",
         "definition": "Objekt innehållande information om anropande klientsystem.",
+        "comment": "TKB-fält: `klientinformation` (`KlientinformationRequest`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -331,6 +332,7 @@
         "path": "prisfraga-request.klientinformation.anvandare",
         "short": "anvandare",
         "definition": "Unikt användarid i anropande system.",
+        "comment": "TKB-fält: `../anvandare` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -344,6 +346,7 @@
         "path": "prisfraga-request.klientinformation.session",
         "short": "session",
         "definition": "Sessionens id i anropande system.",
+        "comment": "TKB-fält: `../session` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -357,6 +360,7 @@
         "path": "prisfraga-request.klientinformation.system",
         "short": "system",
         "definition": "GLN-kod för anropande system.",
+        "comment": "TKB-fält: `../system` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -370,6 +374,7 @@
         "path": "prisfraga-request.periodStart",
         "short": "periodStart",
         "definition": "Start av period. Om periodStart anges så avses normalt annan period än innevarande period. Innehållet är en periodstart och kan avse föregående period, innevarande period eller kommande period.",
+        "comment": "TKB-fält: `periodStart` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -383,6 +388,7 @@
         "path": "prisfraga-request.personnummer",
         "short": "personnummer",
         "definition": "Personnummer för person som prisfrågan gäller. Om personnummer saknas, använd tjänsten AnonymPrisfraga",
+        "comment": "TKB-fält: `personnummer` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -396,6 +402,7 @@
         "path": "prisfraga-request.rader",
         "short": "rader",
         "definition": "Rader",
+        "comment": "TKB-fält: `rader` (`PrisfragaRadRequest`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
@@ -409,6 +416,7 @@
         "path": "prisfraga-request.rader.antal",
         "short": "antal",
         "definition": "Antal förpackningar av vara som expedieras. Vid kreditering sätts detta fält till ett negativt värde. Altenativt kan fälten pris och prisUtbyte sättas till negativa värden.",
+        "comment": "TKB-fält: `../antal` (`int`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -422,6 +430,7 @@
         "path": "prisfraga-request.rader.formansVal",
         "short": "formansVal",
         "definition": "Farmacevtens bedömning om vilken förmån som gäller för receptraden. Förmånstyp R, U, F, L kan förekomma.",
+        "comment": "TKB-fält: `../formansVal` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -435,6 +444,7 @@
         "path": "prisfraga-request.rader.pris",
         "short": "pris",
         "definition": "Apoteksaktörs utpris inkl. eventuell moms per förpackning för vara som avses att expedieras.",
+        "comment": "TKB-fält: `../pris` (`double`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -448,6 +458,7 @@
         "path": "prisfraga-request.rader.prisUtbyte",
         "short": "prisUtbyte",
         "definition": "Apoteksaktörs utpris inkl. eventuell moms för billigare vara som ej expedieras vid möjligt byte inom högkostnadsskyddet. Anges om pristillägg skall gälla, dvs när kund motsätter sig byte och väljer förskriven vara.",
+        "comment": "TKB-fält: `../prisUtbyte` (`double`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -461,6 +472,7 @@
         "path": "prisfraga-request.rader.radNr",
         "short": "radNr",
         "definition": "Radnr.",
+        "comment": "TKB-fält: `../radNr` (`int`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -474,6 +486,7 @@
         "path": "prisfraga-request.transaktionstid",
         "short": "transaktionstid",
         "definition": "Transaktionsdag som priset ska beräknas för. Om värdet inte anges används dagens datum. För att garantera korrekt prisberäkning för en efterföljande transaktionsregistrering skall denna parameter ha samma värde som parametern transTid i RegistreraHkdbTransaktion. Får inte vara mer än ett år och en dag bakåt i tiden, eller två timmar framåt i tiden.",
+        "comment": "TKB-fält: `transaktionstid` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -487,6 +500,7 @@
         "path": "prisfraga-request.ursprungligTransaktionstid",
         "short": "ursprungligTransaktionstid",
         "definition": "Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur PrisfragaResponder_4.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:PrisfragaResponder:4.1.)",
+        "comment": "TKB-fält: `ursprungligTransaktionstid` (`dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

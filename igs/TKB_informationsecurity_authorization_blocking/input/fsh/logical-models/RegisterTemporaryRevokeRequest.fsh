@@ -18,3 +18,6 @@ Characteristics: #can-be-target
   * endDate 1..1 dateTime "endDate" "endDate"
   * revokedForCareUnitId 1..1 string "revokedForCareUnitId" "revokedForCareUnitId"
   * revokedForEmployeeId 0..1 string "revokedForEmployeeId" "revokedForEmployeeId"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterTemporaryRevokeRequestFieldDescriptions

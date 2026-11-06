@@ -20,6 +20,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterCertificateFieldDescriptions
+
 Logical: RegisterCertificateRequest
 Id: registercertificate-request
 Title: "RegisterCertificate — Request"
@@ -53,3 +56,6 @@ Characteristics: #can-be-target
 * intyg.skapadAv.enhet.enhetsId 1..1 Identifier "HSA-id för enheten"
 * intyg.skapadAv.enhet.vardgivare 1..1 BackboneElement "Vårdgivare"
 * intyg.skapadAv.enhet.vardgivare.vardgivareId 1..1 Identifier "HSA-id för vårdgivaren"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterCertificateRequestFieldDescriptions

@@ -86,3 +86,6 @@ Characteristics: #can-be-target
     * healthCareUnitMemberPostalCode 0..1 string "Den kopplade enhetens postnummer. Ref. postnummer (postalCode) [R5]."
     * feignedHealthCareUnitMember 0..1 boolean "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]."
     * archivedHealthCareUnitMember 0..1 boolean "true: om enheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthCareUnitMembersFieldDescriptions

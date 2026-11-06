@@ -40,3 +40,6 @@ Characteristics: #can-be-target
     * assignmentId 0..1 string "assignmentId" "assignmentId"
     * assignmentName 0..1 string "assignmentName" "assignmentName"
   * reasonText 0..1 string "reasonText" "reasonText"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterExtendedConsentRequestFieldDescriptions

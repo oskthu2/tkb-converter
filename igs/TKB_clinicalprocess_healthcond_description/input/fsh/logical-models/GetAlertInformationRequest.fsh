@@ -38,3 +38,6 @@ Characteristics: #can-be-target
     Begränsar sökning till uppmärksamhetsinformation kopplad till angiven vårdkontakt.
     Kardinalitet: Valfri, lista.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAlertInformationRequestFieldDescriptions

@@ -31,7 +31,8 @@
         "id": "getlogsforuser-request.careProviderId",
         "path": "getlogsforuser-request.careProviderId",
         "short": "Vårdgivare som är ägare till loggposter",
-        "definition": "Vårdgivare som är ägare till loggposter",
+        "definition": "Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.",
+        "comment": "TKB-fält: `careProviderId` (`log:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getlogsforuser-request.userId",
         "path": "getlogsforuser-request.userId",
         "short": "Medarbetare vars åtkomster ska hämtas (HSA-id)",
-        "definition": "Medarbetare vars åtkomster ska hämtas (HSA-id)",
+        "definition": "Medarbetare som haft åtkomst.",
+        "comment": "TKB-fält: `userId` (`log:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getlogsforuser-request.fromDate",
         "path": "getlogsforuser-request.fromDate",
         "short": "Obligatoriskt startdatum för rapportuttaget",
-        "definition": "Obligatoriskt startdatum för rapportuttaget",
+        "definition": "Obligatoriskt startdatum för att begränsa rapportuttaget.",
+        "comment": "TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getlogsforuser-request.toDate",
         "path": "getlogsforuser-request.toDate",
         "short": "Obligatoriskt slutdatum för rapportuttaget",
-        "definition": "Obligatoriskt slutdatum för rapportuttaget",
+        "definition": "Obligatoriskt slutdatum för att begränsa rapportuttaget.",
+        "comment": "TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "getlogsforuser-request.queuedReportId",
         "path": "getlogsforuser-request.queuedReportId",
         "short": "Id på en pågående rapport (UUID, 36 tecken)",
-        "definition": "Id på en pågående rapport (UUID, 36 tecken)",
+        "definition": "Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.",
+        "comment": "TKB-fält: `queuedReportId` (`log:Id`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "getlogsforuser-request.careUnitId",
         "path": "getlogsforuser-request.careUnitId",
         "short": "HSA-id för specifik vårdenhet (valfritt filter)",
-        "definition": "HSA-id för specifik vårdenhet (valfritt filter)",
+        "definition": "Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.",
+        "comment": "TKB-fält: `careUnitId` (`log:HsaId`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

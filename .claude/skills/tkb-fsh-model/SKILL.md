@@ -259,6 +259,35 @@ Upprepa **inte** fältnamnet på samma nivå som dess egna barn (`* relationId o
 
 `* fält 1..1 string "kort" "definition"` (två citerade strängar) och `* fält 1..1 string "kort"` följt av ett indraget `"""..."""`-block är båda giltiga — men **inte** båda samtidigt på samma fält. Kombinationen ger `extraneous input '"""...' expecting {<EOF>, ...}` (inträffade två gånger 2026-09-16/17). Välj ett-strängsform + `"""`-block för längre texter.
 
+#### Elementbeskrivningar från fälttabellen (KRITISKT — beslut 2026-11-06)
+
+Varje element i de logiska modellerna ska ha **samma information som raden i TKB:ns fälttabell** (avsnitt "Fältregler" i `7-tjanstekontrakt.md`). Läsaren av StructureDefinition-sidorna (`...-definitions.html`) ska inte behöva gå till tjänstekontraktssidan för att förstå ett fält. Det gäller alla TKB:er, även kommande.
+
+Det görs mekaniskt, inte för hand:
+
+```bash
+scripts/sync_field_descriptions.py igs/TKB_{domain_id}            # skriver/uppdaterar
+scripts/sync_field_descriptions.py --report igs/TKB_{domain_id}   # rader/element som inte matchade
+scripts/sync_field_descriptions.py --explain igs/TKB_{domain_id}  # vilken rad hamnade på vilket element
+```
+
+Skriptet skriver en RuleSet per modell till `input/fsh/field-descriptions/{Modell}FieldDescriptions.fsh` och lägger `* insert {Modell}FieldDescriptions` sist i modellen:
+
+- `^definition` = hela Beskrivning/Kommentar-cellen. Wordstyckena (`" / "` i cellen) blir markdownstycken.
+- `^comment` = TKB-fältets namn/XPath, TKB-typ och kardinalitet, hela texten för varje regel som raden hänvisar till ("Regel 2.1" → raden i Övriga regler), extrakolumner (Kodverk, Mappning, Fältlängder), en notering om modellens kardinalitet avviker, och tidigare modelltext (ASSUME/TODO) under "Modellanteckning".
+- `^short` lämnas orörd: den handskrivna korta etiketten i modellen.
+- Barn till element vars TKB-typ har en egen tabell (OrgUnitType, CVType, JoL-header ...) i någon sida under `pagecontent/` får texten från typtabellen.
+
+Regler:
+
+- **Redigera aldrig filerna i `field-descriptions/` för hand.** Ändra tabellen i `7-tjanstekontrakt.md` (källan) och kör skriptet igen. Skriv inte heller tabelltexten som `"""`-block i modellen: den skrivs över av RuleSeten och blir dubbel.
+- Kör skriptet efter varje ändring av fälttabellen eller av modellens elementstruktur (nya/omdöpta element). `preflight_lint.py` felmarkerar en modell vars RuleSet är inaktuell.
+- Matchningen tål modellens omdöpningar av reserverade namn (`signature/id` → `signature.signatureId`, `patientId/extension` → `patientId.iiExtension`) och alla hierarkinotationer i tabellerna (`//*:a/*:b`, `../../x`, `.. ..x`, `a.b.c`, rubrikerna Begäran/Svar eller `{Kontrakt}Type`/`{Kontrakt}ResponseType`). Ett element utan matchande rad behåller sin modelltext.
+- `--report` listar också **tabellrader utan modellelement**. Det är oftast datatypernas underfält (code/codeSystem på CVType, root/extension på IIType), som är väntade eftersom de mappas till FHIR-datatyper. Andra rader där betyder att modellen saknar ett fält som TKB:n har. Lägg då till fältet i modellen och kör skriptet igen.
+- Ny tabellnotation som skriptet inte förstår (många "rad utan element" som uppenbart finns i modellen): utöka `name_to_path`/`classify` i skriptet i stället för att handskriva texter.
+
+Lokalt kräver caret-regler på element att offline-stubben har `ElementDefinition` (finns i `gen_fhir_stubs.py` sedan 2026-11-06). Felsignatur om stubben är gammal: `Cannot read properties of undefined (reading 'id')` på rader i `field-descriptions/*.fsh`. Kör `python3 gen_fhir_stubs.py` igen.
+
 #### Datatypmappning: RIV-TA → FHIR
 
 | RIV-TA bastyp | FHIR-datatyp | Notering |

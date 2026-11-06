@@ -95,3 +95,6 @@ Characteristics: #can-be-target
     Aktuell persons förnamn och efternamn.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetListingFieldDescriptions

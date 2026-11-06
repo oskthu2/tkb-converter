@@ -31,7 +31,8 @@
         "id": "listcertificates.certificateMeta",
         "path": "listcertificates.certificateMeta",
         "short": "Metadata om ett intyg",
-        "definition": "Metadata om ett intyg",
+        "definition": "Metadata information",
+        "comment": "TKB-fält: `meta` (kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "listcertificates.certificateMeta.certificateId",
         "path": "listcertificates.certificateMeta.certificateId",
         "short": "Identitet på intyget (GUID)",
-        "definition": "Identitet på intyget (GUID)",
+        "definition": "Identitet på intyget. Är en GUID.",
+        "comment": "TKB-fält: `meta.certificateId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "listcertificates.certificateMeta.certificateType",
         "path": "listcertificates.certificateMeta.certificateType",
         "short": "Typ av intyg",
-        "definition": "Typ av intyg",
+        "definition": "Typ av intyg. Om inget anges returneras alla typer.",
+        "comment": "TKB-fält: `meta.certificateType` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "listcertificates.certificateMeta.validFrom",
         "path": "listcertificates.certificateMeta.validFrom",
         "short": "Startdatum för sjukskrivningsperioden",
-        "definition": "Startdatum för sjukskrivningsperioden",
+        "definition": "Startdatum för sjukskrivningsperioden.",
+        "comment": "TKB-fält: `meta.validFrom` (`datum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "listcertificates.certificateMeta.validTo",
         "path": "listcertificates.certificateMeta.validTo",
         "short": "Slutdatum för sjukskrivningsperioden",
-        "definition": "Slutdatum för sjukskrivningsperioden",
+        "definition": "Slutdatum för sjukskrivningsperioden.",
+        "comment": "TKB-fält: `meta.validTo` (`datum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,6 +102,7 @@
         "path": "listcertificates.certificateMeta.issuerName",
         "short": "Namn för Hos-person som utfärdat intyget",
         "definition": "Namn för Hos-person som utfärdat intyget",
+        "comment": "TKB-fält: `meta.issuerName` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -110,6 +116,7 @@
         "path": "listcertificates.certificateMeta.facilityName",
         "short": "Namn på Hos-vårdenhet där intyget utfärdats",
         "definition": "Namn på Hos-vårdenhet där intyget utfärdats",
+        "comment": "TKB-fält: `meta.facilityName` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -123,6 +130,7 @@
         "path": "listcertificates.certificateMeta.signDate",
         "short": "Datum när intyget signerades",
         "definition": "Datum när intyget signerades",
+        "comment": "TKB-fält: `meta.signDate` (`date`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "listcertificates.certificateMeta.available",
         "path": "listcertificates.certificateMeta.available",
         "short": "Om intyget är tillgängligt och kan användas",
-        "definition": "Om intyget är tillgängligt och kan användas",
+        "definition": "Anger om intyget är tillgängligt och kan användas.",
+        "comment": "TKB-fält: `meta.available` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "listcertificates.certificateMeta.certificateStatus",
         "path": "listcertificates.certificateMeta.certificateStatus",
         "short": "Statustyper för olika mottagare",
-        "definition": "Statustyper för olika mottagare",
+        "definition": "En lista över statustyper för olika mottagare",
+        "comment": "TKB-fält: `meta.status` (kardinalitet 0..n).",
         "min": 0,
         "max": "*",
         "type": [
@@ -161,7 +171,8 @@
         "id": "listcertificates.certificateMeta.certificateStatus.target",
         "path": "listcertificates.certificateMeta.certificateStatus.target",
         "short": "Mottagare för en status (t.ex. FK)",
-        "definition": "Mottagare för en status (t.ex. FK)",
+        "definition": "Mottagare för en status. Ex FK",
+        "comment": "TKB-fält: `..status.target` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -174,7 +185,8 @@
         "id": "listcertificates.certificateMeta.certificateStatus.certificateStatusType",
         "path": "listcertificates.certificateMeta.certificateStatus.certificateStatusType",
         "short": "Typ av statusändring för intyget",
-        "definition": "Typ av statusändring för intyget",
+        "definition": "Typ av statusändring för intyget.",
+        "comment": "TKB-fält: `..status.type` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -191,7 +203,8 @@
         "id": "listcertificates.certificateMeta.certificateStatus.timestamp",
         "path": "listcertificates.certificateMeta.certificateStatus.timestamp",
         "short": "När statusen sattes",
-        "definition": "När statusen sattes",
+        "definition": "När statusen sattes för intyget",
+        "comment": "TKB-fält: `..status.timestamp` (`datetime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -205,6 +218,7 @@
         "path": "listcertificates.result",
         "short": "Resultatinformation",
         "definition": "Resultatinformation",
+        "comment": "TKB-fält: `result` (kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -217,7 +231,8 @@
         "id": "listcertificates.result.resultCode",
         "path": "listcertificates.result.resultCode",
         "short": "Resultatkod (OK, ERROR, INFO)",
-        "definition": "Resultatkod (OK, ERROR, INFO)",
+        "definition": "Information om anropet gick bra(OK, ERROR, INFO)",
+        "comment": "TKB-fält: `result.resultCode` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -230,7 +245,8 @@
         "id": "listcertificates.result.infoText",
         "path": "listcertificates.result.infoText",
         "short": "Extra information om anropets utgång",
-        "definition": "Extra information om anropets utgång",
+        "definition": "Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.",
+        "comment": "TKB-fält: `result.infoText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -243,7 +259,8 @@
         "id": "listcertificates.result.errorId",
         "path": "listcertificates.result.errorId",
         "short": "Felkategori",
-        "definition": "Felkategori",
+        "definition": "Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)",
+        "comment": "TKB-fält: `result.errorId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -256,7 +273,8 @@
         "id": "listcertificates.result.errorText",
         "path": "listcertificates.result.errorText",
         "short": "Beskrivande text för felet",
-        "definition": "Beskrivande text för felet",
+        "definition": "Text som ytterliggare beskriver felet",
+        "comment": "TKB-fält: `result.errorText` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

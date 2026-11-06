@@ -38,3 +38,6 @@ Characteristics: #can-be-target
   * bestallningsstatus from BestallningsStatusVS (required)
   * frandatum 1..1 dateTime "frandatum" "frandatum"
   * tilldatum 1..1 dateTime "tilldatum" "tilldatum"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaOrginalforpackningRequestFieldDescriptions

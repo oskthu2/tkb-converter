@@ -15,3 +15,6 @@ Characteristics: #can-be-target
 * SubsetIdentity 1..* string "SubsetIdentity" "Identifierare som representerar urvalet"
 * LocalOrganizationExtensionId 0..1 string "LocalOrganizationExtensionId" "Id för system eller organisation"
 * TermType 1..1 string "TermType" "Type of term"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetTerminologySubsetInformationRequestFieldDescriptions

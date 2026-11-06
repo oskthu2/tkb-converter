@@ -23,3 +23,6 @@ Characteristics: #can-be-target
     * assignmentId 0..1 Identifier "HSA-id för medarbetaruppdraget (max 32 tecken)"
     * assignmentName 0..1 string "Namn på medarbetaruppdraget (max 256 tecken)"
   * reasonText 0..1 string "Anledning till återkallningen i fritext (max 1024 tecken)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CancelExtendedConsentRequestFieldDescriptions

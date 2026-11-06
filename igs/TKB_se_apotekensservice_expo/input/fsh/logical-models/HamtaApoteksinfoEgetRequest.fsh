@@ -35,3 +35,6 @@ Characteristics: #can-be-target
   * systemIp 0..1 string "systemIp" "systemIp"
 * apoteksId 0..1 string "apoteksId" "GLN-kod för unik identifiering av apotek. Obligatorisk parameter om org-nr saknas som indata."
 * orgNr 0..1 string "orgNr" "Organisationsnummer. Obligatorisk parameter om Apoteks-id saknas som indata. (xs:long i schemat.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaApoteksinfoEgetRequestFieldDescriptions

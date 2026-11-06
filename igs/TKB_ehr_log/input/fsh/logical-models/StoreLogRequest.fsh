@@ -119,3 +119,6 @@ Characteristics: #can-be-target
       * careUnit 0..1 BackboneElement "Resursens vårdenhet"
         * careUnitId 1..1 Identifier "Vårdenhetens HSA-id"
         * careUnitName 0..1 string "Vårdenhetens namn"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert StoreLogRequestFieldDescriptions

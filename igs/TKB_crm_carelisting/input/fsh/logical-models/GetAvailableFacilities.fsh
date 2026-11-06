@@ -43,3 +43,6 @@ Characteristics: #can-be-target
     Kan utelämnas om information saknas eller inte behövs.
     Kardinalitet: Valfri, lista.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAvailableFacilitiesFieldDescriptions

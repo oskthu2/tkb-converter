@@ -37,3 +37,6 @@ Characteristics: #can-be-target
   * restrictionCode 1..1 string "Restriktionskod (Socialstyrelsens kodverk Behörighetsbegränsning 1.2.752.116.3.1.5)"
   * restrictionName 1..1 string "Restriktionskod i klartext"
 * feignedPerson 0..1 boolean "Personen är ett fingerat objekt"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHospCredentialsForPersonFieldDescriptions

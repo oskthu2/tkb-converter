@@ -32,3 +32,6 @@ Characteristics: #can-be-target
     all: all tillgänglig information (*b, *e, *a) förutom nonPublicTelephoneNumber.
     Kardinalitet: Valfri, lista.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetUnitRequestFieldDescriptions

@@ -38,3 +38,6 @@ Characteristics: #can-be-target
     * healthCareUnitEndDate 0..1 dateTime "Slutdatum för vårdenhetens verksamhet. Ref. endDate [R5]."
     * feignedHealthCareUnit 0..1 boolean "true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]."
     * archivedHealthCareUnit 0..1 boolean "true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHealthCareUnitListFieldDescriptions

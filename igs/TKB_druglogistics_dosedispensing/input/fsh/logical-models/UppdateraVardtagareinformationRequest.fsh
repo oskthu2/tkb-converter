@@ -111,3 +111,6 @@ Characteristics: #can-be-target
     * tilltid 0..1 dateTime "tilltid" "tilltid"
   * vilandestatusorsak 0..* string "vilandestatusorsak" "vilandestatusorsak"
 * meddelandetillapotek 0..1 string "meddelandetillapotek" "meddelandetillapotek"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UppdateraVardtagareinformationRequestFieldDescriptions

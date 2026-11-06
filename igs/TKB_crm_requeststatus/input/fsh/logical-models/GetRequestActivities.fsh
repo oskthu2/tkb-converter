@@ -207,3 +207,6 @@ Characteristics: #can-be-target
   """
   Remissmottagande enhetens namn.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetRequestActivitiesFieldDescriptions

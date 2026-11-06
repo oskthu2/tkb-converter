@@ -139,3 +139,6 @@ Characteristics: #can-be-target
     Avisering.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdateBookingRequestFieldDescriptions

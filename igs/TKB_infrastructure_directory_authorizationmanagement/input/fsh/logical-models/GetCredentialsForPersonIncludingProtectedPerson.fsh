@@ -123,3 +123,6 @@ Characteristics: #can-be-target
     * healthCareProviderEndDate 0..1 dateTime "Slutdatum för vårdgivarens verksamhet"
     * feignedHealthCareProvider 0..1 boolean "Vårdgivaren är ett fingerat objekt"
     * archivedHealthCareProvider 0..1 boolean "Vårdgivaren är ett arkiverat objekt"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCredentialsForPersonIncludingProtectedPersonFieldDescriptions

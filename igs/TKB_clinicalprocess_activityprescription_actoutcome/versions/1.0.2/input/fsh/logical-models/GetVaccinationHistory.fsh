@@ -171,3 +171,6 @@ Characteristics: #can-be-target
         unik (t.ex. UUID) kan den anges i root; annars anges källsystemets HSA-id i root och källsystemets lokala id
         för vaccinationen i extension.
         """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetVaccinationHistoryFieldDescriptions

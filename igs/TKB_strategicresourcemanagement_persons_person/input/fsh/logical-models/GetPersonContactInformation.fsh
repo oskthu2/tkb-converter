@@ -60,3 +60,6 @@ Characteristics: #can-be-target
         * root 1..1 string "root" "root"
         * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
     * updateTime 0..1 string "updateTime" "updateTime"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPersonContactInformationFieldDescriptions

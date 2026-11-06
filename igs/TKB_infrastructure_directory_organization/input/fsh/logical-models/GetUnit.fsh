@@ -135,3 +135,6 @@ Characteristics: #can-be-target
   * jpegLogotype 0..1 string "Logotype för enheten. Base-64-format. Ref. logotyp (hsaJpegLogotype) [R5]. Profilattribut: *a."
   * alternateTextLogotype 0..1 string "Beskrivande text till logotype för enheten. Ref. [R5]. Profilattribut: *a."
   * nonPublicTelephoneNumber 0..* string "Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]. Profilattribut: *f (kräver extended2)."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetUnitFieldDescriptions

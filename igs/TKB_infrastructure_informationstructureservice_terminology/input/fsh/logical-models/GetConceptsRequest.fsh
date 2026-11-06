@@ -19,3 +19,6 @@ Characteristics: #can-be-target
 * Term 0..1 string "Term" "Term för sökt concept"
 * ConceptsResponseThreshold 0..1 integer "ConceptsResponseThreshold" "Antal concepts som maximalt returneras i svaret"
 * TermType 1..1 string "TermType" "Type of term"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetConceptsRequestFieldDescriptions

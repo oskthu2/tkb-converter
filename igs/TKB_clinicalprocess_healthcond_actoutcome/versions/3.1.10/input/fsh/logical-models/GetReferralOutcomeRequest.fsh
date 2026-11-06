@@ -43,6 +43,9 @@ Characteristics: #can-be-target
   """
 * obeys getreferraloutcome-request-sourcesystem-if-carecontact
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetReferralOutcomeRequestFieldDescriptions
+
 Invariant: getreferraloutcome-request-sourcesystem-if-carecontact
 Description: "sourceSystemHSAId ska anges om careContactId angivits."
 Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"

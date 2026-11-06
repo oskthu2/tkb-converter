@@ -22,3 +22,6 @@ Characteristics: #can-be-target
   """
   Om true returneras även makulerade, återkallade och utgångna intyg.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetExtendedConsentsForPatientRequestFieldDescriptions

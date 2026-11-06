@@ -76,3 +76,6 @@ Characteristics: #can-be-target
   * subcode 0..1 string "Inga subkoder är specificerade" "Inga subkoder är specificerade. TKB-typ: string. Kardinalitet: 0..1. OBS: elementet heter subCode i XSD:n."
   * logId 1..1 string "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent" "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent. TKB-typ: string. Kardinalitet: 1..1."
   * message 0..1 string "En beskrivande text som kan visas för användaren" "En beskrivande text som kan visas för användaren. TKB-typ: string. Kardinalitet: 0..1."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetFunctionalStatusFieldDescriptions

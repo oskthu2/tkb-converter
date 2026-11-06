@@ -34,3 +34,6 @@ Characteristics: #can-be-target
     mer detaljerad information om vad som hänt.
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdateFieldDescriptions

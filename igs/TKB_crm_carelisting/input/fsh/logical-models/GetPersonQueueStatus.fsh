@@ -51,3 +51,6 @@ Characteristics: #can-be-target
     Lista med listningstyper som vårdenheten stödjer.
     Kardinalitet: Valfri, lista.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPersonQueueStatusFieldDescriptions

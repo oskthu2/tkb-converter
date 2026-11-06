@@ -117,3 +117,6 @@ Characteristics: #can-be-target
         """
         Datum från vilket behörigheten är giltig. Format: ÅÅÅÅMMDD.
         """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHospPersonForPublicHealthcareFieldDescriptions

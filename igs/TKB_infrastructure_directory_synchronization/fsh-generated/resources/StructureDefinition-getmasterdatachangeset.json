@@ -32,6 +32,7 @@
         "path": "getmasterdatachangeset.masterDataChangeSet",
         "short": "masterDataChangeSet",
         "definition": "masterDataChangeSet",
+        "comment": "TKB-fält: `MasterDataChangeSet` (`MasterDataChangeSetType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId",
         "path": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId",
         "short": "masterDataChangeSetId",
-        "definition": "masterDataChangeSetId Heter id i schemat.",
+        "definition": "Id\n\nIdentifierare som unikt pekar ut en katalogdatapost i källsystemet. Idt kan användas för att hämta posten med tjänstekontraktet som pekas ut i förfrågan.",
+        "comment": "TKB-fält: `../id` (`IIType`, kardinalitet 1).\n\n**Modellanteckning:** masterDataChangeSetId Heter id i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.root",
         "path": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.root",
         "short": "root",
-        "definition": "root",
+        "definition": "En universellt unik identifierare eller en identifierare som tillsammans med värdet för ”extension”\n\nger en universellt unik identifierare.",
+        "comment": "TKB-fält: `../id/root` (`string`, kardinalitet 1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.iiExtension",
         "path": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.iiExtension",
         "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
+        "definition": "En textsträng som tillsammans med värdet för \"root\" bildar en unik identifierare. Används om värdet på \"root\" inte är universellt unikt.",
+        "comment": "TKB-fält: `../id/extension` (`string`, kardinalitet 0..1).\n\nObs: modellen anger 1..1 där TKB:n anger 0..1.\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.category",
         "path": "getmasterdatachangeset.masterDataChangeSet.category",
         "short": "category",
-        "definition": "category",
+        "definition": "Kategori\n\nKategorisering av förändring.\n\nEnum med tillåtna värden: create, update, delete.",
+        "comment": "TKB-fält: `../category` (`Enum`, kardinalitet 1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -100,7 +105,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.changeTime",
         "path": "getmasterdatachangeset.masterDataChangeSet.changeTime",
         "short": "changeTime",
-        "definition": "changeTime",
+        "definition": "Förändringstidpunkt\n\nTidpunkt för när förändringen genomfördes i masterdatakällan.",
+        "comment": "TKB-fält: `../changeTime` (`TimeStamp`, kardinalitet 1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -113,7 +119,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.attributes",
         "path": "getmasterdatachangeset.masterDataChangeSet.attributes",
         "short": "attributes",
-        "definition": "attributes",
+        "definition": "Angivelse av förändrade attribut för katalogposten.\n\nOm category är update kan förändrade fält anges i svaret, så att konsumenten kan härleda om uppdateringen är relevant för att trigga en hämtning av hela posten.",
+        "comment": "TKB-fält: `../attributes` (`AttributeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -126,7 +133,8 @@
         "id": "getmasterdatachangeset.masterDataChangeSet.attributes.masterDataAttribute",
         "path": "getmasterdatachangeset.masterDataChangeSet.attributes.masterDataAttribute",
         "short": "masterDataAttribute",
-        "definition": "masterDataAttribute",
+        "definition": "Attribut\n\nDet förändrade attributet pekas ut med klass och attribut separerat med punktnotation. Exempel: Organisation.namn\n\nVilka attribut som kan anges beror helt på masterdatakällan.",
+        "comment": "TKB-fält: `../../attribute` (`String`, kardinalitet 1).",
         "min": 1,
         "max": "1",
         "type": [

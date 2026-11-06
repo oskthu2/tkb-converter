@@ -53,3 +53,6 @@ Characteristics: #can-be-target
 * slutDatum 0..1 dateTime "slutDatum" "Datum för avslut av verksamhet."
 * startDatum 1..1 dateTime "startDatum" "Datum för start av verksamhet. Det datum som allmänheten kan använda Apoteket."
 * tidigareGlnKod 0..1 string "tidigareGlnKod" "Expeditionsställets tidigare ägares GLN."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UppdateraExpoMedApotekFieldDescriptions

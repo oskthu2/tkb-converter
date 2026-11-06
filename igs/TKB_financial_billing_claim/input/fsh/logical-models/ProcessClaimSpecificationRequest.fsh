@@ -345,3 +345,6 @@ Characteristics: #can-be-target
         * unspecified 0..* BackboneElement "unspecified" "unspecified"
           * unspecifiedText 1..1 string "unspecifiedText" "unspecifiedText Heter text i schemat."
           * unspecifiedType 0..1 string "unspecifiedType" "unspecifiedType Heter type i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessClaimSpecificationRequestFieldDescriptions

@@ -31,7 +31,8 @@
         "id": "getpatientrelationsforcareprovider-request.careProviderId",
         "path": "getpatientrelationsforcareprovider-request.careProviderId",
         "short": "HSA-id på den vårdgivare vars patientrelationer skall hämtas",
-        "definition": "HSA-id på den vårdgivare vars patientrelationer skall hämtas",
+        "definition": "HSA-id på den vårdgivare vars patientrelationer skall hämtas.",
+        "comment": "TKB-fält: `careProviderId` (`patientrelationship:HsaId`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getpatientrelationsforcareprovider-request.createdOnOrAfter",
         "path": "getpatientrelationsforcareprovider-request.createdOnOrAfter",
         "short": "Valfritt startdatum — returnerar bara patientrelationer skapade på eller efter denna tidpunkt",
-        "definition": "Användbart vid upprepande förfrågningar för att undvika att data som redan inhämtats returneras igen.",
+        "definition": "Ej obligatoriskt startdatum för hur gamla patientrelationer som skall hämtas. Om angivet så returneras endast patientrelationer skapade/förändrade  på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.",
+        "comment": "TKB-fält: `createdOnOrAfter` (`xs:dateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getpatientrelationsforcareprovider-request.getCancelledFlag",
         "path": "getpatientrelationsforcareprovider-request.getCancelledFlag",
         "short": "Flagga som avgör om makulerade och återkallade patientrelationer skall returneras",
-        "definition": "Flagga som avgör om makulerade och återkallade patientrelationer skall returneras",
+        "definition": "Flagga som avgör om makulerade och återkallade patientrelationer som ej är utgångna (giltigt t o m har passerats) skall returneras.",
+        "comment": "TKB-fält: `getCancelledFlag` (`xs:boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

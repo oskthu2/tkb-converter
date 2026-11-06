@@ -162,3 +162,6 @@ Characteristics: #can-be-target
     Ålderskrav maximum (år).
     Kardinalitet: Valfri.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAvailableEServicesFieldDescriptions

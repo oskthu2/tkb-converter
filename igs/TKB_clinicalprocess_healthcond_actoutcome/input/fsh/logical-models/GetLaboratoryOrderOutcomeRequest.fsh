@@ -65,3 +65,6 @@ Characteristics: #can-be-target
   Begränsar sökning till specifik remiss.
   Kardinalitet: Valfri, lista.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetLaboratoryOrderOutcomeRequestFieldDescriptions

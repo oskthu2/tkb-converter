@@ -35,3 +35,6 @@ Characteristics: #can-be-target
     Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
     Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.
     """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCommissionsForPersonRequestFieldDescriptions

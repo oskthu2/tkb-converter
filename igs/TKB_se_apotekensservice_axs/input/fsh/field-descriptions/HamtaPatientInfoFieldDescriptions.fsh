@@ -1,0 +1,55 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: HamtaPatientInfoFieldDescriptions
+* apotek ^definition = "Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#apoteksinformationresponse)."
+* apotek ^comment = "TKB-fält: `apotek` (`ApoteksinformationResponse`, kardinalitet 0..1)."
+* apotek.aktorsnamn ^definition = "Aktörsnamn"
+* apotek.aktorsnamn ^comment = "TKB-fält i ApoteksinformationResponse: `aktorsnamn` (`string`, kardinalitet 0..1)."
+* apotek.aktorsorgnr ^definition = "Aktörens organisationsnummer."
+* apotek.aktorsorgnr ^comment = "TKB-fält i ApoteksinformationResponse: `aktorsorgnr` (`long`, kardinalitet 0..1).
+
+**Modellanteckning:** Aktörens organisationsnummer. xs:long i schemat."
+* apotek.allmantelefon ^definition = "allmäntelefon"
+* apotek.allmantelefon ^comment = "TKB-fält i ApoteksinformationResponse: `allmantelefon` (`string`, kardinalitet 0..1)."
+* apotek.besoksadress ^definition = "Expeditionsställets besöksadress"
+* apotek.besoksadress ^comment = "TKB-fält i ApoteksinformationResponse: `besoksadress` (`string`, kardinalitet 0..1)."
+* apotek.eReceptDjur ^definition = "Anger om apoteket finns expedierar erecept för djur"
+* apotek.eReceptDjur ^comment = "TKB-fält i ApoteksinformationResponse: `eReceptDjur` (`boolean`, kardinalitet 1..1)."
+* apotek.fax ^definition = "fax"
+* apotek.fax ^comment = "TKB-fält i ApoteksinformationResponse: `fax` (`string`, kardinalitet 0..1)."
+* apotek.glnKod ^definition = "GLN-kod"
+* apotek.glnKod ^comment = "TKB-fält i ApoteksinformationResponse: `glnKod` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** Apotekets GLN-kod."
+* apotek.huvudtypkod ^definition = "Kod som beskriver huvudverksamheten för expeditionsstället"
+* apotek.huvudtypkod ^comment = "TKB-fält i ApoteksinformationResponse: `huvudtypkod` (`string`, kardinalitet 0..1)."
+* apotek.namn ^definition = "Apotekets Namn"
+* apotek.namn ^comment = "TKB-fält i ApoteksinformationResponse: `namn` (`string`, kardinalitet 0..1)."
+* apotek.ort ^definition = "Expeditionsställets besöksort"
+* apotek.ort ^comment = "TKB-fält i ApoteksinformationResponse: `ort` (`string`, kardinalitet 0..1)."
+* apotek.registrerad ^definition = "Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden."
+* apotek.registrerad ^comment = "TKB-fält i ApoteksinformationResponse: `registrerad` (`boolean`, kardinalitet 1..1)."
+* apotek.slutdatum ^definition = "Datum för stängning av verksamhet"
+* apotek.slutdatum ^comment = "TKB-fält i ApoteksinformationResponse: `slutdatum` (`dateTime`, kardinalitet 0..1)."
+* apotek.startdatum ^definition = "Datum för start av verksamhet"
+* apotek.startdatum ^comment = "TKB-fält i ApoteksinformationResponse: `startdatum` (`dateTime`, kardinalitet 0..1)."
+* dosproducent ^definition = "GLN-kod för eventuell dosproducent."
+* dosproducent ^comment = "TKB-fält: `dosproducent` (`string`, kardinalitet 0..1)."
+* dosunderlagStatus ^definition = "Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat."
+* dosunderlagStatus ^comment = "TKB-fält: `dosunderlagStatus` (`int`, kardinalitet 0..1)."
+* finnsOrdination ^definition = "Markering som anger om det finns aktuella recept för patienten i RDH."
+* finnsOrdination ^comment = "TKB-fält: `finnsOrdination` (`boolean`, kardinalitet 0..1)."
+* patientInformation ^definition = "Patientinformation från FOLK. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#patientinformationresponse)."
+* patientInformation ^comment = "TKB-fält: `patientInformation` (`PatientInformationResponse`, kardinalitet 0..1)."
+* patientInformation.lkKod ^definition = "Län och kommun där personen är folkbokförd. Har formatet LLKK. LL - Län, 2 tecken. KK - Kommun, 2 tecken"
+* patientInformation.lkKod ^comment = "TKB-fält i PatientInformationResponse: `lkKod` (`string`, kardinalitet 0..1)."
+* patientInformation.omradeskod ^definition = "Det område där personen är folkbokförd"
+* patientInformation.omradeskod ^comment = "TKB-fält i PatientInformationResponse: `omradeskod` (`string`, kardinalitet 0..1)."
+* patientInformation.redNamn ^definition = "Redigerat namn"
+* patientInformation.redNamn ^comment = "TKB-fält i PatientInformationResponse: `redNamn` (`string`, kardinalitet 0..1)."
+* patientInformation.samtycke ^comment = "TKB-fält i PatientInformationResponse: `samtycke` (`SamtyckeResponse`, kardinalitet 1..1).
+
+**Modellanteckning:** Patientens registrerade samtycken (SamtyckeResponse). För varje flagga: true = samtycke lämnat, false = samtycke nekat, saknas = kunden har inte tillfrågats eller tagit ställning."
+* patientInformation.statusKod ^definition = "StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se [kodverket](#statuskod). Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret."
+* patientInformation.statusKod ^comment = "TKB-fält i PatientInformationResponse: `statusKod` (`string`, kardinalitet 0..1)."

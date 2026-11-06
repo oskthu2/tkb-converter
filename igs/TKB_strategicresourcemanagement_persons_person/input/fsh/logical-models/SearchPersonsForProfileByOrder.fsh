@@ -12,3 +12,6 @@ Description: """
 Characteristics: #can-be-target
 * ^version = "5.0"
 * orderId 0..1 string "orderId" "orderId"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SearchPersonsForProfileByOrderFieldDescriptions

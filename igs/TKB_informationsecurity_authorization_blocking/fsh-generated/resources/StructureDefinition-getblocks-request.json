@@ -44,7 +44,8 @@
         "id": "getblocks-request.patientId",
         "path": "getblocks-request.patientId",
         "short": "patientId",
-        "definition": "En universellt unik identifierare.",
+        "definition": "Ej obligatorisk patientidentitet såsom personnummer, samordningsnummer eller reservnummer vars spärrar skall hämtas.",
+        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:blocking:4:IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** En universellt unik identifierare.",
         "min": 0,
         "max": "1",
         "type": [
@@ -58,6 +59,7 @@
         "path": "getblocks-request.patientId.root",
         "short": "root",
         "definition": "root",
+        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,6 +73,7 @@
         "path": "getblocks-request.patientId.iiExtension",
         "short": "iiExtension",
         "definition": "iiExtension Heter extension i schemat.",
+        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
         "min": 0,
         "max": "1",
         "type": [
@@ -83,7 +86,8 @@
         "id": "getblocks-request.careProviderIds",
         "path": "getblocks-request.careProviderIds",
         "short": "careProviderIds",
-        "definition": "careProviderIds",
+        "definition": "Ej obligatorisk lista med HSA-id på de vårdgivare vars spärrar skall hämtas.",
+        "comment": "TKB-fält: `careProviderIds` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -96,7 +100,8 @@
         "id": "getblocks-request.createdOnOrAfter",
         "path": "getblocks-request.createdOnOrAfter",
         "short": "createdOnOrAfter",
-        "definition": "createdOnOrAfter",
+        "definition": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas. Om angivet returneras endast spärrar och/eller tillfälliga hävningar lagrade/förändrade i tjänsten på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.",
+        "comment": "TKB-fält: `createdOnOrAfter` (`xs:DateTime`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

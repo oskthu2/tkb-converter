@@ -24,6 +24,9 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateDraftCertificateFieldDescriptions
+
 Logical: CreateDraftCertificateRequest
 Id: createdraftcertificate-request
 Title: "CreateDraftCertificate — Request"
@@ -52,3 +55,6 @@ Characteristics: #can-be-target
 * intyg.skapadAv.enhet.enhetsId 1..1 Identifier "HSA-id för enheten"
 * intyg.skapadAv.enhet.enhetsnamn 1..1 string "Enhetens namn (från vårdsystemet)"
 * intyg.ref 0..1 string "Referens till något i det integrerande vårdsystemet (t.ex. vårdkontakt-id)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert CreateDraftCertificateRequestFieldDescriptions

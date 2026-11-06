@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * message 0..1 string "message" "message"
 * resultCode 1..1 code "resultCode" "resultCode"
 * resultCode from ResultCodeEnumVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdatePatientContactInformationFieldDescriptions

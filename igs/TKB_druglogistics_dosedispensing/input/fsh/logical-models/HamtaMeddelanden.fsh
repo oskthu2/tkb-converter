@@ -49,3 +49,6 @@ Characteristics: #can-be-target
   * meddelandestatusarbetsplats 1..1 string "meddelandestatusarbetsplats" "meddelandestatusarbetsplats"
   * statustidpunkt 1..1 dateTime "statustidpunkt" "statustidpunkt"
   * meddelande 1..1 string "meddelande" "meddelande"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaMeddelandenFieldDescriptions

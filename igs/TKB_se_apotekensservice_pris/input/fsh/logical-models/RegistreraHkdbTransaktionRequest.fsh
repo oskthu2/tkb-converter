@@ -49,3 +49,6 @@ Characteristics: #can-be-target
 * ursprungligtApoteksaktorsExpeditionsId 0..1 string "ursprungligtApoteksaktorsExpeditionsId" "Apoteksaktörens ursprungliga expeditionsid, ska anges vid kreditering"
 * ursprungligtExpeditionsId 0..1 string "ursprungligtExpeditionsId" "Expeditionens ursprungliga expeditionsid, ska anges vid kreditering"
 * ursprungligTransTid 0..1 dateTime "ursprungligTransTid" "Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur RegistreraHkdbTransaktionResponder_1.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1.1.)"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegistreraHkdbTransaktionRequestFieldDescriptions

@@ -1,0 +1,28 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: PrisfragaFieldDescriptions
+* bruttoBeloppHogkostnad ^definition = "Förmånsgrundande bruttobelopp kopplat till högkostnadsskyddet. Bruttobelopp inkl. ev. moms, att tillgodoräkna i högkostnadsskyddet. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
+* bruttoBeloppHogkostnad ^comment = "TKB-fält: `bruttoBeloppHogkostnad` (`double`, kardinalitet 0..1)."
+* bruttoPris ^definition = "Summa apoteksaktörs utpris inkl. ev. moms för receptexpeditionen. Vid kreditering blir detta värde negativt."
+* bruttoPris ^comment = "TKB-fält: `bruttoPris` (`double`, kardinalitet 1..1)."
+* egenAvgiftHogkostnad ^definition = "Summa kundens egenavgift kopplat till högkostnadsskyddet. Egenavgift inkl. ev. moms, att tillgodoräkna i högkostnadsskyddet. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
+* egenAvgiftHogkostnad ^comment = "TKB-fält: `egenAvgiftHogkostnad` (`double`, kardinalitet 0..1)."
+* egenAvgiftLivsmedel ^definition = "Summa kundens egenavgift inkl. moms för livsmedel till barn under 16 år. Gäller förmånskod = L. Max 120 kr. Vid kreditering blir detta värde negativt."
+* egenAvgiftLivsmedel ^comment = "TKB-fält: `egenAvgiftLivsmedel` (`double`, kardinalitet 0..1)."
+* kundKostnad ^definition = "Kostnad kunden skall betala. Egenavgift, pristillägg samt pris inkl. ev . moms för varor utan förmån. Vid kreditering blir detta värde negativt."
+* kundKostnad ^comment = "TKB-fält: `kundKostnad` (`double`, kardinalitet 1..1)."
+* landstingetsFormanskostnad ^definition = "Summa förmån inkl. ev. moms för receptexpeditionen. Gäller förmånskod = R, F och L. Vid kreditering blir detta värde negativt."
+* landstingetsFormanskostnad ^comment = "TKB-fält: `landstingetsFormanskostnad` (`double`, kardinalitet 0..1)."
+* personnummer ^definition = "Personnummer för person som prisfrågan gäller. Om personnummer saknas, använd tjänsten AnonymPrisfraga"
+* personnummer ^comment = "TKB-fält: `personnummer` (`string`, kardinalitet 1..1)."
+* prisTillagg ^definition = "Summa pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
+* prisTillagg ^comment = "TKB-fält: `prisTillagg` (`double`, kardinalitet 0..1)."
+* rader ^definition = "Rader"
+* rader ^comment = "TKB-fält: `rader` (`PrisfragaRadResponse`, kardinalitet 1..*)."
+* rader.bruttoPris ^definition = "Apoteksaktörs utpris för receptrad inkl. ev. moms. Vid kreditering blir detta värde negativt."
+* rader.bruttoPris ^comment = "TKB-fält: `../bruttoPris` (`double`, kardinalitet 1..1)."
+* rader.prisTillagg ^definition = "Radens ev. pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
+* rader.prisTillagg ^comment = "TKB-fält: `../prisTillagg` (`double`, kardinalitet 0..1)."
+* rader.radNr ^definition = "Radnr."
+* rader.radNr ^comment = "TKB-fält: `../radNr` (`int`, kardinalitet 1..1)."

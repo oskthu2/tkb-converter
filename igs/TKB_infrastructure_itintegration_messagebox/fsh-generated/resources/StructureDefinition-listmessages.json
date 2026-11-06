@@ -31,7 +31,8 @@
         "id": "listmessages.result",
         "path": "listmessages.result",
         "short": "result",
-        "definition": "Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
+        "definition": "Resultat",
+        "comment": "TKB-fält: `result` (kardinalitet 1..1).\n\n**Modellanteckning:** Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "listmessages.result.resultCode",
         "path": "listmessages.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode Heter code i schemat.",
+        "definition": "Information om anropet gick bra(OK, ERROR, INFO)",
+        "comment": "TKB-fält: `result.code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Heter code i schemat.",
         "min": 1,
         "max": "1",
         "type": [
@@ -61,7 +63,8 @@
         "id": "listmessages.result.errorId",
         "path": "listmessages.result.errorId",
         "short": "errorId",
-        "definition": "errorId",
+        "definition": "Enda möjliga är 1=INTERNAL",
+        "comment": "TKB-fält: `result.errorId` (`int`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -74,7 +77,8 @@
         "id": "listmessages.result.errorMessage",
         "path": "listmessages.result.errorMessage",
         "short": "errorMessage",
-        "definition": "errorMessage",
+        "definition": "Text som ytterliggare beskriver felet",
+        "comment": "TKB-fält: `result.errorMessage` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -88,6 +92,7 @@
         "path": "listmessages.messageMetas",
         "short": "messageMetas",
         "definition": "messageMetas",
+        "comment": "TKB-fält: `messageMetas` (kardinalitet 0..n).",
         "min": 0,
         "max": "*",
         "type": [
@@ -100,7 +105,8 @@
         "id": "listmessages.messageMetas.messageId",
         "path": "listmessages.messageMetas.messageId",
         "short": "messageId",
-        "definition": "messageId (xs:long i schemat.)",
+        "definition": "Meddelandeidentitet",
+        "comment": "TKB-fält: `messageMetas.messageId` (`long`, kardinalitet 1..1).\n\n**Modellanteckning:** messageId (xs:long i schemat.)",
         "min": 1,
         "max": "1",
         "type": [
@@ -113,7 +119,8 @@
         "id": "listmessages.messageMetas.targetOrganization",
         "path": "listmessages.messageMetas.targetOrganization",
         "short": "targetOrganization",
-        "definition": "targetOrganization",
+        "definition": "Verksamhet",
+        "comment": "TKB-fält: `messageMetas.targetOrganization` (`logicalAdressType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -126,7 +133,8 @@
         "id": "listmessages.messageMetas.serviceContractType",
         "path": "listmessages.messageMetas.serviceContractType",
         "short": "serviceContractType",
-        "definition": "serviceContractType",
+        "definition": "Tjänstekontrakt",
+        "comment": "TKB-fält: `messageMetas.serviceContractType` (`ServiceContractType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -139,7 +147,8 @@
         "id": "listmessages.messageMetas.messageSize",
         "path": "listmessages.messageMetas.messageSize",
         "short": "messageSize",
-        "definition": "messageSize (xs:long i schemat.)",
+        "definition": "Meddelandestorlek (bytes)",
+        "comment": "TKB-fält: `messageMetas.messageSize` (`long`, kardinalitet 1..1).\n\n**Modellanteckning:** messageSize (xs:long i schemat.)",
         "min": 1,
         "max": "1",
         "type": [
@@ -152,7 +161,8 @@
         "id": "listmessages.messageMetas.arrivalTime",
         "path": "listmessages.messageMetas.arrivalTime",
         "short": "arrivalTime",
-        "definition": "arrivalTime",
+        "definition": "Ankomsttid för meddelandet",
+        "comment": "TKB-fält: `messageMetas.arrivalTime` (`dateTime`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -165,7 +175,8 @@
         "id": "listmessages.messageMetas.messageMetaStatus",
         "path": "listmessages.messageMetas.messageMetaStatus",
         "short": "messageMetaStatus",
-        "definition": "messageMetaStatus Heter status i schemat.",
+        "definition": "Status på meddelandet",
+        "comment": "TKB-fält: `messageMetas.status` (`MessageStatusType`, kardinalitet 1..1).\n\n**Modellanteckning:** messageMetaStatus Heter status i schemat.",
         "min": 1,
         "max": "1",
         "type": [

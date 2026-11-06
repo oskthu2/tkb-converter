@@ -60,3 +60,6 @@ Characteristics: #can-be-target
   * contactAllowed 1..1 boolean "contactAllowed" "contactAllowed"
   * contactTime 0..1 string "contactTime" "contactTime"
 * updatePatientContactInformationVersion 1..1 string "updatePatientContactInformationVersion" "updatePatientContactInformationVersion (xs:long i schemat.) Heter version i schemat."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UpdatePatientContactInformationRequestFieldDescriptions

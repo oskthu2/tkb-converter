@@ -18,3 +18,6 @@ Characteristics: #can-be-target
 * healthCareProfessionalLicense 0..* string "healthCareProfessionalLicense" "healthCareProfessionalLicense"
 * searchBase 0..1 string "searchBase" "searchBase"
 * includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCommissionMembersIncludingProtectedPersonRequestFieldDescriptions

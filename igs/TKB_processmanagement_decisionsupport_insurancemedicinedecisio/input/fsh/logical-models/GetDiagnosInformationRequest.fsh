@@ -23,3 +23,6 @@ Characteristics: #can-be-target
   Anger om även ej aktiv diagnosinformation skall hämtas.
   Anges ej villkoret returneras endast aktiva.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetDiagnosInformationRequestFieldDescriptions

@@ -268,3 +268,6 @@ Characteristics: #can-be-target
     Optionellt felmeddelande som innehåller information om eventuella fel.
     Kardinalitet: Valfri.
   """
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCareDocumentationFieldDescriptions

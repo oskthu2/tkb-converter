@@ -13,3 +13,6 @@ Characteristics: #can-be-target
 * ^version = "4.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges SE165565594230-1000."
 * temporaryRevokeId 1..1 string "temporaryRevokeId" "temporaryRevokeId"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert UnregisterTemporaryRevokeRequestFieldDescriptions

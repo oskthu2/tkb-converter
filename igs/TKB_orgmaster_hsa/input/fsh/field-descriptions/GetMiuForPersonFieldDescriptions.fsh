@@ -1,0 +1,25 @@
+// GENERERAD av scripts/sync_field_descriptions.py från fälttabellerna i
+// input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
+
+RuleSet: GetMiuForPersonFieldDescriptions
+* MiuInformation ^comment = "TKB-fält: `MiuInformation` (`MiuInformationType`, kardinalitet 0..*)."
+* MiuInformation.miuName ^comment = "TKB-fält: `../miuName` (`string`, kardinalitet 1..1)."
+* MiuInformation.hsaIdentity ^comment = "TKB-fält: `../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1)."
+* MiuInformation.miuPurpose ^comment = "TKB-fält: `../miuPurpose` (`string`, kardinalitet 1..1)."
+* MiuInformation.careUnitHsaIdentity ^comment = "TKB-fält: `../careUnitHsaIdentity` (`HsaIdentityType`, kardinalitet 1..1)."
+* MiuInformation.careUnitName ^comment = "TKB-fält: `../careUnitName` (`string`, kardinalitet 0..1)."
+* MiuInformation.careGiver ^comment = "TKB-fält: `../careGiver` (`string`, kardinalitet 1..1)."
+* MiuInformation.careGiverName ^comment = "TKB-fält: `../careGiverName` (`string`, kardinalitet 1..1)."
+* MiuInformation.careGiverOrgNo ^comment = "TKB-fält: `../careGiverOrgNo` (`orgNo`, kardinalitet 1..1)."
+* MiuInformation.personalPrescriptionCode ^comment = "TKB-fält: `../personalPrescriptionCode` (`string`, kardinalitet 0..1)."
+* MiuInformation.hsaTitles ^comment = "TKB-fält: `../hsaTitles` (`HsaTitlesType`, kardinalitet 1..1)."
+* MiuInformation.hsaTitles.hsaTitle ^comment = "TKB-fält: `../../hsaTitle` (`string`, kardinalitet 0..*)."
+* MiuInformation.miuRights ^comment = "TKB-fält: `../miuRights` (`MiuRightsType`, kardinalitet 1..1)."
+* MiuInformation.miuRights.miuRight ^comment = "TKB-fält: `../../miuRight` (`string`, kardinalitet 0..*)."
+* MiuInformation.hsaSystemRoles ^comment = "TKB-fält: `../hsaSystemRoles` (`HsaSystemRolesType`, kardinalitet 1..1)."
+* MiuInformation.hsaSystemRoles.hsaSystemRole ^comment = "TKB-fält: `../../hsaSystemRole` (`string`, kardinalitet 0..*)."
+* MiuInformation.hsaIdentityPerson ^comment = "TKB-fält: `../hsaIdentityPerson` (`HsaIdentityType`, kardinalitet 1..1)."
+* MiuInformation.paTitleCodes ^comment = "TKB-fält: `../paTitleCodes` (`PaTitleCodesType`, kardinalitet 1..1)."
+* MiuInformation.paTitleCodes.paTitleCode ^comment = "TKB-fält: `../../paTitleCode` (`string`, kardinalitet 0..*)."
+* MiuInformation.givenName ^comment = "TKB-fält: `../givenName` (`string`, kardinalitet 1..1)."
+* MiuInformation.middleAndSurName ^comment = "TKB-fält: `../middleAndSurName` (`string`, kardinalitet 1..1)."

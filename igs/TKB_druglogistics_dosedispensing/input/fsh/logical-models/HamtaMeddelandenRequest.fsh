@@ -43,3 +43,6 @@ Characteristics: #can-be-target
   * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
   * frantid 0..1 dateTime "frantid" "frantid"
   * tilltid 0..1 dateTime "tilltid" "tilltid"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert HamtaMeddelandenRequestFieldDescriptions

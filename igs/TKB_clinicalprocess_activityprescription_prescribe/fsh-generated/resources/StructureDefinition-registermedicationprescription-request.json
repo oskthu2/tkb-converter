@@ -31,7 +31,8 @@
         "id": "registermedicationprescription-request.patientInformation",
         "path": "registermedicationprescription-request.patientInformation",
         "short": "Patientinformation (personnummer eller demografiska uppgifter)",
-        "definition": "Antingen patientId eller kombinationen givenName+familyName+dateOfBirth måste anges.\nASSUME-PRESC-001: villkorlig kardinalitet — modellerad som 0..1 per underfält med notering.",
+        "definition": "patientId eller patientInformation måste anges.",
+        "comment": "TKB-fält: `patientInformation*` (`PatientInformation_setter`, kardinalitet 1..1).\n\n**Modellanteckning:** Antingen patientId eller kombinationen givenName+familyName+dateOfBirth måste anges.\nASSUME-PRESC-001: villkorlig kardinalitet — modellerad som 0..1 per underfält med notering.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "registermedicationprescription-request.patientInformation.patientId",
         "path": "registermedicationprescription-request.patientInformation.patientId",
         "short": "Patientens personnummer eller samordningsnummer",
-        "definition": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer (fylls i från argument i tjänsteanropet)\n\nEndast om det är känt.\n\nPU: personid\n\nRR: personnummer",
+        "comment": "TKB-fält: `../patientId` (`Identifier`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "registermedicationprescription-request.patientInformation.givenName",
         "path": "registermedicationprescription-request.patientInformation.givenName",
         "short": "Förnamn",
-        "definition": "Förnamn",
+        "definition": "Patientens förnamn.\n\nPU: förnamn. Alla förnamn med mellanslag emellan. Tilltalsnamnsmarkering anger vilket som används som tilltalsnamn.\n\nRR: förnamn",
+        "comment": "TKB-fält: `../givenName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "registermedicationprescription-request.patientInformation.familyName",
         "path": "registermedicationprescription-request.patientInformation.familyName",
         "short": "Efternamn",
-        "definition": "Efternamn",
+        "definition": "Patientens efternamn.\n\nPU: efternamn\n\nRR: efternamn",
+        "comment": "TKB-fält: `../familyName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "registermedicationprescription-request.patientInformation.dateOfBirth",
         "path": "registermedicationprescription-request.patientInformation.dateOfBirth",
         "short": "Födelsedatum (8 siffror)",
-        "definition": "Födelsedatum (8 siffror)",
+        "definition": "Födelsedatum (8 siffror).\n\nAnges för patient som saknar giltigt personnummer.\n\nObligatoriskt att ange antingen personnummer eller födelsedatum på expedieringsunderlag.\n\nPU: födelsetid\n\nRR: födelsedatum",
+        "comment": "TKB-fält: `../dateOfBirth` (`date`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -96,7 +101,8 @@
         "id": "registermedicationprescription-request.patientInformation.gender",
         "path": "registermedicationprescription-request.patientInformation.gender",
         "short": "Kön",
-        "definition": "Kön",
+        "definition": "Patientens kön.\n\nObligatorisk parameter om Personnummer saknas.\n\n{Male, Female, Unspecified}\n\nPU: kön\n\nRR: kön",
+        "comment": "TKB-fält: `../gender` (`GenderEnum`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -165,7 +171,8 @@
         "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy",
         "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy",
         "short": "Förskrivare",
-        "definition": "Förskrivare",
+        "definition": "Ordinatör är den som är ansvarig för det medicinska beslutet för just den här den Läkemedelsordinationen och som (verksamhetsmässigt) signerat den.\n\nOrdinatören kan i undantagsfall sakna hsa-id och behöva anges med för- och efternamn i klartext",
+        "comment": "TKB-fält: `prescribedBy` (`HealthcareProfessionalType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

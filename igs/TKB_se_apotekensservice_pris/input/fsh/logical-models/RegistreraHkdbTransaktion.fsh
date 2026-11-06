@@ -21,3 +21,6 @@ Characteristics: #can-be-target
   * brutto 1..1 decimal "brutto" "Bruttobelopp i kronor och ören"
   * netto 1..1 decimal "netto" "Nettobelopp i kronor och ören"
 * resultat 1..1 integer "resultat" "Resultat av högkostnadsuppdatering. 1 - Transaktionen accepterad och registrerad."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegistreraHkdbTransaktionFieldDescriptions

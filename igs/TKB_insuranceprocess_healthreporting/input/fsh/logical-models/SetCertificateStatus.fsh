@@ -25,6 +25,9 @@ Characteristics: #can-be-target
 * certificateStatus from StatusVS (extensible)
 * timestamp 0..1 dateTime "När anropet sattes för intyget"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SetCertificateStatusRequestFieldDescriptions
+
 
 Logical: SetCertificateStatus
 Id: setcertificatestatus
@@ -41,3 +44,6 @@ Characteristics: #can-be-target
 * result.infoText 0..1 string "Extra information om anropets utgång"
 * result.errorId 0..1 string "Felkategori"
 * result.errorText 0..1 string "Beskrivande text för felet"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SetCertificateStatusFieldDescriptions

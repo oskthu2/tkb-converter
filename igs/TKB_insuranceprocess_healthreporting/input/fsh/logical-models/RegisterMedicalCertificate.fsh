@@ -135,6 +135,9 @@ Characteristics: #can-be-target
   Om FORVARVSARBETE skall arbetsuppgifter anges.
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterMedicalCertificateRequestFieldDescriptions
+
 
 Logical: RegisterMedicalCertificate
 Id: registermedicalcertificate
@@ -151,3 +154,6 @@ Characteristics: #can-be-target
 * result.infoText 0..1 string "Extra information om anropets utgång"
 * result.errorId 0..1 string "Felkategori (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)"
 * result.errorText 0..1 string "Beskrivande text för felet"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert RegisterMedicalCertificateFieldDescriptions

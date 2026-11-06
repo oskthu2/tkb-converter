@@ -31,7 +31,8 @@
         "id": "pingforconfiguration.pingVersion",
         "path": "pingforconfiguration.pingVersion",
         "short": "Version av tjänstekomponenten",
-        "definition": "Version av den tjänstekomponent som svarar. Formatet och semantiken är\nspecifik för respektive tjänsteproducent.\nKardinalitet: Obligatorisk.",
+        "definition": "Version av den tjänstekomponent som svarar. Formatet och semantik är specifikt för respektive tjänsteproducent.",
+        "comment": "TKB-fält: `version` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "pingforconfiguration.pingDateTime",
         "path": "pingforconfiguration.pingDateTime",
         "short": "Tidpunkt för svar",
-        "definition": "Datum och klockslag när svaret skapades. Källdokumentets fälttyp är TS\n(RIV-TA-lokal regex-begränsad sträng på formatet YYYYMMDDhhmmss, se\nitintegration_monitoring_1.0.xsd), mappad till FHIR `instant`.\nKardinalitet: Obligatorisk.",
+        "definition": "Datum och klockslag när ett svar skapades, på tidigare angivet tidsformat, ned på sekundnivå. Exempel: 20110311121021",
+        "comment": "TKB-fält: `pingDateTime` (`TS (tidsformat, se avsnitt 4)`, kardinalitet 1..1).\n\n**Modellanteckning:** Datum och klockslag när svaret skapades. Källdokumentets fälttyp är TS\n(RIV-TA-lokal regex-begränsad sträng på formatet YYYYMMDDhhmmss, se\nitintegration_monitoring_1.0.xsd), mappad till FHIR `instant`.",
         "min": 1,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "pingforconfiguration.configuration",
         "path": "pingforconfiguration.configuration",
         "short": "Konfigurationsvärde",
-        "definition": "Lista med värden av miljövariabler från den svarande tjänstekomponenten\n(t.ex. JVM/.Net-version, operativsystem). Så mycket som möjligt ska tas\nmed som kan vara till hjälp vid felsökning.",
+        "definition": "Lista med värden av miljövariabler från den svarande tjänstekomponenten. Ta med så mycket som möjligt som kan vara till hjälp vid felsökning och dialog kring vilken version som \"finns i andra änden\". Exempel kan vara JVM/.Net-version, operativsystem.",
+        "comment": "TKB-fält: `configuration` (`ConfigurationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -71,6 +74,7 @@
         "path": "pingforconfiguration.configuration.configurationName",
         "short": "Namn på miljövariabel",
         "definition": "Namn på miljövariabel",
+        "comment": "TKB-fält: `configuration.name` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -84,6 +88,7 @@
         "path": "pingforconfiguration.configuration.configurationValue",
         "short": "Värde på miljövariabel",
         "definition": "Värde på miljövariabel",
+        "comment": "TKB-fält: `configuration.value` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

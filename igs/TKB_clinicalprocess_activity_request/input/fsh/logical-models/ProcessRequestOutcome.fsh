@@ -54,3 +54,6 @@ Characteristics: #can-be-target
   * reference 0..0 uri "Referens" "URL för refererad bilaga. Används inte i denna version."
   * description 0..1 string "Beskrivning" "Beskrivning av bilaga. Maxlängd 256 tecken."
 * originalRequest 0..1 ProcessRequest "Originalremiss" "Den ursprungliga remissen (RequestType), på nivå med requestOutcome i ProcessRequestOutcomeType."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ProcessRequestOutcomeFieldDescriptions

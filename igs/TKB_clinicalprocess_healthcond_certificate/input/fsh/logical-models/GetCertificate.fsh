@@ -65,6 +65,9 @@ Characteristics: #can-be-target
 * intyg.relation.typ 1..1 CodeableConcept "Typ av relation"
 * intyg.relation.intygsId 1..1 Identifier "Intygs-ID för relaterat intyg"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCertificateFieldDescriptions
+
 Logical: GetCertificateRequest
 Id: getcertificate-request
 Title: "GetCertificate — Request"
@@ -83,3 +86,6 @@ Characteristics: #can-be-target
   Styr vilka statusposter som returneras.
   """
 * part from PartVS (required)
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCertificateRequestFieldDescriptions

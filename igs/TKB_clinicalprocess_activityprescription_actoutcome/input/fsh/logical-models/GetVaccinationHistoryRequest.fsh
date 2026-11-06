@@ -23,3 +23,6 @@ Characteristics: #can-be-target
   """
 * sourceSystemHSAid 0..1 Identifier "Begränsar sökningen till angivet källsystem"
 * careContactId 0..* string "Begränsar sökningen till angiven vård- och omsorgskontakt"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetVaccinationHistoryRequestFieldDescriptions

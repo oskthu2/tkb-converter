@@ -17,6 +17,9 @@ Characteristics: #can-be-target
 * personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"
 * searchBase 0..1 string "searchBase" "searchBase"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHsaPersonRequestFieldDescriptions
+
 Invariant: gethsaperson-request-hsaid-xor-pnr
 Description: "Exakt ett av hsaIdentity och personalIdentityNumber ska anges (xs:choice i schemat)."
 Expression: "hsaIdentity.exists() xor personalIdentityNumber.exists()"

@@ -99,3 +99,6 @@ Characteristics: #can-be-target
     * displayName 0..1 string "displayName" "displayName"
     * originalText 0..1 string "originalText" "originalText"
 * searchTerm 0..* string "searchTerm" "searchTerm"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetCareServiceOfferingsRequestFieldDescriptions

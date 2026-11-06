@@ -45,6 +45,9 @@ Characteristics: #can-be-target
 * list.item.mottagnaFragor.hanterade 1..1 integer "Antal hanterade"
 * list.item.ref 0..1 string "Referens till entitet i integrerande vårdsystem"
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListCertificatesForCareWithQAFieldDescriptions
+
 Logical: ListCertificatesForCareWithQARequest
 Id: listcertificatesforcarewithqa-request
 Title: "ListCertificatesForCareWithQA — Request"
@@ -64,6 +67,9 @@ Characteristics: #can-be-target
   """
 * fromTidpunkt 0..1 dateTime "Hämta händelser från och med denna tidpunkt"
 * tomTidpunkt 0..1 dateTime "Hämta händelser fram till och med denna tidpunkt"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert ListCertificatesForCareWithQARequestFieldDescriptions
 
 Invariant: listcertificatesforcarewithqa-request-enhet-not-vardgivare
 Description: "enhetsId och vardgivareId får inte anges tillsammans."

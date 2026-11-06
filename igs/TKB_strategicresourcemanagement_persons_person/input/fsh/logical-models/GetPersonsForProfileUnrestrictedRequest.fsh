@@ -18,3 +18,6 @@ Characteristics: #can-be-target
 * profile 1..1 code "profile" "profile"
 * profile from LookupProfileVS (required)
 * ignoreReferredIdentity 1..1 boolean "ignoreReferredIdentity" "ignoreReferredIdentity"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetPersonsForProfileUnrestrictedRequestFieldDescriptions

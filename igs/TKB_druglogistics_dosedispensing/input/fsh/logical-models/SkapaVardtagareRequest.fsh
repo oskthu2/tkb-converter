@@ -118,3 +118,6 @@ Characteristics: #can-be-target
   * vilandestatusorsak 0..* string "vilandestatusorsak" "vilandestatusorsak"
 * akut 0..1 boolean "akut" "akut"
 * meddelandetillapotek 1..1 string "meddelandetillapotek" "meddelandetillapotek"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert SkapaVardtagareRequestFieldDescriptions

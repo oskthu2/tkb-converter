@@ -12,3 +12,6 @@ Characteristics: #can-be-target
 * patientId 1..1 string "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas."
 * careProviderIds 0..* string "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla."
 * createdOnOrAfter 0..1 dateTime "Startdatum för inkrementell hämtning."
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAllBlocksForPatientRequestFieldDescriptions

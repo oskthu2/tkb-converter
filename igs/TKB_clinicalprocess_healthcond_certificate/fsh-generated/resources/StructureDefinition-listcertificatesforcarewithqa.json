@@ -31,7 +31,8 @@
         "id": "listcertificatesforcarewithqa.list",
         "path": "listcertificatesforcarewithqa.list",
         "short": "Lista med intyg (null om inga hittades)",
-        "definition": "Lista med intyg (null om inga hittades)",
+        "definition": "En lista av intyg som kan vara signerade, makulerade eller i form av intygsutkast.",
+        "comment": "TKB-fält: `list` (`List (lokalt definierad i kontraktet)`, kardinalitet 0..1).\n\n**Mappning DIM:** -",
         "min": 0,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "listcertificatesforcarewithqa.list.item",
         "path": "listcertificatesforcarewithqa.list.item",
         "short": "Listobjekt som håller ihop intyg, händelser och ärenden",
-        "definition": "Listobjekt som håller ihop intyg, händelser och ärenden",
+        "definition": "Element som håller ihop objekt för ett intyg",
+        "comment": "TKB-fält: `../item` (`ListItem (lokalt definierad i kontraktet)`, kardinalitet 0..*).\n\n**Mappning DIM:** -",
         "min": 0,
         "max": "*",
         "type": [
@@ -57,7 +59,8 @@
         "id": "listcertificatesforcarewithqa.list.item.intyg",
         "path": "listcertificatesforcarewithqa.list.item.intyg",
         "short": "Intyget",
-        "definition": "Intyget",
+        "definition": "Ett intyg enligt den gemensamma fälttypen Intyg.",
+        "comment": "TKB-fält: `../../intyg` (`Intyg (se 7.1.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id, Metadata.signerattidpunkt",
         "min": 1,
         "max": "1",
         "type": [
@@ -213,7 +216,8 @@
         "id": "listcertificatesforcarewithqa.list.item.handelser",
         "path": "listcertificatesforcarewithqa.list.item.handelser",
         "short": "Lista med händelser för intyget",
-        "definition": "Lista med händelser för intyget",
+        "definition": "En lista innehållande samtliga händelser för ett intyg.",
+        "comment": "TKB-fält: `../../handelser` (`HandelseList`, kardinalitet 1..1).\n\n**Mappning DIM:** -",
         "min": 1,
         "max": "1",
         "type": [
@@ -226,7 +230,8 @@
         "id": "listcertificatesforcarewithqa.list.item.handelser.handelse",
         "path": "listcertificatesforcarewithqa.list.item.handelser.handelse",
         "short": "En händelse",
-        "definition": "En händelse",
+        "definition": "Information om en händelse.\n\nEn händelse kan gälla ett intygsutkast, ett signerat intyg eller ärendekommunikationen för ett intyg.",
+        "comment": "TKB-fält: `../../../handelse` (`Handelse (se 7.1.3)`, kardinalitet 0..*).\n\n**Mappning DIM:** Händelse",
         "min": 0,
         "max": "*",
         "type": [
@@ -269,7 +274,8 @@
         "id": "listcertificatesforcarewithqa.list.item.skickadeFragor",
         "path": "listcertificatesforcarewithqa.list.item.skickadeFragor",
         "short": "Frågor skickade från vården",
-        "definition": "Frågor skickade från vården",
+        "definition": "Frågor som rör intyget och som har skickats från vården.",
+        "comment": "TKB-fält: `../../skickadeFragor` (`Arenden (se 7.1.1)`, kardinalitet 1..1).\n\n**Mappning DIM:** Ärende",
         "min": 1,
         "max": "1",
         "type": [
@@ -334,7 +340,8 @@
         "id": "listcertificatesforcarewithqa.list.item.mottagnaFragor",
         "path": "listcertificatesforcarewithqa.list.item.mottagnaFragor",
         "short": "Frågor mottagna från intygsmottagare",
-        "definition": "Frågor mottagna från intygsmottagare",
+        "definition": "Frågor som rör intyget och som har skickats från intygsmottagaren.",
+        "comment": "TKB-fält: `../../mottagnaFragor` (`Arenden (se 7.1.1)`, kardinalitet 1..1).\n\n**Mappning DIM:** Ärende",
         "min": 1,
         "max": "1",
         "type": [
@@ -399,7 +406,8 @@
         "id": "listcertificatesforcarewithqa.list.item.ref",
         "path": "listcertificatesforcarewithqa.list.item.ref",
         "short": "Referens till entitet i integrerande vårdsystem",
-        "definition": "Referens till entitet i integrerande vårdsystem",
+        "definition": "Referens till något i det integrerande vårdsystemet som ska kopplas ihop med intyget. Kan exempelvis vara ett id för en vårdkontakt.",
+        "comment": "TKB-fält: `../../ref` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Referens.ref",
         "min": 0,
         "max": "1",
         "type": [

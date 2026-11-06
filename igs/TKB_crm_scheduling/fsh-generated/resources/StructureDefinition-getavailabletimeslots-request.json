@@ -31,7 +31,8 @@
         "id": "getavailabletimeslots-request.healthcare_facility",
         "path": "getavailabletimeslots-request.healthcare_facility",
         "short": "Hsa-ID för mottagning/vårdenhet",
-        "definition": "Hsa-ID för mottagning/vårdenhet.\nKardinalitet: Obligatorisk.",
+        "definition": "Hsa-ID för mottagning/vårdenhet.",
+        "comment": "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,7 +45,8 @@
         "id": "getavailabletimeslots-request.bookingId",
         "path": "getavailabletimeslots-request.bookingId",
         "short": "Intern bokningsidentitet",
-        "definition": "Intern bokningsidentitet. Används för att indikera ombokning.\nKardinalitet: Valfri.",
+        "definition": "Intern bokningsidentitet. Används för att indikera ombokning, så att tjänsteproducenten kan anpassa svaret till tider som är giltiga för ombokning av angiven bokning.",
+        "comment": "TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,7 +59,8 @@
         "id": "getavailabletimeslots-request.startDateInclusive",
         "path": "getavailabletimeslots-request.startDateInclusive",
         "short": "Datum från och med (ÅÅÅÅMMDD)",
-        "definition": "Datum från och med, på formatet ÅÅÅÅMMDD.\nKardinalitet: Obligatorisk.",
+        "definition": "Datum från och med för de lediga tider som skall sökas ut, på formatet ÅÅÅÅMMDD.",
+        "comment": "TKB-fält: `startDateInclusive` (`DT (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,7 +73,8 @@
         "id": "getavailabletimeslots-request.endDateInclusive",
         "path": "getavailabletimeslots-request.endDateInclusive",
         "short": "Datum till och med (ÅÅÅÅMMDD)",
-        "definition": "Datum till och med, på formatet ÅÅÅÅMMDD.\nKardinalitet: Obligatorisk.",
+        "definition": "Datum till och med för de lediga tider som skall sökas ut, på formatet ÅÅÅÅMMDD.",
+        "comment": "TKB-fält: `endDateInclusive` (`DT (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,7 +87,8 @@
         "id": "getavailabletimeslots-request.performer",
         "path": "getavailabletimeslots-request.performer",
         "short": "HSA-id för HoS-personal",
-        "definition": "HSA-id för HoS-personal.\nKardinalitet: Valfri, lista.",
+        "definition": "HSA-id för HoS-personal.",
+        "comment": "TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -96,7 +101,8 @@
         "id": "getavailabletimeslots-request.timeTypeName",
         "path": "getavailabletimeslots-request.timeTypeName",
         "short": "Namn på tidstyp",
-        "definition": "Namn på tidstyp.\nKardinalitet: Valfri.",
+        "definition": "Namn på tidstyp.",
+        "comment": "TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -109,7 +115,8 @@
         "id": "getavailabletimeslots-request.timeTypeID",
         "path": "getavailabletimeslots-request.timeTypeID",
         "short": "Identifierare för tidstyp",
-        "definition": "Identifierare för tidstyp.\nKardinalitet: Valfri.",
+        "definition": "Identifierare för tidstyp.",
+        "comment": "TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -122,7 +129,8 @@
         "id": "getavailabletimeslots-request.careTypeName",
         "path": "getavailabletimeslots-request.careTypeName",
         "short": "Namn på vårdtyp",
-        "definition": "Namn på vårdtyp.\nKardinalitet: Valfri.",
+        "definition": "Namn på vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
+        "comment": "TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -135,7 +143,8 @@
         "id": "getavailabletimeslots-request.careTypeID",
         "path": "getavailabletimeslots-request.careTypeID",
         "short": "Identifierare för vårdtyp",
-        "definition": "Identifierare för vårdtyp.\nKardinalitet: Valfri.",
+        "definition": "Identifierare för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
+        "comment": "TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -148,7 +157,8 @@
         "id": "getavailabletimeslots-request.subject_of_care",
         "path": "getavailabletimeslots-request.subject_of_care",
         "short": "Personnummer enl. yyyymmddxxxx",
-        "definition": "Personnummer för invånaren.\nKardinalitet: Obligatorisk.",
+        "definition": "Personnummer enl. yyyymmddxxxx.",
+        "comment": "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** Personnummer för invånaren.",
         "min": 1,
         "max": "1",
         "type": [

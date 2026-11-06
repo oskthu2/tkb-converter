@@ -14,3 +14,6 @@ Characteristics: #can-be-target
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. HSA identity"
 * hsaIdentity 0..1 string "hsaIdentity" "hsaIdentity"
 * searchBase 0..1 string "searchBase" "searchBase"
+
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetHsaUnitListRequestFieldDescriptions
