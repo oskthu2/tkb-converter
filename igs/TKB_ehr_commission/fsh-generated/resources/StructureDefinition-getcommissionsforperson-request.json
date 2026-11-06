@@ -25,7 +25,16 @@
         "id": "getcommissionsforperson-request",
         "path": "getcommissionsforperson-request",
         "short": "GetCommissionsForPerson — Request",
-        "definition": "Logisk modell för requestparametrar i GetCommissionsForPerson\n(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\nOm inget av dessa anges, eller om värdet är ogiltigt, returneras statuskod VALIDATIONERROR."
+        "definition": "Logisk modell för requestparametrar i GetCommissionsForPerson\n(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\nOm inget av dessa anges, eller om värdet är ogiltigt, returneras statuskod VALIDATIONERROR.",
+        "constraint": [
+          {
+            "key": "getcommissionsforperson-request-hsaid-xor-pnr",
+            "severity": "error",
+            "human": "Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler).",
+            "expression": "personalHsaId.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/getcommissionsforperson-request"
+          }
+        ]
       },
       {
         "id": "getcommissionsforperson-request.personalHsaId",

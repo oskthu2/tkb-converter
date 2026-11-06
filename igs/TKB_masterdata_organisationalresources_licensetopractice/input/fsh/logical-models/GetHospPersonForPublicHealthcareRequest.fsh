@@ -12,6 +12,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
+* obeys gethosppersonforpublichealthcare-request-search-criteria
 * personId 0..1 Identifier "Personnummer eller samordningsnummer"
   """
   Personnummer (OID: 1.2.752.129.2.1.3.1) eller
@@ -31,3 +32,8 @@ Characteristics: #can-be-target
   """
   Söker personer efter förnamn. Kan anges 0 eller fler.
   """
+
+Invariant: gethosppersonforpublichealthcare-request-search-criteria
+Description: "Antingen anges personId, eller minst ett av efternamn, fornamn och fodelsedatum."
+Expression: "personId.exists() or efternamn.exists() or fornamn.exists() or fodelsedatum.exists()"
+Severity: #error

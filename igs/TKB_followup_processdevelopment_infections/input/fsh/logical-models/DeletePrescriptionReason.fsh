@@ -2,6 +2,11 @@
 // Kontrakt: DeletePrescriptionReason v1.0
 // Genererad: 2026-05-19
 
+Invariant: deleteprescriptionreason-request-activity-xor-condition
+Description: "Exakt ett av activityId och conditionId ska anges (TKB 7.2, Övriga regler)."
+Expression: "activityId.exists() xor conditionId.exists()"
+Severity: #error
+
 Logical: DeletePrescriptionReasonRequest
 Id: deleteprescriptionreason-request
 Title: "DeletePrescriptionReason — Request"
@@ -14,6 +19,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
+* obeys deleteprescriptionreason-request-activity-xor-condition
 * activityId 0..1 Identifier "Aktivitets-id för den aktivitet som ska raderas (profylax)"
   """
   Anges när den ordinationsorsak som ska raderas är en aktivitet (profylax).

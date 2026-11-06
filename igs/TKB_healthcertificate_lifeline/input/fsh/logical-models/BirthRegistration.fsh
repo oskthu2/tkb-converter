@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 * ^version = "1.0"
+* obeys birthregistration-personnummer-or-meddelande
 * FodelsesvarId 1..1 string "FodelsesvarId" "FodelsesvarId"
 * AnmalningsId 1..1 string "AnmalningsId" "AnmalningsId"
 * PersonNummer 0..1 string "PersonNummer" "Tilldelat personnummer"
@@ -26,3 +27,8 @@ Characteristics: #can-be-target
   * errorId 0..1 code "errorId" "errorId"
   * errorId from ErrorIdEnumVS (required)
   * errorText 0..1 string "errorText" "errorText"
+
+Invariant: birthregistration-personnummer-or-meddelande
+Description: "Exakt ett av PersonNummer och Meddelande ska anges i svaret (xs:choice i schemat)."
+Expression: "PersonNummer.exists() xor Meddelande.exists()"
+Severity: #error

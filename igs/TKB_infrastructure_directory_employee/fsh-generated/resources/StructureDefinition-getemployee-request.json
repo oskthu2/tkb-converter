@@ -25,7 +25,16 @@
         "id": "getemployee-request",
         "path": "getemployee-request",
         "short": "GetEmployee — Request",
-        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetEmployee\n(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployee:4).\nÄr identisk med GetEmployeeIncludingProtectedPersonRequest förutom att\nskyddade personer aldrig returneras.\nOBS: Exakt ett av fälten personHsaId och personalIdentityNumber ska anges (*1)."
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetEmployee\n(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployee:4).\nÄr identisk med GetEmployeeIncludingProtectedPersonRequest förutom att\nskyddade personer aldrig returneras.\nOBS: Exakt ett av fälten personHsaId och personalIdentityNumber ska anges (*1).",
+        "constraint": [
+          {
+            "key": "getemployee-request-hsaid-xor-pnr",
+            "severity": "error",
+            "human": "Exakt ett av personHsaId och personalIdentityNumber ska anges.",
+            "expression": "personHsaId.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getemployee-request"
+          }
+        ]
       },
       {
         "id": "getemployee-request.personHsaId",

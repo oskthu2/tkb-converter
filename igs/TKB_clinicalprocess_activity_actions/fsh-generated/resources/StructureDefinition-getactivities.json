@@ -259,6 +259,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "getactivities-legalauthenticator-id-or-name",
+            "severity": "error",
+            "human": "Minst ett av legalAuthenticatorId och name ska anges (TKB Regel 2.4).",
+            "expression": "legalAuthenticatorId.exists() or name.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities"
+          }
         ]
       },
       {
@@ -310,6 +319,15 @@
         "type": [
           {
             "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getactivities-additionalparticipant-one-participant",
+            "severity": "error",
+            "human": "Exakt en av person, organisation, device och location ska anges i additionalParticipant (TKB 7.1, AdditionalParticipantType: 'Endast en av nedanstående').",
+            "expression": "person.count() + organisation.count() + device.count() + location.count() = 1",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities"
           }
         ]
       },
@@ -584,6 +602,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "getactivities-activity-time-when-performed",
+            "severity": "error",
+            "human": "time ska anges när status är utförd (SNOMED CT 398166005) eller saknas (TKB Regel 2.3).",
+            "expression": "(status.empty() or status.coding.where(code = '398166005').exists()) implies time.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities"
+          }
         ]
       },
       {
@@ -648,6 +675,15 @@
         "type": [
           {
             "code": "Period"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getactivities-activity-time-start-or-end",
+            "severity": "error",
+            "human": "Minst en av start och end ska anges i aktivitetens tidsperiod (PartialTimePeriodType).",
+            "expression": "start.exists() or end.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities"
           }
         ]
       },

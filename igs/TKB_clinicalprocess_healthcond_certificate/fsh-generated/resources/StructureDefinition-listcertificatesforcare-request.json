@@ -25,7 +25,16 @@
         "id": "listcertificatesforcare-request",
         "path": "listcertificatesforcare-request",
         "short": "ListCertificatesForCare — Request",
-        "definition": "Logisk modell för requestparametrar i ListCertificatesForCare."
+        "definition": "Logisk modell för requestparametrar i ListCertificatesForCare.",
+        "constraint": [
+          {
+            "key": "listcertificatesforcare-request-vardgivare-xor-enhet",
+            "severity": "error",
+            "human": "Antingen vardgivareId eller enhetsId ska anges, inte båda (xs:choice i schemat).",
+            "expression": "vardgivareId.exists() xor enhetsId.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcare-request"
+          }
+        ]
       },
       {
         "id": "listcertificatesforcare-request.personId",

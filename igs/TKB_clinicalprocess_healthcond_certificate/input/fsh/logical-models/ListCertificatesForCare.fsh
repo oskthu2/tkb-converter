@@ -37,6 +37,11 @@ Characteristics: #can-be-target
 * intygsLista.intyg.status.statuskod from StatuskodVS (required)
 * intygsLista.intyg.status.tidpunkt 1..1 dateTime "Tidpunkt då statusen sattes"
 
+Invariant: listcertificatesforcare-request-vardgivare-xor-enhet
+Description: "Antingen vardgivareId eller enhetsId ska anges, inte båda (xs:choice i schemat)."
+Expression: "vardgivareId.exists() xor enhetsId.exists()"
+Severity: #error
+
 Logical: ListCertificatesForCareRequest
 Id: listcertificatesforcare-request
 Title: "ListCertificatesForCare — Request"
@@ -44,6 +49,7 @@ Description: "Logisk modell för requestparametrar i ListCertificatesForCare."
 Characteristics: #can-be-target
 
 * ^version = "3.1"
+* obeys listcertificatesforcare-request-vardgivare-xor-enhet
 * personId 1..1 Identifier "Person- eller samordningsnummer för patienten"
 * vardgivareId 0..1 Identifier "HSA-id för vårdgivaren (exklusivt med enhetsId)"
   """

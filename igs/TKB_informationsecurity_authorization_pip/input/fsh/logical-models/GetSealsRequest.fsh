@@ -13,5 +13,11 @@ Characteristics: #can-be-target
 * ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The HSA id of Inera (5565594230)"
 * patientId 1..1 BackboneElement "patientId" "patientId"
+  * obeys getseals-request-patientid-pnr-sam
   * root 1..1 string "root" "root"
   * iiExtension 1..1 string "iiExtension" "iiExtension Heter extension i schemat."
+
+Invariant: getseals-request-patientid-pnr-sam
+Description: "ÖR6: patientId root ska vara OID för personnummer eller samordningsnummer, och extension ska ha formatet ÅÅÅÅMMDDNNNN utan bindestreck (testsvitens constraints.xml)."
+Expression: "(root = '1.2.752.129.2.1.3.1' or root = '1.2.752.129.2.1.3.3') and iiExtension.matches('^[0-9]{8}[0-9pPtTfF][0-9]{3}$')"
+Severity: #error

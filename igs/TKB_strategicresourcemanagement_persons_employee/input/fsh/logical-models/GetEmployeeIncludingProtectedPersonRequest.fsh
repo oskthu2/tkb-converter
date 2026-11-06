@@ -11,8 +11,14 @@ Description: """
 """
 Characteristics: #can-be-target
 * ^version = "2.0"
+* obeys getemployeeprotected-request-hsaid-xor-pnr
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The HSA-id of the source system"
 * personHsaId 0..1 string "personHsaId" "personHsaId"
 * personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"
 * searchBase 0..1 string "searchBase" "searchBase"
 * includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+
+Invariant: getemployeeprotected-request-hsaid-xor-pnr
+Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges (xs:choice i schemat)."
+Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error

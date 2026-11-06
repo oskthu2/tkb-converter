@@ -25,7 +25,16 @@
         "id": "setselectedcommissionforperson-request",
         "path": "setselectedcommissionforperson-request",
         "short": "SetSelectedCommissionForPerson — Request",
-        "definition": "Logisk modell för requestparametrar i SetSelectedCommissionForPerson\n(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\ncommissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning)."
+        "definition": "Logisk modell för requestparametrar i SetSelectedCommissionForPerson\n(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\ncommissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning).",
+        "constraint": [
+          {
+            "key": "setselectedcommissionforperson-request-hsaid-xor-pnr",
+            "severity": "error",
+            "human": "Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler).",
+            "expression": "personalHsaId.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/setselectedcommissionforperson-request"
+          }
+        ]
       },
       {
         "id": "setselectedcommissionforperson-request.personalHsaId",

@@ -69,6 +69,51 @@ def lint_fsh(ig: Path, errors: list, warnings: list):
             stack.append((indent, path.split(".")[-1]))
 
 
+# Fältregler i TKB:n som bara står som text i en modell (se tkb-fsh-model, "Fältregler → FHIRPath-invarianter").
+# Heuristik: en Logical vars text innehåller en regelformulering men saknar obeys. "om tillgänglig" är ingen regel.
+# En regel som inte går att avgöra ur meddelandet markeras med kommentaren "// ingen invariant: <motivering>" i modellen.
+RE_RULE_TEXT = re.compile(
+    r"exakt (?:ett|en)\b|endast (?:ett|en) av|ett och endast ett|minst (?:ett|en) av|ömsesidigt uteslutande"
+    r"|exklusiv|xs:choice|\bXOR\b|inte båda|ej båda|(?:ska|skall) ej anges tillsammans"
+    r"|(?:obligatorisk|tvingande|krävs) (?:om|när|då)(?! tillgänglig)|(?:ska|skall) anges (?:om|när|då)(?! tillgänglig)",
+    re.I)
+RE_INV_ID = re.compile(r"^[A-Za-z0-9\-.]{1,64}$")
+
+
+def lint_invariants(ig: Path, errors: list, warnings: list):
+    """obeys ↔ Invariant: varje obeys ska ha en definierad invariant med giltigt FHIR-id, och regler i text ska vara invarianter."""
+    files = sorted((ig / "input" / "fsh").rglob("*.fsh"))
+    texts = {f: f.read_text(encoding="utf-8") for f in files}
+    defined = {}
+    for f, t in texts.items():
+        for m in re.finditer(r"^Invariant:\s*(\S+)", t, re.M):
+            defined[m.group(1)] = f
+            if not RE_INV_ID.match(m.group(1)):
+                errors.append(f"{f}: invariant-id '{m.group(1)}' är inget giltigt FHIR-id (högst 64 tecken, A–Z a–z 0–9 - .)")
+    used = set()
+    for f, t in texts.items():
+        for n, line in enumerate(t.splitlines(), 1):
+            m = re.search(r"\bobeys\s+([\w\-.]+(?:\s+and\s+[\w\-.]+)*)", line)
+            if not m or line.lstrip().startswith("//"):
+                continue
+            for inv in re.split(r"\s+and\s+", m.group(1)):
+                used.add(inv)
+                if inv not in defined:
+                    errors.append(f"{f}:{n}: obeys {inv} — ingen 'Invariant: {inv}' i IG:n")
+        if "logical-models" not in f.parts:
+            continue
+        for part in re.split(r"(?=^(?:Logical|Invariant|CodeSystem|ValueSet):\s*\S+)", t, flags=re.M):
+            mm = re.match(r"Logical:\s*(\S+)", part)
+            if mm and "obeys" not in part and "// ingen invariant:" not in part:
+                hits = sorted({h.group(0).lower() for h in RE_RULE_TEXT.finditer(part)})
+                if hits:
+                    warnings.append(f"{f}: {mm.group(1)} beskriver regler i text ({', '.join(hits)}) men har ingen obeys "
+                                    "— skriv dem som FHIRPath-invarianter (tkb-fsh-model)")
+    for inv, f in sorted(defined.items()):
+        if inv not in used:
+            warnings.append(f"{f}: Invariant {inv} används inte av någon obeys-regel")
+
+
 def lint_config(ig: Path, errors: list):
     cfg = ig / "sushi-config.yaml"
     if not cfg.exists():
@@ -240,6 +285,7 @@ def main():
         lint_config(ig, errors)
         lint_versions(ig, errors)
         lint_fsh(ig, errors, warnings)
+        lint_invariants(ig, errors, warnings)
         lint_pages(ig, errors, warnings)
         lint_overview(ig, errors)
         lint_menu(ig, errors)

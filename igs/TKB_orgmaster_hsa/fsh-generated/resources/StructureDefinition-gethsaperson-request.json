@@ -25,7 +25,16 @@
         "id": "gethsaperson-request",
         "path": "gethsaperson-request",
         "short": "GetHsaPerson — Request",
-        "definition": "Logisk modell för begäran i GetHsaPerson\n(urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonType), inklusive SOAP-huvuden enligt WSDL."
+        "definition": "Logisk modell för begäran i GetHsaPerson\n(urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonType), inklusive SOAP-huvuden enligt WSDL.",
+        "constraint": [
+          {
+            "key": "gethsaperson-request-hsaid-xor-pnr",
+            "severity": "error",
+            "human": "Exakt ett av hsaIdentity och personalIdentityNumber ska anges (xs:choice i schemat).",
+            "expression": "hsaIdentity.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaperson-request"
+          }
+        ]
       },
       {
         "id": "gethsaperson-request.logicalAddress",

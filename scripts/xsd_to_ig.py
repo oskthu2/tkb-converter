@@ -14,6 +14,8 @@ Skriver:
   <ig>/xsd-generated/types.md                           tabeller för gemensamma typer (sida 6)
 
 xs:any och element av typen ExtensionType (utökningspunkter) tas inte med i modellerna.
+Med --iso-datatypes blir varje xs:choice mellan element en FHIRPath-invariant på modellen
+(exakt ett av alternativen, eller högst ett om valet är valfritt), se tkb-fsh-model.
 
 Med --codesystems PREFIX blir varje simpleType med xs:enumeration ett CodeSystem och ett
 ValueSet (<ig>/input/fsh/codesystems/, valuesets/, canonical
@@ -52,6 +54,7 @@ ISO_TYPES = {
     "TEL": "ContactPoint", "EN": "HumanName", "PN": "HumanName", "URL": "url", "ANY": "string",
 }
 ISO = False
+CHOICE = object()  # markör i partikellistan för en xs:choice-grupp
 RESERVED = {"id", "text", "code", "status", "value", "name", "type", "version", "language", "meta",
             "extension", "modifierExtension", "contained", "implicitRules", "url"}
 
@@ -145,9 +148,13 @@ class Schemas:
         return (ns, local)
 
 
+CHOICE_TYPE = "#choice"  # pseudofält: ger en obeys-regel och en Invariant, inget element
+
+
 class Field:
-    def __init__(self, name, xsd_type, fhir_type, card, doc, children=None, renamed_from=None, binding=None):
+    def __init__(self, name, xsd_type, fhir_type, card, doc, children=None, renamed_from=None, binding=None, choice=None):
         self.name, self.xsd_type, self.fhir_type, self.card, self.doc = name, xsd_type, fhir_type, card, doc
+        self.choice = choice  # (FHIR-namn, obligatoriskt) för en xs:choice-grupp, se CHOICE_TYPE
         self.children = children or []
         self.renamed_from = renamed_from
         self.binding = binding
@@ -171,7 +178,11 @@ def build_fields(S, ctype, f, tns, stack, used_types):
         if seq is None:
             return fields
         particles = [(el, False) for el in seq.findall(Q(XS, "element"))]
+    choices = []
     for el, optional in particles:
+        if el is CHOICE:
+            choices.append(optional)
+            continue
         name, t = el.get("name"), el.get("type")
         ref_doc = ""
         if el.get("ref"):
@@ -271,6 +282,11 @@ def build_fields(S, ctype, f, tns, stack, used_types):
             if subs:
                 tdoc += f" Abstrakt typ; instansen anges med xsi:type som en av {', '.join(k[1] for k in subs)}."
         fields.append(Field(fhir_name, local, "BackboneElement", card, tdoc, kids, renamed_from=renamed))
+    for names, required in choices:
+        by_xsd = {fl.renamed_from or fl.name: fl.name for fl in fields}
+        members = [by_xsd[n] for n in names if n in by_xsd]
+        if len(members) > 1:
+            fields.append(Field("", "", CHOICE_TYPE, "", "", choice=(members, required)))
     return fields + attrs
 
 
@@ -296,18 +312,28 @@ def content_of(S, ctype, f, tns, stack, used_types):
                 attrs += ba
             body = ext
 
+    def choice(c, optional):
+        # Ett val mellan element blir en FHIRPath-invariant (se tkb-fsh-model): exakt ett om valet
+        # är obligatoriskt, annars högst ett. Upprepade val (maxOccurs > 1) kan inte uttryckas så.
+        names = [e.get("name") or (e.get("ref") or "").split(":")[-1] for e in c.findall(Q(XS, "element"))]
+        if len(names) > 1 and c.get("maxOccurs", "1") == "1":
+            particles.append((CHOICE, (names, not optional and c.get("minOccurs", "1") != "0")))
+        walk(c, True)
+
     def walk(node, optional):
         for c in node:
             if c.tag == Q(XS, "element"):
                 particles.append((c, optional))
             elif c.tag == Q(XS, "choice"):
-                walk(c, True)
+                choice(c, optional)
             elif c.tag == Q(XS, "sequence"):
                 walk(c, optional or c.get("minOccurs") == "0")
 
     for c in body:
-        if c.tag in (Q(XS, "sequence"), Q(XS, "choice")):
-            walk(c, c.tag == Q(XS, "choice") or c.get("minOccurs") == "0")
+        if c.tag == Q(XS, "choice"):
+            choice(c, False)
+        elif c.tag == Q(XS, "sequence"):
+            walk(c, c.get("minOccurs") == "0")
     for a in body.findall(Q(XS, "attribute")):
         name, t = a.get("name"), a.get("type") or "xs:string"
         if not name:
@@ -336,10 +362,27 @@ def short_of(f):
     return f.name
 
 
-def fsh_lines(fields, depth=0):
+def choice_invariant(members, required, inv):
+    """Invariant för en xs:choice-grupp; inv = {"prefix": modell-id, "defs": [...]} samlar definitionerna."""
+    inv_id = f"{inv['prefix'][:48]}-choice-{sum(d.startswith('Invariant:') for d in inv['defs']) + 1}"
+    if len(members) == 2:
+        a, b = (f"{m}.exists()" for m in members)
+        expr = f"{a} xor {b}" if required else f"({a} and {b}).not()"
+    else:
+        expr = " + ".join(f"iif({m}.exists(), 1, 0)" for m in members) + (" = 1" if required else " <= 1")
+    desc = f"{'Exakt' if required else 'Högst'} ett av {', '.join(members)} ska anges (xs:choice i schemat)."
+    inv["defs"] += ["", f"Invariant: {inv_id}", f'Description: "{desc}"', f'Expression: "{expr}"', "Severity: #error"]
+    return inv_id
+
+
+def fsh_lines(fields, depth=0, inv=None):
     out = []
     for fl in fields:
         ind = "  " * depth
+        if fl.fhir_type == CHOICE_TYPE:
+            if inv is not None:
+                out.append(f"{ind}* obeys {choice_invariant(*fl.choice, inv)}")
+            continue
         d = fl.doc or fl.name
         if fl.fhir_type == "string" and fl.xsd_type in ("long", "unsignedLong"):
             d += f" (xs:{fl.xsd_type} i schemat.)"
@@ -350,7 +393,7 @@ def fsh_lines(fields, depth=0):
         out.append(f'{ind}* {fl.name} {fl.card} {fl.fhir_type} "{fsh_str(short_of(fl))}" "{fsh_str(d)}"')
         if fl.binding:
             out.append(f"{ind}* {fl.name} from {cs_name(fl.binding)}VS (required)")
-        out += fsh_lines(fl.children, depth + 1)
+        out += fsh_lines(fl.children, depth + 1, inv)
     return out
 
 
@@ -398,6 +441,8 @@ def md_cell(s):
 def md_rows(fields, depth=0):
     out = []
     for fl in fields:
+        if fl.fhir_type == CHOICE_TYPE:
+            continue
         prefix = "../" * depth
         nm = fl.renamed_from or fl.name
         out.append(f"| {prefix}{nm} | {fl.xsd_type} | {md_cell(fl.doc)} | {fl.card} |")
@@ -408,6 +453,8 @@ def md_rows(fields, depth=0):
 def type_table(fields):
     rows = ["| Namn | Typ | Beskrivning | Kardinalitet |", "| :--- | :--- | :--- | :--- |"]
     for fl in fields:
+        if fl.fhir_type == CHOICE_TYPE:
+            continue
         rows.append(f"| {fl.renamed_from or fl.name} | {fl.xsd_type} | {md_cell(fl.doc)} | {fl.card} |")
     return rows
 
@@ -558,14 +605,18 @@ def main():
             req = hdr + [f"Logical: {cname}Request", f"Id: {cid}-request", f'Title: "{cname} — Request"',
                          'Description: """', f"  Logisk modell för begäran i {cname}",
                          f"  ({rtns}, {req_type}), inklusive SOAP-huvuden enligt WSDL.", '"""',
-                         "Characteristics: #can-be-target"] + fsh_lines(header_fields + req_fields)
+                         "Characteristics: #can-be-target"]
+            inv = {"prefix": f"{cid}-request", "defs": []}
+            req += fsh_lines(header_fields + req_fields, inv=inv) + inv["defs"]
             (lm / f"{cname}Request.fsh").write_text("\n".join(req) + "\n")
             has_res = bool(res_fields)
             if has_res:
                 res = hdr + [f"Logical: {cname}", f"Id: {cid}", f'Title: "{cname} — Response"',
                              'Description: """', f"  Logisk modell för svaret i {cname}",
                              f"  ({rtns}, {res_type}).", '"""',
-                             "Characteristics: #can-be-target"] + fsh_lines(res_fields)
+                             "Characteristics: #can-be-target"]
+                inv = {"prefix": cid, "defs": []}
+                res += fsh_lines(res_fields, inv=inv) + inv["defs"]
                 (lm / f"{cname}.fsh").write_text("\n".join(res) + "\n")
             else:
                 (lm / f"{cname}.fsh").unlink(missing_ok=True)

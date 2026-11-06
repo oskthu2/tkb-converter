@@ -25,7 +25,16 @@
         "id": "getformtemplate-request",
         "path": "getformtemplate-request",
         "short": "GetFormTemplate — Request",
-        "definition": "Logisk modell för requestparametrar i GetFormTemplate."
+        "definition": "Logisk modell för requestparametrar i GetFormTemplate.",
+        "constraint": [
+          {
+            "key": "getformtemplate-request-careunit-or-templateid",
+            "severity": "error",
+            "human": "Minst ett av healthcare_facility_CareUnit och templateId ska anges: utelämnas healthcare_facility_CareUnit är templateId obligatorisk.",
+            "expression": "healthcare_facility_CareUnit.exists() or templateId.exists()",
+            "source": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplate-request"
+          }
+        ]
       },
       {
         "id": "getformtemplate-request.healthcare_facility_CareUnit",

@@ -52,6 +52,7 @@ Description: "Logisk modell för requestparametrar i ListCertificatesForCareWith
 Characteristics: #can-be-target
 
 * ^version = "3.3"
+* obeys listcertificatesforcarewithqa-request-enhet-not-vardgivare
 * personId 1..1 Identifier "Person- eller samordningsnummer för patienten"
 * enhetsId 0..* Identifier "HSA-id för enheten/enheterna (exklusivt med vardgivareId)"
   """
@@ -63,3 +64,8 @@ Characteristics: #can-be-target
   """
 * fromTidpunkt 0..1 dateTime "Hämta händelser från och med denna tidpunkt"
 * tomTidpunkt 0..1 dateTime "Hämta händelser fram till och med denna tidpunkt"
+
+Invariant: listcertificatesforcarewithqa-request-enhet-not-vardgivare
+Description: "enhetsId och vardgivareId får inte anges tillsammans."
+Expression: "(enhetsId.exists() and vardgivareId.exists()).not()"
+Severity: #error

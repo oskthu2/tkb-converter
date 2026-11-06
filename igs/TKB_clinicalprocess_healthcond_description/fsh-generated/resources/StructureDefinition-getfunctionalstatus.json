@@ -116,6 +116,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "getfunctionalstatus-pdl-careunit-caregiver",
+            "severity": "warning",
+            "human": "Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring.",
+            "expression": "healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus"
+          }
         ]
       },
       {

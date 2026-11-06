@@ -300,6 +300,7 @@ Characteristics: #can-be-target
         - start (TimeStampType, 0..1): Periodens starttid. Minst ett av start och end ska anges.
         - end (TimeStampType, 0..1): Periodens sluttid. Minst ett av start och end ska anges.
         """
+        * obeys getlaboratoryorderoutcome-analysistime-start-or-end
       * analysisCode 0..1 CodeableConcept "Kod och klartext som anger vilken åtgärd som avses, enligt kodverket NPU"
         """
         Kod och klartext som anger vilken åtgärd som avses, enligt kodverket NPU. Ett av attributen analysisCode och analysisText ska anges.
@@ -454,3 +455,8 @@ Characteristics: #can-be-target
     En beskrivande text som kan visas för användaren.
     RIV-TA-typ: string. Kardinalitet i TKB: 0..1.
     """
+
+Invariant: getlaboratoryorderoutcome-analysistime-start-or-end
+Description: "Minst ett av start och end ska anges i analysisTime (TimePeriodType)."
+Expression: "start.exists() or end.exists()"
+Severity: #error

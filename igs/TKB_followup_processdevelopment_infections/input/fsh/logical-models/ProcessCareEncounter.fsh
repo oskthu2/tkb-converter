@@ -18,6 +18,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Obligatorisk.
   """
+* careEncounter obeys processcareencounter-request-location-when-performer
 * careEncounter.careEncounterId 1..1 Identifier "Unikt värde för vårdkontakten"
   """
   Root: nationell OID för lokala id:n: 1.2.752.129.2.1.2.1
@@ -140,3 +141,8 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
+
+Invariant: processcareencounter-request-location-when-performer
+Description: "När performerRole.performerRoleId anges (vårdpersonal) ska minst location.name anges (TKB Övriga regler, Fält 2)."
+Expression: "performerRole.performerRoleId.exists() implies location.name.exists()"
+Severity: #error

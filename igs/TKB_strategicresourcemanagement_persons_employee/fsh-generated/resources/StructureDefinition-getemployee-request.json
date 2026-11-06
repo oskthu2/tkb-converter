@@ -25,7 +25,16 @@
         "id": "getemployee-request",
         "path": "getemployee-request",
         "short": "GetEmployee — Request",
-        "definition": "Logisk modell för begäran i GetEmployee\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeType), inklusive SOAP-huvuden enligt WSDL."
+        "definition": "Logisk modell för begäran i GetEmployee\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeType), inklusive SOAP-huvuden enligt WSDL.",
+        "constraint": [
+          {
+            "key": "getemployee-request-hsaid-xor-pnr",
+            "severity": "error",
+            "human": "Exakt ett av personHsaId och personalIdentityNumber ska anges (xs:choice i schemat).",
+            "expression": "personHsaId.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployee-request"
+          }
+        ]
       },
       {
         "id": "getemployee-request.logicalAddress",

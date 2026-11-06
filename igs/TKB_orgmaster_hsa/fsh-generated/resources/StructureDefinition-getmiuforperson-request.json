@@ -25,7 +25,16 @@
         "id": "getmiuforperson-request",
         "path": "getmiuforperson-request",
         "short": "GetMiuForPerson — Request",
-        "definition": "Logisk modell för begäran i GetMiuForPerson\n(urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1, GetMiuForPersonType), inklusive SOAP-huvuden enligt WSDL."
+        "definition": "Logisk modell för begäran i GetMiuForPerson\n(urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1, GetMiuForPersonType), inklusive SOAP-huvuden enligt WSDL.",
+        "constraint": [
+          {
+            "key": "getmiuforperson-request-hsaid-xor-pnr",
+            "severity": "error",
+            "human": "Exakt ett av hsaIdentity och personalIdentityNumber ska anges (xs:choice i schemat).",
+            "expression": "hsaIdentity.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/getmiuforperson-request"
+          }
+        ]
       },
       {
         "id": "getmiuforperson-request.logicalAddress",

@@ -923,12 +923,21 @@
         "id": "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug",
         "path": "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug",
         "short": "Läkemedelsval (ett av: unstructured/merchandise/drugArticle/drug/generics)",
-        "definition": "OBS: Ett och endast ett av följande alternativ ska anges.\nASSUME-ACT-003: XOR-villkor kan inte uttryckas direkt i FSH-kardinaliteten (alla är 0..1).",
+        "definition": "OBS: Ett och endast ett av följande alternativ ska anges.\nRegeln är modellerad som invarianten getmedicationhistory-drug-choice.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getmedicationhistory-drug-choice",
+            "severity": "error",
+            "human": "Exakt ett av unstructuredDrugInformation, merchandise, drugArticle, drug och generics ska anges i läkemedelsvalet (DrugChoiceType, TKB 7.2).",
+            "expression": "unstructuredDrugInformation.count() + merchandise.count() + drugArticle.count() + drug.count() + generics.count() = 1",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory"
           }
         ]
       },

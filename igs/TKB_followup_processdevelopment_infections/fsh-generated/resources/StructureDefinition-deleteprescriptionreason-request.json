@@ -25,7 +25,16 @@
         "id": "deleteprescriptionreason-request",
         "path": "deleteprescriptionreason-request",
         "short": "DeletePrescriptionReason — Request",
-        "definition": "Logisk modell för requestparametrar i tjänstekontraktet DeletePrescriptionReason\n(RIV-TA urn:riv:followup:processdevelopment:infections:DeletePrescriptionReason:1).\nRaderar information som tidigare registrerats via ProcessPrescriptionReason.\nAntingen activityId eller conditionId ska anges, men inte båda."
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet DeletePrescriptionReason\n(RIV-TA urn:riv:followup:processdevelopment:infections:DeletePrescriptionReason:1).\nRaderar information som tidigare registrerats via ProcessPrescriptionReason.\nAntingen activityId eller conditionId ska anges, men inte båda.",
+        "constraint": [
+          {
+            "key": "deleteprescriptionreason-request-activity-xor-condition",
+            "severity": "error",
+            "human": "Exakt ett av activityId och conditionId ska anges (TKB 7.2, Övriga regler).",
+            "expression": "activityId.exists() xor conditionId.exists()",
+            "source": "https://fhir.inera.se/ig/followup-processdevelopment-infections/StructureDefinition/deleteprescriptionreason-request"
+          }
+        ]
       },
       {
         "id": "deleteprescriptionreason-request.activityId",

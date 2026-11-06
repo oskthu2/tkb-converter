@@ -89,6 +89,7 @@ Characteristics: #can-be-target
     Kardinalitet: Obligatorisk (inom OrgUnitType).
   """
 
+* functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional obeys getfunctionalstatus-pdl-careunit-caregiver
 * functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId 0..1 Identifier "HSA-id för vårdenhet" """
     HSA-id för vårdenhet. Se regel 1 i TKB.
     Kardinalitet: Valfri (villkorlig, se regel 1).
@@ -209,3 +210,8 @@ Characteristics: #can-be-target
     En beskrivande text som kan visas för användaren.
     Kardinalitet: Valfri.
   """
+
+Invariant: getfunctionalstatus-pdl-careunit-caregiver
+Description: "Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring."
+Expression: "healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()"
+Severity: #warning

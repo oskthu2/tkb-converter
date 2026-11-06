@@ -25,7 +25,16 @@
         "id": "getcareaplans-request",
         "path": "getcareaplans-request",
         "short": "GetCarePlans — Request",
-        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetCarePlans\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).\nRepresenterar GetCarePlansType i GetCarePlansResponder_2.0.xsd."
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetCarePlans\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).\nRepresenterar GetCarePlansType i GetCarePlansResponder_2.0.xsd.",
+        "constraint": [
+          {
+            "key": "getcareplans-sourcesystemhsaid-required",
+            "severity": "error",
+            "human": "sourceSystemHSAId ska anges när careContactId är angivet (TKB fältregel för sourceSystemHSAId). Regelns andra villkor, begäran på reservnummer, går inte att avgöra ur meddelandet och kontrolleras inte.",
+            "expression": "careContactId.exists() implies sourceSystemHSAId.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans-request"
+          }
+        ]
       },
       {
         "id": "getcareaplans-request.careUnitHSAId",

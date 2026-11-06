@@ -2,6 +2,11 @@
 // Kontrakt: GetCarePlans v2.0 — Request
 // Genererad: 2026-03-19
 
+Invariant: getcareplans-sourcesystemhsaid-required
+Description: "sourceSystemHSAId ska anges när careContactId är angivet (TKB fältregel för sourceSystemHSAId). Regelns andra villkor, begäran på reservnummer, går inte att avgöra ur meddelandet och kontrolleras inte."
+Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"
+Severity: #error
+
 Logical: GetCarePlansRequest
 Id: getcareaplans-request
 Title: "GetCarePlans — Request"
@@ -13,6 +18,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
+* obeys getcareplans-sourcesystemhsaid-required
 * careUnitHSAId 0..* string "Filtrering på PDL-enhet (vårdenhetens HSA-id)"
     """
     Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.

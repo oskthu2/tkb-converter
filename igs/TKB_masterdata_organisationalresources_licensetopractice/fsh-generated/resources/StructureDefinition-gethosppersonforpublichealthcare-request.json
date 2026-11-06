@@ -25,7 +25,16 @@
         "id": "gethosppersonforpublichealthcare-request",
         "path": "gethosppersonforpublichealthcare-request",
         "short": "GetHospPersonForPublicHealthcare — Request",
-        "definition": "Logisk modell för requestparametrar i GetHospPersonForPublicHealthcare.\nAntingen anges personId, eller ett eller flera av fälten efternamn, fornamn, fodelsedatum."
+        "definition": "Logisk modell för requestparametrar i GetHospPersonForPublicHealthcare.\nAntingen anges personId, eller ett eller flera av fälten efternamn, fornamn, fodelsedatum.",
+        "constraint": [
+          {
+            "key": "gethosppersonforpublichealthcare-request-search-criteria",
+            "severity": "error",
+            "human": "Antingen anges personId, eller minst ett av efternamn, fornamn och fodelsedatum.",
+            "expression": "personId.exists() or efternamn.exists() or fornamn.exists() or fodelsedatum.exists()",
+            "source": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforpublichealthcare-request"
+          }
+        ]
       },
       {
         "id": "gethosppersonforpublichealthcare-request.personId",

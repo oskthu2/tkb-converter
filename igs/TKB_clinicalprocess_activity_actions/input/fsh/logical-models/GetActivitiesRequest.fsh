@@ -81,6 +81,7 @@ Characteristics: #can-be-target
     Minst en av relation.typeCode och relation.relationId ska vara angiven.
     Kardinalitet: Valfri, lista.
     """
+* relation obeys getactivities-request-relation-type-or-id
 * relation.typeCode 0..1 CodeableConcept "Filter på relations-/sambandstyp"
     """
     Filtrera på relations-/sambandstyp (CVType).
@@ -100,3 +101,8 @@ Characteristics: #can-be-target
     Möjliga värden: 'chb-o' (observation), 'caa-ga' (aktivitet).
     Kardinalitet: Obligatorisk.
     """
+
+Invariant: getactivities-request-relation-type-or-id
+Description: "Minst en av typeCode och relationId ska anges i ett relationsfilter (RelationFilterType)."
+Expression: "typeCode.exists() or relationId.exists()"
+Severity: #error

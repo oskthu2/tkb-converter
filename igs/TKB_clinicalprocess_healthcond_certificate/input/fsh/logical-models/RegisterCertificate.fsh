@@ -27,6 +27,7 @@ Description: "Logisk modell för requestparametrar i RegisterCertificate."
 Characteristics: #can-be-target
 
 * ^version = "3.1"
+// ingen invariant: svarPa och referensId beror på om intyget svarar på en kompletteringsbegäran, vilket inte framgår av meddelandet.
 * svarPa 0..1 BackboneElement "Referens till meddelande som detta intyg svarar på (komplettering)"
   """
   Ska anges om intyget utfärdas som svar på en kompletteringsbegäran.

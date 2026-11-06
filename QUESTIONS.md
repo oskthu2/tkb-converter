@@ -4,6 +4,17 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ---
 
+## Fältregler som FHIRPath-invarianter — alla domäner
+
+**Status:** done
+**Senast uppdaterad:** 2026-11-06
+
+Beslut (Oskar, 2026-11-06, svar på BLOCK-CAA-001): regler i TKB:ns fälttabeller och övriga regler, t.ex. "exakt en av X/Y/Z", "minst en av", "inte båda" och "ska anges om …", modelleras alltid som FHIRPath-invarianter (`Invariant:` + `obeys`) på den logiska modellen. Frågan om en invariant ska läggas till ställs inte längre som BLOCK. Detsamma gäller `xs:choice` i schemat och schematron-regler i testsviten. Regler som inte går att avgöra ur ett enskilt meddelande beskrivs i texten och markeras `// ingen invariant: …` i modellen.
+
+Genomförandet finns i `tkb-fsh-model` (avsnittet "Fältregler → FHIRPath-invarianter"), `scripts/preflight_lint.py` (kontrollerar `obeys` mot `Invariant:` och varnar för regler som bara står i text) och `scripts/xsd_to_ig.py` (gör `xs:choice` till invarianter). Befintliga poster som löstes på samma sätt: BLOCK-CAA-001–003, TODO-CAA-002, BLOCK-CLL-002, BLOCK-CLL-003, BLOCK-ACT-003, ASSUME-ACT-003, BLOCK-CRM-001 (crm.scheduling), BLOCK-FPI-001, ASSUME-FPI-003, ASSUME-EC-001, ASSUME-DESC-003/004, TODO-DESC-001/002, ASSUME-FI-003, ASSUME-CERT-004, ASSUME-PIP-003, ASSUME-LL-004 och BLOCK-PMD-001, delvis TODO-PIP-001 och TODO-LL-001. Samma genomgång lade till invarianter för regler som bara stod i fältbeskrivningar i authorizationmanagement, directory.employee, strategicresourcemanagement.persons.employee, orgmaster.hsa, licensetopractice, se.apotekensservice.expo och se.apotekensservice.lf.
+
+---
+
 ## Versionering: IG-version ur Bitbucket-taggen — alla domäner
 
 **Status:** done
@@ -181,9 +192,9 @@ IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 202
 
 - [x] **[BLOCK-CLL-001]** *(Löst 2026-03-20)* SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_logistics_logistics && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
 
-- [ ] **[BLOCK-CLL-002]** Villkorlig kardinalitet för `sourceSystemHSAId` i request för båda kontrakten: fältet är `0..1` i XSD men enligt fältregelstabellen i TKB är det tvingande (villkorligt obligatoriskt) om `careContactId` angivits eller vid begäran på reservnummer. FSH-modellen använder `0..1` (säkrare alternativ). Beslut behövs: ska en FHIR-invariant modellera villkoret, eller räcker dokumentation i fältbeskrivningen? Relevant sektion: TKB avsnitt 7.1 och 7.2, fältregler för sourceSystemHSAId.
+- [x] **[BLOCK-CLL-002]** *(Löst 2026-11-06: Invarianten `careContactId.exists() implies sourceSystemHSAId.exists()` (#error) finns nu i både GetCareContactsRequest och GetCarePlansRequest. Villkoret "vid begäran på reservnummer" går inte att avgöra ur meddelandet och står i invariantens beskrivning.)* Villkorlig kardinalitet för `sourceSystemHSAId` i request för båda kontrakten: fältet är `0..1` i XSD men enligt fältregelstabellen i TKB är det tvingande (villkorligt obligatoriskt) om `careContactId` angivits eller vid begäran på reservnummer. FSH-modellen använder `0..1` (säkrare alternativ). Beslut behövs: ska en FHIR-invariant modellera villkoret, eller räcker dokumentation i fältbeskrivningen? Relevant sektion: TKB avsnitt 7.1 och 7.2, fältregler för sourceSystemHSAId.
 
-- [ ] **[BLOCK-CLL-003]** Villkorlig kardinalitet för `content.value`/`content.reference` i `CarePlanBodyType` (GetCarePlans): antingen `value` eller `reference` ska anges, men ej båda. Detta är ett XOR-villkor som inte kan uttryckas direkt i FSH-kardinaliteten (båda är `0..1`). FSH-modellen dokumenterar villkoret i fältbeskrivningarna. Beslut: ska en FHIR-invariant `Exactly one of value or reference must be present` läggas till på `carePlan.content`? Relevant sektion: TKB avsnitt 7.2, fältregler för CarePlanBody.content.
+- [x] **[BLOCK-CLL-003]** *(Löst 2026-11-06: Invarianten `getcareplans-content-xor` (#error) fanns redan på `carePlan.content`.)* Villkorlig kardinalitet för `content.value`/`content.reference` i `CarePlanBodyType` (GetCarePlans): antingen `value` eller `reference` ska anges, men ej båda. Detta är ett XOR-villkor som inte kan uttryckas direkt i FSH-kardinaliteten (båda är `0..1`). FSH-modellen dokumenterar villkoret i fältbeskrivningarna. Beslut: ska en FHIR-invariant `Exactly one of value or reference must be present` läggas till på `carePlan.content`? Relevant sektion: TKB avsnitt 7.2, fältregler för CarePlanBody.content.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
@@ -359,9 +370,9 @@ Taggen `3.0.6` (commit f60fe0ee895b6d7344b36fdbc98de50e9b81f9e4) jämförd med `
 
 - [ ] **[ASSUME-DESC-002]** `typeOfAlertInformation` i GetAlertInformation är av typen CVType med kod från "lokalt kodverk eller nationell standard" (TKB avsnitt 7.3.4). Kodsystem-URL och OID är inte angiven i TKB eller XSD. FSH-modellen använder `CodeableConcept` utan binding. Verifieras vilket kodverk (nationellt eller lokalt) som normalt används för typer av uppmärksamhetssignaler i Sverige.
 
-- [ ] **[ASSUME-DESC-003]** `healthcareProfessionalCareUnitHSAId` (regel 1) är villkorlig i GetDiagnosis, GetAlertInformation och GetFunctionalStatus — modellerad som `0..1` (säkrare alternativ). Villkoret är "Se regel 1" utan explicit specifikation i TKB-tabellen. Verifieras om FHIR-invariant ska läggas till eller om `0..1` med kommentar är tillräckligt.
+- [x] **[ASSUME-DESC-003]** *(Löst 2026-11-06: Regel 1 modelleras som invarianten `{kontrakt}-pdl-careunit-caregiver` (#warning, eftersom regeln beskriver en konsekvens i sammanhållen journalföring snarare än ett krav på meddelandet) i GetDiagnosis, GetAlertInformation och GetFunctionalStatus.)* `healthcareProfessionalCareUnitHSAId` (regel 1) är villkorlig i GetDiagnosis, GetAlertInformation och GetFunctionalStatus — modellerad som `0..1` (säkrare alternativ). Villkoret är "Se regel 1" utan explicit specifikation i TKB-tabellen. Verifieras om FHIR-invariant ska läggas till eller om `0..1` med kommentar är tillräckligt.
 
-- [ ] **[ASSUME-DESC-004]** `clinicalDocumentNoteText` och `multimediaEntry` i GetCareDocumentation är ömsesidigt uteslutande (XSD-regel: careDocumentationBody [sch]). Båda är modellerade som `0..1` med kommentar om uteslutning. En FHIR-invariant för att formellt uttrycka denna begränsning har INTE skapats — detta kräver ett beslut om huruvida invarianter ska läggas till generellt eller om kommentarer i beskrivning är tillräckligt.
+- [x] **[ASSUME-DESC-004]** *(Löst 2026-11-06: Invarianterna `getcaredocumentation-body-xor` och `getcaredocumentation-multimedia-xor` fanns redan.)* `clinicalDocumentNoteText` och `multimediaEntry` i GetCareDocumentation är ömsesidigt uteslutande (XSD-regel: careDocumentationBody [sch]). Båda är modellerade som `0..1` med kommentar om uteslutning. En FHIR-invariant för att formellt uttrycka denna begränsning har INTE skapats — detta kräver ett beslut om huruvida invarianter ska läggas till generellt eller om kommentarer i beskrivning är tillräckligt.
 
 - [ ] **[ASSUME-DESC-005]** `disability.disabilityAssessment` i GetFunctionalStatus refererar till ICF-kodsystem med OID `1.2.752.116.1.1.3` (nationellt). Inget lokalt CodeSystem för ICF har skapats (det är ett externt standardkodsystem). Canonical URL för ICF i svensk FHIR-kontext: verifieras om `http://hl7.org/fhir/sid/icf` eller OID-URI `urn:oid:1.2.752.116.1.1.3` ska användas.
 
@@ -371,9 +382,9 @@ Taggen `3.0.6` (commit f60fe0ee895b6d7344b36fdbc98de50e9b81f9e4) jämförd med `
 
 ### TODO (kan göras utan input)
 
-- [ ] **[TODO-DESC-001]** Lägg till FHIR-invarianter för ömsesidiga uteslutningar i GetCareDocumentation: `clinicalDocumentNoteText` XOR `multimediaEntry`, och `multimediaEntry/value` XOR `multimediaEntry/reference`. Kräver FSH `Invariant:` resurser och `obeys`-regler på BackboneElement-nivå.
+- [x] **[TODO-DESC-001]** *(Löst 2026-11-06: Gjort tidigare (`getcaredocumentation-body-xor`, `getcaredocumentation-multimedia-xor`).)* Lägg till FHIR-invarianter för ömsesidiga uteslutningar i GetCareDocumentation: `clinicalDocumentNoteText` XOR `multimediaEntry`, och `multimediaEntry/value` XOR `multimediaEntry/reference`. Kräver FSH `Invariant:` resurser och `obeys`-regler på BackboneElement-nivå.
 
-- [ ] **[TODO-DESC-002]** Lägg till FHIR-invariant för `healthcareProfessionalCareUnitHSAId` (regel 1) i GetDiagnosis, GetAlertInformation och GetFunctionalStatus när villkorsspecifikationen är känd (se ASSUME-DESC-003).
+- [x] **[TODO-DESC-002]** *(Löst 2026-11-06: Se ASSUME-DESC-003.)* Lägg till FHIR-invariant för `healthcareProfessionalCareUnitHSAId` (regel 1) i GetDiagnosis, GetAlertInformation och GetFunctionalStatus när villkorsspecifikationen är känd (se ASSUME-DESC-003).
 
 - [ ] **[TODO-DESC-003]** Lägg till binding för `typeOfAlertInformation.coding.system` i GetAlertInformation när rätt kodsystem är identifierat (se ASSUME-DESC-002). Skapa ett externt ValueSet eller referens till nationellt kodverk.
 
@@ -477,7 +488,7 @@ Taggen `3.0.6` (commit f60fe0ee895b6d7344b36fdbc98de50e9b81f9e4) jämförd med `
 
 - [ ] **[BLOCK-ACT-002]** GetMedicationHistory — fälttabellen (Table 16, 659 rader) är extremt komplex med djupt nästlade typer `DispensationAuthorizationType`, `AdministrationType` och `RelationType` (varsamma rader 315, 405 resp. 621 i tabellen). Dessa är inte fullständigt extraherade i FSH-modellen — de är representerade som `BackboneElement` med kommentar "kontrollera manuellt". Beslut krävs: ska separata FSH `Logical:`-typer skapas för dessa komplexa undertyper, eller räcker kommentarerna i den existerande modellen?
 
-- [ ] **[BLOCK-ACT-003]** GetMedicationHistory — fältet `drug` (DrugChoiceType) är ett XOR-val mellan fem alternativ: `unstructuredDrugInformation`, `merchandise`, `drugArticle`, `drug` och `generics`. Exakt ett av dessa ska anges. FHIR kan inte uttrycka XOR-kardinalitet direkt (alla är `0..1`). FSH-modellen dokumenterar villkoret i fältbeskrivningen. Beslut: ska en FHIR-invariant `Exactly one of unstructured/merchandise/drugArticle/drug/generics must be present` läggas till? Relevant sektion: TKB avsnitt 7.2, fältregler rad 128.
+- [x] **[BLOCK-ACT-003]** *(Löst 2026-11-06: Invariant `getmedicationhistory-drug-choice` (#error) på läkemedelsvalet: summan av de fem alternativens `count()` ska vara 1.)* GetMedicationHistory — fältet `drug` (DrugChoiceType) är ett XOR-val mellan fem alternativ: `unstructuredDrugInformation`, `merchandise`, `drugArticle`, `drug` och `generics`. Exakt ett av dessa ska anges. FHIR kan inte uttrycka XOR-kardinalitet direkt (alla är `0..1`). FSH-modellen dokumenterar villkoret i fältbeskrivningen. Beslut: ska en FHIR-invariant `Exactly one of unstructured/merchandise/drugArticle/drug/generics must be present` läggas till? Relevant sektion: TKB avsnitt 7.2, fältregler rad 128.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
@@ -485,7 +496,7 @@ Taggen `3.0.6` (commit f60fe0ee895b6d7344b36fdbc98de50e9b81f9e4) jämförd med `
 
 - [ ] **[ASSUME-ACT-002]** `TypeOfPrescriptionEnum` (I/U) har inte en kopplad OID i XSD-schemat. Kodsystemet har skapats som ett Inera-internt CodeSystem med canonical `https://fhir.inera.se/CodeSystem/typeofprescription`. Verifiera om ett nationellt OID finns registrerat för detta kodverk.
 
-- [ ] **[ASSUME-ACT-003]** XOR-villkor för `DrugChoiceType.drug` (se BLOCK-ACT-003) har modellerats som fem separata `0..1`-fält utan FHIR-invariant. Antagandet att dokumentation i fältbeskrivningen är tillräckligt som interimslösning. Verifiera om formell invariant krävs för publicering.
+- [x] **[ASSUME-ACT-003]** *(Löst 2026-11-06: Ersatt av invarianten `getmedicationhistory-drug-choice` (se BLOCK-ACT-003).)* XOR-villkor för `DrugChoiceType.drug` (se BLOCK-ACT-003) har modellerats som fem separata `0..1`-fält utan FHIR-invariant. Antagandet att dokumentation i fältbeskrivningen är tillräckligt som interimslösning. Verifiera om formell invariant krävs för publicering.
 
 - [ ] **[ASSUME-ACT-004]** `vaccineName` i GetVaccinationHistory refererar till NPL-id med OID `1.2.752.129.2.1.5.2`. TKB anger "I code ska anges företrädelsevis NPL-id". Antagandet gjordes att NPL-id är rekommenderat men inte obligatoriskt, och att lokala kodverk accepteras. FSH-modellen har `CodeableConcept` utan fast binding. Verifiera om ett ValueSet med NPL-id som preferred binding ska skapas.
 
@@ -649,7 +660,7 @@ Inga blockerare.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/GetBookingDetails.fsh` · fält `timeslotDetail.purpose`
+- [x] **[BLOCK-CRM-001]** *(Löst 2026-11-06: invarianten `getbookingdetails-purpose-required` fanns redan och är nu #error.)* `igs/TKB_crm_scheduling/input/fsh/logical-models/GetBookingDetails.fsh` · fält `timeslotDetail.purpose`
   Elementet `purpose` har kardinalitet `0..1` men är beskrivs i TKB som obligatoriskt om `isInvitation = true` (kallelse). Villkorlig kardinalitet kräver en FHIR-invariant. FSH-modellen använder `0..1` med kommentar om villkoret.
   Källa: TKB avsnitt 7.8 (GetBookingDetails), Övriga regler.
   Förslag: Lägg till en invariant `purpose.exists() or isInvitation = false` om semantiken ska modelleras formellt i FHIR.
@@ -702,7 +713,7 @@ Inga blockerare.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
-- [ ] **[ASSUME-EC-001]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPersonRequest.fsh` och `SetSelectedCommissionForPersonRequest.fsh` · fälten `personalHsaId` och `personalIdentityNumber`
+- [x] **[ASSUME-EC-001]** *(Löst 2026-11-06: Invarianter `getcommissionsforperson-request-hsaid-xor-pnr` och `setselectedcommissionforperson-request-hsaid-xor-pnr` (#error).)* `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPersonRequest.fsh` och `SetSelectedCommissionForPersonRequest.fsh` · fälten `personalHsaId` och `personalIdentityNumber`
   Båda fälten modelleras som `0..1` eftersom regeln "exakt ett av dessa ska anges" är en affärsregel som inte kan uttryckas som enkel kardinalitet. Villkoret dokumenteras som kommentar i fältbeskrivningarna. En FHIR-invariant (constraint) vore korrekt modellering men har inte skapats — det kräver ett beslut om hur invarianter ska hanteras i IG:n generellt.
   Källa: TKB avsnitt 7.1 och 7.2 — Regler.
 
@@ -822,15 +833,15 @@ Inga blockerare.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.additionalParticipant` · exklusivitet person/organisation/device/location
+- [x] **[BLOCK-CAA-001]** *(Löst 2026-11-06: Invariant `getactivities-additionalparticipant-one-participant` (#error): `person.count() + organisation.count() + device.count() + location.count() = 1` på `activityGroup.additionalParticipant`. Beslut (Oskar): regler av den här typen blir alltid FHIRPath-invarianter.)* `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.additionalParticipant` · exklusivitet person/organisation/device/location
   Fälttabellen anger att exakt en av `person`, `organisation`, `device` eller `location` ska anges i `additionalParticipant`. Denna exklusivitetsbegränsning (choice) kan inte modelleras direkt i FHIR Logical utan slice eller invariant. Nuvarande modell har alla fyra som valfria (0..1). Ska en FSH-invariant läggas till (`obeys` med ett villkor att exakt ett av fälten är satt), eller är det tillräckligt att dokumentera detta i fältbeskrivningen?
   Källa: TKB avsnitt 7.1 Svarsdel activityGroup/additionalParticipant.
 
-- [ ] **[BLOCK-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.time`
+- [x] **[BLOCK-CAA-002]** *(Löst 2026-11-06: Invariant `getactivities-activity-time-when-performed` (#error) på `activityGroup.activity`: `(status.empty() or status.coding.where(code = '398166005').exists()) implies time.exists()`. Dessutom `getactivities-activity-time-start-or-end` på `activity.time`.)* `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.time`
   TKB Regel 2.3 anger att `activity.time` är obligatorisk (1..1) när status är utförd eller saknas, men valfri (0..1) när status är planerad. Detta är en villkorlig kardinalitet som inte kan modelleras direkt i FSH utan en invariant. Nuvarande modell sätter `0..1` (säkrare alternativ). Ska en FHIR-invariant skapas för detta villkor?
   Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, Regel 2.3.
 
-- [ ] **[BLOCK-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.legalAuthenticator`
+- [x] **[BLOCK-CAA-003]** *(Löst 2026-11-06: Invariant `getactivities-legalauthenticator-id-or-name` (#error) på `activityGroup.legalAuthenticator`.)* `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.legalAuthenticator`
   TKB Regel 2.4 anger att minst ett av `legalAuthenticator.id` eller `legalAuthenticator.name` ska anges. Nuvarande modell har båda som `0..1`. Ska en FHIR-invariant läggas till som kräver att minst ett av dem är satt?
   Källa: TKB avsnitt 7.1 Svarsdel activityGroup/legalAuthenticator, Regel 2.4.
 
@@ -858,7 +869,7 @@ Inga blockerare.
   Möjliga kodsystem för `activity.code` nämns i TKB men specificeras inte explicit (t.ex. KVÅ för åtgärder). Om specifika ValueSets behöver bindas till `activity.code`, `activity.status`, `activity.targetSite`, `activity.method` behöver dessa ValueSet + CodeSystem-resurser skapas. Avvaktar domänkompetens om vilka kodverk som är obligatoriska.
   Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, fält `code`.
 
-- [ ] **[TODO-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh`
+- [x] **[TODO-CAA-002]** *(Löst 2026-11-06: Invarianterna för BLOCK-CAA-001–003 är tillagda, liksom `getactivities-request-relation-type-or-id` i GetActivitiesRequest.)* `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh`
   Lägg till FSH-invarianter för blockerare BLOCK-CAA-001, BLOCK-CAA-002 och BLOCK-CAA-003 när beslut har fattats om korrekt modellering.
 
 - [ ] **[TODO-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/pagecontent/6-gemensamma-informationskomponenter.md`
@@ -1015,7 +1026,7 @@ _Inga blockerare._
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/DeletePrescriptionReason.fsh` · fält `activityId` och `conditionId`
+- [x] **[BLOCK-FPI-001]** *(Löst 2026-11-06: Invariant `deleteprescriptionreason-request-activity-xor-condition` (#error): `activityId.exists() xor conditionId.exists()`.)* `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/DeletePrescriptionReason.fsh` · fält `activityId` och `conditionId`
   Regeln kräver att exakt en av `activityId` eller `conditionId` ska anges (XOR-villkor). Båda är modellerade som `0..1`. Ska detta modelleras som en FHIR-invariant (`obeys`-regel)? Kräver beslut — en invariant kräver att vi formulerar en FHIRPath-expression.
   Källa: TKB avsnitt 7.2 "Övriga regler", Fält 1.
 
@@ -1035,7 +1046,7 @@ _Inga blockerare._
 - [ ] **[ASSUME-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.type`, `careEncounter.status`
   TKB-fälttabellen anger kardinalitet "1" (utan ..1) för type och status. XSD-schemat anger `0..1`. Antagit XSD-definition (0..1) som normativ. Verifiera med domänexpert.
 
-- [ ] **[ASSUME-FPI-003]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.location.name`
+- [x] **[ASSUME-FPI-003]** *(Löst 2026-11-06: `location.name` behåller 1..1 inom `location` (schemat), och villkoret uttrycks av invarianten `processcareencounter-request-location-when-performer` på `careEncounter`: `performerRole.performerRoleId.exists() implies location.name.exists()`.)* `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.location.name`
   TKB anger "1" (obligatorisk) för LocationType.name men regeln är villkorlig: obligatorisk endast när PerformerRole.id anges. Modellerat som `1..1` i FSH med kommentar om villkoret. Verifiera om `0..1` är korrekt med invariant.
 
 - [ ] **[ASSUME-FPI-004]** `igs/TKB_followup_processdevelopment_infections/` · versionsnummer
@@ -1127,7 +1138,7 @@ SUSHI: 0 errors, 46 warnings. 20 StructureDefinitions, 5 CodeSystems, 5 ValueSet
 - [ ] **[ASSUME-FI-002]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/PublishStatusCS.fsh`
   KV Publicerings status saknar explicita koder i TKB-dokumentet (v2.1). TKB refererar till kodverket men listar inga koder. CodeSystem skapades med `^content = #fragment`. Verifiera fullständig kodlista med Inera.
 
-- [ ] **[ASSUME-FI-003]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/CreateForm.fsh`
+- [x] **[ASSUME-FI-003]** *(Löst 2026-11-06: Invariant `getformtemplate-request-careunit-or-templateid` (#error).)* `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/CreateForm.fsh`
   Logical model för CreateForm request (Id: `createform-request`) namnges `CreateFormInput` i FSH-källan istället för `CreateFormRequest` för att undvika namnkollision med det separata tjänstekontraktet `CreateFormRequest` (Id: `createformrequest`). Namnvalet är tekniskt korrekt men avviker från konventionen — verifiera att detta är acceptabelt.
 
 - [ ] **[ASSUME-FI-004]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/GetFormTemplate.fsh`
@@ -1171,7 +1182,7 @@ SUSHI: 0 errors, 46 warnings. 20 StructureDefinitions, 5 CodeSystems, 5 ValueSet
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.villkor`
+- [x] **[BLOCK-PMD-001]** *(Löst 2026-11-06: Ingen invariant. OCH/ELLER-logiken beskriver hur en konsument ska tolka villkoren i ett beslutsunderlag, inte en regel som ett enskilt meddelande kan bryta mot. Beskrivningen i modellen räcker.)* `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.villkor`
   Villkor-strukturen är komplex (AND/OR-logik över UrvalArbetsbelastning, UrvalSjukdomsforlopp, etc.). TKB specificerar att villkor är OCH-villkor mellan urvalklasser men ELLER-villkor inom ett urval. Ska detta modelleras med FHIR-invarianter, eller är en textuell beskrivning tillräckligt? Nuvarande modell använder BackboneElement utan invarianter.
   Källa: TKB avsnitt 7.1, stycket "Villkor" (övriga regler för GetFmb)
 
@@ -1263,7 +1274,7 @@ Inga blockerare.
 - [ ] **[ASSUME-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCareWithQA.fsh`
   TKB anger version 3.2 men WSDL heter `ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl`. Antagande: WSDL är nyare. Versionsavvikelse noterad — verifiera.
 
-- [ ] **[ASSUME-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCare.fsh` · fält `vardgivareId` och `enhetsId`
+- [x] **[ASSUME-CERT-004]** *(Löst 2026-11-06: Invariant `listcertificatesforcare-request-vardgivare-xor-enhet` (#error). Samma genomgång lade till `listcertificatesforcarewithqa-request-enhet-not-vardgivare` (inte båda; valfria i 3.3-schemat) och `sendcertificatetorecipient-request-skickatav-choice`.)* `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCare.fsh` · fält `vardgivareId` och `enhetsId`
   XML schema choice-elementet som gör vardgivareId och enhetsId ömsesidigt exklusiva modelleras som `0..1` respektive `0..*` utan FHIR-invariant. En invariant (t.ex. `enhetsId.exists() xor vardgivareId.exists()`) skulle ge bättre semantik men kräver bekräftelse om det är önskat.
 
 ### TODO (kan göras utan input men inte prioriterat)
@@ -1839,7 +1850,7 @@ _Inga blockerare identifierade._
 - [ ] **[ASSUME-LL-003]** `igs/TKB_healthcertificate_lifeline/input/pagecontent/{1-inledning,7-tjanstekontrakt}.md` · figurer
   Figuren i avsnitt 1 är ett Word-ritobjekt och bilden i fältregeltabellens OrdningsNr-cell går inte heller att extrahera ur .doc-filen. Ingen av dem innehåller text som går att återskapa, så båda är markerade som saknade.
 
-- [ ] **[ASSUME-LL-004]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh` · kardinalitet och val
+- [x] **[ASSUME-LL-004]** *(Löst 2026-11-06: Valen är nu invarianter (`birthregistration-request-moder-id-choice`, `…-modersmake-id-choice`, `birthregistration-personnummer-or-meddelande`).)* `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh` · kardinalitet och val
   Modellerna följer schemat. `Fodelsedatum`/`PersonNummer` för Moder och ModersMake, och `PersonNummer`/`Meddelande` i svaret, är `xs:choice` i schemat och modelleras som två valfria element (0..1). TKB:n anger svarets PersonNummer och Meddelande som 1..1. PersonNummer är `xs:long` i schemat och modelleras som `string`.
 
 - [ ] **[ASSUME-LL-005]** `igs/TKB_healthcertificate_lifeline/input/fsh/codesystems/*.fsh` · kodverk ur schemat
@@ -1847,7 +1858,7 @@ _Inga blockerare identifierade._
 
 ### TODO (kan göras utan input men inte prioriterat)
 
-- [ ] **[TODO-LL-001]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh`
+- [ ] **[TODO-LL-001]** *(Delvis löst 2026-11-06: Valen och reglerna för OrdningsNr/AntalBarn är invarianter. Kvar: maxlängder och meddelandekoderna som kodverk.)* `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh`
   Invarianter för schemats val (exakt ett av Fodelsedatum/PersonNummer, exakt ett av PersonNummer/Meddelande), intervallen 1–9 för OrdningsNr och AntalBarn, regeln OrdningsNr ≤ AntalBarn samt maxlängder ur TKB:n. Meddelandekoderna kan bli ett kodverk.
 
 ## infrastructure.itintegration.messagebox v1.0.0 — `igs/TKB_infrastructure_itintegration_messagebox/`
@@ -2137,12 +2148,12 @@ _Inga blockerare identifierade._
   Den enda taggen heter `2.0_RC1` (2016-11-22), men domänen och schemana har version 1.0, och TKB:n reviderades fram till 2017-06-28. IG:n bygger därför på senaste commit på master (`729301865b83`, 2017-07-03), och versionen 1.0 kommer ur TKB:n och schemafilernas namn.
 - [ ] **[ASSUME-PIP-002]** `igs/TKB_informationsecurity_authorization_pip/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
   Tre figurer om förseglingens tidsperioder finns inte i TKB:n utan i `docs/work_material/exports/`. De är tillagda på sidan 5 som kompletterande figurer, eftersom fälten validFrom, validTo, deactivationDate och sealPeriod hänvisar till informationsspecifikationens kapitel 7.6, som de illustrerar. Bildtexterna är skrivna utifrån filnamnen och figurerna.
-- [ ] **[ASSUME-PIP-003]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
+- [x] **[ASSUME-PIP-003]** *(Löst 2026-11-06: ÖR1–ÖR6 är invarianter i GetSeals (ÖR6 och HSA-OID-kontrollerna följer testsvitens constraints.xml). ÖR7 (ingen tidsmässig överlappning mellan förseglingar i listan) jämför poster och står kvar som text.)* `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
   Övriga regler ÖR1–ÖR7 (t.ex. att bara en av fullSeal, careProviderSeal och orgUnitSeal anges, och att validTo inte får vara äldre än validFrom) återges som text men är inte modellerade som invarianter. Testsvitens schematronregler är publicerade som `GetSeals_constraints.xml`.
 
 ### TODO (kan göras utan input men inte prioriterat)
 
-- [ ] **[TODO-PIP-001]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
+- [ ] **[TODO-PIP-001]** *(Delvis löst 2026-11-06: ÖR1–ÖR5 gjorda (se ASSUME-PIP-003). ÖR7 kräver jämförelse mellan listposter och är inte modellerad.)* `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
   Lägg till FHIRPath-invarianter för ÖR1–ÖR5 och ÖR7.
 
 ## strategicresourcemanagement.persons.person v5.1 — `igs/TKB_strategicresourcemanagement_persons_person/`

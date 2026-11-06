@@ -3,9 +3,9 @@
 // Genererad: 2026-03-19
 
 Invariant: getcarecontacts-sourcesystemhsaid-required
-Description: "sourceSystemHSAId ska anges när careContactId är angivet"
+Description: "sourceSystemHSAId ska anges när careContactId är angivet (TKB fältregel för sourceSystemHSAId). Regelns andra villkor, begäran på reservnummer, går inte att avgöra ur meddelandet och kontrolleras inte."
 Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"
-Severity: #warning
+Severity: #error
 
 Logical: GetCareContactsRequest
 Id: getcarecontacts-request

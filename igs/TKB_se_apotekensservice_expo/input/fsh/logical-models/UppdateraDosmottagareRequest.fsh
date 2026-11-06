@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 * ^version = "4.0"
+* obeys uppdateradosmottagare-request-adress-when-d
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB"
 * argosHeader 1..1 BackboneElement "argosHeader" "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction"
   * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
@@ -43,3 +44,8 @@ Characteristics: #can-be-target
 * mottagarnamn 1..1 string "mottagarnamn" "Namn på dosmottagare."
 * postnummer 0..1 string "postnummer" "Postnummer till dosmottagare."
 * postort 0..1 string "postort" "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'."
+
+Invariant: uppdateradosmottagare-request-adress-when-d
+Description: "adress och postort ska anges när typ = 'D' (direktleverans)."
+Expression: "typ = 'D' implies (adress.exists() and postort.exists())"
+Severity: #error

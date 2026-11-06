@@ -13,6 +13,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "4.0"
+* obeys getemployeeincludingprotectedperson-request-hsaid-xor-pnr
 * personHsaId 0..1 string "Sökt persons HSA-id"
     """
     Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].
@@ -45,3 +46,8 @@ Characteristics: #can-be-target
     Om värdet utelämnas antas FULL.
     Kardinalitet: Valfri.
     """
+
+Invariant: getemployeeincludingprotectedperson-request-hsaid-xor-pnr
+Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges."
+Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error
