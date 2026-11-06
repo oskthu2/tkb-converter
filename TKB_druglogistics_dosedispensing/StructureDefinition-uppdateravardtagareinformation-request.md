@@ -1,0 +1,1250 @@
+# UppdateraVardtagareinformation — Request - druglogistics: dosedispensing — Dosdispensering v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **UppdateraVardtagareinformation — Request**
+
+## Logical Model: UppdateraVardtagareinformation — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/uppdateravardtagareinformation-request | *Version*:1.0 |
+| Active as of 2026-11-06 | *Computable Name*:UppdateraVardtagareinformationRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i UppdateraVardtagareinformation (urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.druglogistics-dosedispensing|current/StructureDefinition/StructureDefinition-uppdateravardtagareinformation-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-uppdateravardtagareinformation-request.csv), [Excel](StructureDefinition-uppdateravardtagareinformation-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "uppdateravardtagareinformation-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/uppdateravardtagareinformation-request",
+  "version" : "1.0",
+  "name" : "UppdateraVardtagareinformationRequest",
+  "title" : "UppdateraVardtagareinformation — Request",
+  "status" : "active",
+  "date" : "2026-11-06T21:12:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i UppdateraVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/uppdateravardtagareinformation-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "uppdateravardtagareinformation-request",
+      "path" : "uppdateravardtagareinformation-request",
+      "short" : "UppdateraVardtagareinformation — Request",
+      "definition" : "Logisk modell för begäran i UppdateraVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.logicalAddress",
+      "path" : "uppdateravardtagareinformation-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.glnkod",
+      "path" : "uppdateravardtagareinformation-request.glnkod",
+      "short" : "glnkod",
+      "definition" : "glnkod",
+      "comment" : "TKB-fält: `glnkod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation",
+      "short" : "Behorighetsinformation",
+      "definition" : "Behorighetsinformation",
+      "comment" : "TKB-fält: `Behorighetsinformation` (`BehorighetsinfoRequest`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.fornamn",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "comment" : "TKB-fält: `../fornamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.efternamn",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "comment" : "TKB-fält: `../efternamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.forskrivarkod",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "comment" : "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.yrkeskod",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.yrkeskod",
+      "short" : "yrkeskod",
+      "definition" : "yrkeskod",
+      "comment" : "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-yrkeskod-vs"
+      }
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.arbetsplatskod",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "comment" : "TKB-fält: `../arbetsplatskod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.hsaid",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "comment" : "TKB-fält: `../hsaid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.personnummer",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.personnummer",
+      "short" : "personnummer",
+      "definition" : "personnummer",
+      "comment" : "TKB-fält: `../personnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Behorighetsinformation.organisationsnummer",
+      "path" : "uppdateravardtagareinformation-request.Behorighetsinformation.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "comment" : "TKB-fält: `../organisationsnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare",
+      "short" : "Vardtagare",
+      "definition" : "Vardtagare",
+      "comment" : "TKB-fält: `Vardtagare` (`Vardtagarinformation`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.hemmaboende",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.hemmaboende",
+      "short" : "hemmaboende",
+      "definition" : "hemmaboende",
+      "comment" : "TKB-fält: `../hemmaboende` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.dosapoteksid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.dosapoteksid",
+      "short" : "dosapoteksid",
+      "definition" : "dosapoteksid",
+      "comment" : "TKB-fält: `../dosapoteksid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.dosapoteknamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.dosapoteknamn",
+      "short" : "dosapoteknamn",
+      "definition" : "dosapoteknamn",
+      "comment" : "TKB-fält: `../dosapoteknamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.forstadosdag",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.forstadosdag",
+      "short" : "forstadosdag",
+      "definition" : "forstadosdag",
+      "comment" : "TKB-fält: `../forstadosdag` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.avvikandedosschema",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.avvikandedosschema",
+      "short" : "avvikandedosschema",
+      "definition" : "avvikandedosschema",
+      "comment" : "TKB-fält: `../avvikandedosschema` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation",
+      "short" : "Patientinformation",
+      "definition" : "Patientinformation",
+      "comment" : "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.fornamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "Anvandarens fornamn.",
+      "comment" : "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.mellannamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.mellannamn",
+      "short" : "mellannamn",
+      "definition" : "Anvandarens mellanamn.",
+      "comment" : "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.efternamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "Anvandarens efternamn.",
+      "comment" : "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.identitetstyp",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.identitetstyp",
+      "short" : "identitetstyp",
+      "definition" : "identitetstyp",
+      "comment" : "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-identitetstyp-vs"
+      }
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.personid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.personid",
+      "short" : "personid",
+      "definition" : "Anvandarens personid",
+      "comment" : "TKB-fält: `../../personid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.lanskod",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.lanskod",
+      "short" : "lanskod",
+      "definition" : "Anvandarens folkbokforda lanskod",
+      "comment" : "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.kommunkod",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Patientinformation.kommunkod",
+      "short" : "kommunkod",
+      "definition" : "Anvandarens folkbokforda kommunkod",
+      "comment" : "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation",
+      "short" : "Hemmaboendeinformation",
+      "definition" : "Hemmaboendeinformation",
+      "comment" : "TKB-fält: `../Hemmaboendeinformation` (`BoendeinfoResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.adress",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.adress",
+      "short" : "adress",
+      "definition" : "adress",
+      "comment" : "TKB-fält: `../../adress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.postnummer",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "comment" : "TKB-fält: `../../postnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.ort",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.ort",
+      "short" : "ort",
+      "definition" : "ort",
+      "comment" : "TKB-fält: `../../ort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.telefon",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.telefon",
+      "short" : "telefon",
+      "definition" : "telefon",
+      "comment" : "TKB-fält: `../../telefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.dosmottagareid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "comment" : "TKB-fält: `../../dosmottagareid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.dosmottagarenamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Hemmaboendeinformation.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "comment" : "TKB-fält: `../../dosmottagarenamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress",
+      "short" : "Tillfalligadress",
+      "definition" : "Tillfalligadress",
+      "comment" : "TKB-fält: `../Tillfalligadress` (`BoendeinfoResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.adress",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.adress",
+      "short" : "adress",
+      "definition" : "adress",
+      "comment" : "TKB-fält: `../../adress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.postnummer",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "comment" : "TKB-fält: `../../postnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.ort",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.ort",
+      "short" : "ort",
+      "definition" : "ort",
+      "comment" : "TKB-fält: `../../ort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.telefon",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.telefon",
+      "short" : "telefon",
+      "definition" : "telefon",
+      "comment" : "TKB-fält: `../../telefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.dosmottagareid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "comment" : "TKB-fält: `../../dosmottagareid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.dosmottagarenamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Tillfalligadress.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "comment" : "TKB-fält: `../../dosmottagarenamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation",
+      "short" : "Leveransadressinformation",
+      "definition" : "Leveransadressinformation",
+      "comment" : "TKB-fält: `../Leveransadressinformation` (`LeveransadressinfoResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetnamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetnamn",
+      "short" : "boendeenhetnamn",
+      "definition" : "boendeenhetnamn",
+      "comment" : "TKB-fält: `../../boendeenhetnamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetid",
+      "short" : "boendeenhetid",
+      "definition" : "boendeenhetid",
+      "comment" : "TKB-fält: `../../boendeenhetid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetadress",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetadress",
+      "short" : "boendeenhetadress",
+      "definition" : "boendeenhetadress",
+      "comment" : "TKB-fält: `../../boendeenhetadress` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetpostnummer",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetpostnummer",
+      "short" : "boendeenhetpostnummer",
+      "definition" : "boendeenhetpostnummer",
+      "comment" : "TKB-fält: `../../boendeenhetpostnummer` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetpostort",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetpostort",
+      "short" : "boendeenhetpostort",
+      "definition" : "boendeenhetpostort",
+      "comment" : "TKB-fält: `../../boendeenhetpostort` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetavdelning",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.boendeenhetavdelning",
+      "short" : "boendeenhetavdelning",
+      "definition" : "boendeenhetavdelning",
+      "comment" : "TKB-fält: `../../boendeenhetavdelning` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.arbetsplatskod",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "comment" : "TKB-fält: `../../arbetsplatskod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.dosmottagareid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "comment" : "TKB-fält: `../../dosmottagareid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.dosmottagarenamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Leveransadressinformation.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "comment" : "TKB-fält: `../../dosmottagarenamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation",
+      "short" : "Kontaktinformation",
+      "definition" : "Kontaktinformation",
+      "comment" : "TKB-fält: `../Kontaktinformation` (`KontaktinfoResponse`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.PALforskrivarkod",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.PALforskrivarkod",
+      "short" : "PALforskrivarkod",
+      "definition" : "PALforskrivarkod",
+      "comment" : "TKB-fält: `../../PALforskrivarkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.PALfornamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.PALfornamn",
+      "short" : "PALfornamn",
+      "definition" : "PALfornamn",
+      "comment" : "TKB-fält: `../../PALfornamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.PALefternamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.PALefternamn",
+      "short" : "PALefternamn",
+      "definition" : "PALefternamn",
+      "comment" : "TKB-fält: `../../PALefternamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.anhorigkontaktnamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.anhorigkontaktnamn",
+      "short" : "anhorigkontaktnamn",
+      "definition" : "anhorigkontaktnamn",
+      "comment" : "TKB-fält: `../../anhorigkontaktnamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.anhorigkontaktemail",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.anhorigkontaktemail",
+      "short" : "anhorigkontaktemail",
+      "definition" : "anhorigkontaktemail",
+      "comment" : "TKB-fält: `../../anhorigkontaktemail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktnamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktnamn",
+      "short" : "ansvarigkontaktnamn",
+      "definition" : "ansvarigkontaktnamn",
+      "comment" : "TKB-fält: `../../ansvarigkontaktnamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktemail",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktemail",
+      "short" : "ansvarigkontaktemail",
+      "definition" : "ansvarigkontaktemail",
+      "comment" : "TKB-fält: `../../ansvarigkontaktemail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktadress",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktadress",
+      "short" : "ansvarigkontaktadress",
+      "definition" : "ansvarigkontaktadress",
+      "comment" : "TKB-fält: `../../ansvarigkontaktadress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktpostnummer",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktpostnummer",
+      "short" : "ansvarigkontaktpostnummer",
+      "definition" : "ansvarigkontaktpostnummer",
+      "comment" : "TKB-fält: `../../ansvarigkontaktpostnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktpostort",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontaktpostort",
+      "short" : "ansvarigkontaktpostort",
+      "definition" : "ansvarigkontaktpostort",
+      "comment" : "TKB-fält: `../../ansvarigkontaktpostort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontakttelefon1",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontakttelefon1",
+      "short" : "ansvarigkontakttelefon1",
+      "definition" : "ansvarigkontakttelefon1",
+      "comment" : "TKB-fält: `../../ansvarigkontakttelefon1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontakttelefon2",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.ansvarigkontakttelefon2",
+      "short" : "ansvarigkontakttelefon2",
+      "definition" : "ansvarigkontakttelefon2",
+      "comment" : "TKB-fält: `../../ansvarigkontakttelefon2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetid",
+      "short" : "vardandeenhetid",
+      "definition" : "vardandeenhetid",
+      "comment" : "TKB-fält: `../../vardandeenhetid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetnamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetnamn",
+      "short" : "vardandeenhetnamn",
+      "definition" : "vardandeenhetnamn",
+      "comment" : "TKB-fält: `../../vardandeenhetnamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetpostort",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetpostort",
+      "short" : "vardandeenhetpostort",
+      "definition" : "vardandeenhetpostort",
+      "comment" : "TKB-fält: `../../vardandeenhetpostort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetpostnummer",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Kontaktinformation.vardandeenhetpostnummer",
+      "short" : "vardandeenhetpostnummer",
+      "definition" : "vardandeenhetpostnummer",
+      "comment" : "TKB-fält: `../../vardandeenhetpostnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation",
+      "short" : "Betalningsinformation",
+      "definition" : "Betalningsinformation",
+      "comment" : "TKB-fält: `../Betalningsinformation` (`BetalningsinfoResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.form",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.form",
+      "short" : "form",
+      "definition" : "form",
+      "comment" : "TKB-fält: `../../form` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.information",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.information",
+      "short" : "information",
+      "definition" : "information",
+      "comment" : "TKB-fält: `../../information` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigfornamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigfornamn",
+      "short" : "betalningsansvarigfornamn",
+      "definition" : "betalningsansvarigfornamn",
+      "comment" : "TKB-fält: `../../betalningsansvarigfornamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigefternamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigefternamn",
+      "short" : "betalningsansvarigefternamn",
+      "definition" : "betalningsansvarigefternamn",
+      "comment" : "TKB-fält: `../../betalningsansvarigefternamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigadress",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigadress",
+      "short" : "betalningsansvarigadress",
+      "definition" : "betalningsansvarigadress",
+      "comment" : "TKB-fält: `../../betalningsansvarigadress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigpostnummer",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigpostnummer",
+      "short" : "betalningsansvarigpostnummer",
+      "definition" : "betalningsansvarigpostnummer",
+      "comment" : "TKB-fält: `../../betalningsansvarigpostnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigort",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigort",
+      "short" : "betalningsansvarigort",
+      "definition" : "betalningsansvarigort",
+      "comment" : "TKB-fält: `../../betalningsansvarigort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigtelefon",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Betalningsinformation.betalningsansvarigtelefon",
+      "short" : "betalningsansvarigtelefon",
+      "definition" : "betalningsansvarigtelefon",
+      "comment" : "TKB-fält: `../../betalningsansvarigtelefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo",
+      "short" : "Produktionsinfo",
+      "definition" : "Produktionsinfo",
+      "comment" : "TKB-fält: `../Produktionsinfo` (`ProduktionsinfoResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosaktor",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosaktor",
+      "short" : "dosaktor",
+      "definition" : "dosaktor",
+      "comment" : "TKB-fält: `../../dosaktor` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosapotek",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosapotek",
+      "short" : "dosapotek",
+      "definition" : "dosapotek",
+      "comment" : "TKB-fält: `../../dosapotek` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosapotekid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosapotekid",
+      "short" : "dosapotekid",
+      "definition" : "dosapotekid",
+      "comment" : "TKB-fält: `../../dosapotekid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.stopptidbestallning",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.stopptidbestallning",
+      "short" : "stopptidbestallning",
+      "definition" : "stopptidbestallning",
+      "comment" : "TKB-fält: `../../stopptidbestallning` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.stopptidordination",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.stopptidordination",
+      "short" : "stopptidordination",
+      "definition" : "stopptidordination",
+      "comment" : "TKB-fält: `../../stopptidordination` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.forstadosdag",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.forstadosdag",
+      "short" : "forstadosdag",
+      "definition" : "forstadosdag",
+      "comment" : "TKB-fält: `../../forstadosdag` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosvecka",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosvecka",
+      "short" : "dosvecka",
+      "definition" : "dosvecka",
+      "comment" : "TKB-fält: `../../dosvecka` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema",
+      "short" : "doseringsschema",
+      "definition" : "doseringsschema",
+      "comment" : "TKB-fält: `../../doseringsschema` (`DoseringsschemaResponse`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.periodlangd",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.periodlangd",
+      "short" : "periodlangd",
+      "definition" : "Antal dagar som dosering skall galla. Vid regelbunden dosering anges periodlangd = 1 Vid oregelbunden dosering anges antal dagar som intervallet omfattar. Exempelvis 2 om intag ska ske varannan dag.",
+      "comment" : "TKB-fält: `../../../periodlangd` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle",
+      "short" : "intagstillfalle",
+      "definition" : "Beskriver tid och mangd for intag av lakemedel.",
+      "comment" : "TKB-fält: `../../../intagstillfalle` (`IntagstillfalleResponse`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle.intagstillfalle",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle.intagstillfalle",
+      "short" : "intagstillfalle",
+      "definition" : "Klockslag nar patienten ska inta medicinering.",
+      "comment" : "TKB-fält: `../../../../intagstillfalle` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle.intagsmangd",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle.intagsmangd",
+      "short" : "intagsmangd",
+      "definition" : "Intagsmangd per tillfalle",
+      "comment" : "TKB-fält: `../../../../intagsmangd` (`double`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle.dagIPeriod",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.doseringsschema.intagstillfalle.dagIPeriod",
+      "short" : "dagIPeriod",
+      "definition" : "Dag i perioden nar intag skall goras. Exempel: Intag ska ske varje mandag och onsdag och startdatum ar pa en mandag. Mandag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period= 1. Onsdag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period=3.",
+      "comment" : "TKB-fält: `../../../../dagIPeriod` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosmottagareid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "comment" : "TKB-fält: `../../dosmottagareid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosmottagarenamn",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Produktionsinfo.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "comment" : "TKB-fält: `../../dosmottagarenamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus",
+      "short" : "Vardtagarstatus",
+      "definition" : "Vardtagarstatus",
+      "comment" : "TKB-fält: `../Vardtagarstatus` (`Vardtagarstatusinfo`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus.statuskod",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus.statuskod",
+      "short" : "statuskod",
+      "definition" : "statuskod",
+      "comment" : "TKB-fält: `../../statuskod` (`VardtagarStatusEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-vardtagarstatus-vs"
+      }
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus.frantid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus.frantid",
+      "short" : "frantid",
+      "definition" : "frantid",
+      "comment" : "TKB-fält: `../../frantid` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus.tilltid",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.Vardtagarstatus.tilltid",
+      "short" : "tilltid",
+      "definition" : "tilltid",
+      "comment" : "TKB-fält: `../../tilltid` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.Vardtagare.vilandestatusorsak",
+      "path" : "uppdateravardtagareinformation-request.Vardtagare.vilandestatusorsak",
+      "short" : "vilandestatusorsak",
+      "definition" : "vilandestatusorsak",
+      "comment" : "TKB-fält: `../vilandestatusorsak` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateravardtagareinformation-request.meddelandetillapotek",
+      "path" : "uppdateravardtagareinformation-request.meddelandetillapotek",
+      "short" : "meddelandetillapotek",
+      "definition" : "meddelandetillapotek",
+      "comment" : "TKB-fält: `meddelandetillapotek` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

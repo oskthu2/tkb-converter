@@ -1,0 +1,88 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"findcontent","findcontent","","","",0,*,"","","","null {[]} {[]}
+","FindContent","Logisk modell för tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Representerar responsens informationsstruktur — en lista av engagemangsposter
+som svarar mot sökkriterierna i begäran.
+Primärt använt av aggregerande tjänster i tjänsteplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent.engagement","findcontent.engagement","","","",0,*,"","","","Base {[]} {[]}
+","Engagemangspost","En post i engagemangsindex som matchar sökkriterierna.
+En tjänstekonsument kan få noll eller flera poster i svaret.
+Kardinalitet: Valfri, lista.","TKB-fält: `engagement` (`EngagementType`, kardinalitet 0..*).
+
+**Modellanteckning:** En post i engagemangsindex som matchar sökkriterierna.
+En tjänstekonsument kan få noll eller flera poster i svaret.","","","","","","","","",,,,,"",,,,"findcontent.engagement",0,*,"",""
+"findcontent.engagement.registeredResidentIdentification","findcontent.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[]} {[]}
+","Personidentitet","Enligt formatregler i meddelandemodell","TKB-fält: `engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).
+
+**Modellanteckning:** Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),
+eller nationellt reservnummer enligt Ineras definition (12 tecken).
+Format: CCYYMMDDNNNN (personnummer/samordningsnummer) eller XXYYMMDNNGC (reservidentitet).","","","","","","","","",,,,,"",,,,"findcontent.engagement.registeredResidentIdentification",1,1,"",""
+"findcontent.engagement.serviceDomain","findcontent.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","Tjänstedomänens namnrymd (URN)","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `engagement.serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.serviceDomain",1,1,"",""
+"findcontent.engagement.categorization","findcontent.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","Kategorisering","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagement.categorization` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** Kategorisering enligt den tillämpande tjänstedomänens dokumentation.
+Exakt betydelse definieras av respektive tjänstedomän.","","","","","","","","",,,,,"",,,,"findcontent.engagement.categorization",1,1,"",""
+"findcontent.engagement.logicalAddress","findcontent.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","Logisk adress","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagement.logicalAddress` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** Logisk adress för den tjänsteproducent som har information för posten.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.","","","","","","","","",,,,,"",,,,"findcontent.engagement.logicalAddress",1,1,"",""
+"findcontent.engagement.businessObjectInstanceIdentifier","findcontent.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","Affärsobjektets instansidentifierare","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** Identifierare för det specifika affärsobjekt som posten avser.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Obs: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.","","","","","","","","",,,,,"",,,,"findcontent.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"findcontent.engagement.clinicalProcessInterestId","findcontent.engagement.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","Kliniskt processintresse-ID","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagement.clinicalProcessInterestId` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Identifierare för kliniskt processintresse.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+OBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,
+men i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.
+Använd 0..1 tills verifiering mot XSD-schema är gjord.","","","","","","","","",,,,,"",,,,"findcontent.engagement.clinicalProcessInterestId",0,1,"",""
+"findcontent.engagement.mostRecentContent","findcontent.engagement.mostRecentContent","","","",0,1,"","","","dateTime {[]} {[]}
+","Senast relevant innehållstidpunkt","YYYYMMDDhhmmss","TKB-fält: `engagement.mostRecentContent` (`TS`, kardinalitet 0..1).
+
+**Modellanteckning:** Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Regler för användning av detta attribut bestäms av den tillämpande tjänstedomänens
+tjänstekontraktsbeskrivning. Från version 1.0.9 tas centrala EI-regler kring
+MostRecentContent bort ur denna TKB.","","","","","","","","",,,,,"",,,,"findcontent.engagement.mostRecentContent",0,1,"",""
+"findcontent.engagement.sourceSystem","findcontent.engagement.sourceSystem","","","",1,1,"","","","Identifier {[]} {[]}
+","Källsystem (HSA-id)","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.sourceSystem",1,1,"",""
+"findcontent.engagement.creationTime","findcontent.engagement.creationTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för skapande av indexpost","YYYYMMDDhhmmss","TKB-fält: `engagement.creationTime` (`TS`, kardinalitet 1..1).
+
+**Modellanteckning:** Tidpunkt då EI-posten skapades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Sätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.
+OBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,
+men finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.","","","","","","","","",,,,,"",,,,"findcontent.engagement.creationTime",1,1,"",""
+"findcontent.engagement.updateTime","findcontent.engagement.updateTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för senaste uppdatering av indexpost","YYYYMMDDhhmmss","TKB-fält: `engagement.updateTime` (`TS`, kardinalitet 0..1).
+
+**Modellanteckning:** Tidpunkt då EI-posten senast uppdaterades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Sätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.
+OBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,
+men finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.","","","","","","","","",,,,,"",,,,"findcontent.engagement.updateTime",0,1,"",""
+"findcontent.engagement.dataController","findcontent.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","Personuppgiftsansvarig organisation","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.","TKB-fält: `engagement.dataController` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.dataController",1,1,"",""
+"findcontent.engagement.owner","findcontent.engagement.owner","","","",1,1,"","","","Identifier {[]} {[]}
+","Ägande index (HSA-id)","HSA-id för den organisations vars index tog emot uppdateringsbegäran.","TKB-fält: `engagement.owner` (`HSA-id`, kardinalitet 1..1).
+
+**Modellanteckning:** HSA-id för den organisation vars index tog emot uppdateringsbegäran.
+Används för att spåra var en indexpost ursprungligen registrerades.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Sätts av engagemangsindex — ska INTE sättas av konsumenten.","","","","","","","","",,,,,"",,,,"findcontent.engagement.owner",1,1,"",""

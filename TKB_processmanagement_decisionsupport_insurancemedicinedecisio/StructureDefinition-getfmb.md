@@ -1,0 +1,476 @@
+# GetFmb - processmanagement: decisionsupport: insurancemedicinedecisionsupport v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetFmb**
+
+## Logical Model: GetFmb 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb | *Version*:1.0 |
+| Active as of 2026-11-06 | *Computable Name*:GetFmb |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetFmb (RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1). Representerar responsens informationsstruktur — beslutsunderlag från FMB (Försäkringsmedicinskt beslutsstöd). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.processmanagement-decisionsupport-insurancemedicinedecisio|current/StructureDefinition/StructureDefinition-getfmb.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getfmb.csv), [Excel](StructureDefinition-getfmb.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getfmb",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb",
+  "version" : "1.0",
+  "name" : "GetFmb",
+  "title" : "GetFmb",
+  "status" : "active",
+  "date" : "2026-11-06T21:43:24+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetFmb\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).\nRepresenterar responsens informationsstruktur — beslutsunderlag från FMB\n(Försäkringsmedicinskt beslutsstöd).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getfmb",
+      "path" : "getfmb",
+      "short" : "GetFmb",
+      "definition" : "Logisk modell för tjänstekontraktet GetFmb\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).\nRepresenterar responsens informationsstruktur — beslutsunderlag från FMB\n(Försäkringsmedicinskt beslutsstöd)."
+    },
+    {
+      "id" : "getfmb.beslutsunderlag",
+      "path" : "getfmb.beslutsunderlag",
+      "short" : "Beslutsunderlag",
+      "definition" : "Beslutsunderlag innehåller information om beslutsunderlag som kan användas vid bedömning om sjukskrivning. Ett beslutunderlag kan användas som underlag för bedömning när samtliga villkor kopplades till klassen är uppfyllda.",
+      "comment" : "TKB-fält: `beslutsunderlag` (`BeslutsunderlagType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.underlagsId",
+      "path" : "getfmb.beslutsunderlag.underlagsId",
+      "short" : "Globalt unik identifierare för beslutsunderlaget",
+      "definition" : "Globalt unik identifierare för beslutsunderlaget.",
+      "comment" : "TKB-fält: `../underlagsId` (`IItype`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.giltighetstidStart",
+      "path" : "getfmb.beslutsunderlag.giltighetstidStart",
+      "short" : "Giltighetstid — starttid",
+      "definition" : "Starttid för giltighetstiden. Starttiden skall alltid anges.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.giltighetstidSlut",
+      "path" : "getfmb.beslutsunderlag.giltighetstidSlut",
+      "short" : "Giltighetstid — sluttid",
+      "definition" : "Sluttid för giltighetstiden. Om sluttid ej anges är beslutsrekommendationen aktiv.\nEtt beslutsunderlag som inte är aktiv skall innehålla ett slutdatum som ligger tidigare\nän aktuellt datum, eller ett startdatum som ligger senare än aktuellt datum.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.version",
+      "path" : "getfmb.beslutsunderlag.version",
+      "short" : "Versionsnummer för beslutsunderlaget",
+      "definition" : "Versionsnummer för ett beslutsunderlag. Versionen räknas upp när ett beslutsunderlag förändrats i sin innebörd eller ändrar giltighetstid.",
+      "comment" : "TKB-fält: `../version` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.textuelltUnderlag",
+      "path" : "getfmb.beslutsunderlag.textuelltUnderlag",
+      "short" : "Textuell beskrivning av beslutsunderlaget",
+      "definition" : "Varje beslutsunderlag beskrivs i textuell form, som omfattar alla villkor och rekommendationer som omfattas av beslutsunderlag samt annan information som är relevant i beslutsfattandet även om den informationen inte finns representerad i kodad form.",
+      "comment" : "TKB-fält: `../textuelltUnderlag` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.sjukskrivningstidText",
+      "path" : "getfmb.beslutsunderlag.sjukskrivningstidText",
+      "short" : "Sjukskrivningstid — textuell representation",
+      "definition" : "Totala sjukskrivningstidens längd med början från första intygsdag.\nTextuell representation som alltid är ifylld även där sjukskrivningstiden inte kan kvantifieras.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.sjukskrivningstidVarde",
+      "path" : "getfmb.beslutsunderlag.sjukskrivningstidVarde",
+      "short" : "Sjukskrivningstid — numeriskt värde",
+      "definition" : "Numeriskt värde för sjukskrivningstiden. Anges ej om sjukskrivningstiden inte kan kvantifieras.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.sjukskrivningstidEnhet",
+      "path" : "getfmb.beslutsunderlag.sjukskrivningstidEnhet",
+      "short" : "Sjukskrivningstid — enhet (UCUM)",
+      "definition" : "Enhet för tidsangivelsen enligt UCUM: månad='mo', vecka='wk', dag='d'.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.sjukskrivningsgrad",
+      "path" : "getfmb.beslutsunderlag.sjukskrivningsgrad",
+      "short" : "Grad av sjukskrivning",
+      "definition" : "Anger grad av sjukskrivning. Exempel på värden: Heltid, Deltid",
+      "comment" : "TKB-fält: `../sjukskrivningsgrad` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.senastAndrad",
+      "path" : "getfmb.beslutsunderlag.senastAndrad",
+      "short" : "Tidpunkt när beslutsunderlaget senast ändrades",
+      "definition" : "Anger när ett beslutsunderlag senast ändrats",
+      "comment" : "TKB-fält: `../senastAndrad` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.rehabiliteringsInformation",
+      "path" : "getfmb.beslutsunderlag.rehabiliteringsInformation",
+      "short" : "Rehabiliteringsinformation",
+      "definition" : "Rehabiliteringsinformation",
+      "comment" : "TKB-fält: `../rehabiliteringsInformation` (`RehabiliteringsInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning",
+      "path" : "getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning",
+      "short" : "Beskrivning av rehabiliteringsåtgärd",
+      "definition" : "Text som beskriver en rehabiliteringsåtgärd",
+      "comment" : "TKB-fält: `../../beskrivning` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.huvudDiagnos",
+      "path" : "getfmb.beslutsunderlag.huvudDiagnos",
+      "short" : "Huvuddiagnos för vilken beslutsunderlaget gäller",
+      "definition" : "Den diagnos för vilken beslutsunderlaget gäller.",
+      "comment" : "TKB-fält: `../huvudDiagnos` (`HuvudDiagnosType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.huvudDiagnos.varde",
+      "path" : "getfmb.beslutsunderlag.huvudDiagnos.varde",
+      "short" : "Huvuddiagnos angiven med ICD-10-SE-kod",
+      "definition" : "Huvuddiagnos som anges med kod. Anges med ICD-10-SE kodverket.",
+      "comment" : "TKB-fält: `../../värde` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor",
+      "path" : "getfmb.beslutsunderlag.villkor",
+      "short" : "Villkor för att beslutsunderlaget skall gälla",
+      "definition" : "Villkor för att ett beslutsunderlag skall vara uppfyllt.",
+      "comment" : "TKB-fält: `../villkor*` (`VillkorType`, kardinalitet 1..1).\n\n**Modellanteckning:** Villkor samlar underliggande faktorer som måste vara uppfyllda för att ett beslutsunderlag\nskall gälla. Förekomsten av en 'urvals-klass' är ett OCH-villkor. Flera koder inom ett urval\när ett ELLER-villkor.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning",
+      "short" : "Urval av arbetsbelastning (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för arbetsbelastning",
+      "comment" : "TKB-fält: `../../urvalArbetsbelastning` (`UrvalArbetsbelastningType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning",
+      "short" : "Koder för arbetsbelastning",
+      "definition" : "Anger koder för arbetsbelastning för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../arbetsbelastning` (`ArbetsbelastningType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor",
+      "short" : "Urval av komplicerande faktorer (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för komplicerande faktorer",
+      "comment" : "TKB-fält: `../../urvalKomplicerandeFaktor` (`UrvalKomplicerandeFaktorType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor",
+      "short" : "Koder för komplicerande faktorer",
+      "definition" : "Anger koder för komplicerande faktorer för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../komplicerandeFaktor` (`KomplicerandeFaktorType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard",
+      "short" : "Urval av planerade åtgärder (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för planerade åtgärder",
+      "comment" : "TKB-fält: `../../urvalPlaneradAtgard` (`UrvalPlaneradAtgardType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard",
+      "short" : "Koder för planerade åtgärder",
+      "definition" : "Anger koder för planerade åtgärder för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../planeradAtgard` (`PlaneradAtgardType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard",
+      "short" : "Urval av pågående åtgärder (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för pågående åtgärder",
+      "comment" : "TKB-fält: `../../urvalPagaendeAtgard` (`UrvalPagaendeAtgardType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard",
+      "short" : "Koder för pågående åtgärder",
+      "definition" : "Anger koder för pågående åtgärder för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../pagaendeAtgard` (`PagaendeAtgardType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet",
+      "short" : "Urval av samsjuklighet (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för samsjuklighet",
+      "comment" : "TKB-fält: `../../urvalSamsjuklighet` (`UrvalSamsjuklighetType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet",
+      "short" : "Koder för samsjuklighet (ICD-10-SE)",
+      "definition" : "Anger koder för samsjuklighet för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../samsjuklighet` (`SamsjuklighetType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp",
+      "short" : "Urval av sjukdomsförlopp (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för sjukdomsforlopp",
+      "comment" : "TKB-fält: `../../UrvalSjukdomsforlopp` (`UrvalSjukdomsforloppType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp",
+      "short" : "Koder för sjukdomsförlopp",
+      "definition" : "Anger koder för sjukdomsforlopp för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../sjukdomsforlopp` (`SjukdomsforloppType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad",
+      "short" : "Urval av svårighetsgrad (villkor)",
+      "definition" : "Anges om villkoret är beroende av en eller flera koder för svårighetsgrad",
+      "comment" : "TKB-fält: `../../urvalSvarighetsgrad` (`UrvalSvarighetsgradType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad",
+      "path" : "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad",
+      "short" : "Koder för svårighetsgrad (Lindrig, Medelsvår, Svår)",
+      "definition" : "Anger koder för svårighetsgrad för vilka minst en måste vara sann.",
+      "comment" : "TKB-fält: `../../../svarighetsgrad` (`SvarighetsgradType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.beslutsunderlag.villkor.utfordAtgard",
+      "path" : "getfmb.beslutsunderlag.villkor.utfordAtgard",
+      "short" : "Koder för utförda åtgärder",
+      "definition" : "Koder för utförda åtgärder",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfmb.fmbVersion",
+      "path" : "getfmb.fmbVersion",
+      "short" : "Versionsinformation för hela FMB",
+      "definition" : "Versionsinformation för hela FMB",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfmb.fmbVersion.senasteVersionsuppdatering",
+      "path" : "getfmb.fmbVersion.senasteVersionsuppdatering",
+      "short" : "Tidpunkt för senaste versionsuppdatering bland alla beslutsunderlag",
+      "definition" : "Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla producentens beslutsunderlag, dvs det kan vara ett underlag som ej returnerats i svaret som föranlett ett nytt datum.",
+      "comment" : "TKB-fält: `../senasteVersionsuppdatering` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getfmb.fmbVersion.senasteAndring",
+      "path" : "getfmb.fmbVersion.senasteAndring",
+      "short" : "Tidpunkt för senaste ändring bland alla beslutsunderlag",
+      "definition" : "Anger när ett beslutsunderlag senast uppdaterades, både mindre förändringar som ej givit en ny version OCH versionsuppdateringar bland alla producentens beslutsunderlag, dvs det kan vara ett underlag som ej returnerats i svaret.",
+      "comment" : "TKB-fält: `../senasteAndring` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    }]
+  }
+}
+
+```

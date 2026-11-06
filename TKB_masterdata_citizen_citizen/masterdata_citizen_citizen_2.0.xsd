@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->    
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' 
+    xmlns:tns='urn:riv:masterdata:citizen:citizen:2'
+    targetNamespace='urn:riv:masterdata:citizen:citizen:2'
+
+    elementFormDefault='qualified'
+    attributeFormDefault='unqualified' 
+    version='2.0'>
+
+    <xs:annotation>
+        <xs:documentation>
+        </xs:documentation>
+    </xs:annotation>
+
+
+
+
+
+    <xs:simpleType name="LookupProfileType">
+        <xs:annotation>
+            <xs:documentation>
+                Profil för att ange vilket data som önskas i tjänstens response.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Profil med enbart namn
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P2">
+                <xs:annotation>
+                    <xs:documentation>
+                        Profil i enlighet med kontrakt 1.1
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P3">
+                <xs:annotation>
+                    <xs:documentation>
+                        Profil med komplett data exklusive historik
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P4">
+                <xs:annotation>
+                    <xs:documentation>
+                        Profil med komplett data inklusive historik
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P5">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reserverad för framtida bruk
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P6">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reserverad för framtida bruk
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P7">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reserverad för framtida bruk
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P8">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reserverad för framtida bruk
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P9">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reserverad för framtida bruk
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P10">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reserverad för framtida bruk
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DateTypeFormatType">
+        <xs:annotation>
+            <xs:documentation>
+                Enum som beskriver datumets noggrannhet.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="YYYY">
+                <xs:annotation>
+                    <xs:documentation>
+                        Noggrannhet: År
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="YYYY-MM">
+                <xs:annotation>
+                    <xs:documentation>
+                        Noggrannhet: År och månad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="YYYY-MM-DD">
+                <xs:annotation>
+                    <xs:documentation>
+                        Noggrannhet: År, månad, dag
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="RelationshipTypeType">
+        <xs:annotation>
+            <xs:documentation>
+                Relationstyp
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="B">
+                <xs:annotation>
+                    <xs:documentation>
+                        Barn
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MO">
+                <xs:annotation>
+                    <xs:documentation>
+                        Moder
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FA">
+                <xs:annotation>
+                    <xs:documentation>
+                        Fader
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="F">
+                <xs:annotation>
+                    <xs:documentation>
+                        Förälder
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="V">
+                <xs:annotation>
+                    <xs:documentation>
+                        Vårdnadshavare
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="VF">
+                <xs:annotation>
+                    <xs:documentation>
+                        Vårdnadshavare för
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="M">
+                <xs:annotation>
+                    <xs:documentation>
+                        Make/maka
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation>
+                        Partner
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="MaritalStatusCodeType">
+        <xs:annotation>
+            <xs:documentation>
+                Civilståndskod
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OG">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ogift
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="G">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gift
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A">
+                <xs:annotation>
+                    <xs:documentation>
+                        Änka/änkling
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="S">
+                <xs:annotation>
+                    <xs:documentation>
+                        Skild
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RP">
+                <xs:annotation>
+                    <xs:documentation>
+                        Registrerad partner
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SP">
+                <xs:annotation>
+                    <xs:documentation>
+                        Skild partner
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="EP">
+                <xs:annotation>
+                    <xs:documentation>
+                        Efterlevande partner
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DeregistrationReasonCodeType">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för avregistreringsorsak
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AV">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avliden
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UV">
+                <xs:annotation>
+                    <xs:documentation>
+                        Utvandrad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GN">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gammalt personnummer
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AN">
+                <xs:annotation>
+                    <xs:documentation>
+                        Annan anledning
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AS">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avslutad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GS">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gammalt samordningsnummer
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OB">
+                <xs:annotation>
+                    <xs:documentation>
+                        Försvunnen
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TA">
+                <xs:annotation>
+                    <xs:documentation>
+                        Tekniskt avregistrerad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="RelationshipStatusType">
+        <xs:annotation>
+            <xs:documentation>
+                Statuskoder på relation
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NY">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nyregistrerad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PB">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nyregistrerad pga personnummerbyte
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RD">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rättad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AS">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avslutad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AV">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avslutad pga avliden
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="IV">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avslutad pga invandring
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AN">
+                <xs:annotation>
+                    <xs:documentation>
+                        Annullerad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="CitizenshipStatusType">
+        <xs:annotation>
+            <xs:documentation>
+                Statuskoder på medborgarskap
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NY">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nyregistrerad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RD">
+                <xs:annotation>
+                    <xs:documentation>
+                        Rättad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AS">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avslutad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AN">
+                <xs:annotation>
+                    <xs:documentation>
+                        Annullerad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PopulationRegistrationTypeType">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för folkbokföringskategori
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FB">
+                <xs:annotation>
+                    <xs:documentation>
+                        Folkbokförd
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UV">
+                <xs:annotation>
+                    <xs:documentation>
+                        Utvandrad
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OB">
+                <xs:annotation>
+                    <xs:documentation>
+                        Avregistrerad som försvunnen
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ApartmentId">
+        <xs:annotation>
+            <xs:documentation>
+                Lägenhets id
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99999999999999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="AddressPlaceId">
+        <xs:annotation>
+            <xs:documentation>
+                Adressplats id
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99999999999999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DistrictCode">
+        <xs:annotation>
+            <xs:documentation>
+                Distriktskod
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="999999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PostalCode">
+        <xs:annotation>
+            <xs:documentation>
+                Svenskt postnr
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PartialDateValue">
+        <xs:annotation>
+            <xs:documentation>
+                En del av ett datum med minst året angivet
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="4"/>
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="FictitiousPropertyNumber">
+        <xs:annotation>
+            <xs:documentation>
+                Fiktivt nummer för fastighet
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="GivenNameIndicator">
+        <xs:annotation>
+            <xs:documentation>
+                Tilltalsnamnsmarkering
+                Heltal: 10 – 99
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="10"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PersonalIdentityNumber">
+        <xs:annotation>
+            <xs:documentation>
+                Personnummer angivet med 12-tecken. Format beroende på typ av personnummer. Svenskt, Samordningsnummer, Norskt osv.
+                Förberett för personnummer med mer än 12-tecken.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PropertyId">
+        <xs:annotation>
+            <xs:documentation>
+                Fastighets id
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="RecordId">
+        <xs:annotation>
+            <xs:documentation>
+                ÅÅÅÅ.NNN.NNN.NNN
+                Fyrsiffrigt årtal + 9 siffror i sekvens grupperade om tre
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PhoneNumber">
+        <xs:annotation>
+            <xs:documentation>
+                Telefon, Fax, Mobil osv.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="CountryCode">
+        <xs:annotation>
+            <xs:documentation>
+                Landskod
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="String80">
+        <xs:annotation>
+            <xs:documentation>
+                Strängvärde med maxlängd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="80"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="String60">
+        <xs:annotation>
+            <xs:documentation>
+                Strängvärde med maxlängd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="60"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="String40">
+        <xs:annotation>
+            <xs:documentation>
+                Strängvärde med maxlängd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="String5">
+        <xs:annotation>
+            <xs:documentation>
+                Strängvärde med maxlängd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="String2">
+        <xs:annotation>
+            <xs:documentation>
+                Strängvärde med maxlängd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="PartialDateType">
+        <xs:annotation>
+            <xs:documentation>
+                Kan beskriva ett datum med variabel noggrannhet.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="format" type="tns:DateTypeFormatType"/>
+            <xs:element name="value" type="tns:PartialDateValue"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="LookupResidentsResponseType">
+        <xs:annotation>
+            <xs:documentation>
+                Returtyp för operationen lookupResidentsForProfile
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="populationRegistrationRecords" type="tns:PopulationRegistrationRecordType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ImmigrationIdentityType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för personnummer och vilket land det är knutet till. 
+                Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="personalIdentityNumber" type="tns:PersonalIdentityNumber"/>
+            <xs:element name="country" type="tns:CountryCode"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="RelationshipIdType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för relationspersons identitet
+                Antingen får man personnummer eller datum då personen föddes.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="personalIdentity" type="tns:PersonalIdentityType" minOccurs="0"/>
+            <xs:element name="dateOfBirth" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="RelationshipType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för relation
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="relationshipId" type="tns:RelationshipIdType"/>
+            <xs:element name="relationshipType" type="tns:RelationshipTypeType"/>
+            <xs:element name="relationshipFromDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:element name="relationshipToDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:element name="name" type="tns:NameType" minOccurs="0"/>
+            <xs:element name="deregistration" type="tns:DeregistrationType" minOccurs="0"/>
+            <xs:element name="status" type="tns:RelationshipStatusType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="HistoricalRecordsType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för historik
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="populationRegistrationLocality" type="tns:PopulationRegistrationLocalityType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="historicalAddress" type="tns:HistoricalAddressType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="HistoricalAddressType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för historik adress
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="residentialAddress" type="tns:ResidentialAddressType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CitizenshipCountryCodeType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för medborgarskapslandkod
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="countryCode" type="tns:CountryCode" minOccurs="0"/>
+            <xs:element name="attested" type="xs:boolean" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CitizenshipType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för medborgarskap
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="citizenshipCountryCode" type="tns:CitizenshipCountryCodeType" minOccurs="0"/>
+            <xs:element name="citizenshipDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:element name="status" type="tns:CitizenshipStatusType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ResidentialAddressType">
+        <xs:annotation>
+            <xs:documentation>
+                Svensk adress
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="careOf" type="tns:String40" minOccurs="0"/>
+            <xs:element name="postalAddress1" type="tns:String40" minOccurs="0"/>
+            <xs:element name="postalAddress2" type="tns:String40" minOccurs="0"/>
+            <xs:element name="postalCode" type="tns:PostalCode" minOccurs="0"/>
+            <xs:element name="city" type="tns:String40" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ImmigrationType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för invandringsuppgifter
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="immigrationDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:element name="rightOfResidence" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="immigrationIdentity" type="tns:ImmigrationIdentityType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PlaceOfBirthAbroadType">
+        <xs:annotation>
+            <xs:documentation>
+                Födelseort utland
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="placeOfBirthAbroad" type="tns:String80" minOccurs="0"/>
+            <xs:element name="attested" type="xs:boolean" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="BirthAbroadType">
+        <xs:annotation>
+            <xs:documentation>
+                Uppgifter om födelse i utlandet
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="placeOfBirthAbroad" type="tns:PlaceOfBirthAbroadType" minOccurs="0"/>
+            <xs:element name="countryOfBirth" type="tns:String40" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PlaceOfBirthSwedenType">
+        <xs:annotation>
+            <xs:documentation>
+                Uppgifter om hemort i Sverige
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="birthCountyCode" type="tns:String2" minOccurs="0"/>
+            <xs:element name="birthParish" type="tns:String40" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="BirthType">
+        <xs:annotation>
+            <xs:documentation>
+                Uppgifter om födelse
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="placeOfBirthSweden" type="tns:PlaceOfBirthSwedenType" minOccurs="0"/>
+            <xs:element name="birthAbroad" type="tns:BirthAbroadType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="MaritalStatusType">
+        <xs:annotation>
+            <xs:documentation>
+                Civistånd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="maritalStatusCode" type="tns:MaritalStatusCodeType" minOccurs="0"/>
+            <xs:element name="maritalStatusDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="AddressAbroadType">
+        <xs:annotation>
+            <xs:documentation>
+                Utlandsadress
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="postalAddress1" type="tns:String40" minOccurs="0"/>
+            <xs:element name="postalAddress2" type="tns:String40" minOccurs="0"/>
+            <xs:element name="postalAddress3" type="tns:String40" minOccurs="0"/>
+            <xs:element name="country" type="tns:String40" minOccurs="0"/>
+            <xs:element name="addressAbroadDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:element name="votingDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DistrictType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för Distriktskod
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="districtCode" type="tns:DistrictCode" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="NationalKeysType">
+        <xs:annotation>
+            <xs:documentation>
+                Riksnycklar
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="propertyId" type="tns:PropertyId" minOccurs="0"/>
+            <xs:element name="addressPlaceId" type="tns:AddressPlaceId" minOccurs="0"/>
+            <xs:element name="apartmentId" type="tns:ApartmentId" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="AddressInformationType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för adressuppgifter
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="residentialAddress" type="tns:ResidentialAddressType" minOccurs="0"/>
+            <xs:element name="nationalKeys" type="tns:NationalKeysType" minOccurs="0"/>
+            <xs:element name="district" type="tns:DistrictType" minOccurs="0"/>
+            <xs:element name="specialPostalAddress" type="tns:ResidentialAddressType" minOccurs="0"/>
+            <xs:element name="addressAbroad" type="tns:AddressAbroadType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="NamePartType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för del av namn där delen kan vara styrkt eller ej
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="name" type="tns:String80" minOccurs="0"/>
+            <xs:element name="attested" type="xs:boolean" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="NameType">
+        <xs:annotation>
+            <xs:documentation>
+                Namn
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="givenNameIndicator" type="tns:GivenNameIndicator" minOccurs="0"/>
+            <xs:element name="givenName" type="tns:NamePartType" minOccurs="0"/>
+            <xs:element name="middleName" type="tns:NamePartType" minOccurs="0"/>
+            <xs:element name="surname" type="tns:NamePartType" minOccurs="0"/>
+            <xs:element name="notificationName" type="tns:String40" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PopulationRegistrationLocalityType">
+        <xs:annotation>
+            <xs:documentation>
+                Uppgifter om folkbokföring
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="populationRegistrationDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:element name="countyCode" type="tns:String2" minOccurs="0"/>
+            <xs:element name="municipalityCode" type="tns:String2" minOccurs="0"/>
+            <xs:element name="parishCode" type="tns:String2" minOccurs="0"/>
+            <xs:element name="propertyDesignation" type="tns:String40" minOccurs="0"/>
+            <xs:element name="fictitiousPropertyNumber" type="tns:FictitiousPropertyNumber" minOccurs="0"/>
+            <xs:element name="populationRegistrationType" type="tns:PopulationRegistrationTypeType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PersonalIdentityType">
+        <xs:annotation>
+            <xs:documentation>
+                Personidentitet
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="id" type="tns:PersonalIdentityNumber"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DeregistrationType">
+        <xs:annotation>
+            <xs:documentation>
+                Uppgifter om avregistrering
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="deregistrationReasonCode" type="tns:DeregistrationReasonCodeType" minOccurs="0"/>
+            <xs:element name="deregistrationDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PersonalRecordType">
+        <xs:annotation>
+            <xs:documentation>
+                Grupp för personpost
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="personalIdentity" type="tns:PersonalIdentityType" minOccurs="0"/>
+            <xs:element name="referredPersonalIdentity" type="tns:PersonalIdentityType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="deregistration" type="tns:DeregistrationType" minOccurs="0"/>
+            <xs:element name="name" type="tns:NameType" minOccurs="0"/>
+            <xs:element name="populationRegistrationLocality" type="tns:PopulationRegistrationLocalityType" minOccurs="0"/>
+            <xs:element name="addressInformation" type="tns:AddressInformationType" minOccurs="0"/>
+            <xs:element name="maritalStatus" type="tns:MaritalStatusType" minOccurs="0"/>
+            <xs:element name="birth" type="tns:BirthType" minOccurs="0"/>
+            <xs:element name="immigration" type="tns:ImmigrationType" minOccurs="0"/>
+            <xs:element name="relationships" type="tns:RelationshipType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="citizenship" type="tns:CitizenshipType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="NotificationCaseType">
+        <xs:annotation>
+            <xs:documentation>
+                Ärendeuppgifter
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="recordId" type="tns:RecordId" minOccurs="0"/>
+            <xs:element name="notificationType" type="tns:String40" minOccurs="0"/>
+            <xs:element name="modificationTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="totalRecord" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="notificationDate" type="tns:PartialDateType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PopulationRegistrationRecordType">
+        <xs:annotation>
+            <xs:documentation>
+                Folkbokföringspost
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="protectedPersonIndicator" type="xs:boolean"/>
+            <xs:element name="testIndicator" type="xs:boolean"/>
+            <xs:element name="syncronizationTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="notificationCase" type="tns:NotificationCaseType" minOccurs="0"/>
+            <xs:element name="personalRecord" type="tns:PersonalRecordType"/>
+            <xs:element name="historicalRecords" type="tns:HistoricalRecordsType" minOccurs="0"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

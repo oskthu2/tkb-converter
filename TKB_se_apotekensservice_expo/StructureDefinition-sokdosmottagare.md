@@ -1,0 +1,406 @@
+# SokDosmottagare — Response - se.apotekensservice: expo — Expeditionsställen och dosmottagare v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SokDosmottagare — Response**
+
+## Logical Model: SokDosmottagare — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/sokdosmottagare | *Version*:1.0 |
+| Draft as of 2026-11-06 | *Computable Name*:SokDosmottagare |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i SokDosmottagare (urn:riv:se.apotekensservice:expo:SokDosmottagareResponder:1, SokDosmottagareResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.se-apotekensservice-expo|current/StructureDefinition/StructureDefinition-sokdosmottagare.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-sokdosmottagare.csv), [Excel](StructureDefinition-sokdosmottagare.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "sokdosmottagare",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/sokdosmottagare",
+  "version" : "1.0",
+  "name" : "SokDosmottagare",
+  "title" : "SokDosmottagare — Response",
+  "status" : "draft",
+  "date" : "2026-11-06T21:44:42+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i SokDosmottagare\n(urn:riv:se.apotekensservice:expo:SokDosmottagareResponder:1, SokDosmottagareResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/sokdosmottagare",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "sokdosmottagare",
+      "path" : "sokdosmottagare",
+      "short" : "SokDosmottagare — Response",
+      "definition" : "Logisk modell för svaret i SokDosmottagare\n(urn:riv:se.apotekensservice:expo:SokDosmottagareResponder:1, SokDosmottagareResponseType)."
+    },
+    {
+      "id" : "sokdosmottagare.resultat",
+      "path" : "sokdosmottagare.resultat",
+      "short" : "resultat",
+      "definition" : "Lista med apotek och kopplade dosmottagare som utdata",
+      "comment" : "TKB-fält: `resultat` (`SokDosmottagareResultatResponse`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek",
+      "path" : "sokdosmottagare.resultat.apotek",
+      "short" : "apotek",
+      "definition" : "Apoteksinformation för dosproducenten.",
+      "comment" : "TKB-fält: `../apotek` (`HamtaApoteksInfoResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista",
+      "short" : "apoteksinformationLista",
+      "definition" : "Lista innehållande ett eller flera Apoteksinformation.",
+      "comment" : "TKB-fält: `../../apoteksinformationLista` (`ApoteksinformationResponse`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.aktorsnamn",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.aktorsnamn",
+      "short" : "aktorsnamn",
+      "definition" : "Officiellt namn för aktör",
+      "comment" : "TKB-fält: `../../../aktorsnamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.aktorsorgnr",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.aktorsorgnr",
+      "short" : "aktorsorgnr",
+      "definition" : "Aktörens organisationsnummer.",
+      "comment" : "TKB-fält: `../../../aktorsorgnr` (`long`, kardinalitet 0..1).\n\n**Modellanteckning:** Aktörens organisationsnummer. (xs:long i schemat.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.allmantelefon",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.allmantelefon",
+      "short" : "allmantelefon",
+      "definition" : "Telefonnummer för allmänheten",
+      "comment" : "TKB-fält: `../../../allmantelefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.besoksadress",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.besoksadress",
+      "short" : "besoksadress",
+      "definition" : "Expeditionsställets besöksadress",
+      "comment" : "TKB-fält: `../../../besoksadress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.eReceptDjur",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.eReceptDjur",
+      "short" : "eReceptDjur",
+      "definition" : "Markering gällande om apoteket kan expediera elektroniska djurrecept.",
+      "comment" : "TKB-fält: `../../../eReceptDjur` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.fax",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.fax",
+      "short" : "fax",
+      "definition" : "Expeditionsställets faxnummer",
+      "comment" : "TKB-fält: `../../../fax` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.glnKod",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.glnKod",
+      "short" : "glnKod",
+      "definition" : "Expeditionsställets GLN-kod",
+      "comment" : "TKB-fält: `../../../glnKod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.huvudtypkod",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.huvudtypkod",
+      "short" : "huvudtypkod",
+      "definition" : "Kod som beskriver huvudverksamheten för expeditionsstället",
+      "comment" : "TKB-fält: `../../../huvudtypkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.namn",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.namn",
+      "short" : "namn",
+      "definition" : "Expeditionsställets officiella namn",
+      "comment" : "TKB-fält: `../../../namn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.ort",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.ort",
+      "short" : "ort",
+      "definition" : "Expeditionsställets besöksort",
+      "comment" : "TKB-fält: `../../../ort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.slutdatum",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.slutdatum",
+      "short" : "slutdatum",
+      "definition" : "Datum för stängning av verksamhet",
+      "comment" : "TKB-fält: `../../../slutdatum` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.startdatum",
+      "path" : "sokdosmottagare.resultat.apotek.apoteksinformationLista.startdatum",
+      "short" : "startdatum",
+      "definition" : "Datum för start av verksamhet",
+      "comment" : "TKB-fält: `../../../startdatum` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare",
+      "path" : "sokdosmottagare.resultat.dosmottagare",
+      "short" : "dosmottagare",
+      "definition" : "dosmottagare",
+      "comment" : "TKB-fält: `../dosmottagare` (`DosmottagareResponse`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "sokdosmottagare-dosmottagare-adress-when-d",
+        "severity" : "error",
+        "human" : "adress och postort ska anges när typ = 'D' (direktleverans).",
+        "expression" : "typ = 'D' implies (adress.exists() and postort.exists())",
+        "source" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/sokdosmottagare"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.adress",
+      "path" : "sokdosmottagare.resultat.dosmottagare.adress",
+      "short" : "adress",
+      "definition" : "Adress till dosmottagare. Obligatorisk om typ = 'D'.",
+      "comment" : "TKB-fält: `../../adress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.apoteksIdDosmottagare",
+      "path" : "sokdosmottagare.resultat.dosmottagare.apoteksIdDosmottagare",
+      "short" : "apoteksIdDosmottagare",
+      "definition" : "Apoteks-id för dosmottagare om dosmottagare är av typen apotek.",
+      "comment" : "TKB-fält: `../../apoteksIdDosmottagare` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.arbetsplatskod",
+      "path" : "sokdosmottagare.resultat.dosmottagare.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning.",
+      "comment" : "TKB-fält: `../../arbetsplatskod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.avdelning",
+      "path" : "sokdosmottagare.resultat.dosmottagare.avdelning",
+      "short" : "avdelning",
+      "definition" : "Avdelning inom dosmottagare.",
+      "comment" : "TKB-fält: `../../avdelning` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.dosmottagarId",
+      "path" : "sokdosmottagare.resultat.dosmottagare.dosmottagarId",
+      "short" : "dosmottagarId",
+      "definition" : "Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket.",
+      "comment" : "TKB-fält: `../../dosmottagarId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.kommunkod",
+      "path" : "sokdosmottagare.resultat.dosmottagare.kommunkod",
+      "short" : "kommunkod",
+      "definition" : "Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB.",
+      "comment" : "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.lanskod",
+      "path" : "sokdosmottagare.resultat.dosmottagare.lanskod",
+      "short" : "lanskod",
+      "definition" : "Länskod till vilken dosmottagaren tillhör. Kod enligt SCB.",
+      "comment" : "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.mottagarnamn",
+      "path" : "sokdosmottagare.resultat.dosmottagare.mottagarnamn",
+      "short" : "mottagarnamn",
+      "definition" : "Namn på dosmottagare.",
+      "comment" : "TKB-fält: `../../mottagarnamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.postnummer",
+      "path" : "sokdosmottagare.resultat.dosmottagare.postnummer",
+      "short" : "postnummer",
+      "definition" : "Postnummer till dosmottagare.",
+      "comment" : "TKB-fält: `../../postnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.postort",
+      "path" : "sokdosmottagare.resultat.dosmottagare.postort",
+      "short" : "postort",
+      "definition" : "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'.",
+      "comment" : "TKB-fält: `../../postort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sokdosmottagare.resultat.dosmottagare.typ",
+      "path" : "sokdosmottagare.resultat.dosmottagare.typ",
+      "short" : "typ",
+      "definition" : "Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek).",
+      "comment" : "TKB-fält: `../../typ` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

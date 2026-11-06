@@ -1,0 +1,270 @@
+# RequestExemptionStatuses — Request - financial: patientfees: exemption v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **RequestExemptionStatuses — Request**
+
+## Logical Model: RequestExemptionStatuses — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/requestexemptionstatuses-request | *Version*:1.0 |
+| Active as of 2026-11-06 | *Computable Name*:RequestExemptionStatusesRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i RequestExemptionStatuses (urn:riv:financial:patientfees:exemption:RequestExemptionStatusesResponder:1, RequestExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.financial-patientfees-exemption|current/StructureDefinition/StructureDefinition-requestexemptionstatuses-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-requestexemptionstatuses-request.csv), [Excel](StructureDefinition-requestexemptionstatuses-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "requestexemptionstatuses-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/requestexemptionstatuses-request",
+  "version" : "1.0",
+  "name" : "RequestExemptionStatusesRequest",
+  "title" : "RequestExemptionStatuses — Request",
+  "status" : "active",
+  "date" : "2026-11-06T21:21:50+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i RequestExemptionStatuses\n(urn:riv:financial:patientfees:exemption:RequestExemptionStatusesResponder:1, RequestExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/requestexemptionstatuses-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "requestexemptionstatuses-request",
+      "path" : "requestexemptionstatuses-request",
+      "short" : "RequestExemptionStatuses — Request",
+      "definition" : "Logisk modell för begäran i RequestExemptionStatuses\n(urn:riv:financial:patientfees:exemption:RequestExemptionStatusesResponder:1, RequestExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "requestexemptionstatuses-request.logicalAddress",
+      "path" : "requestexemptionstatuses-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.requestId",
+      "path" : "requestexemptionstatuses-request.requestId",
+      "short" : "requestId",
+      "definition" : "Unikt Id för begäran om utlämnandet. Det är konsuments ansvar att säkerställa identifierarens unikitet. Producent kommer därefter att använda denna identifierare i sitt svar som sker asynkront via tjänstekontraktet ProcessExemptionStatuses",
+      "comment" : "TKB-fält: `requestId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.requestId.root",
+      "path" : "requestexemptionstatuses-request.requestId.root",
+      "short" : "root",
+      "definition" : "Unikt Id för begäran om utlämnandet, ska förmedlas så som ett uuid.",
+      "comment" : "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.requestId.iiExtension",
+      "path" : "requestexemptionstatuses-request.requestId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "Ska utelämnas, då id förmedlas som ett uuid.",
+      "comment" : "TKB-fält: `../extension` (kardinalitet 0..0).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.patientId",
+      "path" : "requestexemptionstatuses-request.patientId",
+      "short" : "patientId",
+      "definition" : "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\nTjänsteproducenten skall i svaret leverera all information på en begäran riktad mot individens huvudidentitet, dvs även information som tidigare har registrerats på andra till individen kopplade identiteter (LRID, NRID, tidigare SNR, eller tidigare PNR)\n\nFältet type sätts till OID för typ av identifierare.\n\n1) För PNR skall Skatteverkets oid för PNR (1.2.752.129.2.1.3.1) användas.\n\n2) För SNR skall Skatteverkets oid för SNR (1.2.752.129.2.1.3.3) användas.\n\n3) För NRID skall Ineras oid för NRID (1.2.752.74.9.1) användas.\n\n4) Tjänsteproducenter skall även stödja sökning på LRID med hjälp av att ange lokalt definierade oid’ar för LRID, exempelvis SLL’s LRID(1.2.752.97.3.1.3).\n\nOBS LRID kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI skall göras av en tjänsteproducent för LRID.\n\nEn tjänstekonsument som vill begära mha LRID måste därmed använda sig av systemadressering och ha vetskap om vilken LRID-oid som gäller vid anrop mot en specifik tjänsteproducent.",
+      "comment" : "TKB-fält: `patientId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.patientId.root",
+      "path" : "requestexemptionstatuses-request.patientId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.patientId.iiExtension",
+      "path" : "requestexemptionstatuses-request.patientId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor",
+      "path" : "requestexemptionstatuses-request.actor",
+      "short" : "actor",
+      "definition" : "Aktören som begär utlämnandet.\n\nAktören är antingen invånare som begär ut sin information alternativt vårdnadshavare som begär ut barnets information.\n\nAktören kan även vara en vårdgivare som begär ut patients information från annan vårdgivare.",
+      "comment" : "TKB-fält: `actor` (`ActorType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.actorTypeEnum",
+      "path" : "requestexemptionstatuses-request.actor.actorTypeEnum",
+      "short" : "actorTypeEnum",
+      "definition" : "Enumeration som visar typ av aktör. Kan vara en av följande:\n\nCITIZEN\n\nGUARDIAN\n\nCAREGIVER",
+      "comment" : "TKB-fält: `actor.actorTypeEnum` (`ActorTypeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-actortype-vs"
+      }
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.actorId",
+      "path" : "requestexemptionstatuses-request.actor.actorId",
+      "short" : "actorId",
+      "definition" : "Beroende på typ av aktör anges antingen aktörens personnummer eller HSAId.\n\nFör CITIZEN och GUARDIAN anges ett personnummer, se attributet patientId för hur personnummer anges.\n\nFör CAREGIVER anges ett HSAId för vårdpersonal. I det fall sätts:\n\nactor.actorId.root = 1.2.752.129.2.1.4.1\n\nactor.actorId.extension = `<HSA Id>`",
+      "comment" : "TKB-fält: `actor.actorId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.actorId.root",
+      "path" : "requestexemptionstatuses-request.actor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.actorId.iiExtension",
+      "path" : "requestexemptionstatuses-request.actor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.careGiverId",
+      "path" : "requestexemptionstatuses-request.actor.careGiverId",
+      "short" : "careGiverId",
+      "definition" : "Om aktören är CAREGIVER ska HSAId för vårdgivare anges. Annars ska detta fält utelämnas.\n\nFör vårdgivare sätts:\n\nactor.careGiverId.root = 1.2.752.129.2.1.4.1\n\nactor.careGiverId.extension = `<HSA Id>`",
+      "comment" : "TKB-fält: `actor.careGiverId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.careGiverId.root",
+      "path" : "requestexemptionstatuses-request.actor.careGiverId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.actor.careGiverId.iiExtension",
+      "path" : "requestexemptionstatuses-request.actor.careGiverId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "requestexemptionstatuses-request.responseLogicalAddress",
+      "path" : "requestexemptionstatuses-request.responseLogicalAddress",
+      "short" : "responseLogicalAddress",
+      "definition" : "Logisk adress dit utlämnandet senare ska skickas. Anropande part av detta tjänstekontrakt måste således även vara producent för tjänstekontraktet ProcessExemptionStatuses, dit svaret/utlämnandet senare skickas asynkront. Det betyder att anropande part behöver vara upplagd i tjänsteadresseringskatalogen (TAK) som producent samt att konsument av ProcessExemptionStatuses givits anropsbehörighet till anropande part.",
+      "comment" : "TKB-fält: `responseLogicalAddress` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

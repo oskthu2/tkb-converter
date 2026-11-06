@@ -1,0 +1,326 @@
+# GetHospCredentialsForPerson - infrastructure: directory: authorizationmanagement v2.4.5
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHospCredentialsForPerson**
+
+## Logical Model: GetHospCredentialsForPerson 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/gethospcredentialsforperson | *Version*:1.0 |
+| Active as of 2026-11-06 | *Computable Name*:GetHospCredentialsForPerson |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetHospCredentialsForPerson (RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetHospCredentialsForPerson:1). Hämtar från Socialstyrelsen utlämnad behörighetsgrundande HOSP-information för angiven person. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-directory-authorizationmanagement|current/StructureDefinition/StructureDefinition-gethospcredentialsforperson.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethospcredentialsforperson.csv), [Excel](StructureDefinition-gethospcredentialsforperson.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethospcredentialsforperson",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/gethospcredentialsforperson",
+  "version" : "1.0",
+  "name" : "GetHospCredentialsForPerson",
+  "title" : "GetHospCredentialsForPerson",
+  "status" : "active",
+  "date" : "2026-11-06T21:28:52+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetHospCredentialsForPerson\n(RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetHospCredentialsForPerson:1).\nHämtar från Socialstyrelsen utlämnad behörighetsgrundande HOSP-information för angiven person.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/gethospcredentialsforperson",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethospcredentialsforperson",
+      "path" : "gethospcredentialsforperson",
+      "short" : "GetHospCredentialsForPerson",
+      "definition" : "Logisk modell för tjänstekontraktet GetHospCredentialsForPerson\n(RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetHospCredentialsForPerson:1).\nHämtar från Socialstyrelsen utlämnad behörighetsgrundande HOSP-information för angiven person."
+    },
+    {
+      "id" : "gethospcredentialsforperson.personalIdentityNumber",
+      "path" : "gethospcredentialsforperson.personalIdentityNumber",
+      "short" : "Personens person- eller samordningsnummer",
+      "definition" : "Personens person- eller samordningsnummer\n\nRef. Person-id (personalIdentityNumber) [R5]",
+      "comment" : "TKB-fält: `personalIdentityNumber` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.personalIdentityNumber.root",
+      "path" : "gethospcredentialsforperson.personalIdentityNumber.root",
+      "short" : "OID för typ av personnummer",
+      "definition" : "Anger typ av personalIdentity som returneras",
+      "comment" : "TKB-fält: `.. root` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** För personnummer: 1.2.752.129.2.1.3.1, för samordningsnummer: 1.2.752.129.2.1.3.3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.personalIdentityNumber.personNumber",
+      "path" : "gethospcredentialsforperson.personalIdentityNumber.personNumber",
+      "short" : "Person- eller samordningsnummer",
+      "definition" : "Person- eller samordningsnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicence",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicence",
+      "short" : "Personens legitimerade yrkestitel(-lar)",
+      "definition" : "Personens Legitimerade yrkestitel(-lar)",
+      "comment" : "TKB-fält: `healthCareProfessionalLicence` (`healthCareProfessionalLicenceType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicence.healthCareProfessionalLicenceCode",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicence.healthCareProfessionalLicenceCode",
+      "short" : "Kod för legitimerad yrkestitel (Socialstyrelsens kodverk 1.2.752.116.3.1.3)",
+      "definition" : "Kod för personens Legitimerade yrkestitel.",
+      "comment" : "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicence.healtCareProfessionalLicenceName",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicence.healtCareProfessionalLicenceName",
+      "short" : "Klartext för legitimerad yrkestitel",
+      "definition" : "Klartext för personens Legitimerade yrkestitel.",
+      "comment" : "TKB-fält: `.. healtCareProfessionalLicenceName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.personalPrescriptionCode",
+      "path" : "gethospcredentialsforperson.personalPrescriptionCode",
+      "short" : "Personlig förskrivarkod",
+      "definition" : "Personlig förskrivarkod. Ref. Förskrivarkod (personalPrescriptionCode) [R5]",
+      "comment" : "TKB-fält: `personalPrescriptionCode` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality",
+      "short" : "Specialistkod(er) kopplat till legitimerad yrkesgrupp",
+      "definition" : "Personens specialistkod(er) kopplat till aktuell legitimerad yrkesgrupp.",
+      "comment" : "TKB-fält: `healthCareProfessionalLicenceSpeciality` (`HCPSpecialityCodesType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode",
+      "short" : "Kod för legitimerad yrkestitel specialistkoden hör till",
+      "definition" : "Kod för den legitimerade yrkestitel som specialistkoden hör till.",
+      "comment" : "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality.specialityCode",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality.specialityCode",
+      "short" : "Specialistkod",
+      "definition" : "Specialistkod, enligt något av Socialstyrelsens kodverk.",
+      "comment" : "TKB-fält: `.. specialityCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality.specialityName",
+      "path" : "gethospcredentialsforperson.healthCareProfessionalLicenceSpeciality.specialityName",
+      "short" : "Specialitet i klartext",
+      "definition" : "Specialitet i klartext.",
+      "comment" : "TKB-fält: `.. specialityName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.nursePrescriptionRight",
+      "path" : "gethospcredentialsforperson.nursePrescriptionRight",
+      "short" : "Förskrivningsrätt för barnmorska/sjuksköterska",
+      "definition" : "Förskrivningsrätt för barnmorska/sjuksköterska",
+      "comment" : "TKB-fält: `nursePrescriptionRight` (`NursePrescriptionRightType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.nursePrescriptionRight.healthCareProfessionalLicence",
+      "path" : "gethospcredentialsforperson.nursePrescriptionRight.healthCareProfessionalLicence",
+      "short" : "Legitimerad yrkestitel (BM eller SJ)",
+      "definition" : "Personens legitimerade yrkestitel inom vilken denne har förskrivningsrätt.",
+      "comment" : "TKB-fält: `.. healthCareProfessionalLicence` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.nursePrescriptionRight.prescriptionRight",
+      "path" : "gethospcredentialsforperson.nursePrescriptionRight.prescriptionRight",
+      "short" : "Personen har förskrivningsrätt",
+      "definition" : "Personen har förskrivningsrätt inom den angivna Legitimerade yrkestiteln",
+      "comment" : "TKB-fält: `.. prescriptionRight` (`Boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.healthcareProfessionalLicenseIdentityNumber",
+      "path" : "gethospcredentialsforperson.healthcareProfessionalLicenseIdentityNumber",
+      "short" : "Personens HOSP-id",
+      "definition" : "Personens HoSp-id.\n\nRef. HOSP-id (hospIdentityNumber) [R5]",
+      "comment" : "TKB-fält: `healthcareProfessionalLicenseIdentityNumber` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.educationCode",
+      "path" : "gethospcredentialsforperson.educationCode",
+      "short" : "Utbildningskod (Socialstyrelsens kodverk HoSp utbildningskod 1.2.752.116.3.1.4)",
+      "definition" : "Utbildningskod. Ref. Socialstyrelsens kodverk [R7] HoSp utbildningskod 1.2.752.116.3.1.4",
+      "comment" : "TKB-fält: `educationCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.restrictions",
+      "path" : "gethospcredentialsforperson.restrictions",
+      "short" : "Restriktioner för legitimation",
+      "definition" : "Restriktioner för legitimation",
+      "comment" : "TKB-fält: `restrictions` (`RestrictionType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.restrictions.healthCareProfessionalLicenceCode",
+      "path" : "gethospcredentialsforperson.restrictions.healthCareProfessionalLicenceCode",
+      "short" : "Kod för legitimerad yrkestitel restriktionskoden hör till",
+      "definition" : "Kod för den Legitimerade yrkestitel som restriktionskoden hör till.",
+      "comment" : "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.restrictions.restrictionCode",
+      "path" : "gethospcredentialsforperson.restrictions.restrictionCode",
+      "short" : "Restriktionskod (Socialstyrelsens kodverk Behörighetsbegränsning 1.2.752.116.3.1.5)",
+      "definition" : "Restriktionskod. Ref Socialstyrelsens kodverk [R7] Behörighetsbegränsning 1.2.752.116.3.1.5",
+      "comment" : "TKB-fält: `.. restrictionCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.restrictions.restrictionName",
+      "path" : "gethospcredentialsforperson.restrictions.restrictionName",
+      "short" : "Restriktionskod i klartext",
+      "definition" : "Restriktionskod i klartext.",
+      "comment" : "TKB-fält: `.. restrictionName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethospcredentialsforperson.feignedPerson",
+      "path" : "gethospcredentialsforperson.feignedPerson",
+      "short" : "Personen är ett fingerat objekt",
+      "definition" : "true: om personen är en fingerad person",
+      "comment" : "TKB-fält: `feignedPerson` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,487 @@
+# GetListing — Response - supportprocess: logistics: carelisting v2.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetListing — Response**
+
+## Logical Model: GetListing — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/getlisting | *Version*:2.1 |
+| Active as of 2026-11-06 | *Computable Name*:GetListing |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetListing (urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-carelisting|current/StructureDefinition/StructureDefinition-getlisting.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getlisting.csv), [Excel](StructureDefinition-getlisting.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getlisting",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/getlisting",
+  "version" : "2.1",
+  "name" : "GetListing",
+  "title" : "GetListing — Response",
+  "status" : "active",
+  "date" : "2026-11-06T21:53:25+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetListing\n(urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/getlisting",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getlisting",
+      "path" : "getlisting",
+      "short" : "GetListing — Response",
+      "definition" : "Logisk modell för svaret i GetListing\n(urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingResponseType)."
+    },
+    {
+      "id" : "getlisting.listings",
+      "path" : "getlisting.listings",
+      "short" : "listings",
+      "definition" : "Lista med listningsdetaljer för mottagningar som invånare är listad på. Om en region erbjuder sina invånare att kunna lista sig på mer än en listningstyp kan denna lista innehålla mer än en instans med listningsdetaljer (kopplade till en mottagning).",
+      "comment" : "TKB-fält: `listings` (`ListingHealthcareFacilityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.validFromDate",
+      "path" : "getlisting.listings.validFromDate",
+      "short" : "validFromDate",
+      "definition" : "Datum från när listningen började gälla",
+      "comment" : "TKB-fält: `listings.validFromDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.validToDate",
+      "path" : "getlisting.listings.validToDate",
+      "short" : "validToDate",
+      "definition" : "Datum till när listningen fortfarande gäller",
+      "comment" : "TKB-fält: `listings.validToDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType",
+      "path" : "getlisting.listings.listingType",
+      "short" : "listingType",
+      "definition" : "Listningstyp som listningen gäller.\n\nSe listningstyper i referens [R3]",
+      "comment" : "TKB-fält: `listings.listingType` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType.cVCode",
+      "path" : "getlisting.listings.listingType.cVCode",
+      "short" : "cVCode",
+      "definition" : "Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.",
+      "comment" : "TKB-fält: `listings.listingType.code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cVCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType.codeSystem",
+      "path" : "getlisting.listings.listingType.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "Sätts till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas i.\n\nOm listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara 1.2.752.129.5.1.27.\n\nhttps://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2",
+      "comment" : "TKB-fält: `listings.listingType.codeSystem` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType.codeSystemName",
+      "path" : "getlisting.listings.listingType.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "comment" : "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType.codeSystemVersion",
+      "path" : "getlisting.listings.listingType.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "comment" : "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType.displayName",
+      "path" : "getlisting.listings.listingType.displayName",
+      "short" : "displayName",
+      "definition" : "Benämningen på listningstypen att visa för invånare i ett användargränssnitt.\n\nFör den nationella listningstypen ”PV” ska displayName vara ”Primärvårdslistning”.",
+      "comment" : "TKB-fält: `listings.listingType.displayName` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.listingType.originalText",
+      "path" : "getlisting.listings.listingType.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "comment" : "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility",
+      "path" : "getlisting.listings.healthcareFacility",
+      "short" : "healthcareFacility",
+      "definition" : "Den valda listningsbara mottagningen",
+      "comment" : "TKB-fält: `listings.healthcareFacility` (`HealthcareFacilityType`, kardinalitet 1..1).\n\n**Modellanteckning:** Vårdinrättning/vårdenhet som ansvarar för en person som listat sig hos dem. Det är denna inrättning som får ekonomisk ersättning för personen.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.healthcareFacilityId",
+      "path" : "getlisting.listings.healthcareFacility.healthcareFacilityId",
+      "short" : "healthcareFacilityId",
+      "definition" : "HSAId för mottagningen\n\nEn tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener.\n\nExempelvis är:\n\n”se12345-xyz” = ”SE12345-XYZ”",
+      "comment" : "TKB-fält: `listings.healthcareFacility.id` (`HSAIdType / (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** healthcareFacilityId Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.healthcareFacilityName",
+      "path" : "getlisting.listings.healthcareFacility.healthcareFacilityName",
+      "short" : "healthcareFacilityName",
+      "definition" : "Namn på vårdenheten",
+      "comment" : "TKB-fält: `listings.healthcareFacility.name` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** Namn på vårdenheten. Heter name i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.hasQueue",
+      "path" : "getlisting.listings.healthcareFacility.hasQueue",
+      "short" : "hasQueue",
+      "definition" : "Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts.\n\nSkall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således:\n\nTRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds\n\nFALSE = För övrigt",
+      "comment" : "TKB-fält: `listings.healthcareFacility.hasQueue` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes",
+      "short" : "supportedListingTypes",
+      "definition" : "Lista med olika listningstyper som mottagningen erbjuder.\n\nOm attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.supportedListingTypes` (`CVType`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.\n\n**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes.cVCode",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes.cVCode",
+      "short" : "cVCode",
+      "definition" : "Kod för listningstypen som mottagningen stödjer.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.supportedListingTypes.code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cVCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes.codeSystem",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "OID, urn eller liknande som visar på från vilket kodverk den angivna koden/listningstypen innefattas.\n\nOm listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för codeSystem vara ”1.2.752.129.5.1.27”.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.supportedListingTypes.codeSystem` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemName",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "comment" : "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemVersion",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "comment" : "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes.displayName",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes.displayName",
+      "short" : "displayName",
+      "definition" : "Benämning av listningstypen. Benämningen ska vara uttryckt på ett invånarvänligt sätt för att kunna förmedlas i invånarens användargränssnitt i e-tjänst.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.supportedListingTypes.displayName` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportedListingTypes.originalText",
+      "path" : "getlisting.listings.healthcareFacility.supportedListingTypes.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "comment" : "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.supportsHealthcarePersonnel",
+      "path" : "getlisting.listings.healthcareFacility.supportsHealthcarePersonnel",
+      "short" : "supportsHealthcarePersonnel",
+      "definition" : "Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt\".\n\nDet är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent.\n\nTRUE = mottagningen erbjuder fast läkarkontakt.\n\nUtelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.supportsHealthcarePersonnel` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.queueLength",
+      "path" : "getlisting.listings.healthcareFacility.queueLength",
+      "short" : "queueLength",
+      "definition" : "Nytt fält fr o m v2.1.\n\nOm mottagningen erbjuder kö kan mottagningen redovisa hur många invånare som för tillfället står i listningskö till mottagningen. Fältet är frivilligt.\n\nObservera:\n\nDetta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.queueLength` (`integer`, kardinalitet 0..1).\n\n**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcareFacility.estimatedWaitInQueue",
+      "path" : "getlisting.listings.healthcareFacility.estimatedWaitInQueue",
+      "short" : "estimatedWaitInQueue",
+      "definition" : "Nytt fält fr o m v2.1.\n\nOm mottagningen erbjuder kö kan mottagningen redovisa hur lång väntetid som invånare kan förvänta sig. Fältet är frivilligt.\n\nObservera:\n\nDetta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.",
+      "comment" : "TKB-fält: `listings.healthcareFacility.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).\n\n**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcarePersonnel",
+      "path" : "getlisting.listings.healthcarePersonnel",
+      "short" : "healthcarePersonnel",
+      "definition" : "Vårdpersonal som är kopplade till listningen. Det är frivilligt för mottagning att erbjuda invånare möjlighet att dessutom välja vårdpersonal i samband med listningen. Om regionen erbjuder denna möjlighet ska regionen även vara producent för tjänstekontraktet GetAvailableHealthcarePersonnel. Det är Regionen kan därefter välja att erbjuda denna funktionalitet per mottagning, genom flaggan supportsHealthcarePersonnel (i typen HealthCareFacilityType).\n\nObservera att en producent tillåts förmedla fast läkarkontakt genom att populera detta fält även om producent inte erbjuder invånaren möjlighet att digitalt välja fast läkarkontakt.\n\nEn konsument ska visa den förmedlade fasta läkarkontakten till invånaren, även om producent inte stödjer det frivilliga tjänstekontraktet GetAvailableHealthcarePersonnel.",
+      "comment" : "TKB-fält: `listings.healthcarePersonnel` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcarePersonnel.healthcarePersonnelId",
+      "path" : "getlisting.listings.healthcarePersonnel.healthcarePersonnelId",
+      "short" : "healthcarePersonnelId",
+      "definition" : "HsaId för vårdpersonal",
+      "comment" : "TKB-fält: `listings.healthcarePersonnel.id` (`HSAIdType / (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** healthcarePersonnelId Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcarePersonnel.healthcarePersonnelName",
+      "path" : "getlisting.listings.healthcarePersonnel.healthcarePersonnelName",
+      "short" : "healthcarePersonnelName",
+      "definition" : "Namn (för- och efternamn) för vårdpersonal",
+      "comment" : "TKB-fält: `listings.healthcarePersonnel.name` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** healthcarePersonnelName Heter name i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.healthcarePersonnel.title",
+      "path" : "getlisting.listings.healthcarePersonnel.title",
+      "short" : "title",
+      "definition" : "Vårdpersonals titel",
+      "comment" : "TKB-fält: `listings.healthcarePersonnel.title` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.isInQueue",
+      "path" : "getlisting.listings.isInQueue",
+      "short" : "isInQueue",
+      "definition" : "Flagga för att visa om invånare står i kö för att lista sig på mottagningen eller om invånare har en aktiv listning.\n\nTRUE = Invånare står i kö\n\nFALSE = Invånare har en aktiv listning på mottagningen",
+      "comment" : "TKB-fält: `listings.isInQueue` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.queuePosition",
+      "path" : "getlisting.listings.queuePosition",
+      "short" : "queuePosition",
+      "definition" : "Nytt fält fr o m v2.1.\n\nFörmedlar vilken plats i listningskön som invånaren har om invånaren tidigare har valt att ställa sig i kö på mottagningen",
+      "comment" : "TKB-fält: `listings.queuePosition` (`integer`, kardinalitet 0..1).\n\n**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.estimatedWaitInQueue",
+      "path" : "getlisting.listings.estimatedWaitInQueue",
+      "short" : "estimatedWaitInQueue",
+      "definition" : "Nytt fält fr o m v2.1.\n\nFörmedlar hur lång uppskattad återstående väntetid invånaren kan förvänta sig om invånaren tidigare ställt sig i listningskön på mottagningen. Den uppskattade väntetiden ska återge ungefär hur länge till invånare uppskattas behöva vänta innan invånaren blir listad på mottagningen.\n\nUppskattad väntetid anges i antal dagar.",
+      "comment" : "TKB-fält: `listings.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).\n\n**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getlisting.listings.remainingChanges",
+      "path" : "getlisting.listings.remainingChanges",
+      "short" : "remainingChanges",
+      "definition" : "Nytt fält fr o m v2.1.\n\nFörmedlar hur många omlistningar som invånare har kvar att kunna göra.\n\nFör listning till primärvård får invånare lista om sig maximalt 3 ggr under en 12-månaders period enligt Socialstyrelsens föreskrifter.",
+      "comment" : "TKB-fält: `listings.remainingChanges` (`integer`, kardinalitet 0..1).\n\n**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getlisting.resultCode",
+      "path" : "getlisting.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR.",
+      "comment" : "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs"
+      }
+    },
+    {
+      "id" : "getlisting.resultText",
+      "path" : "getlisting.resultText",
+      "short" : "resultText",
+      "definition" : "Kan utelämnas om resultCode = OK.\n\nProducent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.",
+      "comment" : "TKB-fält: `resultText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

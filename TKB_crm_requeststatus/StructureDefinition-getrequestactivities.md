@@ -1,0 +1,483 @@
+# GetRequestActivities - crm: requeststatus v2.0.1-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetRequestActivities**
+
+## Logical Model: GetRequestActivities 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/crm-requeststatus/StructureDefinition/getrequestactivities | *Version*:2.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetRequestActivities |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetRequestActivities (RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2). Representerar responsens informationsstruktur — en lista med statusrader för en patients remisser. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.crm-requeststatus|current/StructureDefinition/StructureDefinition-getrequestactivities.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getrequestactivities.csv), [Excel](StructureDefinition-getrequestactivities.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getrequestactivities",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/crm-requeststatus/StructureDefinition/getrequestactivities",
+  "version" : "2.0",
+  "name" : "GetRequestActivities",
+  "title" : "GetRequestActivities",
+  "status" : "draft",
+  "date" : "2026-11-06T21:11:22+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetRequestActivities\n(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).\nRepresenterar responsens informationsstruktur — en lista med statusrader för en patients remisser.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/crm-requeststatus/StructureDefinition/getrequestactivities",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getrequestactivities",
+      "path" : "getrequestactivities",
+      "short" : "GetRequestActivities",
+      "definition" : "Logisk modell för tjänstekontraktet GetRequestActivities\n(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).\nRepresenterar responsens informationsstruktur — en lista med statusrader för en patients remisser."
+    },
+    {
+      "id" : "getrequestactivities.requestActivity",
+      "path" : "getrequestactivities.requestActivity",
+      "short" : "Remisstatus som matchar begäran",
+      "definition" : "Remisstatus som matchar begäran",
+      "comment" : "TKB-fält: `requestActivity` (`RequestActivityType`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med statusrader för remisser. En rad per aktivitet/status som en remiss passerat i remissprocessen.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header",
+      "path" : "getrequestactivities.requestActivity.header",
+      "short" : "Gemensam information om remisstatusen",
+      "definition" : "Innehåller information som är gemensam för remisstatusen som tillgängliggörs, exempelvis information om vilken hälso- och sjukvårdspersonal som är angiven som författare av en remisstatus samt information om signering.",
+      "comment" : "TKB-fält: `../header` (`HeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader",
+      "short" : "Information för åtkomstkontroll",
+      "definition" : "Information som används för kontroll av åtkomst.",
+      "comment" : "TKB-fält: `../../accessControlHeader` (`AccessControlHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider",
+      "short" : "Uppgiftsägande vårdgivare",
+      "definition" : "Id för uppgiftsägande vårdgivare [R11].\n\nI första hand HSA-id, i andra hand organisationsnummer.\n\nOm HSA-id används:\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id\n\nOm organisationsnummer används:\n\nroot sätts till OID för organisationsnummer (1.2.752.29.4.3)\n\nextension sätts till organisationsnumret. Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.\n\nRegel 2.1",
+      "comment" : "TKB-fält: `../../../accountableHealthcareProvider` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit",
+      "short" : "Vårdenhet",
+      "definition" : "HSA-id för vårdenheten [R11] där uppgiften är dokumenterad.\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id\n\nRegel 2.1",
+      "comment" : "TKB-fält: `../../../accountableCareUnit` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId",
+      "short" : "Ursprunglig patientidentifierare",
+      "definition" : "Personidentifieraren som den tillgängliggjorda remisstatusen lagrades under då den skapades. Detta fält anges endast då det skiljer sig från patientId, exempelvis då patienten tidigare erhållit vård som dokumenterats under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.\n\nroot sätts till OID för typ av personidentifierare.\n\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör andra typer av personidentifierare sätts root till aktuell OID.\n\nextension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.",
+      "comment" : "TKB-fält: `../../../originalPatientId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader.careProcessId",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader.careProcessId",
+      "short" : "Vårdprocess-id",
+      "definition" : "Id för den individanpassade vårdprocess som remisstatusen journalförts inom ramen för. Består av ett lokalt genererat UUID.\n\nroot sätts till UUID\n\nextension anges ej",
+      "comment" : "TKB-fält: `../../../careProcessId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime",
+      "short" : "Tidpunkt för spärrkontroll",
+      "definition" : "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring. Gäller både yttre (mellan vårdgivare) och inre (mellan vårdenheter) spärr.\n\nInformationsägaren väljer själv en lämplig tidpunkt, t.ex. tidpunkten då remissen först skickades.",
+      "comment" : "TKB-fält: `../../../blockComparisonTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient",
+      "path" : "getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient",
+      "short" : "Godkänd för patientåtkomst",
+      "definition" : "Ansvarig vårdpersonals beslut, alternativt verksamhetens policy och regler (men- och sekretessprövning), huruvida remisstatusen får delas till patient för ändamålet patients åtkomst (Individens direktåtkomst).\n\nOm remisstatusen beslutas delas sätts värdet till true, i annat fall till false. False innebär att uppgiften inte får delas till patient.\n\nNotera att värdet kan, för samma uppgift, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. I sådana fall skall källsystemet uppdatera engagemangsindex.",
+      "comment" : "TKB-fält: `../../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.sourceSystemId",
+      "path" : "getrequestactivities.requestActivity.header.sourceSystemId",
+      "short" : "Källsystem-id",
+      "definition" : "Det källsystem som remisstatusen lagras i.\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\n\nextension sätts till källsystemets HSA-id",
+      "comment" : "TKB-fält: `../../sourceSystemId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.record",
+      "path" : "getrequestactivities.requestActivity.header.record",
+      "short" : "Remissstatuspost",
+      "definition" : "Information avseende remisstatusen som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../record` (`RecordType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.record.recordId",
+      "path" : "getrequestactivities.requestActivity.header.record.recordId",
+      "short" : "Identifierare för remisstatus",
+      "definition" : "Identifierare för remisstatus.\n\nIdentifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska även vara konsistent och beständig mellan olika tjänstekontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.\n\nRoot sätts till systemHSA-id\n\nExtension sätts till id för remissen",
+      "comment" : "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.record.timestamp",
+      "path" : "getrequestactivities.requestActivity.header.record.timestamp",
+      "short" : "Tidpunkt då remissstatusen skapades",
+      "definition" : "Den tidpunkt då remisstatusen skapades i tjänsteproducentens källsystem.",
+      "comment" : "TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.author",
+      "path" : "getrequestactivities.requestActivity.header.author",
+      "short" : "Dokumenterande personal",
+      "definition" : "Information avseende dokumentation av remisstatus som tillgängliggörs.\n\nNotera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses.",
+      "comment" : "TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1).\n\n**Modellanteckning:** Information om den hälso- och sjukvårdspersonal som dokumenterat remisstatusen.\nAvser inte den som enbart registrerar uppgiften från annan källa.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.author.authorId",
+      "path" : "getrequestactivities.requestActivity.header.author.authorId",
+      "short" : "HSA-id för dokumenterande personal",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som dokumenterat remisstatusen som tillgängliggörs.\n\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.author.name",
+      "path" : "getrequestactivities.requestActivity.header.author.name",
+      "short" : "Namn på dokumenterande personal",
+      "definition" : "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+      "comment" : "TKB-fält: `../../../name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.author.timestamp",
+      "path" : "getrequestactivities.requestActivity.header.author.timestamp",
+      "short" : "Dokumentationstidpunkt",
+      "definition" : "Tidpunkt då remisstatusen dokumenterades eller senast uppdaterades.\n\nI de fall då remisstatusen ursprungligen dokumenterats eller uppdaterats i ett annat informationssystem än tjänsteproducentens källsystem (t.ex. laboratorieinformationssystem), ska tidpunkten spegla informationen från systemet där remisstatusen ursprungligen dokumenterades.",
+      "comment" : "TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.header.author.byRole",
+      "path" : "getrequestactivities.requestActivity.header.author.byRole",
+      "short" : "Befattning vid dokumentationstidpunkten",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.\n\nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\n\nOm kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body",
+      "path" : "getrequestactivities.requestActivity.body",
+      "short" : "Remisstatusens innehåll",
+      "definition" : "Innehåll för remisstatusen (body).",
+      "comment" : "TKB-fält: `../body` (`RequestActivityBodyType`, kardinalitet 1..1).\n\n**Modellanteckning:** Innehåll för remisstatusen (body).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.statusCode",
+      "path" : "getrequestactivities.requestActivity.body.statusCode",
+      "short" : "Remissstatus",
+      "definition" : "Angivelse av vilken status remissen befinner sig i.\n\nAnges med Kv status vårdbegäran [R5]\n\nOID: 1.2.752.129.2.2.2.43\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på kontraktet uppdateras.",
+      "comment" : "TKB-fält: `../../statusCode` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/crm-requeststatus/ValueSet/kvstatusvardbegaran-vs"
+      }
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.eventTime",
+      "path" : "getrequestactivities.requestActivity.body.eventTime",
+      "short" : "Händelsetidpunkt",
+      "definition" : "Händelsetidpunkt\n\nTidpunkt då en händelse inträffade, dvs när en ändring av remisstatus sker.",
+      "comment" : "TKB-fält: `../../eventTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request",
+      "path" : "getrequestactivities.requestActivity.body.request",
+      "short" : "Remissen",
+      "definition" : "Den utfärdade remissen.",
+      "comment" : "TKB-fält: `../../request` (`RequestType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.requestId",
+      "path" : "getrequestactivities.requestActivity.body.request.requestId",
+      "short" : "Remiss-id",
+      "definition" : "Remiss-id. Unik identifierare av remissen.\n\nVid kännedom om remittentens id på remissen ska detta anges för att kunna koppla ihop flera status och följa remissens status-information över tid.\n\nI det fall kännedom om remittentens id på remissen saknas ska källsystemets unika id på remissen anges.\n\nI det fall remissens id (sträng) består av flera delar, t.ex. enligt formatet \"källsystem-Id(HSA-ID)#lokalt-id\" så ska hela strängen anges.",
+      "comment" : "TKB-fält: `../../../id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.type",
+      "path" : "getrequestactivities.requestActivity.body.request.type",
+      "short" : "Remisstyp",
+      "definition" : "Remisstyp. Kod och klartext som anger vilken typ av remiss som avses.\n\nAnges med Kv framställantyp [R5]\n\nOID: 1.2.752.129.2.2.2.24\n\nGiltiga värden:\n\n1 = röntgenremiss\n\n2 = labbremiss\n\n4 = allmänremiss\n\nExempel:\n\nrequest.type.codesystem = 1.2.752.129.2.2.2.24\n\nrequest.type.code = 4\n\nrequest.type.displayName = allmänremiss",
+      "comment" : "TKB-fält: `../../../type` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/crm-requeststatus/ValueSet/kvframstallantyp-vs"
+      }
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.medium",
+      "path" : "getrequestactivities.requestActivity.body.request.medium",
+      "short" : "Medium för remissen",
+      "definition" : "Medium. Kod och klartext som anger medium för remissen.\n\nAnges med Kv Form av framställan [R5]\n\nOID: 1.2.752.129.2.2.2.7\n\nGiltiga värden:\n\n3 = skriftligt elektroniskt\n\n4 = skriftligt papper\n\nExempel:\n\nmedium.codesystem = 1.2.752.129.2.2.2.7\n\nmedium.code = 3\n\nmedium.displayName = skriftligt elektroniskt",
+      "comment" : "TKB-fält: `../../../medium` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/crm-requeststatus/ValueSet/kvformavframstallan-vs"
+      }
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.author",
+      "path" : "getrequestactivities.requestActivity.body.request.author",
+      "short" : "Remittent",
+      "definition" : "Remittent\n\nFörfattare av remissen.",
+      "comment" : "TKB-fält: `../../../author` (`RequestAuthorType`, kardinalitet 0..1).\n\n**Modellanteckning:** Remittent — författare av remissen.\nObligatoriskt när statusCode = 1 (Skickad), 7 (Svar mottaget) eller 11 (Makulerad).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.author.name",
+      "path" : "getrequestactivities.requestActivity.body.request.author.name",
+      "short" : "Remittentens namn",
+      "definition" : "Remittentens namn",
+      "comment" : "TKB-fält: `../../../../name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.author.organization",
+      "path" : "getrequestactivities.requestActivity.body.request.author.organization",
+      "short" : "Remitterande enhet",
+      "definition" : "Remitterande enhet",
+      "comment" : "TKB-fält: `../../../../organization` (`OrganizationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Den enhet som remittenten tillhör.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.author.organization.organizationId",
+      "path" : "getrequestactivities.requestActivity.body.request.author.organization.organizationId",
+      "short" : "Remitterande enhetens id",
+      "definition" : "Remitterande enhetens id\n\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `../../../../../id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.author.organization.name",
+      "path" : "getrequestactivities.requestActivity.body.request.author.organization.name",
+      "short" : "Remitterande enhetens namn",
+      "definition" : "Remitterande enhetens namn.",
+      "comment" : "TKB-fält: `../../../../../name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.receivingOrganization",
+      "path" : "getrequestactivities.requestActivity.body.request.receivingOrganization",
+      "short" : "Remissmottagande enhet",
+      "definition" : "Remissmottagande enhet.",
+      "comment" : "TKB-fält: `../../../receivingOrganization` (`OrganizationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Den enhet som är mottagare av remissen (eller faktisk mottagare om remissen skickats vidare).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.receivingOrganization.receivingOrganizationId",
+      "path" : "getrequestactivities.requestActivity.body.request.receivingOrganization.receivingOrganizationId",
+      "short" : "Remissmottagande enhets id",
+      "definition" : "Remissmottagande enhets id\n\nIdentitetsbeteckning för den som är angiven mottagare till remissen eller den faktiska mottagaren om detta ändras (om remissen har skickats vidare).\n\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `../../../../id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrequestactivities.requestActivity.body.request.receivingOrganization.name",
+      "path" : "getrequestactivities.requestActivity.body.request.receivingOrganization.name",
+      "short" : "Remissmottagande enhetens namn",
+      "definition" : "Remissmottagande enhetens namn.",
+      "comment" : "TKB-fält: `../../../../name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

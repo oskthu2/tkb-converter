@@ -1,0 +1,14 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"storelog","storelog","","","",0,*,"","","","null {[]} {[]}
+","StoreLog","Logisk modell för tjänstekontraktet StoreLog
+(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).
+Representerar responsens informationsstruktur (log.store:Result).
+Tjänsten sparar en eller flera loggposter i loggtjänsten för att möjliggöra
+uppföljning enligt PDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"storelog.resultCode","storelog.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod för lagringen","Statuskod som anger om loggposter sparats korrekt eller om fel uppstått.
+Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"storelog.resultCode",1,1,"",""
+"storelog.resultText","storelog.resultText","","","",0,1,"","","","string {[]} {[]}
+","Beskrivande text till resultatkoden","Fritext som beskriver resultatet eller felorsaken.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog.resultText",0,1,"",""

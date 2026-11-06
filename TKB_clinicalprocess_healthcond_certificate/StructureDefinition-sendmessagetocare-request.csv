@@ -1,0 +1,133 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"sendmessagetocare-request","sendmessagetocare-request","","","",0,*,"","","","null {[]} {[]}
+","SendMessageToCare — Request","Logisk modell för requestparametrar i SendMessageToCare (meddelande från intygsmottagare till vården).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"sendmessagetocare-request.meddelandeId","sendmessagetocare-request.meddelandeId","","","",1,1,"","","","string {[]} {[]}
+","Unikt ID för meddelandet (GUID)","Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID.","TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.meddelande-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.meddelandeId",1,1,"",""
+"sendmessagetocare-request.referensId","sendmessagetocare-request.referensId","","","",0,1,"","","","string {[]} {[]}
+","Valfri referens till entitet hos sändande part","Valfri referens till entitet hos sändande part. Behöver ej vara unikt.","TKB-fält: `referens-id` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.referens-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.referensId",0,1,"",""
+"sendmessagetocare-request.skickatTidpunkt","sendmessagetocare-request.skickatTidpunkt","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt då meddelandet skickades","Tidpunkt då meddelandet skickades.","TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.avsänt tidpunkt","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatTidpunkt",1,1,"",""
+"sendmessagetocare-request.intygsId","sendmessagetocare-request.intygsId","","","",1,1,"","","","Identifier {[]} {[]}
+","Unikt ID för det intyg meddelandet hör till","Unikt ID för det intyg som meddelandet hör till.","TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intyg.intygs-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.intygsId",1,1,"",""
+"sendmessagetocare-request.patientPersonId","sendmessagetocare-request.patientPersonId","","","",1,1,"","","","Identifier {[]} {[]}
+","Person- eller samordningsnummer för patienten","Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.","TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+
+**Mappning DIM:** Patient.person-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.patientPersonId",1,1,"",""
+"sendmessagetocare-request.logiskAdressMottagare","sendmessagetocare-request.logiskAdressMottagare","","","",1,1,"","","","string {[]} {[]}
+","Logisk adress för den vårdenhet meddelandet ska vidarebefordras till","Logisk adress för den vårdenhet som intygstjänsten ska vidarebefordra meddelandet till.","TKB-fält: `logiskAdressMottagare*` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Enhet.Enhets-id.extension
+
+**Modellanteckning:** För nya frågor: enheten som utfärdade intyget.
+För svar: hämtas från frågan (skickatAv.enhet.enhets-id.extension).","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.logiskAdressMottagare",1,1,"",""
+"sendmessagetocare-request.amne","sendmessagetocare-request.amne","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Ämne för frågan/meddelandet","Kodat värde som anger ämnet för frågan.","TKB-fält: `amne*` (`Amneskod (se 7.2.1)`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.ämne","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/amneskod-vs","",,,,"sendmessagetocare-request.amne",1,1,"",""
+"sendmessagetocare-request.rubrik","sendmessagetocare-request.rubrik","","","",0,1,"","","","string {[]} {[]}
+","Valfri rubrik som beskriver meddelandet","En valfri rubrik som beskriver meddelandet.","TKB-fält: `rubrik` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.rubrik","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.rubrik",0,1,"",""
+"sendmessagetocare-request.meddelande","sendmessagetocare-request.meddelande","","","",1,1,"","","","string {[]} {[]}
+","Meddelandets text","Meddelandets text.
+
+Om meddelandet är av ämne “Komplettering” ska det via det här fältet skickas det generella kompletteringsmeddelandet. Kompletteringmeddelandet som gäller en specifik fråga i intyget ska skickas via fältet komplettering/text","TKB-fält: `meddelande*` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.meddelande
+
+**Modellanteckning:** Om ämne är 'Komplettering' kan detta fält vara tomt (FK-avtal).
+Kompletteringstext per fråga skickas i fältet komplettering.text.","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.meddelande",1,1,"",""
+"sendmessagetocare-request.paminnelseMeddelandeId","sendmessagetocare-request.paminnelseMeddelandeId","","","",0,1,"","","","string {[]} {[]}
+","ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)","Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om.","TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.paminnelseMeddelandeId",0,1,"",""
+"sendmessagetocare-request.svarPa","sendmessagetocare-request.svarPa","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Referens till fråga från vården om detta är ett svar","Om detta meddelande är ett svar på en fråga från vården ska referens till frågan skickas","TKB-fält: `svarPa` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.svarPa",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"sendmessagetocare-request.svarPa.id","sendmessagetocare-request.svarPa.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"sendmessagetocare-request.svarPa.extension","sendmessagetocare-request.svarPa.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"sendmessagetocare-request.svarPa.modifierExtension","sendmessagetocare-request.svarPa.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"sendmessagetocare-request.svarPa.meddelandeId","sendmessagetocare-request.svarPa.meddelandeId","","","",1,1,"","","","string {[]} {[]}
+","ID på ursprungsfrågan","ID på ursprungsfrågan","","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.svarPa.meddelandeId",1,1,"",""
+"sendmessagetocare-request.svarPa.referensId","sendmessagetocare-request.svarPa.referensId","","","",0,1,"","","","string {[]} {[]}
+","Referens-ID","Referens-ID","","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.svarPa.referensId",0,1,"",""
+"sendmessagetocare-request.skickatAv","sendmessagetocare-request.skickatAv","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Information om avsändande part","","TKB-fält: `skickatAv` (`-`, kardinalitet 1..1).
+
+**Mappning DIM:** -","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatAv",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"sendmessagetocare-request.skickatAv.id","sendmessagetocare-request.skickatAv.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"sendmessagetocare-request.skickatAv.extension","sendmessagetocare-request.skickatAv.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"sendmessagetocare-request.skickatAv.modifierExtension","sendmessagetocare-request.skickatAv.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"sendmessagetocare-request.skickatAv.part","sendmessagetocare-request.skickatAv.part","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Part som skickar meddelandet","Kodat värde som anger den part i intygshanteringsprocessen som skickar meddelandet.","TKB-fält: `../part` (`Part (se 7.2.9)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intygsmottagare.part","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs","",,,,"sendmessagetocare-request.skickatAv.part",1,1,"",""
+"sendmessagetocare-request.skickatAv.kontaktInfo","sendmessagetocare-request.skickatAv.kontaktInfo","","","",0,*,"","","","string {[]} {[]}
+","Kontaktinformation (rader)","Rader med kontaktinformation. Vilken information som skickas kan variera för olika intygsmottagare, och måste överenskommas mellan vården och intygsmottagaren.","TKB-fält: `../kontaktInfo` (`string`, kardinalitet 0..*).
+
+**Mappning DIM:** Intygsmottagare. kontaktuppgift","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatAv.kontaktInfo",0,*,"",""
+"sendmessagetocare-request.komplettering","sendmessagetocare-request.komplettering","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Kompletteringsbegäran per fråga (endast vid ämne Komplettering)","Komplettering","TKB-fält: `komplettering*` (`-`, kardinalitet 0..*).
+
+**Mappning DIM:** -","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"sendmessagetocare-request.komplettering.id","sendmessagetocare-request.komplettering.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"sendmessagetocare-request.komplettering.extension","sendmessagetocare-request.komplettering.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"sendmessagetocare-request.komplettering.modifierExtension","sendmessagetocare-request.komplettering.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"sendmessagetocare-request.komplettering.frageId","sendmessagetocare-request.komplettering.frageId","","","",1,1,"","","","string {[]} {[]}
+","Identitet på frågan som ska kompletteras","Identitet på den fråga som intygsmottagaren önskar få kompletterad.","TKB-fält: `../frage-id` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Fråga.fråge-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering.frageId",1,1,"",""
+"sendmessagetocare-request.komplettering.instans","sendmessagetocare-request.komplettering.instans","","","",0,1,"","","","integer {[]} {[]}
+","Instansnummer för fråga med flera instanser (lägsta värde 1)","Instansnummer för en fråga som förekommer i flera instanser.","TKB-fält: `../instans*` (`int`, kardinalitet 0..1).
+
+**Mappning DIM:** Svar.instans","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering.instans",0,1,"",""
+"sendmessagetocare-request.komplettering.text","sendmessagetocare-request.komplettering.text","","","",1,1,"","","","string {[]} {[]}
+","Kompletteringsmeddelande för specifik fråga","Kompletteringsmeddelande som gäller en specifik fråga i intyget. Texten ska inte vara redundant med den texten som skickades via fältet meddelande","TKB-fält: `../text*` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Kompletteringsfråga.kompletteringsfråga","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering.text",1,1,"",""
+"sendmessagetocare-request.sistaDatumForSvar","sendmessagetocare-request.sistaDatumForSvar","","","",0,1,"","","","date {[]} {[]}
+","Datum då intygsmottagaren senast vill ha svar (endast vid fråga)","Datum då intygsmottagaren senast vill ha ett svar.","TKB-fält: `sistaDatumForSvar` (`DateType`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.sista datum för svar","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.sistaDatumForSvar",0,1,"",""

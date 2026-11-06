@@ -1,0 +1,290 @@
+# GetPractitioners — Request - supportprocess: logistics: scheduling v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetPractitioners — Request**
+
+## Logical Model: GetPractitioners — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getpractitioners-request | *Version*:2.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetPractitionersRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i GetPractitioners (urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-scheduling|current/StructureDefinition/StructureDefinition-getpractitioners-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getpractitioners-request.csv), [Excel](StructureDefinition-getpractitioners-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getpractitioners-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getpractitioners-request",
+  "version" : "2.0",
+  "name" : "GetPractitionersRequest",
+  "title" : "GetPractitioners — Request",
+  "status" : "draft",
+  "date" : "2026-11-06T21:54:21+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i GetPractitioners\n(urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getpractitioners-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getpractitioners-request",
+      "path" : "getpractitioners-request",
+      "short" : "GetPractitioners — Request",
+      "definition" : "Logisk modell för begäran i GetPractitioners\n(urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "getpractitioners-request.logicalAddress",
+      "path" : "getpractitioners-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Verksamhetens HSAID på enhetsnivå",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor",
+      "path" : "getpractitioners-request.actor",
+      "short" : "actor",
+      "definition" : "Typ av aktör som anropar tjänstekontraktet. Se kapitel Definition av komplexa typer för detaljerad information om hur de underliggande attributen populeras. Om anropet sker i ett flöde där lediga tider ska hämtas utan att aktören är känd ska fältet actor och fältet personId utelämnas. Detta kan exempelvis vara applicerbart om anropet sker då ingen aktör autentiserat sig (”ej inloggat läge”).",
+      "comment" : "TKB-fält: `actor` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorId",
+      "path" : "getpractitioners-request.actor.actorId",
+      "short" : "actorId",
+      "definition" : "actorId",
+      "comment" : "TKB-fält: `../actorId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorId.root",
+      "path" : "getpractitioners-request.actor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorId.iiExtension",
+      "path" : "getpractitioners-request.actor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType",
+      "path" : "getpractitioners-request.actor.actorType",
+      "short" : "actorType",
+      "definition" : "actorType",
+      "comment" : "TKB-fält: `../actorType` (`SnomedCtType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType.snomedCtCode",
+      "path" : "getpractitioners-request.actor.actorType.snomedCtCode",
+      "short" : "snomedCtCode",
+      "definition" : "snomedCtCode Heter code i schemat.",
+      "comment" : "TKB-fält: `../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** snomedCtCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType.codeSystem",
+      "path" : "getpractitioners-request.actor.actorType.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "Tillåtna värden: 1.2.752.116.2.1.1.",
+      "comment" : "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType.codeSystemName",
+      "path" : "getpractitioners-request.actor.actorType.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "comment" : "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType.codeSystemVersion",
+      "path" : "getpractitioners-request.actor.actorType.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "comment" : "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType.displayName",
+      "path" : "getpractitioners-request.actor.actorType.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "comment" : "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.actor.actorType.originalText",
+      "path" : "getpractitioners-request.actor.actorType.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "comment" : "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.personId",
+      "path" : "getpractitioners-request.personId",
+      "short" : "personId",
+      "definition" : "Filtrering av tidstyper baserat på invånares personnummer. . Se kapitel Definition av komplexa typer för detaljerad information om hur de underliggande attributen populeras.",
+      "comment" : "TKB-fält: `personId` (`PersonIdType (IIType)`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.personId.root",
+      "path" : "getpractitioners-request.personId.root",
+      "short" : "root",
+      "definition" : "Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
+      "comment" : "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.personId.personIdExtension",
+      "path" : "getpractitioners-request.personId.personIdExtension",
+      "short" : "personIdExtension",
+      "definition" : "personIdExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../extension` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** personIdExtension Heter extension i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.originalAppointmentId",
+      "path" : "getpractitioners-request.originalAppointmentId",
+      "short" : "originalAppointmentId",
+      "definition" : "originalAppointmentId",
+      "comment" : "TKB-fält: `originalAppointmentId` (`uuidType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.timeTypeCode",
+      "path" : "getpractitioners-request.timeTypeCode",
+      "short" : "timeTypeCode",
+      "definition" : "Tidstyp att söka personal för.\n\nEn konsument kan välja att söka personal baserat på antingen tidstyp eller vårdtjänst. Båda ska inte sättas i samma anrop.",
+      "comment" : "TKB-fält: `timeTypeCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpractitioners-request.healthcareServiceCode",
+      "path" : "getpractitioners-request.healthcareServiceCode",
+      "short" : "healthcareServiceCode",
+      "definition" : "Vårdtjänst att söka personal för. En konsument kan välja att söka personal baserat på antingen tidstyp eller vårdtjänst. Båda ska inte sättas i samma anrop. Kod för vårdtjänster uttrycks som SNOMED-CT koder (svensk upplaga).",
+      "comment" : "TKB-fält: `healthcareServiceCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

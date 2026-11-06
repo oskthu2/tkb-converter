@@ -1,0 +1,550 @@
+# ProcessExemptionStatuses — Request - financial: patientfees: exemption v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessExemptionStatuses — Request**
+
+## Logical Model: ProcessExemptionStatuses — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request | *Version*:1.0 |
+| Active as of 2026-11-06 | *Computable Name*:ProcessExemptionStatusesRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i ProcessExemptionStatuses (urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.financial-patientfees-exemption|current/StructureDefinition/StructureDefinition-processexemptionstatuses-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processexemptionstatuses-request.csv), [Excel](StructureDefinition-processexemptionstatuses-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processexemptionstatuses-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request",
+  "version" : "1.0",
+  "name" : "ProcessExemptionStatusesRequest",
+  "title" : "ProcessExemptionStatuses — Request",
+  "status" : "active",
+  "date" : "2026-11-06T21:21:50+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processexemptionstatuses-request",
+      "path" : "processexemptionstatuses-request",
+      "short" : "ProcessExemptionStatuses — Request",
+      "definition" : "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "processexemptionstatuses-request.logicalAddress",
+      "path" : "processexemptionstatuses-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.requestId",
+      "path" : "processexemptionstatuses-request.requestId",
+      "short" : "requestId",
+      "definition" : "Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses.",
+      "comment" : "TKB-fält: `requestId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.requestId.root",
+      "path" : "processexemptionstatuses-request.requestId.root",
+      "short" : "root",
+      "definition" : "Unikt Id för begäran om utlämnandet, ska förmedlas så som ett uuid.",
+      "comment" : "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.requestId.iiExtension",
+      "path" : "processexemptionstatuses-request.requestId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "Ska utelämnas, då id förmedlas som ett uuid.",
+      "comment" : "TKB-fält: `../extension` (kardinalitet 0..0).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption",
+      "path" : "processexemptionstatuses-request.feeExemption",
+      "short" : "feeExemption",
+      "definition" : "Returnerar en patients högkostnadsskyddstatus",
+      "comment" : "TKB-fält: `feeExemption` (`FeeExemptionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.patientId",
+      "path" : "processexemptionstatuses-request.feeExemption.patientId",
+      "short" : "patientId",
+      "definition" : "Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten.\n\nDvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR.\n\nFältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare.\n\nFältet root sätts till typ av identifierare.\n\nFör personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas.\n\nExempel:\n\n`<patientId>`\n\n`<root>`1.2.752.129.2.1.3.1`</root>`\n\n`<extension>`196705053723`</extension>`\n\n`</patientId>`",
+      "comment" : "TKB-fält: `../patientId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.patientId.root",
+      "path" : "processexemptionstatuses-request.feeExemption.patientId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.patientId.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.patientId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions",
+      "short" : "transactions",
+      "definition" : "transactions",
+      "comment" : "TKB-fält: `../transactions` (`TransactionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee",
+      "short" : "fee",
+      "definition" : "fee",
+      "comment" : "TKB-fält: `../../fee` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.amount",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.amount",
+      "short" : "amount",
+      "definition" : "Belopp med högst två decimaler.",
+      "comment" : "TKB-fält: `../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency",
+      "short" : "currency",
+      "definition" : "Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK.\n\ncode: SEK\n\ncodeSystem: ”1.0.4217”",
+      "comment" : "TKB-fält: `../../../currency*` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.cvCode",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "comment" : "TKB-fält: `../../../../code` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystem",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "comment" : "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemName",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "comment" : "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemVersion",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "comment" : "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.displayName",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "comment" : "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.originalText",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "comment" : "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit",
+      "short" : "dateOfVisit",
+      "definition" : "dateOfVisit",
+      "comment" : "TKB-fält: `../../dateOfVisit` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration",
+      "short" : "timeOfRegistration",
+      "definition" : "timeOfRegistration",
+      "comment" : "TKB-fält: `../../timeOfRegistration` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.typeOfFee",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.typeOfFee",
+      "short" : "typeOfFee",
+      "definition" : "typeOfFee",
+      "comment" : "TKB-fält: `../../typeOfFee` (`TypeOfExemptionEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs"
+      }
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careGiver",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careGiver",
+      "short" : "careGiver",
+      "definition" : "careGiver",
+      "comment" : "TKB-fält: `../../careGiver` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.root",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careUnit",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careUnit",
+      "short" : "careUnit",
+      "definition" : "careUnit",
+      "comment" : "TKB-fält: `../../careUnit` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.root",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions",
+      "short" : "exemptions",
+      "definition" : "exemptions",
+      "comment" : "TKB-fält: `../exemptions` (`ExemptionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionId",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionId",
+      "short" : "exemptionId",
+      "definition" : "exemptionId Heter id i schemat.",
+      "comment" : "TKB-fält: `../../id` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** exemptionId Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod",
+      "short" : "highCostProtectionPeriod",
+      "definition" : "highCostProtectionPeriod",
+      "comment" : "TKB-fält: `../../highCostProtectionPeriod` (`DatePeriodType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.start",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.start",
+      "short" : "start",
+      "definition" : "Startdatum för högkostnadsskydd.",
+      "comment" : "TKB-fält: `../../../start` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.end",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.end",
+      "short" : "end",
+      "definition" : "Slutdatum för högkostnadsskydd.",
+      "comment" : "TKB-fält: `../../../end` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod",
+      "short" : "exemptionPeriod",
+      "definition" : "exemptionPeriod",
+      "comment" : "TKB-fält: `../../exemptionPeriod` (`DatePeriodType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.start",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.start",
+      "short" : "start",
+      "definition" : "Startdatum för frikort.",
+      "comment" : "TKB-fält: `../../../start` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.end",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.end",
+      "short" : "end",
+      "definition" : "Slutdatum för frikort.",
+      "comment" : "TKB-fält: `../../../end` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption",
+      "short" : "typeOfExemption",
+      "definition" : "typeOfExemption",
+      "comment" : "TKB-fält: `../../typeOfExemption` (`TypeOfExemptionEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs"
+      }
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.region",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.region",
+      "short" : "region",
+      "definition" : "region",
+      "comment" : "TKB-fält: `../../region` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.region.root",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.region.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.region.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.region.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,236 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getlisting","getlisting","","","",0,*,"","","","null {[]} {[]}
+","GetListing — Response","Logisk modell för svaret i GetListing
+(urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlisting.listings","getlisting.listings","","","",0,*,"","","","BackboneElement {[]} {[]}
+","listings","Lista med listningsdetaljer för mottagningar som invånare är listad på. Om en region erbjuder sina invånare att kunna lista sig på mer än en listningstyp kan denna lista innehålla mer än en instans med listningsdetaljer (kopplade till en mottagning).","TKB-fält: `listings` (`ListingHealthcareFacilityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlisting.listings",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getlisting.listings.id","getlisting.listings.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getlisting.listings.extension","getlisting.listings.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.modifierExtension","getlisting.listings.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.validFromDate","getlisting.listings.validFromDate","","","",0,1,"","","","dateTime {[]} {[]}
+","validFromDate","Datum från när listningen började gälla","TKB-fält: `listings.validFromDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.validFromDate",0,1,"",""
+"getlisting.listings.validToDate","getlisting.listings.validToDate","","","",0,1,"","","","dateTime {[]} {[]}
+","validToDate","Datum till när listningen fortfarande gäller","TKB-fält: `listings.validToDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.validToDate",0,1,"",""
+"getlisting.listings.listingType","getlisting.listings.listingType","","","",1,1,"","","","BackboneElement {[]} {[]}
+","listingType","Listningstyp som listningen gäller.
+
+Se listningstyper i referens [R3]","TKB-fält: `listings.listingType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getlisting.listings.listingType.id","getlisting.listings.listingType.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getlisting.listings.listingType.extension","getlisting.listings.listingType.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.listingType.modifierExtension","getlisting.listings.listingType.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.listingType.cVCode","getlisting.listings.listingType.cVCode","","","",1,1,"","","","string {[]} {[]}
+","cVCode","Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.","TKB-fält: `listings.listingType.code` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** cVCode Heter code i schemat.","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType.cVCode",1,1,"",""
+"getlisting.listings.listingType.codeSystem","getlisting.listings.listingType.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Sätts till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas i.
+
+Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara 1.2.752.129.5.1.27.
+
+https://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2","TKB-fält: `listings.listingType.codeSystem` (kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType.codeSystem",1,1,"",""
+"getlisting.listings.listingType.codeSystemName","getlisting.listings.listingType.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType.codeSystemName",0,1,"",""
+"getlisting.listings.listingType.codeSystemVersion","getlisting.listings.listingType.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType.codeSystemVersion",0,1,"",""
+"getlisting.listings.listingType.displayName","getlisting.listings.listingType.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Benämningen på listningstypen att visa för invånare i ett användargränssnitt.
+
+För den nationella listningstypen ”PV” ska displayName vara ”Primärvårdslistning”.","TKB-fält: `listings.listingType.displayName` (`string`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType.displayName",0,1,"",""
+"getlisting.listings.listingType.originalText","getlisting.listings.listingType.originalText","","","",0,1,"","","","string {[]} {[]}
+","originalText","originalText","TKB-fält: `../../originalText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType.originalText",0,1,"",""
+"getlisting.listings.healthcareFacility","getlisting.listings.healthcareFacility","","","",1,1,"","","","BackboneElement {[]} {[]}
+","healthcareFacility","Den valda listningsbara mottagningen","TKB-fält: `listings.healthcareFacility` (`HealthcareFacilityType`, kardinalitet 1..1).
+
+**Modellanteckning:** Vårdinrättning/vårdenhet som ansvarar för en person som listat sig hos dem. Det är denna inrättning som får ekonomisk ersättning för personen.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getlisting.listings.healthcareFacility.id","getlisting.listings.healthcareFacility.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getlisting.listings.healthcareFacility.extension","getlisting.listings.healthcareFacility.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.healthcareFacility.modifierExtension","getlisting.listings.healthcareFacility.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.healthcareFacility.healthcareFacilityId","getlisting.listings.healthcareFacility.healthcareFacilityId","","","",1,1,"","","","string {[]} {[]}
+","healthcareFacilityId","HSAId för mottagningen
+
+En tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener.
+
+Exempelvis är:
+
+”se12345-xyz” = ”SE12345-XYZ”","TKB-fält: `listings.healthcareFacility.id` (`HSAIdType / (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** healthcareFacilityId Heter id i schemat.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.healthcareFacilityId",1,1,"",""
+"getlisting.listings.healthcareFacility.healthcareFacilityName","getlisting.listings.healthcareFacility.healthcareFacilityName","","","",1,1,"","","","string {[]} {[]}
+","healthcareFacilityName","Namn på vårdenheten","TKB-fält: `listings.healthcareFacility.name` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** Namn på vårdenheten. Heter name i schemat.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.healthcareFacilityName",1,1,"",""
+"getlisting.listings.healthcareFacility.hasQueue","getlisting.listings.healthcareFacility.hasQueue","","","",1,1,"","","","boolean {[]} {[]}
+","hasQueue","Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts.
+
+Skall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således:
+
+TRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds
+
+FALSE = För övrigt","TKB-fält: `listings.healthcareFacility.hasQueue` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.hasQueue",1,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes","getlisting.listings.healthcareFacility.supportedListingTypes","","","",0,*,"","","","BackboneElement {[]} {[]}
+","supportedListingTypes","Lista med olika listningstyper som mottagningen erbjuder.
+
+Om attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.","TKB-fält: `listings.healthcareFacility.supportedListingTypes` (`CVType`, kardinalitet 0..1).
+
+Obs: modellen anger 0..* där TKB:n anger 0..1.
+
+**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getlisting.listings.healthcareFacility.supportedListingTypes.id","getlisting.listings.healthcareFacility.supportedListingTypes.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes.extension","getlisting.listings.healthcareFacility.supportedListingTypes.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.healthcareFacility.supportedListingTypes.modifierExtension","getlisting.listings.healthcareFacility.supportedListingTypes.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.healthcareFacility.supportedListingTypes.cVCode","getlisting.listings.healthcareFacility.supportedListingTypes.cVCode","","","",1,1,"","","","string {[]} {[]}
+","cVCode","Kod för listningstypen som mottagningen stödjer.","TKB-fält: `listings.healthcareFacility.supportedListingTypes.code` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** cVCode Heter code i schemat.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes.cVCode",1,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes.codeSystem","getlisting.listings.healthcareFacility.supportedListingTypes.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","OID, urn eller liknande som visar på från vilket kodverk den angivna koden/listningstypen innefattas.
+
+Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för codeSystem vara ”1.2.752.129.5.1.27”.","TKB-fält: `listings.healthcareFacility.supportedListingTypes.codeSystem` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes.codeSystem",1,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemName","getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemName",0,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemVersion","getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes.codeSystemVersion",0,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes.displayName","getlisting.listings.healthcareFacility.supportedListingTypes.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Benämning av listningstypen. Benämningen ska vara uttryckt på ett invånarvänligt sätt för att kunna förmedlas i invånarens användargränssnitt i e-tjänst.","TKB-fält: `listings.healthcareFacility.supportedListingTypes.displayName` (`string`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes.displayName",0,1,"",""
+"getlisting.listings.healthcareFacility.supportedListingTypes.originalText","getlisting.listings.healthcareFacility.supportedListingTypes.originalText","","","",0,1,"","","","string {[]} {[]}
+","originalText","originalText","TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes.originalText",0,1,"",""
+"getlisting.listings.healthcareFacility.supportsHealthcarePersonnel","getlisting.listings.healthcareFacility.supportsHealthcarePersonnel","","","",1,1,"","","","boolean {[]} {[]}
+","supportsHealthcarePersonnel","Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt"".
+
+Det är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent.
+
+TRUE = mottagningen erbjuder fast läkarkontakt.
+
+Utelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.","TKB-fält: `listings.healthcareFacility.supportsHealthcarePersonnel` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportsHealthcarePersonnel",1,1,"",""
+"getlisting.listings.healthcareFacility.queueLength","getlisting.listings.healthcareFacility.queueLength","","","",0,1,"","","","integer {[]} {[]}
+","queueLength","Nytt fält fr o m v2.1.
+
+Om mottagningen erbjuder kö kan mottagningen redovisa hur många invånare som för tillfället står i listningskö till mottagningen. Fältet är frivilligt.
+
+Observera:
+
+Detta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.","TKB-fält: `listings.healthcareFacility.queueLength` (`integer`, kardinalitet 0..1).
+
+**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.queueLength",0,1,"",""
+"getlisting.listings.healthcareFacility.estimatedWaitInQueue","getlisting.listings.healthcareFacility.estimatedWaitInQueue","","","",0,1,"","","","integer {[]} {[]}
+","estimatedWaitInQueue","Nytt fält fr o m v2.1.
+
+Om mottagningen erbjuder kö kan mottagningen redovisa hur lång väntetid som invånare kan förvänta sig. Fältet är frivilligt.
+
+Observera:
+
+Detta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.","TKB-fält: `listings.healthcareFacility.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).
+
+**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.estimatedWaitInQueue",0,1,"",""
+"getlisting.listings.healthcarePersonnel","getlisting.listings.healthcarePersonnel","","","",0,1,"","","","BackboneElement {[]} {[]}
+","healthcarePersonnel","Vårdpersonal som är kopplade till listningen. Det är frivilligt för mottagning att erbjuda invånare möjlighet att dessutom välja vårdpersonal i samband med listningen. Om regionen erbjuder denna möjlighet ska regionen även vara producent för tjänstekontraktet GetAvailableHealthcarePersonnel. Det är Regionen kan därefter välja att erbjuda denna funktionalitet per mottagning, genom flaggan supportsHealthcarePersonnel (i typen HealthCareFacilityType).
+
+Observera att en producent tillåts förmedla fast läkarkontakt genom att populera detta fält även om producent inte erbjuder invånaren möjlighet att digitalt välja fast läkarkontakt.
+
+En konsument ska visa den förmedlade fasta läkarkontakten till invånaren, även om producent inte stödjer det frivilliga tjänstekontraktet GetAvailableHealthcarePersonnel.","TKB-fält: `listings.healthcarePersonnel` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getlisting.listings.healthcarePersonnel.id","getlisting.listings.healthcarePersonnel.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getlisting.listings.healthcarePersonnel.extension","getlisting.listings.healthcarePersonnel.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.healthcarePersonnel.modifierExtension","getlisting.listings.healthcarePersonnel.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getlisting.listings.healthcarePersonnel.healthcarePersonnelId","getlisting.listings.healthcarePersonnel.healthcarePersonnelId","","","",1,1,"","","","string {[]} {[]}
+","healthcarePersonnelId","HsaId för vårdpersonal","TKB-fält: `listings.healthcarePersonnel.id` (`HSAIdType / (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** healthcarePersonnelId Heter id i schemat.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel.healthcarePersonnelId",1,1,"",""
+"getlisting.listings.healthcarePersonnel.healthcarePersonnelName","getlisting.listings.healthcarePersonnel.healthcarePersonnelName","","","",1,1,"","","","string {[]} {[]}
+","healthcarePersonnelName","Namn (för- och efternamn) för vårdpersonal","TKB-fält: `listings.healthcarePersonnel.name` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** healthcarePersonnelName Heter name i schemat.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel.healthcarePersonnelName",1,1,"",""
+"getlisting.listings.healthcarePersonnel.title","getlisting.listings.healthcarePersonnel.title","","","",0,1,"","","","string {[]} {[]}
+","title","Vårdpersonals titel","TKB-fält: `listings.healthcarePersonnel.title` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel.title",0,1,"",""
+"getlisting.listings.isInQueue","getlisting.listings.isInQueue","","","",1,1,"","","","boolean {[]} {[]}
+","isInQueue","Flagga för att visa om invånare står i kö för att lista sig på mottagningen eller om invånare har en aktiv listning.
+
+TRUE = Invånare står i kö
+
+FALSE = Invånare har en aktiv listning på mottagningen","TKB-fält: `listings.isInQueue` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.isInQueue",1,1,"",""
+"getlisting.listings.queuePosition","getlisting.listings.queuePosition","","","",0,1,"","","","integer {[]} {[]}
+","queuePosition","Nytt fält fr o m v2.1.
+
+Förmedlar vilken plats i listningskön som invånaren har om invånaren tidigare har valt att ställa sig i kö på mottagningen","TKB-fält: `listings.queuePosition` (`integer`, kardinalitet 0..1).
+
+**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)","","","","","","","","",,,,,"",,,,"getlisting.listings.queuePosition",0,1,"",""
+"getlisting.listings.estimatedWaitInQueue","getlisting.listings.estimatedWaitInQueue","","","",0,1,"","","","integer {[]} {[]}
+","estimatedWaitInQueue","Nytt fält fr o m v2.1.
+
+Förmedlar hur lång uppskattad återstående väntetid invånaren kan förvänta sig om invånaren tidigare ställt sig i listningskön på mottagningen. Den uppskattade väntetiden ska återge ungefär hur länge till invånare uppskattas behöva vänta innan invånaren blir listad på mottagningen.
+
+Uppskattad väntetid anges i antal dagar.","TKB-fält: `listings.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).
+
+**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)","","","","","","","","",,,,,"",,,,"getlisting.listings.estimatedWaitInQueue",0,1,"",""
+"getlisting.listings.remainingChanges","getlisting.listings.remainingChanges","","","",0,1,"","","","integer {[]} {[]}
+","remainingChanges","Nytt fält fr o m v2.1.
+
+Förmedlar hur många omlistningar som invånare har kvar att kunna göra.
+
+För listning till primärvård får invånare lista om sig maximalt 3 ggr under en 12-månaders period enligt Socialstyrelsens föreskrifter.","TKB-fält: `listings.remainingChanges` (`integer`, kardinalitet 0..1).
+
+**Modellanteckning:** (Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)","","","","","","","","",,,,,"",,,,"getlisting.listings.remainingChanges",0,1,"",""
+"getlisting.resultCode","getlisting.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getlisting.resultCode",1,1,"",""
+"getlisting.resultText","getlisting.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.resultText",0,1,"",""

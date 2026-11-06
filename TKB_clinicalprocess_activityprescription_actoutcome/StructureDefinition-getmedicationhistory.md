@@ -1,0 +1,1418 @@
+# GetMedicationHistory - clinicalprocess: activityprescription: actoutcome v2.2.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetMedicationHistory**
+
+## Logical Model: GetMedicationHistory 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory | *Version*:2.2 |
+| Active as of 2026-11-06 | *Computable Name*:GetMedicationHistory |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetMedicationHistory (RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2). Representerar responsens informationsstruktur — läkemedelshistorik per patient. 
+OBS: Kontraktet är tämligen omfattande. Se tillämpningsanvisningen (AB_clinicalprocess_activityprescription_actoutcome.docx) för implementationsdetaljer. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-actoutcome|current/StructureDefinition/StructureDefinition-getmedicationhistory.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getmedicationhistory.csv), [Excel](StructureDefinition-getmedicationhistory.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getmedicationhistory",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory",
+  "version" : "2.2",
+  "name" : "GetMedicationHistory",
+  "title" : "GetMedicationHistory",
+  "status" : "active",
+  "date" : "2026-11-06T20:58:52+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetMedicationHistory\n(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2).\nRepresenterar responsens informationsstruktur — läkemedelshistorik per patient.\n\nOBS: Kontraktet är tämligen omfattande. Se tillämpningsanvisningen\n(AB_clinicalprocess_activityprescription_actoutcome.docx) för implementationsdetaljer.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getmedicationhistory",
+      "path" : "getmedicationhistory",
+      "short" : "GetMedicationHistory",
+      "definition" : "Logisk modell för tjänstekontraktet GetMedicationHistory\n(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2).\nRepresenterar responsens informationsstruktur — läkemedelshistorik per patient.\n\nOBS: Kontraktet är tämligen omfattande. Se tillämpningsanvisningen\n(AB_clinicalprocess_activityprescription_actoutcome.docx) för implementationsdetaljer."
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord",
+      "path" : "getmedicationhistory.medicationMedicalRecord",
+      "short" : "Patientens läkemedelshistorik",
+      "definition" : "Patientens läkemedelshistorik",
+      "comment" : "TKB-fält: `medicationMedicalRecord` (`MedicationMedicalRecordType`, kardinalitet 0..*).\n\n**Modellanteckning:** En läkemedelsjournalpost per ordination. En patient kan ha många poster.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader",
+      "short" : "Basinformation om dokumentet",
+      "definition" : "Innehåller basinformation om dokumentet, inklusive information om vid vilken vårdkontakt som ordinationen skedde.\n\nNotera: accountableHealthCareProfessional anges till den som registrerat informationen. Ordinatör, förskrivare och administrerande vårdpersonal anges i Bodyn.",
+      "comment" : "TKB-fält: `../medicationMedicalRecordHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.documentId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.documentId",
+      "short" : "Identifierare för uppgift (vanligtvis ordinations-id)",
+      "definition" : "Identifierare för uppgift i patientjournal.\n\n(**vanligtvis ordinations-id eller ordinations-id kompletterad med löpnummer i de fall där källsystemet har 1..N st förskrivningar knutna till en enskild ordination).\n\nIdentifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska även vara konsistent och beständig mellan olika tjänstekontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+      "comment" : "TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.sourceSystemHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.sourceSystemHSAId",
+      "short" : "Källsystemets HSA-id",
+      "definition" : "Det källsystem som uppgiften lagras i. Sätts till källsystemets HSA-id.",
+      "comment" : "TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.documentTitle",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.documentTitle",
+      "short" : "Titel som beskriver informationen",
+      "definition" : "Titel som beskriver den information som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.patientId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.patientId",
+      "short" : "Personidentifierare för patienten",
+      "definition" : "Personidentifierare för patienten.",
+      "comment" : "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional",
+      "short" : "Dokumentationsansvarig",
+      "definition" : "Information avseende dokumentation av uppgiften som tillgängliggörs.\n\nNotera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses.",
+      "comment" : "TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.authorTime",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.authorTime",
+      "short" : "Tidpunkt för dokumentation",
+      "definition" : "Tidpunkt då uppgiften dokumenterades eller senast uppdaterades.",
+      "comment" : "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personal",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som dokumenterat uppgiften som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "short" : "Namn på personal",
+      "definition" : "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "short" : "Befattning (KV Befattning OID 1.2.752.129.2.2.1.4)",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.\n\nAnges med HSAs kodverk Befattning  (OID: 1.2.752.129.2.2.1.4) [R6].\n\nOm kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "short" : "Organisationsenhet",
+      "definition" : "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "HSA-id för organisationsenhet",
+      "definition" : "HSA-id för organisationsenhet.\n\nI de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).",
+      "comment" : "TKB-fält: `../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Namn på organisationsenhet",
+      "definition" : "Namnet på organisationsenhet.",
+      "comment" : "TKB-fält: `../../../../orgUnitName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "short" : "Telefon",
+      "definition" : "Telefon till organisationsenhet.",
+      "comment" : "TKB-fält: `../../../../orgUnitTelecom` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "short" : "E-post",
+      "definition" : "E-post till organisationsenhet.",
+      "comment" : "TKB-fält: `../../../../orgUnitEmail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "short" : "Postadress",
+      "definition" : "Postadress till organisationsenhet.",
+      "comment" : "TKB-fält: `../../../../orgUnitAddress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "short" : "Plats/ort",
+      "definition" : "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+      "comment" : "TKB-fält: `../../../../orgUnitLocation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalcareUnitHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalcareUnitHSAId",
+      "short" : "HSA-id för vårdenhet",
+      "definition" : "HSA-id för vårdenheten där uppgiften är dokumenterad. För mer information av vad som avses med vårdenhet, se [R17].\n\nI de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).\n\nRegel 1.1",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalcareUnitHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalcareGiverHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalcareGiverHSAId",
+      "short" : "HSA-id/id för vårdgivare",
+      "definition" : "Id för uppgiftsägande vårdgivare. För mer information av vad som avses med vårdgivare, se [R17].\n\nI första hand HSA-id, i andra hand organisationsnummer.\n\nRegel 1.1",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalcareGiverHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator",
+      "short" : "Information om signering",
+      "definition" : "Information avseende signering av uppgiften som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "short" : "Tidpunkt för signering",
+      "definition" : "Tidpunkt då uppgiften signerades.",
+      "comment" : "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "HSA-id för signerande personal",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som signerat uppgiften som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "Namn på signerande personal",
+      "definition" : "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.approvedForPatient",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.approvedForPatient",
+      "short" : "Ansvarig vårdpersonals beslut om synlighet (PDL-prövning)",
+      "definition" : "Ansvarig vårdpersonals beslut, alternativt verksamhetens policy och regler (men- och sekretessprövning), huruvida uppgiften får delas till patient för ändamålet patients åtkomst (Individens direktåtkomst).\n\nOm uppgiften beslutas delas sätts värdet till true, i annat fall till false. False innebär att uppgiften inte får delas till patient.\n\nNotera att värdet kan, för samma uppgift, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. I sådana fall ska källsystemet uppdatera engagemangsindex.",
+      "comment" : "TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.careContactId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordHeader.careContactId",
+      "short" : "Identitet för vård- och omsorgskontakt",
+      "definition" : "Identitetet för den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.",
+      "comment" : "TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody",
+      "short" : "Läkemedelshistorikens innehåll",
+      "definition" : "Läkemedelshistorikens innehåll",
+      "comment" : "TKB-fält: `../medicationMedicalRecordBody` (`MedicationMedicalRecordBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription",
+      "short" : "Läkemedelsordination",
+      "definition" : "LÄKEMEDELSORDINATION.\n\nOrdination som avser läkemedelsbehandling. De individuella läkemedelsordinationerna kan indelas i ordination som avser utsättning, förändrande läkemedelsordination, ordination som avser insättning och bekräftande läkemedelsordination. I slutenvård görs endast ordination, men i öppenvård krävs vanligtvis även en förskrivning (se nedan).",
+      "comment" : "TKB-fält: `../../medicationPrescription` (`MedicationPrescriptionType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionId",
+      "short" : "Ordinations-id",
+      "definition" : "Ordinations-id.\n\nUnik identifierare för aktuell läkemedelsordination. Fältet extension motsvarar värdet documentId i headern, om inte ordinations-id är en UUID, då root-elementet istället motsvarar documentId i headern.",
+      "comment" : "TKB-fält: `../../../prescriptionId` (`IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** Unik identifierare för aktuell läkemedelsordination.\nroot = UUID eller OID som pekar på källsystem.\nextension = ordinations-id unikt inom källsystemet.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.typeOfPrescription",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.typeOfPrescription",
+      "short" : "Ordinationstyp (I=insättning, U=utsättning)",
+      "definition" : "Ordinationstyp.\n\nUppgift som anger om aktuell ordination ska räknas som en insättningsordination eller utsättningsordination (utsättningsordination = ordination som beskriver avslut av läkemedelsbehandling). Insättning används när läkemedlet är insatt, dvs. även en ändrad eller förnyad ordination har typen insättning. Kodverk: I, U.",
+      "comment" : "TKB-fält: `../../../typeOfPrescription` (`TypeOfPrescriptionEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/typeofprescription-vs"
+      }
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionStatus",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionStatus",
+      "short" : "Ordinationsstatus (Active/Inactive)",
+      "definition" : "Ordinationsstatus.\n\nAnger ordinationens aktuella status [Active, Inactive]\n\nEn aktiv ordination är den sista i sin ordinationskedja. Alla andra ordinationer i samma ordinationskedja är inaktiva.",
+      "comment" : "TKB-fält: `../../../prescriptionStatus` (`PrescriptionStatusEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/prescriptionstatus-vs"
+      }
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionNote",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionNote",
+      "short" : "Notat om ordinationen (del av Läkemedelsberättelse)",
+      "definition" : "Notat.\n\nText som beskriver läkemedelsordinationen som utgör del av Läkemedelsberättelse. Exempel: Text som beskriver varför man satt in eller gjort dosändringar.",
+      "comment" : "TKB-fält: `../../../prescriptionNote` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.principalPrescriptionReason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.principalPrescriptionReason",
+      "short" : "Ordinationshuvudorsak",
+      "definition" : "Ordinationshuvudorsak.\n\nDen eller de viktigaste av de ordinationsorsaker som anges, om fler än en.",
+      "comment" : "TKB-fält: `../../../principalPrescriptionReason` (`PrescriptionReasonType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.principalPrescriptionReason.reason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.principalPrescriptionReason.reason",
+      "short" : "Ordinationsorsak (Socialstyrelsens kodsystem)",
+      "definition" : "Ordinationsorsak.\n\nSkäl till en viss ordination. Anges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO, Nationell källa för ordinationsorsak). Se [R8].",
+      "comment" : "TKB-fält: `../../../../reason` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.principalPrescriptionReason.otherReason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.principalPrescriptionReason.otherReason",
+      "short" : "Beskrivning om 'Annan ordinationsorsak' väljs",
+      "definition" : "Om koden för ”Annan ordinationsorsak” (SNOMED: 46021000052104) väljs för föregående kod så anges beskrivning här.",
+      "comment" : "TKB-fält: `../../../../otherReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.additionalPrescriptionReason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.additionalPrescriptionReason",
+      "short" : "Övriga ordinationsorsaker",
+      "definition" : "Övriga ordinationsorsaker.\n\nAnges en övrig ordinationsorsak måste minst en ordinationshuvudorsak vara angiven.",
+      "comment" : "TKB-fält: `../../../additionalPrescriptionReason` (`PrescriptionReasonType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.additionalPrescriptionReason.reason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.additionalPrescriptionReason.reason",
+      "short" : "Ordinationsorsak",
+      "definition" : "Ordinationsorsak.\n\nSkäl till en viss ordination. Anges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO). Se [R8].",
+      "comment" : "TKB-fält: `../../../../reason` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.additionalPrescriptionReason.otherReason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.additionalPrescriptionReason.otherReason",
+      "short" : "Beskrivning om 'Annan ordinationsorsak' väljs",
+      "definition" : "Om koden för ”Annan ordinationsorsak” (SNOMED: 46021000052104) väljs för föregående kod så anges beskrivning här.",
+      "comment" : "TKB-fält: `../../../../otherReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluationTime",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluationTime",
+      "short" : "Nästa planerade utvärderingstidpunkt",
+      "definition" : "Utvärderingstidpunkt (nästa planerade utvärderingstidpunkt).\n\nTidpunkt vid vilken behandlingen ska utvärderas.",
+      "comment" : "TKB-fält: `../../../evaluationTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.treatmentPurpose",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.treatmentPurpose",
+      "short" : "Behandlingsändamål",
+      "definition" : "Behandlingsändamål.\n\nText som beskriver avsikten med läkemedelsbehandlingen för vård- och omsorgstagaren. Exempel: Mot högt blodtryck.",
+      "comment" : "TKB-fält: `../../../treatmentPurpose` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionChainId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriptionChainId",
+      "short" : "Ordinationskedje-id",
+      "definition" : "Ordinationskedje-id.\n\nLokal identifierare för den ordinationskedja i vilken aktuell ordination ingår. Serie av läkemedelsordinationer med gemensam indikation, gemensam verksam substans och gemensam läkemedelsform",
+      "comment" : "TKB-fält: `../../../prescriptionChainId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.precedingPrescriptionId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.precedingPrescriptionId",
+      "short" : "Föregående ordinations-id",
+      "definition" : "Föregående ordinations-id.\n\nReferens till föregående ordination i ordinationskedja.",
+      "comment" : "TKB-fält: `../../../precedingPrescriptionId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.succeedingPrescriptionId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.succeedingPrescriptionId",
+      "short" : "Efterföljande ordinations-id",
+      "definition" : "Efterföljande ordinations-id.\n\nReferens till efterföljande ordination i ordinationskedja.",
+      "comment" : "TKB-fält: `../../../succeedingPrescriptionId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber",
+      "short" : "Ordinatör",
+      "definition" : "Ordinatör.\n\nIcke att beblanda med den person som den som registrerat informationen, och som är den person som återfinns i accountableHealthcareProfessional i medicationMedicalRecordHeader.\n\nMåste anges om selfMedication = false.",
+      "comment" : "TKB-fält: `../../../prescriber` (`HealthcareProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.authorTime",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.authorTime",
+      "short" : "Beslutstidpunkt/ordinationstidpunkt",
+      "definition" : "Beslutstidpunkt/ordinationstidpunkt.\n\nTidpunkt då beslut fattas om läkemedelsbehandling (gäller för insättning, utsättning, makulering etc)\n\nInte nödvändigtvis samma som behandlingsstart.",
+      "comment" : "TKB-fält: `../../../../authorTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalHSAId",
+      "short" : "Ordinatörens HSA-id",
+      "definition" : "Ordinatörens HSA-id.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalName",
+      "short" : "Namn på ordinatören",
+      "definition" : "Namn på ordinatören. Om tillgängligt ska detta anges.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalRoleCode",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalRoleCode",
+      "short" : "Ordinatörens befattning",
+      "definition" : "Information om ordinatörens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas, se referens [R6].",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit",
+      "short" : "Organisation ordinatören är uppdragstagare på",
+      "definition" : "Den organisation som ordinatören är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "HSA-id",
+      "definition" : "HSA-id för organisationsenhet.\n\nI de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).",
+      "comment" : "TKB-fält: `../../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Namn",
+      "definition" : "Namnet på den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../../../orgUnitName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "short" : "Telefon",
+      "definition" : "Telefon till organisationsenhet.",
+      "comment" : "TKB-fält: `../../../../../orgUnitTelecom` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "short" : "E-post",
+      "definition" : "E-post till organisationsenhet.",
+      "comment" : "TKB-fält: `../../../../../orgUnitEmail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "short" : "Postadress",
+      "definition" : "Postadress för den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../../../orgUnitAddress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.prescriber.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "short" : "Plats/ort",
+      "definition" : "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+      "comment" : "TKB-fält: `../../../../../orgUnitLocation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator",
+      "short" : "'Utvärderat av' — person som utvärderat utfallet",
+      "definition" : "”Utvärderat av”.\n\nDen hälso- och sjukvårdsperson/-enhet som utvärderat utfallet av ordinationen/förskrivningen.",
+      "comment" : "TKB-fält: `../../../evaluator` (`HealthcareProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.authorTime",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.authorTime",
+      "short" : "Faktisk utvärderingstidpunkt",
+      "definition" : "Utvärderingstidpunkt (faktisk utvärderingstidpunkt).\n\nTidpunkt vid vilken ordinationen har utvärderats.",
+      "comment" : "TKB-fält: `../../../../authorTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalHSAId",
+      "short" : "Utvärderande persons HSA-id",
+      "definition" : "Utvärderande persons HSA-id.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalName",
+      "short" : "Namn på utvärderande person",
+      "definition" : "Namn på utvärderande person. Om tillgängligt ska detta anges.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalRoleCode",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalRoleCode",
+      "short" : "Utvärderande persons befattning",
+      "definition" : "Information om utvärderande persons befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas, se referens [R6].",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalOrgUnit",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalOrgUnit",
+      "short" : "Utvärderande persons organisation",
+      "definition" : "Den organisation som utvärderande person är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "HSA-id",
+      "definition" : "HSA-id för organisationsenhet.\n\nI de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).",
+      "comment" : "TKB-fält: `../../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.evaluator.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Namn",
+      "definition" : "Namnet på den organisation som utvärderande person är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../../../orgUnitName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.startOfFirstTreatment",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.startOfFirstTreatment",
+      "short" : "Första insättningstidpunkt (beräknad från ordinationskedjan)",
+      "definition" : "Första insättningstidpunkt.\n\nBeräknas som insättningstidpunkt för första ordinationen i ordinationskedjan.",
+      "comment" : "TKB-fält: `../../../startOfFirstTreatment` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.startOfTreatment",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.startOfTreatment",
+      "short" : "Insättningstidpunkt",
+      "definition" : "Insättningstidpunkt.\n\nDatum då patienten ska börja ta sitt läkemedel/läkemedlet ska administreras för första gången. Vid ordinationstyp ”Insättning” sätts detta till samma som registreringstidpunkt (authorTime i  headern) om inget annat anges här.\n\nÄr obligatorisk vid ordinationstyp ”Insättning”.",
+      "comment" : "TKB-fält: `../../../startOfTreatment` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.endOfTreatment",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.endOfTreatment",
+      "short" : "Utsättningstidpunkt",
+      "definition" : "Utsättningstidpunkt.\n\nDatum då patienten ska upphöra ta sitt läkemedel/då läkemedlet ska sluta administreras. OBS, kan anges både vid ordinationer av typ ”Insättning” och ”Utsättning”.",
+      "comment" : "TKB-fält: `../../../endOfTreatment` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.endOfTreatmentReason",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.endOfTreatmentReason",
+      "short" : "Utsättningsorsak",
+      "definition" : "Utsättningsorsak.\n\nOrsak som ordinatör anger för utsättning.",
+      "comment" : "TKB-fält: `../../../endOfTreatmentReason` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.selfMedication",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.selfMedication",
+      "short" : "Anger om ordination är utfärdad av patienten själv",
+      "definition" : "Egenmedicinering.\n\nAnger om ordinationen är utfärdad av patienten själv",
+      "comment" : "TKB-fält: `../../../selfMedication` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug",
+      "short" : "Läkemedelsval (ett av: unstructured/merchandise/drugArticle/drug/generics)",
+      "definition" : "Läkemedelsval.\n\nOBS: Ett och endast ett av följande alternativ:\n\nunstructuredDrugInformation (fritextval/extemporeberedning)\n\nmerchandise (handelsvara)\n\ndrugArticle (läkemedelsartikel)\n\ndrug (läkemedelsprodukt)\n\ngenerics (generika/utbytesgrupp)",
+      "comment" : "TKB-fält: `../../../drug` (`DrugChoiceType`, kardinalitet 0..1).\n\n**Modellanteckning:** OBS: Ett och endast ett av följande alternativ ska anges.\nRegeln är modellerad som invarianten getmedicationhistory-drug-choice.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getmedicationhistory-drug-choice",
+        "severity" : "error",
+        "human" : "Exakt ett av unstructuredDrugInformation, merchandise, drugArticle, drug och generics ska anges i läkemedelsvalet (DrugChoiceType, TKB 7.2).",
+        "expression" : "unstructuredDrugInformation.count() + merchandise.count() + drugArticle.count() + drug.count() + generics.count() = 1",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.comment",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.comment",
+      "short" : "Kommentar om läkemedelsval",
+      "definition" : "Kommentar om läkemedelsval.\n\nText som innehåller en kommentar till det ordinerade läkemedlet. Fältet kan användas för att specificera ytterligare läkemedel eller läkemedelsnära produkter, t.ex. i samband med spädning och infusion där läkemedlet består av en huvudingrediens men där spädningsvätskor eller motsvarande också kan behöva anges.",
+      "comment" : "TKB-fält: `../../../../comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.unstructuredDrugInformation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.unstructuredDrugInformation",
+      "short" : "Fritextval (extemporeberedning, licensläkemedel m.m.)",
+      "definition" : "Fritextval.\n\nAnvänds för extemporeberedning, licensläkemedel etc.",
+      "comment" : "TKB-fält: `../../../../unstructuredDrugInformation` (`UnstructuredDrugInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.unstructuredDrugInformation.unstructuredInformation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.unstructuredDrugInformation.unstructuredInformation",
+      "short" : "Fritextbeskrivning",
+      "definition" : "Fritextbeskrivning.",
+      "comment" : "TKB-fält: `../../../../../unstructuredInformation` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.merchandise",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.merchandise",
+      "short" : "Handelsvara",
+      "definition" : "Handelsvara.",
+      "comment" : "TKB-fält: `../../../../merchandise` (`MerchandiseType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.merchandise.articleNumber",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.merchandise.articleNumber",
+      "short" : "Varunummer (från SIL)",
+      "definition" : "Varunummer.\n\nFrån SIL. Identifierare för ordinerad handelsvara (exempel: spruta). Bör anges med id ur Apotekets varunummerregister. OID: 1.2.752.129.2.2.3.1.1.\n\nFår ej anges för läkemedel.",
+      "comment" : "TKB-fält: `../../../../../articleNumber` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drugArticle",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drugArticle",
+      "short" : "Läkemedelsartikel",
+      "definition" : "Läkemedelsartikel.",
+      "comment" : "TKB-fält: `../../../../drugArticle` (`DrugArticleType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drugArticle.nplPackId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drugArticle.nplPackId",
+      "short" : "NPL pack-id (OID 1.2.752.129.2.1.5.2)",
+      "definition" : "NPL pack-id.\n\nUnik identifierare enligt NPL för läkemedelsvaran. Satt om varunummer beskriver en godkänd läkemedelsvara. Kan vara satt om varunummer beskriver en licensvara. OID: 1.2.752.129.2.1.5.2.",
+      "comment" : "TKB-fält: `../../../../../nplPackId` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug",
+      "short" : "Läkemedelsprodukt",
+      "definition" : "Läkemedelsprodukt.",
+      "comment" : "TKB-fält: `../../../../drug` (`DrugType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.nplId",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.nplId",
+      "short" : "NPL-id (OID 1.2.752.129.2.1.5.1)",
+      "definition" : "NPL-id.\n\nNationellt Produktregister för Läkemedelsprodukter. OID: 1.2.752.129.2.1.5.1.\n\nAlla producenter av kontraktet ska skicka code, codeSystem samt displayName.\n\nAntingen nplId eller atcCode måste anges.",
+      "comment" : "TKB-fält: `../../../../../nplId` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.atcCode",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.atcCode",
+      "short" : "ATC-kod (OID 1.2.752.129.2.2.3.1.1)",
+      "definition" : "ATC-kod.\n\natcKod + atcKodBeskrivning i SIL.\n\nKlassificeringskod för läkemedlet på sjuställig nivå. OID:\n\n1.2.752.129.2.2.3.1.1.\n\nUnderhålls av WHO Collaborating Centre for Drug Statistics Methodology, Oslo, Norge http://www.whocc.no/atcddd/\n\nI Sverige oklart vilken instans som ansvarar men Läkemedelsverket har övergripande ansvar för läkemedelsfrågor www.lakemedelsverket.se/\n\nATC-kod, (Anatomic Therapeutic Chemical classification system), är ett klassificeringssystem för läkemedel. Läkemedlen indelas i olika grupper efter indikationsområde.\n\nAntingen nplId eller atcCode måste anges.",
+      "comment" : "TKB-fält: `../../../../../atcCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.routeOfAdministration",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.routeOfAdministration",
+      "short" : "Administreringssätt",
+      "definition" : "Administreringssätt.\n\nHur produkten ska intas/administreras. Kan anges med SNOMED-kod.",
+      "comment" : "TKB-fält: `../../../../../routeOfAdministration` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.pharmaceuticalForm",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.pharmaceuticalForm",
+      "short" : "Läkemedelsform (t.ex. Tablett)",
+      "definition" : "Läkemedelsform enligt SIL, t.ex Tablett",
+      "comment" : "TKB-fält: `../../../../../pharmaceuticalForm` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.strength",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.strength",
+      "short" : "Styrka (t.ex. 20.0)",
+      "definition" : "Styrka enligt SIL, t.ex 20.0\n\nI de fall läkemedlet är ett kombinationspreparat anges styrka (värde) för substans 1.",
+      "comment" : "TKB-fält: `../../../../../strength` (`double`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.strengthUnit",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.drug.strengthUnit",
+      "short" : "Enhet på styrka (t.ex. mg)",
+      "definition" : "Enhet på styrka enligt SIL, t.ex mg.\n\nI de fall läkemedlet är ett kombinationspreparat anges enhet för substans 1, snedstreck,  styrka (värde) för substans 2, enhet för substans 2. Exempel: ”mg/12.5 mg”",
+      "comment" : "TKB-fält: `../../../../../strengthUnit` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics",
+      "short" : "Generiskt läkemedelsval",
+      "definition" : "Generiskt läkemedelsval.",
+      "comment" : "TKB-fält: `../../../../generics` (`GenericsType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics.substance",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics.substance",
+      "short" : "Substansgrupp",
+      "definition" : "Substansgrupp.\n\nText som anger namn på den grupp som innehåller den läkemedel med den substans som önskas i aktuell läkemedelsordination.",
+      "comment" : "TKB-fält: `../../../../../substance` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics.strength",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics.strength",
+      "short" : "Önskad styrka",
+      "definition" : "Styrka.\n\nÖnskad styrka på det generiska läkemedel som önskas i aktuell läkemedelsordination.",
+      "comment" : "TKB-fält: `../../../../../strength` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics.form",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.drug.generics.form",
+      "short" : "Läkemedelsform",
+      "definition" : "Läkemedelsform.\n\nText som anger namn på den grupp som innehåller de läkemedel med den läkemedelsform som önskas i aktuell läkemedelsordination",
+      "comment" : "TKB-fält: `../../../../../form` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage",
+      "short" : "Dosering",
+      "definition" : "Dosering",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.lengthOfTreatment",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.lengthOfTreatment",
+      "short" : "Behandlingstid",
+      "definition" : "Behandlingstid.",
+      "comment" : "TKB-fält: `../../../../../lengthOfTreatment` (`LengthOfTreatmentType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.lengthOfTreatment.treatmentInterval",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.lengthOfTreatment.treatmentInterval",
+      "short" : "Tidsintervall för behandling (PQIntervalType)",
+      "definition" : "Behandlingstid.\n\nTidsintervall under vilket läkemedlet ska användas enligt ordination. Exempel: 5-6 veckor.",
+      "comment" : "TKB-fält: `../../../../../../treatmentInterval` (`PQIntervalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Range"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.lengthOfTreatment.isMaximumTreatmentTime",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.lengthOfTreatment.isMaximumTreatmentTime",
+      "short" : "Om true: maximalt tillåten tid",
+      "definition" : "Logiskt villkor som anger om attributet behandlingstid avser den maximala tid som läkemedlet får användas.\n\nSant = Behandlingstiden är en maxtid\n\nFalskt = Behandlingstiden är inte en maxtid.",
+      "comment" : "TKB-fält: `../../../../../../isMaximumTreatmentTime` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.dosageInstruction",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.dosageInstruction",
+      "short" : "Doseringsanvisning",
+      "definition" : "Doseringsanvisning.\n\nKälla: Socialstyrelsens termbank: Terminologirådet; beskrivning av dosering, användning och ändamål riktad till patient.\n\nText som beskriver doseringen.",
+      "comment" : "TKB-fält: `../../../../../dosageInstruction` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.unitDose",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.unitDose",
+      "short" : "Doseringsenhet",
+      "definition" : "Doseringsenhet.\n\nKod som anger den enhet som doseringen avser.\n\nExempel: tablett, ml, droppe\n\nI dagsläget existerar ingen kvalitetssäkrad kodifierad förteckning över doseringsenheter, men kan anges med SNOMED-kod.\n\nVia SIL kan doseringsenhet som text erhållas för vissa läkemedel.",
+      "comment" : "TKB-fält: `../../../../../unitDose` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.shortNotation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.shortNotation",
+      "short" : "Kortnotation, t.ex. '1x2'",
+      "definition" : "Kortnotation.\n\nText som ger en kort beskrivning av doseringen.\n\nExempel: 1x2",
+      "comment" : "TKB-fält: `../../../../../shortNotation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.setDosage",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.setDosage",
+      "short" : "Fastdosering",
+      "definition" : "Fastdosering.\n\nDosering där ordinatören har bestämt mängd och periodicitet, t.ex. 2 tabletter 3 gånger\n\ndagligen.\n\nFastdosering kan utgöra Frekvensdosering, Perioddosering, Tillfällesdosering, Rampdosering, Engångsdosering och\n\nFritextdosering. Dessa alla har det gemensamt att de anger mängd och periodicitet, men på lite olika sätt.",
+      "comment" : "TKB-fält: `../../../../../setDosage` (`SetDosageType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.maximumDosage",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.maximumDosage",
+      "short" : "Maxdosering",
+      "definition" : "Maxdosering.\n\nDosering som anger den högsta tillåtna mängden under en viss period, t.ex. högst 5 tabletter per vecka",
+      "comment" : "TKB-fält: `../../../../../maximumDosage` (`MaximumDosageTyp`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.conditionalDosage",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.conditionalDosage",
+      "short" : "Villkorsdosering",
+      "definition" : "Villkorsdosering.\n\nOrdinerad mängd och periodicitet som gäller\n\nom ett visst villkor är uppfyllt, t.ex. 1-2 tabletter till natten",
+      "comment" : "TKB-fält: `../../../../../conditionalDosage` (`ConditionalDosageType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.conditionalDosage.conditionDescription",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dosage.conditionalDosage.conditionDescription",
+      "short" : "Villkorstext",
+      "definition" : "Villkorstext.\n\nText som anger villkor kopplat till en villkorsdosering, t.ex. \"vid behov\".\n\nDet finns en diskrepans i multipliciteten för detta attribut mellan tjänstekontraktsbeskrivningen och XSD-schemat. Se arkitekturella beslut för denna domän för mer information om detta.",
+      "comment" : "TKB-fält: `../../../../../../conditionDescription` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dispensationAuthorization",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.dispensationAuthorization",
+      "short" : "Förskrivning",
+      "definition" : "Förskrivning.\n\nKälla: Socialstyrelsens termbank, Terminologirådet: recept, rekvisition, livsmedelsanvisning, hjälpmedelskort eller dosrecept.\n\nEn förskrivning föregås alltid av en ordination. Varje förskrivning (förutom den första) är per definition ett nytt beslut, och därmed en ny ordination. I slutenvård görs endast ordination, men i öppenvård krävs även en förskrivning.\n\nUtelämnas alltid om ordinationstypen är Utsättning.",
+      "comment" : "TKB-fält: `../../../dispensationAuthorization` (`DispensationAuthorizationType`, kardinalitet 0..1).\n\n**Modellanteckning:** Se XSD DispensationAuthorizationType för fullständig struktur.\n// SAKNAS I KÄLLDOKUMENT - endast delvis extraherat — kontrollera manuellt",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.administration",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.administration",
+      "short" : "Information om administrering av läkemedel",
+      "definition" : "Information om administrering av läkemedel. Bara administreringstillfällen som faktiskt ägt rum kan anges, planerade administreringstillfällen kan inte anges i detta kontrakt.",
+      "comment" : "TKB-fält: `../../../administration` (`AdministrationType`, kardinalitet 0..*).\n\n**Modellanteckning:** Bara administreringstillfällen som faktiskt ägt rum kan anges.\nSe XSD AdministrationType för fullständig struktur.\n// SAKNAS I KÄLLDOKUMENT - endast delvis extraherat — kontrollera manuellt",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.relation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.medicationPrescription.relation",
+      "short" : "Sambandsklass",
+      "definition" : "Sambandsklass\n\nAlla de meddelandeposter (angivna med referredInformation.id) som i ordinationen pekas ut med samma relation.code ska anges i samma relation (teknisk aggregering).",
+      "comment" : "TKB-fält: `../../../relation` (`RelationType`, kardinalitet 0..*).\n\n**Modellanteckning:** Alla meddelandeposter som i ordinationen pekas ut med samma relationstyp.\nSe XSD RelationType för fullständig struktur.\n// SAKNAS I KÄLLDOKUMENT - endast delvis extraherat — kontrollera manuellt",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.additionalPatientInformation",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.additionalPatientInformation",
+      "short" : "Ytterligare patientinformation",
+      "definition" : "Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning.",
+      "comment" : "TKB-fält: `../../additionalPatientInformation` (`AdditionalPatientInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.additionalPatientInformation.dateOfBirth",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.additionalPatientInformation.dateOfBirth",
+      "short" : "Patientens födelsedatum",
+      "definition" : "Patientens födelsedatum.",
+      "comment" : "TKB-fält: `../../../dateOfBirth` (`DateType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.additionalPatientInformation.gender",
+      "path" : "getmedicationhistory.medicationMedicalRecord.medicationMedicalRecordBody.additionalPatientInformation.gender",
+      "short" : "Patientens kön. KV Kön (OID 1.2.752.129.2.2.1.1) bör användas",
+      "definition" : "Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas (se referens [R6]).",
+      "comment" : "TKB-fält: `../../../gender` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.result",
+      "path" : "getmedicationhistory.result",
+      "short" : "Svarsstatus",
+      "definition" : "Innehåller information om begäran gick bra eller ej.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.result.resultCode",
+      "path" : "getmedicationhistory.result.resultCode",
+      "short" : "OK, INFO eller ERROR",
+      "definition" : "Kan endast vara OK, INFO eller ERROR",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getmedicationhistory.result.errorCode",
+      "path" : "getmedicationhistory.result.errorCode",
+      "short" : "Sätts om resultCode är ERROR",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/errorcode-vs"
+      }
+    },
+    {
+      "id" : "getmedicationhistory.result.subcode",
+      "path" : "getmedicationhistory.result.subcode",
+      "short" : "Inga subkoder specificerade",
+      "definition" : "Inga subkoder är specificerade.",
+      "comment" : "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.result.logId",
+      "path" : "getmedicationhistory.result.logId",
+      "short" : "UUID för felsökning hos producent",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationhistory.result.message",
+      "path" : "getmedicationhistory.result.message",
+      "short" : "Beskrivande text för användaren",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

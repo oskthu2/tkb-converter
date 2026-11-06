@@ -1,0 +1,483 @@
+# GetEmployeeIncludingProtectedPerson — Response - strategicresourcemanagement: persons: employee v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetEmployeeIncludingProtectedPerson — Response**
+
+## Logical Model: GetEmployeeIncludingProtectedPerson — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployeeincludingprotectedperson | *Version*:2.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetEmployeeIncludingProtectedPerson |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetEmployeeIncludingProtectedPerson (urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeIncludingProtectedPersonResponder:2, GetEmployeeIncludingProtectedPersonResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-employee|current/StructureDefinition/StructureDefinition-getemployeeincludingprotectedperson.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getemployeeincludingprotectedperson.csv), [Excel](StructureDefinition-getemployeeincludingprotectedperson.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getemployeeincludingprotectedperson",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployeeincludingprotectedperson",
+  "version" : "2.0",
+  "name" : "GetEmployeeIncludingProtectedPerson",
+  "title" : "GetEmployeeIncludingProtectedPerson — Response",
+  "status" : "draft",
+  "date" : "2026-11-06T21:49:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetEmployeeIncludingProtectedPerson\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeIncludingProtectedPersonResponder:2, GetEmployeeIncludingProtectedPersonResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployeeincludingprotectedperson",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getemployeeincludingprotectedperson",
+      "path" : "getemployeeincludingprotectedperson",
+      "short" : "GetEmployeeIncludingProtectedPerson — Response",
+      "definition" : "Logisk modell för svaret i GetEmployeeIncludingProtectedPerson\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeIncludingProtectedPersonResponder:2, GetEmployeeIncludingProtectedPersonResponseType)."
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation",
+      "path" : "getemployeeincludingprotectedperson.personInformation",
+      "short" : "personInformation",
+      "definition" : "Information om personen.\n\nOm personen har flera person-objekt returneras en instans per objekt.",
+      "comment" : "TKB-fält: `personInformation` (`PersonInformationType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.personHsaId",
+      "path" : "getemployeeincludingprotectedperson.personInformation.personHsaId",
+      "short" : "personHsaId",
+      "definition" : "Personens HSA-id.",
+      "comment" : "TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.givenName",
+      "path" : "getemployeeincludingprotectedperson.personInformation.givenName",
+      "short" : "givenName",
+      "definition" : "Tilltalsnamn.",
+      "comment" : "TKB-fält: `..givenName` (`String`, kardinalitet ..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.middleAndSurName",
+      "path" : "getemployeeincludingprotectedperson.personInformation.middleAndSurName",
+      "short" : "middleAndSurName",
+      "definition" : "Mellan- och Efternamn separerade med mellanslag",
+      "comment" : "TKB-fält: `..middleAndSurName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.nickName",
+      "path" : "getemployeeincludingprotectedperson.personInformation.nickName",
+      "short" : "nickName",
+      "definition" : "Smeknamn. Används då tilltalsnamn inte är det namn som personen vill använda/bli tilltalad med.",
+      "comment" : "TKB-fält: `..nickName` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.mail",
+      "path" : "getemployeeincludingprotectedperson.personInformation.mail",
+      "short" : "mail",
+      "definition" : "E-postadress.",
+      "comment" : "TKB-fält: `..mail` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneNumber",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "Publikt direkttelefonnummer.",
+      "comment" : "TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.switchboardNumber",
+      "path" : "getemployeeincludingprotectedperson.personInformation.switchboardNumber",
+      "short" : "switchboardNumber",
+      "definition" : "Telefonnummer till växel.",
+      "comment" : "TKB-fält: `..switchboardNumber` (`Telefon`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.nonPublicTelephoneNumber",
+      "path" : "getemployeeincludingprotectedperson.personInformation.nonPublicTelephoneNumber",
+      "short" : "nonPublicTelephoneNumber",
+      "definition" : "Tjänstetelefonnummer.",
+      "comment" : "TKB-fält: `..nonPublicTelephoneNumber` (`Telefon`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.mobileNumber",
+      "path" : "getemployeeincludingprotectedperson.personInformation.mobileNumber",
+      "short" : "mobileNumber",
+      "definition" : "Mobiltelefonnummer.",
+      "comment" : "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.smsTelephoneNumber",
+      "path" : "getemployeeincludingprotectedperson.personInformation.smsTelephoneNumber",
+      "short" : "smsTelephoneNumber",
+      "definition" : "Telefonnummer för SMS-meddelanden.",
+      "comment" : "TKB-fält: `..smsTelephoneNumber` (`Telefon`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.facsimileTelephoneNumber",
+      "path" : "getemployeeincludingprotectedperson.personInformation.facsimileTelephoneNumber",
+      "short" : "facsimileTelephoneNumber",
+      "definition" : "Faxnummer.",
+      "comment" : "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneHour",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneHour",
+      "short" : "telephoneHour",
+      "definition" : "Telefontider för publik telefon (telephoneNumber).",
+      "comment" : "TKB-fält: `..telephoneHour` (`TimeSpan`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDay",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "Från dag. Måndag (1) – Söndag (7).",
+      "comment" : "TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.fromTime",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "Från tid. Format enligt ISO-8601.",
+      "comment" : "TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.toDay",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "Till dag. Måndag (1) – Söndag (7).",
+      "comment" : "TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.toTime",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "Till tid. Format enligt ISO-8601.",
+      "comment" : "TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.comment",
+      "path" : "getemployeeincludingprotectedperson.personInformation.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "Information om aktuellt tidsintervall.",
+      "comment" : "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.postalAddress",
+      "path" : "getemployeeincludingprotectedperson.personInformation.postalAddress",
+      "short" : "postalAddress",
+      "definition" : "Postadress.",
+      "comment" : "TKB-fält: `..postalAddress` (`AddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.postalAddress.addressLine",
+      "path" : "getemployeeincludingprotectedperson.personInformation.postalAddress.addressLine",
+      "short" : "addressLine",
+      "definition" : "Adressrad.",
+      "comment" : "TKB-fält: `.. ..addressLine` (`String`, kardinalitet 1..n).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.description",
+      "path" : "getemployeeincludingprotectedperson.personInformation.description",
+      "short" : "description",
+      "definition" : "Generell beskrivning.",
+      "comment" : "TKB-fält: `..description` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.languageKnowledgeCode",
+      "path" : "getemployeeincludingprotectedperson.personInformation.languageKnowledgeCode",
+      "short" : "languageKnowledgeCode",
+      "definition" : "Kod för språk personen har tillräcklig kunskap om för att kunna ta emot patienter som talar detta språk.",
+      "comment" : "TKB-fält: `..languageKnowledgeCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.title",
+      "path" : "getemployeeincludingprotectedperson.personInformation.title",
+      "short" : "title",
+      "definition" : "Titel i fritext",
+      "comment" : "TKB-fält: `..title` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicence",
+      "path" : "getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicence",
+      "short" : "healthCareProfessionalLicence",
+      "definition" : "Legitimerad yrkesgrupp",
+      "comment" : "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.paTitle",
+      "path" : "getemployeeincludingprotectedperson.personInformation.paTitle",
+      "short" : "paTitle",
+      "definition" : "Personens befattning",
+      "comment" : "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.paTitle.paTitleName",
+      "path" : "getemployeeincludingprotectedperson.personInformation.paTitle.paTitleName",
+      "short" : "paTitleName",
+      "definition" : "Befattning",
+      "comment" : "TKB-fält: `.. ..paTitleName` (`String`, kardinalitet ..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.paTitle.paTitleCode",
+      "path" : "getemployeeincludingprotectedperson.personInformation.paTitle.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "Befattningskod",
+      "comment" : "TKB-fält: `.. ..paTitleCode` (`String`, kardinalitet ..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.specialityName",
+      "path" : "getemployeeincludingprotectedperson.personInformation.specialityName",
+      "short" : "specialityName",
+      "definition" : "Specialistutbildning utöver grundutbildning.",
+      "comment" : "TKB-fält: `..specialityName` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.specialityCode",
+      "path" : "getemployeeincludingprotectedperson.personInformation.specialityCode",
+      "short" : "specialityCode",
+      "definition" : "Klassificeringskod för specialistutbildning utöver grundutbildning.",
+      "comment" : "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.dn",
+      "path" : "getemployeeincludingprotectedperson.personInformation.dn",
+      "short" : "dn",
+      "definition" : "”Distinguished Name”. Objektets placering (sökväg) i katalogen, t.ex. cn=Henrika Littorin,ou=Anställda,ou=Enhet Systemförvaltning,ou=Område e-tjänster Drift och Förvaltning,o=Inera AB,c=SE",
+      "comment" : "TKB-fält: `..dn` (`DN`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.protectedPerson",
+      "path" : "getemployeeincludingprotectedperson.personInformation.protectedPerson",
+      "short" : "protectedPerson",
+      "definition" : "true: om person har skyddad identitet\n\n(om personen inte har skyddad identitet kommer inget värde att returneras)",
+      "comment" : "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.personStartDate",
+      "path" : "getemployeeincludingprotectedperson.personInformation.personStartDate",
+      "short" : "personStartDate",
+      "definition" : "personStartDate",
+      "comment" : "TKB-fält: `../personStartDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.personEndDate",
+      "path" : "getemployeeincludingprotectedperson.personInformation.personEndDate",
+      "short" : "personEndDate",
+      "definition" : "personEndDate",
+      "comment" : "TKB-fält: `../personEndDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getemployeeincludingprotectedperson.personInformation.feignedPerson",
+      "path" : "getemployeeincludingprotectedperson.personInformation.feignedPerson",
+      "short" : "feignedPerson",
+      "definition" : "feignedPerson",
+      "comment" : "TKB-fält: `../feignedPerson` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,70 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"findcontent-request","findcontent-request","","","",0,*,"","","","null {[]} {[]}
+","FindContent — Request","Logisk modell för requestparametrar i tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Alla angivna attribut används för exakt matchningsfiltrering av sökresultatet.
+Åtkomst till FindContent i nationell EI-instans är begränsad till aggregerande
+tjänster i den nationella aggregeringsplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent-request.registeredResidentIdentification","findcontent-request.registeredResidentIdentification","","","",1,1,"","","","string {[]} {[]}
+","Personidentitet (sökkriterium)","Enligt formatregler i meddelandemodellen","TKB-fält: `registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).
+
+**Modellanteckning:** Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),
+eller nationellt reservnummer enligt Ineras definition (12 tecken).
+Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.","","","","","","","","",,,,,"",,,,"findcontent-request.registeredResidentIdentification",1,1,"",""
+"findcontent-request.serviceDomain","findcontent-request.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","Tjänstedomänens namnrymd (sökkriterium)","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent-request.serviceDomain",1,1,"",""
+"findcontent-request.categorization","findcontent-request.categorization","","","",0,1,"","","","string {[]} {[]}
+","Kategorisering (sökkriterium)","Kodverk enligt tjänstedomänens dokumentation.","TKB-fält: `categorization` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Kodverk enligt den tillämpande tjänstedomänens dokumentation.
+Om angivet filtreras svaret till poster med exakt matchning på detta attribut.","","","","","","","","",,,,,"",,,,"findcontent-request.categorization",0,1,"",""
+"findcontent-request.logicalAddress","findcontent-request.logicalAddress","","","",0,1,"","","","string {[]} {[]}
+","Logisk adress (sökkriterium)","Enligt tjänstedomänens dokumentation.","TKB-fält: `logicalAddress` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Filtrerar svaret till poster med angiven logisk adress.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.","","","","","","","","",,,,,"",,,,"findcontent-request.logicalAddress",0,1,"",""
+"findcontent-request.businessObjectInstanceIdentifier","findcontent-request.businessObjectInstanceIdentifier","","","",0,1,"","","","string {[]} {[]}
+","Affärsobjektets instansidentifierare (sökkriterium)","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Filtrerar svaret till poster med angiven affärsobjektidentifierare.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+OBS: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.","","","","","","","","",,,,,"",,,,"findcontent-request.businessObjectInstanceIdentifier",0,1,"",""
+"findcontent-request.clinicalProcessInterestId","findcontent-request.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","Kliniskt processintresse-ID (sökkriterium)","Enligt tjänstedomänens dokumentation","TKB-fält: `clinicalProcessInterestId` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Filtrerar svaret till poster med angivet kliniskt processintresse-ID.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+OBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,
+men i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.
+Behöver verifiering mot XSD-schema.","","","","","","","","",,,,,"",,,,"findcontent-request.clinicalProcessInterestId",0,1,"",""
+"findcontent-request.mostRecentContent","findcontent-request.mostRecentContent","","","",0,1,"","","","dateTime {[]} {[]}
+","Senast relevant innehållstidpunkt (sökkriterium)","YYYYMMDDhhmmss.","TKB-fält: `mostRecentContent` (`TS`, kardinalitet 0..1).
+
+**Modellanteckning:** Filtrerar svaret till poster med mostRecentContent >= angivet värde.
+Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).","","","","","","","","",,,,,"",,,,"findcontent-request.mostRecentContent",0,1,"",""
+"findcontent-request.sourceSystem","findcontent-request.sourceSystem","","","",0,1,"","","","Identifier {[]} {[]}
+","Källsystem (sökkriterium)","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `sourceSystem` (`HSA-id`, kardinalitet 0..1).
+
+**Modellanteckning:** HSA-id för källsystemet. Filtrerar svaret till poster med angivet källsystem.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).","","","","","","","","",,,,,"",,,,"findcontent-request.sourceSystem",0,1,"",""
+"findcontent-request.dataController","findcontent-request.dataController","","","",0,1,"","","","string {[]} {[]}
+","Personuppgiftsansvarig organisation (sökkriterium)","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.","TKB-fält: `dataController` (`String`, kardinalitet 0..1).
+
+**Modellanteckning:** Identitet för PUA. Filtrerar svaret till poster med angiven dataController.
+OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet.","","","","","","","","",,,,,"",,,,"findcontent-request.dataController",0,1,"",""
+"findcontent-request.owner","findcontent-request.owner","","","",0,1,"","","","Identifier {[]} {[]}
+","Ägande index (sökkriterium)","HSA-id för den organisations vars index tog emot uppdateringsbegäran.","TKB-fält: `owner` (`HSA-id`, kardinalitet 0..1).
+
+**Modellanteckning:** HSA-id för den organisation vars index tog emot uppdateringsbegäran.
+Filtrerar svaret till poster som registrerats i angivet index.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).","","","","","","","","",,,,,"",,,,"findcontent-request.owner",0,1,"",""

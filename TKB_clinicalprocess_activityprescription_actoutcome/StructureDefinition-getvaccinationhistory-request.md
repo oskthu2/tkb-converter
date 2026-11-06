@@ -1,0 +1,135 @@
+# GetVaccinationHistory — Request - clinicalprocess: activityprescription: actoutcome v2.2.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetVaccinationHistory — Request**
+
+## Logical Model: GetVaccinationHistory — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory-request | *Version*:2.0 |
+| Active as of 2026-11-06 | *Computable Name*:GetVaccinationHistoryRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i GetVaccinationHistory. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-actoutcome|current/StructureDefinition/StructureDefinition-getvaccinationhistory-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getvaccinationhistory-request.csv), [Excel](StructureDefinition-getvaccinationhistory-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getvaccinationhistory-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory-request",
+  "version" : "2.0",
+  "name" : "GetVaccinationHistoryRequest",
+  "title" : "GetVaccinationHistory — Request",
+  "status" : "active",
+  "date" : "2026-11-06T20:58:52+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i GetVaccinationHistory.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getvaccinationhistory-request",
+      "path" : "getvaccinationhistory-request",
+      "short" : "GetVaccinationHistory — Request",
+      "definition" : "Logisk modell för requestparametrar i GetVaccinationHistory."
+    },
+    {
+      "id" : "getvaccinationhistory-request.careUnitHSAid",
+      "path" : "getvaccinationhistory-request.careUnitHSAid",
+      "short" : "Begränsar sökningen till angivna informationsägande vårdenheter",
+      "definition" : "Begränsar sökningen till angivna informationsägande vårdenheter. Anges med HSA-id. Motsvarar careUnitHSAid i HealthCareProfessionalType i svaret.\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1).\n\nextension sätts till HSA-id för informationsägande vårdenhet.",
+      "comment" : "TKB-fält: `careUnitHSAid` (`HSAIdType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory-request.patientId",
+      "path" : "getvaccinationhistory-request.patientId",
+      "short" : "Begränsar sökningen till angiven personidentifierare för patient",
+      "definition" : "Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplade till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.\n\nid sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\ntype sätts till OID för typ av personidentifierare.\n\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör andra typer av personidentifierare sätts type till aktuell OID.",
+      "comment" : "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).\n\n**Modellanteckning:** Tjänsteproducenten ska i svaret enbart returnera information relaterad till angiven patient.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory-request.timePeriod",
+      "path" : "getvaccinationhistory-request.timePeriod",
+      "short" : "Begränsar sökningen till det angivna intervallet",
+      "definition" : "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där tidpunkterna documentTime, authorTime, signatureTime eller registrationrecord.date i svaret ligger inom sökintervallets start- och slutdatum.\n\nNotera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse med tidpunkter ska hela det dygn som anges i slutdatum betraktas som en del av sökintervallet.",
+      "comment" : "TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Period"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory-request.sourceSystemHSAid",
+      "path" : "getvaccinationhistory-request.sourceSystemHSAid",
+      "short" : "Begränsar sökningen till angivet källsystem",
+      "definition" : "Begränsar sökningen till journalposter som är skapade i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.\n\nVärdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).\n\nDet innebär i praktiken att aggregerande tjänster inte används när detta fält anges.\n\nSka anges om careContactId angivits.\n\nSka anges vid begäran på LRID.\n\nOm sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST\n\nOm careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST.",
+      "comment" : "TKB-fält: `sourceSystemHSAid` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory-request.careContactId",
+      "path" : "getvaccinationhistory-request.careContactId",
+      "short" : "Begränsar sökningen till angiven vård- och omsorgskontakt",
+      "definition" : "Begränsar sökningen till den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+      "comment" : "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

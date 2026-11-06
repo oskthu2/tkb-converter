@@ -1,0 +1,483 @@
+# GetEmployee — Response - strategicresourcemanagement: persons: employee v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetEmployee — Response**
+
+## Logical Model: GetEmployee — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployee | *Version*:2.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetEmployee |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetEmployee (urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-employee|current/StructureDefinition/StructureDefinition-getemployee.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getemployee.csv), [Excel](StructureDefinition-getemployee.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getemployee",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployee",
+  "version" : "2.0",
+  "name" : "GetEmployee",
+  "title" : "GetEmployee — Response",
+  "status" : "draft",
+  "date" : "2026-11-06T21:49:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetEmployee\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployee",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getemployee",
+      "path" : "getemployee",
+      "short" : "GetEmployee — Response",
+      "definition" : "Logisk modell för svaret i GetEmployee\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeResponseType)."
+    },
+    {
+      "id" : "getemployee.personInformation",
+      "path" : "getemployee.personInformation",
+      "short" : "personInformation",
+      "definition" : "personInformation",
+      "comment" : "TKB-fält: `personInformation` (`PersonInformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.personHsaId",
+      "path" : "getemployee.personInformation.personHsaId",
+      "short" : "personHsaId",
+      "definition" : "personHsaId",
+      "comment" : "TKB-fält: `../personHsaId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.givenName",
+      "path" : "getemployee.personInformation.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "comment" : "TKB-fält: `../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.middleAndSurName",
+      "path" : "getemployee.personInformation.middleAndSurName",
+      "short" : "middleAndSurName",
+      "definition" : "middleAndSurName",
+      "comment" : "TKB-fält: `../middleAndSurName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.nickName",
+      "path" : "getemployee.personInformation.nickName",
+      "short" : "nickName",
+      "definition" : "nickName",
+      "comment" : "TKB-fält: `../nickName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.mail",
+      "path" : "getemployee.personInformation.mail",
+      "short" : "mail",
+      "definition" : "mail",
+      "comment" : "TKB-fält: `../mail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneNumber",
+      "path" : "getemployee.personInformation.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "telephoneNumber",
+      "comment" : "TKB-fält: `../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.switchboardNumber",
+      "path" : "getemployee.personInformation.switchboardNumber",
+      "short" : "switchboardNumber",
+      "definition" : "switchboardNumber",
+      "comment" : "TKB-fält: `../switchboardNumber` (`TelephoneNumberType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.nonPublicTelephoneNumber",
+      "path" : "getemployee.personInformation.nonPublicTelephoneNumber",
+      "short" : "nonPublicTelephoneNumber",
+      "definition" : "nonPublicTelephoneNumber",
+      "comment" : "TKB-fält: `../nonPublicTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.mobileNumber",
+      "path" : "getemployee.personInformation.mobileNumber",
+      "short" : "mobileNumber",
+      "definition" : "mobileNumber",
+      "comment" : "TKB-fält: `../mobileNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.smsTelephoneNumber",
+      "path" : "getemployee.personInformation.smsTelephoneNumber",
+      "short" : "smsTelephoneNumber",
+      "definition" : "smsTelephoneNumber",
+      "comment" : "TKB-fält: `../smsTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.facsimileTelephoneNumber",
+      "path" : "getemployee.personInformation.facsimileTelephoneNumber",
+      "short" : "facsimileTelephoneNumber",
+      "definition" : "facsimileTelephoneNumber",
+      "comment" : "TKB-fält: `../facsimileTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneHour",
+      "path" : "getemployee.personInformation.telephoneHour",
+      "short" : "telephoneHour",
+      "definition" : "telephoneHour",
+      "comment" : "TKB-fält: `../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneHour.fromDay",
+      "path" : "getemployee.personInformation.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../fromDay` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneHour.fromTime",
+      "path" : "getemployee.personInformation.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneHour.toDay",
+      "path" : "getemployee.personInformation.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../toDay` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneHour.toTime",
+      "path" : "getemployee.personInformation.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.telephoneHour.comment",
+      "path" : "getemployee.personInformation.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.postalAddress",
+      "path" : "getemployee.personInformation.postalAddress",
+      "short" : "postalAddress",
+      "definition" : "postalAddress",
+      "comment" : "TKB-fält: `../postalAddress` (`AddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.postalAddress.addressLine",
+      "path" : "getemployee.personInformation.postalAddress.addressLine",
+      "short" : "addressLine",
+      "definition" : "addressLine",
+      "comment" : "TKB-fält: `../../addressLine` (`string`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.description",
+      "path" : "getemployee.personInformation.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.languageKnowledgeCode",
+      "path" : "getemployee.personInformation.languageKnowledgeCode",
+      "short" : "languageKnowledgeCode",
+      "definition" : "languageKnowledgeCode",
+      "comment" : "TKB-fält: `../languageKnowledgeCode` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.title",
+      "path" : "getemployee.personInformation.title",
+      "short" : "title",
+      "definition" : "title",
+      "comment" : "TKB-fält: `../title` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.healthCareProfessionalLicence",
+      "path" : "getemployee.personInformation.healthCareProfessionalLicence",
+      "short" : "healthCareProfessionalLicence",
+      "definition" : "healthCareProfessionalLicence",
+      "comment" : "TKB-fält: `../healthCareProfessionalLicence` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.paTitle",
+      "path" : "getemployee.personInformation.paTitle",
+      "short" : "paTitle",
+      "definition" : "paTitle",
+      "comment" : "TKB-fält: `../paTitle` (`PaTitleType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.paTitle.paTitleName",
+      "path" : "getemployee.personInformation.paTitle.paTitleName",
+      "short" : "paTitleName",
+      "definition" : "paTitleName",
+      "comment" : "TKB-fält: `../../paTitleName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.paTitle.paTitleCode",
+      "path" : "getemployee.personInformation.paTitle.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "paTitleCode",
+      "comment" : "TKB-fält: `../../paTitleCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.specialityName",
+      "path" : "getemployee.personInformation.specialityName",
+      "short" : "specialityName",
+      "definition" : "specialityName",
+      "comment" : "TKB-fält: `../specialityName` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.specialityCode",
+      "path" : "getemployee.personInformation.specialityCode",
+      "short" : "specialityCode",
+      "definition" : "specialityCode",
+      "comment" : "TKB-fält: `../specialityCode` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.dn",
+      "path" : "getemployee.personInformation.dn",
+      "short" : "dn",
+      "definition" : "dn",
+      "comment" : "TKB-fält: `../dn` (`DNType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.protectedPerson",
+      "path" : "getemployee.personInformation.protectedPerson",
+      "short" : "protectedPerson",
+      "definition" : "protectedPerson",
+      "comment" : "TKB-fält: `../protectedPerson` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.personStartDate",
+      "path" : "getemployee.personInformation.personStartDate",
+      "short" : "personStartDate",
+      "definition" : "personStartDate",
+      "comment" : "TKB-fält: `../personStartDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.personEndDate",
+      "path" : "getemployee.personInformation.personEndDate",
+      "short" : "personEndDate",
+      "definition" : "personEndDate",
+      "comment" : "TKB-fält: `../personEndDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getemployee.personInformation.feignedPerson",
+      "path" : "getemployee.personInformation.feignedPerson",
+      "short" : "feignedPerson",
+      "definition" : "feignedPerson",
+      "comment" : "TKB-fält: `../feignedPerson` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

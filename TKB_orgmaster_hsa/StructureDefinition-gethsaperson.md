@@ -1,0 +1,627 @@
+# GetHsaPerson — Response - orgmaster: hsa v1.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHsaPerson — Response**
+
+## Logical Model: GetHsaPerson — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaperson | *Version*:1.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetHsaPerson |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetHsaPerson (urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.orgmaster-hsa|current/StructureDefinition/StructureDefinition-gethsaperson.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethsaperson.csv), [Excel](StructureDefinition-gethsaperson.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethsaperson",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaperson",
+  "version" : "1.0",
+  "name" : "GetHsaPerson",
+  "title" : "GetHsaPerson — Response",
+  "status" : "draft",
+  "date" : "2026-11-06T21:41:15+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetHsaPerson\n(urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaperson",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethsaperson",
+      "path" : "gethsaperson",
+      "short" : "GetHsaPerson — Response",
+      "definition" : "Logisk modell för svaret i GetHsaPerson\n(urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonResponseType)."
+    },
+    {
+      "id" : "gethsaperson.userInformations",
+      "path" : "gethsaperson.userInformations",
+      "short" : "userInformations",
+      "definition" : "userInformations",
+      "comment" : "TKB-fält: `userInformations` (`userInformations`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation",
+      "path" : "gethsaperson.userInformations.userInformation",
+      "short" : "userInformation",
+      "definition" : "userInformation",
+      "comment" : "TKB-fält: `../userInformation` (`GetHsaPersonHsaUserType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.personalPrescriptionCode",
+      "path" : "gethsaperson.userInformations.userInformation.personalPrescriptionCode",
+      "short" : "personalPrescriptionCode",
+      "definition" : "personalPrescriptionCode",
+      "comment" : "TKB-fält: `../../personalPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.description",
+      "path" : "gethsaperson.userInformations.userInformation.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.paTitleCodes",
+      "path" : "gethsaperson.userInformations.userInformation.paTitleCodes",
+      "short" : "paTitleCodes",
+      "definition" : "paTitleCodes",
+      "comment" : "TKB-fält: `../../paTitleCodes` (`PaTitleCodesType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.paTitleCodes.paTitleCode",
+      "path" : "gethsaperson.userInformations.userInformation.paTitleCodes.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "paTitleCode",
+      "comment" : "TKB-fält: `../../../paTitleCode` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.paTitleNames",
+      "path" : "gethsaperson.userInformations.userInformation.paTitleNames",
+      "short" : "paTitleNames",
+      "definition" : "paTitleNames",
+      "comment" : "TKB-fält: `../../paTitleNames` (`PaTitleNamesType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.paTitleNames.paTitleName",
+      "path" : "gethsaperson.userInformations.userInformation.paTitleNames.paTitleName",
+      "short" : "paTitleName",
+      "definition" : "paTitleName",
+      "comment" : "TKB-fält: `../../../paTitleName` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.mail",
+      "path" : "gethsaperson.userInformations.userInformation.mail",
+      "short" : "mail",
+      "definition" : "mail",
+      "comment" : "TKB-fält: `../../mail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.givenName",
+      "path" : "gethsaperson.userInformations.userInformation.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "comment" : "TKB-fält: `../../givenName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.hsaIdentity",
+      "path" : "gethsaperson.userInformations.userInformation.hsaIdentity",
+      "short" : "hsaIdentity",
+      "definition" : "hsaIdentity",
+      "comment" : "TKB-fält: `../../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.hsaSwitchboardNumber",
+      "path" : "gethsaperson.userInformations.userInformation.hsaSwitchboardNumber",
+      "short" : "hsaSwitchboardNumber",
+      "definition" : "hsaSwitchboardNumber",
+      "comment" : "TKB-fält: `../../hsaSwitchboardNumber` (`TelephoneNumberType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.hsaTelephoneNumbers",
+      "path" : "gethsaperson.userInformations.userInformation.hsaTelephoneNumbers",
+      "short" : "hsaTelephoneNumbers",
+      "definition" : "hsaTelephoneNumbers",
+      "comment" : "TKB-fält: `../../hsaTelephoneNumbers` (`hsaTelephoneNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.hsaTelephoneNumbers.hsaTelephoneNumber",
+      "path" : "gethsaperson.userInformations.userInformation.hsaTelephoneNumbers.hsaTelephoneNumber",
+      "short" : "hsaTelephoneNumber",
+      "definition" : "hsaTelephoneNumber",
+      "comment" : "TKB-fält: `../../../hsaTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.labeledUri",
+      "path" : "gethsaperson.userInformations.userInformation.labeledUri",
+      "short" : "labeledUri",
+      "definition" : "labeledUri",
+      "comment" : "TKB-fält: `../../labeledUri` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.languageKnowledgeCodes",
+      "path" : "gethsaperson.userInformations.userInformation.languageKnowledgeCodes",
+      "short" : "languageKnowledgeCodes",
+      "definition" : "languageKnowledgeCodes",
+      "comment" : "TKB-fält: `../../languageKnowledgeCodes` (`languageKnowledgeCodes`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.languageKnowledgeCodes.languageKnowledgeCode",
+      "path" : "gethsaperson.userInformations.userInformation.languageKnowledgeCodes.languageKnowledgeCode",
+      "short" : "languageKnowledgeCode",
+      "definition" : "languageKnowledgeCode",
+      "comment" : "TKB-fält: `../../../languageKnowledgeCode` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.mobileNumbers",
+      "path" : "gethsaperson.userInformations.userInformation.mobileNumbers",
+      "short" : "mobileNumbers",
+      "definition" : "mobileNumbers",
+      "comment" : "TKB-fält: `../../mobileNumbers` (`mobileNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.mobileNumbers.mobileNumber",
+      "path" : "gethsaperson.userInformations.userInformation.mobileNumbers.mobileNumber",
+      "short" : "mobileNumber",
+      "definition" : "mobileNumber",
+      "comment" : "TKB-fält: `../../../mobileNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers",
+      "path" : "gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers",
+      "short" : "facsimileTelephoneNumbers",
+      "definition" : "facsimileTelephoneNumbers",
+      "comment" : "TKB-fält: `../../facsimileTelephoneNumbers` (`facsimileTelephoneNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers.facsimileTelephoneNumber",
+      "path" : "gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers.facsimileTelephoneNumber",
+      "short" : "facsimileTelephoneNumber",
+      "definition" : "facsimileTelephoneNumber",
+      "comment" : "TKB-fält: `../../../facsimileTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.nickName",
+      "path" : "gethsaperson.userInformations.userInformation.nickName",
+      "short" : "nickName",
+      "definition" : "nickName",
+      "comment" : "TKB-fält: `../../nickName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.smsTelephoneNumber",
+      "path" : "gethsaperson.userInformations.userInformation.smsTelephoneNumber",
+      "short" : "smsTelephoneNumber",
+      "definition" : "smsTelephoneNumber",
+      "comment" : "TKB-fält: `../../smsTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.specialityCodes",
+      "path" : "gethsaperson.userInformations.userInformation.specialityCodes",
+      "short" : "specialityCodes",
+      "definition" : "specialityCodes",
+      "comment" : "TKB-fält: `../../specialityCodes` (`specialityCodes`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.specialityCodes.specialityCode",
+      "path" : "gethsaperson.userInformations.userInformation.specialityCodes.specialityCode",
+      "short" : "specialityCode",
+      "definition" : "specialityCode",
+      "comment" : "TKB-fält: `../../../specialityCode` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.specialityNames",
+      "path" : "gethsaperson.userInformations.userInformation.specialityNames",
+      "short" : "specialityNames",
+      "definition" : "specialityNames",
+      "comment" : "TKB-fält: `../../specialityNames` (`specialityNames`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.specialityNames.specialityName",
+      "path" : "gethsaperson.userInformations.userInformation.specialityNames.specialityName",
+      "short" : "specialityName",
+      "definition" : "specialityName",
+      "comment" : "TKB-fält: `../../../specialityName` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.sn",
+      "path" : "gethsaperson.userInformations.userInformation.sn",
+      "short" : "sn",
+      "definition" : "sn",
+      "comment" : "TKB-fält: `../../sn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours",
+      "short" : "telephoneHours",
+      "definition" : "telephoneHours",
+      "comment" : "TKB-fält: `../../telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour",
+      "short" : "telephoneHour",
+      "definition" : "telephoneHour",
+      "comment" : "TKB-fält: `../../../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromDay",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../../../fromDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime2",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime2",
+      "short" : "fromTime2",
+      "definition" : "fromTime2",
+      "comment" : "TKB-fält: `../../../../fromTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toDay",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../../../toDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime2",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime2",
+      "short" : "toTime2",
+      "definition" : "toTime2",
+      "comment" : "TKB-fält: `../../../../toTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.comment",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../../../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneNumbers",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneNumbers",
+      "short" : "telephoneNumbers",
+      "definition" : "telephoneNumbers",
+      "comment" : "TKB-fält: `../../telephoneNumbers` (`telephoneNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.telephoneNumbers.telephoneNumber",
+      "path" : "gethsaperson.userInformations.userInformation.telephoneNumbers.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "telephoneNumber",
+      "comment" : "TKB-fält: `../../../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.title",
+      "path" : "gethsaperson.userInformations.userInformation.title",
+      "short" : "title",
+      "definition" : "title",
+      "comment" : "TKB-fält: `../../title` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.DN",
+      "path" : "gethsaperson.userInformations.userInformation.DN",
+      "short" : "DN",
+      "definition" : "DN",
+      "comment" : "TKB-fält: `../../DN` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.middleName",
+      "path" : "gethsaperson.userInformations.userInformation.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "comment" : "TKB-fält: `../../middleName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.postalAddress",
+      "path" : "gethsaperson.userInformations.userInformation.postalAddress",
+      "short" : "postalAddress",
+      "definition" : "postalAddress",
+      "comment" : "TKB-fält: `../../postalAddress` (`AddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.postalAddress.addressLine",
+      "path" : "gethsaperson.userInformations.userInformation.postalAddress.addressLine",
+      "short" : "addressLine",
+      "definition" : "addressLine",
+      "comment" : "TKB-fält: `../../../addressLine` (`string`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.hsaTitles",
+      "path" : "gethsaperson.userInformations.userInformation.hsaTitles",
+      "short" : "hsaTitles",
+      "definition" : "hsaTitles",
+      "comment" : "TKB-fält: `../../hsaTitles` (`HsaTitlesType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "gethsaperson.userInformations.userInformation.hsaTitles.hsaTitle",
+      "path" : "gethsaperson.userInformations.userInformation.hsaTitles.hsaTitle",
+      "short" : "hsaTitle",
+      "definition" : "hsaTitle",
+      "comment" : "TKB-fält: `../../../hsaTitle` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

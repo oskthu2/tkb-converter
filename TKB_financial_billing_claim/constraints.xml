@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" schemaVersion="ISO19757-3">
+
+  <title>Validation for ProcessClaimSpecification</title>
+  <ns prefix="urn2" uri="urn:riv:financial:billing:claim:1"/>
+  <ns prefix="urn1" uri="urn:riv:financial:billing:claim:ProcessClaimSpecificationResponder:1"/>
+  <ns prefix='soapenv' uri='http://schemas.xmlsoap.org/soap/envelope/'/>
+
+  <pattern id="Verify non-empty elements">
+    <rule context="soapenv:Body/urn2:ProcessClaimSpecificationResponse//*">
+	    <assert test="normalize-space(.)">Element <name /> is included but empty. All elements included in the response must have valid values.</assert>
+    </rule>
+  </pattern>
+
+</schema>

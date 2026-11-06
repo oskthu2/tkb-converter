@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<wsdl:definitions name="GetSealsInteraction" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:tjsr="urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1" 
+  xmlns:tjsi="urn:riv:informationsecurity:authorization:pip:GetSealsInitiator:1" 
+  xmlns:tns="urn:riv:informationsecurity:authorization:pip:GetSeals:1:rivtabp21" 
+  targetNamespace="urn:riv:informationsecurity:authorization:pip:GetSeals:1:rivtabp21" 
+  xmlns:itr="urn:riv:itintegration:registry:1">
+    <wsdl:documentation>
+			 Tjänsteinteraktionens namn: GetSealsInteraction
+			 Beskrivning: 
+			   Get the seals registered for a given patient
+			 Revisioner: 
+			 Tjänstedomän: informationsecurity:authorization:pip
+			 Tjänsteinteraktionstyp: Fråga-Svar
+			 WS-profil: RIVTABP21
+			 Förvaltas av: Inera AB
+			 </wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:riv:informationsecurity:authorization:pip:GetSeals:1:rivtabp21">
+      <xs:import schemaLocation="GetSealsResponder_1.0.xsd" namespace="urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1" />
+      <xs:import schemaLocation="../../core_components/itintegration_registry_1.0.xsd" namespace="urn:riv:itintegration:registry:1" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSealsRequest">
+    <wsdl:part name="LogicalAddress" element="itr:LogicalAddress">
+      <wsdl:documentation>The HSA id of Inera (5565594230)</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name="parameters" element="tjsr:GetSeals" />
+  </wsdl:message>
+  <wsdl:message name="GetSealsResponse">
+    <wsdl:part name="parameters" element="tjsr:GetSealsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GetSealsResponderInterface">
+    <wsdl:operation name="GetSeals">
+      <wsdl:input message="tns:GetSealsRequest" />
+      <wsdl:output message="tns:GetSealsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetSealsResponderBinding" type="tns:GetSealsResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSeals">
+      <soap:operation soapAction="urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1:GetSeals" style="document" />
+      <wsdl:input>
+        <soap:header use="literal" message="tns:GetSealsRequest" part="LogicalAddress" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetSealsResponderService">
+    <wsdl:port name="GetSealsResponderPort" binding="tns:GetSealsResponderBinding">
+      <soap:address location="http://tempuri.org" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

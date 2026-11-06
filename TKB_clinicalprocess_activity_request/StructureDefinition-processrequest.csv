@@ -1,0 +1,910 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processrequest","processrequest","","","",0,*,"","","","null {[]} {[]}
+","ProcessRequest — Remiss (begäran)","Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","processrequest-vr-intermediary:Om versionsorsak är VR (vidareskickad remiss) måste intermediaryParticipant anges (schematron Verify intermediaryParticipant) {reasonForVersion.typeOfReason = 'VR' implies intermediaryParticipant.exists()}
+"
+"processrequest.requestId","processrequest.requestId","","","",1,1,"","","","string {[]} {[]}
+","Remiss id","Remiss id
+
+Remissens identitet. Format: Källsystem-Id(HSA-ID)#lokalt-id
+
+Exempel: SE2321000012-0001#987","TKB-fält: `request.requestId` (`RequestIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)
+
+Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequest.requestId",1,1,"",""
+"processrequest.typeOfRequest","processrequest.typeOfRequest","","","",1,1,"","","","code {[]} {[]}
+","Remisstyp","Remisstyp
+
+Anger typ av remiss.
+
+I denna version är den giltiga koden ”4” – allmänremiss","TKB-fält: `request.typeOfRequest` (`CodeForRequestType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** codes:codeRequestOutcomeType","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/requesttype-vs","",,,,"processrequest.typeOfRequest",1,1,"",""
+"processrequest.versionTimeStamp","processrequest.versionTimeStamp","","","",1,1,"","","","dateTime {[]} {[]}
+","Versionstidpunkt","Versionstidpunkt
+
+Tidpunkt då versionen skapades.
+
+Denna tidpunkt kan skilja sig från tidpunkten då remissen skickas.","TKB-fält: `request.versionTimeStamp` (`TimeStampType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss","","","","","","","","",,,,,"",,,,"processrequest.versionTimeStamp",1,1,"",""
+"processrequest.versionNumber","processrequest.versionNumber","","","",1,1,"","","","positiveInt {[]} {[]}
+","Versionsnummer","Versionsnummer
+
+Remissens versionsnummer.
+
+Version startar alltid på 1 och räknas sekventiellt upp för varje ny version.
+
+Denna räknas upp vid:
+
+Ändrad remiss
+
+Vidareskickad remiss
+
+Ändrat betalnings-ansvar","TKB-fält: `request.versionNumber` (`VersionNumberType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (0*[1-9]+|[1-9])\d*","","","","","","","","",,,,,"",,,,"processrequest.versionNumber",1,1,"",""
+"processrequest.reasonForVersion","processrequest.reasonForVersion","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Versionsorsak","Versionsorsak","TKB-fält: `request.reasonForVersion` (`ReasonForVersionType`, kardinalitet 1..1).
+
+**Modellanteckning:** Anger varför en ny version skapats.","","","","","","","","",,,,,"",,,,"processrequest.reasonForVersion",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.reasonForVersion.id","processrequest.reasonForVersion.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.reasonForVersion.extension","processrequest.reasonForVersion.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.reasonForVersion.modifierExtension","processrequest.reasonForVersion.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.reasonForVersion.typeOfReason","processrequest.reasonForVersion.typeOfReason","","","",1,1,"","","","code {[]} {[]}
+","Versionsorsak kod","Kv e-remiss versionsorsak [R5]: NR, AR, VR, AB. RIV-TA: typeOfReason.code.","TKB-fält: `request.reasonForVersion.typeOfReason` (`CodeVersionReason`, kardinalitet 1..1).
+
+**Modellanteckning:** Kv e-remiss versionsorsak [R5]: NR, AR, VR, AB. RIV-TA: typeOfReason.code.","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/versionreason-vs","",,,,"processrequest.reasonForVersion.typeOfReason",1,1,"",""
+"processrequest.careResponsibilityRemains","processrequest.careResponsibilityRemains","","","",1,1,"","","","boolean {[]} {[]}
+","Vårdansvar kvarstår","Vårdansvar kvarstår
+
+Anger om remittent vill att vårdansvar ska kvarstå hos remitterande enhet eller om man vill att vårdansvar överförs till remissmottagande enhet.
+
+Två alternativ:
+
+True = Vårdansvar kvarstår
+
+False = Begäran om övertagande av vårdansvar","TKB-fält: `request.careResponsibilityRemains` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.careResponsibilityRemains",1,1,"",""
+"processrequest.patient","processrequest.patient","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Patient","Patient","TKB-fält: `request.patient` (`PatientType`, kardinalitet 1..1).
+
+**Modellanteckning:** Patient (PatientType).","","","","","","","","",,,,,"",,,,"processrequest.patient",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.patient.id","processrequest.patient.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.patient.extension","processrequest.patient.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.patient.modifierExtension","processrequest.patient.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.patient.personId","processrequest.patient.personId","","","",1,1,"","","","Identifier {[]} {[]}
+","Person id","Person id
+
+Patientens identitet","TKB-fält: `request.patient.personId` (`PersonIdType`, kardinalitet 1..1).
+
+**Modellanteckning:** Patientens identitet. value = personidentifierare (12 tecken utan skiljetecken för personnummer, samordningsnummer och nationellt reservId); system = OID för typ av personidentifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer), 1.2.752.74.9.1 (nationellt reservId). RIV-TA: personId.extension/root.","","","","","","","","",,,,,"",,,,"processrequest.patient.personId",1,1,"",""
+"processrequest.patient.address","processrequest.patient.address","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Tillfällig adress","Tillfällig adress
+
+Observera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.
+
+Adressen är avsedd att användas vid kallelse. Formatet är baserat på Skatteverkets distributionslösning Navet.","TKB-fält: `request.patient.address` (`AddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.patient.address",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.patient.address.id","processrequest.patient.address.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.patient.address.extension","processrequest.patient.address.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.patient.address.modifierExtension","processrequest.patient.address.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.patient.address.careOf","processrequest.patient.address.careOf","","","",0,1,"","","","string {[]} {[]}
+","Care of","”Care of”","TKB-fält: `request.patient.address.careOf` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken
+
+**Modellanteckning:** Maxlängd 35 tecken.","","","","","","","","",,,,,"",,,,"processrequest.patient.address.careOf",0,1,"",""
+"processrequest.patient.address.streetName1","processrequest.patient.address.streetName1","","","",1,1,"","","","string {[]} {[]}
+","Utdelningsadress1","Utdelningsadress1","TKB-fält: `request.patient.address.streetName1` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken
+
+**Modellanteckning:** Maxlängd 35 tecken.","","","","","","","","",,,,,"",,,,"processrequest.patient.address.streetName1",1,1,"",""
+"processrequest.patient.address.streetName2","processrequest.patient.address.streetName2","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress2","Utdelningsadress2","TKB-fält: `request.patient.address.streetName2` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken
+
+**Modellanteckning:** Maxlängd 35 tecken.","","","","","","","","",,,,,"",,,,"processrequest.patient.address.streetName2",0,1,"",""
+"processrequest.patient.address.postalCode","processrequest.patient.address.postalCode","","","",1,1,"","","","string {[]} {[]}
+","Postnummer","Postnummer i formatet ”12345”, dvs fem siffror inga blanksteg.","TKB-fält: `request.patient.address.postalCode` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 5 tecken","","","","","","","","",,,,,"",,,,"processrequest.patient.address.postalCode",1,1,"",""
+"processrequest.patient.address.postalCity","processrequest.patient.address.postalCity","","","",1,1,"","","","string {[]} {[]}
+","Postort","Postort","TKB-fält: `request.patient.address.postalCity` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 27 tecken
+
+**Modellanteckning:** Maxlängd 27 tecken.","","","","","","","","",,,,,"",,,,"processrequest.patient.address.postalCity",1,1,"",""
+"processrequest.patient.address.postBox","processrequest.patient.address.postBox","","","",0,1,"","","","string {[]} {[]}
+","Postbox","Postbox","TKB-fält: `request.patient.address.postBox` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 9 tecken
+
+**Modellanteckning:** Maxlängd 9 tecken.","","","","","","","","",,,,,"",,,,"processrequest.patient.address.postBox",0,1,"",""
+"processrequest.patient.telecom","processrequest.patient.telecom","","","",0,2,"","","","BackboneElement {[]} {[]}
+","Telefon","Telefon","TKB-fält: `request.patient.telecom` (`TelecomType`, kardinalitet 0..2).
+
+**Modellanteckning:** Telefonnummer till patienten.","","","","","","","","",,,,,"",,,,"processrequest.patient.telecom",0,2,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.patient.telecom.id","processrequest.patient.telecom.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.patient.telecom.extension","processrequest.patient.telecom.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.patient.telecom.modifierExtension","processrequest.patient.telecom.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.patient.telecom.typeOfTelecom","processrequest.patient.telecom.typeOfTelecom","","","",1,1,"","","","code {[]} {[]}
+","Telefon typ","Telefon typ
+
+För att särskilja olika typer av telekomadresser används 2 olika koder ’MC’=Mobil, ’H’=Hemtelefon","TKB-fält: `request.patient.telecom.typeOfTelecom` (`CodeForTelecomType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** codes:codeForTelecomType","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/telecomtype-vs","",,,,"processrequest.patient.telecom.typeOfTelecom",1,1,"",""
+"processrequest.patient.telecom.number","processrequest.patient.telecom.number","","","",1,1,"","","","string {[]} {[]}
+","Telefonnummer","Telefonnummer","TKB-fält: `request.patient.telecom.number` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken
+
+**Modellanteckning:** Maxlängd 200 tecken.","","","","","","","","",,,,,"",,,,"processrequest.patient.telecom.number",1,1,"",""
+"processrequest.patient.patientName","processrequest.patient.patientName","","","",0,1,"","","","string {[]} {[]}
+","Namn","Namn
+
+Personnamn sammanslaget enligt formatet "" Mellannamn Efternamn, Förnamn"". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.
+
+Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet.","TKB-fält: `request.patient.name` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 216 tecken","","","","","","","","",,,,,"",,,,"processrequest.patient.patientName",0,1,"",""
+"processrequest.patient.gender","processrequest.patient.gender","","","",0,1,"","","","code {[]} {[]}
+","Kön","Kön
+
+Anger administrativt kön, dvs. det kön patienten har registrerat hos Skatteverket.
+
+OID för kodsystem: 1.2.752.129.2.2.1.1
+
+Giltiga värden är:
+
+0 = okänt
+
+1 = man
+
+2 = kvinna
+
+9 = ej tillämpligt","TKB-fält: `request.patient.gender` (`CodeForGenderType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** codes:codeForGenderType","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/gender-vs","",,,,"processrequest.patient.gender",0,1,"",""
+"processrequest.patient.dateOfBirth","processrequest.patient.dateOfBirth","","","",0,1,"","","","date {[]} {[]}
+","Födelsetidpunkt","Födelsetidpunkt
+
+Anges då patientens identitetstyp är av annan typ än personnummer.","TKB-fält: `request.patient.dateOfBirth` (`DateType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDD","","","","","","","","",,,,,"",,,,"processrequest.patient.dateOfBirth",0,1,"",""
+"processrequest.requestOrganisation","processrequest.requestOrganisation","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Organisatorisk enhet","Organisatorisk enhet
+
+Information om ursprunglig remitterande organisatorisk enhet. Kan skilja sig från PDL ansvarig enhet vid behov. Det är denna enhet som svaret adresseras till i logisk adress.","TKB-fält: `request.requestOrganisation` (`FullOrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.requestOrganisation.id","processrequest.requestOrganisation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.requestOrganisation.extension","processrequest.requestOrganisation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.requestOrganisation.modifierExtension","processrequest.requestOrganisation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.requestOrganisation.careUnitId","processrequest.requestOrganisation.careUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet id","Enhet id
+
+HSA-id för remitterande enhet. Detta används av remissbesvarare som logisk adress för att adressera svarsmottagare.","TKB-fält: `request.requestOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation.careUnitId",1,1,"",""
+"processrequest.requestOrganisation.careUnitName","processrequest.requestOrganisation.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","Enhet namn","Enhet namn
+
+Namn på enhet.","TKB-fält: `request.requestOrganisation.careUnitName` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** Namn på enhet. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation.careUnitName",0,1,"",""
+"processrequest.requestOrganisation.careUnitTelephone","processrequest.requestOrganisation.careUnitTelephone","","","",0,1,"","","","string {[]} {[]}
+","Enhet telefon","Enhet telefon
+
+Telefon till enhet.","TKB-fält: `request.requestOrganisation.careUnitTelephone` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation.careUnitTelephone",0,1,"",""
+"processrequest.requestOrganisation.careUnitEmail","processrequest.requestOrganisation.careUnitEmail","","","",0,1,"","","","string {[]} {[]}
+","Enhet epost","Enhet epost
+
+E-post till enhet.","TKB-fält: `request.requestOrganisation.careUnitEmail` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation.careUnitEmail",0,1,"",""
+"processrequest.requestOrganisation.careUnitAddress","processrequest.requestOrganisation.careUnitAddress","","","",0,1,"","","","string {[]} {[]}
+","Enhet adress","Adress till enhet.","TKB-fält: `request.requestOrganisation.careUnitAddress` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation.careUnitAddress",0,1,"",""
+"processrequest.requestOrganisation.careUnitLocation","processrequest.requestOrganisation.careUnitLocation","","","",0,1,"","","","string {[]} {[]}
+","Enhet plats","Enhet plats
+
+Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.","TKB-fält: `request.requestOrganisation.careUnitLocation` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.requestOrganisation.careUnitLocation",0,1,"",""
+"processrequest.author","processrequest.author","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Remittent","Remittent
+
+Information avseende den remitterande personen samt den organisation som personen är uppdragstagare på.","TKB-fält: `request.author` (`RequestAuthorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.author",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.author.id","processrequest.author.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.author.extension","processrequest.author.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.author.modifierExtension","processrequest.author.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.author.date","processrequest.author.date","","","",1,1,"","","","date {[]} {[]}
+","Remissdatum","Remissdatum
+
+Remissdatum när remiss skapades måste anges. Format som ska användas är ÅÅÅÅMMDD","TKB-fält: `request.author.date` (`DateType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDD
+
+**Modellanteckning:** Datum då remissen skapades (ÅÅÅÅMMDD).","","","","","","","","",,,,,"",,,,"processrequest.author.date",1,1,"",""
+"processrequest.author.healthcareProfessional","processrequest.author.healthcareProfessional","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Hälso- och sjukvårdspersonal","Hälso- och sjukvårdspersonal","TKB-fält: `request.author.healthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.author.healthcareProfessional",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.author.healthcareProfessional.id","processrequest.author.healthcareProfessional.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.author.healthcareProfessional.extension","processrequest.author.healthcareProfessional.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.author.healthcareProfessional.modifierExtension","processrequest.author.healthcareProfessional.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.author.healthcareProfessional.healthcareProfessionalId","processrequest.author.healthcareProfessional.healthcareProfessionalId","","","",0,1,"","","","Identifier {[]} {[]}
+","Personal id","Personal Id
+
+HSA-id för remitterande hälso- och sjukvårdspersonal.","TKB-fält: `request.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** HSA-id för personen. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.id.","","","","","","","","",,,,,"",,,,"processrequest.author.healthcareProfessional.healthcareProfessionalId",0,1,"",""
+"processrequest.author.healthcareProfessional.healthcareProfessionalName","processrequest.author.healthcareProfessional.healthcareProfessionalName","","","",1,1,"","","","string {[]} {[]}
+","Personal namn","Personal namn
+
+Namn på remitterande hälso- och sjukvårdspersonal.
+
+Valfri formatering.","TKB-fält: `request.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** Namn, valfri formatering. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.name.","","","","","","","","",,,,,"",,,,"processrequest.author.healthcareProfessional.healthcareProfessionalName",1,1,"",""
+"processrequest.author.typeOfHealthcareProfessional","processrequest.author.typeOfHealthcareProfessional","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Typ av hälso- och sjukvårdspersonal","Typ av hälso- och sjukvårdspersonal
+
+Kod för yrkestitel från Snomed CT enligt urvalen nedan:
+
+code: se urval_legitimerade_yrken
+
+codeSystem: OID 1.2.752.129.5.1.70
+
+eller
+
+code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade
+
+codeSystem: 1.2.752.129.7.1.5
+
+Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.author.typeOfHealthcareProfessional` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.author.typeOfHealthcareProfessional",0,1,"",""
+"processrequest.author.healthcareProfessionalOrganisation","processrequest.author.healthcareProfessionalOrganisation","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Organisatorisk enhet","Organisatorisk enhet
+
+remittent","TKB-fält: `request.author.healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).
+
+**Modellanteckning:** Enhet (jmf. PDL) som ansvarar för informationen.","","","","","","","","",,,,,"",,,,"processrequest.author.healthcareProfessionalOrganisation",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.author.healthcareProfessionalOrganisation.id","processrequest.author.healthcareProfessionalOrganisation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.author.healthcareProfessionalOrganisation.extension","processrequest.author.healthcareProfessionalOrganisation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.author.healthcareProfessionalOrganisation.modifierExtension","processrequest.author.healthcareProfessionalOrganisation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.author.healthcareProfessionalOrganisation.careUnitId","processrequest.author.healthcareProfessionalOrganisation.careUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet id","Enhet id
+
+HSA-id för vårdenhet (jmf. PDL) som ansvarar för remissen.","TKB-fält: `request.author.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.author.healthcareProfessionalOrganisation.careUnitId",1,1,"",""
+"processrequest.recipient","processrequest.recipient","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Mottagare","Mottagare
+
+Information avseende den remissmottagande organisationen","TKB-fält: `request.recipient` (`RecipientType`, kardinalitet 1..1).
+
+**Modellanteckning:** Remissmottagande organisation.","","","","","","","","",,,,,"",,,,"processrequest.recipient",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.recipient.id","processrequest.recipient.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.recipient.extension","processrequest.recipient.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.recipient.modifierExtension","processrequest.recipient.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.recipient.organisation","processrequest.recipient.organisation","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Organisatorisk enhet","Organisatorisk enhet
+
+mottagare","TKB-fält: `request.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).
+
+**Modellanteckning:** Mottagande enhet; HSA-id används som logisk adress.","","","","","","","","",,,,,"",,,,"processrequest.recipient.organisation",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.recipient.organisation.id","processrequest.recipient.organisation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.recipient.organisation.extension","processrequest.recipient.organisation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.recipient.organisation.modifierExtension","processrequest.recipient.organisation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.recipient.organisation.careUnitId","processrequest.recipient.organisation.careUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet id","Enhet id
+
+HSA-id för remissmottagande enhet, till vilken remissen adresseras.
+
+Med remissmottagande enhet avses det som i SOSFS 2004:11 benämns som mottagande enhet.","TKB-fält: `request.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.recipient.organisation.careUnitId",1,1,"",""
+"processrequest.intermediaryParticipant","processrequest.intermediaryParticipant","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Vidareskickare","Vidareskickare
+
+Beskriver Hälso-och sjukvårdspersonalen som vidareskickar remissen","TKB-fält: `request.intermediaryParticipant` (`IntermediaryType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processrequest.intermediaryParticipant",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.intermediaryParticipant.id","processrequest.intermediaryParticipant.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.intermediaryParticipant.extension","processrequest.intermediaryParticipant.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.intermediaryParticipant.modifierExtension","processrequest.intermediaryParticipant.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation","processrequest.intermediaryParticipant.healthcareProfessionalOrganisation","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Organisatorisk enhet","Organisatorisk enhet
+
+vidareskickare","TKB-fält: `request.intermediaryParticipant. healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).
+
+**Modellanteckning:** Remissmottagande enhet som vidareskickat remissen.","","","","","","","","",,,,,"",,,,"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.id","processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.extension","processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.modifierExtension","processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId","processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet id","Enhet id
+
+HSA-id på den remissmottagande enhet som vidareskickat remissen.","TKB-fält: `request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",1,1,"",""
+"processrequest.intermediaryParticipant.time","processrequest.intermediaryParticipant.time","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt","Tidpunkt
+
+Tidpunkt då versionen skapades för vidareskickning.
+
+Denna tidpunkt kan skilja sig från tidpunkten då remissen faktiskt skickas beroende på hur detta implementeras i en lokal remissmodul.","TKB-fält: `request.intermediaryParticipant.time` (`TimeStampType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss","","","","","","","","",,,,,"",,,,"processrequest.intermediaryParticipant.time",1,1,"",""
+"processrequest.additionalInformation","processrequest.additionalInformation","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Tilläggsinformation","Tilläggsinformation","TKB-fält: `request.additionalInformation` (`AdditionalInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.additionalInformation",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.additionalInformation.id","processrequest.additionalInformation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.additionalInformation.extension","processrequest.additionalInformation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.additionalInformation.modifierExtension","processrequest.additionalInformation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.additionalInformation.desiredRequestRecipient","processrequest.additionalInformation.desiredRequestRecipient","","","",0,1,"","","","string {[]} {[]}
+","Önskemål om remissmottagare","Önskemål om remissmottagare Önskad remissmottagare: enhet, person, yrkesroll, fritext","TKB-fält: `request.additionalInformation.desiredRequestRecipient` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken
+
+**Modellanteckning:** Enhet, person, yrkesroll eller fritext. Maxlängd 200 tecken.","","","","","","","","",,,,,"",,,,"processrequest.additionalInformation.desiredRequestRecipient",0,1,"",""
+"processrequest.additionalInformation.administrativeInformation","processrequest.additionalInformation.administrativeInformation","","","",0,1,"","","","string {[]} {[]}
+","Kompletterande administrativ information","Kompletterande administrativ information
+
+Här anges kompletterande administrativ information. Exempelvis kan denna innehålla information om detta är ett akutärende, om patienten är bortrest under en viss tid inom kallelsetiden eller annan information som kan påverka den administrativa processen kring remissen. Här läggs även information om SVF-patient (standardiserade vårdförlopp), datum för välgrundad misstanke samt aktuellt SVF-förlopp.","TKB-fält: `request.additionalInformation.administrativeInformation` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.additionalInformation.administrativeInformation",0,1,"",""
+"processrequest.additionalInformation.interpreterRequirement","processrequest.additionalInformation.interpreterRequirement","","","",0,1,"","","","string {[]} {[]}
+","Kommentar tolkbehov","Kommentar tolkbehov Här beskrivs eventuellt tolkbehov.","TKB-fält: `request.additionalInformation.interpreterRequirement` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken
+
+**Modellanteckning:** Maxlängd 200 tecken.","","","","","","","","",,,,,"",,,,"processrequest.additionalInformation.interpreterRequirement",0,1,"",""
+"processrequest.awarenessInformation","processrequest.awarenessInformation","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Uppmärksamhetsinformation","Uppmärksamhetsinformation
+
+Uppmärksamhetsinformation om patient","TKB-fält: `request.awarenessInformation` (`AwarenessInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.awarenessInformation",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.awarenessInformation.id","processrequest.awarenessInformation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.awarenessInformation.extension","processrequest.awarenessInformation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.awarenessInformation.modifierExtension","processrequest.awarenessInformation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.awarenessInformation.awarenessText","processrequest.awarenessInformation.awarenessText","","","",1,1,"","","","string {[]} {[]}
+","Uppmärksamhetstext","Uppmärksamhetstext Uppmärksamhetsinformation av betydelse för denna remiss. Mottagande system bör inte med automatik föra in denna i den egna hanteringen för uppmärksamhetsinformation kring patienten utan endast lagra den i samband med remissen.","TKB-fält: `request.awarenessInformation.text` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Av betydelse för denna remiss; mottagande system bör inte automatiskt föra in den i egen uppmärksamhetshantering. Maxlängd 8192 tecken. RIV-TA: awarenessInformation.text.","","","","","","","","",,,,,"",,,,"processrequest.awarenessInformation.awarenessText",1,1,"",""
+"processrequest.questionFormulation","processrequest.questionFormulation","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Frågeställning","Frågeställning","TKB-fält: `request.questionFormulation` (`QuestionFormulationType`, kardinalitet 1..1).
+
+**Modellanteckning:** Remissens frågeställning.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.questionFormulation.id","processrequest.questionFormulation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.questionFormulation.extension","processrequest.questionFormulation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.modifierExtension","processrequest.questionFormulation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.questionText","processrequest.questionFormulation.questionText","","","",1,1,"","","","string {[]} {[]}
+","Frågeställning text","Frågeställning text
+
+Här anges remissens frågeställning.","TKB-fält: `request.questionFormulation.text` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Maxlängd 8192 tecken. RIV-TA: questionFormulation.text.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.questionText",1,1,"",""
+"processrequest.questionFormulation.clinicalInformation","processrequest.questionFormulation.clinicalInformation","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Anamnes","Anamnes
+
+Här anges underbyggande klinisk information (anamnes) för remissfrågeställningen. Dessa underbyggande kliniska data är direkt kopplat till frågeställningen","TKB-fält: `request.questionFormulation.clinicalInformation` (`ClinicalInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.clinicalInformation",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.questionFormulation.clinicalInformation.id","processrequest.questionFormulation.clinicalInformation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.questionFormulation.clinicalInformation.extension","processrequest.questionFormulation.clinicalInformation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.clinicalInformation.modifierExtension","processrequest.questionFormulation.clinicalInformation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.clinicalInformation.clinicalInformationText","processrequest.questionFormulation.clinicalInformation.clinicalInformationText","","","",1,1,"","","","string {[]} {[]}
+","Beskrivning","Beskrivning
+
+Här anges klinisk informationsbeskrivning","TKB-fält: `request.questionFormulation.clinicalInformation.text` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Maxlängd 8192 tecken. RIV-TA: clinicalInformation.text.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.clinicalInformation.clinicalInformationText",1,1,"",""
+"processrequest.questionFormulation.condition","processrequest.questionFormulation.condition","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Kliniskt tillstånd","Kliniskt tillstånd
+
+Anger kliniska tillstånd som använts i uppslag mot stödtjänster.
+
+Används som stöd för att remittent och remissmottagare ska kunna avgöra om remissuppgifterna är kompletta.","TKB-fält: `request.questionFormulation.condition` (`ConditionType`, kardinalitet 0..*).
+
+**Modellanteckning:** Kliniskt tillstånd (ConditionType). Antingen text eller kod, inte båda.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.condition",0,*,"","activity-request-condition-code-or-text:Kliniskt tillstånd: ange antingen text eller kod, inte båda (schematron Verify condition) {(conditionText.exists() and conditionCode.exists()).not()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"processrequest.questionFormulation.condition.id","processrequest.questionFormulation.condition.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.questionFormulation.condition.extension","processrequest.questionFormulation.condition.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.condition.modifierExtension","processrequest.questionFormulation.condition.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.condition.conditionText","processrequest.questionFormulation.condition.conditionText","","","",0,1,"","","","string {[]} {[]}
+","Kliniskt tillstånd beskrivning","Kliniskt tillstånd beskrivning
+
+Här kan diagnosbeskrivning skrivas in.
+
+Observera att den får endast förekomma om questionFormulation.condition.code inte används.","TKB-fält: `request.questionFormulation.condition.text` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Diagnosbeskrivning i fritext. Maxlängd 8192 tecken. RIV-TA: condition.text.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.condition.conditionText",0,1,"",""
+"processrequest.questionFormulation.condition.conditionCode","processrequest.questionFormulation.condition.conditionCode","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Kliniskt tillståndskod","Kliniskt tillståndskod Anger kliniska tillståndskoder.
+
+code:  se ICD-10-SE
+
+codeSystem: 1.2.752.116.1.1.1
+
+Observera att kod får endast förekomma om questionFormulation.condition.text inte används.
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.questionFormulation.condition.code` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.condition.conditionCode",0,1,"",""
+"processrequest.questionFormulation.desiredActivity","processrequest.questionFormulation.desiredActivity","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Önskad åtgärd","Åtgärd
+
+Här anges önskade åtgärder. Dessa åtgärder ska vara direkt kopplade till frågeställningen.","TKB-fält: `request.questionFormulation.desiredActivity` (`ActivityType`, kardinalitet 0..*).
+
+**Modellanteckning:** Önskad åtgärd (ActivityType). Antingen text eller kod, inte båda.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.desiredActivity",0,*,"","activity-request-activity-code-or-text:Åtgärd: ange antingen text eller kod, inte båda (schematron Verify desiredActivity) {(activityText.exists() and activityCode.exists()).not()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"processrequest.questionFormulation.desiredActivity.id","processrequest.questionFormulation.desiredActivity.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.questionFormulation.desiredActivity.extension","processrequest.questionFormulation.desiredActivity.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.desiredActivity.modifierExtension","processrequest.questionFormulation.desiredActivity.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.questionFormulation.desiredActivity.activityId","processrequest.questionFormulation.desiredActivity.activityId","","","",0,1,"","","","string {[]} {[]}
+","Åtgärd id","Åtgärd id
+
+Unikt id i form av löpnummer för den önskade åtgärden","TKB-fält: `request.questionFormulation. desiredActivity.id` (`ActivityIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.desiredActivity.activityId",0,1,"",""
+"processrequest.questionFormulation.desiredActivity.activityText","processrequest.questionFormulation.desiredActivity.activityText","","","",0,1,"","","","string {[]} {[]}
+","Åtgärd beskrivning","Åtgärd beskrivning
+
+Observera att text får endast förekomma om questionFormulation.desiredActivity.code inte används.","TKB-fält: `request.questionFormulation.desiredActivity.text` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Fritext. Maxlängd 8192 tecken. RIV-TA: text.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.desiredActivity.activityText",0,1,"",""
+"processrequest.questionFormulation.desiredActivity.activityCode","processrequest.questionFormulation.desiredActivity.activityCode","","","",0,1,"","","","Coding {[]} {[]}
+","Åtgärd typ","Åtgärd typ
+
+Åtgärd enligt kodsystem.
+
+Observera att code får endast förekomma om questionFormulation.desiredActivity.text inte används.","TKB-fält: `request.questionFormulation.desiredActivity.code` (`ActivityCodeType`, kardinalitet 0..1).
+
+**Modellanteckning:** Åtgärd enligt kodsystem: KVÅ (1.2.752.116.1.3.2.1.4, obligatoriskt att hantera) eller Snomed CT. Okänt kodverk ger APPLICATION_ERROR. RIV-TA: code.code/codeSystem.","","","","","","","","",,,,,"",,,,"processrequest.questionFormulation.desiredActivity.activityCode",0,1,"",""
+"processrequest.paymentCommitment","processrequest.paymentCommitment","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Betalningsförbindelse","Betalningsförbindelse Betalningsförbindelse beskriver hur remissmottagande vårdgivare ersätts för de begärda tjänsterna av remitterande vårdgivare.
+
+Aktuellt vid ett regionsöverskridande remissflöde. För detaljer i användningen se även SKRs Riksavtal.","TKB-fält: `request.paymentCommitment` (`PaymentCommitmentType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment",0,1,"","activity-request-commitmenttype-chapter:commitmentTypeChapter är obligatoriskt då commitmentType = 1 (schematron Verify paymentCommitment) {commitmentType.coding.where(code = '1').exists() implies commitmentTypeChapter.exists()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"processrequest.paymentCommitment.id","processrequest.paymentCommitment.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.paymentCommitment.extension","processrequest.paymentCommitment.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.paymentCommitment.modifierExtension","processrequest.paymentCommitment.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.paymentCommitment.paymentCommitmentId","processrequest.paymentCommitment.paymentCommitmentId","","","",0,1,"","","","string {[]} {[]}
+","Betalningsförbindelse id","Betalningsförbindelse id Unik identitet på betalningsförbindelsen, requestId#betfor#löpnummer
+
+Exempel: SE2321000012-0001#987#betfor#1","TKB-fält: `request.paymentCommitment.paymentCommitmentId` (`PaymentCommitmentIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.paymentCommitmentId",0,1,"",""
+"processrequest.paymentCommitment.commitmentType","processrequest.paymentCommitment.commitmentType","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Betalningsförbindelse-typ avtal","Betalningsförbindelse-typ avtal
+
+Anger den avtalstyp som finns att välja för betalningsförbindelse
+
+code: se kv_betalningsförbindelse- typ avtal
+
+codeSystem: 1.2.752.129.2.2.2.44
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.commitmentType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.commitmentType",1,1,"",""
+"processrequest.paymentCommitment.commitmentTypeChapter","processrequest.paymentCommitment.commitmentTypeChapter","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Betalningsförbindelse-typ kapitel","Betalningsförbindelse-typ kapitel
+
+Anger kod utifrån riksavtalets kapitel som reglerar betalning.
+
+Obligatoriskt då paymentCommitment.commitmentType = 1
+
+code: kv_ betalningsförbindelsetyp kapitel
+
+codeSystem: 1.2.752.129.5.1.37
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.commitmentTypeChapter` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.commitmentTypeChapter",0,1,"",""
+"processrequest.paymentCommitment.validity","processrequest.paymentCommitment.validity","","","",1,1,"","","","Period {[]} {[]}
+","Giltighetstid","Giltighetstid
+
+Anges enligt ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas med","TKB-fält: `request.paymentCommitment.validity` (`TimeIntervalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.validity",1,1,"",""
+"processrequest.paymentCommitment.clinicalResponsibilityDescription","processrequest.paymentCommitment.clinicalResponsibilityDescription","","","",0,1,"","","","string {[]} {[]}
+","Klinisk ansvarsbeskrivning","Klinisk ansvarsbeskrivning","TKB-fält: `request.paymentCommitment.clinicalResponsibilityDescription` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Maxlängd 8192 tecken.","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.clinicalResponsibilityDescription",0,1,"",""
+"processrequest.paymentCommitment.administrativeResponsibilityDescription","processrequest.paymentCommitment.administrativeResponsibilityDescription","","","",0,1,"","","","string {[]} {[]}
+","Administrativ ansvarsbeskrivning","Administrativ ansvarsbeskrivning","TKB-fält: `request.paymentCommitment.administrativeResponsibilityDescription` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken
+
+**Modellanteckning:** Maxlängd 8192 tecken.","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.administrativeResponsibilityDescription",0,1,"",""
+"processrequest.paymentCommitment.validOnlyForOutpatientCare","processrequest.paymentCommitment.validOnlyForOutpatientCare","","","",1,1,"","","","boolean {[]} {[]}
+","Gäller endast öppenvård","Gäller endast öppenvård Sätts till ”true” om betalningsförbindelsen enbart gäller öppenvård. Annars sätts den till ”false”","TKB-fält: `request.paymentCommitment.validOnlyForOutpatientCare` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.validOnlyForOutpatientCare",1,1,"",""
+"processrequest.paymentCommitment.liableCountyCouncil","processrequest.paymentCommitment.liableCountyCouncil","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Betalningsansvarig region","Betalningsansvarig region
+
+Region som ansvarar för betalningen.
+
+Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).
+
+code: se kv_län
+
+codeSystem: 1.2.752.129.2.2.1.18
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.liableCountyCouncil` (`CVType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Inera kodverk kv_län","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.liableCountyCouncil",1,1,"",""
+"processrequest.paymentCommitment.dateOfApproval","processrequest.paymentCommitment.dateOfApproval","","","",0,1,"","","","dateTime {[]} {[]}
+","Datum för godkännande","Datum för godkännande
+
+Tidpunkt för godkännande av denna betalningsförbindelse hos remittenten.
+
+Anges enligt ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD","TKB-fält: `request.paymentCommitment.dateOfApproval` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.dateOfApproval",0,1,"",""
+"processrequest.paymentCommitment.issuedInConsultationWith","processrequest.paymentCommitment.issuedInConsultationWith","","","",0,1,"","","","string {[]} {[]}
+","Utfärdad i samråd med","Utfärdad i samråd med
+
+Om betalningsförbindelsen utfärdas i samråd med ekonomisk beslutsfattare antecknas namnet här. Valfri formatering.","TKB-fält: `request.paymentCommitment.issuedInConsultationWith` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** Namn på ekonomisk beslutsfattare. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.issuedInConsultationWith",0,1,"",""
+"processrequest.paymentCommitment.costCenter","processrequest.paymentCommitment.costCenter","","","",0,1,"","","","string {[]} {[]}
+","Kostnadsställe","Kostnadsställe
+
+Remittentens kostnadsställe","TKB-fält: `request.paymentCommitment.costCenter` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** Remittentens kostnadsställe. Maxlängd 64 tecken.","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.costCenter",0,1,"",""
+"processrequest.paymentCommitment.reimbursementInformation","processrequest.paymentCommitment.reimbursementInformation","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Ersättningsinformation","Ersättningsinformation
+
+Obligatorisk vid remiss till privat vårdgivare","TKB-fält: `request.paymentCommitment.reimbursementInformation` (`ReimbursementInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.reimbursementInformation",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.paymentCommitment.reimbursementInformation.id","processrequest.paymentCommitment.reimbursementInformation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.paymentCommitment.reimbursementInformation.extension","processrequest.paymentCommitment.reimbursementInformation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.paymentCommitment.reimbursementInformation.modifierExtension","processrequest.paymentCommitment.reimbursementInformation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.paymentCommitment.reimbursementInformation.reimbursementType","processrequest.paymentCommitment.reimbursementInformation.reimbursementType","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Ersättningstyp","Ersättningstyp
+
+Anger källa till ersättning.
+
+code: se kv_betalningsförbindelse ersättningstyp
+
+codeSystem: 1.2.752.129.5.1.36
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.reimbursementInformation.reimbursementType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.reimbursementInformation.reimbursementType",1,1,"",""
+"processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract","processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Ägare av åberopat kontrakt","Ägare av åberopat kontrakt
+
+Ägare (region) av åberopat kontrakt.
+
+Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).
+
+code: se kv_län
+
+codeSystem: 1.2.752.129.2.2.1.18
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract` (`CVType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Inera kodverk kv_län","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",1,1,"",""
+"processrequest.paymentCommitment.approvedBy","processrequest.paymentCommitment.approvedBy","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Godkänns av","Godkänns av
+
+Den person hos remittenten som har godkänt betalningsförbindelsen","TKB-fält: `request.paymentCommitment.approvedBy` (`HealthcareProfessionalType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.approvedBy",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.paymentCommitment.approvedBy.id","processrequest.paymentCommitment.approvedBy.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.paymentCommitment.approvedBy.extension","processrequest.paymentCommitment.approvedBy.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.paymentCommitment.approvedBy.modifierExtension","processrequest.paymentCommitment.approvedBy.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.paymentCommitment.approvedBy.healthcareProfessionalId","processrequest.paymentCommitment.approvedBy.healthcareProfessionalId","","","",0,1,"","","","Identifier {[]} {[]}
+","Personal id","Personal id
+
+HSA-id för person","TKB-fält: `request.paymentCommitment.approvedBy.id` (`HsaIdType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** HSA-id för person. RIV-TA: approvedBy.id.","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.approvedBy.healthcareProfessionalId",0,1,"",""
+"processrequest.paymentCommitment.approvedBy.healthcareProfessionalName","processrequest.paymentCommitment.approvedBy.healthcareProfessionalName","","","",1,1,"","","","string {[]} {[]}
+","Personal namn","Personal namn","TKB-fält: `request.paymentCommitment.approvedBy.name` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken
+
+**Modellanteckning:** Maxlängd 64 tecken. RIV-TA: approvedBy.name.","","","","","","","","",,,,,"",,,,"processrequest.paymentCommitment.approvedBy.healthcareProfessionalName",1,1,"",""
+"processrequest.attachment","processrequest.attachment","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Bilaga","Bilaga
+
+Möjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten","TKB-fält: `request.attachment` (`MultimediaType`, kardinalitet 0..*).
+
+**Modellanteckning:** Bilaga (MultimediaType) i något av de tillåtna formaten. Totala meddelandestorleken får inte överstiga 10 MB.","","","","","","","","",,,,,"",,,,"processrequest.attachment",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processrequest.attachment.id","processrequest.attachment.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processrequest.attachment.extension","processrequest.attachment.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.attachment.modifierExtension","processrequest.attachment.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processrequest.attachment.attachmentId","processrequest.attachment.attachmentId","","","",0,1,"","","","string {[]} {[]}
+","Bilaga id","Bilaga id
+
+Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion.
+
+Format bilaga remiss: requestId#löpnummer = Källsystem-Id(HSA-ID)#lokalt-id#löpnummer
+
+Obligatoriskt för inbäddade bilagor","TKB-fält: `request.attachment.id` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)#(.*)
+
+Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequest.attachment.attachmentId",0,1,"",""
+"processrequest.attachment.mediaType","processrequest.attachment.mediaType","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Multimediatyp","Multimediatyp
+
+Typ av multimedia, se urval med tillåtna format.
+
+code: se urval_mediatyper_elektronisk_remiss
+
+codeSystem: (1.2.752.129.5.1.59, se nedan)
+
+Under codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör.
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.attachment.mediaType` (`CVType`, kardinalitet 1..1).
+
+**Modellanteckning:** Filformat enligt urval_mediatyper_elektronisk_remiss (codeSystem 1.2.752.129.5.1.59): pdf, jpeg, png, html, txt, gif, bmp.","","","","","","","","",,,,,"",,,,"processrequest.attachment.mediaType",1,1,"",""
+"processrequest.attachment.attachmentValue","processrequest.attachment.attachmentValue","","","",0,1,"","","","base64Binary {[]} {[]}
+","Binärdata","Binärdata
+
+Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format.
+
+Obligatoriskt när referens inte används.","TKB-fält: `request.attachment.value` (`Base64Binary`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Ett meddelande med bilagor får inte vara större än 10MB","","","","","","","","",,,,,"",,,,"processrequest.attachment.attachmentValue",0,1,"",""
+"processrequest.attachment.reference","processrequest.attachment.reference","","","",0,0,"","","","uri {[]} {[]}
+","Referens","Referens
+
+Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas.
+
+OBS! Används inte i denna version.","TKB-fält: `request.attachment.reference` (`AnyURI`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processrequest.attachment.reference",0,0,"",""
+"processrequest.attachment.description","processrequest.attachment.description","","","",0,1,"","","","string {[]} {[]}
+","Beskrivning","Beskrivning
+
+Beskrivning av bilaga, t ex innehåll","TKB-fält: `request.attachment.description` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 256 tecken
+
+**Modellanteckning:** Beskrivning av bilaga. Maxlängd 256 tecken.","","","","","","","","",,,,,"",,,,"processrequest.attachment.description",0,1,"",""
+"processrequest.careProcessId","processrequest.careProcessId","","","",0,1,"","","","string {[]} {[]}
+","Vårdprocess id","Vårdprocess id
+
+Identifierare som unikt identifierar den individanpassade vårdprocess som denna remiss är en del av. Används för att kunna hålla samman information över aktörsgränser och koppling till patientens hälsoärende. Producentsystemet bör registrera all information som registreras kring patienten kopplat till detta id.","TKB-fält: `request.careProcessId` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.careProcessId",0,1,"",""

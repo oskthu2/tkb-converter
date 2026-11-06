@@ -1,0 +1,662 @@
+# GetCredentialsForPersonIncludingProtectedPerson - infrastructure: directory: authorizationmanagement v2.4.5
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCredentialsForPersonIncludingProtectedPerson**
+
+## Logical Model: GetCredentialsForPersonIncludingProtectedPerson 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/getcredentialsforpersonincludingprotectedperson | *Version*:2.2 |
+| Active as of 2026-11-06 | *Computable Name*:GetCredentialsForPersonIncludingProtectedPerson |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetCredentialsForPersonIncludingProtectedPerson (RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetCredentialsForPersonIncludingProtectedPerson:2). Representerar responsens informationsstruktur. Returnerar behörighetsgrundande egenskaper för angiven person inklusive person med skyddade personuppgifter. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-directory-authorizationmanagement|current/StructureDefinition/StructureDefinition-getcredentialsforpersonincludingprotectedperson.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcredentialsforpersonincludingprotectedperson.csv), [Excel](StructureDefinition-getcredentialsforpersonincludingprotectedperson.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcredentialsforpersonincludingprotectedperson",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/getcredentialsforpersonincludingprotectedperson",
+  "version" : "2.2",
+  "name" : "GetCredentialsForPersonIncludingProtectedPerson",
+  "title" : "GetCredentialsForPersonIncludingProtectedPerson",
+  "status" : "active",
+  "date" : "2026-11-06T21:28:52+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetCredentialsForPersonIncludingProtectedPerson\n(RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetCredentialsForPersonIncludingProtectedPerson:2).\nRepresenterar responsens informationsstruktur. Returnerar behörighetsgrundande egenskaper\nför angiven person inklusive person med skyddade personuppgifter.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/getcredentialsforpersonincludingprotectedperson",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcredentialsforpersonincludingprotectedperson",
+      "path" : "getcredentialsforpersonincludingprotectedperson",
+      "short" : "GetCredentialsForPersonIncludingProtectedPerson",
+      "definition" : "Logisk modell för tjänstekontraktet GetCredentialsForPersonIncludingProtectedPerson\n(RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetCredentialsForPersonIncludingProtectedPerson:2).\nRepresenterar responsens informationsstruktur. Returnerar behörighetsgrundande egenskaper\nför angiven person inklusive person med skyddade personuppgifter."
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation",
+      "short" : "Behörighetsegenskaper för sökt person",
+      "definition" : "Behörighetsegenskaper för sökt person",
+      "comment" : "TKB-fält: `credentialInformation *2)` (`CredentialInformationType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.givenName",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.givenName",
+      "short" : "Tilltalsnamn",
+      "definition" : "Tilltalsnamn. Endast ett litet antal personer saknar helt förnamn enligt befolkningsregistret och därmed även denna parameter.\n\nRef. tilltalsnamn (givenName, gn) [R5]",
+      "comment" : "TKB-fält: `..givenName` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.middleAndSurName",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.middleAndSurName",
+      "short" : "Personens mellannamn och efternamn",
+      "definition" : "Personens Mellannamn och efternamn.  Namnen är separerade med mellanslag.\n\nRef. mellannamn (middleName) [R5]\n\nRef. efternamn (sn, surName) [R5]",
+      "comment" : "TKB-fält: `..middleAndSurName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personHsaId",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personHsaId",
+      "short" : "Personens HSA-id",
+      "definition" : "Personens HSA-id\n\nRef. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicence",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicence",
+      "short" : "Legitimerad yrkestitel i klartext",
+      "definition" : "Personens Legitimerade yrkestitel(-lar) i klartext\n\nRef. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3",
+      "comment" : "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceCode",
+      "short" : "Kod för legitimerad yrkestitel",
+      "definition" : "Kod för personens Legitimerade yrkestitel.\n\nRef. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3",
+      "comment" : "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality",
+      "short" : "Specialistkoder kopplat till legitimerad yrkesgrupp",
+      "definition" : "Personens Specialistkoder kopplat till aktuell Legitimerade Yrkesgrupp. Ref. Leg. yrkesgrupp och specialitet för läkare och tandläkare (hsaSosTitleCodeSpeciality) [R5]",
+      "comment" : "TKB-fält: `.. healthCareProfessionalLicenceSpeciality` (`HCPSpecialityCodesType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode",
+      "short" : "Kod för legitimerad yrkestitel specialistkoden hör till",
+      "definition" : "Kod för den Legitimerade yrkestitel som specialistkoden hör till. Ref. Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3",
+      "comment" : "TKB-fält: `.. .. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+      "short" : "Specialistkod",
+      "definition" : "Specialistkod, enligt något av Socialstyrelsens kodverk.",
+      "comment" : "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Enligt något av Socialstyrelsens kodverk: 1.2.752.116.3.1.6 (Läkare 1992),\n1.2.752.116.3.1.7 (Läkare 1996), 1.2.752.116.3.1.8 (Läkare 2008),\n1.2.752.116.3.1.9 (Läkare 2015), 1.2.752.116.3.1.10 (Tandläkare 1993),\n1.2.752.116.3.1.15 (temporär behörighet 2016), 1.2.752.116.3.1.17 (Tandläkare 2017),\n1.2.752.116.3.1.20 (Läkare 2021).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+      "short" : "Specialitet i klartext",
+      "definition" : "Specialitet i klartext. Klartext för specialityCode ovan.",
+      "comment" : "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.occupationalCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.occupationalCode",
+      "short" : "Utökad yrkeskod",
+      "definition" : "Utökad yrkeskod, används för icke-legitimerade medarbetares åtkomst till tjänster hos eHälsomyndigheten.",
+      "comment" : "TKB-fält: `..occupationalCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalIdentity",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalIdentity",
+      "short" : "Personens person- eller samordningsnummer",
+      "definition" : "Personens person- eller samordningsnummer\n\nRef. Person-id (personalIdentityNumber) [R5]",
+      "comment" : "TKB-fält: `..personalIdentity *5)` (`IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** Returneras när profil extended1 anges. Ref. Person-id (personalIdentityNumber) [R5].",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalIdentity.root",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalIdentity.root",
+      "short" : "Typ av personnummer (OID)",
+      "definition" : "Anger typ av personalIdentity som returneras, för personnummer: 1.2.752.129.2.1.3.1, och för samordningsnummer: 1.2.752.129.2.1.3.3",
+      "comment" : "TKB-fält: `.. ..root` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalIdentity.personNumber",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalIdentity.personNumber",
+      "short" : "Person- eller samordningsnummer",
+      "definition" : "Person- eller samordningsnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthcareProfessionalLicenseIdentityNumber",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.healthcareProfessionalLicenseIdentityNumber",
+      "short" : "Personens HOSP-id",
+      "definition" : "Personens Hosp-Id\n\nRef. HOSP-id (hospIdentityNumber) [R5]",
+      "comment" : "TKB-fält: `.. healthcareProfessionalLicenseIdentityNumber` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalPrescriptionCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.personalPrescriptionCode",
+      "short" : "Personens förskrivarkod",
+      "definition" : "Personens förskrivarkod. Ref förskrivarkod (personalPrescriptionCode) [R5]",
+      "comment" : "TKB-fält: `..personalPrescriptionCode` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.groupPrescriptionCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.groupPrescriptionCode",
+      "short" : "Gruppförskrivarkod tilldelad av arbetsgivare",
+      "definition" : "Gruppförskrivarkod (er) som personen tilldelats av sin arbetsgivare. Ref. gruppförskrivarkod (hsaGroupPrescriptionCode) [R5]",
+      "comment" : "TKB-fält: `..groupPrescriptionCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.nursePrescriptionRight",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.nursePrescriptionRight",
+      "short" : "Förskrivningsrätt för barnmorska/sjuksköterska",
+      "definition" : "Förskrivningsrätt för barnmorska/sjuksköterska. Ref. förskrivningsrätt för barnmorskor/ sjuksköterskor (hsaSosNursePrescriptionRight) [R5]",
+      "comment" : "TKB-fält: `..nursePrescriptionRight` (`NursePrescriptionRightType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.nursePrescriptionRight.healthCareProfessionalLicence",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.nursePrescriptionRight.healthCareProfessionalLicence",
+      "short" : "Legitimerad yrkestitel med förskrivningsrätt (BM eller SJ)",
+      "definition" : "Personens Legitimerade yrkestitel inom vilken denne har förskrivningsrätt. BM för Barnmorska eller SJ för Sjuksköterska",
+      "comment" : "TKB-fält: `.. ..healthCareProfessionalLicence` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.nursePrescriptionRight.prescriptionRight",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.nursePrescriptionRight.prescriptionRight",
+      "short" : "Personen har förskrivningsrätt",
+      "definition" : "Personen har förskrivningsrätt inom den angivna Legitimerade yrkestiteln",
+      "comment" : "TKB-fält: `.. ..prescriptionRight` (`Boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.hsaSystemRole",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.hsaSystemRole",
+      "short" : "Individuella egenskaper för it-tjänster",
+      "definition" : "Personens Individuella egenskaper för it-tjänster. Ref. individuell egenskap för it-tjänster (hsaSystemRole) [R5]",
+      "comment" : "TKB-fält: `..hsaSystemRole` (`HsaSystemRoleType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.hsaSystemRole.systemId",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.hsaSystemRole.systemId",
+      "short" : "IT-tjänstens SystemId",
+      "definition" : "IT-tjänstens SystemId",
+      "comment" : "TKB-fält: `.. ..systemId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.hsaSystemRole.role",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.hsaSystemRole.role",
+      "short" : "Personens roll inom IT-tjänsten",
+      "definition" : "Personens Roll inom IT-tjänsten",
+      "comment" : "TKB-fält: `.. ..role` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.paTitleCode",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.paTitleCode",
+      "short" : "Befattningskod",
+      "definition" : "Personens Befattningskoder\n\nRef. befattningskod (paTitleCode) [R5]",
+      "comment" : "TKB-fält: `..paTitleCode` (`String`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.protectedPerson",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.protectedPerson",
+      "short" : "Personen har skyddade personuppgifter",
+      "definition" : "true: om person har skyddade personuppgifter",
+      "comment" : "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.feignedPerson",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.feignedPerson",
+      "short" : "Personen är ett fingerat objekt",
+      "definition" : "true: om personen är ett fingerat objekt",
+      "comment" : "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission",
+      "short" : "Vårdmedarbetaruppdrag personen är kopplad till",
+      "definition" : "De vårdmedarbetaruppdrag som personen är kopplad till",
+      "comment" : "TKB-fält: `..commission` (`CommissionType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionName",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionName",
+      "short" : "Vårdmedarbetaruppdragets namn",
+      "definition" : "Vårdmedarbetaruppdragets Namn\n\nRef. objektnamn (cn) [R5]",
+      "comment" : "TKB-fält: `.. ..commissionName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionHsaId",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionHsaId",
+      "short" : "Vårdmedarbetaruppdragets HSA-id",
+      "definition" : "Vårdmedarbetaruppdragets HSA-id\n\nRef. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `.. ..commissionHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionPurpose",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionPurpose",
+      "short" : "Vårdmedarbetaruppdragets ändamål",
+      "definition" : "Vårdmedarbetaruppdragets ändamål\n\nRef. vårdmedarbetaruppdragets ändamål (hsaCommissionPurpose) [R5]",
+      "comment" : "TKB-fält: `.. ..commissionPurpose` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight",
+      "short" : "Vårdmedarbetaruppdragets rättigheter",
+      "definition" : "Vårdmedarbetaruppdragets rättigheter\n\nRef. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5]",
+      "comment" : "TKB-fält: `.. ..commissionRight` (`CommissionRightType`, kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight.activity",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight.activity",
+      "short" : "Rättighet aktivitet",
+      "definition" : "Rättighet aktivitet",
+      "comment" : "TKB-fält: `.. .. ..activity` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight.informationClass",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight.informationClass",
+      "short" : "Rättighet informationstyp",
+      "definition" : "Rättighet informationstyp",
+      "comment" : "TKB-fält: `.. .. ..informationClass` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight.scope",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.commissionRight.scope",
+      "short" : "Rättighet omfång",
+      "definition" : "Rättighet omfång",
+      "comment" : "TKB-fält: `.. .. ..scope` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.pharmacyIdentifier",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.pharmacyIdentifier",
+      "short" : "Unikt id för apotek (hsaGlnCode + hsaBusinessCode)",
+      "definition" : "Unikt id för apotek. Ref. (hsaGlnCode + hsaBusinessCode) [R5]",
+      "comment" : "TKB-fält: `.. ..pharmacyIdentifier` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.feignedCommission",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.feignedCommission",
+      "short" : "Vårdmedarbetaruppdraget är ett fingerat objekt",
+      "definition" : "true: om vårdmedarbetaruppdraget är ett fingerat objekt",
+      "comment" : "TKB-fält: `.. ..feignedCommission` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitHsaId",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitHsaId",
+      "short" : "HSA-id för vårdenhet enligt PDL",
+      "definition" : "HSA-id för vårdenhet enligt PDL\n\nRef. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitHsaId *3)` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Saknas om uppdraget ligger direkt under Vårdgivaren.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitName",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitName",
+      "short" : "Vårdenhetens namn",
+      "definition" : "Vårdenhetens namn\n\nRef. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitName *3)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitStartDate",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitStartDate",
+      "short" : "Startdatum för vårdenhetens verksamhet",
+      "definition" : "Startdatum för vårdenhetens verksamhet\n\nRef. startdatum (startDate) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitStartDate *3)` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitEndDate",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareUnitEndDate",
+      "short" : "Slutdatum för vårdenhetens verksamhet",
+      "definition" : "Slutdatum för vårdenhetens verksamhet\n\nRef. slutdatum (endDate) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitEndDate *3)` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.feignedHealthCareUnit",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.feignedHealthCareUnit",
+      "short" : "Vårdenheten är ett fingerat objekt",
+      "definition" : "true: om vårdenheten är ett fingerat objekt",
+      "comment" : "TKB-fält: `.. ..feignedHealthCareUnit` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.archivedHealthCareUnit",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.archivedHealthCareUnit",
+      "short" : "Vårdenheten är ett arkiverat objekt",
+      "definition" : "true: om vårdenheten är ett arkiverat objekt",
+      "comment" : "TKB-fält: `.. ..archivedHealthCareUnit` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderHsaId",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderHsaId",
+      "short" : "Vårdgivarens HSA-id",
+      "definition" : "Vårdgivarens HSA-id\n\nRef. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareProviderHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderName",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderName",
+      "short" : "Vårdgivarens namn",
+      "definition" : "Vårdgivarens Namn. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareProviderName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderOrgNo",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderOrgNo",
+      "short" : "Vårdgivarens organisationsnummer",
+      "definition" : "Vårdgivarens organisationsnummer\n\nRef. organisationsnummer (orgNo) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareProviderOrgNo` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderStartDate",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderStartDate",
+      "short" : "Startdatum för vårdgivarens verksamhet",
+      "definition" : "Startdatum för vårdgivarens verksamhet\n\nRef. startdatum (startDate) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareProviderStartDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderEndDate",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.healthCareProviderEndDate",
+      "short" : "Slutdatum för vårdgivarens verksamhet",
+      "definition" : "Slutdatum för vårdgivarens verksamhet\n\nRef. slutdatum (endDate) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareProviderEndDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.feignedHealthCareProvider",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.feignedHealthCareProvider",
+      "short" : "Vårdgivaren är ett fingerat objekt",
+      "definition" : "true: om vårdgivaren är ett fingerat objekt",
+      "comment" : "TKB-fält: `.. ..feignedHealthCareProvider` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.archivedHealthCareProvider",
+      "path" : "getcredentialsforpersonincludingprotectedperson.credentialInformation.commission.archivedHealthCareProvider",
+      "short" : "Vårdgivaren är ett arkiverat objekt",
+      "definition" : "true: om vårdgivaren är ett arkiverat objekt",
+      "comment" : "TKB-fält: `.. ..archivedHealthCareProvider` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

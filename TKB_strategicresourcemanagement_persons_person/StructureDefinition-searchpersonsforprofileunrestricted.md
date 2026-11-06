@@ -1,0 +1,3367 @@
+# SearchPersonsForProfileUnrestricted — Response - strategicresourcemanagement: persons: person v5.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SearchPersonsForProfileUnrestricted — Response**
+
+## Logical Model: SearchPersonsForProfileUnrestricted — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/searchpersonsforprofileunrestricted | *Version*:5.0 |
+| Active as of 2026-11-06 | *Computable Name*:SearchPersonsForProfileUnrestricted |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i SearchPersonsForProfileUnrestricted (urn:riv:strategicresourcemanagement:persons:person:SearchPersonsForProfileUnrestrictedResponder:5, SearchPersonsForProfileUnrestrictedResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-person|current/StructureDefinition/StructureDefinition-searchpersonsforprofileunrestricted.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-searchpersonsforprofileunrestricted.csv), [Excel](StructureDefinition-searchpersonsforprofileunrestricted.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "searchpersonsforprofileunrestricted",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/searchpersonsforprofileunrestricted",
+  "version" : "5.0",
+  "name" : "SearchPersonsForProfileUnrestricted",
+  "title" : "SearchPersonsForProfileUnrestricted — Response",
+  "status" : "active",
+  "date" : "2026-11-06T21:50:57+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i SearchPersonsForProfileUnrestricted\n(urn:riv:strategicresourcemanagement:persons:person:SearchPersonsForProfileUnrestrictedResponder:5, SearchPersonsForProfileUnrestrictedResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/searchpersonsforprofileunrestricted",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "searchpersonsforprofileunrestricted",
+      "path" : "searchpersonsforprofileunrestricted",
+      "short" : "SearchPersonsForProfileUnrestricted — Response",
+      "definition" : "Logisk modell för svaret i SearchPersonsForProfileUnrestricted\n(urn:riv:strategicresourcemanagement:persons:person:SearchPersonsForProfileUnrestrictedResponder:5, SearchPersonsForProfileUnrestrictedResponseType)."
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord",
+      "path" : "searchpersonsforprofileunrestricted.personRecord",
+      "short" : "personRecord",
+      "definition" : "Grupp för personpost",
+      "comment" : "TKB-fält: `personRecord` (`PersonRecordType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentity",
+      "short" : "personalIdentity",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../personalIdentity` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentity.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentity.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentity.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentity.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.identityLevel",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.identityLevel",
+      "short" : "identityLevel",
+      "definition" : "identityLevel",
+      "comment" : "TKB-fält: `../identityLevel` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.identityLevelDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.identityLevelDate",
+      "short" : "identityLevelDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../identityLevelDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.identityLevelDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.identityLevelDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.identityLevelDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.identityLevelDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.gender",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.gender",
+      "short" : "gender",
+      "definition" : "gender",
+      "comment" : "TKB-fält: `../gender` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.protectedPersonIndicator",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.protectedPersonIndicator",
+      "short" : "protectedPersonIndicator",
+      "definition" : "protectedPersonIndicator",
+      "comment" : "TKB-fält: `../protectedPersonIndicator` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.testIndicator",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.testIndicator",
+      "short" : "testIndicator",
+      "definition" : "testIndicator",
+      "comment" : "TKB-fält: `../testIndicator` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.primaryIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.primaryIdentity",
+      "short" : "primaryIdentity",
+      "definition" : "primaryIdentity",
+      "comment" : "TKB-fält: `../primaryIdentity` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordVersion",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordVersion",
+      "short" : "personRecordVersion",
+      "definition" : "personRecordVersion Heter version i schemat.",
+      "comment" : "TKB-fält: `../version` (`Timestamp`, kardinalitet 0..1).\n\n**Modellanteckning:** personRecordVersion Heter version i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordName",
+      "short" : "personRecordName",
+      "definition" : "Namn",
+      "comment" : "TKB-fält: `../name` (`NameType`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn Heter name i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.givenNameIndicator",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.givenNameIndicator",
+      "short" : "givenNameIndicator",
+      "definition" : "givenNameIndicator",
+      "comment" : "TKB-fält: `../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.givenName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "comment" : "TKB-fält: `../../givenName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.middleName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "comment" : "TKB-fält: `../../middleName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.surname",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.surname",
+      "short" : "surname",
+      "definition" : "surname",
+      "comment" : "TKB-fält: `../../surname` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.notificationName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personRecordName.notificationName",
+      "short" : "notificationName",
+      "definition" : "notificationName",
+      "comment" : "TKB-fält: `../../notificationName` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity",
+      "short" : "linkedIdentity",
+      "definition" : "Klass för att koppla ihop 2 identiteter. Ex en nationell reservidentitet till ett PNR",
+      "comment" : "TKB-fält: `../linkedIdentity` (`LinkedIdentityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.referredPersonalIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.referredPersonalIdentity",
+      "short" : "referredPersonalIdentity",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../referredPersonalIdentity` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.referredPersonalIdentity.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.referredPersonalIdentity.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.referredPersonalIdentity.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.referredPersonalIdentity.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.assuranceLevel",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.assuranceLevel",
+      "short" : "assuranceLevel",
+      "definition" : "assuranceLevel",
+      "comment" : "TKB-fält: `../../assuranceLevel` (`CodedValue`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.primaryIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.linkedIdentity.primaryIdentity",
+      "short" : "primaryIdentity",
+      "definition" : "primaryIdentity",
+      "comment" : "TKB-fält: `../../primaryIdentity` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities",
+      "short" : "referredPersonalIdentities",
+      "definition" : "Klass för Hänvisningspersonnummer. För de personer som bytt personnummer anges tidigare personnummer/samordningsnummer som hänvisningspersonnummer. Det gamla personnumret/samordningsnumret utgör även det en egen personpost. I det fallet anges det nya personnumret som hänvisningspersonnummer. En person kan få nytt personnummer efter exempelvis ändring av en persons födelsetid eller vid beslut om ändrad könstillhörighet. Klassen håller ihop personidentiteter av typerna personnummer och samordningsnummer enligt Skatteverket till skillnad från klassen KoppladIdenitet som är Personuppgiftstjänstens egna klass för att kunna koppla ihop alla typer av personidentiteter (inkl. reservidentiteter).",
+      "comment" : "TKB-fält: `../referredPersonalIdentities` (`ReferredPersonalIdentityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentity",
+      "short" : "referredPersonalIdentity",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../referredPersonalIdentity` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentity.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentity.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentity.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentity.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentityStatus",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.referredPersonalIdentities.referredPersonalIdentityStatus",
+      "short" : "referredPersonalIdentityStatus",
+      "definition" : "referredPersonalIdentityStatus",
+      "comment" : "TKB-fält: `../../referredPersonalIdentityStatus` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth",
+      "short" : "birth",
+      "definition" : "Uppgifter om födelse",
+      "comment" : "TKB-fält: `../birth` (`BirthType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.dateOfBirth",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.dateOfBirth.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.dateOfBirth.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.dateOfBirth.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.dateOfBirth.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.placeOfBirthSweden",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.placeOfBirthSweden",
+      "short" : "placeOfBirthSweden",
+      "definition" : "Uppgifter om hemort i Sverige",
+      "comment" : "TKB-fält: `../../placeOfBirthSweden` (`PlaceOfBirthSwedenType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.placeOfBirthSweden.birthCountyCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.placeOfBirthSweden.birthCountyCode",
+      "short" : "birthCountyCode",
+      "definition" : "birthCountyCode",
+      "comment" : "TKB-fält: `../../../birthCountyCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.placeOfBirthSweden.birthParish",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.placeOfBirthSweden.birthParish",
+      "short" : "birthParish",
+      "definition" : "birthParish",
+      "comment" : "TKB-fält: `../../../birthParish` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.birthAbroad",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.birthAbroad",
+      "short" : "birthAbroad",
+      "definition" : "Uppgifter om födelse i utlandet",
+      "comment" : "TKB-fält: `../../birthAbroad` (`BirthAbroadType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.birthAbroad.placeOfBirthAbroad",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.birthAbroad.placeOfBirthAbroad",
+      "short" : "placeOfBirthAbroad",
+      "definition" : "placeOfBirthAbroad",
+      "comment" : "TKB-fält: `../../../placeOfBirthAbroad` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.birth.birthAbroad.countryOfBirth",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.birth.birthAbroad.countryOfBirth",
+      "short" : "countryOfBirth",
+      "definition" : "countryOfBirth",
+      "comment" : "TKB-fält: `../../../countryOfBirth` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality",
+      "short" : "populationRegistrationLocality",
+      "definition" : "Uppgifter om folkbokföring",
+      "comment" : "TKB-fält: `../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationDate",
+      "short" : "populationRegistrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.countyCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.countyCode",
+      "short" : "countyCode",
+      "definition" : "countyCode",
+      "comment" : "TKB-fält: `../../countyCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.municipalityCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.municipalityCode",
+      "short" : "municipalityCode",
+      "definition" : "municipalityCode",
+      "comment" : "TKB-fält: `../../municipalityCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.parishCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.parishCode",
+      "short" : "parishCode",
+      "definition" : "parishCode",
+      "comment" : "TKB-fält: `../../parishCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.propertyDesignation",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.propertyDesignation",
+      "short" : "propertyDesignation",
+      "definition" : "propertyDesignation",
+      "comment" : "TKB-fält: `../../propertyDesignation` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.fictitiousPropertyNumber",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.fictitiousPropertyNumber",
+      "short" : "fictitiousPropertyNumber",
+      "definition" : "fictitiousPropertyNumber",
+      "comment" : "TKB-fält: `../../fictitiousPropertyNumber` (`FictitiousPropertyNumber`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.populationRegistrationType",
+      "short" : "populationRegistrationType",
+      "definition" : "populationRegistrationType",
+      "comment" : "TKB-fält: `../../populationRegistrationType` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.localRegistrationTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.localRegistrationTime",
+      "short" : "localRegistrationTime",
+      "definition" : "localRegistrationTime",
+      "comment" : "TKB-fält: `../../localRegistrationTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.localRegistrationEndTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationLocality.localRegistrationEndTime",
+      "short" : "localRegistrationEndTime",
+      "definition" : "localRegistrationEndTime",
+      "comment" : "TKB-fält: `../../localRegistrationEndTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord",
+      "short" : "populationRegistrationRecord",
+      "definition" : "Folkbokföringspost",
+      "comment" : "TKB-fält: `../populationRegistrationRecord` (`PopulationRegistrationRecordType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.syncronizationTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.syncronizationTime",
+      "short" : "syncronizationTime",
+      "definition" : "syncronizationTime",
+      "comment" : "TKB-fält: `../../syncronizationTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase",
+      "short" : "notificationCase",
+      "definition" : "Ärendeuppgifter",
+      "comment" : "TKB-fält: `../../notificationCase` (`NotificationCaseType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.recordId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.recordId",
+      "short" : "recordId",
+      "definition" : "recordId",
+      "comment" : "TKB-fält: `../../../recordId` (`RecordId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationType",
+      "short" : "notificationType",
+      "definition" : "notificationType",
+      "comment" : "TKB-fält: `../../../notificationType` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.modificationTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.modificationTime",
+      "short" : "modificationTime",
+      "definition" : "modificationTime",
+      "comment" : "TKB-fält: `../../../modificationTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.totalRecord",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.totalRecord",
+      "short" : "totalRecord",
+      "definition" : "totalRecord",
+      "comment" : "TKB-fält: `../../../totalRecord` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationDate",
+      "short" : "notificationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../notificationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.notificationCase.notificationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords",
+      "short" : "historicalRecords",
+      "definition" : "Grupp för historik",
+      "comment" : "TKB-fält: `../../historicalRecords` (`HistoricalRecordsType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality",
+      "short" : "populationRegistrationLocality",
+      "definition" : "Uppgifter om folkbokföring",
+      "comment" : "TKB-fält: `../../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate",
+      "short" : "populationRegistrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.countyCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.countyCode",
+      "short" : "countyCode",
+      "definition" : "countyCode",
+      "comment" : "TKB-fält: `../../../../countyCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.municipalityCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.municipalityCode",
+      "short" : "municipalityCode",
+      "definition" : "municipalityCode",
+      "comment" : "TKB-fält: `../../../../municipalityCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.parishCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.parishCode",
+      "short" : "parishCode",
+      "definition" : "parishCode",
+      "comment" : "TKB-fält: `../../../../parishCode` (`String2`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.propertyDesignation",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.propertyDesignation",
+      "short" : "propertyDesignation",
+      "definition" : "propertyDesignation",
+      "comment" : "TKB-fält: `../../../../propertyDesignation` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.fictitiousPropertyNumber",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.fictitiousPropertyNumber",
+      "short" : "fictitiousPropertyNumber",
+      "definition" : "fictitiousPropertyNumber",
+      "comment" : "TKB-fält: `../../../../fictitiousPropertyNumber` (`FictitiousPropertyNumber`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationType",
+      "short" : "populationRegistrationType",
+      "definition" : "populationRegistrationType",
+      "comment" : "TKB-fält: `../../../../populationRegistrationType` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.localRegistrationTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.localRegistrationTime",
+      "short" : "localRegistrationTime",
+      "definition" : "localRegistrationTime",
+      "comment" : "TKB-fält: `../../../../localRegistrationTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.localRegistrationEndTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.localRegistrationEndTime",
+      "short" : "localRegistrationEndTime",
+      "definition" : "localRegistrationEndTime",
+      "comment" : "TKB-fält: `../../../../localRegistrationEndTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress",
+      "short" : "historicalAddress",
+      "definition" : "Svensk adress",
+      "comment" : "TKB-fält: `../../../historicalAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.careOf",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "comment" : "TKB-fält: `../../../../careOf` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalAddress1",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "comment" : "TKB-fält: `../../../../postalAddress1` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalAddress2",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "comment" : "TKB-fält: `../../../../postalAddress2` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "comment" : "TKB-fält: `../../../../postalCode` (`PostalCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.city",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "comment" : "TKB-fält: `../../../../city` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation",
+      "short" : "addressInformation",
+      "definition" : "Grupp för adressuppgifter",
+      "comment" : "TKB-fält: `../addressInformation` (`AddressInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress",
+      "short" : "residentialAddress",
+      "definition" : "Svensk adress",
+      "comment" : "TKB-fält: `../../residentialAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.careOf",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "comment" : "TKB-fält: `../../../careOf` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.postalAddress1",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "comment" : "TKB-fält: `../../../postalAddress1` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.postalAddress2",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "comment" : "TKB-fält: `../../../postalAddress2` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.postalCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "comment" : "TKB-fält: `../../../postalCode` (`PostalCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.city",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.residentialAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "comment" : "TKB-fält: `../../../city` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys",
+      "short" : "nationalKeys",
+      "definition" : "Riksnycklar",
+      "comment" : "TKB-fält: `../../nationalKeys` (`NationalKeysType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys.propertyId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys.propertyId",
+      "short" : "propertyId",
+      "definition" : "propertyId",
+      "comment" : "TKB-fält: `../../../propertyId` (`PropertyId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys.addressPlaceId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys.addressPlaceId",
+      "short" : "addressPlaceId",
+      "definition" : "addressPlaceId",
+      "comment" : "TKB-fält: `../../../addressPlaceId` (`AddressPlaceId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys.apartmentId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.nationalKeys.apartmentId",
+      "short" : "apartmentId",
+      "definition" : "apartmentId",
+      "comment" : "TKB-fält: `../../../apartmentId` (`ApartmentId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.district",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.district",
+      "short" : "district",
+      "definition" : "Grupp för Distriktskod",
+      "comment" : "TKB-fält: `../../district` (`DistrictType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.district.districtCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.district.districtCode",
+      "short" : "districtCode",
+      "definition" : "districtCode",
+      "comment" : "TKB-fält: `../../../districtCode` (`DistrictCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress",
+      "short" : "specialPostalAddress",
+      "definition" : "Svensk adress",
+      "comment" : "TKB-fält: `../../specialPostalAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.careOf",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "comment" : "TKB-fält: `../../../careOf` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.postalAddress1",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "comment" : "TKB-fält: `../../../postalAddress1` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.postalAddress2",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "comment" : "TKB-fält: `../../../postalAddress2` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.postalCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "comment" : "TKB-fält: `../../../postalCode` (`PostalCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.city",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.specialPostalAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "comment" : "TKB-fält: `../../../city` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad",
+      "short" : "addressAbroad",
+      "definition" : "Utlandsadress",
+      "comment" : "TKB-fält: `../../addressAbroad` (`AddressAbroadType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.postalAddress1",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "comment" : "TKB-fält: `../../../postalAddress1` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.postalAddress2",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "comment" : "TKB-fält: `../../../postalAddress2` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.postalAddress3",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.postalAddress3",
+      "short" : "postalAddress3",
+      "definition" : "postalAddress3",
+      "comment" : "TKB-fält: `../../../postalAddress3` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.countryCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.countryCode",
+      "short" : "countryCode",
+      "definition" : "countryCode",
+      "comment" : "TKB-fält: `../../../countryCode` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.addressAbroadDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.addressAbroadDate",
+      "short" : "addressAbroadDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../addressAbroadDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.addressAbroadDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.addressAbroadDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.addressAbroadDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.addressAbroadDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.votingDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.votingDate",
+      "short" : "votingDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../votingDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.votingDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.votingDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.votingDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.addressAbroad.votingDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress",
+      "short" : "givenAddress",
+      "definition" : "Svensk adress",
+      "comment" : "TKB-fält: `../../givenAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.careOf",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "comment" : "TKB-fält: `../../../careOf` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.postalAddress1",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "comment" : "TKB-fält: `../../../postalAddress1` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.postalAddress2",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "comment" : "TKB-fält: `../../../postalAddress2` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.postalCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "comment" : "TKB-fält: `../../../postalCode` (`PostalCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.city",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.givenAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "comment" : "TKB-fält: `../../../city` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID",
+      "short" : "UUID",
+      "definition" : "UUID för fastighet, aderess och lägenhet",
+      "comment" : "TKB-fält: `../../UUID` (`UUIDType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID.propertyId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID.propertyId",
+      "short" : "propertyId",
+      "definition" : "propertyId",
+      "comment" : "TKB-fält: `../../../propertyId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID.addressPlaceId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID.addressPlaceId",
+      "short" : "addressPlaceId",
+      "definition" : "addressPlaceId",
+      "comment" : "TKB-fält: `../../../addressPlaceId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID.apartmentId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.addressInformation.UUID.apartmentId",
+      "short" : "apartmentId",
+      "definition" : "apartmentId",
+      "comment" : "TKB-fält: `../../../apartmentId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation",
+      "short" : "contactInformation",
+      "definition" : "Klass för patientens egna angivna kontakuppgifter",
+      "comment" : "TKB-fält: `../contactInformation` (`ContactInformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.contactType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.contactType",
+      "short" : "contactType",
+      "definition" : "contactType",
+      "comment" : "TKB-fält: `../../contactType` (`CodedValue`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.use",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.use",
+      "short" : "use",
+      "definition" : "use",
+      "comment" : "TKB-fält: `../../use` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.contactInformationValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.contactInformationValue",
+      "short" : "contactInformationValue",
+      "definition" : "contactInformationValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../value` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** contactInformationValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.rank",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.rank",
+      "short" : "rank",
+      "definition" : "rank",
+      "comment" : "TKB-fält: `../../rank` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.comment",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.period",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.period",
+      "short" : "period",
+      "definition" : "period",
+      "comment" : "TKB-fält: `../../period` (`DatePeriodType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.period.start",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.period.start",
+      "short" : "start",
+      "definition" : "start",
+      "comment" : "TKB-fält: `../../../start` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.period.end",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.period.end",
+      "short" : "end",
+      "definition" : "end",
+      "comment" : "TKB-fält: `../../../end` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.digitalNotification",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactInformation.digitalNotification",
+      "short" : "digitalNotification",
+      "definition" : "digitalNotification",
+      "comment" : "TKB-fält: `../../digitalNotification` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson",
+      "short" : "contactPerson",
+      "definition" : "contactPerson",
+      "comment" : "TKB-fält: `../contactPerson` (`ContactPersonType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactRelationshipType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactRelationshipType",
+      "short" : "contactRelationshipType",
+      "definition" : "contactRelationshipType",
+      "comment" : "TKB-fält: `../../contactRelationshipType` (`CodedValue`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.priorityOrder",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.priorityOrder",
+      "short" : "priorityOrder",
+      "definition" : "priorityOrder",
+      "comment" : "TKB-fält: `../../priorityOrder` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.givenName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "comment" : "TKB-fält: `../../givenName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.surName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.surName",
+      "short" : "surName",
+      "definition" : "surName",
+      "comment" : "TKB-fält: `../../surName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.middleName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "comment" : "TKB-fält: `../../middleName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress",
+      "short" : "contactPersonAddress",
+      "definition" : "Svensk adress",
+      "comment" : "TKB-fält: `../../contactPersonAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.careOf",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "comment" : "TKB-fält: `../../../careOf` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.postalAddress1",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "comment" : "TKB-fält: `../../../postalAddress1` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.postalAddress2",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "comment" : "TKB-fält: `../../../postalAddress2` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.postalCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "comment" : "TKB-fält: `../../../postalCode` (`PostalCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.city",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "comment" : "TKB-fält: `../../../city` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation",
+      "short" : "contactPersonContactInformation",
+      "definition" : "Klass för patientens egna angivna kontakuppgifter",
+      "comment" : "TKB-fält: `../../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.contactType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.contactType",
+      "short" : "contactType",
+      "definition" : "contactType",
+      "comment" : "TKB-fält: `../../../contactType` (`CodedValue`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.use",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.use",
+      "short" : "use",
+      "definition" : "use",
+      "comment" : "TKB-fält: `../../../use` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
+      "short" : "contactInformationValue",
+      "definition" : "contactInformationValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** contactInformationValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.rank",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.rank",
+      "short" : "rank",
+      "definition" : "rank",
+      "comment" : "TKB-fält: `../../../rank` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.comment",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../../comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.period",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.period",
+      "short" : "period",
+      "definition" : "period",
+      "comment" : "TKB-fält: `../../../period` (`DatePeriodType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.period.start",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.period.start",
+      "short" : "start",
+      "definition" : "start",
+      "comment" : "TKB-fält: `../../../../start` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.period.end",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.period.end",
+      "short" : "end",
+      "definition" : "end",
+      "comment" : "TKB-fält: `../../../../end` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.digitalNotification",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.contactPerson.contactPersonContactInformation.digitalNotification",
+      "short" : "digitalNotification",
+      "definition" : "digitalNotification",
+      "comment" : "TKB-fält: `../../../digitalNotification` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity",
+      "short" : "confirmedIdentity",
+      "definition" : "Klass för hur reservidentitetsuppgifter är styrkta.",
+      "comment" : "TKB-fält: `../confirmedIdentity` (`ConfirmedIdentityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.typeOfIdentification",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.typeOfIdentification",
+      "short" : "typeOfIdentification",
+      "definition" : "typeOfIdentification",
+      "comment" : "TKB-fält: `../../typeOfIdentification` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.identificationNumber",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.identificationNumber",
+      "short" : "identificationNumber",
+      "definition" : "identificationNumber",
+      "comment" : "TKB-fält: `../../identificationNumber` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.issuersOfId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.issuersOfId",
+      "short" : "issuersOfId",
+      "definition" : "issuersOfId",
+      "comment" : "TKB-fält: `../../issuersOfId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.validDatePeriod",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.validDatePeriod",
+      "short" : "validDatePeriod",
+      "definition" : "validDatePeriod",
+      "comment" : "TKB-fält: `../../validDatePeriod` (`DatePeriodType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.validDatePeriod.start",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.validDatePeriod.start",
+      "short" : "start",
+      "definition" : "start",
+      "comment" : "TKB-fält: `../../../start` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.validDatePeriod.end",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.validDatePeriod.end",
+      "short" : "end",
+      "definition" : "end",
+      "comment" : "TKB-fält: `../../../end` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.attachmentId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.attachmentId",
+      "short" : "attachmentId",
+      "definition" : "attachmentId",
+      "comment" : "TKB-fält: `../../attachmentId` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.countryCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.confirmedIdentity.countryCode",
+      "short" : "countryCode",
+      "definition" : "countryCode",
+      "comment" : "TKB-fält: `../../countryCode` (`CountryCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation",
+      "short" : "administrativeInformation",
+      "definition" : "Klass för administrativa tilläggsuppgifter. Normalt tilläggsuppgifter kring en person med en reservidentitet som registreras i samband med uttag av reservidentitet (LRID/NRID).",
+      "comment" : "TKB-fält: `../administrativeInformation` (`AdministrativeInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation.categoryOfPerson",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation.categoryOfPerson",
+      "short" : "categoryOfPerson",
+      "definition" : "categoryOfPerson",
+      "comment" : "TKB-fält: `../../categoryOfPerson` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation.accountCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation.accountCode",
+      "short" : "accountCode",
+      "definition" : "accountCode",
+      "comment" : "TKB-fält: `../../accountCode` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation.comment",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.administrativeInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration",
+      "short" : "deregistration",
+      "definition" : "Uppgifter om avregistrering",
+      "comment" : "TKB-fält: `../deregistration` (`DeregistrationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationReasonCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationReasonCode",
+      "short" : "deregistrationReasonCode",
+      "definition" : "deregistrationReasonCode",
+      "comment" : "TKB-fält: `../../deregistrationReasonCode` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationDate",
+      "short" : "deregistrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.deregistrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.foundDeadAtDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.foundDeadAtDate",
+      "short" : "foundDeadAtDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.foundDeadAtDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.foundDeadAtDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.deregistration.foundDeadAtDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.deregistration.foundDeadAtDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus",
+      "short" : "maritalStatus",
+      "definition" : "Civistånd",
+      "comment" : "TKB-fält: `../maritalStatus` (`MaritalStatusType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusCode",
+      "short" : "maritalStatusCode",
+      "definition" : "maritalStatusCode",
+      "comment" : "TKB-fält: `../../maritalStatusCode` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusDate",
+      "short" : "maritalStatusDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../maritalStatusDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.maritalStatus.maritalStatusDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration",
+      "short" : "immigration",
+      "definition" : "Grupp för invandringsuppgifter",
+      "comment" : "TKB-fält: `../immigration` (`ImmigrationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationDate",
+      "short" : "immigrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../immigrationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.rightOfResidence",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.rightOfResidence",
+      "short" : "rightOfResidence",
+      "definition" : "rightOfResidence",
+      "comment" : "TKB-fält: `../../rightOfResidence` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationIdentity",
+      "short" : "immigrationIdentity",
+      "definition" : "Grupp för personnummer och vilket land det är knutet till. Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo",
+      "comment" : "TKB-fält: `../../immigrationIdentity` (`ImmigrationIdentityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationIdentity.personalIdentityNumber",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationIdentity.personalIdentityNumber",
+      "short" : "personalIdentityNumber",
+      "definition" : "personalIdentityNumber",
+      "comment" : "TKB-fält: `../../../personalIdentityNumber` (`PersonalIdentityNumber`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationIdentity.country",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.immigration.immigrationIdentity.country",
+      "short" : "country",
+      "definition" : "country",
+      "comment" : "TKB-fält: `../../../country` (`CountryCode`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.citizenship",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.citizenship",
+      "short" : "citizenship",
+      "definition" : "Grupp för medborgarskap",
+      "comment" : "TKB-fält: `../citizenship` (`CitizenshipType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipCountryCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipCountryCode",
+      "short" : "citizenshipCountryCode",
+      "definition" : "citizenshipCountryCode",
+      "comment" : "TKB-fält: `../../citizenshipCountryCode` (`CountryCode`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipDate",
+      "short" : "citizenshipDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../citizenshipDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipStatus",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.citizenship.citizenshipStatus",
+      "short" : "citizenshipStatus",
+      "definition" : "citizenshipStatus Heter status i schemat.",
+      "comment" : "TKB-fält: `../../status` (`CodedValue`, kardinalitet 0..1).\n\n**Modellanteckning:** citizenshipStatus Heter status i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship",
+      "short" : "relationship",
+      "definition" : "Grupp för relation",
+      "comment" : "TKB-fält: `../relationship` (`RelationshipType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId",
+      "short" : "relationshipId",
+      "definition" : "Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes.",
+      "comment" : "TKB-fält: `../../relationshipId` (`RelationshipIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.personalIdentity",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.personalIdentity",
+      "short" : "personalIdentity",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../../personalIdentity` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.personalIdentity.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.personalIdentity.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.personalIdentity.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.personalIdentity.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.dateOfBirth",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.dateOfBirth.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.dateOfBirth.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.dateOfBirth.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipId.dateOfBirth.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipType",
+      "short" : "relationshipType",
+      "definition" : "relationshipType",
+      "comment" : "TKB-fält: `../../relationshipType` (`CodedValue`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipFromDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipFromDate",
+      "short" : "relationshipFromDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../relationshipFromDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipFromDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipFromDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipFromDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipFromDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipToDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipToDate",
+      "short" : "relationshipToDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../relationshipToDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipToDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipToDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipToDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipToDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName",
+      "short" : "relationshipName",
+      "definition" : "Namn",
+      "comment" : "TKB-fält: `../../name` (`NameType`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn Heter name i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.givenNameIndicator",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.givenNameIndicator",
+      "short" : "givenNameIndicator",
+      "definition" : "givenNameIndicator",
+      "comment" : "TKB-fält: `../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.givenName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "comment" : "TKB-fält: `../../../givenName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.middleName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "comment" : "TKB-fält: `../../../middleName` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.surname",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.surname",
+      "short" : "surname",
+      "definition" : "surname",
+      "comment" : "TKB-fält: `../../../surname` (`String80`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.notificationName",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipName.notificationName",
+      "short" : "notificationName",
+      "definition" : "notificationName",
+      "comment" : "TKB-fält: `../../../notificationName` (`String40`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration",
+      "short" : "deregistration",
+      "definition" : "Uppgifter om avregistrering",
+      "comment" : "TKB-fält: `../../deregistration` (`DeregistrationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationReasonCode",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationReasonCode",
+      "short" : "deregistrationReasonCode",
+      "definition" : "deregistrationReasonCode",
+      "comment" : "TKB-fält: `../../../deregistrationReasonCode` (`CodedValue`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationDate",
+      "short" : "deregistrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.deregistrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.foundDeadAtDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.foundDeadAtDate",
+      "short" : "foundDeadAtDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.foundDeadAtDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.foundDeadAtDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.foundDeadAtDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.deregistration.foundDeadAtDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipStatus",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.relationship.relationshipStatus",
+      "short" : "relationshipStatus",
+      "definition" : "relationshipStatus Heter status i schemat.",
+      "comment" : "TKB-fält: `../../status` (`CodedValue`, kardinalitet 0..1).\n\n**Modellanteckning:** relationshipStatus Heter status i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData",
+      "short" : "coOrdinationNumberData",
+      "definition" : "Grupp för de personer som ej är folkbokförda men som har tilldelats ett samordningsnummer för identifiering av personen. Syftet med samordningsnummer är att myndigheter och andra samhällsfunktioner ska kunna identifiera personer även om de inte är folkbokförda i Sverige.",
+      "comment" : "TKB-fält: `../coOrdinationNumberData` (`CoOrdinationNumberDataType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.allocationDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.allocationDate",
+      "short" : "allocationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../allocationDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.allocationDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.allocationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.allocationDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.allocationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.preliminaryTransferDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.preliminaryTransferDate",
+      "short" : "preliminaryTransferDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../preliminaryTransferDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.preliminaryTransferDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.preliminaryTransferDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.preliminaryTransferDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.preliminaryTransferDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.renewalDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.renewalDate",
+      "short" : "renewalDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../renewalDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.renewalDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.renewalDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.renewalDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.renewalDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.deceasedDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.deceasedDate",
+      "short" : "deceasedDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../deceasedDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.deceasedDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.deceasedDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.deceasedDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.coOrdinationNumberData.deceasedDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus",
+      "short" : "personalIdentityStatus",
+      "definition" : "Klass som beskriver status för ett samordningsnummer. Status, datum och orsak ska vara obligatoriska uppgifter, när de finns, för aviseringar innehållande samordningsnummer.",
+      "comment" : "TKB-fält: `../personalIdentityStatus` (`PersonalIdentityStatusType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatus",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatus",
+      "short" : "identityStatus",
+      "definition" : "identityStatus",
+      "comment" : "TKB-fält: `../../identityStatus` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusDate",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusDate",
+      "short" : "identityStatusDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "comment" : "TKB-fält: `../../identityStatusDate` (`PartialDateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusDate.format",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "comment" : "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusDate.partialDateValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusCause",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.personalIdentityStatus.identityStatusCause",
+      "short" : "identityStatusCause",
+      "definition" : "identityStatusCause",
+      "comment" : "TKB-fält: `../../identityStatusCause` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor",
+      "short" : "updatePersonActor",
+      "definition" : "Datatyp som identifierar en aktör.",
+      "comment" : "TKB-fält: `../updatePersonActor` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.actorId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.actorId",
+      "short" : "actorId",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../id` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.actorId.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.actorId.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional",
+      "short" : "professional",
+      "definition" : "Datatyp som identifierar en aktör inom en profession.",
+      "comment" : "TKB-fält: `../../professional` (`ProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional.organizationId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional.organizationId",
+      "short" : "organizationId",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../../organizationId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional.organizationId.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional.organizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional.organizationId.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.professional.organizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.updateTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonActor.updateTime",
+      "short" : "updateTime",
+      "definition" : "updateTime",
+      "comment" : "TKB-fält: `../../updateTime` (`Timestamp`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor",
+      "short" : "updatePersonContactInformationActor",
+      "definition" : "Datatyp som identifierar en aktör.",
+      "comment" : "TKB-fält: `../updatePersonContactInformationActor` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.actorId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.actorId",
+      "short" : "actorId",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../id` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.actorId.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.actorId.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional",
+      "short" : "professional",
+      "definition" : "Datatyp som identifierar en aktör inom en profession.",
+      "comment" : "TKB-fält: `../../professional` (`ProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional.organizationId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional.organizationId",
+      "short" : "organizationId",
+      "definition" : "En universellt unik identifierare.",
+      "comment" : "TKB-fält: `../../../organizationId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional.organizationId.root",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional.organizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "comment" : "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "comment" : "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.updateTime",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.updatePersonContactInformationActor.updateTime",
+      "short" : "updateTime",
+      "definition" : "updateTime",
+      "comment" : "TKB-fält: `../../updateTime` (`Timestamp`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.attachment",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.attachment",
+      "short" : "attachment",
+      "definition" : "Datatyp som beskriver en multimediatyp. Data kan förekomma som inbäddat element eller hänvisas via en referens URL.",
+      "comment" : "TKB-fält: `../attachment` (`MultimediaType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.attachment.multimediaId",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.attachment.multimediaId",
+      "short" : "multimediaId",
+      "definition" : "multimediaId Heter id i schemat.",
+      "comment" : "TKB-fält: `../../id` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** multimediaId Heter id i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.attachment.mediaType",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.attachment.mediaType",
+      "short" : "mediaType",
+      "definition" : "mediaType",
+      "comment" : "TKB-fält: `../../mediaType` (`CodedValue`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.attachment.multimediaValue",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.attachment.multimediaValue",
+      "short" : "multimediaValue",
+      "definition" : "multimediaValue Heter value i schemat.",
+      "comment" : "TKB-fält: `../../value` (`base64Binary`, kardinalitet 0..1).\n\n**Modellanteckning:** multimediaValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.attachment.reference",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.attachment.reference",
+      "short" : "reference",
+      "definition" : "reference",
+      "comment" : "TKB-fält: `../../reference` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.optoutPaperNotification",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.optoutPaperNotification",
+      "short" : "optoutPaperNotification",
+      "definition" : "optoutPaperNotification",
+      "comment" : "TKB-fält: `../optoutPaperNotification` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "searchpersonsforprofileunrestricted.personRecord.protectedPopulationRecord",
+      "path" : "searchpersonsforprofileunrestricted.personRecord.protectedPopulationRecord",
+      "short" : "protectedPopulationRecord",
+      "definition" : "protectedPopulationRecord",
+      "comment" : "TKB-fält: `../protectedPopulationRecord` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

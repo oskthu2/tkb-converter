@@ -1,0 +1,645 @@
+# GetCareDocumentation - clinicalprocess: healthcond: description v3.0.6
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCareDocumentation**
+
+## Logical Model: GetCareDocumentation 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation | *Version*:3.0 |
+| Active as of 2026-11-06 | *Computable Name*:GetCareDocumentation |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetCareDocumentation (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3). Representerar responsens informationsstruktur: journalanteckningar för en patient. Anteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning, slutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning. Meddelandeformatet är kompatibelt med HL7 v3 CDA v2. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-description|current/StructureDefinition/StructureDefinition-getcaredocumentation.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcaredocumentation.csv), [Excel](StructureDefinition-getcaredocumentation.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcaredocumentation",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation",
+  "version" : "3.0",
+  "name" : "GetCareDocumentation",
+  "title" : "GetCareDocumentation",
+  "status" : "active",
+  "date" : "2026-11-06T21:05:44+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetCareDocumentation\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).\nRepresenterar responsens informationsstruktur: journalanteckningar för en patient.\nAnteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning,\nslutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.\nMeddelandeformatet är kompatibelt med HL7 v3 CDA v2.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcaredocumentation",
+      "path" : "getcaredocumentation",
+      "short" : "GetCareDocumentation",
+      "definition" : "Logisk modell för tjänstekontraktet GetCareDocumentation\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).\nRepresenterar responsens informationsstruktur: journalanteckningar för en patient.\nAnteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning,\nslutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.\nMeddelandeformatet är kompatibelt med HL7 v3 CDA v2."
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation",
+      "path" : "getcaredocumentation.careDocumentation",
+      "short" : "Journalanteckning",
+      "definition" : "De anteckningar som matchar begäran.",
+      "comment" : "TKB-fält: `careDocumentation` (`CareDocumentationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header",
+      "path" : "getcaredocumentation.careDocumentation.header",
+      "short" : "JoL-header",
+      "definition" : "JoL-header.\n\nInnehåller metainformation som är gemensam för patientjournalinformation, exempelvis uppgift om vilken hälso- och sjukvårdspersonal\n\nsom är angiven som författare av informationen och information om signering.",
+      "comment" : "TKB-fält: `../header` (`HeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader",
+      "short" : "Åtkomstkontrollheader",
+      "definition" : "Information för kontroll av åtkomst.\n\nSyftet med denna del av headern är att den ska innehålla den information som behövs för konsumentens filtrering av informationen innan den visas upp för slutanvändaren eller på annat vis behandlas vidare, exempelvis för kontroll av spärrar (avseende vårdpersonals åtkomst till information; PDL) eller om informationen får visas för patienten eller inte (verksamhetens rätt till rådrum och menprövning).\n\nEn konsument (en konsumerande tjänst/applikation) har inte rätt att ta del av något annat än innehållet i accessControlHeader innan de för ändamålet nödvändiga säkerhetskontrollerna har utförts.",
+      "comment" : "TKB-fält: `../../accessControlHeader` (`AccessControlHeaderType`, kardinalitet 1..1).\n\n**Modellanteckning:** Information för kontroll av åtkomst enligt PDL. Uppgifterna krävs för\nspärrhantering, åtkomstkontroll samt loggning.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider",
+      "short" : "Informationsägande vårdgivare",
+      "definition" : "Id för informationsägande vårdgivare.\n\nI första hand HSAid alternativt i andra hand organisationsnummer.\n\nOm HSA-id används sätts fältet root till oid för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.\n\nOm organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret.\n\nEnskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.\n\nSe även regel Spärrhantering.",
+      "comment" : "TKB-fält: `../../../accountableHealthcareProvider` (`IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** Id för informationsägande vårdgivare. HSA-id eller lokalt id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit",
+      "short" : "Informationsägande vårdenhet",
+      "definition" : "Id för informationsägande vårdenhet angivet med HSA-id.\n\nFältet root sätts OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.\n\nFältet används för spärrkontroll och är obligatorisk om uppgiften i patientjournal ska kunna ses via sammanhållen journalföring.\n\nSe även regel Spärrhantering.",
+      "comment" : "TKB-fält: `../../../accountableCareUnit` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader.patientId",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader.patientId",
+      "short" : "Patientens identitetsbeteckning",
+      "definition" : "Patientens identitetsbeteckning. Den identitetsbeteckning som denna uppgift lagrades under när uppgiften skapades ska om möjligt anges. Exempel på en situation då detta förekommer är exempelvis då patienten tidigare erhållit vård dokumenterat under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.\n\nFältet root sätts till OID för kodverket för identifieraren:\n\n1) För personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\n2) För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFältet extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.",
+      "comment" : "TKB-fält: `../../../patientId` (`IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** Patientens identitetsbeteckning. Personnummer, samordningsnummer eller nationellt reservnummer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId",
+      "short" : "Id för individanpassad vårdprocess",
+      "definition" : "Id för den individanpassad vårdprocess som informationen journalförts inom ramen för. Består av ett lokalt genererat UUID.\n\nUUID anges i root och extension lämnas tomt.",
+      "comment" : "TKB-fält: `../../../careProcessId` (`IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** Id för den individanpassade vårdprocess som informationen ingår i.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime",
+      "short" : "Jämförelsetidpunkt för spärrkontroll",
+      "definition" : "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring för kontroll av patientens (ev.) spärrade information, såväl yttre (mellan vårdgivare) som inre (mellan vårdenheter) spärr.\n\nTidpunkten ska i så hög grad som möjligt överensstämma med den tidpunkt som ur patientens synvinkel är den mest naturliga. Detta är vanligtvis tidpunkten för patientens vårdkontakt som låg till grund för dokumentationen.",
+      "comment" : "TKB-fält: `../../../blockComparisonTime` (`TimeStampType`, kardinalitet 1..1).\n\n**Modellanteckning:** Den tidpunkt mot vilken spärrkontroll sker vid åtkomst till journalinformation.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient",
+      "path" : "getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient",
+      "short" : "Godkänd för visning till patient",
+      "definition" : "Ansvarig vårdpersonals beslut, alternativt baserat på verksamhetens policy och regler (men-/sekretessprövning), huruvida informationen får delas till patient för ändamålet Patients åtkomst (Individens direktåtkomst).\n\nOm information beslutas delas sätts värdet i sådant fall till true, i annat fall till false. False innebär att informationen inte får delas till patient.\n\nNotera att flaggans värde kan, för samma information, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient.\n\nI sådana fall skall källsystemet uppdatera engagemangsindex för att konsumenter skall kunna bli notifierade därom.",
+      "comment" : "TKB-fält: `../../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.sourceSystemId",
+      "path" : "getcaredocumentation.careDocumentation.header.sourceSystemId",
+      "short" : "Källsystem",
+      "definition" : "Det källsystem som informationen lagras i.\n\nFältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id.",
+      "comment" : "TKB-fält: `../../sourceSystemId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.record",
+      "path" : "getcaredocumentation.careDocumentation.header.record",
+      "short" : "Uppgift i patientjournal",
+      "definition" : "Uppgift i patientjournal\n\nMetainformation avseende den dokumenterade informationen.",
+      "comment" : "TKB-fält: `../../record` (`RecordType`, kardinalitet 1..1).\n\n**Modellanteckning:** Metainformation avseende journaluppgiften (recorden).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.record.recordId",
+      "path" : "getcaredocumentation.careDocumentation.header.record.recordId",
+      "short" : "Journaluppgiftens unika identifierare",
+      "definition" : "Unik och beständig identifierare för uppgift i patientjournal.\n\nFör att vara konsistent och beständig med tidigare majorversioner ska tjänsteproducenter av tidigare majorversioner av GetCareDocumentation endast ange root på samma sätt som documentId i tidigare majorversioner.\n\nExtension utelämnas. Denna hantering krävs för att tjänstekonsumenten ska kunna filtrera bort dubbletter.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.\n\nSe även regel Verify unique recordId.",
+      "comment" : "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.record.timestamp",
+      "path" : "getcaredocumentation.careDocumentation.header.record.timestamp",
+      "short" : "Skapandetidpunkt",
+      "definition" : "Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.",
+      "comment" : "TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).\n\n**Modellanteckning:** Första tidpunkten då denna journalinformation skapades.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author",
+      "path" : "getcaredocumentation.careDocumentation.header.author",
+      "short" : "Dokumentationsansvarig",
+      "definition" : "Hälso- och sjukvårdspersonal som ansvarar för information i patientjournal. Notera att den som registrerar informationen från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte är författare.",
+      "comment" : "TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.authorId",
+      "path" : "getcaredocumentation.careDocumentation.header.author.authorId",
+      "short" : "HSA-id för dokumentationsansvarig",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal.\n\nFältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.",
+      "comment" : "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.name",
+      "path" : "getcaredocumentation.careDocumentation.header.author.name",
+      "short" : "Namn på dokumentationsansvarig",
+      "definition" : "Namn på hälso- och sjukvårdspersonal.",
+      "comment" : "TKB-fält: `../../../name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.timestamp",
+      "path" : "getcaredocumentation.careDocumentation.header.author.timestamp",
+      "short" : "Tidpunkt för informationsskapande",
+      "definition" : "Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem eller annan remittents journalsystem) är det tidpunkten då journalinformationen ursprungligen skapades som ska anges.",
+      "comment" : "TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).\n\n**Modellanteckning:** Tidpunkt vid vilken journalinformationen skapades av författaren.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.byRole",
+      "path" : "getcaredocumentation.careDocumentation.header.author.byRole",
+      "short" : "Befattning",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall kod från kodverket KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten. Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.",
+      "comment" : "TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.orgUnit",
+      "path" : "getcaredocumentation.careDocumentation.header.author.orgUnit",
+      "short" : "Organisationsenhet",
+      "definition" : "Den organisation som författaren är uppdragstagare på.",
+      "comment" : "TKB-fält: `../../../orgUnit` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitHSAId",
+      "path" : "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitHSAId",
+      "short" : "HSA-id för organisationsenhet",
+      "definition" : "HSA-id för organisationsenhet. Om tillgängligt skall detta anges. I de fall HSA-id saknas kan ett för källsystemet unikt id användas.",
+      "comment" : "TKB-fält i OrgUnitType: `orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitName",
+      "path" : "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitName",
+      "short" : "Namn på organisationsenhet",
+      "definition" : "Namn på organisationsenhet. Om tillgängligt skall detta anges.",
+      "comment" : "TKB-fält i OrgUnitType: `orgUnitName` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn på den organisation som författaren är uppdragstagare i.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.signature",
+      "path" : "getcaredocumentation.careDocumentation.header.signature",
+      "short" : "Signeringsinformation",
+      "definition" : "Signeringsinformation",
+      "comment" : "TKB-fält: `../../signature` (`SignatureType`, kardinalitet 0..1).\n\n**Modellanteckning:** Signeringsinformation för journaluppgiften.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.signature.signatureId",
+      "path" : "getcaredocumentation.careDocumentation.header.signature.signatureId",
+      "short" : "HSA-id för signerande person",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.\n\nFältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.",
+      "comment" : "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.signature.name",
+      "path" : "getcaredocumentation.careDocumentation.header.signature.name",
+      "short" : "Namn på signerande person",
+      "definition" : "Namn på hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.",
+      "comment" : "TKB-fält: `../../../name` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.signature.timestamp",
+      "path" : "getcaredocumentation.careDocumentation.header.signature.timestamp",
+      "short" : "Tidpunkt för signering",
+      "definition" : "Anger tidpunkten för signering av uppgift i patientjournal.",
+      "comment" : "TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 0..1).\n\n**Modellanteckning:** Anger tidpunkten för signering av uppgift i patientjournal.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Valfri.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.header.signature.byRole",
+      "path" : "getcaredocumentation.careDocumentation.header.signature.byRole",
+      "short" : "Befattning vid signering",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten.  Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.",
+      "comment" : "TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).\n\n**Modellanteckning:** Information om signerande persons befattning.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body",
+      "path" : "getcaredocumentation.careDocumentation.body",
+      "short" : "Journalanteckningens innehåll",
+      "definition" : "Journalanteckning",
+      "comment" : "TKB-fält: `../body` (`CareDocumentationBodyType`, kardinalitet 1..1).\n\n**Modellanteckning:** Journalanteckning — informationsinnehållet i anteckningen.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getcaredocumentation-body-xor",
+        "severity" : "error",
+        "human" : "Antingen clinicalDocumentNoteText eller multimediaEntry ska anges, ej båda",
+        "expression" : "clinicalDocumentNoteText.exists() xor multimediaEntry.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode",
+      "path" : "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode",
+      "short" : "Typ av anteckning",
+      "definition" : "Typ av anteckning. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+      "comment" : "TKB-fält: `../../clinicalDocumentNoteCode` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/clinicaldocumentnotecode-vs"
+      }
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle",
+      "path" : "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle",
+      "short" : "Rubrik på anteckningen",
+      "definition" : "Titel på anteckningen.",
+      "comment" : "TKB-fält: `../../clinicalDocumentNoteTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText",
+      "path" : "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText",
+      "short" : "Anteckningens textinnehåll",
+      "definition" : "Journalanteckningens innehåll i text.\n\nTexten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3.\n\nSe även regel careDocumentationBody.",
+      "comment" : "TKB-fält: `../../clinicalDocumentNoteText` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Journalanteckningens innehåll i text. Texten kan vara formaterad i DocBook-format\noch ska då vara 'entity encoded'. Ömsesidigt uteslutande med multimediaEntry.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.multimediaEntry",
+      "path" : "getcaredocumentation.careDocumentation.body.multimediaEntry",
+      "short" : "Binär bilaga",
+      "definition" : "Journalanteckningens innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet.\n\nVid användning av multimediaEntry kompletteras reglerna i tjänstekontraktsbeskrivningen med en Interaktionsöverenskommelse som ytterligare beskriver integrationen.\n\nSe även regel careDocumentationBody samt regel Binära bilagor.",
+      "comment" : "TKB-fält: `../../multimediaEntry` (`MultimediaType`, kardinalitet 0..1).\n\n**Modellanteckning:** Journalanteckningens innehåll i form av en multimediafil.\nÖmsesidigt uteslutande med clinicalDocumentNoteText.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getcaredocumentation-multimedia-xor",
+        "severity" : "error",
+        "human" : "Antingen value eller reference ska anges i multimediaEntry, ej båda",
+        "expression" : "value.exists() xor reference.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType",
+      "path" : "getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType",
+      "short" : "Medietyp",
+      "definition" : "Typ av multimedia.\n\nSe interaktionsöverenskommelse för beskrivning av typer som hanteras.",
+      "comment" : "TKB-fält: `../../../mediaType` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** Typ av multimedia (MIME-typ). Tillåtna värden enligt MediaTypeEnum.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.multimediaEntry.value",
+      "path" : "getcaredocumentation.careDocumentation.body.multimediaEntry.value",
+      "short" : "Binärdata",
+      "definition" : "Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges.\n\nSe även regel multimediaEntry.",
+      "comment" : "TKB-fält: `../../../value` (`base64Binary`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.multimediaEntry.reference",
+      "path" : "getcaredocumentation.careDocumentation.body.multimediaEntry.reference",
+      "short" : "Referens till extern fil",
+      "definition" : "Referens till extern binär fil i form av en URL om interaktionsöverenskommelsen tillåter detta. Ett och endast ett av attributen value och reference ska anges.\n\nSe interaktionsöverenskommelse för ytterligare beskrivning.\n\nSe även regel multimediaEntry.",
+      "comment" : "TKB-fält: `../../../reference` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "url"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.dissentingOpinion",
+      "path" : "getcaredocumentation.careDocumentation.body.dissentingOpinion",
+      "short" : "Avvikande mening",
+      "definition" : "Om patienten eller någon för denna ansvarig person (exempelvis vårdnadshavare) har lämnat en avvikande mening till journalanteckningen.",
+      "comment" : "TKB-fält: `../../dissentingOpinion` (`DissentingOpinionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId",
+      "path" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId",
+      "short" : "Id för avvikande mening",
+      "definition" : "En universellt unik identifierare för den avvikande meningen. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat.",
+      "comment" : "TKB-fält: `../../../opinionId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime",
+      "path" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime",
+      "short" : "Tidpunkt för avvikande mening",
+      "definition" : "Tidpunkten då den avvikande meningen författades.",
+      "comment" : "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion",
+      "path" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion",
+      "short" : "Text för avvikande mening",
+      "definition" : "Text som innehåller den avvikande meningen.",
+      "comment" : "TKB-fält: `../../../opinion` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.personId",
+      "path" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.personId",
+      "short" : "Id för författare till avvikande mening",
+      "definition" : "Id för författaren av den avvikande meningen.",
+      "comment" : "TKB-fält: `../../../personId` (`IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** Id för författaren av den avvikande meningen.\nroot sätts till OID för typ av identifierare. För personnummer: 1.2.752.129.2.1.3.1.\nextension sätts till personens identifierare (12 tecken).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.personName",
+      "path" : "getcaredocumentation.careDocumentation.body.dissentingOpinion.personName",
+      "short" : "Namn på författare till avvikande mening",
+      "definition" : "Namnet på författaren av den avvikande meningen.",
+      "comment" : "TKB-fält: `../../../personName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.hasMore",
+      "path" : "getcaredocumentation.hasMore",
+      "short" : "Indikation om fler poster",
+      "definition" : "Anges av tjänsteproducent när det finns ytterligare information att hämta.\n\nNot: Vid svar från tjänsteproducent är kardinaliteten 0..1.\n\nSe även regel Partiell datahämtning.",
+      "comment" : "TKB-fält: `hasMore` (`HasMoreType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.hasMore.logicalAddress",
+      "path" : "getcaredocumentation.hasMore.logicalAddress",
+      "short" : "Logisk adress för partiell hämtning",
+      "definition" : "Den logiska adressen till tjänsteproducenten som genererar svaret och har mer information.",
+      "comment" : "TKB-fält: `../logicalAddress` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.hasMore.reference",
+      "path" : "getcaredocumentation.hasMore.reference",
+      "short" : "Referens för partiell hämtning",
+      "definition" : "En unik identifierare som tjänstekonsumenten anger i nästa anrop för att hämta mer data. Om det då finns ytterligare mer information hos tjänsteproducenten ska en ny, unik identifierare levereras.\n\nTjänsteproducenten avgör hur referensen byggs upp.\n\nExempel: Base64({ ”queryHash” : ”7114efbb6a761fb1a2d6dae55b5612e1\", ”lastReturnedId” : 7685824}) = eyDigJ1xdWVyeUhhc2jigJ0gOiDigJ03MTE0ZWZiYjZhNzYxZmIxYTJkNmRhZTU1YjU2MTJlMSIsIOKAnWxhc3RSZXR1cm5lZElk4oCdIDogNzY4NTgyNH0=\n\nRe även regel Referensens giltighetstid.",
+      "comment" : "TKB-fält: `../reference` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result",
+      "path" : "getcaredocumentation.result",
+      "short" : "Resultat",
+      "definition" : "Innehåller information om det gick bra eller ej att besvara förfrågan.\n\nSe avsnitt 7.1.7 för beskrivning av hantering vid logiska fel.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.resultCode",
+      "path" : "getcaredocumentation.result.resultCode",
+      "short" : "Resultatkod",
+      "definition" : "Anger resultatet av besvarad förfrågan.\n\nKan endast vara OK, INFO eller ERROR.",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.resultText",
+      "path" : "getcaredocumentation.result.resultText",
+      "short" : "Resultattext",
+      "definition" : "Optionellt felmeddelande som innehåller information om felet som uppstod.",
+      "comment" : "TKB-fält: `../resultText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

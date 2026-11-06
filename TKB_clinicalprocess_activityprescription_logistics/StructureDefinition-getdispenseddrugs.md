@@ -1,0 +1,701 @@
+# GetDispensedDrugs - clinicalprocess: activityprescription: logistics — Ordinationslogistik v1.0.2-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetDispensedDrugs**
+
+## Logical Model: GetDispensedDrugs 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs | *Version*:1.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetDispensedDrugs |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetDispensedDrugs (RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1). Representerar responsens informationsstruktur: patientens läkemedelsförteckning med viss ordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-logistics|current/StructureDefinition/StructureDefinition-getdispenseddrugs.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getdispenseddrugs.csv), [Excel](StructureDefinition-getdispenseddrugs.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getdispenseddrugs",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs",
+  "version" : "1.0",
+  "name" : "GetDispensedDrugs",
+  "title" : "GetDispensedDrugs",
+  "status" : "draft",
+  "date" : "2026-11-06T21:00:18+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1).\nRepresenterar responsens informationsstruktur: patientens läkemedelsförteckning med viss\nordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getdispenseddrugs",
+      "path" : "getdispenseddrugs",
+      "short" : "GetDispensedDrugs",
+      "definition" : "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1).\nRepresenterar responsens informationsstruktur: patientens läkemedelsförteckning med viss\nordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat."
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning",
+      "short" : "Patientens läkemedelsförteckning",
+      "definition" : "Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation. Om patienten saknar poster i läkemedelsförteckningen så returneras en tom lista.",
+      "comment" : "TKB-fält: `lakemedelsforteckning` (`Receptexpeditionsrad`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getdispenseddrugs-borttagen-fields",
+        "severity" : "error",
+        "human" : "borttagsdatum och borttagsorsak returneras endast om borttagen är sant",
+        "expression" : "borttagen = false implies (borttagsdatum.empty() and borttagsorsak.empty())",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId",
+      "short" : "Aktörens expeditionsId",
+      "definition" : "Aktörens expeditionsId.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `aktorsExpeditionsId` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..35\n\n**Modellanteckning:** Fältlängd 1..35.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.antalForpackningar",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.antalForpackningar",
+      "short" : "Antal förpackningar av utlämnad vara",
+      "definition" : "Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `antalForpackningar` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext",
+      "short" : "Antal avdelade doser inklusive enhet",
+      "definition" : "Antal avdelade doser inklusive enhet. Returneras om posten är en dosdispenserad artikel. Exempel: \"28 st\".",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `antalPillerKlartext` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..10",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation",
+      "short" : "Information om utlämnad artikel",
+      "definition" : "Information om utlämnad artikel.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `artikelinformation` (`Artikelinformation`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet",
+      "short" : "Enhet för antalForpackning",
+      "definition" : "Exempelvis \"styck\" eller \"milliliter\". Exempel där antalEnhet ingår: \"6 x 5 x 0.72 milliliter\". Fältlängd 1..80.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning",
+      "short" : "Antal i förpackning",
+      "definition" : "Numerisk angivelse, exempelvis 0,72 (XSD-typ decimaltal, högst 3 decimaler). Exempel: \"6 x 5 x 0.72 milliliter\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning",
+      "short" : "Antal yttersta förpackningar (multipel 2)",
+      "definition" : "Exempelvis 6. Exempel: \"6 x 5 x 0.72 milliliter\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning",
+      "short" : "Antal yttre förpackningar (multipel 1)",
+      "definition" : "Exempelvis 5. Exempel: \"6 x 5 x 0.72 milliliter\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod",
+      "short" : "ATC-kod",
+      "definition" : "Exempel: \"C07AB03\". Fältlängd 1..8.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext",
+      "short" : "Verksamt ämne enligt ATC-kod",
+      "definition" : "Exempel: \"Atenolol\". Fältlängd 1..240.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek",
+      "short" : "Förpackningsstorlek",
+      "definition" : "Exempel: \"6 x 5 x 0.72 milliliter\". Fältlängd 1..50.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp",
+      "short" : "Artikelns förpackningstyp",
+      "definition" : "Exempel: \"Blister\". Fältlängd 1..40.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent",
+      "short" : "Ansvarigt företag för artikeln",
+      "definition" : "T.ex. innehavare av godkännande/registrering av försäljning eller parallellimportör. Exempel: \"AstraZeneca AB\". Fältlängd 1..160.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform",
+      "short" : "Läkemedelsform",
+      "definition" : "Exempel: \"Filmdragerad tablett\". Fältlängd 1..160.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod",
+      "short" : "Kod för läkemedelsform (beredningsformkod)",
+      "definition" : "Exempel: \"FICOTA\". Fältlängd 1..6.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid",
+      "short" : "NPL Pack-id alternativt SB Pack-id",
+      "definition" : "Identitet på förskrivet läkemedel. Fältlängd 14..14.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn",
+      "short" : "Läkemedelsnamn",
+      "definition" : "Fältlängd 1..100.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka",
+      "short" : "Numerisk styrka",
+      "definition" : "Exempel \"20.0\" (XSD-typ decimaltal, högst 3 decimaler).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet",
+      "short" : "Styrkans enhet",
+      "definition" : "Exempel: \"mg\". Fältlängd 1..60.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext",
+      "short" : "Styrka i klartext",
+      "definition" : "Exempel: \"20.0 mg\". Fältlängd 1..80.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.borttagen",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.borttagen",
+      "short" : "Markering om posten är borttagen",
+      "definition" : "Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `borttagen` (`boolean`, kardinalitet 1..1).\n\n**Modellanteckning:** Sant om posten är borttagen, annars falskt. En borttagen post ska visas överstruken med borttagsdatum och borttagsorsak.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.borttagsdatum",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.borttagsdatum",
+      "short" : "Tidpunkt då posten markerades som borttagen",
+      "definition" : "Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `borttagsdatum` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.borttagsorsak",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.borttagsorsak",
+      "short" : "Kommentar för borttagen post",
+      "definition" : "Kommentar för borttagen post. Returneras endast om borttagen är sant.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `borttagsorsak` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..50",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.doseringstext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.doseringstext",
+      "short" : "Doseringsanvisning",
+      "definition" : "Doseringsanvisning: doseringstext inklusive ändamål.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `doseringstext` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..1016",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.expeditionsId",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.expeditionsId",
+      "short" : "Expeditionsid hämtat från eHälsomyndigheten",
+      "definition" : "Expeditionsid hämtat från eHälsomyndigheten.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `expeditionsId` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..31\n\n**Modellanteckning:** Fältlängd 1..31.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.expeditionsdatum",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.expeditionsdatum",
+      "short" : "Datum för utlämning från apotek",
+      "definition" : "Datum för utlämning från apotek.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `expeditionsdatum` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn",
+      "short" : "Förskrivarens arbetsplats namn",
+      "definition" : "Förskrivarens arbetsplats namn.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivarensArbetsplatsnamn` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..35\n\n**Modellanteckning:** Fältlängd 1..35.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt",
+      "short" : "Förskrivarens arbetsplats ort",
+      "definition" : "Förskrivarens arbetsplats ort.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivarensArbetsplatsOrt` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..28\n\n**Modellanteckning:** Fältlängd 1..28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarnamn",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarnamn",
+      "short" : "Förskrivarens namn",
+      "definition" : "Förskrivarens namn.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivarnamn` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..71\n\n**Modellanteckning:** Fältlängd 1..71.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress",
+      "short" : "Förskrivarens postadress",
+      "definition" : "Förskrivarens postadress.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivarpostadress` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..35\n\n**Modellanteckning:** Fältlängd 1..35.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer",
+      "short" : "Förskrivarens postnummer",
+      "definition" : "Förskrivarens postnummer.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivarpostnummer` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 5..6\n\n**Modellanteckning:** Fältlängd 5..6.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter",
+      "short" : "Förskrivarens specialitet i klartext",
+      "definition" : "Förskrivarens specialitet i klartext.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivarspecialiteter` (`string`, kardinalitet 0..*).\n\n**Fältlängder:** 1..256\n\n**Modellanteckning:** Fältlängd 1..256.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivaryrke",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivaryrke",
+      "short" : "Förskrivarens yrke i klartext",
+      "definition" : "Förskrivarens yrke i klartext.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `forskrivaryrke` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..100\n\n**Modellanteckning:** Fältlängd 1..100.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.mangd",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.mangd",
+      "short" : "Totalt expedierad mängd",
+      "definition" : "Totalt expedierad mängd. Kan returneras som: antalPillerKlartext eller antalForpackningar + forpackningsstorlek. Exempel: \"28 st\" eller \"2x100 tabletter\".",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `mangd` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..100",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning",
+      "short" : "Information för att mappa posten till en ordination",
+      "definition" : "Information som behövs för att mappa en post i läkemedelsförteckningen till en ordination.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `ordinationsmappning` (`Ordinationsmappning`, kardinalitet 0..1).\n\n**Modellanteckning:** Saknas i vissa fall, t.ex. när samma läkemedel (nplpackid) förekommer flera gånger i samma expedition, vid pappers- och telefonrecept, och vid uttag från äldre receptexpeditionssystem (expeditionsid saknas).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId",
+      "short" : "Förskrivningens ordinationsid",
+      "definition" : "Förskrivningens ordinationsid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer",
+      "short" : "Tillhörande recepts prdradnummer NEF i receptdepån",
+      "definition" : "Anges enbart om fältet är befintligt i receptdepån.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer",
+      "short" : "Tillhörande recepts radnummer NEF i receptdepån",
+      "definition" : "Anges enbart om fältet är befintligt i receptdepån.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.radid",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.radid",
+      "short" : "Unikt id för posten i läkemedelsförteckningen",
+      "definition" : "Unikt id för posten i läkemedelsförteckningen.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `radid` (`long`, kardinalitet 1..1).\n\n**Modellanteckning:** XSD-typ xs:long. Modellerad som string eftersom FHIR R4 saknar 64-bitars heltal (se ASSUME-APL-003).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.radnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.radnummer",
+      "short" : "Radnummer för utlämnad vara i aktuell expedition",
+      "definition" : "Radnummer för utlämnad vara i aktuell expedition.",
+      "comment" : "TKB-fält i Receptexpeditionsrad: `radnummer` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation",
+      "path" : "getdispenseddrugs.patientinformation",
+      "short" : "Information om patienten",
+      "definition" : "Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som 'Avliden' så returneras inga rader ur läkemedelsförteckningen.",
+      "comment" : "TKB-fält: `patientinformation` (`Patientinformation`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.patientidentifikation",
+      "path" : "getdispenseddrugs.patientinformation.patientidentifikation",
+      "short" : "Patientidentifikation",
+      "definition" : "Patientidentifikationen kan enbart innehålla följande typ: Personnummer från kodverk med OID 1.2.752.129.2.1.3 och är enhetligt utformat unikt person-id registrerat i folkbokföringen. Tilldelas av skattekontoret.",
+      "comment" : "TKB-fält i Patientinformation: `patientidentifikation` (`Patientidentifikation`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.patientidentifikation.kod",
+      "path" : "getdispenseddrugs.patientinformation.patientidentifikation.kod",
+      "short" : "Patientens personnummer",
+      "definition" : "Fältlängd 1..12.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.patientidentifikation.kodverk",
+      "path" : "getdispenseddrugs.patientinformation.patientidentifikation.kodverk",
+      "short" : "OID för kodverket",
+      "definition" : "Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).\nFör personnummer: 1.2.752.129.2.1.3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.fornamn",
+      "path" : "getdispenseddrugs.patientinformation.fornamn",
+      "short" : "Patientens förnamn",
+      "definition" : "Patientens förnamn. För patient med skyddad identitet visas inte förnamn.",
+      "comment" : "TKB-fält i Patientinformation: `fornamn` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..80",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.efternamn",
+      "path" : "getdispenseddrugs.patientinformation.efternamn",
+      "short" : "Patientens efternamn",
+      "definition" : "Patientens efternamn. För patient med skyddad identitet visas inte efternamn.",
+      "comment" : "TKB-fält i Patientinformation: `efternamn` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..60",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.redigeratNamn",
+      "path" : "getdispenseddrugs.patientinformation.redigeratNamn",
+      "short" : "Redigerat namn",
+      "definition" : "Redigerat namn i formatet \"mellannamn efternamn, förnamn\". Förkortat till 36 tecken.",
+      "comment" : "TKB-fält i Patientinformation: `redigeratNamn` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..36",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.harRedigeratNamnForkortats",
+      "path" : "getdispenseddrugs.patientinformation.harRedigeratNamnForkortats",
+      "short" : "Anger om redigeratNamn har förkortats",
+      "definition" : "Anger om redigeratNamn har förkortats.",
+      "comment" : "TKB-fält i Patientinformation: `harRedigeratNamnForkortats` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.avliden",
+      "path" : "getdispenseddrugs.patientinformation.avliden",
+      "short" : "Anger om patienten är avliden",
+      "definition" : "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt.",
+      "comment" : "TKB-fält i Patientinformation: `avliden` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.varningsnivaUppnadd",
+      "path" : "getdispenseddrugs.varningsnivaUppnadd",
+      "short" : "Varningsnivå för antal läsningar uppnådd",
+      "definition" : "Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt.",
+      "comment" : "TKB-fält: `varningsnivaUppnadd` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.resultCode",
+      "path" : "getdispenseddrugs.resultCode",
+      "short" : "Resultatkod för anropet",
+      "definition" : "Resultatkod för anropet.",
+      "comment" : "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getdispenseddrugs.comment",
+      "path" : "getdispenseddrugs.comment",
+      "short" : "Kommentar till eventuella fel eller varningar",
+      "definition" : "Kommentar till eventuella fel eller varningar.",
+      "comment" : "TKB-fält: `comment` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..1024\n\n**Modellanteckning:** Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

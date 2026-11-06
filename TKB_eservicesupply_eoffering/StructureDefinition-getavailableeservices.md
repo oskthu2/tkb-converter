@@ -1,0 +1,335 @@
+# GetAvailableEServices - eservicesupply: eoffering v1.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetAvailableEServices**
+
+## Logical Model: GetAvailableEServices 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/eservicesupply-eoffering/StructureDefinition/getavailableeservices | *Version*:1.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetAvailableEServices |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetAvailableEServices (RIV-TA urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1). Representerar responsens informationsstruktur. 
+Tjänsten redovisar vilka e-tjänster en vårdenhet (identifierad via HSA-ID) erbjuder (stödtjänst Erbjuden e-tjänst). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.eservicesupply-eoffering|current/StructureDefinition/StructureDefinition-getavailableeservices.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getavailableeservices.csv), [Excel](StructureDefinition-getavailableeservices.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getavailableeservices",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/eservicesupply-eoffering/StructureDefinition/getavailableeservices",
+  "version" : "1.0",
+  "name" : "GetAvailableEServices",
+  "title" : "GetAvailableEServices",
+  "status" : "draft",
+  "date" : "2026-11-06T21:20:06+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetAvailableEServices\n(RIV-TA urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänsten redovisar vilka e-tjänster en vårdenhet (identifierad via HSA-ID) erbjuder\n(stödtjänst Erbjuden e-tjänst).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/eservicesupply-eoffering/StructureDefinition/getavailableeservices",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getavailableeservices",
+      "path" : "getavailableeservices",
+      "short" : "GetAvailableEServices",
+      "definition" : "Logisk modell för tjänstekontraktet GetAvailableEServices\n(RIV-TA urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänsten redovisar vilka e-tjänster en vårdenhet (identifierad via HSA-ID) erbjuder\n(stödtjänst Erbjuden e-tjänst)."
+    },
+    {
+      "id" : "getavailableeservices.availableEServices",
+      "path" : "getavailableeservices.availableEServices",
+      "short" : "E-tjänster per vårdenhet",
+      "definition" : "Lista med e-tjänster per vårdenhet.",
+      "comment" : "TKB-fält: `availableEServices` (`availableEServicesType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.healthcareFacility",
+      "path" : "getavailableeservices.availableEServices.healthcareFacility",
+      "short" : "Vårdenhetsinformation",
+      "definition" : "Hsa-id för vårdenhet(er). Hsa-id måste vara ett giltigt hsa-id i HSA-katalogen.",
+      "comment" : "TKB-fält: `healthcare_facility` (`hsaIdType`, kardinalitet 1..*).\n\nObs: modellen anger 1..1 där TKB:n anger 1..*.\n\n**Modellanteckning:** Vårdenhet som erbjuder e-tjänster.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityId",
+      "path" : "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityId",
+      "short" : "Vårdenhetens HSA-id",
+      "definition" : "Vårdenhetens hsa-id. Hsa-id måste vara ett giltigt hsa-id i HSA-katalogen.\nXSD: hsaIdType (string).\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityName",
+      "path" : "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityName",
+      "short" : "Vårdenhetens namn",
+      "definition" : "Vårdenhetens namn. Utelämnas detta ska namnet hämtas från HSA-katalog.",
+      "comment" : "TKB-fält: `healthcare_facility_name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice",
+      "path" : "getavailableeservices.availableEServices.eservice",
+      "short" : "E-tjänst",
+      "definition" : "Information om e-tjänsten. Se avsnitt 6.",
+      "comment" : "TKB-fält: `availableEServices.eservice` (`eServiceType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.commonName",
+      "path" : "getavailableeservices.availableEServices.eservice.commonName",
+      "short" : "E-tjänstens namn",
+      "definition" : "E-tjänstens namn. Ex: Tidbokning.",
+      "comment" : "TKB-fält: `commonName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.description",
+      "path" : "getavailableeservices.availableEServices.eservice.description",
+      "short" : "Beskrivning av e-tjänst",
+      "definition" : "Information om e-tjänsten. Kan innehålla beskrivningar och villkor för användandet av tjänsten (riktad mot användare/patient).",
+      "comment" : "TKB-fält: `description` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.resourceId",
+      "path" : "getavailableeservices.availableEServices.eservice.resourceId",
+      "short" : "E-tjänstens id",
+      "definition" : "E-tjänstens id. Unikt id för e-tjänsten. Tjänsteproducentens unika id.",
+      "comment" : "TKB-fält: `resourceId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.securitylevel",
+      "path" : "getavailableeservices.availableEServices.eservice.securitylevel",
+      "short" : "Autentiseringsnivå",
+      "definition" : "Tjänstens krav på autentiseringsnivå (AL). Se [SecurityLevelCS](CodeSystem-securitylevel-cs.html).",
+      "comment" : "TKB-fält: `securitylevel` (`securitylevelType`, kardinalitet 0..1).\n\n**Modellanteckning:** Tjänstens krav på autentiseringsnivå (Assurance Level, ISO/IEC 29115).\nAL1 = Tillitsnivå 1, AL2 = Tillitsnivå 2,\nAL3 = Mjuka certifikat/stark autentisering med engångskod,\nAL4 = Hårda certifikat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/eservicesupply-eoffering/ValueSet/securitylevel-vs"
+      }
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.url",
+      "path" : "getavailableeservices.availableEServices.eservice.url",
+      "short" : "URL till e-tjänst",
+      "definition" : "URL till e-tjänst. Måste kunna nås via internet. Ex: https://host/funktion?operation",
+      "comment" : "TKB-fält: `url` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "url"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions",
+      "short" : "Restriktioner",
+      "definition" : "Restriktioner för att använda e-tjänsten. En e-tjänst utan restriktioner är tillgänglig för alla.",
+      "comment" : "TKB-fält: `restrictions` (`restrictionType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode",
+      "short" : "Betjäningsområde",
+      "definition" : "Betjäningsområde — geografiskt område e-tjänsten täcker.",
+      "comment" : "TKB-fält: `eserviceAreaCode` (`eServiceAreaCodeType`, kardinalitet 0..1).\n\n**Modellanteckning:** Information om e-tjänstens geografiska betjäningsområde (län, kommun och kommundel).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
+      "short" : "Länskod",
+      "definition" : "Länskod. Anger i vilka län e-tjänsten är tillgänglig/erbjuds.",
+      "comment" : "TKB-fält: `countycode` (`string`, kardinalitet 1..*).\n\n**Modellanteckning:** Länskod. Anger i vilka län e-tjänsten är tillgänglig/erbjuds.\nE-tjänsten betjänar invånare i detta län.\nXSD: countycode (string).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
+      "short" : "Kommunkod",
+      "definition" : "Kommunkod. Avgränsar länskod. Utelämnas denna gäller hela länet.",
+      "comment" : "TKB-fält: `municipalityCode` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Kommunkod. Avgränsar länskod. Visar i vilka specifika kommuner e-tjänsten erbjuds.\nUtelämnas denna gäller hela länet.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
+      "short" : "Kommundelskod",
+      "definition" : "Kommundelskod. Avgränsar kommunkod. Utelämnas denna gäller hela kommunen.",
+      "comment" : "TKB-fält: `municipalitySectionCode` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Kommundelskod. Avgränsar kommunkod. Visar i vilka specifika kommundelar e-tjänsten erbjuds.\nUtelämnas denna gäller hela kommunen.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.gender",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.gender",
+      "short" : "Kön",
+      "definition" : "E-tjänsten riktar sig till ett visst kön. 1 = Man, 2 = Kvinna. Se [GenderEofferingCS](CodeSystem-gender-eoffering-cs.html).",
+      "comment" : "TKB-fält: `gender` (`genderType (string)`, kardinalitet 0..1).\n\n**Modellanteckning:** E-tjänsten riktar sig till ett visst kön.\n1 = Man, 2 = Kvinna.\nASSUME: Modellat som code med domänspecifikt ValueSet.\nXSD: genderType (string — ej enumeration i schemat).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/eservicesupply-eoffering/ValueSet/gender-eoffering-vs"
+      }
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.listing",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.listing",
+      "short" : "Listningskrav",
+      "definition" : "Listningskrav. true = kräver listning, false = kräver ej listning.",
+      "comment" : "TKB-fält: `listing` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.referal",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.referal",
+      "short" : "Remisskrav",
+      "definition" : "Remisskrav. true = kräver remiss, false = kräver ej remiss.",
+      "comment" : "TKB-fält: `referal` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.referalTypeId",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.referalTypeId",
+      "short" : "Remisstyp",
+      "definition" : "Kodverk för remisstyper 1–8 (KV Framställantyp).",
+      "comment" : "TKB-fält: `referalTypeId` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Kodverk för remisstyper 1–8 (KV Framställantyp).\nDefiniera vilken typ av remiss e-tjänsten kräver.\nQUESTIONS: Canonical URL för KV Framställantyp är okänd — se QUESTIONS.md.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.ageMin",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.ageMin",
+      "short" : "Ålderskrav minimum",
+      "definition" : "Ålderskrav minimum (år).",
+      "comment" : "TKB-fält: `ageMin` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getavailableeservices.availableEServices.eservice.restrictions.ageMax",
+      "path" : "getavailableeservices.availableEServices.eservice.restrictions.ageMax",
+      "short" : "Ålderskrav maximum",
+      "definition" : "Ålderskrav maximum (år).",
+      "comment" : "TKB-fält: `ageMax` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    }]
+  }
+}
+
+```

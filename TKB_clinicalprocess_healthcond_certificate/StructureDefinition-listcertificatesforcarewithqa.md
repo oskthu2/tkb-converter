@@ -1,0 +1,406 @@
+# ListCertificatesForCareWithQA - clinicalprocess: healthcond: certificate v4.1.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ListCertificatesForCareWithQA**
+
+## Logical Model: ListCertificatesForCareWithQA 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcarewithqa | *Version*:3.3 |
+| Draft as of 2026-11-06 | *Computable Name*:ListCertificatesForCareWithQA |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet ListCertificatesForCareWithQA (RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCareWithQA:3). Representerar responsens lista med intyg inkl. händelser och ärendekommunikation. Inkluderar både signerade, makulerade och intygsutkast. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-certificate|current/StructureDefinition/StructureDefinition-listcertificatesforcarewithqa.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-listcertificatesforcarewithqa.csv), [Excel](StructureDefinition-listcertificatesforcarewithqa.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "listcertificatesforcarewithqa",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcarewithqa",
+  "version" : "3.3",
+  "name" : "ListCertificatesForCareWithQA",
+  "title" : "ListCertificatesForCareWithQA",
+  "status" : "draft",
+  "date" : "2026-11-06T21:04:47+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet ListCertificatesForCareWithQA\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCareWithQA:3).\nRepresenterar responsens lista med intyg inkl. händelser och ärendekommunikation.\nInkluderar både signerade, makulerade och intygsutkast.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcarewithqa",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "listcertificatesforcarewithqa",
+      "path" : "listcertificatesforcarewithqa",
+      "short" : "ListCertificatesForCareWithQA",
+      "definition" : "Logisk modell för tjänstekontraktet ListCertificatesForCareWithQA\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCareWithQA:3).\nRepresenterar responsens lista med intyg inkl. händelser och ärendekommunikation.\nInkluderar både signerade, makulerade och intygsutkast."
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list",
+      "path" : "listcertificatesforcarewithqa.list",
+      "short" : "Lista med intyg (null om inga hittades)",
+      "definition" : "En lista av intyg som kan vara signerade, makulerade eller i form av intygsutkast.",
+      "comment" : "TKB-fält: `list` (`List (lokalt definierad i kontraktet)`, kardinalitet 0..1).\n\n**Mappning DIM:** -",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item",
+      "path" : "listcertificatesforcarewithqa.list.item",
+      "short" : "Listobjekt som håller ihop intyg, händelser och ärenden",
+      "definition" : "Element som håller ihop objekt för ett intyg",
+      "comment" : "TKB-fält: `../item` (`ListItem (lokalt definierad i kontraktet)`, kardinalitet 0..*).\n\n**Mappning DIM:** -",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg",
+      "short" : "Intyget",
+      "definition" : "Ett intyg enligt den gemensamma fälttypen Intyg.",
+      "comment" : "TKB-fält: `../../intyg` (`Intyg (se 7.1.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id, Metadata.signerattidpunkt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.intygsId",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.intygsId",
+      "short" : "Unikt ID för intyget",
+      "definition" : "Unikt ID för intyget",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.typAvIntyg",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.typAvIntyg",
+      "short" : "Typ av intyg",
+      "definition" : "Typ av intyg",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.signeringsTidpunkt",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.signeringsTidpunkt",
+      "short" : "Tidpunkt för signering (saknas för utkast)",
+      "definition" : "Tidpunkt för signering (saknas för utkast)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.patient",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.patient",
+      "short" : "Patientuppgifter",
+      "definition" : "Patientuppgifter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.patient.personId",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.patient.personId",
+      "short" : "Person- eller samordningsnummer",
+      "definition" : "Person- eller samordningsnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv",
+      "short" : "HoS-personal",
+      "definition" : "HoS-personal",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.personalId",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.personalId",
+      "short" : "HSA-id",
+      "definition" : "HSA-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet",
+      "short" : "Enhet",
+      "definition" : "Enhet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.enhetsId",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.enhetsId",
+      "short" : "HSA-id för enheten",
+      "definition" : "HSA-id för enheten",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare",
+      "short" : "Vårdgivare",
+      "definition" : "Vårdgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+      "path" : "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+      "short" : "HSA-id för vårdgivaren",
+      "definition" : "HSA-id för vårdgivaren",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.handelser",
+      "path" : "listcertificatesforcarewithqa.list.item.handelser",
+      "short" : "Lista med händelser för intyget",
+      "definition" : "En lista innehållande samtliga händelser för ett intyg.",
+      "comment" : "TKB-fält: `../../handelser` (`HandelseList`, kardinalitet 1..1).\n\n**Mappning DIM:** -",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.handelser.handelse",
+      "path" : "listcertificatesforcarewithqa.list.item.handelser.handelse",
+      "short" : "En händelse",
+      "definition" : "Information om en händelse.\n\nEn händelse kan gälla ett intygsutkast, ett signerat intyg eller ärendekommunikationen för ett intyg.",
+      "comment" : "TKB-fält: `../../../handelse` (`Handelse (se 7.1.3)`, kardinalitet 0..*).\n\n**Mappning DIM:** Händelse",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.handelser.handelse.handelsekod",
+      "path" : "listcertificatesforcarewithqa.list.item.handelser.handelse.handelsekod",
+      "short" : "Händelsetyp",
+      "definition" : "Händelsetyp",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/handelskod-vs"
+      }
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.handelser.handelse.tidpunkt",
+      "path" : "listcertificatesforcarewithqa.list.item.handelser.handelse.tidpunkt",
+      "short" : "Tidpunkt",
+      "definition" : "Tidpunkt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.skickadeFragor",
+      "path" : "listcertificatesforcarewithqa.list.item.skickadeFragor",
+      "short" : "Frågor skickade från vården",
+      "definition" : "Frågor som rör intyget och som har skickats från vården.",
+      "comment" : "TKB-fält: `../../skickadeFragor` (`Arenden (se 7.1.1)`, kardinalitet 1..1).\n\n**Mappning DIM:** Ärende",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.skickadeFragor.totalt",
+      "path" : "listcertificatesforcarewithqa.list.item.skickadeFragor.totalt",
+      "short" : "Totalt antal",
+      "definition" : "Totalt antal",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.skickadeFragor.ejBesvarade",
+      "path" : "listcertificatesforcarewithqa.list.item.skickadeFragor.ejBesvarade",
+      "short" : "Antal obesvarade",
+      "definition" : "Antal obesvarade",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.skickadeFragor.besvarade",
+      "path" : "listcertificatesforcarewithqa.list.item.skickadeFragor.besvarade",
+      "short" : "Antal besvarade",
+      "definition" : "Antal besvarade",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.skickadeFragor.hanterade",
+      "path" : "listcertificatesforcarewithqa.list.item.skickadeFragor.hanterade",
+      "short" : "Antal hanterade",
+      "definition" : "Antal hanterade",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.mottagnaFragor",
+      "path" : "listcertificatesforcarewithqa.list.item.mottagnaFragor",
+      "short" : "Frågor mottagna från intygsmottagare",
+      "definition" : "Frågor som rör intyget och som har skickats från intygsmottagaren.",
+      "comment" : "TKB-fält: `../../mottagnaFragor` (`Arenden (se 7.1.1)`, kardinalitet 1..1).\n\n**Mappning DIM:** Ärende",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.totalt",
+      "path" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.totalt",
+      "short" : "Totalt antal",
+      "definition" : "Totalt antal",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.ejBesvarade",
+      "path" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.ejBesvarade",
+      "short" : "Antal obesvarade",
+      "definition" : "Antal obesvarade",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.besvarade",
+      "path" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.besvarade",
+      "short" : "Antal besvarade",
+      "definition" : "Antal besvarade",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.hanterade",
+      "path" : "listcertificatesforcarewithqa.list.item.mottagnaFragor.hanterade",
+      "short" : "Antal hanterade",
+      "definition" : "Antal hanterade",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "listcertificatesforcarewithqa.list.item.ref",
+      "path" : "listcertificatesforcarewithqa.list.item.ref",
+      "short" : "Referens till entitet i integrerande vårdsystem",
+      "definition" : "Referens till något i det integrerande vårdsystemet som ska kopplas ihop med intyget. Kan exempelvis vara ett id för en vårdkontakt.",
+      "comment" : "TKB-fält: `../../ref` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Referens.ref",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,483 @@
+# AvbestallOrginalforpackning — Response - druglogistics: dosedispensing — Dosdispensering v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **AvbestallOrginalforpackning — Response**
+
+## Logical Model: AvbestallOrginalforpackning — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/avbestallorginalforpackning | *Version*:1.0 |
+| Active as of 2026-11-06 | *Computable Name*:AvbestallOrginalforpackning |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i AvbestallOrginalforpackning (urn:riv:druglogistics:dosedispensing:AvbestallOrginalforpackningResponder:1, AvbestallOrginalforpackningResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.druglogistics-dosedispensing|current/StructureDefinition/StructureDefinition-avbestallorginalforpackning.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-avbestallorginalforpackning.csv), [Excel](StructureDefinition-avbestallorginalforpackning.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "avbestallorginalforpackning",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/avbestallorginalforpackning",
+  "version" : "1.0",
+  "name" : "AvbestallOrginalforpackning",
+  "title" : "AvbestallOrginalforpackning — Response",
+  "status" : "active",
+  "date" : "2026-11-06T21:12:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i AvbestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:AvbestallOrginalforpackningResponder:1, AvbestallOrginalforpackningResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/avbestallorginalforpackning",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "avbestallorginalforpackning",
+      "path" : "avbestallorginalforpackning",
+      "short" : "AvbestallOrginalforpackning — Response",
+      "definition" : "Logisk modell för svaret i AvbestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:AvbestallOrginalforpackningResponder:1, AvbestallOrginalforpackningResponseType)."
+    },
+    {
+      "id" : "avbestallorginalforpackning.resultatkod",
+      "path" : "avbestallorginalforpackning.resultatkod",
+      "short" : "resultatkod",
+      "definition" : "resultatkod",
+      "comment" : "TKB-fält: `resultatkod` (`ResultatkodEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-resultatkod-vs"
+      }
+    },
+    {
+      "id" : "avbestallorginalforpackning.meddelandetext",
+      "path" : "avbestallorginalforpackning.meddelandetext",
+      "short" : "meddelandetext",
+      "definition" : "meddelandetext",
+      "comment" : "TKB-fält: `meddelandetext` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.meddelandeid",
+      "path" : "avbestallorginalforpackning.meddelandeid",
+      "short" : "meddelandeid",
+      "definition" : "meddelandeid",
+      "comment" : "TKB-fält: `meddelandeid` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader",
+      "path" : "avbestallorginalforpackning.Bestallningsrader",
+      "short" : "Bestallningsrader",
+      "definition" : "Bestallningsrader",
+      "comment" : "TKB-fält: `Bestallningsrader` (`BestallningsinfoResponse`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallningsid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallningsid",
+      "short" : "bestallningsid",
+      "definition" : "bestallningsid",
+      "comment" : "TKB-fält: `../bestallningsid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.radid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.radid",
+      "short" : "radid",
+      "definition" : "radid",
+      "comment" : "TKB-fält: `../radid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation",
+      "short" : "Patientinformation",
+      "definition" : "Patientinformation",
+      "comment" : "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.fornamn",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "Anvandarens fornamn.",
+      "comment" : "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.mellannamn",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.mellannamn",
+      "short" : "mellannamn",
+      "definition" : "Anvandarens mellanamn.",
+      "comment" : "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.efternamn",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "Anvandarens efternamn.",
+      "comment" : "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.identitetstyp",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.identitetstyp",
+      "short" : "identitetstyp",
+      "definition" : "identitetstyp",
+      "comment" : "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-identitetstyp-vs"
+      }
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.personid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.personid",
+      "short" : "personid",
+      "definition" : "Anvandarens personid",
+      "comment" : "TKB-fält: `../../personid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.lanskod",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.lanskod",
+      "short" : "lanskod",
+      "definition" : "Anvandarens folkbokforda lanskod",
+      "comment" : "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.kommunkod",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.Patientinformation.kommunkod",
+      "short" : "kommunkod",
+      "definition" : "Anvandarens folkbokforda kommunkod",
+      "comment" : "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.NPLpackid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.NPLpackid",
+      "short" : "NPLpackid",
+      "definition" : "NPLpackid",
+      "comment" : "TKB-fält: `../NPLpackid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.varunummer",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.varunummer",
+      "short" : "varunummer",
+      "definition" : "varunummer",
+      "comment" : "TKB-fält: `../varunummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.receptid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.receptid",
+      "short" : "receptid",
+      "definition" : "receptid",
+      "comment" : "TKB-fält: `../receptid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.ordinationsid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.ordinationsid",
+      "short" : "ordinationsid",
+      "definition" : "ordinationsid",
+      "comment" : "TKB-fält: `../ordinationsid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.dosunderlagsversion",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.dosunderlagsversion",
+      "short" : "dosunderlagsversion",
+      "definition" : "dosunderlagsversion",
+      "comment" : "TKB-fält: `../dosunderlagsversion` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallningsresultat",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallningsresultat",
+      "short" : "bestallningsresultat",
+      "definition" : "bestallningsresultat",
+      "comment" : "TKB-fält: `../bestallningsresultat` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallningsresultattext",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallningsresultattext",
+      "short" : "bestallningsresultattext",
+      "definition" : "bestallningsresultattext",
+      "comment" : "TKB-fält: `../bestallningsresultattext` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallningsstatus",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallningsstatus",
+      "short" : "bestallningsstatus",
+      "definition" : "bestallningsstatus",
+      "comment" : "TKB-fält: `../bestallningsstatus` (`BestallningsStatusEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-bestallningsstatus-vs"
+      }
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.statustidpunkt",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.statustidpunkt",
+      "short" : "statustidpunkt",
+      "definition" : "statustidpunkt",
+      "comment" : "TKB-fält: `../statustidpunkt` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallningstatustext",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallningstatustext",
+      "short" : "bestallningstatustext",
+      "definition" : "bestallningstatustext",
+      "comment" : "TKB-fält: `../bestallningstatustext` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.meddelandefranapotek",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.meddelandefranapotek",
+      "short" : "meddelandefranapotek",
+      "definition" : "meddelandefranapotek",
+      "comment" : "TKB-fält: `../meddelandefranapotek` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.onskadleveranstid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.onskadleveranstid",
+      "short" : "onskadleveranstid",
+      "definition" : "onskadleveranstid",
+      "comment" : "TKB-fält: `../onskadleveranstid` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.planeradleveranstid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.planeradleveranstid",
+      "short" : "planeradleveranstid",
+      "definition" : "planeradleveranstid",
+      "comment" : "TKB-fält: `../planeradleveranstid` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.dosmottagareid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "comment" : "TKB-fält: `../dosmottagareid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.dosmottagarenamn",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "comment" : "TKB-fält: `../dosmottagarenamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallningstid",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallningstid",
+      "short" : "bestallningstid",
+      "definition" : "bestallningstid",
+      "comment" : "TKB-fält: `../bestallningstid` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallarefornamn",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallarefornamn",
+      "short" : "bestallarefornamn",
+      "definition" : "bestallarefornamn",
+      "comment" : "TKB-fält: `../bestallarefornamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallareefternamn",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallareefternamn",
+      "short" : "bestallareefternamn",
+      "definition" : "bestallareefternamn",
+      "comment" : "TKB-fält: `../bestallareefternamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "avbestallorginalforpackning.Bestallningsrader.bestallarearbetsplats",
+      "path" : "avbestallorginalforpackning.Bestallningsrader.bestallarearbetsplats",
+      "short" : "bestallarearbetsplats",
+      "definition" : "bestallarearbetsplats",
+      "comment" : "TKB-fält: `../bestallarearbetsplats` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

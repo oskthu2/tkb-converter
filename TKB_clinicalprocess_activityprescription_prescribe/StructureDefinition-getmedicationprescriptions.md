@@ -1,0 +1,313 @@
+# GetMedicationPrescriptions - clinicalprocess: activityprescription: prescribe v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetMedicationPrescriptions**
+
+## Logical Model: GetMedicationPrescriptions 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getmedicationprescriptions | *Version*:2.0 |
+| Draft as of 2026-11-06 | *Computable Name*:GetMedicationPrescriptions |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetMedicationPrescriptions (RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetMedicationPrescriptions:2). Representerar responsens informationsstruktur — patientens samlade läkemedelslista. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-prescribe|current/StructureDefinition/StructureDefinition-getmedicationprescriptions.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getmedicationprescriptions.csv), [Excel](StructureDefinition-getmedicationprescriptions.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getmedicationprescriptions",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getmedicationprescriptions",
+  "version" : "2.0",
+  "name" : "GetMedicationPrescriptions",
+  "title" : "GetMedicationPrescriptions",
+  "status" : "draft",
+  "date" : "2026-11-06T21:01:04+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetMedicationPrescriptions\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetMedicationPrescriptions:2).\nRepresenterar responsens informationsstruktur — patientens samlade läkemedelslista.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getmedicationprescriptions",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getmedicationprescriptions",
+      "path" : "getmedicationprescriptions",
+      "short" : "GetMedicationPrescriptions",
+      "definition" : "Logisk modell för tjänstekontraktet GetMedicationPrescriptions\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetMedicationPrescriptions:2).\nRepresenterar responsens informationsstruktur — patientens samlade läkemedelslista."
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationListVersion",
+      "path" : "getmedicationprescriptions.medicationListVersion",
+      "short" : "Version på patientens samlade läkemedelslista",
+      "definition" : "Version på patientens samlade läkemedelslista.\n\nSe kapitel 5.2 för exempel och regler kring format.",
+      "comment" : "TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 1..1).\n\n**Modellanteckning:** Unik version för patientens aktuella läkemedelslista.\nFormat: se avsnitt 5 i TKB (Formatregler).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList",
+      "path" : "getmedicationprescriptions.medicationList",
+      "short" : "Samlad läkemedelslista",
+      "definition" : "Övergripande objekt som håller ihop läkemedelslistan för patienten.\nValfri — returneras om data finns.",
+      "comment" : "TKB-fält: `medicationList` (`MedicationList`, kardinalitet 0..1).\n\n**Modellanteckning:** Övergripande objekt som håller ihop läkemedelslistan för patienten.\nValfri — returneras om data finns.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence",
+      "short" : "Läkemedelsbehandling (ordination)",
+      "definition" : "En läkemedelsordination med status, startdatum, utsättningsdatum etc.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescriptionSequenceId",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescriptionSequenceId",
+      "short" : "Unikt id för läkemedelsbehandlingen",
+      "definition" : "Unikt id för läkemedelsbehandlingen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription",
+      "short" : "Enskild ordination inom behandlingssekvensen",
+      "definition" : "Enskild ordination inom behandlingssekvensen",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.medicationPrescriptionId",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.medicationPrescriptionId",
+      "short" : "Unikt id för ordinationen",
+      "definition" : "Unikt id för ordinationen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData",
+      "short" : "Registreringsdata",
+      "definition" : "Registreringsdata",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData.registrationDataId",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData.registrationDataId",
+      "short" : "Systeminternt id",
+      "definition" : "Unikt id för det omgivande objektet.",
+      "comment" : "TKB-fält: `../../../../id` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData.registeredBy",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData.registeredBy",
+      "short" : "Registrerande person",
+      "definition" : "Den person som registrerat det omgivande objektet. Denna måste vara starkt autentiserad och det är informationen från autentiseringen som används. Det är vårdgivare och vårdenhet för registrerad av som utgör vårdgivare och vårdenhet för det omgivande objektet som helhet.\n\nVärdet sätts av NOD baserat på den Autentiseringsinformation som bifogas vid anrop av NOD:s tjänster.",
+      "comment" : "TKB-fält: `../../../../registeredBy` (`HealthcareProfessionalType`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData.registrationTime",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.registrationData.registrationTime",
+      "short" : "Registreringstidpunkt",
+      "definition" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "comment" : "TKB-fält: `../../../../registrationTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.medicationInformation",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.medicationInformation",
+      "short" : "Läkemedelsinformation",
+      "definition" : "Läkemedelsinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.startTime",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.startTime",
+      "short" : "Insättningstidpunkt",
+      "definition" : "Insättningstidpunkt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.endTime",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.endTime",
+      "short" : "Utsättningstidpunkt",
+      "definition" : "Utsättningstidpunkt",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.prescribedBy",
+      "path" : "getmedicationprescriptions.medicationList.medicationPrescriptionSequence.medicationPrescription.prescribedBy",
+      "short" : "Förskrivare",
+      "definition" : "Förskrivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.medicationList.medicationStatementSequence",
+      "path" : "getmedicationprescriptions.medicationList.medicationStatementSequence",
+      "short" : "Egenmedicinering (sequence)",
+      "definition" : "Egenmedicinering (sequence)",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.result",
+      "path" : "getmedicationprescriptions.result",
+      "short" : "Resultat av begäran",
+      "definition" : "Innehåller information om begäran gick bra eller ej.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.result.resultCode",
+      "path" : "getmedicationprescriptions.result.resultCode",
+      "short" : "Svarskod (OK/INFO/ERROR)",
+      "definition" : "Kan endast vara OK, INFO eller ERROR",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getmedicationprescriptions.result.errorCode",
+      "path" : "getmedicationprescriptions.result.errorCode",
+      "short" : "Felkod (om resultCode=ERROR)",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/errorcode-vs"
+      }
+    },
+    {
+      "id" : "getmedicationprescriptions.result.logId",
+      "path" : "getmedicationprescriptions.result.logId",
+      "short" : "UUID för felanmälan",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmedicationprescriptions.result.message",
+      "path" : "getmedicationprescriptions.result.message",
+      "short" : "Beskrivande text",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```
