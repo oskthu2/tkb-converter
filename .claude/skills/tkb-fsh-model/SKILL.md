@@ -298,6 +298,7 @@ Oskars beslut 2026-11-06: modellerna ska **inte** längre översätta RIV-TA-dat
   - Inga namnbyten: under `Base` finns inga egna `id`/`extension`, så schemats `id`, `type`, `code`, `value` används rakt av. `preflight_lint.py` tillåter reserverade namn under ett `Base`-element, men aldrig under `BackboneElement`.
   - En domäntyp som är **identisk** med en gemensam typ refereras direkt (`* x 1..1 IIType`, eller `* x 1..1 string` + `* x only TimeStampType`). En typ med **samma element men snävare kardinalitet** blir en lokal typ med samma namn som ärver den gemensamma (`input/fsh/datatypes/`). En typ som **skiljer sig på annat sätt** blir domänens egen (nästlad, eller en lokal profil för en enkel typ).
   - Rekursion blir `contentReference`, xs:choice en invariant och uppräkningar `code` bundet till `{Typ}VS` om det finns.
+  - `contentReference #x.y` måste börja med modellens **Id** (t.ex. `#getlaboratoryorderoutcome.…`), inte dess namn. Fel rot bygger grönt men ger "Error generating table for profile … getElementByName: can't find #…" på modellens sida. `preflight_lint.py` felmarkerar det.
 - **Beroende:** IG:ns `sushi-config.yaml` har `inera.rivta.datatypes: 1.0.0` under `dependencies`. Lokalt: `python3 scripts/install_datatypes_package.py` innan `sushi`. I CI bygger `build_all.sh` datatyps-IG:n först och installerar IG Publishers paket.
 - **Utrullning:** hittills bara piloten (actoutcome GetLaboratoryOrderOutcome). Tabellen nedan gäller övriga modeller tills de är genererade om.
 

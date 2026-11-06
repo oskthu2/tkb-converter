@@ -88,8 +88,9 @@ def doc_of(el) -> str:
 
 
 class Gen:
-    def __init__(self, schema: Schema, ig: Path, model: str):
+    def __init__(self, schema: Schema, ig: Path, model: str, model_id: str = None):
         self.S, self.ig, self.model = schema, ig, model
+        self.model_id = model_id or model
         self.lines, self.invariants, self.local_types = [], [], {}
         self.vs = {p.stem for p in (ig / "input" / "fsh" / "valuesets").glob("*.fsh")}
         self.n_choice = 0
@@ -234,7 +235,7 @@ class Gen:
                 self.lines.append(f'* {path} {card} Base "{fsh_str(tname)}" "{fsh_str(dfn)}"')
                 st = dict(stack)
                 if key:
-                    st[key] = f"{self.model}.{path}"
+                    st[key] = f"{self.model_id}.{path}"
                 self.emit(path + ".", tel, tf, st)
         for (cid, req), members in choices.items():
             if len(members) < 2:
@@ -257,6 +258,9 @@ HEADER_KEYS = ("Logical:", "Parent:", "Id:", "Title:", "Description:", "Characte
 def split_existing(text: str):
     """(huvud, insert-rader) ur en befintlig modellfil."""
     lines = text.splitlines()
+    lines = [ln for ln in lines if not ln.startswith(("// Elementen genereras ur ", "// Grunddatatyper refereras till "))]
+    while lines and not lines[0].strip():
+        lines.pop(0)
     head, i = [], 0
     while i < len(lines) and not lines[i].startswith("*"):
         if lines[i].startswith("Parent:"):
@@ -293,8 +297,11 @@ def build(ig: Path, contract: str, check: bool) -> list:
         model = next(ln.split(":", 1)[1].strip() for ln in head if ln.startswith("Logical:"))
         tkey = S.resolve(edef[0].get("type"), edef[1])
         tel, tf = S.types[tkey]
-        g = Gen(S, ig, model)
-        g.emit("", tel, tf, {tkey: model})
+        # Elementens sökvägar i en Logical börjar med modellens Id (inte namnet), och
+        # contentReference måste peka på den sökvägen.
+        model_id = next((ln.split(":", 1)[1].strip() for ln in head if ln.startswith("Id:")), model)
+        g = Gen(S, ig, model, model_id)
+        g.emit("", tel, tf, {tkey: model_id})
         version = re.search(r'\^version\s*=\s*"([^"]*)"', target.read_text(encoding="utf-8"))
         body = [f"// Elementen genereras ur {start.name} av scripts/xsd_logical_models.py — redigera inte för hand.",
                 f"// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper ({rd.PACKAGE_ID})."]

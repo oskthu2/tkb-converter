@@ -1,9 +1,6 @@
 // Elementen genereras ur GetLaboratoryOrderOutcomeResponder_4.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
 // Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
 
-// Elementen genereras ur GetLaboratoryOrderOutcomeResponder_4.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
-// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
-
 // Genererad från TKB clinicalprocess:healthcond:actoutcome v4.2.2
 // Kontrakt: GetLaboratoryOrderOutcome v4.2
 // Genererad: 2026-03-19
