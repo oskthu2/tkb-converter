@@ -5,6 +5,4 @@ RuleSet: GetCertificateFieldDescriptions
 * intyg ^definition = "Ett intyg."
 * intyg ^comment = "TKB-fält: `intyg` (`Intyg (se 7.1.5)`, kardinalitet 1..1).
 
-**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id
-
-**Modellanteckning:** Ett intyg komplett med statusar, relationer och ärendekommunikation."
+**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id"

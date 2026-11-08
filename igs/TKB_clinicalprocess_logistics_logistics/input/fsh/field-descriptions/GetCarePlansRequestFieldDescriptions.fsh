@@ -22,10 +22,6 @@ En tjänstekonsument som vill begära mha reservnummer måste därmed använda s
 
 Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum."
 * datePeriod ^comment = "TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1)."
-* datePeriod.start ^definition = "Startdatum. Format ÅÅÅÅMMDD."
-* datePeriod.start ^comment = "TKB-fält: `../start` (`string`, kardinalitet 1..1)."
-* datePeriod.end ^definition = "Slutdatum. Format ÅÅÅÅMMDD."
-* datePeriod.end ^comment = "TKB-fält: `../end` (`string`, kardinalitet 1..1)."
 * sourceSystemHSAId ^definition = "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
 
 Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
@@ -39,7 +35,4 @@ Fältet är tvingande vid begäran på reservnummer."
 * careContactId ^definition = "Begränsar sökningen till den/de vårdkontakter vars id anges vilket matchar documentId i GetCareContactsResponse/careContact/careContactHeader
 
 Se test-case ”CareContactId Filter” som finns i SOAPui-projektet under test-suite/GetCarePlans"
-* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).
-
-**Modellanteckning:** Begränsar sökningen till vård- och omsorgsplaner kopplade till angivna vårdkontakter.
-Matchar documentId i GetCareContacts-svaret."
+* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*)."

@@ -67,8 +67,8 @@ Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast inn
 * prescriptionChainId ^definition = "Ordinationskedje-id.
 
 Används för att endast ge poster avseende en viss ordinationskedja. Om producenten saknar stöd för kedjor, så returneras alla poster med angiven status (och som möter övriga sökvillkor)"
-* prescriptionChainId ^comment = "TKB-fält: `prescriptionChainId` (`IIType`, kardinalitet 0..1).
-
-**Modellanteckning:** Om producenten inte hittar angiven ordinationskedja ska ett tomt svar returneras."
+* prescriptionChainId ^comment = "TKB-fält: `prescriptionChainId` (`IIType`, kardinalitet 0..1)."
 * prescriptionStatus ^definition = "Begränsar sökningen till endast de ordinationer som är aktiva eller inaktiva, om inget anges ska alla ordinationer returneras, om den är satt till Active ska enbart den ”aktuella läkemedelslistan” returneras."
-* prescriptionStatus ^comment = "TKB-fält: `prescriptionStatus` (`PrescriptionStatusEnum`, kardinalitet 0..1)."
+* prescriptionStatus ^comment = "TKB-fält: `prescriptionStatus` (`PrescriptionStatusEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** prescriptionStatus Tillåtna värden: Active, Inactive."

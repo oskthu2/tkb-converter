@@ -7,9 +7,7 @@ RuleSet: HamtaPatientInfoFieldDescriptions
 * apotek.aktorsnamn ^definition = "Aktörsnamn"
 * apotek.aktorsnamn ^comment = "TKB-fält i ApoteksinformationResponse: `aktorsnamn` (`string`, kardinalitet 0..1)."
 * apotek.aktorsorgnr ^definition = "Aktörens organisationsnummer."
-* apotek.aktorsorgnr ^comment = "TKB-fält i ApoteksinformationResponse: `aktorsorgnr` (`long`, kardinalitet 0..1).
-
-**Modellanteckning:** Aktörens organisationsnummer. xs:long i schemat."
+* apotek.aktorsorgnr ^comment = "TKB-fält i ApoteksinformationResponse: `aktorsorgnr` (`long`, kardinalitet 0..1)."
 * apotek.allmantelefon ^definition = "allmäntelefon"
 * apotek.allmantelefon ^comment = "TKB-fält i ApoteksinformationResponse: `allmantelefon` (`string`, kardinalitet 0..1)."
 * apotek.besoksadress ^definition = "Expeditionsställets besöksadress"
@@ -19,9 +17,7 @@ RuleSet: HamtaPatientInfoFieldDescriptions
 * apotek.fax ^definition = "fax"
 * apotek.fax ^comment = "TKB-fält i ApoteksinformationResponse: `fax` (`string`, kardinalitet 0..1)."
 * apotek.glnKod ^definition = "GLN-kod"
-* apotek.glnKod ^comment = "TKB-fält i ApoteksinformationResponse: `glnKod` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** Apotekets GLN-kod."
+* apotek.glnKod ^comment = "TKB-fält i ApoteksinformationResponse: `glnKod` (`string`, kardinalitet 1..1)."
 * apotek.huvudtypkod ^definition = "Kod som beskriver huvudverksamheten för expeditionsstället"
 * apotek.huvudtypkod ^comment = "TKB-fält i ApoteksinformationResponse: `huvudtypkod` (`string`, kardinalitet 0..1)."
 * apotek.namn ^definition = "Apotekets Namn"
@@ -48,8 +44,6 @@ RuleSet: HamtaPatientInfoFieldDescriptions
 * patientInformation.omradeskod ^comment = "TKB-fält i PatientInformationResponse: `omradeskod` (`string`, kardinalitet 0..1)."
 * patientInformation.redNamn ^definition = "Redigerat namn"
 * patientInformation.redNamn ^comment = "TKB-fält i PatientInformationResponse: `redNamn` (`string`, kardinalitet 0..1)."
-* patientInformation.samtycke ^comment = "TKB-fält i PatientInformationResponse: `samtycke` (`SamtyckeResponse`, kardinalitet 1..1).
-
-**Modellanteckning:** Patientens registrerade samtycken (SamtyckeResponse). För varje flagga: true = samtycke lämnat, false = samtycke nekat, saknas = kunden har inte tillfrågats eller tagit ställning."
+* patientInformation.samtycke ^comment = "TKB-fält i PatientInformationResponse: `samtycke` (`SamtyckeResponse`, kardinalitet 1..1)."
 * patientInformation.statusKod ^definition = "StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se [kodverket](#statuskod). Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret."
 * patientInformation.statusKod ^comment = "TKB-fält i PatientInformationResponse: `statusKod` (`string`, kardinalitet 0..1)."

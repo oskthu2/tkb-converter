@@ -30,7 +30,7 @@
       {
         "id": "getavailablefacilities-request.countyCode",
         "path": "getavailablefacilities-request.countyCode",
-        "short": "Länskod (SCB-kod) för regionen",
+        "short": "countyCode",
         "definition": "Länskod (SCB-kod) för regionen vars tillgängliga vårdenheter söks.",
         "comment": "TKB-fält: `countyCode` (`string (CountyCode)`, kardinalitet 1..1).",
         "min": 1,
@@ -42,23 +42,23 @@
         ]
       },
       {
-        "id": "getavailablefacilities-request.healthcareFacilities",
-        "path": "getavailablefacilities-request.healthcareFacilities",
-        "short": "HSA-ID:n för specifika vårdenheter",
+        "id": "getavailablefacilities-request.healthcare_facilities",
+        "path": "getavailablefacilities-request.healthcare_facilities",
+        "short": "healthcare_facilities",
         "definition": "Lista med HSA-ID:n för specifika vårdenheter att hämta information om. Tom lista = hämta alla.",
-        "comment": "TKB-fält: `healthcare_facilities` (`string (HsaIdType)`, kardinalitet 0..*).",
+        "comment": "TKB-fält: `healthcare_facilities` (`string (HsaIdType)`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med Vårdenheter som man önskar information om eller tom sträng \"\" om information om alla tillgängliga vårdenehter ska hämtas.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getavailablefacilities-request.listingType",
         "path": "getavailablefacilities-request.listingType",
-        "short": "Typer av vårdenheter att söka fram",
+        "short": "Anger vilka typer av vårdenheter som skall sökas fram. Om inget anges så hämtas alla.",
         "definition": "Anger vilka typer av vårdenheter som skall sökas fram. Om inget anges hämtas alla.",
         "comment": "TKB-fält: `listingType` (`string (ListingType)`, kardinalitet 0..*).",
         "min": 0,

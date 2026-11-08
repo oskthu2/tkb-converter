@@ -30,7 +30,7 @@
       {
         "id": "makebooking.bookingId",
         "path": "makebooking.bookingId",
-        "short": "Id för skapad bokning",
+        "short": "bookingId",
         "definition": "Id för skapad bokning. Ska anges vid genomförd bokning (resultCode OK eller INFO), annars inte (ERROR).",
         "comment": "TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).",
         "min": 0,
@@ -44,21 +44,25 @@
       {
         "id": "makebooking.resultCode",
         "path": "makebooking.resultCode",
-        "short": "Status för den gjorda bokningen",
+        "short": "resultCode",
         "definition": "Status för den gjorda avbokningen.",
-        "comment": "TKB-fält: `resultCode` (`ResultCodeEnum (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** ResultCodeEnum: Status för den gjorda bokningen.\nMöjliga värden: OK, INFO, ERROR.",
+        "comment": "TKB-fält: `resultCode` (`ResultCodeEnum (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "code"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/crm-scheduling/ValueSet/result-code-vs"
+        }
       },
       {
         "id": "makebooking.resultText",
         "path": "makebooking.resultText",
-        "short": "Ev. meddelande kopplat till resultatkoden",
+        "short": "resultText",
         "definition": "Ev. meddelande kopplat till resultatkoden.",
         "comment": "TKB-fält: `resultText` (`string`, kardinalitet 0..1).",
         "min": 0,

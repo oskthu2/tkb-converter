@@ -30,14 +30,14 @@
       {
         "id": "getfilesfororderid.result",
         "path": "getfilesfororderid.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -45,8 +45,8 @@
         "id": "getfilesfororderid.result.resultCode",
         "path": "getfilesfororderid.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
+        "comment": "TKB-fält: `../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -76,23 +76,23 @@
       {
         "id": "getfilesfororderid.multimedia",
         "path": "getfilesfororderid.multimedia",
-        "short": "multimedia",
+        "short": "MultimediaType",
         "definition": "GetFilesResponse innehållande 0..* Multimedia element med data för, eller referenser till (URL-referenser), tillgängliga filer.",
-        "comment": "TKB-fält: `multimedia` (`urn:riv:informationsecurity:auditing:log:2:MultimediaType`, kardinalitet 0..*).\n\n**Modellanteckning:** Datatyp som beskriver en multimediatyp. Data kan förekomma som inbäddat element eller hänvisas via en referens URL.",
+        "comment": "TKB-fält: `multimedia` (`urn:riv:informationsecurity:auditing:log:2:MultimediaType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getfilesfororderid.multimedia.multimediaId",
-        "path": "getfilesfororderid.multimedia.multimediaId",
-        "short": "multimediaId",
-        "definition": "multimediaId Heter id i schemat.",
-        "comment": "TKB-fält: `../id` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** multimediaId Heter id i schemat.",
+        "id": "getfilesfororderid.multimedia.id",
+        "path": "getfilesfororderid.multimedia.id",
+        "short": "id",
+        "definition": "id",
+        "comment": "TKB-fält: `../id` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -116,11 +116,11 @@
         ]
       },
       {
-        "id": "getfilesfororderid.multimedia.multimediaValue",
-        "path": "getfilesfororderid.multimedia.multimediaValue",
-        "short": "multimediaValue",
-        "definition": "multimediaValue Heter value i schemat.",
-        "comment": "TKB-fält: `../value` (`base64Binary`, kardinalitet 0..1).\n\n**Modellanteckning:** multimediaValue Heter value i schemat.",
+        "id": "getfilesfororderid.multimedia.value",
+        "path": "getfilesfororderid.multimedia.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../value` (`base64Binary`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

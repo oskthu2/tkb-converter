@@ -1,3 +1,6 @@
+// Elementen genereras ur GetListingTypes_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: GetListingTypes v1.0
 // Namespace: urn:riv:crm:carelisting:GetListingTypesResponder:1
@@ -15,12 +18,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* listingType 0..* string "Lista med koder som avser listningstyper"
-    """
-    Lista med koder som avser listningstyper, t.ex. BVC.
-    Listningstyp saknar centralt kodverk — värden är fritext (se QUESTIONS.md).
-    Kardinalitet: Valfri, lista.
-    """
+* listingType 0..* string "Lista med koder som avser listningstyper, t.ex BVC." "Lista med koder som avser listningstyper, t.ex BVC."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetListingTypesFieldDescriptions

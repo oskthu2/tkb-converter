@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i GetMasterDataChangeSet\n(urn:riv:infrastructure:directory:synchronization:GetMasterDataChangeSetResponder:1, GetMasterDataChangeSetType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "getmasterdatachangeset-request.logicalAddress",
-        "path": "getmasterdatachangeset-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The organisation number of the careservice provider",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getmasterdatachangeset-request.masterDataEntity",
         "path": "getmasterdatachangeset-request.masterDataEntity",
         "short": "masterDataEntity",
@@ -50,91 +37,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.masterDataEntity.cvCode",
-        "path": "getmasterdatachangeset-request.masterDataEntity.cvCode",
-        "short": "cvCode",
-        "definition": "Kod som anger typ av masterdata i källan.\n\nDefinierar vilken typ av information i masterdatakällan som efterfrågas med hjälp av kod i kodsystem.",
-        "comment": "TKB-fält: `../code` (`String`, kardinalitet 1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.masterDataEntity.codeSystem",
-        "path": "getmasterdatachangeset-request.masterDataEntity.codeSystem",
-        "short": "codeSystem",
-        "definition": "Kodsystem som anger masterdatakälla.\n\nOID för t.ex. utbud",
-        "comment": "TKB-fält: `../codeSystem` (`String`, kardinalitet 1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.masterDataEntity.codeSystemName",
-        "path": "getmasterdatachangeset-request.masterDataEntity.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "Namn på kodsystem",
-        "comment": "TKB-fält: `../codeSystemName` (`String`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.masterDataEntity.codeSystemVersion",
-        "path": "getmasterdatachangeset-request.masterDataEntity.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "Versionsnummer för kodsystem",
-        "comment": "TKB-fält: `../codeSystemVersion` (`String`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.masterDataEntity.displayName",
-        "path": "getmasterdatachangeset-request.masterDataEntity.displayName",
-        "short": "displayName",
-        "definition": "Textuell beskrivning av det som koden anger.\n\nKoden beskriven i fritext.",
-        "comment": "TKB-fält: `../displayName` (`String`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.masterDataEntity.originalText",
-        "path": "getmasterdatachangeset-request.masterDataEntity.originalText",
-        "short": "originalText",
-        "definition": "Skall ej anges",
-        "comment": "TKB-fält: `../originalText` (`String`, kardinalitet 0..0).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/infrastructure-directory-synchronization/StructureDefinition/CVType"
           }
         ]
       },
@@ -161,40 +64,12 @@
         "path": "getmasterdatachangeset-request.timePeriod",
         "short": "timePeriod",
         "definition": "Tidsintervall för förändringar.\n\nBegränsning av sökning i tid. Resultatet innehåller information om poster som förändrats i masterdatakällan under angiven tidsperiod. Minst en av start- och endattributen ska anges om attributet timeInterval anges.",
-        "comment": "TKB-fält: `timePeriod` (`TimePeriodType`, kardinalitet 0..1).\n\n**Modellanteckning:** Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet YYYYMMDDhhmmss end: Slutdatum på formatet YYYYMMDDhhmmss",
+        "comment": "TKB-fält: `timePeriod` (`TimePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.timePeriod.start",
-        "path": "getmasterdatachangeset-request.timePeriod.start",
-        "short": "start",
-        "definition": "Starttid\n\nStarttid för när en post förändrats. Endast katalogposter som förändrats efter denna tidpunkt ska tas med i svaret.",
-        "comment": "TKB-fält: `../start` (`TimeStamp`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset-request.timePeriod.end",
-        "path": "getmasterdatachangeset-request.timePeriod.end",
-        "short": "end",
-        "definition": "Sluttid\n\nSlut för när en post förändrats. Endast katalogposter som förändrats före denna tidpunkt ska tas med i svaret.",
-        "comment": "TKB-fält: `../end` (`TimeStamp`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType"
           }
         ]
       }

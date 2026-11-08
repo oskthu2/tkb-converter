@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DatumType",
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/DatumType",
+  "name": "DatumType",
+  "title": "DatumType",
+  "status": "active",
+  "description": "Daum värdet är en sträng på formatet \"ÅÅÅÅ-MM-DD\" som matchar begränsad ISO 8601. Tid samt tidszon skall ej anges (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-datumtype-pattern",
+            "severity": "error",
+            "human": "DatumType ska följa mönstret i schemat: [1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))",
+            "expression": "matches('^(?:(?:[1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))))$')",
+            "source": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/DatumType"
+          }
+        ]
+      }
+    ]
+  }
+}

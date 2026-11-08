@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "RegisteredResidentIdentificationType",
+  "url": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType",
+  "name": "RegisteredResidentIdentificationType",
+  "title": "RegisteredResidentIdentificationType",
+  "status": "active",
+  "description": "RegisteredResidentIdentificationType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-registeredresidentidentificationtype-pattern",
+            "severity": "error",
+            "human": "RegisteredResidentIdentificationType ska följa mönstret i schemat: [0-9]{8}[0-9A-Zptf]{4}",
+            "expression": "matches('^(?:(?:[0-9]{8}[0-9A-Zptf]{4}))$')",
+            "source": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType"
+          }
+        ]
+      }
+    ]
+  }
+}

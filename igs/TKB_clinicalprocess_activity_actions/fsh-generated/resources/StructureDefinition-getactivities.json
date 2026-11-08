@@ -30,141 +30,274 @@
       {
         "id": "getactivities.activityGroup",
         "path": "getactivities.activityGroup",
-        "short": "Grupp av aktiviteter",
+        "short": "ActivityGroupType",
         "definition": "Grupp av aktiviteter som delar samma patient, utförare (m. tillhörande organisatorisk knytning), signerare, ytterligare deltagare, källsystem, vårdprocess-id, utrustning, samt plats. Denna nivå är framförallt till för att kunna begränsa mängden redundant data i överföringen i de fall då flera aktiviteter gjorts med samma medverkande (exempelvis de aktiviteter som utförts under ett visst operationstillfälle). Denna klass är en teknisk optimering som inte speglas i NI 2015:1.",
         "comment": "TKB-fält: `activityGroup` (`ActivityGroupType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.patient",
         "path": "getactivities.activityGroup.patient",
-        "short": "Patient som aktivitetsgruppen avser",
+        "short": "PatientType",
         "definition": "Den patient som aktivitetsgruppen avser.",
         "comment": "TKB-fält: `patient` (`PatientType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.patient.patientId",
-        "path": "getactivities.activityGroup.patient.patientId",
-        "short": "Id för patienten",
-        "definition": "Id för patienten (IIType). Ska anges med 12 tecken utan avskiljare.\nroot = OID för typ av identifierare (personnummer: 1.2.752.129.2.1.3.1,\nsamordningsnummer: 1.2.752.129.2.1.3.3, reservnummer: lokalt OID).\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.patient.id",
+        "path": "getactivities.activityGroup.patient.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.patient.dateOfBirth",
         "path": "getactivities.activityGroup.patient.dateOfBirth",
-        "short": "Patientens födelsedatum",
-        "definition": "Anger patientens födelseår, månad och dag. Ej personnummer! Format ÅÅÅÅMMDD.\nKardinalitet: Obligatorisk.",
+        "short": "dateOfBirth",
+        "definition": "dateOfBirth",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "date"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"
+            ]
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.patient.gender",
         "path": "getactivities.activityGroup.patient.gender",
-        "short": "Patientens kön",
-        "definition": "Anger patientens kön (CVType). Kodas enligt KV kön OID 1.2.752.129.2.2.1.1.\nKoder: 0=okänt, 1=man, 2=kvinna, 9=ej tillämpligt.\nKardinalitet: Valfri.",
+        "short": "CVType",
+        "definition": "gender",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.gender.code",
+        "path": "getactivities.activityGroup.patient.gender.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.gender.codeSystem",
+        "path": "getactivities.activityGroup.patient.gender.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.gender.codeSystemName",
+        "path": "getactivities.activityGroup.patient.gender.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.gender.codeSystemVersion",
+        "path": "getactivities.activityGroup.patient.gender.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.gender.displayName",
+        "path": "getactivities.activityGroup.patient.gender.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.performerRole",
         "path": "getactivities.activityGroup.performerRole",
-        "short": "Den som utfört aktiviteter inom gruppen",
+        "short": "PerformerRoleType",
         "definition": "Den som utfört aktiviteter inom gruppen.",
         "comment": "TKB-fält: `performerRole` (`PerformerRoleType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.performerRoleId",
-        "path": "getactivities.activityGroup.performerRole.performerRoleId",
-        "short": "HSA-id för utförande person",
-        "definition": "Identitet för personen som utfört aktiviteten (IIType).\nAnges enbart om aktiviteten utförts av hälso- och sjukvårdspersonal. Anges med HSA-id.\nroot = OID för HSA-katalogen (1.2.752.129.2.1.4.1).\nKardinalitet: Villkorlig (se Regel 2.1).",
+        "id": "getactivities.activityGroup.performerRole.id",
+        "path": "getactivities.activityGroup.performerRole.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.performerRole.code",
         "path": "getactivities.activityGroup.performerRole.code",
-        "short": "Roll som utföraren agerar i",
-        "definition": "Beskriver den roll som utföraren agerar i under aktiviteten (CVType).\nKardinalitet: Obligatorisk.",
+        "short": "CVType",
+        "definition": "code",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.code.code",
+        "path": "getactivities.activityGroup.performerRole.code.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.code.codeSystem",
+        "path": "getactivities.activityGroup.performerRole.code.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.code.codeSystemName",
+        "path": "getactivities.activityGroup.performerRole.code.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.code.codeSystemVersion",
+        "path": "getactivities.activityGroup.performerRole.code.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.code.displayName",
+        "path": "getactivities.activityGroup.performerRole.code.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.performerRole.person",
         "path": "getactivities.activityGroup.performerRole.person",
-        "short": "Person som utfört aktiviteten",
-        "definition": "Beskriver den person som utfört aktiviteten (PersonType).\nKardinalitet: Villkorlig (se Regel 2.1).",
+        "short": "PersonType",
+        "definition": "person",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.person.personId",
-        "path": "getactivities.activityGroup.performerRole.person.personId",
-        "short": "Identifierare för person",
-        "definition": "Identifierare för person som utfört aktiviteten. Anges endast om aktiviteten utförts av\nperson som INTE klassas som hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "id": "getactivities.activityGroup.performerRole.person.id",
+        "path": "getactivities.activityGroup.performerRole.person.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.performerRole.person.name",
         "path": "getactivities.activityGroup.performerRole.person.name",
-        "short": "För- och efternamn i klartext",
-        "definition": "För- och efternamn i klartext för person. Se Regel 2.1.\nKardinalitet: Valfri.",
+        "short": "name",
+        "definition": "name",
         "min": 0,
         "max": "1",
         "type": [
@@ -176,34 +309,34 @@
       {
         "id": "getactivities.activityGroup.performerRole.careUnit",
         "path": "getactivities.activityGroup.performerRole.careUnit",
-        "short": "PDL-vårdenhet och PDL-vårdgivare",
-        "definition": "Den PDL-vårdenhet och PDL-vårdgivare som aktiviteten utförs på uppdrag av.\nSka endast anges då den person som utfört aktiviteten är hälso- och sjukvårdspersonal.\nSe Regel 2.1 och 2.6.\nKardinalitet: Villkorlig.",
+        "short": "CareUnitType",
+        "definition": "careUnit",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.careUnit.careUnitId",
-        "path": "getactivities.activityGroup.performerRole.careUnit.careUnitId",
-        "short": "HSA-id för PDL vårdenhet",
-        "definition": "HSA-id för PDL vårdenhet som har ansvar för aktiviteten. Se Regel 2.6.\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.performerRole.careUnit.id",
+        "path": "getactivities.activityGroup.performerRole.careUnit.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.performerRole.careUnit.name",
         "path": "getactivities.activityGroup.performerRole.careUnit.name",
-        "short": "Vårdenhetens namn",
-        "definition": "Vårdenhetens namn till vilken aktiviteten är knuten.\nKardinalitet: Valfri.",
+        "short": "name",
+        "definition": "name",
         "min": 0,
         "max": "1",
         "type": [
@@ -215,34 +348,34 @@
       {
         "id": "getactivities.activityGroup.performerRole.careUnit.careGiver",
         "path": "getactivities.activityGroup.performerRole.careUnit.careGiver",
-        "short": "Vårdgivaren som enheten hör till",
-        "definition": "Den vårdgivare som enheten hör till (CareGiverType).\nKardinalitet: Obligatorisk.",
+        "short": "CareGiverType",
+        "definition": "careGiver",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.careGiverId",
-        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.careGiverId",
-        "short": "HSA-id för vårdgivaren",
-        "definition": "Vårdgivarens identitet som enheten är anknuten till (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. Se Regel 2.6.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.id",
+        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.name",
         "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.name",
-        "short": "Vårdgivarens namn",
-        "definition": "Vårdgivarens namn till vilken enheten är knuten.\nKardinalitet: Valfri.",
+        "short": "name",
+        "definition": "name",
         "min": 0,
         "max": "1",
         "type": [
@@ -254,14 +387,14 @@
       {
         "id": "getactivities.activityGroup.legalAuthenticator",
         "path": "getactivities.activityGroup.legalAuthenticator",
-        "short": "Den som signerat aktiviteterna",
+        "short": "LegalAuthenticatorType",
         "definition": "Den som signerat aktiviteterna inom gruppen.",
         "comment": "TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ],
         "constraint": [
@@ -269,42 +402,71 @@
             "key": "getactivities-legalauthenticator-id-or-name",
             "severity": "error",
             "human": "Minst ett av legalAuthenticatorId och name ska anges (TKB Regel 2.4).",
-            "expression": "legalAuthenticatorId.exists() or name.exists()",
+            "expression": "id.exists() or name.exists()",
             "source": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.legalAuthenticator.legalAuthenticatorId",
-        "path": "getactivities.activityGroup.legalAuthenticator.legalAuthenticatorId",
-        "short": "HSA-id för signerande person",
-        "definition": "HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.\nMinst ett av attributen legalAuthenticatorId eller name ska anges.\nKardinalitet: Villkorlig.",
+        "id": "getactivities.activityGroup.legalAuthenticator.id",
+        "path": "getactivities.activityGroup.legalAuthenticator.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.legalAuthenticator.time",
         "path": "getactivities.activityGroup.legalAuthenticator.time",
-        "short": "Tid för signeringen",
-        "definition": "Tid för signeringen av aktiviteten. Format ÅÅÅÅMMDDttmmss, klockslaget är frivilligt.\nKardinalitet: Obligatorisk.",
+        "short": "PartialTimeStampType",
+        "definition": "time",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.legalAuthenticator.time.format",
+        "path": "getactivities.activityGroup.legalAuthenticator.time.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.legalAuthenticator.time.value",
+        "path": "getactivities.activityGroup.legalAuthenticator.time.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.legalAuthenticator.name",
         "path": "getactivities.activityGroup.legalAuthenticator.name",
-        "short": "Namn på signerande person",
-        "definition": "För- och efternamn i klartext för signerande person. Se Regel 2.4.\nMinst ett av attributen legalAuthenticatorId eller name ska anges.\nKardinalitet: Villkorlig.",
+        "short": "name",
+        "definition": "name",
         "min": 0,
         "max": "1",
         "type": [
@@ -316,14 +478,14 @@
       {
         "id": "getactivities.activityGroup.additionalParticipant",
         "path": "getactivities.activityGroup.additionalParticipant",
-        "short": "Övriga deltagare",
+        "short": "AdditionalParticipantType",
         "definition": "Övriga deltagare relaterat till aktiviteterna inom gruppen.",
         "comment": "TKB-fält: `additionalParticipant` (`AdditionalParticipantType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ],
         "constraint": [
@@ -337,88 +499,218 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.additionalParticipantId",
-        "path": "getactivities.activityGroup.additionalParticipant.additionalParticipantId",
-        "short": "Identifierare för ytterligare deltagare",
-        "definition": "Identifierare för ytterligare deltagare (IIType).\nAnges enbart om deltagaren klassas som hälso- och sjukvårdspersonal (HSA-id).\nKardinalitet: Villkorlig (se Regel 2.2).",
+        "id": "getactivities.activityGroup.additionalParticipant.id",
+        "path": "getactivities.activityGroup.additionalParticipant.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.type",
         "path": "getactivities.activityGroup.additionalParticipant.type",
-        "short": "Typ av deltagande",
-        "definition": "Typ av deltagande (CVType). Beskriver hur deltagaren har deltagit i aktiviteten.\nKardinalitet: Obligatorisk.",
+        "short": "CVType",
+        "definition": "type",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.type.code",
+        "path": "getactivities.activityGroup.additionalParticipant.type.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.type.codeSystem",
+        "path": "getactivities.activityGroup.additionalParticipant.type.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.type.codeSystemName",
+        "path": "getactivities.activityGroup.additionalParticipant.type.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.type.codeSystemVersion",
+        "path": "getactivities.activityGroup.additionalParticipant.type.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.type.displayName",
+        "path": "getactivities.activityGroup.additionalParticipant.type.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.role",
         "path": "getactivities.activityGroup.additionalParticipant.role",
-        "short": "Deltagarens roll",
-        "definition": "Beskriver i vilken roll deltagaren agerar (CVType).\nKardinalitet: Obligatorisk.",
+        "short": "CVType",
+        "definition": "role",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.role.code",
+        "path": "getactivities.activityGroup.additionalParticipant.role.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.role.codeSystem",
+        "path": "getactivities.activityGroup.additionalParticipant.role.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.role.codeSystemName",
+        "path": "getactivities.activityGroup.additionalParticipant.role.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.role.codeSystemVersion",
+        "path": "getactivities.activityGroup.additionalParticipant.role.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.role.displayName",
+        "path": "getactivities.activityGroup.additionalParticipant.role.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.time",
         "path": "getactivities.activityGroup.additionalParticipant.time",
-        "short": "Deltagandetid",
-        "definition": "Om deltagandetiden för denna deltagare inte överensstämmer med aktivitetens tidsperiod\nkan time-attributet ange när den specifika deltagaren deltog.\nKardinalitet: Valfri.",
+        "short": "time",
+        "definition": "time",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Period"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.person",
         "path": "getactivities.activityGroup.additionalParticipant.person",
-        "short": "Deltagande övrig person",
-        "definition": "Deltagande övrig person (PersonType). Exklusiv med organisation, device, location.\nKardinalitet: Valfri.",
+        "short": "PersonType",
+        "definition": "person",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.person.personId",
-        "path": "getactivities.activityGroup.additionalParticipant.person.personId",
-        "short": "Identifierare för person",
-        "definition": "Identifierare för deltagande övrig person.\nKardinalitet: Valfri.",
+        "id": "getactivities.activityGroup.additionalParticipant.person.id",
+        "path": "getactivities.activityGroup.additionalParticipant.person.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.person.name",
         "path": "getactivities.activityGroup.additionalParticipant.person.name",
-        "short": "För- och efternamn",
-        "definition": "För- och efternamn i klartext för person.\nKardinalitet: Valfri.",
+        "short": "name",
+        "definition": "name",
         "min": 0,
         "max": "1",
         "type": [
@@ -430,34 +722,34 @@
       {
         "id": "getactivities.activityGroup.additionalParticipant.organisation",
         "path": "getactivities.activityGroup.additionalParticipant.organisation",
-        "short": "Deltagande organisation",
-        "definition": "Deltagande övrig organisation (OrganisationType). Exklusiv med person, device, location.\nKardinalitet: Valfri.",
+        "short": "OrganisationType",
+        "definition": "organisation",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.organisation.organisationId",
-        "path": "getactivities.activityGroup.additionalParticipant.organisation.organisationId",
-        "short": "HSA-id för organisation",
-        "definition": "HSA-id för den organisation som denna ytterligare deltagare har sitt uppdrag hos.\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.additionalParticipant.organisation.id",
+        "path": "getactivities.activityGroup.additionalParticipant.organisation.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.organisation.name",
         "path": "getactivities.activityGroup.additionalParticipant.organisation.name",
-        "short": "Organisationens namn",
-        "definition": "Organisationens namn i klartext.\nKardinalitet: Valfri.",
+        "short": "name",
+        "definition": "name",
         "min": 0,
         "max": "1",
         "type": [
@@ -469,48 +761,204 @@
       {
         "id": "getactivities.activityGroup.additionalParticipant.device",
         "path": "getactivities.activityGroup.additionalParticipant.device",
-        "short": "Deltagande medicinskteknisk produkt",
+        "short": "DeviceType",
         "definition": "Deltagande artefakt\n\nAnvänd dessa i additionalParticipant i stället.",
-        "comment": "TKB-fält: `device` (`DeviceType`, kardinalitet 0..0).\n\n**Modellanteckning:** Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location.",
+        "comment": "TKB-fält: `device` (`DeviceType`, kardinalitet 0..0).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.device.deviceId",
-        "path": "getactivities.activityGroup.additionalParticipant.device.deviceId",
-        "short": "Identifierare för medicinskteknisk produkt",
-        "definition": "Identifierare för instans av medicinskteknisk produkt.\nKardinalitet: Valfri.",
+        "id": "getactivities.activityGroup.additionalParticipant.device.id",
+        "path": "getactivities.activityGroup.additionalParticipant.device.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.device.type",
         "path": "getactivities.activityGroup.additionalParticipant.device.type",
-        "short": "Typ av medicinskteknisk produkt",
-        "definition": "Beskriver typ av medicinskteknisk produkt (CVType).\nKardinalitet: Valfri.",
+        "short": "CVType",
+        "definition": "type",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.type.code",
+        "path": "getactivities.activityGroup.additionalParticipant.device.type.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.type.codeSystem",
+        "path": "getactivities.activityGroup.additionalParticipant.device.type.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.type.codeSystemName",
+        "path": "getactivities.activityGroup.additionalParticipant.device.type.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.type.codeSystemVersion",
+        "path": "getactivities.activityGroup.additionalParticipant.device.type.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.type.displayName",
+        "path": "getactivities.activityGroup.additionalParticipant.device.type.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.device.model",
         "path": "getactivities.activityGroup.additionalParticipant.device.model",
-        "short": "Modell för medicinskteknisk produkt",
-        "definition": "Tillverkarens modellbeteckning (SCType). Kan anges som kod eller klartext.\nKardinalitet: Valfri.",
+        "short": "SCType",
+        "definition": "model",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.code",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.code",
+        "short": "CVType",
+        "definition": "code",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.code.code",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.code.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.code.codeSystem",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.code.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemName",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemVersion",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.code.displayName",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.code.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model.value",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model.value",
+        "short": "value",
+        "definition": "value",
         "min": 0,
         "max": "1",
         "type": [
@@ -522,35 +970,35 @@
       {
         "id": "getactivities.activityGroup.additionalParticipant.location",
         "path": "getactivities.activityGroup.additionalParticipant.location",
-        "short": "Deltagande plats",
+        "short": "LocationType",
         "definition": "Plats för aktiviteten\n\nAnvänd dessa i additionalParticipant i stället.",
-        "comment": "TKB-fält: `location` (`LocationType`, kardinalitet 0..0).\n\n**Modellanteckning:** Deltagande plats (LocationType). Exklusiv med person, organisation, device.",
+        "comment": "TKB-fält: `location` (`LocationType`, kardinalitet 0..0).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.location.locationId",
-        "path": "getactivities.activityGroup.additionalParticipant.location.locationId",
-        "short": "HSA-id för plats/vårdenhet",
-        "definition": "Identifiering för platsen. Anges om platsen är en vårdenhet (HSA-id).\nKardinalitet: Valfri.",
+        "id": "getactivities.activityGroup.additionalParticipant.location.id",
+        "path": "getactivities.activityGroup.additionalParticipant.location.id",
+        "short": "id",
+        "definition": "id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.additionalParticipant.location.name",
         "path": "getactivities.activityGroup.additionalParticipant.location.name",
-        "short": "Namn på plats",
-        "definition": "Namn på den plats där en aktivitet har genomförts.\nKardinalitet: Obligatorisk.",
+        "short": "name",
+        "definition": "name",
         "min": 1,
         "max": "1",
         "type": [
@@ -560,12 +1008,102 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.careProcessId",
-        "path": "getactivities.activityGroup.careProcessId",
-        "short": "UUID för individanpassad vårdprocess",
-        "definition": "UUID för den individanpassade vårdprocess som denna aktivitet ingår i",
-        "comment": "TKB-fält: `careProcessId` (`UUIDType`, kardinalitet 0..1).",
+        "id": "getactivities.activityGroup.additionalParticipant.location.address",
+        "path": "getactivities.activityGroup.additionalParticipant.location.address",
+        "short": "AddressType",
+        "definition": "address",
         "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.address.use",
+        "path": "getactivities.activityGroup.additionalParticipant.location.address.use",
+        "short": "use",
+        "definition": "use Tillåtna värden: PHYS, H, HV, WP, TMP.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.address.part",
+        "path": "getactivities.activityGroup.additionalParticipant.location.address.part",
+        "short": "AddressPartType",
+        "definition": "part",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.address.part.value",
+        "path": "getactivities.activityGroup.additionalParticipant.location.address.part.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.address.part.type",
+        "path": "getactivities.activityGroup.additionalParticipant.location.address.part.type",
+        "short": "type",
+        "definition": "type Tillåtna värden: AL, ADL, UNIT, UNID, DAL, DINSTA, DINSTQ, DINST, DMOD, DMODID, SAL, BNR, BNN, BNS, STR, STB, STTYP, DIR, INT, CAR, CEN, CNT, CPA, DEL, CTY, POB, ZIP, PRE, STA.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.electronicAddress",
+        "path": "getactivities.activityGroup.additionalParticipant.location.electronicAddress",
+        "short": "TelType",
+        "definition": "electronicAddress",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.electronicAddress.use",
+        "path": "getactivities.activityGroup.additionalParticipant.location.electronicAddress.use",
+        "short": "use",
+        "definition": "use Tillåtna värden: voice, fax, data, tty, sms.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.electronicAddress.value",
+        "path": "getactivities.activityGroup.additionalParticipant.location.electronicAddress.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -576,41 +1114,58 @@
       {
         "id": "getactivities.activityGroup.sourceSystem",
         "path": "getactivities.activityGroup.sourceSystem",
-        "short": "Källsystem",
+        "short": "SourceSystemType",
         "definition": "Källsystem som aktivitetsgruppen lagras i.",
         "comment": "TKB-fält: `sourceSystem` (`SourceSystemType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.sourceSystem.sourceSystemId",
-        "path": "getactivities.activityGroup.sourceSystem.sourceSystemId",
-        "short": "HSA-id för källsystem",
-        "definition": "HSA-id för källsystemet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.sourceSystem.id",
+        "path": "getactivities.activityGroup.sourceSystem.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.careProcessId",
+        "path": "getactivities.activityGroup.careProcessId",
+        "short": "careProcessId",
+        "definition": "UUID för den individanpassade vårdprocess som denna aktivitet ingår i",
+        "comment": "TKB-fält: `careProcessId` (`UUIDType`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/UUIDType"
+            ]
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity",
         "path": "getactivities.activityGroup.activity",
-        "short": "Aktiviteter i gruppen",
+        "short": "ActivityType",
         "definition": "De aktiviteter som ligger inom denna grupp av aktiviteter.",
         "comment": "TKB-fält: `activity` (`ActivityType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ],
         "constraint": [
@@ -618,73 +1173,268 @@
             "key": "getactivities-activity-time-when-performed",
             "severity": "error",
             "human": "time ska anges när status är utförd (SNOMED CT 398166005) eller saknas (TKB Regel 2.3).",
-            "expression": "(status.empty() or status.coding.where(code = '398166005').exists()) implies time.exists()",
+            "expression": "(status.empty() or status.where(code = '398166005').exists()) implies time.exists()",
             "source": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.activityId",
-        "path": "getactivities.activityGroup.activity.activityId",
-        "short": "Unik identifierare för aktiviteten",
-        "definition": "En unik identifierare för aktiviteten (IIType). Ska vara konsistent och beständig\nmellan majorversioner av kontrakt och mellan kontrakt.\nroot = källsystemets HSA-id.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.activity.id",
+        "path": "getactivities.activityGroup.activity.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getactivities.activityGroup.activity.code",
-        "path": "getactivities.activityGroup.activity.code",
-        "short": "Typ av aktivitet",
-        "definition": "Kod för den typ av aktivitet som avses (CVType), exempelvis KVÅ-kod för åtgärd.\nAntingen code eller description måste finnas (teknisk implementation kräver code).\nKardinalitet: Obligatorisk.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.status",
         "path": "getactivities.activityGroup.activity.status",
-        "short": "Aktivitetens status",
-        "definition": "Kod för aktivitetens status, t.ex. planerad eller utförd (CVType).\nKodas enligt SNOMED CT refset aktivitetsstatus (SCTID: 56421000052109).\ncodeSystem = 1.2.752.116.2.1.1 (snomed-ct-se).\nOm statuskoden utelämnas antas aktiviteten vara utförd.\nKardinalitet: Valfri.",
+        "short": "CVType",
+        "definition": "status",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.status.code",
+        "path": "getactivities.activityGroup.activity.status.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.status.codeSystem",
+        "path": "getactivities.activityGroup.activity.status.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.status.codeSystemName",
+        "path": "getactivities.activityGroup.activity.status.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.status.codeSystemVersion",
+        "path": "getactivities.activityGroup.activity.status.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.status.displayName",
+        "path": "getactivities.activityGroup.activity.status.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code",
+        "path": "getactivities.activityGroup.activity.code",
+        "short": "CVType",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code.code",
+        "path": "getactivities.activityGroup.activity.code.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code.codeSystem",
+        "path": "getactivities.activityGroup.activity.code.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code.codeSystemName",
+        "path": "getactivities.activityGroup.activity.code.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code.codeSystemVersion",
+        "path": "getactivities.activityGroup.activity.code.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code.displayName",
+        "path": "getactivities.activityGroup.activity.code.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.targetSite",
         "path": "getactivities.activityGroup.activity.targetSite",
-        "short": "Lokalisation",
-        "definition": "Angivelse av lokalisation (CVType) — anatomi, funktion eller system.\nAnvänds om inte type-attributet innefattar tillräcklig information.\nKardinalitet: Valfri.",
+        "short": "CVType",
+        "definition": "targetSite",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.targetSite.code",
+        "path": "getactivities.activityGroup.activity.targetSite.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.targetSite.codeSystem",
+        "path": "getactivities.activityGroup.activity.targetSite.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.targetSite.codeSystemName",
+        "path": "getactivities.activityGroup.activity.targetSite.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.targetSite.codeSystemVersion",
+        "path": "getactivities.activityGroup.activity.targetSite.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.targetSite.displayName",
+        "path": "getactivities.activityGroup.activity.targetSite.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.time",
         "path": "getactivities.activityGroup.activity.time",
-        "short": "Tidsperiod för aktiviteten",
-        "definition": "Tidsperiod för aktiviteten (PartialTimePeriodType). Om aktiviteten skedde vid en tidpunkt\nsätts sluttid till samma tid som starttid. Minst en av start och end måste vara angiven.\nObligatorisk om status är utförd (398166005) eller saknas. Se Regel 2.3.\nKardinalitet: Villkorlig.",
+        "short": "PartialTimePeriodType",
+        "definition": "time",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Period"
+            "code": "Base"
           }
         ],
         "constraint": [
@@ -698,23 +1448,172 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.method",
-        "path": "getactivities.activityGroup.activity.method",
-        "short": "Tillvägagångssätt",
-        "definition": "Kod för typ av tillvägagångssätt för genomförandet av aktiviteten (CVType).\nKardinalitet: Valfri.",
+        "id": "getactivities.activityGroup.activity.time.start",
+        "path": "getactivities.activityGroup.activity.time.start",
+        "short": "PartialTimeStampType",
+        "definition": "start",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.time.start.format",
+        "path": "getactivities.activityGroup.activity.time.start.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.time.start.value",
+        "path": "getactivities.activityGroup.activity.time.start.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.time.end",
+        "path": "getactivities.activityGroup.activity.time.end",
+        "short": "PartialTimeStampType",
+        "definition": "end",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.time.end.format",
+        "path": "getactivities.activityGroup.activity.time.end.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.time.end.value",
+        "path": "getactivities.activityGroup.activity.time.end.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method",
+        "path": "getactivities.activityGroup.activity.method",
+        "short": "CVType",
+        "definition": "method",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method.code",
+        "path": "getactivities.activityGroup.activity.method.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method.codeSystem",
+        "path": "getactivities.activityGroup.activity.method.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method.codeSystemName",
+        "path": "getactivities.activityGroup.activity.method.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method.codeSystemVersion",
+        "path": "getactivities.activityGroup.activity.method.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method.displayName",
+        "path": "getactivities.activityGroup.activity.method.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.description",
         "path": "getactivities.activityGroup.activity.description",
-        "short": "Fritextbeskrivning av aktiviteten",
-        "definition": "Fritextbeskrivning av aktiviteten som kompletterar kodbeteckningen.\nKardinalitet: Valfri.",
+        "short": "description",
+        "definition": "description",
         "min": 0,
         "max": "1",
         "type": [
@@ -726,8 +1625,8 @@
       {
         "id": "getactivities.activityGroup.activity.approvedForPatient",
         "path": "getactivities.activityGroup.activity.approvedForPatient",
-        "short": "Menprövad — information får delas till patient",
-        "definition": "Anger om information får delas till patient (menprövad).\ntrue = informationen får delas, false = informationen ska inte delas.\nKardinalitet: Obligatorisk.",
+        "short": "approvedForPatient",
+        "definition": "approvedForPatient",
         "min": 1,
         "max": "1",
         "type": [
@@ -739,86 +1638,183 @@
       {
         "id": "getactivities.activityGroup.activity.registrationTime",
         "path": "getactivities.activityGroup.activity.registrationTime",
-        "short": "Dokumentationstidpunkt",
-        "definition": "När uppgiften registrerades i patientens journal (TimeStampType).\nKan skilja sig från signeringstidpunkt i LegalAuthenticator.\nKardinalitet: Obligatorisk.",
+        "short": "registrationTime",
+        "definition": "registrationTime",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "instant"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.relation",
         "path": "getactivities.activityGroup.activity.relation",
-        "short": "Typade samband till andra informationsmängder",
-        "definition": "Beskriver typade samband till andra informationsmängder (RelationType).\nExempelvis kan en post-operativ infektion ha ett samband till en tidigare operation.\nKardinalitet: Valfri, lista.",
+        "short": "RelationType",
+        "definition": "relation",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.relation.code",
         "path": "getactivities.activityGroup.activity.relation.code",
-        "short": "Typ av relation",
-        "definition": "Anger vilken typ av relation den refererade informationen har till hämtad aktivitet (CVType).\nKardinalitet: Obligatorisk.",
+        "short": "CVType",
+        "definition": "code",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.code.code",
+        "path": "getactivities.activityGroup.activity.relation.code.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.code.codeSystem",
+        "path": "getactivities.activityGroup.activity.relation.code.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.code.codeSystemName",
+        "path": "getactivities.activityGroup.activity.relation.code.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.code.codeSystemVersion",
+        "path": "getactivities.activityGroup.activity.relation.code.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.code.displayName",
+        "path": "getactivities.activityGroup.activity.relation.code.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.relation.referredInformation",
         "path": "getactivities.activityGroup.activity.relation.referredInformation",
-        "short": "Refererad information",
-        "definition": "Den refererade externa informationen (ReferredInformationType).\nKardinalitet: Obligatorisk.",
+        "short": "ReferredInformationType",
+        "definition": "referredInformation",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.relation.referredInformation.referredInformationId",
-        "path": "getactivities.activityGroup.activity.relation.referredInformation.referredInformationId",
-        "short": "Id för refererad information",
-        "definition": "Den refererade externa informationens identitet (IIType).\nroot = HSA-id för källsystem.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.id",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.relation.referredInformation.time",
         "path": "getactivities.activityGroup.activity.relation.referredInformation.time",
-        "short": "Starttid av refererad information",
-        "definition": "Starttid av refererad information (PartialTimeStampType). Se Regel 2.5 — ska kunna\nanvändas som inparameter i ett tidsintervallbaserat sökvillkor till den relaterade tjänsten.\nKardinalitet: Obligatorisk.",
+        "short": "PartialTimeStampType",
+        "definition": "time",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.time.format",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.time.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.time.value",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.time.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.relation.referredInformation.type",
         "path": "getactivities.activityGroup.activity.relation.referredInformation.type",
-        "short": "Typ av refererad information",
-        "definition": "Typ av uppgift i patientjournal (Categorization-kod från engagemangsindex).\nExempel: 'chb-o' (observation), 'caa-ga' (aktivitet).\nKardinalitet: Obligatorisk.",
+        "short": "type",
+        "definition": "type",
         "min": 1,
         "max": "1",
         "type": [
@@ -830,47 +1826,47 @@
       {
         "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner",
         "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner",
-        "short": "Informationsägare",
-        "definition": "Vårdgivare som är informationsägare av den refererade informationen (InformationOwnerType).\nKardinalitet: Obligatorisk.",
+        "short": "InformationOwnerType",
+        "definition": "informationOwner",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.informationOwnerId",
-        "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.informationOwnerId",
-        "short": "Informationsägarens HSA-id",
-        "definition": "Informationsägare av refererad information (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.additionalInformation",
         "path": "getactivities.activityGroup.activity.additionalInformation",
-        "short": "Ytterligare information",
-        "definition": "Ytterligare information kopplad till aktiviteten (AdditionalInformationType).\nKardinalitet: Valfri, lista.",
+        "short": "AdditionalInformationType",
+        "definition": "additionalInformation",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getactivities.activityGroup.activity.additionalInformation.key",
         "path": "getactivities.activityGroup.activity.additionalInformation.key",
-        "short": "Nyckel för ytterligare information",
-        "definition": "Typ av ytterligare information. Tillåtna värden: 'Planeringstid' eller 'Orsak'.\nKardinalitet: Obligatorisk.",
+        "short": "key",
+        "definition": "key",
         "min": 1,
         "max": "1",
         "type": [
@@ -882,9 +1878,265 @@
       {
         "id": "getactivities.activityGroup.activity.additionalInformation.value",
         "path": "getactivities.activityGroup.activity.additionalInformation.value",
-        "short": "Värde för ytterligare information",
-        "definition": "Värde för ytterligare information. Planeringstid = PartialTimeStampType-format.\nOrsak = kod enligt CVType.\nKardinalitet: Obligatorisk.",
+        "short": "ValueANYType",
+        "definition": "value",
         "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.pq",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.pq",
+        "short": "PQType",
+        "definition": "pq",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.pq.value",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.pq.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "decimal"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.pq.unit",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.pq.unit",
+        "short": "unit",
+        "definition": "unit",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ts",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ts",
+        "short": "PartialTimeStampType",
+        "definition": "ts",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ts.format",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ts.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ts.value",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ts.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts",
+        "short": "PartialTimePeriodType",
+        "definition": "ivl_ts",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start",
+        "short": "PartialTimeStampType",
+        "definition": "start",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.format",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.value",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end",
+        "short": "PartialTimeStampType",
+        "definition": "end",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.format",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.format",
+        "short": "format",
+        "definition": "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.value",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.value",
+        "short": "value",
+        "definition": "value",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.cv",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.cv",
+        "short": "CVType",
+        "definition": "cv",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.cv.code",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.cv.code",
+        "short": "code",
+        "definition": "code",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystem",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystem",
+        "short": "codeSystem",
+        "definition": "codeSystem",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemName",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemName",
+        "short": "codeSystemName",
+        "definition": "codeSystemName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemVersion",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemVersion",
+        "short": "codeSystemVersion",
+        "definition": "codeSystemVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value.cv.displayName",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value.cv.displayName",
+        "short": "displayName",
+        "definition": "displayName",
+        "min": 0,
         "max": "1",
         "type": [
           {

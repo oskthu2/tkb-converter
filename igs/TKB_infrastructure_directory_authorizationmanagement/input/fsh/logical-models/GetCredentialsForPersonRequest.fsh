@@ -1,3 +1,6 @@
+// Elementen genereras ur GetCredentialsForPersonResponder_2.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:authorizationmanagement v2.4.4
 // Kontrakt: GetCredentialsForPerson v2.2 — Request
 // Genererad: 2026-05-19
@@ -12,18 +15,21 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.2"
+* personHsaId 0..1 string "personHsaId" "personHsaId"
+* personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"
+* searchBase 0..1 string "searchBase" "searchBase"
+* searchBase only DNType
+* includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+* profile 0..1 string "profile" "profile"
+* obeys getcredentialsforpersonrequest-choice-1
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
 * obeys getcredentialsforperson-request-hsaid-xor-pnr
-* personHsaId 0..1 string "Unik identifierare för personen vars behörighetsegenskaper söks ut"
-  """
-  Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
-  """
-* personalIdentityNumber 0..1 string "Person-id för personen vars behörighetsegenskaper söks ut"
-  """
-  Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
-  """
-* searchBase 0..1 string "Sökbas (DN). Om ej angiven används c=SE."
-* includeFeignedObject 0..1 boolean "true: leverera svar med fingerade objekt"
-* profile 0..1 string "Profilval — 'extended1' returnerar även personalIdentity"
+
+Invariant: getcredentialsforpersonrequest-choice-1
+Description: "Exakt ett av personHsaId, personalIdentityNumber ska anges (xs:choice i schemat)."
+Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error
 
 Invariant: getcredentialsforperson-request-hsaid-xor-pnr
 Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges."

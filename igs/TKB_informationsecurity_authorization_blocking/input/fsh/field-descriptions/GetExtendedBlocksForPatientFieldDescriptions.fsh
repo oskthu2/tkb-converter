@@ -3,27 +3,25 @@
 
 RuleSet: GetExtendedBlocksForPatientFieldDescriptions
 * getExtendedBlocksResult ^definition = "Svaret består av en spärrlista enligt det utökade, lokala spärrformatet."
-* getExtendedBlocksResult ^comment = "TKB-fält: `getExtendedBlocksResult` (`urn:riv:informationsecurity:authorization:blocking:4:GetExtendedBlocksResultType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som innehåller resultatet från tjänsten GetExtendedBlocksForPatient. Datatypen utökar datatypen Result."
+* getExtendedBlocksResult ^comment = "TKB-fält: `getExtendedBlocksResult` (`urn:riv:informationsecurity:authorization:blocking:4:GetExtendedBlocksResultType`, kardinalitet 1..1)."
 * getExtendedBlocksResult.result ^definition = "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
 * getExtendedBlocksResult.result ^comment = "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1)."
-* getExtendedBlocksResult.result.resultCode ^comment = "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1)."
+* getExtendedBlocksResult.result.resultCode ^comment = "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
 * getExtendedBlocksResult.result.resultText ^comment = "TKB-fält: `../../resultText` (`string`, kardinalitet 0..1)."
 * getExtendedBlocksResult.blocks ^definition = "Datatyp som representerar en spärr enligt det utökade formatet."
 * getExtendedBlocksResult.blocks ^comment = "TKB-fält: `../blocks` (`ExtendedBlockType`, kardinalitet 0..*)."
 * getExtendedBlocksResult.blocks.blockId ^comment = "TKB-fält: `../../blockId` (`Id`, kardinalitet 1..1)."
-* getExtendedBlocksResult.blocks.blockType ^comment = "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1)."
+* getExtendedBlocksResult.blocks.blockType ^comment = "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).
+
+**Modellanteckning:** blockType Tillåtna värden: Inner, Outer."
 * getExtendedBlocksResult.blocks.informationStartDate ^comment = "TKB-fält: `../../informationStartDate` (`dateTime`, kardinalitet 0..1)."
 * getExtendedBlocksResult.blocks.informationEndDate ^comment = "TKB-fält: `../../informationEndDate` (`dateTime`, kardinalitet 0..1)."
 * getExtendedBlocksResult.blocks.informationCareUnitId ^comment = "TKB-fält: `../../informationCareUnitId` (`HsaId`, kardinalitet 0..1)."
 * getExtendedBlocksResult.blocks.informationCareProviderId ^comment = "TKB-fält: `../../informationCareProviderId` (`HsaId`, kardinalitet 1..1)."
 * getExtendedBlocksResult.blocks.patientId ^definition = "En universellt unik identifierare."
 * getExtendedBlocksResult.blocks.patientId ^comment = "TKB-fält: `../../patientId` (`IIType`, kardinalitet 1..1)."
-* getExtendedBlocksResult.blocks.patientId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* getExtendedBlocksResult.blocks.patientId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * getExtendedBlocksResult.blocks.excludedInformationTypes ^definition = "Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation"
 * getExtendedBlocksResult.blocks.excludedInformationTypes ^comment = "TKB-fält: `../../excludedInformationTypes` (`InformationTypeType`, kardinalitet 0..*)."
 * getExtendedBlocksResult.blocks.excludedInformationTypes.infoTypeId ^comment = "TKB-fält: `../../../infoTypeId` (`InformationTypeIdValue`, kardinalitet 1..1)."
@@ -79,7 +77,9 @@ RuleSet: GetExtendedBlocksForPatientFieldDescriptions
 * getExtendedBlocksResult.blocks.temporaryRevokes.endDate ^comment = "TKB-fält: `../../../endDate` (`dateTime`, kardinalitet 1..1)."
 * getExtendedBlocksResult.blocks.temporaryRevokes.revokedForCareUnitId ^comment = "TKB-fält: `../../../revokedForCareUnitId` (`HsaId`, kardinalitet 1..1)."
 * getExtendedBlocksResult.blocks.temporaryRevokes.revokedForEmployeeId ^comment = "TKB-fält: `../../../revokedForEmployeeId` (`HsaId`, kardinalitet 0..1)."
-* getExtendedBlocksResult.blocks.temporaryRevokes.revocationReason ^comment = "TKB-fält: `../../../revocationReason` (`TemporaryRevokeReasonType`, kardinalitet 0..1)."
+* getExtendedBlocksResult.blocks.temporaryRevokes.revocationReason ^comment = "TKB-fält: `../../../revocationReason` (`TemporaryRevokeReasonType`, kardinalitet 0..1).
+
+**Modellanteckning:** revocationReason Tillåtna värden: PatientsConsent, Emergency."
 * getExtendedBlocksResult.blocks.temporaryRevokes.revocationReasonText ^comment = "TKB-fält: `../../../revocationReasonText` (`ReasonText`, kardinalitet 0..1)."
 * getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo ^definition = "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
 * getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo ^comment = "TKB-fält: `../../../registrationInfo` (`ActionType`, kardinalitet 1..1)."

@@ -5,9 +5,7 @@ RuleSet: CancelExtendedConsentRequestFieldDescriptions
 * assertionId ^definition = "Identifierare för det intyg som skall avslutas."
 * assertionId ^comment = "TKB-fält: `assertionId` (`urn:riv:informationsecurity:authorization:consent:2:Id`, kardinalitet 1..1)."
 * cancellationAction ^definition = "Identifierar de personer som begärt och registrerat avslutandet samt tidpunkter för dessa. En anledning till avslutande i fritext kan även ges."
-* cancellationAction ^comment = "TKB-fält: `cancellationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* cancellationAction ^comment = "TKB-fält: `cancellationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1)."
 * cancellationAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * cancellationAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * cancellationAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

@@ -57,17 +57,21 @@ def lint_fsh(ig: Path, errors: list, warnings: list):
             for cr in re.findall(r"contentReference\s+#([\w\-]+)\.", text):
                 if cr != lid.group(1):
                     errors.append(f"{rel}: contentReference #{cr}.… — ska börja med modellens Id '{lid.group(1)}'")
-        base_paths = set(re.findall(r"^\*\s+([\w.]+)\s+\d+\.\.[\d*]+\s+Base\b", text, re.M))
+        base_paths = set(re.findall(r"^\*\s+([\w.\-]+)\s+\d+\.\.[\d*]+\s+Base\b", text, re.M))
+        # En genererad modell (scripts/xsd_logical_models.py) ärver Base även på rotnivå
+        if text.startswith("// Elementen genereras ur "):
+            base_paths.add("")
         for n, line in enumerate(text.splitlines(), 1):
             if re.search(r"\*\s+\^obeys", line):
                 errors.append(f"{rel}:{n}: '^obeys' — obeys tar aldrig caret (skriv '* obeys id')")
             if "logical-models" in f.parts:
-                rm = re.match(r"^\*\s+([\w.]+)\.\w+\s+\d+\.\.", line)
-                if RE_RESERVED_HARD.search(line) and not (rm and rm.group(1) in base_paths):
+                rm = re.match(r"^\*\s+(?:([\w.\-]+)\.)?[\w\-]+\s+\d+\.\.", line)
+                under_base = bool(rm) and (rm.group(1) or "") in base_paths
+                if RE_RESERVED_HARD.search(line) and not under_base:
                     errors.append(f"{rel}:{n}: reserverat elementnamn (krockar med Element) — {line.strip()}")
                 elif RE_RESERVED_SOFT.search(line):
                     warnings.append(f"{rel}:{n}: reserverat namn på rotnivå — prefixa enligt konvention: {line.strip()}")
-                if RE_SUBEL_TYPE.search(line):
+                if RE_SUBEL_TYPE.search(line) and not under_base:
                     errors.append(f"{rel}:{n}: fel typ på inbyggt Identifier/Coding-subelement — {line.strip()}")
             m = RE_RULE.match(line)
             if not m:
@@ -195,6 +199,12 @@ def lint_pages(ig: Path, errors: list, warnings: list):
     images = ig / "input" / "images"
     static = {p.name for p in images.iterdir()} if images.is_dir() else set()
     for name in sorted(static):
+        f = images / name
+        if f.suffix.lower() in (".xsd", ".wsdl", ".xml", ".docx", ".doc", ".pdf") and f.is_file():
+            with open(f, "rb") as fh:
+                headb = fh.read(400).lstrip(b"\xef\xbb\xbf \r\n\t").lower()
+            if headb.startswith((b"<!doctype html", b"<html")):
+                errors.append(f"{f}: filen är en HTML-sida (t.ex. Bitbuckets 'request_rate_limited'), inte källfilen — hämta om den (se tkb-fetch-convert)")
         if " " in name:
             warnings.append(f"{images}/{name}: mellanslag i filnamn — döp om innan filen länkas (check_links.py URL-avkodar inte)")
     page_names = {p.stem + ".html" for p in pages.glob("*.md")} | {"artifacts.html", "index.html"}

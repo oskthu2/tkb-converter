@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetInfoLogsForPatient\n(RIV-TA urn:riv:ehr:log:querying:GetInfoLogsForPatientResponder:1).\nRepresenterar responsens informationsstruktur (log.querying:InfoLogsResult).\nReturnerar lista för angiven informationsägande vårdgivare och patient med\nvilka externa vårdgivare som haft åtkomst till information."
       },
       {
-        "id": "getinfologsforpatient.result",
-        "path": "getinfologsforpatient.result",
-        "short": "Resultatkontainer",
-        "definition": "Resultatkontainer",
+        "id": "getinfologsforpatient.InfoLogsResultType",
+        "path": "getinfologsforpatient.InfoLogsResultType",
+        "short": "InfoLogsResultType",
+        "definition": "InfoLogsResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getinfologsforpatient.result.resultCode",
-        "path": "getinfologsforpatient.result.resultCode",
-        "short": "Statuskod",
-        "definition": "Statuskod",
+        "id": "getinfologsforpatient.InfoLogsResultType.Result",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getinfologsforpatient.InfoLogsResultType.Result.ResultCode",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,11 +71,11 @@
         }
       },
       {
-        "id": "getinfologsforpatient.result.resultText",
-        "path": "getinfologsforpatient.result.resultText",
-        "short": "Beskrivande text",
-        "definition": "Beskrivande text",
-        "min": 0,
+        "id": "getinfologsforpatient.InfoLogsResultType.Result.ResultText",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -71,10 +84,10 @@
         ]
       },
       {
-        "id": "getinfologsforpatient.result.startInterval",
-        "path": "getinfologsforpatient.result.startInterval",
-        "short": "Start på tillgängligt datumintervall",
-        "definition": "Start på tillgängligt datumintervall",
+        "id": "getinfologsforpatient.InfoLogsResultType.Result.StartInterval",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result.StartInterval",
+        "short": "StartInterval",
+        "definition": "StartInterval",
         "min": 0,
         "max": "1",
         "type": [
@@ -84,10 +97,10 @@
         ]
       },
       {
-        "id": "getinfologsforpatient.result.endInterval",
-        "path": "getinfologsforpatient.result.endInterval",
-        "short": "Slut på tillgängligt datumintervall",
-        "definition": "Slut på tillgängligt datumintervall",
+        "id": "getinfologsforpatient.InfoLogsResultType.Result.EndInterval",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result.EndInterval",
+        "short": "EndInterval",
+        "definition": "EndInterval",
         "min": 0,
         "max": "1",
         "type": [
@@ -97,10 +110,10 @@
         ]
       },
       {
-        "id": "getinfologsforpatient.result.queuedReportId",
-        "path": "getinfologsforpatient.result.queuedReportId",
-        "short": "Id för pågående rapport (UUID)",
-        "definition": "Id för pågående rapport (UUID)",
+        "id": "getinfologsforpatient.InfoLogsResultType.Result.QueuedReportId",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result.QueuedReportId",
+        "short": "QueuedReportId",
+        "definition": "QueuedReportId",
         "min": 0,
         "max": "1",
         "type": [
@@ -110,10 +123,10 @@
         ]
       },
       {
-        "id": "getinfologsforpatient.result.queueTime",
-        "path": "getinfologsforpatient.result.queueTime",
-        "short": "Uppskattad väntetid i sekunder",
-        "definition": "Uppskattad väntetid i sekunder",
+        "id": "getinfologsforpatient.InfoLogsResultType.Result.QueueTime",
+        "path": "getinfologsforpatient.InfoLogsResultType.Result.QueueTime",
+        "short": "QueueTime",
+        "definition": "QueueTime",
         "min": 0,
         "max": "1",
         "type": [
@@ -123,49 +136,49 @@
         ]
       },
       {
-        "id": "getinfologsforpatient.careProviders",
-        "path": "getinfologsforpatient.careProviders",
-        "short": "Samling av externa vårdgivare med åtkomst",
-        "definition": "Samling av externa vårdgivare med åtkomst",
+        "id": "getinfologsforpatient.InfoLogsResultType.CareProviders",
+        "path": "getinfologsforpatient.InfoLogsResultType.CareProviders",
+        "short": "CareProvidersType",
+        "definition": "CareProviders",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getinfologsforpatient.careProviders.careProvider",
-        "path": "getinfologsforpatient.careProviders.careProvider",
-        "short": "En extern vårdgivare",
-        "definition": "En extern vårdgivare",
+        "id": "getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider",
+        "path": "getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider",
+        "short": "CareProviderType",
+        "definition": "CareProvider",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getinfologsforpatient.careProviders.careProvider.careProviderId",
-        "path": "getinfologsforpatient.careProviders.careProvider.careProviderId",
-        "short": "HSA-id för den externa vårdgivaren",
-        "definition": "HSA-id för den externa vårdgivaren",
+        "id": "getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderId",
+        "path": "getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getinfologsforpatient.careProviders.careProvider.careProviderName",
-        "path": "getinfologsforpatient.careProviders.careProvider.careProviderName",
-        "short": "Den externa vårdgivarens namn",
-        "definition": "Den externa vårdgivarens namn",
+        "id": "getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderName",
+        "path": "getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderName",
+        "short": "CareProviderName",
+        "definition": "CareProviderName",
         "min": 0,
         "max": "1",
         "type": [

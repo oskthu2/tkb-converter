@@ -2,7 +2,9 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: SokVardandeEnhetFieldDescriptions
-* resultatkod ^comment = "TKB-fält: `resultatkod` (`ResultatkodEnum`, kardinalitet 1..1)."
+* resultatkod ^comment = "TKB-fält: `resultatkod` (`ResultatkodEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultatkod Tillåtna värden: 1, 2, 3."
 * meddelandetext ^comment = "TKB-fält: `meddelandetext` (`string`, kardinalitet 1..1)."
 * meddelandeid ^comment = "TKB-fält: `meddelandeid` (`int`, kardinalitet 1..1)."
 * dosaktor ^comment = "TKB-fält: `dosaktor` (`string`, kardinalitet 1..1)."

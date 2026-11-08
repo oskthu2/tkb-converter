@@ -7,7 +7,9 @@ RuleSet: SkapaVardtagareRequestFieldDescriptions
 * Behorighetsinformation.fornamn ^comment = "TKB-fält: `../fornamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.efternamn ^comment = "TKB-fält: `../efternamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.forskrivarkod ^comment = "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1)."
-* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1)."
+* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH."
 * Behorighetsinformation.arbetsplatskod ^comment = "TKB-fält: `../arbetsplatskod` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.hsaid ^comment = "TKB-fält: `../hsaid` (`string`, kardinalitet 0..1)."
 * Behorighetsinformation.personnummer ^comment = "TKB-fält: `../personnummer` (`string`, kardinalitet 0..1)."
@@ -16,7 +18,9 @@ RuleSet: SkapaVardtagareRequestFieldDescriptions
 * forskrivaresamtyckeefternamn ^comment = "TKB-fält: `forskrivaresamtyckeefternamn` (`string`, kardinalitet 1..1)."
 * forskrivaresamtyckeforskrivarkod ^comment = "TKB-fält: `forskrivaresamtyckeforskrivarkod` (`string`, kardinalitet 1..1)."
 * forskrivaresamtyckearbetsplatskod ^comment = "TKB-fält: `forskrivaresamtyckearbetsplatskod` (`string`, kardinalitet 1..1)."
-* forskrivaresamtyckeyrkeskod ^comment = "TKB-fält: `forskrivaresamtyckeyrkeskod` (`YrkesKodEnum`, kardinalitet 1..1)."
+* forskrivaresamtyckeyrkeskod ^comment = "TKB-fält: `forskrivaresamtyckeyrkeskod` (`YrkesKodEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** forskrivaresamtyckeyrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH."
 * Vardtagarinformation ^comment = "TKB-fält: `Vardtagarinformation` (`Vardtagarinformation`, kardinalitet 1..1)."
 * Vardtagarinformation.hemmaboende ^comment = "TKB-fält: `../hemmaboende` (`boolean`, kardinalitet 1..1)."
 * Vardtagarinformation.dosapoteksid ^comment = "TKB-fält: `../dosapoteksid` (`string`, kardinalitet 1..1)."
@@ -30,7 +34,9 @@ RuleSet: SkapaVardtagareRequestFieldDescriptions
 * Vardtagarinformation.Patientinformation.mellannamn ^comment = "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1)."
 * Vardtagarinformation.Patientinformation.efternamn ^definition = "Anvandarens efternamn."
 * Vardtagarinformation.Patientinformation.efternamn ^comment = "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1)."
-* Vardtagarinformation.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1)."
+* Vardtagarinformation.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S."
 * Vardtagarinformation.Patientinformation.personid ^definition = "Anvandarens personid"
 * Vardtagarinformation.Patientinformation.personid ^comment = "TKB-fält: `../../personid` (`string`, kardinalitet 1..1)."
 * Vardtagarinformation.Patientinformation.lanskod ^definition = "Anvandarens folkbokforda lanskod"
@@ -109,7 +115,9 @@ RuleSet: SkapaVardtagareRequestFieldDescriptions
 * Vardtagarinformation.Produktionsinfo.dosmottagareid ^comment = "TKB-fält: `../../dosmottagareid` (`string`, kardinalitet 0..1)."
 * Vardtagarinformation.Produktionsinfo.dosmottagarenamn ^comment = "TKB-fält: `../../dosmottagarenamn` (`string`, kardinalitet 0..1)."
 * Vardtagarinformation.Vardtagarstatus ^comment = "TKB-fält: `../Vardtagarstatus` (`Vardtagarstatusinfo`, kardinalitet 0..*)."
-* Vardtagarinformation.Vardtagarstatus.statuskod ^comment = "TKB-fält: `../../statuskod` (`VardtagarStatusEnum`, kardinalitet 1..1)."
+* Vardtagarinformation.Vardtagarstatus.statuskod ^comment = "TKB-fält: `../../statuskod` (`VardtagarStatusEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** statuskod Tillåtna värden: 1, 2, 3, 4, 5, 6."
 * Vardtagarinformation.Vardtagarstatus.frantid ^comment = "TKB-fält: `../../frantid` (`dateTime`, kardinalitet 0..1)."
 * Vardtagarinformation.Vardtagarstatus.tilltid ^comment = "TKB-fält: `../../tilltid` (`dateTime`, kardinalitet 0..1)."
 * Vardtagarinformation.vilandestatusorsak ^comment = "TKB-fält: `../vilandestatusorsak` (`string`, kardinalitet 0..*)."

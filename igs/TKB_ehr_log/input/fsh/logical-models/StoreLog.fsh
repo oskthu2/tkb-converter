@@ -1,3 +1,6 @@
+// Elementen genereras ur StoreLogResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:log v1.2.3
 // Kontrakt: StoreLog v1.0
 // Namnrymd: urn:riv:ehr:log:store:StoreLogResponder:1
@@ -16,15 +19,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 code "Resultatkod för lagringen"
-    """
-    Statuskod som anger om loggposter sparats korrekt eller om fel uppstått.
-    Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED.
-    Kardinalitet: Obligatorisk.
-    """
-* resultCode from ResultCodeVS (required)
-* resultText 0..1 string "Beskrivande text till resultatkoden"
-    """
-    Fritext som beskriver resultatet eller felorsaken.
-    Kardinalitet: Valfri.
-    """
+* ResultType 1..1 Base "ResultType" "ResultType"
+* ResultType.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED."
+* ResultType.ResultCode from ResultCodeVS (required)
+* ResultType.ResultText 1..1 string "ResultText" "ResultText"

@@ -3,7 +3,4 @@
 
 RuleSet: GetListingTypesFieldDescriptions
 * listingType ^definition = "Lista med koder som avser listningstyper, t.ex. BVC."
-* listingType ^comment = "TKB-fält: `listingType` (`string (ListingType)`, kardinalitet 0..*).
-
-**Modellanteckning:** Lista med koder som avser listningstyper, t.ex. BVC.
-Listningstyp saknar centralt kodverk — värden är fritext (se QUESTIONS.md)."
+* listingType ^comment = "TKB-fält: `listingType` (`string (ListingType)`, kardinalitet 0..*)."

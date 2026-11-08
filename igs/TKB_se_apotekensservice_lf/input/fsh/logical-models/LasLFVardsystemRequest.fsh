@@ -1,3 +1,6 @@
+// Elementen genereras ur LasLFVardsystemResponder_4.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.lf v7.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: LasLFVardsystem v4.1
 // Genererad: 2026-09-26
@@ -48,7 +51,6 @@ Characteristics: #can-be-target
   * system 1..1 string "system" "Systemnamn för anropande system. GLN-kod krävs för anrop från MVK och LTj."
 * personnummer 1..1 string "personnummer" "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert LasLFVardsystemRequestFieldDescriptions
 
 Invariant: laslfvardsystem-request-arbetsplats

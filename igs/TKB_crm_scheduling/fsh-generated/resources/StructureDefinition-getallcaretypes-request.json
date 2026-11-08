@@ -30,23 +30,23 @@
       {
         "id": "getallcaretypes-request.healthcare_facility",
         "path": "getallcaretypes-request.healthcare_facility",
-        "short": "HSA-id för mottagning/vårdenhet",
+        "short": "healthcare_facility",
         "definition": "HSA-id för mottagning/vårdenhet.",
         "comment": "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getallcaretypes-request.timeTypeIDs",
         "path": "getallcaretypes-request.timeTypeIDs",
-        "short": "Lista med tidstyper",
+        "short": "timeTypeIDs",
         "definition": "Lista med tidstyper.",
-        "comment": "TKB-fält: `timeTypeIDs` (`TimeTypeIDType (string)`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med tidstyper för att filtrera svarslistan.",
+        "comment": "TKB-fält: `timeTypeIDs` (`TimeTypeIDType (string)`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -58,28 +58,31 @@
       {
         "id": "getallcaretypes-request.performer",
         "path": "getallcaretypes-request.performer",
-        "short": "HSA-id för medarbetaren",
+        "short": "performer",
         "definition": "HSA-id för medarbetaren.",
-        "comment": "TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..*).\n\n**Modellanteckning:** HSA-id för medarbetaren för att filtrera svarslistan.",
+        "comment": "TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getallcaretypes-request.subject_of_care",
         "path": "getallcaretypes-request.subject_of_care",
-        "short": "Personnummer enl. yyyymmddxxxx",
+        "short": "subject_of_care",
         "definition": "Personnummer enl. yyyymmddxxxx.",
-        "comment": "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** Personnummer för invånaren.",
+        "comment": "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType"
+            ]
           }
         ]
       }

@@ -1,3 +1,6 @@
+// Elementen genereras ur CheckPatientRelationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: CheckPatientRelation v1.0 — Request
 // Genererad: 2026-05-19
@@ -22,5 +25,4 @@ Characteristics: #can-be-target
   Personnummer eller samordningsnummer för den patient vars information aktören önskar åtkomst till.
   """
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CheckPatientRelationRequestFieldDescriptions

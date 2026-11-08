@@ -3,28 +3,16 @@
 
 RuleSet: GetPersonQueueStatusFieldDescriptions
 * queueStatus ^definition = "Köstatus: `inQueue` (i kö) eller `notInQueue` (inte i kö)."
-* queueStatus ^comment = "TKB-fält: `queueStatus` (`code (PersonQueueStatus)`, kardinalitet 1..1).
+* queueStatus ^comment = "TKB-fält: `queueStatus` (`code (PersonQueueStatus)`, kardinalitet 1..1)."
+* healthcare_facility ^definition = "Vårdenhet vars köstatus gäller."
+* healthcare_facility ^comment = "TKB-fält: `healthcare_facility` (`Facility`, kardinalitet 0..1)."
+* healthcare_facility.facilityId ^definition = "HSA-ID för vårdenheten."
+* healthcare_facility.facilityId ^comment = "TKB-fält: `healthcare_facility.facilityId` (`string (HsaIdType)`, kardinalitet 1..1)."
+* healthcare_facility.hasQueue ^definition = "Indikerar om vårdenheten har kö."
+* healthcare_facility.hasQueue ^comment = "TKB-fält: `healthcare_facility.hasQueue` (`boolean`, kardinalitet 0..1)."
+* healthcare_facility.supportedListingTypes ^definition = "Lista med listningstyper som vårdenheten stödjer."
+* healthcare_facility.supportedListingTypes ^comment = "TKB-fält: `healthcare_facility.supportedListingTypes` (`string (ListingType)`, kardinalitet 0..*).
 
-**Modellanteckning:** Köstatus för personen i fråga.
-Tillåtna värden: inQueue (i kö) eller notInQueue (inte i kö).
-Kodverk: PersonQueueStatusVS."
-* healthcareFacility ^definition = "Vårdenhet vars köstatus gäller."
-* healthcareFacility ^comment = "TKB-fält: `healthcare_facility` (`Facility`, kardinalitet 0..1).
-
-**Modellanteckning:** Facility: vårdenhet där eventuell köstatus föreligger.
-Utelämnas om personen inte är i kö."
-* healthcareFacility.facilityId ^definition = "HSA-ID för vårdenheten."
-* healthcareFacility.facilityId ^comment = "TKB-fält: `healthcare_facility.facilityId` (`string (HsaIdType)`, kardinalitet 1..1).
-
-**Modellanteckning:** HSA-ID för vårdenheten.
-System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id)."
-* healthcareFacility.facilityName ^definition = "Namn på vårdenheten."
-* healthcareFacility.facilityName ^comment = "TKB-fält: `healthcare_facility.facilityName` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** Enhetens officiella namn."
-* healthcareFacility.hasQueue ^definition = "Indikerar om vårdenheten har kö."
-* healthcareFacility.hasQueue ^comment = "TKB-fält: `healthcare_facility.hasQueue` (`boolean`, kardinalitet 0..1).
-
-**Modellanteckning:** Boolskt värde som indikerar om vårdenheten har kö."
-* healthcareFacility.supportedListingTypes ^definition = "Lista med listningstyper som vårdenheten stödjer."
-* healthcareFacility.supportedListingTypes ^comment = "TKB-fält: `healthcare_facility.supportedListingTypes` (`string (ListingType)`, kardinalitet 0..*)."
+**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i."
+* healthcare_facility.facilityName ^definition = "Namn på vårdenheten."
+* healthcare_facility.facilityName ^comment = "TKB-fält: `healthcare_facility.facilityName` (`string`, kardinalitet 1..1)."

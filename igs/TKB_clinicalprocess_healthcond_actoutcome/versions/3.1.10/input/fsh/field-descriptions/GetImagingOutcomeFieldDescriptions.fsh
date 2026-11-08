@@ -19,71 +19,11 @@ Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett ex
 * imagingOutcome.imagingOutcomeHeader.documentTime ^definition = "Händelsetidpunkt, om sådan finns. Tidpunkten bör vara då undersökningen gjordes inte när bilden skapades (t.ex. skannad bild)."
 * imagingOutcome.imagingOutcomeHeader.documentTime ^comment = "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeHeader.patientId ^definition = "Identifierare för patient."
-* imagingOutcome.imagingOutcomeHeader.patientId ^comment = "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).
-
-**Modellanteckning:** Identifierare för patient.
-RIV-TA-typ: PersonIdType. Kardinalitet i TKB: 1..1.
-Delelement enligt TKB:
-- id (string, 1..1): Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck.
-- type (string, 1..1): OID för typ av identifierare. För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3)"
+* imagingOutcome.imagingOutcomeHeader.patientId ^comment = "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."
 * imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional ^definition = "Ansvarig hälso- och sjukvårdsperson. Ansvarig för undersökningsresultatet. Avser person som är ansvarig för det samlade dokumentet."
 * imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional ^comment = "TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.authorTime ^definition = "Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. Registreringstidpunkt i NPÖ riv-spec 2.2.0 avsnitt 5.3"
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.authorTime ^comment = "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId ^definition = "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName ^definition = "Namn på hälso-och sjukvårdspersonal. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName ^comment = "TKB-fält: `../../../healthcareProfessionalName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^definition = "Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^comment = "TKB-fält: `../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText.
-RIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.
-Delelement enligt TKB:
-- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.
-- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.
-- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.
-- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.
-- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.
-- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^definition = "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^comment = "TKB-fält: `../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^definition = "HSA-id för organisationsenhet. Om tillgängligt ska detta anges. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.)"
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^comment = "TKB-fält: `../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^definition = "Namn på organisationsenhet. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^comment = "TKB-fält: `../../../../orgUnitName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^definition = "Telefon till organisationsenhet."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^comment = "TKB-fält: `../../../../orgUnitTelecom` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^definition = "Epost till organisationsenhet."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^comment = "TKB-fält: `../../../../orgUnitEmail` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^definition = "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:
-
-”Storgatan 12
-
-468 91 Lilleby”"
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^comment = "TKB-fält: `../../../../orgUnitAddress` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^definition = "Text som anger namnet på plats eller ort för organisationens fysiska placering."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^comment = "TKB-fält: `../../../../orgUnitLocation` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^definition = "HSA-id för informationsägande vårdenhet (pdl-ansvar). Ska anges om tillgänglig. [Regel 2]"
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalCareUnitHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^definition = "HSA-id för informationsägande vårdgivare (pdl-ansvar). Ska anges om tillgänglig. [Regel 2]"
-* imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalCareGiverHSAId` (`HSAIdType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeHeader.legalAuthenticator ^definition = "Information om vem som signerat informationen i dokumentet. Det är normalt radiologen som signerar bilddiagnostiska svar. Signering = signering av remissvar. Vidimering anges i attributet attested i bodyn."
 * imagingOutcome.imagingOutcomeHeader.legalAuthenticator ^comment = "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.signatureTime ^definition = "Tidpunkt för signering."
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.signatureTime ^comment = "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).
-
-**Modellanteckning:** Tidpunkt för signering.
-RIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1."
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAId ^definition = "HSA-id för person som signerat dokumentet. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig"
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAId ^comment = "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorName ^definition = "Namnen i klartext för signerande person."
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorName ^comment = "TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorRoleCode ^definition = "Ska ej anges"
-* imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorRoleCode ^comment = "TKB-fält: `../../../legalAuthenticatorRoleCode` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
 * imagingOutcome.imagingOutcomeHeader.approvedForPatient ^definition = "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false."
 * imagingOutcome.imagingOutcomeHeader.approvedForPatient ^comment = "TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1)."
 * imagingOutcome.imagingOutcomeHeader.careContactId ^definition = "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet"
@@ -92,9 +32,7 @@ RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
 * imagingOutcome.imagingOutcomeHeader.nullified ^comment = "TKB-fält: `../../nullified` (`boolean`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeHeader.nullifiedReason ^definition = "Anger orsak till makulering"
 * imagingOutcome.imagingOutcomeHeader.nullifiedReason ^comment = "TKB-fält: `../../nullifiedReason` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody ^comment = "TKB-fält: `../imagingOutcomeBody` (`ImagingOutcomeBodyType`, kardinalitet 1..1).
-
-**Modellanteckning:** RIV-TA-typ: ImagingOutcomeBodyType. Kardinalitet i TKB: 1..1."
+* imagingOutcome.imagingOutcomeBody ^comment = "TKB-fält: `../imagingOutcomeBody` (`ImagingOutcomeBodyType`, kardinalitet 1..1)."
 * imagingOutcome.imagingOutcomeBody.examinationSpeciality ^definition = "Undersökningstyp. Bör anges med kod enligt SNOMED.
 
 Text som beskriver vilken specialitet som utlåtandet gäller.Exempel:
@@ -147,56 +85,6 @@ En bildtagning kan i sin tur ha flera bilder"
 * imagingOutcome.imagingOutcomeBody.imageRecording.examinationUnit ^comment = "TKB-fält: `../../../examinationUnit` (`string`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional ^definition = "Hälso- och sjukvårdsperson som är ansvarig för informationen som härstammar från insamlingstillfället. Den person som har den fysiska kontakten med patienten vid insamlandet av data."
 * imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional ^comment = "TKB-fält: `../../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.authorTime ^definition = "Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. Registreringstidpunkt i NPÖ riv-spec 2.2.0 avsnitt 5.3
-
-Attributet sätts till detsamma som examinationTimePeriod.end, eller .start i de fall som inget .end finns"
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.authorTime ^comment = "TKB-fält: `../../../../authorTime` (`TimeStampType`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalHSAId ^definition = "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalHSAId ^comment = "TKB-fält: `../../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalName ^definition = "Namn på hälso-och sjukvårdspersonal. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalName ^comment = "TKB-fält: `../../../../healthcareProfessionalName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^definition = "Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5].
-
-Om kodverk saknas anges befattning i originalText."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^comment = "TKB-fält: `../../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. / Om kodverk saknas anges befattning i originalText.
-RIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.
-Delelement enligt TKB:
-- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.
-- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.
-- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.
-- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.
-- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.
-- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^definition = "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^comment = "TKB-fält: `../../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^definition = "HSA-id för organisationsenhet. Om tillgängligt ska detta anges. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.)"
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^comment = "TKB-fält: `../../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^definition = "Namn på organisationsenhet. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^comment = "TKB-fält: `../../../../../orgUnitName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^definition = "Telefon till organisationsenhet."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^comment = "TKB-fält: `../../../../../orgUnitTelecom` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^definition = "Epost till organisationsenhet."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^comment = "TKB-fält: `../../../../../orgUnitEmail` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^definition = "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:
-
-”Storgatan 12
-
-468 91 Lilleby”"
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^comment = "TKB-fält: `../../../../../orgUnitAddress` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^definition = "Text som anger namnet på plats eller ort för organisationens fysiska placering."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^comment = "TKB-fält: `../../../../../orgUnitLocation` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^definition = "Ska ej anges"
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^comment = "TKB-fält: `../../../../healthcareProfessionalCareUnitHSAId` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^definition = "Ska ej anges"
-* imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^comment = "TKB-fält: `../../../../healthcareProfessionalCareGiverHSAId` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
 * imagingOutcome.imagingOutcomeBody.imageRecording.numberOfImages ^definition = "Det totala antalet bilder i bildtagningen"
 * imagingOutcome.imagingOutcomeBody.imageRecording.numberOfImages ^comment = "TKB-fält: `../../../numberOfImages` (`int`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.modalityData ^definition = "Information om bild-utrustningen som använts"
@@ -212,10 +100,7 @@ RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
 * imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.softwareVersion ^definition = "Text som anger tillverkarens version av den bildproducerande mjukvaran"
 * imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.softwareVersion ^comment = "TKB-fält: `../../../../softwareVersion` (`string`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter ^definition = "Ska ej anges."
-* imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter ^comment = "TKB-fält: `../../../../lineFilter` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges.
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
+* imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter ^comment = "TKB-fält: `../../../../lineFilter` (kardinalitet 0..0)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData ^definition = "DICOM-objekt. För att ge renderbar data som kan visas på det sätt som användaren önskar (med hjälp av en viewer/renderare) ges möjligheten att skicka med binärdata eller en URI till ett DICOM-objekt i någon av SOP-klasserna för Bild.
 
 Både imageDicomData och ImageStaticData kan, och om möjligt bör anges för att underlätta för konsument."
@@ -231,37 +116,27 @@ T.ex. 1.2.840.10008.5.1.4.1.1.1.1 för digital x-ray for presentation"
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData ^definition = "Strukturerad mätdata för bild-tagningen med statiskt bildobjekt eller referens till bildfil."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData ^comment = "TKB-fält: `../../../imageStructuredData` (`ImageStructuredDataType`, kardinalitet 0..*)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture ^definition = "Anges som f/(enhetslöst)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture ^comment = "TKB-fält: `../../../../aperture` (`PQType`, kardinalitet 0..1).
-
-**Modellanteckning:** Anges som f/(enhetslöst).
-RIV-TA-typ: PQType. Kardinalitet i TKB: 0..1."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture ^comment = "TKB-fält: `../../../../aperture` (`PQType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime ^definition = "I sekunder"
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime ^comment = "TKB-fält: `../../../../exposureTime` (`PQType`, kardinalitet 0..1).
-
-**Modellanteckning:** I sekunder
-RIV-TA-typ: PQType. Kardinalitet i TKB: 0..1."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime ^comment = "TKB-fält: `../../../../exposureTime` (`PQType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime ^definition = "Tid då bilden skapats."
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime ^comment = "TKB-fält: `../../../../imageCreationTime` (`TimeStampType`, kardinalitet 0..1).
-
-**Modellanteckning:** Tid då bilden skapats.
-RIV-TA-typ: TimeStampType. Kardinalitet i TKB: 0..1."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime ^comment = "TKB-fält: `../../../../imageCreationTime` (`TimeStampType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.bodyPartExamined ^definition = "Kroppsdel. Bör anges med kod ur SNOMED CT (OID: 1.2.752.116.2.1.1). Om kodverk saknas kan kroppsdel anges i originalText."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.bodyPartExamined ^comment = "TKB-fält: `../../../../bodyPartExamined` (`CVType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.contrastAgentUsed ^definition = "Kontrast som använts vid bildtagningen."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.contrastAgentUsed ^comment = "TKB-fält: `../../../../contrastAgentUsed` (`string`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength ^definition = "Magnetisk fältsyrka i T."
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength ^comment = "TKB-fält: `../../../../magneticFieldStrength` (`PQType`, kardinalitet 0..1).
-
-**Modellanteckning:** Magnetisk fältsyrka i T.
-RIV-TA-typ: PQType. Kardinalitet i TKB: 0..1."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength ^comment = "TKB-fält: `../../../../magneticFieldStrength` (`PQType`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.copyright ^definition = "Copyright-ägare av bilden"
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.copyright ^comment = "TKB-fält: `../../../../copyright` (`string`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData ^definition = "Möjlighet att svara med en bild i något av de tillåtna formaten enligt HL7 multimediatyper (inkl. PDF)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData ^comment = "TKB-fält: `../../../../imageData` (`ImageDataType`, kardinalitet 1..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType ^definition = "Mediatyper enligt HL7 MediaType."
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType ^comment = "TKB-fält: `../../../../../mediaType` (`MediaTypeEnum`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.imageDataValue ^definition = "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges."
-* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.imageDataValue ^comment = "TKB-fält: `../../../../../value` (`base64Binary`, kardinalitet 0..1)."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType ^comment = "TKB-fält: `../../../../../mediaType` (`MediaTypeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** mediaType Tillåtna värden: application/dicom, application/msword, application/pdf, audio/basic, audio/k32adpcm, audio/mpeg, image/g3fax, image/gif, image/jpeg, image/png, image/tiff, model/vrml, multipart/x-hl7-cda-level1, text/html, text/plain, text/rtf, text/sgml, text/x-hl7-ft, text/xml, video/mpeg, video/x-avi."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.value ^definition = "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges."
+* imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.value ^comment = "TKB-fält: `../../../../../value` (`base64Binary`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.reference ^definition = "Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient"
 * imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.reference ^comment = "TKB-fält: `../../../../../reference` (`anyURI`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.referral ^definition = "Information om den vårdbegäran(remiss) som ligger till grund för undersökningen och dess svar. Måste vara valfri eftersom tagning av Bild inte alltid remitteras"
@@ -276,76 +151,19 @@ RIV-TA-typ: PQType. Kardinalitet i TKB: 0..1."
 * imagingOutcome.imagingOutcomeBody.referral.careContactId ^comment = "TKB-fält: `../../../careContactId` (`string`, kardinalitet 0..1)."
 * imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional ^definition = "Information om den hälso-och sjukvårdspersonal som framställt vårdbegäran, nedan kallad remittent."
 * imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional ^comment = "TKB-fält: `../../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.authorTime ^definition = "Tid då vårdbegäran framställdes"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.authorTime ^comment = "TKB-fält: `../../../../authorTime` (`TimeStampType`, kardinalitet 1..1).
-
-**Modellanteckning:** Tid då vårdbegäran framställdes
-RIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalHSAId ^definition = "Remittentens HSA-id. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalHSAId ^comment = "TKB-fält: `../../../../healthcareProfessionalHSAid` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalName ^definition = "Namn på remittenten. Om tillgängligt ska detta anges."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalName ^comment = "TKB-fält: `../../../../healthcareProfessionalName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^definition = "Information om remittentens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Om kodverk saknas anges befattning i originalText."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^comment = "TKB-fält: `../../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** Information om remittentens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Om kodverk saknas anges befattning i originalText.
-RIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.
-Delelement enligt TKB:
-- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.
-- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.
-- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.
-- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.
-- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.
-- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^definition = "Den organisation som remittenten är uppdragstagare på"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^comment = "TKB-fält: `../../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^definition = "HSA-id för organisationsenhet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.)"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^comment = "TKB-fält: `../../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^definition = "Namnet på den organisation som remittenten är uppdragstagare på"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^comment = "TKB-fält: `../../../../../orgUnitName` (`string`, kardinalitet 1..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^definition = "Telefon till organisationsenhet"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^comment = "TKB-fält: `../../../../../orgUnitTelecom` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^definition = "Epost till enhet"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^comment = "TKB-fält: `../../../../../orgUnitEmail` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^definition = "Postadress för den organisation som remittenten är uppdragstagare på"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^comment = "TKB-fält: `../../../../../orgUnitAddress` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^definition = "Text som anger namnet på plats eller ort för organisationens fysiska placering"
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^comment = "TKB-fält: `../../../../../orgUnitLocation` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^definition = "Ska ej anges."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^comment = "TKB-fält: `../../../../healthcareProfessionalCareUnitHSAId` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges.
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^definition = "Ska ej anges."
-* imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^comment = "TKB-fält: `../../../../healthcareProfessionalCareGiverHSAId` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges.
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
 * imagingOutcome.imagingOutcomeBody.referral.attested ^definition = "Information om den som vidimerat mottaget svar på vårdbegäran"
 * imagingOutcome.imagingOutcomeBody.referral.attested ^comment = "TKB-fält: `../../../attested` (`LegalAuthenticatorType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.attested.signatureTime ^definition = "Tidpunkt för vidimering."
-* imagingOutcome.imagingOutcomeBody.referral.attested.signatureTime ^comment = "TKB-fält: `../../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).
-
-**Modellanteckning:** Tidpunkt för vidimering.
-RIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1."
-* imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorHSAId ^definition = "HSA-id för person som vidimerat dokumentet. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig."
-* imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorHSAId ^comment = "TKB-fält: `../../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorName ^definition = "Namnen i klartext för vidimerande person."
-* imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorName ^comment = "TKB-fält: `../../../../legalAuthenticatorName` (`string`, kardinalitet 0..1)."
-* imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorRoleCode ^definition = "Ska ej anges"
-* imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorRoleCode ^comment = "TKB-fält: `../../../../legalAuthenticatorRoleCode` (kardinalitet 0..0).
-
-**Modellanteckning:** Ska ej anges
-RIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0."
 * result ^definition = "Innehåller information om begäran gick bra eller ej."
 * result ^comment = "TKB-fält: `result` (`ResultType`, kardinalitet 1..1)."
 * result.resultCode ^definition = "Kan endast vara OK, INFO eller ERROR."
 * result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
 * result.errorCode ^definition = "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information."
-* result.errorCode ^comment = "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1)."
-* result.subCode ^definition = "Inga subkoder är specificerade."
-* result.subCode ^comment = "TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."
+* result.errorCode ^comment = "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST."
 * result.logId ^definition = "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."
 * result.logId ^comment = "TKB-fält: `../logId` (`string`, kardinalitet 1..1)."
+* result.subCode ^definition = "Inga subkoder är specificerade."
+* result.subCode ^comment = "TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."
 * result.message ^definition = "En beskrivande text som kan visas för användaren."
 * result.message ^comment = "TKB-fält: `../message` (`string`, kardinalitet 0..1)."

@@ -17,75 +17,63 @@ RuleSet: LookupResidentsForProfileFieldDescriptions
 * lookupResidentsResponseType.populationRegistrationRecords.notificationCase.totalRecord ^comment = "TKB-fält: `../../../totalRecord` (`boolean`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.notificationCase.notificationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.notificationCase.notificationDate ^comment = "TKB-fält: `../../../notificationDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.notificationCase.notificationDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.notificationCase.notificationDate.partialDateValue ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.notificationCase.notificationDate.format ^comment = "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.notificationCase.notificationDate.value ^comment = "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord ^definition = "Grupp för personpost"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord ^comment = "TKB-fält: `../../personalRecord` (`PersonalRecordType`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalIdentity ^definition = "Personidentitet"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalIdentity ^comment = "TKB-fält: `../../../personalIdentity` (`PersonalIdentityType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalIdentity.personalIdentityId ^comment = "TKB-fält: `../../../../id` (`PersonalIdentityNumber`, kardinalitet 1..1).
-
-**Modellanteckning:** personalIdentityId Heter id i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalIdentity.personalIdentityType ^comment = "TKB-fält: `../../../../type` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** personalIdentityType Heter type i schemat."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalIdentity.id ^comment = "TKB-fält: `../../../../id` (`PersonalIdentityNumber`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalIdentity.type ^comment = "TKB-fält: `../../../../type` (`string`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.referredPersonalIdentity ^definition = "Personidentitet"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.referredPersonalIdentity ^comment = "TKB-fält: `../../../referredPersonalIdentity` (`PersonalIdentityType`, kardinalitet 0..*)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.referredPersonalIdentity.personalIdentityId ^comment = "TKB-fält: `../../../../id` (`PersonalIdentityNumber`, kardinalitet 1..1).
-
-**Modellanteckning:** personalIdentityId Heter id i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.referredPersonalIdentity.personalIdentityType ^comment = "TKB-fält: `../../../../type` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** personalIdentityType Heter type i schemat."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.referredPersonalIdentity.id ^comment = "TKB-fält: `../../../../id` (`PersonalIdentityNumber`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.referredPersonalIdentity.type ^comment = "TKB-fält: `../../../../type` (`string`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration ^definition = "Uppgifter om avregistrering"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration ^comment = "TKB-fält: `../../../deregistration` (`DeregistrationType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationReasonCode ^comment = "TKB-fält: `../../../../deregistrationReasonCode` (`DeregistrationReasonCodeType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationReasonCode ^comment = "TKB-fält: `../../../../deregistrationReasonCode` (`DeregistrationReasonCodeType`, kardinalitet 0..1).
+
+**Modellanteckning:** deregistrationReasonCode Tillåtna värden: AV, UV, GN, AN, AS, GS, OB, TA."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationDate ^comment = "TKB-fält: `../../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName ^definition = "Namn"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName ^comment = "TKB-fält: `../../../name` (`NameType`, kardinalitet 0..1).
-
-**Modellanteckning:** Namn Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.givenNameIndicator ^comment = "TKB-fält: `../../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.givenName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.givenName ^comment = "TKB-fält: `../../../../givenName` (`NamePartType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.givenName.namePartName ^comment = "TKB-fält: `../../../../../name` (`String80`, kardinalitet 0..1).
-
-**Modellanteckning:** namePartName Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.givenName.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.middleName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.middleName ^comment = "TKB-fält: `../../../../middleName` (`NamePartType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.middleName.namePartName ^comment = "TKB-fält: `../../../../../name` (`String80`, kardinalitet 0..1).
-
-**Modellanteckning:** namePartName Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.middleName.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.surname ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.surname ^comment = "TKB-fält: `../../../../surname` (`NamePartType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.surname.namePartName ^comment = "TKB-fält: `../../../../../name` (`String80`, kardinalitet 0..1).
-
-**Modellanteckning:** namePartName Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.surname.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.personalRecordName.notificationName ^comment = "TKB-fält: `../../../../notificationName` (`String40`, kardinalitet 0..1)."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.deregistration.deregistrationDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name ^definition = "Namn"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name ^comment = "TKB-fält: `../../../name` (`NameType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.givenNameIndicator ^comment = "TKB-fält: `../../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.givenName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.givenName ^comment = "TKB-fält: `../../../../givenName` (`NamePartType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.givenName.name ^comment = "TKB-fält: `../../../../../name` (`String80`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.givenName.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.middleName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.middleName ^comment = "TKB-fält: `../../../../middleName` (`NamePartType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.middleName.name ^comment = "TKB-fält: `../../../../../name` (`String80`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.middleName.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.surname ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.surname ^comment = "TKB-fält: `../../../../surname` (`NamePartType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.surname.name ^comment = "TKB-fält: `../../../../../name` (`String80`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.surname.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.name.notificationName ^comment = "TKB-fält: `../../../../notificationName` (`String40`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality ^definition = "Uppgifter om folkbokföring"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality ^comment = "TKB-fält: `../../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationDate ^comment = "TKB-fält: `../../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.countyCode ^comment = "TKB-fält: `../../../../countyCode` (`String2`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.municipalityCode ^comment = "TKB-fält: `../../../../municipalityCode` (`String2`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.parishCode ^comment = "TKB-fält: `../../../../parishCode` (`String2`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.propertyDesignation ^comment = "TKB-fält: `../../../../propertyDesignation` (`String40`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.fictitiousPropertyNumber ^comment = "TKB-fält: `../../../../fictitiousPropertyNumber` (`FictitiousPropertyNumber`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationType ^comment = "TKB-fält: `../../../../populationRegistrationType` (`PopulationRegistrationTypeType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.populationRegistrationLocality.populationRegistrationType ^comment = "TKB-fält: `../../../../populationRegistrationType` (`PopulationRegistrationTypeType`, kardinalitet 0..1).
+
+**Modellanteckning:** populationRegistrationType Tillåtna värden: FB, UV, OB."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation ^definition = "Grupp för adressuppgifter"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation ^comment = "TKB-fält: `../../../addressInformation` (`AddressInformationType`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.residentialAddress ^definition = "Svensk adress"
@@ -118,25 +106,27 @@ RuleSet: LookupResidentsForProfileFieldDescriptions
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.country ^comment = "TKB-fält: `../../../../../country` (`String40`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.addressAbroadDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.addressAbroadDate ^comment = "TKB-fält: `../../../../../addressAbroadDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.addressAbroadDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.addressAbroadDate.partialDateValue ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.addressAbroadDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.addressAbroadDate.value ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.votingDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.votingDate ^comment = "TKB-fält: `../../../../../votingDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.votingDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.votingDate.partialDateValue ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.votingDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.addressInformation.addressAbroad.votingDate.value ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus ^definition = "Civistånd"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus ^comment = "TKB-fält: `../../../maritalStatus` (`MaritalStatusType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusCode ^comment = "TKB-fält: `../../../../maritalStatusCode` (`MaritalStatusCodeType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusCode ^comment = "TKB-fält: `../../../../maritalStatusCode` (`MaritalStatusCodeType`, kardinalitet 0..1).
+
+**Modellanteckning:** maritalStatusCode Tillåtna värden: OG, G, A, S, RP, SP, EP."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusDate ^comment = "TKB-fält: `../../../../maritalStatusDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.maritalStatus.maritalStatusDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.birth ^definition = "Uppgifter om födelse"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.birth ^comment = "TKB-fält: `../../../birth` (`BirthType`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.birth.placeOfBirthSweden ^definition = "Uppgifter om hemort i Sverige"
@@ -154,10 +144,10 @@ RuleSet: LookupResidentsForProfileFieldDescriptions
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration ^comment = "TKB-fält: `../../../immigration` (`ImmigrationType`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationDate ^comment = "TKB-fält: `../../../../immigrationDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.rightOfResidence ^comment = "TKB-fält: `../../../../rightOfResidence` (`boolean`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationIdentity ^definition = "Grupp för personnummer och vilket land det är knutet till. Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.immigration.immigrationIdentity ^comment = "TKB-fält: `../../../../immigrationIdentity` (`ImmigrationIdentityType`, kardinalitet 0..*)."
@@ -169,67 +159,59 @@ RuleSet: LookupResidentsForProfileFieldDescriptions
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId ^comment = "TKB-fält: `../../../../relationshipId` (`RelationshipIdType`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.personalIdentity ^definition = "Personidentitet"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.personalIdentity ^comment = "TKB-fält: `../../../../../personalIdentity` (`PersonalIdentityType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.personalIdentity.personalIdentityId ^comment = "TKB-fält: `../../../../../../id` (`PersonalIdentityNumber`, kardinalitet 1..1).
-
-**Modellanteckning:** personalIdentityId Heter id i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.personalIdentity.personalIdentityType ^comment = "TKB-fält: `../../../../../../type` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** personalIdentityType Heter type i schemat."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.personalIdentity.id ^comment = "TKB-fält: `../../../../../../id` (`PersonalIdentityNumber`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.personalIdentity.type ^comment = "TKB-fält: `../../../../../../type` (`string`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.dateOfBirth ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.dateOfBirth ^comment = "TKB-fält: `../../../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.dateOfBirth.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.dateOfBirth.partialDateValue ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.dateOfBirth.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipType ^comment = "TKB-fält: `../../../../relationshipType` (`RelationshipTypeType`, kardinalitet 1..1)."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipId.dateOfBirth.value ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipType ^comment = "TKB-fält: `../../../../relationshipType` (`RelationshipTypeType`, kardinalitet 1..1).
+
+**Modellanteckning:** relationshipType Tillåtna värden: B, MO, FA, F, V, VF, M, P."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipFromDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipFromDate ^comment = "TKB-fält: `../../../../relationshipFromDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipFromDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipFromDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipFromDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipFromDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipToDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipToDate ^comment = "TKB-fält: `../../../../relationshipToDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipToDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipToDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipToDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName ^definition = "Namn"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName ^comment = "TKB-fält: `../../../../name` (`NameType`, kardinalitet 0..1).
-
-**Modellanteckning:** Namn Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.givenNameIndicator ^comment = "TKB-fält: `../../../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.givenName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.givenName ^comment = "TKB-fält: `../../../../../givenName` (`NamePartType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.givenName.namePartName ^comment = "TKB-fält: `../../../../../../name` (`String80`, kardinalitet 0..1).
-
-**Modellanteckning:** namePartName Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.givenName.attested ^comment = "TKB-fält: `../../../../../../attested` (`boolean`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.middleName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.middleName ^comment = "TKB-fält: `../../../../../middleName` (`NamePartType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.middleName.namePartName ^comment = "TKB-fält: `../../../../../../name` (`String80`, kardinalitet 0..1).
-
-**Modellanteckning:** namePartName Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.middleName.attested ^comment = "TKB-fält: `../../../../../../attested` (`boolean`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.surname ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.surname ^comment = "TKB-fält: `../../../../../surname` (`NamePartType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.surname.namePartName ^comment = "TKB-fält: `../../../../../../name` (`String80`, kardinalitet 0..1).
-
-**Modellanteckning:** namePartName Heter name i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.surname.attested ^comment = "TKB-fält: `../../../../../../attested` (`boolean`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipName.notificationName ^comment = "TKB-fält: `../../../../../notificationName` (`String40`, kardinalitet 0..1)."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipToDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name ^definition = "Namn"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name ^comment = "TKB-fält: `../../../../name` (`NameType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.givenNameIndicator ^comment = "TKB-fält: `../../../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.givenName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.givenName ^comment = "TKB-fält: `../../../../../givenName` (`NamePartType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.givenName.name ^comment = "TKB-fält: `../../../../../../name` (`String80`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.givenName.attested ^comment = "TKB-fält: `../../../../../../attested` (`boolean`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.middleName ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.middleName ^comment = "TKB-fält: `../../../../../middleName` (`NamePartType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.middleName.name ^comment = "TKB-fält: `../../../../../../name` (`String80`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.middleName.attested ^comment = "TKB-fält: `../../../../../../attested` (`boolean`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.surname ^definition = "Grupp för del av namn där delen kan vara styrkt eller ej"
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.surname ^comment = "TKB-fält: `../../../../../surname` (`NamePartType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.surname.name ^comment = "TKB-fält: `../../../../../../name` (`String80`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.surname.attested ^comment = "TKB-fält: `../../../../../../attested` (`boolean`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.name.notificationName ^comment = "TKB-fält: `../../../../../notificationName` (`String40`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration ^definition = "Uppgifter om avregistrering"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration ^comment = "TKB-fält: `../../../../deregistration` (`DeregistrationType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationReasonCode ^comment = "TKB-fält: `../../../../../deregistrationReasonCode` (`DeregistrationReasonCodeType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationReasonCode ^comment = "TKB-fält: `../../../../../deregistrationReasonCode` (`DeregistrationReasonCodeType`, kardinalitet 0..1).
+
+**Modellanteckning:** deregistrationReasonCode Tillåtna värden: AV, UV, GN, AN, AS, GS, OB, TA."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationDate ^comment = "TKB-fält: `../../../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationDate.format ^comment = "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.relationshipStatus ^comment = "TKB-fält: `../../../../status` (`RelationshipStatusType`, kardinalitet 0..1).
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.deregistration.deregistrationDate.value ^comment = "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.relationships.status ^comment = "TKB-fält: `../../../../status` (`RelationshipStatusType`, kardinalitet 0..1).
 
-**Modellanteckning:** relationshipStatus Heter status i schemat."
+**Modellanteckning:** status Tillåtna värden: NY, PB, RD, AS, AV, IV, AN."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship ^definition = "Grupp för medborgarskap"
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship ^comment = "TKB-fält: `../../../citizenship` (`CitizenshipType`, kardinalitet 0..*)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipCountryCode ^definition = "Grupp för medborgarskapslandkod"
@@ -238,29 +220,31 @@ RuleSet: LookupResidentsForProfileFieldDescriptions
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipCountryCode.attested ^comment = "TKB-fält: `../../../../../attested` (`boolean`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipDate ^comment = "TKB-fält: `../../../../citizenshipDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
-* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipStatus ^comment = "TKB-fält: `../../../../status` (`CitizenshipStatusType`, kardinalitet 0..1).
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.citizenshipDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.personalRecord.citizenship.status ^comment = "TKB-fält: `../../../../status` (`CitizenshipStatusType`, kardinalitet 0..1).
 
-**Modellanteckning:** citizenshipStatus Heter status i schemat."
+**Modellanteckning:** status Tillåtna värden: NY, RD, AS, AN."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords ^definition = "Grupp för historik"
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords ^comment = "TKB-fält: `../../historicalRecords` (`HistoricalRecordsType`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality ^definition = "Uppgifter om folkbokföring"
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality ^comment = "TKB-fält: `../../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..*)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationDate ^definition = "Kan beskriva ett datum med variabel noggrannhet."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationDate ^comment = "TKB-fält: `../../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationDate.partialDateValue ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).
+* lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format ^comment = "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).
 
-**Modellanteckning:** partialDateValue Heter value i schemat."
+**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD."
+* lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationDate.value ^comment = "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.countyCode ^comment = "TKB-fält: `../../../../countyCode` (`String2`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.municipalityCode ^comment = "TKB-fält: `../../../../municipalityCode` (`String2`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.parishCode ^comment = "TKB-fält: `../../../../parishCode` (`String2`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.propertyDesignation ^comment = "TKB-fält: `../../../../propertyDesignation` (`String40`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.fictitiousPropertyNumber ^comment = "TKB-fält: `../../../../fictitiousPropertyNumber` (`FictitiousPropertyNumber`, kardinalitet 0..1)."
-* lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationType ^comment = "TKB-fält: `../../../../populationRegistrationType` (`PopulationRegistrationTypeType`, kardinalitet 0..1)."
+* lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.populationRegistrationLocality.populationRegistrationType ^comment = "TKB-fält: `../../../../populationRegistrationType` (`PopulationRegistrationTypeType`, kardinalitet 0..1).
+
+**Modellanteckning:** populationRegistrationType Tillåtna värden: FB, UV, OB."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.historicalAddress ^definition = "Grupp för historik adress"
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.historicalAddress ^comment = "TKB-fält: `../../../historicalAddress` (`HistoricalAddressType`, kardinalitet 0..1)."
 * lookupResidentsResponseType.populationRegistrationRecords.historicalRecords.historicalAddress.residentialAddress ^definition = "Svensk adress"

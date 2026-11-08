@@ -28,6 +28,13 @@
         "definition": "Logisk modell för requestparametrar i ListCertificatesForCare.",
         "constraint": [
           {
+            "key": "listcertificatesforcarerequest-choice-1",
+            "severity": "error",
+            "human": "Exakt ett av vardgivar-id, enhets-id ska anges (xs:choice i schemat).",
+            "expression": "vardgivar-id.exists() xor enhets-id.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcare-request"
+          },
+          {
             "key": "listcertificatesforcare-request-vardgivare-xor-enhet",
             "severity": "error",
             "human": "Antingen vardgivareId eller enhetsId ska anges, inte båda (xs:choice i schemat).",
@@ -37,43 +44,44 @@
         ]
       },
       {
-        "id": "listcertificatesforcare-request.personId",
-        "path": "listcertificatesforcare-request.personId",
-        "short": "Person- eller samordningsnummer för patienten",
+        "id": "listcertificatesforcare-request.person-id",
+        "path": "listcertificatesforcare-request.person-id",
+        "short": "PersonId",
         "definition": "Person- eller samordningsnummer för patienten.",
         "comment": "TKB-fält: `person-id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person-id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "listcertificatesforcare-request.vardgivareId",
-        "path": "listcertificatesforcare-request.vardgivareId",
-        "short": "HSA-id för vårdgivaren (exklusivt med enhetsId)",
-        "definition": "HSA-id för den vårdgivare vars intyg ska sökas. Kan ej kombineras med enhetsId.\nVillkorlig kardinalitet: antingen vardgivareId eller enhetsId ska anges.",
+        "id": "listcertificatesforcare-request.vardgivar-id",
+        "path": "listcertificatesforcare-request.vardgivar-id",
+        "short": "HsaId",
+        "definition": "HSA-id för vårdgivaren.",
+        "comment": "TKB-fält: `vardgivar-id*` (`HsaId (se 7.2.5)`, kardinalitet 0..1).\n\n**Mappning DIM:** Vårdgivare.vårdgivar-id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "listcertificatesforcare-request.enhetsId",
-        "path": "listcertificatesforcare-request.enhetsId",
-        "short": "HSA-id för enhet/enheter (exklusivt med vardgivareId)",
+        "id": "listcertificatesforcare-request.enhets-id",
+        "path": "listcertificatesforcare-request.enhets-id",
+        "short": "HsaId",
         "definition": "HSA-id för enheten.",
-        "comment": "TKB-fält: `enhets-id*` (`HsaId (se 7.2.5)`, kardinalitet 0..*).\n\n**Mappning DIM:** Enhet.enhets-id\n\n**Modellanteckning:** HSA-id för en eller flera enheter vars intyg ska sökas. Kan ej kombineras med vardgivareId.\nVillkorlig kardinalitet: antingen enhetsId eller vardgivareId ska anges.",
+        "comment": "TKB-fält: `enhets-id*` (`HsaId (se 7.2.5)`, kardinalitet 0..*).\n\n**Mappning DIM:** Enhet.enhets-id",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       }

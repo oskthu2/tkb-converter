@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "SearchBaseType",
+  "url": "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType",
+  "name": "SearchBaseType",
+  "title": "SearchBaseType",
+  "status": "draft",
+  "description": "SearchBaseType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-searchbasetype-pattern",
+            "severity": "error",
+            "human": "SearchBaseType ska följa mönstret i schemat: ([OUDCNLoudcnl]{1,2}=[0-9\\p{L}\\p{Zs}\\-.]*,?)*",
+            "expression": "matches('^(?:(?:([OUDCNLoudcnl]{1,2}=[0-9\\\\p{L}\\\\p{Zs}\\\\-.]*,?)*))$')",
+            "source": "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType"
+          }
+        ]
+      }
+    ]
+  }
+}

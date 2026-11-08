@@ -28,36 +28,32 @@
         "definition": "Logisk modell för requestparametrar i GetCertificate."
       },
       {
-        "id": "getcertificate-request.intygsId",
-        "path": "getcertificate-request.intygsId",
-        "short": "Unikt ID för det intyg som ska hämtas",
+        "id": "getcertificate-request.intygs-id",
+        "path": "getcertificate-request.intygs-id",
+        "short": "IntygId",
         "definition": "Unikt ID för det intyg som skall hämtas.",
-        "comment": "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.intygs-id\n\n**Modellanteckning:** Unikt identifierare för det efterfrågade intyget.",
+        "comment": "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.intygs-id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getcertificate-request.part",
         "path": "getcertificate-request.part",
-        "short": "Part som skickar begäran",
+        "short": "Part",
         "definition": "Kodat värde som anger den part i intygshanteringsprocessen som skickar begäran om att hämta intyget.",
-        "comment": "TKB-fält: `part` (`Part (se 7.2.9)`, kardinalitet 1..1).\n\n**Mappning DIM:** Part.part\n\n**Modellanteckning:** Kodat värde som anger vilken part i intygshanteringsprocessen som skickar begäran.\nStyr vilka statusposter som returneras.",
+        "comment": "TKB-fält: `part` (`Part (se 7.2.9)`, kardinalitet 1..1).\n\n**Mappning DIM:** Part.part",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
-        }
+        ]
       }
     ]
   }

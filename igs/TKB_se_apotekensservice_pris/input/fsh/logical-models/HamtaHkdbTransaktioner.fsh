@@ -1,3 +1,6 @@
+// Elementen genereras ur HamtaHkdbTransaktionerResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: HamtaHkdbTransaktioner v1.0
 // Genererad: 2026-09-26
@@ -10,27 +13,28 @@ Description: """
   (urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerResponder:1, HamtaHkdbTransaktionerResponseType).
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* transaktionsLista 0..* BackboneElement "transaktionsLista" "Lista med de senaste transaktionerna för personens högkostnadskonto. Antalet som returneras kan ställas in med maxantal, men default är fem. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan."
-  * anvandare 1..1 string "anvandare" "Användare som registrerat transaktionen."
-  * apoteksNamn 0..1 string "apoteksNamn" "Apotek som registrerat transaktionen. Visas ej vid sekretesskydd."
-  * apoteksOrt 0..1 string "apoteksOrt" "Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd."
-  * expeditionsId 1..1 string "expeditionsId" "Unikt expeditionsID."
-  * flags 1..1 string "flags" "Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt."
-  * inBrutto 1..1 string "inBrutto" "Ingående brutto före transaktionen (xs:long i schemat.)"
-  * inEgenavgift 1..1 string "inEgenavgift" "Ingående högkostnadssaldo vid transaktionen (xs:long i schemat.)"
-  * kommentar 0..1 string "kommentar" "Eventuell kommentar från korrigeringstransaktion"
-  * orgAktorId 0..1 string "orgAktorId" "GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd."
-  * persNr 1..1 string "persNr" "Personnummer för den som transaktionen gäller."
-  * sign 1..1 string "sign" "Typ av trans: +,-,ABC, ... Detta fält används enbart internt."
-  * transId 1..1 string "transId" "Aktörens expeditions-ID / verifikationsnr."
-  * transPeriod 1..1 BackboneElement "transPeriod" "Transaktionens högkostnadsuppgifter."
-    * balans 1..1 BackboneElement "balans" "Ackumulerad balans"
-      * brutto 1..1 decimal "brutto" "Bruttobelopp i kronor och ören"
-      * netto 1..1 decimal "netto" "Nettobelopp i kronor och ören"
-    * start 0..1 dateTime "start" "Periodens startdatum."
-  * transTid 1..1 dateTime "transTid" "Transaktionstidpunkt."
-  * transaktionBehandlades 1..1 dateTime "transaktionBehandlades" "Tidpunkt då transaktionen behandlades av HKDB"
+* transaktionsLista 0..* Base "TransaktionResponse" "Lista med de senaste transaktionerna för personens högkostnadskonto. Antalet som returneras kan ställas in med maxantal, men default är fem. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan."
+* transaktionsLista.anvandare 1..1 string "Användare som registrerat transaktionen." "Användare som registrerat transaktionen."
+* transaktionsLista.apoteksNamn 0..1 string "Apotek som registrerat transaktionen. Visas ej vid sekretesskydd." "Apotek som registrerat transaktionen. Visas ej vid sekretesskydd."
+* transaktionsLista.apoteksOrt 0..1 string "Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd." "Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd."
+* transaktionsLista.expeditionsId 1..1 string "Unikt expeditionsID." "Unikt expeditionsID."
+* transaktionsLista.flags 1..1 string "Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt." "Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt."
+* transaktionsLista.inBrutto 1..1 string "Ingående brutto före transaktionen" "Ingående brutto före transaktionen"
+* transaktionsLista.inEgenavgift 1..1 string "Ingående högkostnadssaldo vid transaktionen" "Ingående högkostnadssaldo vid transaktionen"
+* transaktionsLista.kommentar 0..1 string "Eventuell kommentar från korrigeringstransaktion" "Eventuell kommentar från korrigeringstransaktion"
+* transaktionsLista.orgAktorId 0..1 string "GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd." "GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd."
+* transaktionsLista.persNr 1..1 string "Personnummer för den som transaktionen gäller." "Personnummer för den som transaktionen gäller."
+* transaktionsLista.sign 1..1 string "Typ av trans: +,-,ABC, ... Detta fält används enbart internt." "Typ av trans: +,-,ABC, ... Detta fält används enbart internt."
+* transaktionsLista.transId 1..1 string "Aktörens expeditions-ID / verifikationsnr." "Aktörens expeditions-ID / verifikationsnr."
+* transaktionsLista.transPeriod 1..1 Base "PeriodResponse" "Transaktionens högkostnadsuppgifter."
+* transaktionsLista.transPeriod.balans 1..1 Base "BalansResponse" "Ackumulerad balans"
+* transaktionsLista.transPeriod.balans.brutto 1..1 decimal "Bruttobelopp i kronor och ören" "Bruttobelopp i kronor och ören"
+* transaktionsLista.transPeriod.balans.netto 1..1 decimal "Nettobelopp i kronor och ören" "Nettobelopp i kronor och ören"
+* transaktionsLista.transPeriod.start 0..1 dateTime "Periodens startdatum." "Periodens startdatum."
+* transaktionsLista.transTid 1..1 dateTime "Transaktionstidpunkt." "Transaktionstidpunkt."
+* transaktionsLista.transaktionBehandlades 1..1 dateTime "Tidpunkt då transaktionen behandlades av HKDB" "Tidpunkt då transaktionen behandlades av HKDB"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert HamtaHkdbTransaktionerFieldDescriptions

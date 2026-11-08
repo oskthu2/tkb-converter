@@ -1,3 +1,6 @@
+// Elementen genereras ur KontaktuppgifterUppdateraResponder_5.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.expo v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: KontaktuppgifterUppdatera v5.0
 // Genererad: 2026-09-26
@@ -10,38 +13,17 @@ Description: """
   (urn:riv:se.apotekensservice:expo:KontaktuppgifterUppdateraResponder:5, KontaktuppgifterUppdateraRequestType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "5.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB"
-* argosHeader 1..1 BackboneElement "argosHeader" "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction"
-  * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
-  * legitimationskod 0..1 string "legitimationskod" "legitimationskod"
-  * fornamn 0..1 string "fornamn" "fornamn"
-  * efternamn 0..1 string "efternamn" "efternamn"
-  * yrkesgrupp 0..1 string "yrkesgrupp" "yrkesgrupp"
-  * befattningskod 0..1 string "befattningskod" "befattningskod"
-  * arbetsplatskod 0..1 string "arbetsplatskod" "arbetsplatskod"
-  * arbetsplatsnamn 0..1 string "arbetsplatsnamn" "arbetsplatsnamn"
-  * postort 0..1 string "postort" "postort"
-  * postadress 0..1 string "postadress" "postadress"
-  * postnummer 0..1 string "postnummer" "postnummer"
-  * telefonnummer 0..1 string "telefonnummer" "telefonnummer"
-  * requestId 0..1 string "requestId" "requestId"
-  * rollnamn 0..1 string "rollnamn" "rollnamn"
-  * hsaID 0..1 string "hsaID" "hsaID"
-  * katalog 0..1 string "katalog" "katalog"
-  * organisationsnummer 0..1 string "organisationsnummer" "organisationsnummer"
-  * systemnamn 0..1 string "systemnamn" "systemnamn"
-  * systemversion 0..1 string "systemversion" "systemversion"
-  * systemIp 0..1 string "systemIp" "systemIp"
-* epostadressServicedesk 1..1 string "epostadressServicedesk" "E-postadress till aktörens servicedesk"
-* kontaktpersonLista 1..* BackboneElement "kontaktpersonLista" "Kontaktpersoner. Minst en kontaktperson måste anges."
-  * befattning 1..1 string "befattning" "Kontaktpersonens befattning."
-  * efternamn 1..1 string "efternamn" "Efternamn på kontaktperson hos aktören."
-  * epostadress 1..1 string "epostadress" "Kontaktpersonens e-postadress"
-  * fornamn 1..1 string "fornamn" "Förnamn på kontaktperson hos aktören."
-  * telefonnummer 1..1 string "telefonnummer" "Kontaktpersonens telefonnummer."
-* orgNr 1..1 string "orgNr" "Aktörens organisationsnummer (xs:long i schemat.)"
-* telefonnummerServicedesk 1..1 string "telefonnummerServicedesk" "Telefonnummer till aktörens servicedesk"
+* epostadressServicedesk 1..1 string "E-postadress till aktörens servicedesk" "E-postadress till aktörens servicedesk"
+* kontaktpersonLista 1..* Base "KontaktpersonRequest" "Kontaktpersoner. Minst en kontaktperson måste anges."
+* kontaktpersonLista.befattning 1..1 string "Kontaktpersonens befattning." "Kontaktpersonens befattning."
+* kontaktpersonLista.efternamn 1..1 string "Efternamn på kontaktperson hos aktören." "Efternamn på kontaktperson hos aktören."
+* kontaktpersonLista.epostadress 1..1 string "Kontaktpersonens e-postadress" "Kontaktpersonens e-postadress"
+* kontaktpersonLista.fornamn 1..1 string "Förnamn på kontaktperson hos aktören." "Förnamn på kontaktperson hos aktören."
+* kontaktpersonLista.telefonnummer 1..1 string "Kontaktpersonens telefonnummer." "Kontaktpersonens telefonnummer."
+* orgNr 1..1 string "Aktörens organisationsnummer" "Aktörens organisationsnummer"
+* telefonnummerServicedesk 1..1 string "Telefonnummer till aktörens servicedesk" "Telefonnummer till aktörens servicedesk"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert KontaktuppgifterUppdateraRequestFieldDescriptions

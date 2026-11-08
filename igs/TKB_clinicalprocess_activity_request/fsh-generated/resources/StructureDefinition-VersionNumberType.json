@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "VersionNumberType",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType",
+  "name": "VersionNumberType",
+  "title": "VersionNumberType",
+  "status": "active",
+  "description": "VersionNumberType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-versionnumbertype-pattern",
+            "severity": "error",
+            "human": "VersionNumberType ska följa mönstret i schemat: (0*[1-9]+|[1-9])\\d*",
+            "expression": "matches('^(?:(?:(0*[1-9]+|[1-9])\\\\d*))$')",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType"
+          }
+        ]
+      }
+    ]
+  }
+}

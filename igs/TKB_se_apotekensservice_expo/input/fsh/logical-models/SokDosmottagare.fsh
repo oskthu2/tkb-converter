@@ -1,3 +1,6 @@
+// Elementen genereras ur SokDosmottagareResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.expo v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: SokDosmottagare v1.0
 // Genererad: 2026-09-26
@@ -10,38 +13,41 @@ Description: """
   (urn:riv:se.apotekensservice:expo:SokDosmottagareResponder:1, SokDosmottagareResponseType).
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* resultat 0..* BackboneElement "resultat" "Lista med apotek och kopplade dosmottagare som utdata"
-  * apotek 0..1 BackboneElement "apotek" "Apoteksinformation för dosproducenten."
-    * apoteksinformationLista 1..* BackboneElement "apoteksinformationLista" "Lista innehållande ett eller flera Apoteksinformation."
-      * aktorsnamn 0..1 string "aktorsnamn" "Officiellt namn för aktör"
-      * aktorsorgnr 0..1 string "aktorsorgnr" "Aktörens organisationsnummer. (xs:long i schemat.)"
-      * allmantelefon 0..1 string "allmantelefon" "Telefonnummer för allmänheten"
-      * besoksadress 0..1 string "besoksadress" "Expeditionsställets besöksadress"
-      * eReceptDjur 1..1 boolean "eReceptDjur" "Markering gällande om apoteket kan expediera elektroniska djurrecept."
-      * fax 0..1 string "fax" "Expeditionsställets faxnummer"
-      * glnKod 1..1 string "glnKod" "Expeditionsställets GLN-kod"
-      * huvudtypkod 0..1 string "huvudtypkod" "Kod som beskriver huvudverksamheten för expeditionsstället"
-      * namn 0..1 string "namn" "Expeditionsställets officiella namn"
-      * ort 0..1 string "ort" "Expeditionsställets besöksort"
-      * slutdatum 0..1 dateTime "slutdatum" "Datum för stängning av verksamhet"
-      * startdatum 1..1 dateTime "startdatum" "Datum för start av verksamhet"
-  * dosmottagare 0..* BackboneElement "dosmottagare" "dosmottagare"
-    * obeys sokdosmottagare-dosmottagare-adress-when-d
-    * adress 0..1 string "adress" "Adress till dosmottagare. Obligatorisk om typ = 'D'."
-    * apoteksIdDosmottagare 0..1 string "apoteksIdDosmottagare" "Apoteks-id för dosmottagare om dosmottagare är av typen apotek."
-    * arbetsplatskod 0..1 string "arbetsplatskod" "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning."
-    * avdelning 0..1 string "avdelning" "Avdelning inom dosmottagare."
-    * dosmottagarId 1..1 string "dosmottagarId" "Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket."
-    * kommunkod 0..1 string "kommunkod" "Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB."
-    * lanskod 0..1 string "lanskod" "Länskod till vilken dosmottagaren tillhör. Kod enligt SCB."
-    * mottagarnamn 1..1 string "mottagarnamn" "Namn på dosmottagare."
-    * postnummer 0..1 string "postnummer" "Postnummer till dosmottagare."
-    * postort 0..1 string "postort" "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'."
-    * typ 1..1 string "typ" "Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek)."
+* resultat 0..* Base "SokDosmottagareResultatResponse" "Lista med apotek och kopplade dosmottagare som utdata"
+* resultat.apotek 0..1 Base "HamtaApoteksInfoResponse" "Apoteksinformation för dosproducenten."
+* resultat.apotek.apoteksinformationLista 1..* Base "ApoteksinformationResponse" "Lista innehållande ett eller flera Apoteksinformation."
+* resultat.apotek.apoteksinformationLista.aktorsnamn 0..1 string "Officiellt namn för aktör" "Officiellt namn för aktör"
+* resultat.apotek.apoteksinformationLista.aktorsorgnr 0..1 string "Aktörens organisationsnummer." "Aktörens organisationsnummer."
+* resultat.apotek.apoteksinformationLista.allmantelefon 0..1 string "Telefonnummer för allmänheten" "Telefonnummer för allmänheten"
+* resultat.apotek.apoteksinformationLista.besoksadress 0..1 string "Expeditionsställets besöksadress" "Expeditionsställets besöksadress"
+* resultat.apotek.apoteksinformationLista.eReceptDjur 1..1 boolean "Markering gällande om apoteket kan expediera elektroniska djurrecept." "Markering gällande om apoteket kan expediera elektroniska djurrecept."
+* resultat.apotek.apoteksinformationLista.fax 0..1 string "Expeditionsställets faxnummer" "Expeditionsställets faxnummer"
+* resultat.apotek.apoteksinformationLista.glnKod 1..1 string "Expeditionsställets GLN-kod" "Expeditionsställets GLN-kod"
+* resultat.apotek.apoteksinformationLista.huvudtypkod 0..1 string "Kod som beskriver huvudverksamheten för expeditionsstället" "Kod som beskriver huvudverksamheten för expeditionsstället"
+* resultat.apotek.apoteksinformationLista.namn 0..1 string "Expeditionsställets officiella namn" "Expeditionsställets officiella namn"
+* resultat.apotek.apoteksinformationLista.ort 0..1 string "Expeditionsställets besöksort" "Expeditionsställets besöksort"
+* resultat.apotek.apoteksinformationLista.slutdatum 0..1 dateTime "Datum för stängning av verksamhet" "Datum för stängning av verksamhet"
+* resultat.apotek.apoteksinformationLista.startdatum 1..1 dateTime "Datum för start av verksamhet" "Datum för start av verksamhet"
+* resultat.dosmottagare 0..* Base "DosmottagareResponse" "dosmottagare"
+* resultat.dosmottagare.adress 0..1 string "Adress till dosmottagare. Obligatorisk om typ = 'D'." "Adress till dosmottagare. Obligatorisk om typ = 'D'."
+* resultat.dosmottagare.apoteksIdDosmottagare 0..1 string "Apoteks-id för dosmottagare om dosmottagare är av typen apotek." "Apoteks-id för dosmottagare om dosmottagare är av typen apotek."
+* resultat.dosmottagare.arbetsplatskod 0..1 string "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning." "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning."
+* resultat.dosmottagare.avdelning 0..1 string "Avdelning inom dosmottagare." "Avdelning inom dosmottagare."
+* resultat.dosmottagare.dosmottagarId 1..1 string "Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket." "Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket."
+* resultat.dosmottagare.kommunkod 0..1 string "Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB." "Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB."
+* resultat.dosmottagare.lanskod 0..1 string "Länskod till vilken dosmottagaren tillhör. Kod enligt SCB." "Länskod till vilken dosmottagaren tillhör. Kod enligt SCB."
+* resultat.dosmottagare.mottagarnamn 1..1 string "Namn på dosmottagare." "Namn på dosmottagare."
+* resultat.dosmottagare.postnummer 0..1 string "Postnummer till dosmottagare." "Postnummer till dosmottagare."
+* resultat.dosmottagare.postort 0..1 string "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'." "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'."
+* resultat.dosmottagare.typ 1..1 string "typ" "Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek)."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert SokDosmottagareFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* resultat.dosmottagare obeys sokdosmottagare-dosmottagare-adress-when-d
 
 Invariant: sokdosmottagare-dosmottagare-adress-when-d
 Description: "adress och postort ska anges när typ = 'D' (direktleverans)."

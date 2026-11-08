@@ -39,93 +39,71 @@
       {
         "id": "getcareaplans-request.careUnitHSAId",
         "path": "getcareaplans-request.careUnitHSAId",
-        "short": "Filtrering på PDL-enhet (vårdenhetens HSA-id)",
+        "short": "careUnitHSAId",
         "definition": "Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.",
         "comment": "TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"
+            ]
           }
         ]
       },
       {
         "id": "getcareaplans-request.patientId",
         "path": "getcareaplans-request.patientId",
-        "short": "Patientens identifierare",
+        "short": "patientId",
         "definition": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\nFältet type sätts till OID för typ av identifierare.\n\n1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\n2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\n3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3).\n\nOBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.\n\nEn tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer- OID som gäller vid anrop mot en specifik tjänsteproducent.",
         "comment": "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
           }
         ]
       },
       {
         "id": "getcareaplans-request.datePeriod",
         "path": "getcareaplans-request.datePeriod",
-        "short": "Datumintervall för sökning",
+        "short": "datePeriod",
         "definition": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där documentTime i svaret ligger inom sökintervallets start- och slutdatum.\n\nNotera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.",
         "comment": "TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getcareaplans-request.datePeriod.start",
-        "path": "getcareaplans-request.datePeriod.start",
-        "short": "Startdatum (YYYYMMDD)",
-        "definition": "Startdatum. Format ÅÅÅÅMMDD.",
-        "comment": "TKB-fält: `../start` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "date"
-          }
-        ]
-      },
-      {
-        "id": "getcareaplans-request.datePeriod.end",
-        "path": "getcareaplans-request.datePeriod.end",
-        "short": "Slutdatum (YYYYMMDD)",
-        "definition": "Slutdatum. Format ÅÅÅÅMMDD.",
-        "comment": "TKB-fält: `../end` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "date"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/DatePeriodType"
           }
         ]
       },
       {
         "id": "getcareaplans-request.sourceSystemHSAId",
         "path": "getcareaplans-request.sourceSystemHSAId",
-        "short": "Källsystemets HSA-id",
+        "short": "sourceSystemHSAId",
         "definition": "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.\n\nVärdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).\n\nDet innebär i praktiken att aggregerande tjänster inte används när detta fält anges.\n\nFältet är tvingande om careContactId angivits.\n\nFältet är tvingande vid begäran på reservnummer.",
         "comment": "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"
+            ]
           }
         ]
       },
       {
         "id": "getcareaplans-request.careContactId",
         "path": "getcareaplans-request.careContactId",
-        "short": "Specifika vårdkontakt-id:n att filtrera på",
+        "short": "careContactId",
         "definition": "Begränsar sökningen till den/de vårdkontakter vars id anges vilket matchar documentId i GetCareContactsResponse/careContact/careContactHeader\n\nSe test-case ”CareContactId Filter” som finns i SOAPui-projektet under test-suite/GetCarePlans",
-        "comment": "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Begränsar sökningen till vård- och omsorgsplaner kopplade till angivna vårdkontakter.\nMatchar documentId i GetCareContacts-svaret.",
+        "comment": "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [

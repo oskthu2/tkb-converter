@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "HsaIdType",
+  "url": "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/HsaIdType",
+  "name": "HsaIdType",
+  "title": "HsaIdType",
+  "status": "active",
+  "description": "HsaIdType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-hsaidtype-pattern",
+            "severity": "error",
+            "human": "HsaIdType ska följa mönstret i schemat: [(\\p{L})0-9\\-]*",
+            "expression": "matches('^(?:(?:[(\\\\p{L})0-9\\\\-]*))$')",
+            "source": "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/HsaIdType"
+          }
+        ]
+      }
+    ]
+  }
+}

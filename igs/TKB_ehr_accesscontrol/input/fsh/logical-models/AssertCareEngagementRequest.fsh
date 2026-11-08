@@ -1,3 +1,6 @@
+// Elementen genereras ur AssertCareEngagementResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:accesscontrol v1.0.6
 // Kontrakt: AssertCareEngagement v1.0 — Request
 // RIV-TA namespace: urn:riv:ehr:accesscontrol:AssertCareEngagement:1
@@ -17,36 +20,14 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* performer 1..1 Identifier "HSA-id för medarbetaren som begär åtkomst"
-    """
-    HSA-id för medarbetare som begär åtkomst till sammanhållen journalföring.
-    Ska vara HSA-id för den medarbetare som är autentiserad i tjänstekonsumenten
-    och som begär åtkomst till sammanhållen journalföring.
-    Kardinalitet: Obligatorisk.
-    System: urn:oid:1.2.752.129.2.1.4.1 (HSA)
-    """
-
-* subjectOfCareId 1..1 Identifier "Person- eller samordningsnummer"
-    """
-    Person- eller samordningsnummer för den patient vars sammanhållna journalföring
-    söks. 12 tecken enligt Skatteverkets format (ej bindestreck).
-    Kardinalitet: Obligatorisk.
-    """
-
-* careUnitHsaIdentity 1..1 Identifier "HSA-id för medarbetarens uppdragsvårdenhet"
-    """
-    HSA-id för den vårdenhet på vars uppdrag medarbetaren agerar och begär åtkomst
-    till sammanhållen journalföring.
-    Kardinalitet: Obligatorisk.
-    System: urn:oid:1.2.752.129.2.1.4.1 (HSA)
-    """
-
-* careGiverHsaIdentity 1..1 Identifier "HSA-id för vårdgivaren"
-    """
-    HSA-id för vårdgivaren där vårdenhet med HSA-id enligt careUnitHsaIdentity ingår.
-    Kardinalitet: Obligatorisk.
-    System: urn:oid:1.2.752.129.2.1.4.1 (HSA)
-    """
+* performer 1..1 string "HSAId of the performer (healthcare professional) requesting access to EHR records of the subject of care." "HSAId of the performer (healthcare professional) requesting access to EHR records of the subject of care."
+* performer only HsaIdType
+* subjectOfCareId 1..1 string "Id of the subject of care of the EHR for which access is requested by the performer." "Id of the subject of care of the EHR for which access is requested by the performer."
+* subjectOfCareId only SubjectOfCareIdType
+* careUnitHsaIdentity 1..1 string "HSAId of care unit where the performer is in duty when requesting access to EHR records of the subject of care." "HSAId of care unit where the performer is in duty when requesting access to EHR records of the subject of care."
+* careUnitHsaIdentity only HsaIdType
+* careGiverHsaIdentity 1..1 string "HSAId of the organisation operating the healthcare_facility" "HSAId of the organisation operating the healthcare_facility"
+* careGiverHsaIdentity only HsaIdType
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert AssertCareEngagementRequestFieldDescriptions

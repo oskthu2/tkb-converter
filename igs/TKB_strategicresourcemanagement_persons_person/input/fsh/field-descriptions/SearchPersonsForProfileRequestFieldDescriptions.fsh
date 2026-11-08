@@ -7,4 +7,6 @@ RuleSet: SearchPersonsForProfileRequestFieldDescriptions
 * queryLanguage ^definition = "Anger syntax för element query"
 * queryLanguage ^comment = "TKB-fält: `queryLanguage` (`xs:String`, kardinalitet 1..1)."
 * profile ^definition = "Profil för returnerat data (se kap 8)"
-* profile ^comment = "TKB-fält: `profile` (`urn:riv:strategicresourcemanagement:persons:person:5:LookupProfileType`, kardinalitet 1..1)."
+* profile ^comment = "TKB-fält: `profile` (`urn:riv:strategicresourcemanagement:persons:person:5:LookupProfileType`, kardinalitet 1..1).
+
+**Modellanteckning:** profile Tillåtna värden: P1, P2, P3, P4, P5, P6, P7, P8, P9, P10."

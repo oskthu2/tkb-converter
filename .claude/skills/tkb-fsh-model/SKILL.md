@@ -288,7 +288,7 @@ Regler:
 
 Lokalt kräver caret-regler på element att offline-stubben har `ElementDefinition` (finns i `gen_fhir_stubs.py` sedan 2026-11-06). Felsignatur om stubben är gammal: `Cannot read properties of undefined (reading 'id')` på rader i `field-descriptions/*.fsh`. Kör `python3 gen_fhir_stubs.py` igen.
 
-#### Datatyper enligt schemat (sedan 2026-11-06, pilot)
+#### Datatyper enligt schemat (sedan 2026-11-06, gäller alla modeller sedan 2026-11-08)
 
 Oskars beslut 2026-11-06: modellerna ska **inte** längre översätta RIV-TA-datatyper till FHIR-datatyper (Identifier, CodeableConcept, instant …). Varje fält ska ha samma namn, kardinalitet och typ som i tjänstekontraktets XSD. Grunddatatyperna definieras en gång, globalt, i `igs/rivta-datatyper` (paket `inera.rivta.datatypes`, canonical `https://fhir.inera.se/ig/rivta-datatypes`), och alla TKB-IG:er refererar dit.
 
@@ -300,9 +300,18 @@ Oskars beslut 2026-11-06: modellerna ska **inte** längre översätta RIV-TA-dat
   - Rekursion blir `contentReference`, xs:choice en invariant och uppräkningar `code` bundet till `{Typ}VS` om det finns.
   - `contentReference #x.y` måste börja med modellens **Id** (t.ex. `#getlaboratoryorderoutcome.…`), inte dess namn. Fel rot bygger grönt men ger "Error generating table for profile … getElementByName: can't find #…" på modellens sida. `preflight_lint.py` felmarkerar det.
 - **Beroende:** IG:ns `sushi-config.yaml` har `inera.rivta.datatypes: 1.0.0` under `dependencies`. Lokalt: `python3 scripts/install_datatypes_package.py` innan `sushi`. I CI bygger `build_all.sh` datatyps-IG:n först och installerar IG Publishers paket.
-- **Utrullning:** hittills bara piloten (actoutcome GetLaboratoryOrderOutcome). Tabellen nedan gäller övriga modeller tills de är genererade om.
+- **Utrullning (2026-11-08):** alla kontrakt i alla IG:er (även `versions/`) är genererade ur schemat, 342 kontrakt. Ny TKB: generera modellerna med skriptet direkt, skriv dem inte för hand.
+- **Vilket meddelande modellen beskriver:** `{Kontrakt}.fsh` = svaret och `{Kontrakt}Request.fsh` = frågan. Har en fil två Logical-block avgör blockets namn/Id (`…Request`/`-request` = frågan). Finns bara en modell väljs det meddelande som delar flest elementnamn med den (vid lika: det största), så att envägskontrakt (Process/Register/Send, innehållet ligger i frågan) får frågan. Är `{Kontrakt}Request` ett eget kontrakt (CreateForm/CreateFormRequest) räknas filen inte som frågan.
+- **Schemafiler:** `{Kontrakt}Responder_*.xsd`, annars `{Kontrakt}_*.xsd` (crm:carelisting), eller `XInitiator_*.xsd` för återanropet `XStatus` (ehr:patientsummary). Skiftläget ignoreras (GetHospPersonForIVO/-Ivo).
+- **XML-attribut** blir element (`code` på `codeXType`, `value`/`unit` m.fl.), och en simpleContent-typ får textinnehållet som `value`.
+- **Undantag:** typer i namnrymden `http://hl7.org/fhir` (LightFhir.xsd i prescribe) är redan FHIR-datatyper och refereras som sådana. Modeller vars schema är openEHR:s referensmodell (processdevelopment:infections, `Vardkontakt` m.fl.) behålls handskrivna. Skriptet noterar det i filhuvudet.
+- **Handskrivna invarianter** (TKB-regler, se Fältregler → FHIRPath-invarianter) förs över när modellen genereras om: obeys-sökvägen och namnen i uttrycket översätts till schemats namn, även när den gamla modellen hoppade över ett omslag (`careContactBody`, `requestOutcome`). `.coding` på CVType tas bort, och `x = 'VR'` på en kodtyp blir `x.code = 'VR'`. Skriptet varnar (`VARNING …`) för obeys som inte går att översätta och för invarianter i andra filer (t.ex. `SharedInvariants.fsh`). Rätta dem för hand.
+- **Fältbeskrivningar:** tabellrader för underfält i en gemensam typ (root/extension på IIType, code/codeSystem på CVType) får inget eget element, eftersom elementen tillhör den gemensamma typen. `--report` listar dem som "rad utan element", vilket är väntat.
+- **Felsignaturer:** `… does not represent a valid FHIR id` = invariant-id över 64 tecken (skriptet kortar sedan 2026-11-08). `Cannot define element … because it has already been defined` = samma element i flera grenar av en xs:choice (skriptet skriver det en gång). `No element found at path … for CaretValueRule` i `field-descriptions/` = gammal RuleSet: kör `sync_field_descriptions.py`, som numera tar bort RuleSet och insert-rad när inga tabellrader längre träffar modellen.
 
-#### Datatypmappning: RIV-TA → FHIR
+#### Datatypmappning: RIV-TA → FHIR (UTGÅNGEN 2026-11-08)
+
+Gäller inte längre för TKB-modellerna, se "Datatyper enligt schemat" ovan. Tabellen och avsnitten nedan om FHIR-datatypernas subelement gäller bara modeller som fortfarande använder FHIR-datatyper (prescribe, openEHR-modellerna).
 
 | RIV-TA bastyp | FHIR-datatyp | Notering |
 |---|---|---|

@@ -30,37 +30,57 @@
       {
         "id": "updatebooking-request.requestedTimeslot",
         "path": "updatebooking-request.requestedTimeslot",
-        "short": "Ny tidsinformation (TimeslotType)",
-        "definition": "Ny tidsinformation för ombokningen.\nKardinalitet: Obligatorisk.",
-        "comment": "TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1).\n\n**Modellanteckning:** Ny tidsinformation för ombokningen.",
+        "short": "TimeslotType",
+        "definition": "requestedTimeslot",
+        "comment": "TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updatebooking-request.requestedTimeslot.startTimeInclusive",
         "path": "updatebooking-request.requestedTimeslot.startTimeInclusive",
-        "short": "Startdatum och klockslag (ÅÅÅÅMMDDttmmss)",
+        "short": "startTimeInclusive",
         "definition": "Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.",
-        "comment": "TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1).",
-        "min": 1,
+        "comment": "TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS"
+            ]
           }
         ]
       },
       {
         "id": "updatebooking-request.requestedTimeslot.endTimeExclusive",
         "path": "updatebooking-request.requestedTimeslot.endTimeExclusive",
-        "short": "Slutdatum och klockslag (ÅÅÅÅMMDDttmmss)",
+        "short": "endTimeExclusive",
         "definition": "Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.",
-        "comment": "TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "updatebooking-request.requestedTimeslot.healthcare_facility",
+        "path": "updatebooking-request.requestedTimeslot.healthcare_facility",
+        "short": "healthcare_facility",
+        "definition": "HSA-id för mottagning/vårdenhet.",
+        "comment": "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,40 +90,26 @@
         ]
       },
       {
-        "id": "updatebooking-request.requestedTimeslot.healthcare_facility",
-        "path": "updatebooking-request.requestedTimeslot.healthcare_facility",
-        "short": "HSA-id för mottagning/vårdenhet",
-        "definition": "HSA-id för mottagning/vårdenhet.",
-        "comment": "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
         "id": "updatebooking-request.requestedTimeslot.performer",
         "path": "updatebooking-request.requestedTimeslot.performer",
-        "short": "HSA-id för HoS-person",
+        "short": "performer",
         "definition": "HSA-id för Hos-person som besöket är bokat hos.",
         "comment": "TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "updatebooking-request.requestedTimeslot.bookingId",
         "path": "updatebooking-request.requestedTimeslot.bookingId",
-        "short": "Bokningsidentitet för bokning att omboka",
+        "short": "bookingId",
         "definition": "Bokningsidentitet för det bokade besöket.",
-        "comment": "TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** Bokningsidentitet för bokningen som ska ombokas. Måste avse en tidssatt bokning.",
-        "min": 1,
+        "comment": "TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -114,21 +120,24 @@
       {
         "id": "updatebooking-request.requestedTimeslot.subject_of_care",
         "path": "updatebooking-request.requestedTimeslot.subject_of_care",
-        "short": "Personnummer enl. yyyymmddxxxx",
+        "short": "subject_of_care",
         "definition": "Personnummer enl. yyyymmddxxxx.",
-        "comment": "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).\n\n**Modellanteckning:** Personnummer för invånaren.",
-        "min": 1,
+        "comment": "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType"
+            ]
           }
         ]
       },
       {
         "id": "updatebooking-request.requestedTimeslot.purpose",
         "path": "updatebooking-request.requestedTimeslot.purpose",
-        "short": "Besöksorsak",
+        "short": "purpose",
         "definition": "Beskrivning av besöksorsak angiven av vårdenhet.",
         "comment": "TKB-fält: `purpose` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -142,7 +151,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.reason",
         "path": "updatebooking-request.requestedTimeslot.reason",
-        "short": "Kontaktorsak",
+        "short": "reason",
         "definition": "Kontaktorsak som invånare uppger vid bokning.",
         "comment": "TKB-fält: `reason` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -156,7 +165,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.resourceName",
         "path": "updatebooking-request.requestedTimeslot.resourceName",
-        "short": "Namn på resurs",
+        "short": "resourceName",
         "definition": "Namn på resurs.",
         "comment": "TKB-fält: `resourceName` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -170,7 +179,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.healthcare_facility_name",
         "path": "updatebooking-request.requestedTimeslot.healthcare_facility_name",
-        "short": "Namn på mottagning",
+        "short": "healthcare_facility_name",
         "definition": "Namn på bokad mottagning/vårdenhet.",
         "comment": "TKB-fält: `healthcare_facility_name` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -184,7 +193,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.performerName",
         "path": "updatebooking-request.requestedTimeslot.performerName",
-        "short": "Namn på HoS-person",
+        "short": "performerName",
         "definition": "Namn på HoS-person som besöket är bokat hos. Ska innehålla en blank-tecken-separerad sammanslagning av yrkestitel, förnamn, mellannamn, efternamn.",
         "comment": "TKB-fält: `performerName` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -198,7 +207,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.resourceID",
         "path": "updatebooking-request.requestedTimeslot.resourceID",
-        "short": "Identitet för resurs",
+        "short": "resourceID",
         "definition": "Identitet för resurs.",
         "comment": "TKB-fält: `resourceID` (`ResourceIDType (string)`, kardinalitet 0..1).",
         "min": 0,
@@ -212,7 +221,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.timeTypeName",
         "path": "updatebooking-request.requestedTimeslot.timeTypeName",
-        "short": "Tidstyp",
+        "short": "timeTypeName",
         "definition": "Tidstyp för det bokade besöket.",
         "comment": "TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -226,7 +235,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.timeTypeID",
         "path": "updatebooking-request.requestedTimeslot.timeTypeID",
-        "short": "Identitet för tidstyp",
+        "short": "timeTypeID",
         "definition": "Identitet för tidstyp.",
         "comment": "TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).",
         "min": 0,
@@ -240,7 +249,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.careTypeName",
         "path": "updatebooking-request.requestedTimeslot.careTypeName",
-        "short": "Klartext för vårdtyp",
+        "short": "careTypeName",
         "definition": "Klartext för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
         "comment": "TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -254,7 +263,7 @@
       {
         "id": "updatebooking-request.requestedTimeslot.careTypeID",
         "path": "updatebooking-request.requestedTimeslot.careTypeID",
-        "short": "Identitet för vårdtyp",
+        "short": "careTypeID",
         "definition": "Identitet för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
         "comment": "TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).",
         "min": 0,
@@ -266,23 +275,75 @@
         ]
       },
       {
-        "id": "updatebooking-request.subject_of_care_info",
-        "path": "updatebooking-request.subject_of_care_info",
-        "short": "Invånarinformation (SubjectOfCareType)",
-        "definition": "Invånarens kontaktinformation. Valfri vid ombokning.\nKardinalitet: Valfri.",
-        "comment": "TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 0..1).\n\n**Modellanteckning:** Invånarens kontaktinformation. Valfri vid ombokning.",
+        "id": "updatebooking-request.requestedTimeslot.cancel_booking_allowed",
+        "path": "updatebooking-request.requestedTimeslot.cancel_booking_allowed",
+        "short": "cancel_booking_allowed",
+        "definition": "cancel_booking_allowed",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking-request.requestedTimeslot.rebooking_allowed",
+        "path": "updatebooking-request.requestedTimeslot.rebooking_allowed",
+        "short": "rebooking_allowed",
+        "definition": "rebooking_allowed",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking-request.requestedTimeslot.message_allowed",
+        "path": "updatebooking-request.requestedTimeslot.message_allowed",
+        "short": "message_allowed",
+        "definition": "message_allowed",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking-request.requestedTimeslot.isInvitation",
+        "path": "updatebooking-request.requestedTimeslot.isInvitation",
+        "short": "isInvitation",
+        "definition": "isInvitation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking-request.subject_of_care_info",
+        "path": "updatebooking-request.subject_of_care_info",
+        "short": "SubjectOfCareType",
+        "definition": "subject_of_care_info",
+        "comment": "TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updatebooking-request.subject_of_care_info.phone",
         "path": "updatebooking-request.subject_of_care_info.phone",
-        "short": "Telefonnummer",
+        "short": "phone",
         "definition": "Telefonnummer.",
         "comment": "TKB-fält: `phone` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -296,7 +357,7 @@
       {
         "id": "updatebooking-request.subject_of_care_info.email",
         "path": "updatebooking-request.subject_of_care_info.email",
-        "short": "Email-adress",
+        "short": "email",
         "definition": "Email-adress.",
         "comment": "TKB-fält: `email` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -310,7 +371,7 @@
       {
         "id": "updatebooking-request.subject_of_care_info.address",
         "path": "updatebooking-request.subject_of_care_info.address",
-        "short": "Adress",
+        "short": "address",
         "definition": "Adress.",
         "comment": "TKB-fält: `address` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -324,7 +385,7 @@
       {
         "id": "updatebooking-request.subject_of_care_info.coaddress",
         "path": "updatebooking-request.subject_of_care_info.coaddress",
-        "short": "Co-adress",
+        "short": "coaddress",
         "definition": "Co-adress.",
         "comment": "TKB-fält: `coaddress` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -338,7 +399,7 @@
       {
         "id": "updatebooking-request.subject_of_care_info.firstName",
         "path": "updatebooking-request.subject_of_care_info.firstName",
-        "short": "Invånarens förnamn",
+        "short": "firstName",
         "definition": "Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).",
         "comment": "TKB-fält: `firstName` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -352,7 +413,7 @@
       {
         "id": "updatebooking-request.subject_of_care_info.middleName",
         "path": "updatebooking-request.subject_of_care_info.middleName",
-        "short": "Invånarens mellannamn",
+        "short": "middleName",
         "definition": "Invånarens mellannamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).",
         "comment": "TKB-fält: `middleName` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -366,7 +427,7 @@
       {
         "id": "updatebooking-request.subject_of_care_info.lastName",
         "path": "updatebooking-request.subject_of_care_info.lastName",
-        "short": "Invånarens efternamn",
+        "short": "lastName",
         "definition": "Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).",
         "comment": "TKB-fält: `lastName` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -380,7 +441,7 @@
       {
         "id": "updatebooking-request.notification",
         "path": "updatebooking-request.notification",
-        "short": "Avisering",
+        "short": "notification",
         "definition": "Avisering",
         "comment": "TKB-fält: `notification` (`string`, kardinalitet 0..1).",
         "min": 0,

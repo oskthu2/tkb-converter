@@ -7,4 +7,6 @@ RuleSet: DeleteQuestionsRequestFieldDescriptions
 * careGiverId ^definition = "Vårdgivarens hsa-id"
 * careGiverId ^comment = "TKB-fält: `careGiverId` (`hsaid`, kardinalitet 1..1)."
 * questionId ^definition = "Ärendelådans identitet på frågor som skall tas bort ur ärendelådan."
-* questionId ^comment = "TKB-fält: `questionId` (`string`, kardinalitet 0..n)."
+* questionId ^comment = "TKB-fält: `questionId` (`string`, kardinalitet 0..n).
+
+Obs: modellen anger 1..* där TKB:n anger 0..*."

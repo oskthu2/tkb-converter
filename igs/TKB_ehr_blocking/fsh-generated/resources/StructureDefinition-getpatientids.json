@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetPatientIds\n(RIV-TA urn:riv:ehr:blocking:administration:GetPatientIdsResponder:2).\nLäser alla patienter med minst en aktiv spärr för en viss organisation.\nRepresenterar responsens informationsstruktur."
       },
       {
-        "id": "getpatientids.result",
-        "path": "getpatientids.result",
-        "short": "Resultat av anropet",
-        "definition": "Resultat av anropet",
+        "id": "getpatientids.GetPatientIdResultType",
+        "path": "getpatientids.GetPatientIdResultType",
+        "short": "GetPatientIdResultType",
+        "definition": "GetPatientIdResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getpatientids.result.resultCode",
-        "path": "getpatientids.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "getpatientids.GetPatientIdResultType.Result",
+        "path": "getpatientids.GetPatientIdResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getpatientids.GetPatientIdResultType.Result.ResultCode",
+        "path": "getpatientids.GetPatientIdResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,11 +71,11 @@
         }
       },
       {
-        "id": "getpatientids.result.resultText",
-        "path": "getpatientids.result.resultText",
-        "short": "Beskrivande text till svarskoden",
-        "definition": "Beskrivande text till svarskoden",
-        "min": 0,
+        "id": "getpatientids.GetPatientIdResultType.Result.ResultText",
+        "path": "getpatientids.GetPatientIdResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -71,10 +84,10 @@
         ]
       },
       {
-        "id": "getpatientids.patientIds",
-        "path": "getpatientids.patientIds",
-        "short": "Lista med personnummer för patienter med aktiva spärrar hos angiven vårdgivare",
-        "definition": "Lista med personnummer för patienter med aktiva spärrar hos angiven vårdgivare",
+        "id": "getpatientids.GetPatientIdResultType.PatientIds",
+        "path": "getpatientids.GetPatientIdResultType.PatientIds",
+        "short": "PatientIds",
+        "definition": "PatientIds",
         "min": 0,
         "max": "*",
         "type": [

@@ -19,9 +19,7 @@ RuleSet: GetDispensedDrugsRequestFieldDescriptions
 * anropandeVardpersonal.personHsaId ^definition = "HSA-id för läsande person."
 * anropandeVardpersonal.personHsaId ^comment = "TKB-fält i Vardpersonal: `personHsaId` (`string`, kardinalitet 1..1).
 
-**Fältlängder:** 1..64
-
-**Modellanteckning:** Fältlängd 1..64."
+**Fältlängder:** 1..64"
 * anropandeVardpersonal.vardenhetHsaId ^definition = "HSA-id för läsande vårdenhet. Används för spårbarhet."
 * anropandeVardpersonal.vardenhetHsaId ^comment = "TKB-fält i Vardpersonal: `vardenhetHsaId` (`string`, kardinalitet 1..1).
 
@@ -35,9 +33,7 @@ RuleSet: GetDispensedDrugsRequestFieldDescriptions
 
 **Fältlängder:** 7..7"
 * identifieradArbetsplats ^definition = "Identifierad arbetsplats."
-* identifieradArbetsplats ^comment = "TKB-fält: `identifieradArbetsplats` (`ArbetsplatsIdentifikation`, kardinalitet 1..1).
-
-**Modellanteckning:** XSD: ArbetsplatsIdentifikation (xs:choice). Exakt ett av arbetsplatskod och arbetsplats ska anges."
+* identifieradArbetsplats ^comment = "TKB-fält: `identifieradArbetsplats` (`ArbetsplatsIdentifikation`, kardinalitet 1..1)."
 * identifieradArbetsplats.arbetsplatskod ^definition = "Del av val. Förskrivarens arbetsplatskod. Valideras. Obligatorisk om arbetsplats inte anges."
 * identifieradArbetsplats.arbetsplatskod ^comment = "TKB-fält i ArbetsplatsIdentifikation: `arbetsplatskod` (`string`, kardinalitet 1..1).
 
@@ -51,4 +47,4 @@ Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * atkomsttyp ^definition = "Treställig kod för typ av åtkomst."
 * atkomsttyp ^comment = "TKB-fält: `atkomsttyp` (`atkomsttyp`, kardinalitet 1..1).
 
-**Modellanteckning:** ENG = engångssamtycke, SAM = samtycke (tillsvidaresamtycke), NOD = nödåtkomst."
+**Modellanteckning:** Treställig kod för typ av åtkomst. Tillåtna värden: ENG, SAM, NOD."

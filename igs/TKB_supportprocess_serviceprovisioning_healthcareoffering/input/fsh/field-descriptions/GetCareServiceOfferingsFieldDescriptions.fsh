@@ -22,10 +22,6 @@ careServiceId.root: `<UUID>`
 
 careServiceId.extension: Anges ej"
 * careService.careServiceId ^comment = "TKB-fält: `../careServiceId` (`IIType`, kardinalitet 0..1)."
-* careService.careServiceId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* careService.careServiceId.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * careService.typeOfCareService ^definition = "Typ av vård- och omsorgstjänst.
 
 Den specifika vård- och omsorgstjänsten som erbjuds.
@@ -58,27 +54,17 @@ typeOfCareService.displayName returnerar endast text på svenska även om annat 
 
 Framtagande av nationellt kodverk pågår."
 * careService.typeOfCareService ^comment = "TKB-fält: `../typeOfCareService` (`CVType`, kardinalitet 1..1)."
-* careService.typeOfCareService.cvCode ^comment = "TKB-fält: `../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.typeOfCareService.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.typeOfCareService.codeSystemName ^comment = "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareService.codeSystemVersion ^comment = "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareService.displayName ^comment = "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareService.originalText ^comment = "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1)."
 * careService.typeOfCareServiceDescription ^definition = "Nationellt överenskommen beskrivning av vård- och omsorgstjänsten.
 
 Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.typeOfCareServiceDescription ^comment = "TKB-fält: `../typeOfCareServicedescription*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.typeOfCareServiceDescription.descriptionText ^definition = "Text
+* careService.typeOfCareServiceDescription.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.typeOfCareServiceDescription.descriptionText ^comment = "TKB-fält: `../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.typeOfCareServiceDescription.descriptionLanguage ^definition = "Språk
+* careService.typeOfCareServiceDescription.text ^comment = "TKB-fält: `../../text` (`string`, kardinalitet 1..1)."
+* careService.typeOfCareServiceDescription.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på.
 
@@ -99,17 +85,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.typeOfCareServiceDescription.descriptionLanguage ^comment = "TKB-fält: `../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.typeOfCareServiceDescription.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.typeOfCareServiceDescription.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.typeOfCareServiceDescription.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareServiceDescription.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareServiceDescription.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareServiceDescription.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.typeOfCareServiceDescription.language ^comment = "TKB-fält: `../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.typeOfCareServiceDescription.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
@@ -138,14 +114,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.typeOfCareServiceDescription.role ^comment = "TKB-fält: `../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.typeOfCareServiceDescription.role.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.typeOfCareServiceDescription.role.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.typeOfCareServiceDescription.role.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareServiceDescription.role.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareServiceDescription.role.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.typeOfCareServiceDescription.role.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.validity ^definition = "Giltighet
 
 Giltighetstiden för vård- och omsorgstjänsten.
@@ -153,11 +121,7 @@ Giltighetstiden för vård- och omsorgstjänsten.
 Exempelvis höftledsoperation som utförs av den organisatoriska enheten x på platsen y erbjuds under perioden 20160101-20171231.
 
 Minst ett av periodens start och end i DatePeriodType ska anges."
-* careService.validity ^comment = "TKB-fält: `../validity*` (`DatePeriodType`, kardinalitet 1..1).
-
-**Modellanteckning:** Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD"
-* careService.validity.start ^comment = "TKB-fält: `../../start` (`DateType`, kardinalitet 0..1)."
-* careService.validity.end ^comment = "TKB-fält: `../../end` (`DateType`, kardinalitet 0..1)."
+* careService.validity ^comment = "TKB-fält: `../validity*` (`DatePeriodType`, kardinalitet 1..1)."
 * careService.careServiceStatus ^definition = "Status
 
 Status för vård- och omsorgstjänsten.
@@ -188,13 +152,11 @@ Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad f�
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.description ^comment = "TKB-fält: `../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.description.descriptionText ^definition = "Text
+* careService.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.description.descriptionText ^comment = "TKB-fält: `../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.description.descriptionLanguage ^definition = "Språk
+* careService.description.text ^comment = "TKB-fält: `../../text` (`string`, kardinalitet 1..1)."
+* careService.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på.
 
@@ -215,17 +177,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.description.descriptionLanguage ^comment = "TKB-fält: `../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.description.language ^comment = "TKB-fält: `../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
@@ -254,14 +206,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.description.role ^comment = "TKB-fält: `../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.description.role.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.description.role.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.description.role.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.description.role.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.description.role.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.indicator ^definition = "Indikator
 
 Indikator håller referenser till mätningar från SKRs (Sveriges kommuner och regioner) öppna jämförelser som kan kopplas till en viss vård- och omsorgstjänst. Kan exempelvis vara väntetid eller kvalitetsindikator kopplat till den specifika vård- och omsorgstjänsten."
@@ -272,10 +216,6 @@ Identitetsbeteckning för indikator från SKRs öppna jämförelser som är kopp
 
 indicator.root = 1.2.826.0.1.3680043.9.4672.7"
 * careService.indicator.indicatorId ^comment = "TKB-fält: `../../indicatorId` (`IIType`, kardinalitet 1..1)."
-* careService.indicator.indicatorId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* careService.indicator.indicatorId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * careService.indicator.logicalAddress ^definition = "Logisk adress
 
 Logisk adress som ska användas för att nå den datakälla där indikatorn finns lagrad."
@@ -300,24 +240,16 @@ False = ej obligatoriskt att tillämpa remissmall vid remittering"
 
 Den organisation som är huvudansvarig och innehållsansvarig för det utbud som svaret visar."
 * careService.providingOrganization ^comment = "TKB-fält: `../providingOrganization` (`ProvidingOrganizationType`, kardinalitet 1..1)."
-* careService.providingOrganization.providingOrganizationId ^definition = "Organisation id
+* careService.providingOrganization.id ^definition = "Organisation id
 
 Id för den katalogansvariga organisationen. Innehållet i id styrs av vilken typ av organisation det är
 
 För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7)
 
 För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)"
-* careService.providingOrganization.providingOrganizationId ^comment = "TKB-fält: `../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** providingOrganizationId Heter id i schemat."
-* careService.providingOrganization.providingOrganizationId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* careService.providingOrganization.providingOrganizationId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
-* careService.providingOrganization.providingOrganizationName ^definition = "Namn på den katalogansvariga organisationen."
-* careService.providingOrganization.providingOrganizationName ^comment = "TKB-fält: `../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** providingOrganizationName Heter name i schemat."
+* careService.providingOrganization.id ^comment = "TKB-fält: `../../id` (`IIType`, kardinalitet 1..1)."
+* careService.providingOrganization.name ^definition = "Namn på den katalogansvariga organisationen."
+* careService.providingOrganization.name ^comment = "TKB-fält: `../../name` (`String`, kardinalitet 1..1)."
 * careService.providingOrganization.management ^definition = "Ägarform
 
 Filtrerar sökresultatet så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras.
@@ -328,14 +260,6 @@ management.displayName returnerar endast text på svenska även om annat språk 
 
 Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras."
 * careService.providingOrganization.management ^comment = "TKB-fält: `../../management` (`CVType`, kardinalitet 1..1)."
-* careService.providingOrganization.management.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.providingOrganization.management.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.providingOrganization.management.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.management.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.management.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.management.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.providingOrganization.publicProvider ^definition = "Offentlig huvudman
 
 Anger om den katalogansvariga organisationen är offentlig huvudman.
@@ -346,13 +270,11 @@ True=offentlig huvudman"
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.providingOrganization.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.providingOrganization.description.descriptionText ^definition = "Text
+* careService.providingOrganization.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.providingOrganization.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.providingOrganization.description.descriptionLanguage ^definition = "Språk
+* careService.providingOrganization.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.providingOrganization.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på.
 
@@ -375,17 +297,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.providingOrganization.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.providingOrganization.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.providingOrganization.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.providingOrganization.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.providingOrganization.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.providingOrganization.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
@@ -414,19 +326,11 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.providingOrganization.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.providingOrganization.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.providingOrganization.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.providingOrganization.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.providingOrganization.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.performingOrganization ^definition = "Utförande organisatorisk enhet
 
 Klassen motsvarar den organisatoriska enheten som utför en aktivitet som erbjudit i form av vård- och omsorgstjänst."
 * careService.performingOrganization ^comment = "TKB-fält: `../performingOrganization` (`PerformingOrganizationType`, kardinalitet 1..1)."
-* careService.performingOrganization.performingOrganizationId ^definition = "Enhets-id
+* careService.performingOrganization.id ^definition = "Enhets-id
 
 Ett enhets-id på den utförande enheten ska returneras.
 
@@ -441,45 +345,29 @@ Om HSA-id (exempel):
 id.root =1.2.752.129.2.1.4.1
 
 id.extension = SE2321000115-094882"
-* careService.performingOrganization.performingOrganizationId ^comment = "TKB-fält: `../../id` (`IIType`, kardinalitet 1..*).
-
-**Modellanteckning:** performingOrganizationId Heter id i schemat."
-* careService.performingOrganization.performingOrganizationId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.performingOrganizationId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
-* careService.performingOrganization.performingOrganizationName ^definition = "Enhetsnamn
+* careService.performingOrganization.id ^comment = "TKB-fält: `../../id` (`IIType`, kardinalitet 1..*)."
+* careService.performingOrganization.name ^definition = "Enhetsnamn
 
 Lista med namn på den organisatoriska enhet som erbjuder en vård- och omsorgstjänst
 
 Listan ska vara ordnad efter fallande prioritetsordning där det föredragna namnet kommer först.
 
 Namn måste innehålla minst 3 tecken."
-* careService.performingOrganization.performingOrganizationName ^comment = "TKB-fält: `../../name` (`String`, kardinalitet 0..*).
-
-**Modellanteckning:** performingOrganizationName Heter name i schemat."
+* careService.performingOrganization.name ^comment = "TKB-fält: `../../name` (`String`, kardinalitet 0..*)."
 * careService.performingOrganization.responsibleOrganization ^definition = "Organisation
 
 Den organisation som den utförande organisatoriska enheten är en del av."
 * careService.performingOrganization.responsibleOrganization ^comment = "TKB-fält: `../../responsibleOrganization` (`OrganizationType`, kardinalitet 1..1)."
-* careService.performingOrganization.responsibleOrganization.responsibleOrganizationId ^definition = "Id på organisationen.
+* careService.performingOrganization.responsibleOrganization.id ^definition = "Id på organisationen.
 
 Om HSA-id (exempel):
 
 id.root =1.2.752.129.2.1.4.1
 
 id.extension = SE2321000115-094882"
-* careService.performingOrganization.responsibleOrganization.responsibleOrganizationId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** responsibleOrganizationId Heter id i schemat."
-* careService.performingOrganization.responsibleOrganization.responsibleOrganizationId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.responsibleOrganization.responsibleOrganizationId.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
-* careService.performingOrganization.responsibleOrganization.responsibleOrganizationName ^definition = "Namn på organisationen."
-* careService.performingOrganization.responsibleOrganization.responsibleOrganizationName ^comment = "TKB-fält: `../../../name` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** responsibleOrganizationName Heter name i schemat."
+* careService.performingOrganization.responsibleOrganization.id ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1)."
+* careService.performingOrganization.responsibleOrganization.name ^definition = "Namn på organisationen."
+* careService.performingOrganization.responsibleOrganization.name ^comment = "TKB-fält: `../../../name` (`string`, kardinalitet 1..1)."
 * careService.performingOrganization.responsibleOrganization.description ^definition = "Beskrivning av organisationen.
 
 Beskrivning av den organisation som ansvarar för den utförande enheten.
@@ -488,29 +376,9 @@ Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad f�
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.performingOrganization.responsibleOrganization.description ^comment = "TKB-fält: `../../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.performingOrganization.responsibleOrganization.description.descriptionText ^comment = "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage ^comment = "TKB-fält: `../../../../language` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.responsibleOrganization.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.performingOrganization.responsibleOrganization.description.text ^comment = "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1)."
+* careService.performingOrganization.responsibleOrganization.description.language ^comment = "TKB-fält: `../../../../language` (`CVType`, kardinalitet 0..1)."
 * careService.performingOrganization.responsibleOrganization.description.role ^comment = "TKB-fält: `../../../../role` (`CVType`, kardinalitet 0..*)."
-* careService.performingOrganization.responsibleOrganization.description.role.cvCode ^comment = "TKB-fält: `../../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.performingOrganization.responsibleOrganization.description.role.codeSystem ^comment = "TKB-fält: `../../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.responsibleOrganization.description.role.codeSystemName ^comment = "TKB-fält: `../../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.responsibleOrganization.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.responsibleOrganization.description.role.displayName ^comment = "TKB-fält: `../../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.responsibleOrganization.description.role.originalText ^comment = "TKB-fält: `../../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.performingOrganization.availableTime ^definition = "Kalendertid
 
 Den tid som den utförande enheten är tillgänglig.
@@ -529,14 +397,6 @@ typeOfBusiness.codeSystem:
 
 typeOfBusiness.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.performingOrganization.typeOfBusiness ^comment = "TKB-fält: `../../typeOfBusiness` (`CVType`, kardinalitet 0..*)."
-* careService.performingOrganization.typeOfBusiness.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.performingOrganization.typeOfBusiness.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.typeOfBusiness.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.typeOfBusiness.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.typeOfBusiness.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.typeOfBusiness.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.performingOrganization.description ^definition = "Beskrivning
 
 Beskrivning av den enhet som erbjuder vård- och omsorgstjänsten.
@@ -545,13 +405,11 @@ Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad f�
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.performingOrganization.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.performingOrganization.description.descriptionText ^definition = "Text
+* careService.performingOrganization.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.performingOrganization.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.performingOrganization.description.descriptionLanguage ^definition = "Språk
+* careService.performingOrganization.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.performingOrganization.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
 
@@ -572,17 +430,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.performingOrganization.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.performingOrganization.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.performingOrganization.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.performingOrganization.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.performingOrganization.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
@@ -609,14 +457,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.performingOrganization.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.performingOrganization.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.performingOrganization.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.performingOrganization.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.performingOrganization.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.patientFee ^definition = "Patientavgift
 
 Den avgift som ska betalas av patienten.
@@ -629,9 +469,7 @@ patientFee.value: 125
 
 patientFee.currency: SEK"
 * careService.patientFee ^comment = "TKB-fält: `../patientFee` (`MOType`, kardinalitet 0..1)."
-* careService.patientFee.moValue ^comment = "TKB-fält: `../../value` (`decimal`, kardinalitet 1..1).
-
-**Modellanteckning:** moValue Heter value i schemat."
+* careService.patientFee.value ^comment = "TKB-fält: `../../value` (`decimal`, kardinalitet 1..1)."
 * careService.patientFee.currency ^comment = "TKB-fält: `../../currency` (`string`, kardinalitet 1..1)."
 * careService.targetGroup ^definition = "Målgrupp för vård- och omsorgstjänsten"
 * careService.targetGroup ^comment = "TKB-fält: `../targetGroup` (`TargetGroupType`, kardinalitet 0..*)."
@@ -665,14 +503,6 @@ targetGroupGender.codeSystem: 1.2.752.129.2.2.1.1
 
 gender.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.targetGroup.gender ^comment = "TKB-fält: `../../gender` (`CVType`, kardinalitet 0..1)."
-* careService.targetGroup.gender.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.targetGroup.gender.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.targetGroup.gender.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.targetGroup.gender.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.targetGroup.gender.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.targetGroup.gender.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.targetGroup.targetGroupAttribute ^definition = "Egenskaper
 
 Egenskaper för målgruppen."
@@ -689,14 +519,6 @@ Kod från Snomed CT hierarkin 363787002 | observerbar företeelse |
 
 typeOfPersonalAttribute.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute ^comment = "TKB-fält: `../../../ typeOfPersonalAttribute` (`CVType`, kardinalitet 1..1)."
-* careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.targetGroup.targetGroupAttribute.attributeValue ^definition = "Värde
 
 Innehåller detaljer om den specifika egenskapen.
@@ -729,14 +551,6 @@ county.displayName = Östergötlands län
 
 county.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.location.geographicalLocation.county ^comment = "TKB-fält: `../../../county` (`CVType`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.county.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.location.geographicalLocation.county.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.location.geographicalLocation.county.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.county.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.county.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.county.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.location.geographicalLocation.municipality ^definition = "Kommunkod enligt SCB:s lista över län och kommuner, se referens R13. Fyrställig kod.
 
 Exempel:
@@ -749,14 +563,6 @@ municipality.displayName = Huddinge
 
 municipality.displayName returnerar endast svenska även om annat språk är angivet i begäran."
 * careService.location.geographicalLocation.municipality ^comment = "TKB-fält: `../../../municipality` (`CVType`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.municipality.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.location.geographicalLocation.municipality.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.location.geographicalLocation.municipality.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.municipality.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.municipality.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.location.geographicalLocation.municipality.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.location.geographicalLocation.otherLocation ^definition = "Övrigt område är ett begränsat område som vård- och omsorgstjänsten erbjuds inom."
 * careService.location.geographicalLocation.otherLocation ^comment = "TKB-fält: `../../../otherLocation` (`OtherLocationType`, kardinalitet 0..1)."
 * careService.location.geographicalLocation.otherLocation.polygon ^definition = "Polygon
@@ -766,21 +572,15 @@ Det område som avgränsas med minst 3 punkter med sina respektive koordinater."
 * careService.location.geographicalLocation.otherLocation.polygon.north ^definition = "Exempel
 
 geoLocation.north = 6407869"
-* careService.location.geographicalLocation.otherLocation.polygon.north ^comment = "TKB-fält: `../../../../../north` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** north (xs:long i schemat.)"
+* careService.location.geographicalLocation.otherLocation.polygon.north ^comment = "TKB-fält: `../../../../../north` (`long`, kardinalitet 1..1)."
 * careService.location.geographicalLocation.otherLocation.polygon.east ^definition = "Exempel
 
 geoLocation.east = 485748"
-* careService.location.geographicalLocation.otherLocation.polygon.east ^comment = "TKB-fält: `../../../../../east` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** east (xs:long i schemat.)"
-* careService.location.geographicalLocation.otherLocation.otherLocationName ^definition = "Benämning på övrigt område.
+* careService.location.geographicalLocation.otherLocation.polygon.east ^comment = "TKB-fält: `../../../../../east` (`long`, kardinalitet 1..1)."
+* careService.location.geographicalLocation.otherLocation.name ^definition = "Benämning på övrigt område.
 
 Exempelvis kommundel."
-* careService.location.geographicalLocation.otherLocation.otherLocationName ^comment = "TKB-fält: `../../../../name` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** otherLocationName Heter name i schemat."
+* careService.location.geographicalLocation.otherLocation.name ^comment = "TKB-fält: `../../../../name` (`string`, kardinalitet 0..1)."
 * careService.location.physicalLocation ^definition = "Fysisk plats
 
 Den fysiska plats där vård- och omsorgstjänsten erbjuds. Anges med besöksadress och/eller geografiska koordinater."
@@ -795,35 +595,27 @@ Minst ett av attributen locationAddress eller geographicalCoordinates ska anges.
 
 Minst ett av attributen locationAddress eller geographicalCoordinates ska anges."
 * careService.location.physicalLocation.geographicalCoordinates ^comment = "TKB-fält: `../../../ geographicalCoordinates` (`GeoLocationType`, kardinalitet 0..1)."
-* careService.location.physicalLocation.geographicalCoordinates.north ^comment = "TKB-fält: `../../../../north` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** north (xs:long i schemat.)"
-* careService.location.physicalLocation.geographicalCoordinates.east ^comment = "TKB-fält: `../../../../east` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** east (xs:long i schemat.)"
+* careService.location.physicalLocation.geographicalCoordinates.north ^comment = "TKB-fält: `../../../../north` (`long`, kardinalitet 1..1)."
+* careService.location.physicalLocation.geographicalCoordinates.east ^comment = "TKB-fält: `../../../../east` (`long`, kardinalitet 1..1)."
 * careService.location.virtualLocation ^definition = "Virtuell plats
 
 Adress till en viss vård- och omsorgstjänst om den bedrivs virtuellt. Kan exempelvis vara webbadress eller adress där det går att ladda ner en applikation."
 * careService.location.virtualLocation ^comment = "TKB-fält: `../../virtualLocation` (`VirtualLocationType`, kardinalitet 0..1)."
-* careService.location.virtualLocation.virtualLocationId ^definition = "Id på virtuell plats.
+* careService.location.virtualLocation.id ^definition = "Id på virtuell plats.
 
 Identifierare för den plats där vård- och omsorgstjänsten bedrivs virtuellt."
-* careService.location.virtualLocation.virtualLocationId ^comment = "TKB-fält: `../../.. /id` (`anyURI`, kardinalitet 1..1).
-
-**Modellanteckning:** virtualLocationId Heter id i schemat."
+* careService.location.virtualLocation.id ^comment = "TKB-fält: `../../.. /id` (`anyURI`, kardinalitet 1..1)."
 * careService.location.description ^definition = "Beskrivning av platsen (län, kommun, fysisk eller virtuell plats).
 
 Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.location.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.location.description.descriptionText ^definition = "Text
+* careService.location.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.location.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.location.description.descriptionLanguage ^definition = "Språk
+* careService.location.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.location.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
 
@@ -844,17 +636,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.location.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.location.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.location.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.location.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.location.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.location.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.location.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.location.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.location.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare (enskild person) eller hälso- och sjukvårdspersonal.
@@ -879,14 +661,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.location.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.location.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.location.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.location.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.location.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.location.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.location.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.contactInformation ^definition = "Kontaktuppgift till den organisatoriska enhet som erbjuder en viss vård- och omsorgstjänst."
 * careService.contactInformation ^comment = "TKB-fält: `../contactInformation` (`ContactInformationType`, kardinalitet 0..*)."
 * careService.contactInformation.ranking ^definition = "Rangordning för kontaktuppgifterna. Om det finns flera kontaktuppgifter används rangordning för att visa vilken som föredras framför en annan.
@@ -923,14 +697,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.contactInformation.forRole ^comment = "TKB-fält: `../../forRole` (`CVType`, kardinalitet 0..*)."
-* careService.contactInformation.forRole.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.contactInformation.forRole.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.contactInformation.forRole.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.forRole.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.forRole.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.forRole.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.contactInformation.purpose ^definition = "Syfte
 
 Angivelse av syftet med kontaktuppgiften.
@@ -967,14 +733,6 @@ Observera att kodverk kan komma att kompletteras över tid vilket medför att ny
 
 typeOfTelecom.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.contactInformation.telecom.typeOfTelecom ^comment = "TKB-fält: `../../../typeOfTelecom` (`CVType`, kardinalitet 1..1)."
-* careService.contactInformation.telecom.typeOfTelecom.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.contactInformation.telecom.typeOfTelecom.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.contactInformation.telecom.typeOfTelecom.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.telecom.typeOfTelecom.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.telecom.typeOfTelecom.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.telecom.typeOfTelecom.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.contactInformation.telecom.contactPoint ^definition = "Värde
 
 Angivelse av värde i klartext för typen av medium.
@@ -989,13 +747,11 @@ Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad f�
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.contactInformation.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.contactInformation.description.descriptionText ^definition = "Text
+* careService.contactInformation.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.contactInformation.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.contactInformation.description.descriptionLanguage ^definition = "Språk
+* careService.contactInformation.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.contactInformation.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
 
@@ -1016,17 +772,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.contactInformation.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.contactInformation.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.contactInformation.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.contactInformation.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.contactInformation.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.contactInformation.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänst  eller hälso- och sjukvårdspersonal.
@@ -1053,14 +799,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.contactInformation.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.contactInformation.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.contactInformation.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.contactInformation.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.contactInformation.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.cooperation ^definition = "Samverkan
 
 Håller information om vilken organisatorisk enhet som samverkar med annan organisatorisk enhet kring en vård- och omsorgstjänst och vad samverkan avser.
@@ -1076,11 +814,7 @@ Vilken typ av samverkan organisationerna har mellan varandra."
 Giltighetsperioden för samverkan mellan organisationerna.
 
 Om samverkan exempelvis gäller vid semesterstängt, kan giltigheten exempelvis vara 20160601‒20160831."
-* careService.cooperation.validity ^comment = "TKB-fält: `../../validity*` (`DatePeriodType`, kardinalitet 0..1).
-
-**Modellanteckning:** Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD"
-* careService.cooperation.validity.start ^comment = "TKB-fält: `../../../start` (`DateType`, kardinalitet 0..1)."
-* careService.cooperation.validity.end ^comment = "TKB-fält: `../../../end` (`DateType`, kardinalitet 0..1)."
+* careService.cooperation.validity ^comment = "TKB-fält: `../../validity*` (`DatePeriodType`, kardinalitet 0..1)."
 * careService.cooperation.referenceToCareServiceId ^definition = "Referens till vård- och omsorgstjänst
 
 Unikt id som identifierar den vård och- omsorgstjänst som två organisationer samverkar kring.
@@ -1097,10 +831,6 @@ careServiceId.root: `<UUID>`
 
 careServiceId.extension: Anges ej"
 * careService.cooperation.referenceToCareServiceId ^comment = "TKB-fält: `../../referenceToCareServiceId` (`IIType`, kardinalitet 1..1)."
-* careService.cooperation.referenceToCareServiceId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* careService.cooperation.referenceToCareServiceId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * careService.cooperation.description ^definition = "Beskrivning
 
 Ytterligare information om samverkan.
@@ -1109,13 +839,11 @@ Om beskrivning anges ska det åtminstone finnas på svenska och vara anpassad f�
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.cooperation.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.cooperation.description.descriptionText ^definition = "Text
+* careService.cooperation.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.cooperation.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.cooperation.description.descriptionLanguage ^definition = "Språk
+* careService.cooperation.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.cooperation.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
 
@@ -1136,17 +864,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.cooperation.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.cooperation.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.cooperation.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.cooperation.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.cooperation.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.cooperation.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.cooperation.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.cooperation.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.cooperation.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
@@ -1175,14 +893,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.cooperation.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.cooperation.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.cooperation.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.cooperation.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.cooperation.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.cooperation.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.cooperation.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.resource ^definition = "Resurs
 
 Vilken resurs som kan erbjudas med en vård- och omsorgstjänst."
@@ -1195,14 +905,6 @@ Kod från Snomed CT hierarkin 308916002 | område eller geografisk plats |, 2607
 
 typeOfResource.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.resource.typeOfResource ^comment = "TKB-fält: `../../typeOfResource` (`CVType`, kardinalitet 1..1)."
-* careService.resource.typeOfResource.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.resource.typeOfResource.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.resource.typeOfResource.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.resource.typeOfResource.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.resource.typeOfResource.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.resource.typeOfResource.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.resource.resourceAttribute ^definition = "Egenskap
 
 Värdet på resursen. Exempelvis om tolk så anges vilket språk."
@@ -1221,13 +923,11 @@ Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad f�
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.resource.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*)."
-* careService.resource.description.descriptionText ^definition = "Text
+* careService.resource.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.resource.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.resource.description.descriptionLanguage ^definition = "Språk
+* careService.resource.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.resource.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
 
@@ -1248,17 +948,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.resource.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.resource.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.resource.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.resource.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.resource.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.resource.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.resource.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.resource.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.resource.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten  eller hälso- och sjukvårdspersonal.
@@ -1285,14 +975,6 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.resource.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.resource.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.resource.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.resource.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.resource.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.resource.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.resource.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.interferenceInformation ^definition = "Störningsinformation.
 
 Information om omständigheter som innebär en avvikelse i tillgängligheten för en viss vård- och omsorgstjänst."
@@ -1300,11 +982,7 @@ Information om omständigheter som innebär en avvikelse i tillgängligheten fö
 * careService.interferenceInformation.datePeriod ^definition = "Datumperiod
 
 Start- och sluttid för det inträffade, där starttid är obligatorisk och sluttid valfri."
-* careService.interferenceInformation.datePeriod ^comment = "TKB-fält: `../../datePeriod*` (`DatePeriodType`, kardinalitet 1..1).
-
-**Modellanteckning:** Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD"
-* careService.interferenceInformation.datePeriod.start ^comment = "TKB-fält: `../../../start` (`DateType`, kardinalitet 0..1)."
-* careService.interferenceInformation.datePeriod.end ^comment = "TKB-fält: `../../../end` (`DateType`, kardinalitet 0..1)."
+* careService.interferenceInformation.datePeriod ^comment = "TKB-fält: `../../datePeriod*` (`DatePeriodType`, kardinalitet 1..1)."
 * careService.interferenceInformation.typeOfInterference ^definition = "Typ av störning
 
 Vilken typ av avvikelse. Exempelvis ombyggnation, semester.
@@ -1313,14 +991,6 @@ Kod från Snomed CT hierarkin 272379006 | händelse |
 
 typeOfInterference.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.interferenceInformation.typeOfInterference ^comment = "TKB-fält: `../../typeOfInterference` (`CVType`, kardinalitet 0..1)."
-* careService.interferenceInformation.typeOfInterference.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.interferenceInformation.typeOfInterference.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.interferenceInformation.typeOfInterference.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.typeOfInterference.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.typeOfInterference.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.typeOfInterference.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * careService.interferenceInformation.description ^definition = "Beskrivning
 
 Ytterligare information om avvikelser.
@@ -1329,13 +999,11 @@ Det ska åtminstone finnas beskrivning på svenska och vara anpassad för invån
 
 Det får endast finnas en beskrivning med samma kombination av språk och roll."
 * careService.interferenceInformation.description ^comment = "TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 1..*)."
-* careService.interferenceInformation.description.descriptionText ^definition = "Text
+* careService.interferenceInformation.description.text ^definition = "Text
 
 Den textuella beskrivningen."
-* careService.interferenceInformation.description.descriptionText ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** descriptionText Heter text i schemat."
-* careService.interferenceInformation.description.descriptionLanguage ^definition = "Språk
+* careService.interferenceInformation.description.text ^comment = "TKB-fält: `../../../text` (`string`, kardinalitet 1..1)."
+* careService.interferenceInformation.description.language ^definition = "Språk
 
 Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
 
@@ -1356,17 +1024,7 @@ language.code: swe
 language.displayname: Swedish
 
 language.codesystem: 1.0.639.3"
-* careService.interferenceInformation.description.descriptionLanguage ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).
-
-**Modellanteckning:** descriptionLanguage Heter language i schemat."
-* careService.interferenceInformation.description.descriptionLanguage.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.interferenceInformation.description.descriptionLanguage.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.interferenceInformation.description.descriptionLanguage.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.description.descriptionLanguage.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.description.descriptionLanguage.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.description.descriptionLanguage.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* careService.interferenceInformation.description.language ^comment = "TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1)."
 * careService.interferenceInformation.description.role ^definition = "Roll
 
 Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten  eller hälso- och sjukvårdspersonal.
@@ -1395,11 +1053,3 @@ role.codesystem:  1.2.752.116.2.1.1
 
 role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran."
 * careService.interferenceInformation.description.role ^comment = "TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*)."
-* careService.interferenceInformation.description.role.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* careService.interferenceInformation.description.role.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* careService.interferenceInformation.description.role.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.description.role.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.description.role.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* careService.interferenceInformation.description.role.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."

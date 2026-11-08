@@ -5,15 +5,9 @@ RuleSet: GetCredentialsForPersonIncludingProtectedPersonRequestFieldDescriptions
 * personHsaId ^definition = "Unik identifierare för den person vars behörighetsegenskaper ska sökas ut.
 
 Ref. HSA-id (hsaIdentity) [R5]"
-* personHsaId ^comment = "TKB-fält: `personHsaId *1)` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
-Ref. HSA-id (hsaIdentity) [R5]."
+* personHsaId ^comment = "TKB-fält: `personHsaId *1)` (`String`, kardinalitet 0..1)."
 * personalIdentityNumber ^definition = "Person-id för den person vars behörighetsegenskaper ska sökas ut. Ref. person-id (personalIdentityNumber) [R5]"
-* personalIdentityNumber ^comment = "TKB-fält: `personalIdentityNumber *1)` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
-Ref. person-id (personalIdentityNumber) [R5]."
+* personalIdentityNumber ^comment = "TKB-fält: `personalIdentityNumber *1)` (`String`, kardinalitet 0..1)."
 * searchBase ^definition = "Sökbas. Om ingen sökbas anges används c=SE som sökbas."
 * searchBase ^comment = "TKB-fält: `searchBase *4)` (`DN`, kardinalitet 0..1)."
 * includeFeignedObject ^definition = "true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras."

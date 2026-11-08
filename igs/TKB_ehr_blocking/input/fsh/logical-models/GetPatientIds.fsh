@@ -1,3 +1,6 @@
+// Elementen genereras ur GetPatientIdsResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:blocking v3.2.2
 // Kontrakt: GetPatientIds v2.0 (administration)
 // Genererad: 2026-04-09
@@ -14,8 +17,9 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* result 1..1 BackboneElement "Resultat av anropet"
-  * resultCode 1..1 code "Svarskod"
-  * resultCode from ResultCodeVS (required)
-  * resultText 0..1 string "Beskrivande text till svarskoden"
-* patientIds 0..* string "Lista med personnummer för patienter med aktiva spärrar hos angiven vårdgivare"
+* GetPatientIdResultType 1..1 Base "GetPatientIdResultType" "GetPatientIdResultType"
+* GetPatientIdResultType.Result 1..1 Base "ResultType" "Result"
+* GetPatientIdResultType.Result.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* GetPatientIdResultType.Result.ResultCode from ResultCodeVS (required)
+* GetPatientIdResultType.Result.ResultText 1..1 string "ResultText" "ResultText"
+* GetPatientIdResultType.PatientIds 0..* string "PatientIds" "PatientIds"

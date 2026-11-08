@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i AvbestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:AvbestallOrginalforpackningResponder:1, AvbestallOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "avbestallorginalforpackning-request.logicalAddress",
-        "path": "avbestallorginalforpackning-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
         "id": "avbestallorginalforpackning-request.glnkod",
         "path": "avbestallorginalforpackning-request.glnkod",
         "short": "glnkod",
@@ -57,14 +44,14 @@
       {
         "id": "avbestallorginalforpackning-request.Behorighetsinformation",
         "path": "avbestallorginalforpackning-request.Behorighetsinformation",
-        "short": "Behorighetsinformation",
+        "short": "BehorighetsinfoRequest",
         "definition": "Behorighetsinformation",
         "comment": "TKB-fält: `Behorighetsinformation` (`BehorighetsinfoRequest`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -114,8 +101,8 @@
         "id": "avbestallorginalforpackning-request.Behorighetsinformation.yrkeskod",
         "path": "avbestallorginalforpackning-request.Behorighetsinformation.yrkeskod",
         "short": "yrkeskod",
-        "definition": "yrkeskod",
-        "comment": "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).",
+        "definition": "yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
+        "comment": "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
         "min": 0,
         "max": "1",
         "type": [
@@ -187,35 +174,35 @@
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo",
-        "short": "Avbestallningsinfo",
+        "short": "AvbestallningsinfoRequest",
         "definition": "Avbestallningsinfo",
         "comment": "TKB-fält: `Avbestallningsinfo` (`AvbestallningsinfoRequest`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation",
-        "short": "Patientinformation",
+        "short": "PatientinfoResponse",
         "definition": "Patientinformation",
         "comment": "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.fornamn",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.fornamn",
-        "short": "fornamn",
+        "short": "Anvandarens fornamn.",
         "definition": "Anvandarens fornamn.",
         "comment": "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -229,7 +216,7 @@
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.mellannamn",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.mellannamn",
-        "short": "mellannamn",
+        "short": "Anvandarens mellanamn.",
         "definition": "Anvandarens mellanamn.",
         "comment": "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -243,7 +230,7 @@
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.efternamn",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.efternamn",
-        "short": "efternamn",
+        "short": "Anvandarens efternamn.",
         "definition": "Anvandarens efternamn.",
         "comment": "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -258,8 +245,8 @@
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.identitetstyp",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.identitetstyp",
         "short": "identitetstyp",
-        "definition": "identitetstyp",
-        "comment": "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).",
+        "definition": "identitetstyp Tillåtna värden: P, R, S.",
+        "comment": "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S.",
         "min": 1,
         "max": "1",
         "type": [
@@ -275,7 +262,7 @@
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.personid",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.personid",
-        "short": "personid",
+        "short": "Anvandarens personid",
         "definition": "Anvandarens personid",
         "comment": "TKB-fält: `../../personid` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -289,7 +276,7 @@
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.lanskod",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.lanskod",
-        "short": "lanskod",
+        "short": "Anvandarens folkbokforda lanskod",
         "definition": "Anvandarens folkbokforda lanskod",
         "comment": "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -303,7 +290,7 @@
       {
         "id": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.kommunkod",
         "path": "avbestallorginalforpackning-request.Avbestallningsinfo.Patientinformation.kommunkod",
-        "short": "kommunkod",
+        "short": "Anvandarens folkbokforda kommunkod",
         "definition": "Anvandarens folkbokforda kommunkod",
         "comment": "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1).",
         "min": 0,

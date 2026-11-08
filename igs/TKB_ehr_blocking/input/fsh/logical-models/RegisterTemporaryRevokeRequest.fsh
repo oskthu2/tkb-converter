@@ -1,3 +1,6 @@
+// Elementen genereras ur RegisterTemporaryRevokeResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:blocking v3.2.2
 // Kontrakt: RegisterTemporaryRevoke v2.0 — Request-parametrar
 // Genererad: 2026-04-09

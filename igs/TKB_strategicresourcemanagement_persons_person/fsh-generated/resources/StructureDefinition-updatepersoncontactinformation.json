@@ -30,28 +30,28 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult",
-        "short": "updatePersonContactInformationResult",
+        "short": "UpdatePersonContactInformationResultType",
         "definition": "UpdatePersonContactInformationResult med status för om tjänsten utfördes, samt eventuellt resultat av uppdateringen. Se datatyp resultType för gällande felkoder",
         "comment": "TKB-fält: `updatePersonContactInformationResult` (`urn:riv:strategicresourcemanagement:persons:person:5:UpdatePersonContactInformationResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.result",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -59,8 +59,8 @@
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.result.resultCode",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, ERROR.",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR.",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,23 +90,23 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord",
-        "short": "contactInformationRecord",
+        "short": "ContactInformationRecordType",
         "definition": "Uppgifter om personens kontaktuppgifter och kontaktpersoner",
         "comment": "TKB-fält: `../contactInformationRecord` (`ContactInformationRecordType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformationRecordVersion",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformationRecordVersion",
-        "short": "contactInformationRecordVersion",
-        "definition": "contactInformationRecordVersion Heter version i schemat.",
-        "comment": "TKB-fält: `../../version` (`Timestamp`, kardinalitet 1..1).\n\n**Modellanteckning:** contactInformationRecordVersion Heter version i schemat.",
+        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.version",
+        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.version",
+        "short": "version",
+        "definition": "version",
+        "comment": "TKB-fält: `../../version` (`Timestamp`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -125,49 +125,21 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.personId.root",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.personId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.personId.iiExtension",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.personId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation",
-        "short": "contactInformation",
+        "short": "ContactInformationType",
         "definition": "Klass för patientens egna angivna kontakuppgifter",
         "comment": "TKB-fält: `../../contactInformation` (`ContactInformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -200,11 +172,11 @@
         ]
       },
       {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation.contactInformationValue",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation.contactInformationValue",
-        "short": "contactInformationValue",
-        "definition": "contactInformationValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** contactInformationValue Heter value i schemat.",
+        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation.value",
+        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -244,14 +216,14 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation.period",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactInformation.period",
-        "short": "period",
+        "short": "DatePeriodType",
         "definition": "period",
         "comment": "TKB-fält: `../../../period` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -300,14 +272,14 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson",
-        "short": "contactPerson",
+        "short": "ContactPersonType",
         "definition": "contactPerson",
         "comment": "TKB-fält: `../../contactPerson` (`ContactPersonType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -384,14 +356,14 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonAddress",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonAddress",
-        "short": "contactPersonAddress",
+        "short": "ResidentialAddressType",
         "definition": "Svensk adress",
         "comment": "TKB-fält: `../../../contactPersonAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -468,14 +440,14 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation",
-        "short": "contactPersonContactInformation",
+        "short": "ContactInformationType",
         "definition": "Klass för patientens egna angivna kontakuppgifter",
         "comment": "TKB-fält: `../../../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -508,11 +480,11 @@
         ]
       },
       {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
-        "short": "contactInformationValue",
-        "definition": "contactInformationValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** contactInformationValue Heter value i schemat.",
+        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation.value",
+        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -552,14 +524,14 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation.period",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.contactPerson.contactPersonContactInformation.period",
-        "short": "period",
+        "short": "DatePeriodType",
         "definition": "period",
         "comment": "TKB-fält: `../../../../period` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -650,70 +622,42 @@
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor",
-        "short": "updatePersonContactInformationActor",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en aktör.",
         "comment": "TKB-fält: `../../updatePersonContactInformationActor` (`ActorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.actorId",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.actorId",
-        "short": "actorId",
+        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.id",
+        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.id",
+        "short": "id",
         "definition": "En universellt unik identifierare.",
         "comment": "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.actorId.root",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.actorId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.actorId.iiExtension",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.actorId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.professional",
         "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.professional",
-        "short": "professional",
+        "short": "ProfessionalType",
         "definition": "Datatyp som identifierar en aktör inom en profession.",
         "comment": "TKB-fält: `../../../professional` (`ProfessionalType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -727,35 +671,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.root",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
-        "path": "updatepersoncontactinformation.updatePersonContactInformationResult.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },

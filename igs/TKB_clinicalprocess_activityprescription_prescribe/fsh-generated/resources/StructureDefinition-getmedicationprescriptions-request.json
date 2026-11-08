@@ -30,7 +30,7 @@
       {
         "id": "getmedicationprescriptions-request.patientId",
         "path": "getmedicationprescriptions-request.patientId",
-        "short": "Person- eller samordningsnummer",
+        "short": "patientId",
         "definition": "Person- eller samordningsnummer enligt skatteverkets definition (12 tecken).\n\nSe kapitel 5.2 för exempel och regler kring format.",
         "comment": "TKB-fält: `patientId` (`Identifier`, kardinalitet 1..1).",
         "min": 1,
@@ -44,9 +44,9 @@
       {
         "id": "getmedicationprescriptions-request.medicationPrescriptionSequenceId",
         "path": "getmedicationprescriptions-request.medicationPrescriptionSequenceId",
-        "short": "Filter: unikt id för läkemedelsbehandlingen",
+        "short": "medicationPrescriptionSequenceId",
         "definition": "Unikt id för Läkemedelsbehandlingen.\n\nSkapas av NOD vid registrering då instansen skapas, dvs. då första Läkemedelsordinationen registreras.\n\nSe kapitel 5.2 för exempel och regler kring format.",
-        "comment": "TKB-fält: `medicationPrescriptionSequenceId*` (`Identifier`, kardinalitet 0..*).\n\n**Modellanteckning:** Om angivet returneras bara dessa behandlingssekvenser. Kan anges som lista.",
+        "comment": "TKB-fält: `medicationPrescriptionSequenceId*` (`Identifier`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -58,7 +58,7 @@
       {
         "id": "getmedicationprescriptions-request.includeMedicalDispenseAuthorizations",
         "path": "getmedicationprescriptions-request.includeMedicalDispenseAuthorizations",
-        "short": "Inkludera expedieringsunderlag i svaret",
+        "short": "includeMedicalDispenseAuthorizations",
         "definition": "Inkludera expedieringsunderlag eller ej i svaret.",
         "comment": "TKB-fält: `includeMedicalDispenseAuthorizations` (`boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -72,7 +72,7 @@
       {
         "id": "getmedicationprescriptions-request.medicationStatus",
         "path": "getmedicationprescriptions-request.medicationStatus",
-        "short": "Filtrera på status",
+        "short": "medicationStatus",
         "definition": "Inkludera enligt status enligt http://www.hl7.org/FHIR/medication-prescription-status.html",
         "comment": "TKB-fält: `medicationStatus` (`code`, kardinalitet 1..1).",
         "min": 1,
@@ -86,7 +86,7 @@
       {
         "id": "getmedicationprescriptions-request.medicationListVersion",
         "path": "getmedicationprescriptions-request.medicationListVersion",
-        "short": "Specifik version av läkemedelslistan",
+        "short": "medicationListVersion",
         "definition": "Version på patientens samlade läkemedelslista.\n\nSe kapitel 5.2 för exempel och regler kring format.",
         "comment": "TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 0..1).",
         "min": 0,
@@ -100,7 +100,7 @@
       {
         "id": "getmedicationprescriptions-request.currentVersion",
         "path": "getmedicationprescriptions-request.currentVersion",
-        "short": "Hämta senaste version",
+        "short": "currentVersion",
         "definition": "Sätts till true om \"senaste version\" skall returneras.\n\nSenaste version av en Läkmedelsbehandling omfattar det senaste hela beslutet dvs läkemedelsordinationen.",
         "comment": "TKB-fält: `currentVersion*` (`boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -114,22 +114,22 @@
       {
         "id": "getmedicationprescriptions-request.validTimePeriod",
         "path": "getmedicationprescriptions-request.validTimePeriod",
-        "short": "Tidsperiod för giltiga ordinationer",
-        "definition": "Tidsperiod för giltiga ordinationer",
+        "short": "DateTimePeriodType",
+        "definition": "validTimePeriod",
         "comment": "TKB-fält: `validTimePeriod*` (`DateTimePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getmedicationprescriptions-request.validTimePeriod.start",
         "path": "getmedicationprescriptions-request.validTimePeriod.start",
-        "short": "Från-datum",
-        "definition": "Från-datum",
+        "short": "start",
+        "definition": "start",
         "min": 0,
         "max": "1",
         "type": [
@@ -141,8 +141,8 @@
       {
         "id": "getmedicationprescriptions-request.validTimePeriod.end",
         "path": "getmedicationprescriptions-request.validTimePeriod.end",
-        "short": "Till-datum",
-        "definition": "Till-datum",
+        "short": "end",
+        "definition": "end",
         "min": 0,
         "max": "1",
         "type": [
@@ -154,7 +154,7 @@
       {
         "id": "getmedicationprescriptions-request.registrationTime",
         "path": "getmedicationprescriptions-request.registrationTime",
-        "short": "Hämta listan som den såg ut vid angiven tidpunkt (point-in-time)",
+        "short": "registrationTime",
         "definition": "Hämtar listan med Medications såsom den såg ut vid angiven registreringstidpunkt.",
         "comment": "TKB-fält: `registrationTime*` (`dateTime`, kardinalitet 0..1).",
         "min": 0,

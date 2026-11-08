@@ -1,3 +1,6 @@
+// Elementen genereras ur HamtaLokaltProduktsortimentResponder_1.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för druglogistics.dosedispensing v1.1.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: HamtaLokaltProduktsortiment v1.1
 // Genererad: 2026-09-26
@@ -21,5 +24,4 @@ Characteristics: #can-be-target
   * nplpackid 1..1 string "nplpackid" "nplpackid"
   * glnkod 0..* string "glnkod" "glnkod"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert HamtaLokaltProduktsortimentFieldDescriptions

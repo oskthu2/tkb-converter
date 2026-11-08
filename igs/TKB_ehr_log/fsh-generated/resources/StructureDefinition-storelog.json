@@ -28,10 +28,23 @@
         "definition": "Logisk modell för tjänstekontraktet StoreLog\n(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).\nRepresenterar responsens informationsstruktur (log.store:Result).\nTjänsten sparar en eller flera loggposter i loggtjänsten för att möjliggöra\nuppföljning enligt PDL."
       },
       {
-        "id": "storelog.resultCode",
-        "path": "storelog.resultCode",
-        "short": "Resultatkod för lagringen",
-        "definition": "Statuskod som anger om loggposter sparats korrekt eller om fel uppstått.\nTillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED.\nKardinalitet: Obligatorisk.",
+        "id": "storelog.ResultType",
+        "path": "storelog.ResultType",
+        "short": "ResultType",
+        "definition": "ResultType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "storelog.ResultType.ResultCode",
+        "path": "storelog.ResultType.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -45,11 +58,11 @@
         }
       },
       {
-        "id": "storelog.resultText",
-        "path": "storelog.resultText",
-        "short": "Beskrivande text till resultatkoden",
-        "definition": "Fritext som beskriver resultatet eller felorsaken.\nKardinalitet: Valfri.",
-        "min": 0,
+        "id": "storelog.ResultType.ResultText",
+        "path": "storelog.ResultType.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
+        "min": 1,
         "max": "1",
         "type": [
           {

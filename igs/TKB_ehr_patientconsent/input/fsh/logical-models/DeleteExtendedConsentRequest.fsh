@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteExtendedConsentResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: DeleteExtendedConsent v1.0 — Request-modell
 // RIV-TA: urn:riv:ehr:patientconsent:administration:DeleteExtendedConsentResponder:1
@@ -24,5 +27,4 @@ Characteristics: #can-be-target
     * assignmentName 0..1 string "Namn på medarbetaruppdraget (max 256 tecken)"
   * reasonText 0..1 string "Anledning till makuleringen i fritext (max 1024 tecken)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteExtendedConsentRequestFieldDescriptions

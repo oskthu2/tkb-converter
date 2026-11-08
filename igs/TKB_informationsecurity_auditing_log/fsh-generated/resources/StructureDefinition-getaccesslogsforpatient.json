@@ -30,42 +30,42 @@
       {
         "id": "getaccesslogsforpatient.accessLogsResult",
         "path": "getaccesslogsforpatient.accessLogsResult",
-        "short": "accessLogsResult",
+        "short": "AccessLogsResultType",
         "definition": "Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK.\n\nVid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.",
-        "comment": "TKB-fält: `accessLogsResult` (`urn:riv:informationsecurity:auditing:log:2:AccessLogsResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som returneras av tjänst. accessLogs ej satt vid eventuella fel.",
+        "comment": "TKB-fält: `accessLogsResult` (`urn:riv:informationsecurity:auditing:log:2:AccessLogsResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getaccesslogsforpatient.accessLogsResult.reportResult",
         "path": "getaccesslogsforpatient.accessLogsResult.reportResult",
-        "short": "reportResult",
+        "short": "ReportResultType",
         "definition": "reportResult",
         "comment": "TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getaccesslogsforpatient.accessLogsResult.reportResult.result",
         "path": "getaccesslogsforpatient.accessLogsResult.reportResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -73,8 +73,8 @@
         "id": "getaccesslogsforpatient.accessLogsResult.reportResult.result.resultCode",
         "path": "getaccesslogsforpatient.accessLogsResult.reportResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
+        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -160,28 +160,28 @@
       {
         "id": "getaccesslogsforpatient.accessLogsResult.accesssLogs",
         "path": "getaccesslogsforpatient.accessLogsResult.accesssLogs",
-        "short": "accesssLogs",
+        "short": "AccessLogsType",
         "definition": "Datatyp som håller lista med Access loggar. Kan vara en tom lista.",
         "comment": "TKB-fält: `../accesssLogs` (`AccessLogsType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getaccesslogsforpatient.accessLogsResult.accesssLogs.accessLog",
         "path": "getaccesslogsforpatient.accessLogsResult.accesssLogs.accessLog",
-        "short": "accessLog",
+        "short": "AccessLogType",
         "definition": "Datatyp som håller information för vilken vårdgivare och vårdenhet som haft åtkomst samt typ av resurs, orsak och tidpunkt.",
         "comment": "TKB-fält: `../../accessLog` (`AccessLogType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

@@ -37,35 +37,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getpatientcontactinformation.lastUpdatedBy.root",
-        "path": "getpatientcontactinformation.lastUpdatedBy.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpatientcontactinformation.lastUpdatedBy.iiExtension",
-        "path": "getpatientcontactinformation.lastUpdatedBy.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -79,63 +51,38 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       },
       {
         "id": "getpatientcontactinformation.patient",
         "path": "getpatientcontactinformation.patient",
-        "short": "patient",
+        "short": "PatientType",
         "definition": "person_ID : Nationell identifikation på personen. Dock ej reservnummer. kommentar : Övrig kontaktuppgift för patient. Fri text",
         "comment": "TKB-fält: `patient` (`PatientType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getpatientcontactinformation.patient.patientId",
-        "path": "getpatientcontactinformation.patient.patientId",
-        "short": "patientId",
-        "definition": "patientId Heter id i schemat.",
-        "comment": "TKB-fält: `../id` (`IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** patientId Heter id i schemat.",
+        "id": "getpatientcontactinformation.patient.id",
+        "path": "getpatientcontactinformation.patient.id",
+        "short": "id",
+        "definition": "id",
+        "comment": "TKB-fält: `../id` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getpatientcontactinformation.patient.patientId.root",
-        "path": "getpatientcontactinformation.patient.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpatientcontactinformation.patient.patientId.iiExtension",
-        "path": "getpatientcontactinformation.patient.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -156,14 +103,14 @@
       {
         "id": "getpatientcontactinformation.contactInformation",
         "path": "getpatientcontactinformation.contactInformation",
-        "short": "contactInformation",
+        "short": "ContactInfoType",
         "definition": "typ_av_telekom : Anger vilken typ av internet/telefoni-kommunikation som avses. Kodval ur kodverk med OID: 1.2.752.129.2.2.1.30 1 - Telefon - Användaren får välja mellan två svenska format: a) [riktnummer med inledande nolla] [följt av lokalt nummer] b) +46 [riktnummer utan inledande nolla][lokalt nummer] Tillåt blanktecken mellan grupper av siffror, samt minus (-) och slash (/) som separatorer emellan. 2 - Fax - Format som telefon ovan. 3 - Mobiltelefon - Format som telefon ovan. Dock endast riktnummer på 070, 072, 073 och 076 (mobiltelefoni), eller 010 (geografiskt oberoende tjänster). Detta enligt nu gällande nummerplan, som dock ändras på sikt. 4 - Personsökare - Format som telefon ovan. Dock endast riktnummer på 074 (personsökning). 5 - Epost - Defineras enligt RFC 5322 Internet message format !6! - !hemsida! - !Ska inte användas för detta tjänstekontrakt! För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:TelecomTypeEnum typ_av_kontakt : Anger om tele- e-Kom adress t.ex. är privat eller till arbetet kv teleekomkontakttyp OID: 1.2.752.129.2.2.1.29 Exempel: privat, arbete För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:ContactTypeEnum nummer_eller_elektronisk_adress : Tele-/Mobil-/Sökare-/Fax-nummer eller elektronisk adress kommentar : Övrig kontaktuppgift per telnr/email",
         "comment": "TKB-fält: `contactInformation` (`ContactInfoType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -171,8 +118,8 @@
         "id": "getpatientcontactinformation.contactInformation.telecomType",
         "path": "getpatientcontactinformation.contactInformation.telecomType",
         "short": "telecomType",
-        "definition": "telecomType",
-        "comment": "TKB-fält: `../telecomType` (`TypeOfTelecomPatientEnum`, kardinalitet 1..1).",
+        "definition": "telecomType Tillåtna värden: 1, 2, 3, 4, 5.",
+        "comment": "TKB-fält: `../telecomType` (`TypeOfTelecomPatientEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** telecomType Tillåtna värden: 1, 2, 3, 4, 5.",
         "min": 1,
         "max": "1",
         "type": [
@@ -189,8 +136,8 @@
         "id": "getpatientcontactinformation.contactInformation.contactType",
         "path": "getpatientcontactinformation.contactInformation.contactType",
         "short": "contactType",
-        "definition": "contactType",
-        "comment": "TKB-fält: `../contactType` (`TypeOfContactEnum`, kardinalitet 0..1).",
+        "definition": "contactType Tillåtna värden: 1, 2.",
+        "comment": "TKB-fält: `../contactType` (`TypeOfContactEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** contactType Tillåtna värden: 1, 2.",
         "min": 0,
         "max": "1",
         "type": [
@@ -234,14 +181,14 @@
       {
         "id": "getpatientcontactinformation.contactInformation.otherContactInfo",
         "path": "getpatientcontactinformation.contactInformation.otherContactInfo",
-        "short": "otherContactInfo",
+        "short": "OtherContactInfoType",
         "definition": "completingContactInfo: Fri text Kompletterande information som inte går att notera i strukturerat format.",
         "comment": "TKB-fält: `../otherContactInfo` (`OtherContactInfoType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -262,35 +209,35 @@
       {
         "id": "getpatientcontactinformation.contactPerson",
         "path": "getpatientcontactinformation.contactPerson",
-        "short": "contactPerson",
+        "short": "ContactPersonType",
         "definition": "Kontaktperson relationType : Val av kategori(OID), och inom denna val av kod. (När OID för kodverk ”relationskategori” fastställs, så kan även den nyttjas för att erbjuda alternativet: kod=4, klartext=”Annan”) kv närståenderelation OID: 1.2.752.129.2.2.1.8 kv släktrelation OID: 1.2.752.129.2.2.1.24 kv företrädare OID: 1.2.752.129.2.2.1.23 rangordning : Ordningsnummer enligt patienten. Från 1 och uppåt sekventiellt. Övrig kontaktinformation: ... Från Kontaktperson med person-data förnamn: SKV 717, men förenklat här. efternamn: SKV 717, men förenklat här. kontaktperson_adresser: Lista med kontaktpersonens post-/besöks-adresser. (Tjänsteprotokollet är förenklat till max en adress för kontaktperson.) kontaktperson_telefon_lista: Nummer som kontaktpersonen är nåbar på. Kan vara privat telefonnummer eller arbetsnummer. kommentar: Övrig kontaktuppgift (?) för kontaktperson. Fri text giltighetstid: Tidsperiod för när aktuell relation till patienten gäller, både start och slutdatum ingår i intervallet. (Format ÅÅÅÅMMDD) får kontaktas: Anger om person eller enhet får lov att kontaktas kontakttid: Anger eventuella telefontider eller dyl då kontakt kan göras",
         "comment": "TKB-fält: `contactPerson` (`ContactPersonType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getpatientcontactinformation.contactPerson.relationType",
         "path": "getpatientcontactinformation.contactPerson.relationType",
-        "short": "relationType",
+        "short": "ContactRelationType",
         "definition": "codeSystem: Släkt relation (OID 1.2.752.129.2.2.1.24) Närstående relation (OID 1.2.752.129.2.2.1.8) Företrädare (OID 1.2.752.129.2.2.1.23) code: Any code valid in the given codeSystem, for more info see urn:riv:masterdata:citizen:patient:enums:1:TypeOfRelativeEnum urn:riv:masterdata:citizen:patient:enums:1:TypeOfCloseRelationEnum urn:riv:masterdata:citizen:patient:enums:1:TypeOfRepresentativeEnum",
         "comment": "TKB-fält: `../relationType` (`ContactRelationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getpatientcontactinformation.contactPerson.relationType.contactRelationCode",
-        "path": "getpatientcontactinformation.contactPerson.relationType.contactRelationCode",
-        "short": "contactRelationCode",
+        "id": "getpatientcontactinformation.contactPerson.relationType.code",
+        "path": "getpatientcontactinformation.contactPerson.relationType.code",
+        "short": "code",
         "definition": "Union av kodverken TypeOfRelativeEnum, TypeOfCloseRelationEnum, TypeOfRepresentativeEnum.",
         "comment": "TKB-fält: `../../code` (`TypeOfContactRelationEnum`, kardinalitet 1..1).",
         "min": 1,
@@ -305,8 +252,8 @@
         "id": "getpatientcontactinformation.contactPerson.relationType.codeSystem",
         "path": "getpatientcontactinformation.contactPerson.relationType.codeSystem",
         "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../../codeSystem` (`TypeOfContactRelationCodeSystemEnum`, kardinalitet 1..1).",
+        "definition": "codeSystem Tillåtna värden: 1.2.752.129.2.2.1.24, 1.2.752.129.2.2.1.8, 1.2.752.129.2.2.1.23.",
+        "comment": "TKB-fält: `../../codeSystem` (`TypeOfContactRelationCodeSystemEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** codeSystem Tillåtna värden: 1.2.752.129.2.2.1.24, 1.2.752.129.2.2.1.8, 1.2.752.129.2.2.1.23.",
         "min": 1,
         "max": "1",
         "type": [
@@ -336,14 +283,14 @@
       {
         "id": "getpatientcontactinformation.contactPerson.otherContactInfo",
         "path": "getpatientcontactinformation.contactPerson.otherContactInfo",
-        "short": "otherContactInfo",
+        "short": "OtherContactInfoType",
         "definition": "completingContactInfo: Fri text Kompletterande information som inte går att notera i strukturerat format.",
         "comment": "TKB-fält: `../otherContactInfo` (`OtherContactInfoType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -392,14 +339,14 @@
       {
         "id": "getpatientcontactinformation.contactPerson.contactPersonAddress",
         "path": "getpatientcontactinformation.contactPerson.contactPersonAddress",
-        "short": "contactPersonAddress",
+        "short": "AddressType",
         "definition": "Enstaka adress som ingår i adresslista Adress standarden SS 6134 01 (RIV/VTIM 2.2 har fler adressrader än vad som förekommer för svenska adress format i ref 8, samt ref 9.) I första version av tjänstekontrakt är adressformat rejält förenklat för kontaktpersons adress. co : T ex c/o Malte Lindeman adress_1 : Gatunamn och nr, eller box adress postnummer : NNN NN postort : Stad eller motsvarande",
         "comment": "TKB-fält: `../contactPersonAddress` (`AddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -462,14 +409,14 @@
       {
         "id": "getpatientcontactinformation.contactPerson.contactInformation",
         "path": "getpatientcontactinformation.contactPerson.contactInformation",
-        "short": "contactInformation",
+        "short": "ContactPersonTelephoneContactInfoType",
         "definition": "Kontaktpersonens telefonnummer typ_av_telekom : Anger vilken typ av telefonikommunikation som avses. Kodval ur kodverk med OID: 1.2.752.129.2.2.1.30 1 - Telefon - Användaren får välja mellan två svenska format: a) [riktnummer med inledande nolla] [följt av lokalt nummer] b) +46 [riktnummer utan inledande nolla][lokalt nummer] Tillåt blanktecken mellan grupper av siffror, samt minus (-) och slash (/) som separatorer emellan. 2 - Fax - Format som telefon ovan. 3 - Mobiltelefon - Format som telefon ovan. Dock endast riktnummer på 070, 072, 073 och 076 (mobiltelefoni), eller 010 (geografiskt oberoende tjänster). Detta enligt nu gällande nummerplan, som dock ändras på sikt. 4 - Personsökare - Format som telefon ovan. Dock endast riktnummer på 074 (personsökning). !5! - !Epost! - !SKA INTE ANVÄNDAS FÖR KONTAKTPERSONER! !6! - !hemsida! - !Ska inte användas för detta tjänstekontrakt! För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:TelecomTypeEnum typ_av_kontakt : Anger om telefonnummer t.ex. är privat eller till arbetet kv tele ekomkontakttyp OID: 1.2.752.129.2.2.1.29 Exempel: privat, arbete För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:ContactTypeEnum nummer : Tele-/Mobil-/Sökare-/Fax-nummer kommentar : Övrig kontaktuppgift per telnr/email",
         "comment": "TKB-fält: `../contactInformation` (`ContactPersonTelephoneContactInfoType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -477,8 +424,8 @@
         "id": "getpatientcontactinformation.contactPerson.contactInformation.telecomType",
         "path": "getpatientcontactinformation.contactPerson.contactInformation.telecomType",
         "short": "telecomType",
-        "definition": "telecomType",
-        "comment": "TKB-fält: `../../telecomType` (`TypeOfTelecomContactPersonEnum`, kardinalitet 1..1).",
+        "definition": "telecomType Tillåtna värden: 1, 2, 3, 4.",
+        "comment": "TKB-fält: `../../telecomType` (`TypeOfTelecomContactPersonEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** telecomType Tillåtna värden: 1, 2, 3, 4.",
         "min": 1,
         "max": "1",
         "type": [
@@ -495,8 +442,8 @@
         "id": "getpatientcontactinformation.contactPerson.contactInformation.contactType",
         "path": "getpatientcontactinformation.contactPerson.contactInformation.contactType",
         "short": "contactType",
-        "definition": "contactType",
-        "comment": "TKB-fält: `../../contactType` (`TypeOfContactEnum`, kardinalitet 0..1).",
+        "definition": "contactType Tillåtna värden: 1, 2.",
+        "comment": "TKB-fält: `../../contactType` (`TypeOfContactEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** contactType Tillåtna värden: 1, 2.",
         "min": 0,
         "max": "1",
         "type": [
@@ -540,14 +487,14 @@
       {
         "id": "getpatientcontactinformation.contactPerson.contactInformation.otherContactInfo",
         "path": "getpatientcontactinformation.contactPerson.contactInformation.otherContactInfo",
-        "short": "otherContactInfo",
+        "short": "OtherContactInfoType",
         "definition": "completingContactInfo: Fri text Kompletterande information som inte går att notera i strukturerat format.",
         "comment": "TKB-fält: `../../otherContactInfo` (`OtherContactInfoType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -589,35 +536,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getpatientcontactinformation.contactPerson.periodOfValidity.start",
-        "path": "getpatientcontactinformation.contactPerson.periodOfValidity.start",
-        "short": "start",
-        "definition": "start",
-        "comment": "TKB-fält: `../../start` (`DateType`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpatientcontactinformation.contactPerson.periodOfValidity.end",
-        "path": "getpatientcontactinformation.contactPerson.periodOfValidity.end",
-        "short": "end",
-        "definition": "end",
-        "comment": "TKB-fält: `../../end` (`DateType`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/masterdata-citizen-patient/StructureDefinition/DatePeriodType"
           }
         ]
       },
@@ -650,11 +569,11 @@
         ]
       },
       {
-        "id": "getpatientcontactinformation.getPatientContactInformationVersion",
-        "path": "getpatientcontactinformation.getPatientContactInformationVersion",
-        "short": "getPatientContactInformationVersion",
-        "definition": "getPatientContactInformationVersion (xs:long i schemat.) Heter version i schemat.",
-        "comment": "TKB-fält: `version` (`long`, kardinalitet 0..1).\n\n**Modellanteckning:** getPatientContactInformationVersion (xs:long i schemat.) Heter version i schemat.",
+        "id": "getpatientcontactinformation.version",
+        "path": "getpatientcontactinformation.version",
+        "short": "version",
+        "definition": "version",
+        "comment": "TKB-fält: `version` (`long`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

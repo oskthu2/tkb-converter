@@ -1,3 +1,6 @@
+// Elementen genereras ur GetCommissionMembersIncludingProtectedPersonResponder_3.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:employee v4.0
 // Kontrakt: GetCommissionMembersIncludingProtectedPerson v3.0
 // Genererad: 2026-05-19
@@ -15,126 +18,59 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "3.0"
-* personInformation 0..* BackboneElement "Information om personen"
-    """
-    Information om personen. En person (ett HSA-id) returneras bara en gång
-    även om personen är medlem i flera matchande vårdmedarbetaruppdrag.
-    Kardinalitet: 0..*.
-    """
-* personInformation.personHsaId 1..1 string "Personens HSA-id"
-    """
-    Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.
-    """
-* personInformation.givenName 0..1 string "Tilltalsnamn"
-    """
-    Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.middleAndSurName 1..1 string "Mellan- och Efternamn"
-    """
-    Mellan- och Efternamn separerade med mellanslag. Kardinalitet: Obligatorisk.
-    """
-* personInformation.nickName 0..1 string "Smeknamn"
-    """
-    Smeknamn. Får ej användas för presentation, endast för sökning. Kardinalitet: Valfri.
-    """
-* personInformation.personStartDate 0..1 dateTime "Startdatum för personens anställning"
-    """
-    Eventuellt startdatum för personens anställning.
-    Om startdatum ännu inte inträtt är anställningen ännu inte aktiv.
-    Ref. startdatum (startDate) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.personEndDate 0..1 dateTime "Slutdatum för personens anställning"
-    """
-    Eventuellt slutdatum för personens anställning.
-    Om slutdatum passerats är anställningen inte längre aktiv.
-    Ref. slutdatum (endDate) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.mail 0..1 string "E-postadress"
-    """
-    E-postadress. Ref. e-postadress (mail) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.telephoneNumber 0..* string "Publikt direkttelefonnummer"
-    """
-    Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5].
-    Kardinalitet: Valfri, lista.
-    """
-* personInformation.switchboardNumber 0..1 string "Telefonnummer till växel"
-    """
-    Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.nonPublicTelephoneNumber 0..* string "Tjänstetelefonnummer"
-    """
-    Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5].
-    Kardinalitet: Valfri, lista.
-    """
-* personInformation.mobileNumber 0..* string "Mobiltelefonnummer"
-    """
-    Mobiltelefonnummer. Ref. mobiltelefon (mobile) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.facsimileTelephoneNumber 0..* string "Faxnummer"
-    """
-    Faxnummer. Ref. fax (facsimileTelephoneNumber) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.telephoneHour 0..* BackboneElement "Telefontider"
-    """
-    Telefontider för publik telefon (telephoneNumber). Ref. telefontid (telephoneHours) [R5].
-    """
-* personInformation.telephoneHour.fromDay 1..1 string "Från dag (1=Måndag, 7=Söndag)"
-* personInformation.telephoneHour.fromTime 1..1 string "Från tid (ISO-8601)"
-* personInformation.telephoneHour.toDay 1..1 string "Till dag (1=Måndag, 7=Söndag)"
-* personInformation.telephoneHour.toTime 1..1 string "Till tid (ISO-8601)"
-* personInformation.telephoneHour.comment 0..1 string "Information om aktuellt tidsintervall"
-* personInformation.telephoneHour.fromDate 0..1 string "Gäller från och med detta datum"
-* personInformation.telephoneHour.toDate 0..1 string "Gäller till och med detta datum"
-* personInformation.title 0..1 string "Titel i fritext"
-    """
-    Titel i fritext. Ref. titel (title) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.healthCareProfessionalLicence 0..* string "Legitimerad yrkesgrupp"
-    """
-    Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5].
-    Kardinalitet: Valfri, lista.
-    """
-* personInformation.paTitle 0..* BackboneElement "Personens befattning"
-    """
-    Personens befattning. Kardinalitet: Valfri, lista.
-    """
-* personInformation.paTitle.paTitleName 0..1 string "Befattning"
-    """
-    Befattning. Ref. befattning (paTitleName) [R5].
-    """
-* personInformation.paTitle.paTitleCode 0..1 string "Befattningskod"
-    """
-    Befattningskod. Ref. befattningskod (paTitleCode) [R5].
-    """
-* personInformation.specialityName 0..* string "Specialistutbildning (klartext)"
-    """
-    Specialistutbildning utöver grundutbildning för läkare eller tandläkare.
-    Ref. specialitet (specialityName) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.specialityCode 0..* string "Specialistutbildning (kod)"
-    """
-    Klassificeringskod för specialistutbildning utöver grundutbildning.
-    Ref. specialitetskod (specialityCode) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.healthCareProfessionalLicenceSpeciality 0..* BackboneElement "Legitimerad yrkesgrupp och specialitet"
-    """
-    Legitimerad yrkesgrupp och specialitet för läkare och tandläkare.
-    Ref. leg.yrkesgrupp och specialitet (hsaSosTitleCodeSpeciality) [R5].
-    """
-* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence 1..1 string "Kod för legitimerad yrkesgrupp"
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode 1..1 string "Kod för specialistutbildning"
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityName 1..1 string "Klartext för specialistutbildning"
-* personInformation.protectedPerson 0..1 boolean "true om person har skyddad identitet"
-    """
-    true: om person har skyddad identitet.
-    Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.feignedPerson 0..1 boolean "true om personen är ett fingerat objekt"
-    """
-    true: om personen är ett fingerat objekt.
-    Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Kardinalitet: Valfri.
-    """
+* personInformation 0..* Base "PersonInformationType" "personInformation"
+* personInformation.personHsaId 1..1 string "personHsaId" "personHsaId"
+* personInformation.givenName 0..1 string "givenName" "givenName"
+* personInformation.middleAndSurName 1..1 string "middleAndSurName" "middleAndSurName"
+* personInformation.nickName 0..1 string "nickName" "nickName"
+* personInformation.mail 0..1 string "mail" "mail"
+* personInformation.telephoneNumber 0..* string "telephoneNumber" "telephoneNumber"
+* personInformation.telephoneNumber only TelephoneNumberType
+* personInformation.switchboardNumber 0..1 string "switchboardNumber" "switchboardNumber"
+* personInformation.switchboardNumber only TelephoneNumberType
+* personInformation.nonPublicTelephoneNumber 0..* string "nonPublicTelephoneNumber" "nonPublicTelephoneNumber"
+* personInformation.nonPublicTelephoneNumber only TelephoneNumberType
+* personInformation.mobileNumber 0..* string "mobileNumber" "mobileNumber"
+* personInformation.mobileNumber only TelephoneNumberType
+* personInformation.facsimileTelephoneNumber 0..* string "facsimileTelephoneNumber" "facsimileTelephoneNumber"
+* personInformation.facsimileTelephoneNumber only TelephoneNumberType
+* personInformation.telephoneHour 0..* Base "TimeSpanType" "telephoneHour"
+* personInformation.telephoneHour.fromDay 1..1 string "fromDay" "fromDay"
+* personInformation.telephoneHour.fromTime 1..1 time "fromTime" "fromTime"
+* personInformation.telephoneHour.toDay 1..1 string "toDay" "toDay"
+* personInformation.telephoneHour.toTime 1..1 time "toTime" "toTime"
+* personInformation.telephoneHour.comment 0..1 string "comment" "comment"
+* personInformation.telephoneHour.fromDate 0..1 string "fromDate" "fromDate"
+* personInformation.telephoneHour.toDate 0..1 string "toDate" "toDate"
+* personInformation.postalAddress 0..1 Base "AddressType" "postalAddress"
+* personInformation.postalAddress.addressLine 1..* string "addressLine" "addressLine"
+* personInformation.description 0..1 string "description" "description"
+* personInformation.title 0..1 string "title" "title"
+* personInformation.healthCareProfessionalLicence 0..* string "healthCareProfessionalLicence" "healthCareProfessionalLicence"
+* personInformation.paTitle 0..* Base "PaTitleType" "paTitle"
+* personInformation.paTitle.paTitleName 0..1 string "paTitleName" "paTitleName"
+* personInformation.paTitle.paTitleCode 0..1 string "paTitleCode" "paTitleCode"
+* personInformation.specialityName 0..* string "specialityName" "specialityName"
+* personInformation.specialityCode 0..* string "specialityCode" "specialityCode"
+* personInformation.dn 1..1 string "dn" "dn"
+* personInformation.dn only DNType
+* personInformation.protectedPerson 0..1 boolean "protectedPerson" "protectedPerson"
+* personInformation.personStartDate 0..1 dateTime "personStartDate" "personStartDate"
+* personInformation.personEndDate 0..1 dateTime "personEndDate" "personEndDate"
+* personInformation.feignedPerson 0..1 boolean "feignedPerson" "feignedPerson"
+* personInformation.healthCareProfessionalLicenceSpeciality 0..* Base "HealthCareProfessionalLicenceSpecialityType" "healthCareProfessionalLicenceSpeciality"
+* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence 1..1 string "healthCareProfessionalLicence" "healthCareProfessionalLicence"
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode 1..1 string "specialityCode" "specialityCode"
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityName 1..1 string "specialityName" "specialityName"
+* personInformation.age 0..1 string "age" "age"
+* personInformation.gender 0..1 string "gender" "gender"
+* personInformation.structuredPostalAddress 0..1 Base "StructuredPostalAddressType" "structuredPostalAddress"
+* personInformation.structuredPostalAddress.addressee 1..* string "addressee" "addressee"
+* personInformation.structuredPostalAddress.street 0..1 string "street" "street"
+* personInformation.structuredPostalAddress.premisesNumber 0..1 string "premisesNumber" "premisesNumber"
+* personInformation.structuredPostalAddress.premisesLetter 0..1 string "premisesLetter" "premisesLetter"
+* personInformation.structuredPostalAddress.postCode 1..1 string "postCode" "postCode"
+* personInformation.structuredPostalAddress.town 1..1 string "town" "town"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetCommissionMembersIncludingProtectedPersonFieldDescriptions

@@ -28,23 +28,23 @@
         "definition": "Logisk modell för responsens informationsstruktur i tjänstekontraktet ListCertificates\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ListCertificates:1)."
       },
       {
-        "id": "listcertificates.certificateMeta",
-        "path": "listcertificates.certificateMeta",
-        "short": "Metadata om ett intyg",
+        "id": "listcertificates.meta",
+        "path": "listcertificates.meta",
+        "short": "CertificateMetaType",
         "definition": "Metadata information",
         "comment": "TKB-fält: `meta` (kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.certificateId",
-        "path": "listcertificates.certificateMeta.certificateId",
-        "short": "Identitet på intyget (GUID)",
+        "id": "listcertificates.meta.certificateId",
+        "path": "listcertificates.meta.certificateId",
+        "short": "certificateId",
         "definition": "Identitet på intyget. Är en GUID.",
         "comment": "TKB-fält: `meta.certificateId` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -56,9 +56,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.certificateType",
-        "path": "listcertificates.certificateMeta.certificateType",
-        "short": "Typ av intyg",
+        "id": "listcertificates.meta.certificateType",
+        "path": "listcertificates.meta.certificateType",
+        "short": "certificateType",
         "definition": "Typ av intyg. Om inget anges returneras alla typer.",
         "comment": "TKB-fält: `meta.certificateType` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -70,9 +70,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.validFrom",
-        "path": "listcertificates.certificateMeta.validFrom",
-        "short": "Startdatum för sjukskrivningsperioden",
+        "id": "listcertificates.meta.validFrom",
+        "path": "listcertificates.meta.validFrom",
+        "short": "validFrom",
         "definition": "Startdatum för sjukskrivningsperioden.",
         "comment": "TKB-fält: `meta.validFrom` (`datum`, kardinalitet 1..1).",
         "min": 1,
@@ -84,9 +84,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.validTo",
-        "path": "listcertificates.certificateMeta.validTo",
-        "short": "Slutdatum för sjukskrivningsperioden",
+        "id": "listcertificates.meta.validTo",
+        "path": "listcertificates.meta.validTo",
+        "short": "validTo",
         "definition": "Slutdatum för sjukskrivningsperioden.",
         "comment": "TKB-fält: `meta.validTo` (`datum`, kardinalitet 1..1).",
         "min": 1,
@@ -98,9 +98,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.issuerName",
-        "path": "listcertificates.certificateMeta.issuerName",
-        "short": "Namn för Hos-person som utfärdat intyget",
+        "id": "listcertificates.meta.issuerName",
+        "path": "listcertificates.meta.issuerName",
+        "short": "issuerName",
         "definition": "Namn för Hos-person som utfärdat intyget",
         "comment": "TKB-fält: `meta.issuerName` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -112,9 +112,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.facilityName",
-        "path": "listcertificates.certificateMeta.facilityName",
-        "short": "Namn på Hos-vårdenhet där intyget utfärdats",
+        "id": "listcertificates.meta.facilityName",
+        "path": "listcertificates.meta.facilityName",
+        "short": "facilityName",
         "definition": "Namn på Hos-vårdenhet där intyget utfärdats",
         "comment": "TKB-fält: `meta.facilityName` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -126,9 +126,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.signDate",
-        "path": "listcertificates.certificateMeta.signDate",
-        "short": "Datum när intyget signerades",
+        "id": "listcertificates.meta.signDate",
+        "path": "listcertificates.meta.signDate",
+        "short": "signDate",
         "definition": "Datum när intyget signerades",
         "comment": "TKB-fält: `meta.signDate` (`date`, kardinalitet 1..1).",
         "min": 1,
@@ -140,9 +140,9 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.available",
-        "path": "listcertificates.certificateMeta.available",
-        "short": "Om intyget är tillgängligt och kan användas",
+        "id": "listcertificates.meta.available",
+        "path": "listcertificates.meta.available",
+        "short": "available",
         "definition": "Anger om intyget är tillgängligt och kan användas.",
         "comment": "TKB-fält: `meta.available` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -154,23 +154,23 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.certificateStatus",
-        "path": "listcertificates.certificateMeta.certificateStatus",
-        "short": "Statustyper för olika mottagare",
+        "id": "listcertificates.meta.status",
+        "path": "listcertificates.meta.status",
+        "short": "CertificateStatusType",
         "definition": "En lista över statustyper för olika mottagare",
         "comment": "TKB-fält: `meta.status` (kardinalitet 0..n).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.certificateStatus.target",
-        "path": "listcertificates.certificateMeta.certificateStatus.target",
-        "short": "Mottagare för en status (t.ex. FK)",
+        "id": "listcertificates.meta.status.target",
+        "path": "listcertificates.meta.status.target",
+        "short": "target",
         "definition": "Mottagare för en status. Ex FK",
         "comment": "TKB-fält: `..status.target` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -182,27 +182,23 @@
         ]
       },
       {
-        "id": "listcertificates.certificateMeta.certificateStatus.certificateStatusType",
-        "path": "listcertificates.certificateMeta.certificateStatus.certificateStatusType",
-        "short": "Typ av statusändring för intyget",
+        "id": "listcertificates.meta.status.type",
+        "path": "listcertificates.meta.status.type",
+        "short": "type",
         "definition": "Typ av statusändring för intyget.",
-        "comment": "TKB-fält: `..status.type` (`string`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `..status.type` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** type Tillåtna värden: UNHANDLED, DELETED, RESTORED, CANCELLED, SENT, RECEIVED, IN_PROGRESS, PROCESSED.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/status-vs"
-        }
+        ]
       },
       {
-        "id": "listcertificates.certificateMeta.certificateStatus.timestamp",
-        "path": "listcertificates.certificateMeta.certificateStatus.timestamp",
-        "short": "När statusen sattes",
+        "id": "listcertificates.meta.status.timestamp",
+        "path": "listcertificates.meta.status.timestamp",
+        "short": "timestamp",
         "definition": "När statusen sattes för intyget",
         "comment": "TKB-fält: `..status.timestamp` (`datetime`, kardinalitet 1..1).",
         "min": 1,
@@ -216,35 +212,35 @@
       {
         "id": "listcertificates.result",
         "path": "listcertificates.result",
-        "short": "Resultatinformation",
-        "definition": "Resultatinformation",
+        "short": "ResultOfCall",
+        "definition": "result",
         "comment": "TKB-fält: `result` (kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "listcertificates.result.resultCode",
         "path": "listcertificates.result.resultCode",
-        "short": "Resultatkod (OK, ERROR, INFO)",
+        "short": "resultCode",
         "definition": "Information om anropet gick bra(OK, ERROR, INFO)",
         "comment": "TKB-fält: `result.resultCode` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "code"
           }
         ]
       },
       {
         "id": "listcertificates.result.infoText",
         "path": "listcertificates.result.infoText",
-        "short": "Extra information om anropets utgång",
+        "short": "infoText",
         "definition": "Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.",
         "comment": "TKB-fält: `result.infoText` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -258,21 +254,21 @@
       {
         "id": "listcertificates.result.errorId",
         "path": "listcertificates.result.errorId",
-        "short": "Felkategori",
+        "short": "errorId",
         "definition": "Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)",
         "comment": "TKB-fält: `result.errorId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "code"
           }
         ]
       },
       {
         "id": "listcertificates.result.errorText",
         "path": "listcertificates.result.errorText",
-        "short": "Beskrivande text för felet",
+        "short": "errorText",
         "definition": "Text som ytterliggare beskriver felet",
         "comment": "TKB-fält: `result.errorText` (`string`, kardinalitet 0..1).",
         "min": 0,

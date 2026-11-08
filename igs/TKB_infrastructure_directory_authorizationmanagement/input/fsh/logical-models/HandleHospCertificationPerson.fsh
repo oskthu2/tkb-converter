@@ -1,3 +1,6 @@
+// Elementen genereras ur HandleHospCertificationPersonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:authorizationmanagement v2.4.4
 // Kontrakt: HandleHospCertificationPerson v1.0
 // Genererad: 2026-05-19
@@ -14,8 +17,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 string "Resultat av add eller remove-anrop (OK eller ERROR)"
-* resultText 0..1 string "Beskrivning av fel vid resultCode=ERROR"
+* resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
+* resultText 0..1 string "resultText" "resultText"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert HandleHospCertificationPersonFieldDescriptions

@@ -77,9 +77,7 @@ RuleSet: HamtaApoteksinfoEgetFieldDescriptions
 * expeditionsstalleLista.oppetHallandeLista.veckodagnr ^definition = "Ett nummer för veckodagen 1-7 för Måndag till Söndag, V för vardagar."
 * expeditionsstalleLista.oppetHallandeLista.veckodagnr ^comment = "TKB-fält: `../../veckodagnr` (`string`, kardinalitet 0..1)."
 * expeditionsstalleLista.orgNr ^definition = "Aktörens organisationsnummer"
-* expeditionsstalleLista.orgNr ^comment = "TKB-fält: `../orgNr` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** Aktörens organisationsnummer (xs:long i schemat.)"
+* expeditionsstalleLista.orgNr ^comment = "TKB-fält: `../orgNr` (`long`, kardinalitet 1..1)."
 * expeditionsstalleLista.orgTypADM ^definition = "Kod ADM som beskriver typ av expeditionsställe. En organisatiorisk enhet inom ett företag som har rent administrativa uppgifter."
 * expeditionsstalleLista.orgTypADM ^comment = "TKB-fält: `../orgTypADM` (`boolean`, kardinalitet 1..1)."
 * expeditionsstalleLista.orgTypDIST ^definition = "Kod DIST som beskriver typ av expeditionsställe. Distansapotek - Större apoteksenhet med ansvar att kunna distribuera apoteksvaror direkt till avtalskunder, apoteksombud eller privatpersoner"

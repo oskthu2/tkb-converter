@@ -1,3 +1,6 @@
+// Elementen genereras ur GetSupportedServiceContractsResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:itintegration:registry v2.0
 // Kontrakt: GetSupportedServiceContracts v2.0
 // Genererad: 2026-09-14
@@ -15,14 +18,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* serviceContractNamespace 0..* uri "Tjänstekontrakt (namnrymd)"
-    """
-    Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för
-    anropet av GetSupportedServiceContracts. Om requestens
-    serviceConsumerHsaId är angiven filtreras svaret enligt R1 (TKB
-    avsnitt 7.2 "Övriga regler") till endast de kontrakt konsumenten har
-    rättighet att använda.
-    """
+* serviceContractNamespace 0..* Base "ServiceContractNamespaceType" "serviceContractNamespace"
+* serviceContractNamespace.ServiceContractNamespace 1..1 uri "ServiceContractNamespace" "ServiceContractNamespace"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetSupportedServiceContractsFieldDescriptions

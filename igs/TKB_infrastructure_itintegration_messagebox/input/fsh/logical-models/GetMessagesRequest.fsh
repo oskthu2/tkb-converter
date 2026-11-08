@@ -1,3 +1,6 @@
+// Elementen genereras ur GetMessagesResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för infrastructure.itintegration.messagebox v1.0.0 (fält ur XSD, se TKB avsnitt 6; scripts/xsd_to_ig.py)
 // Kontrakt: GetMessages v1.0
 // Genererad: 2026-09-26
@@ -10,9 +13,9 @@ Description: """
   (urn:riv:infrastructure:itintegration:messagebox:GetMessagesResponder:1, GetMessagesType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the National Service Platform"
-* messageIds 1..* string "messageIds" "messageIds (xs:long i schemat.)"
+* messageIds 1..* string "messageIds" "messageIds"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetMessagesRequestFieldDescriptions

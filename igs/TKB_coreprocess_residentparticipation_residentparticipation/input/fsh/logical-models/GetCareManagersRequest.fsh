@@ -1,3 +1,6 @@
+// Elementen genereras ur GetCareManagersResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för coreprocess.residentparticipation.residentparticipation v1.0.0-rc2 (Genererad ur tjänsteschemat och domänschemat i riv.coreprocess.residentparticipation.residentparticipation, tagg 1.0_RC2; scripts/xsd_to_ig.py)
 // Kontrakt: GetCareManagers v1.0
 // Genererad: 2026-09-26
@@ -10,27 +13,13 @@ Description: """
   (urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The county/region code"
-* patientId 1..1 BackboneElement "patientId" "patientId"
-  * root 1..1 string "root" "root"
-  * iIExtension 0..1 string "iIExtension" "iIExtension Heter extension i schemat."
-* careGiverId 0..1 BackboneElement "careGiverId" "careGiverId"
-  * root 1..1 string "root" "root"
-  * iIExtension 0..1 string "iIExtension" "iIExtension Heter extension i schemat."
-* careUnitId 0..1 BackboneElement "careUnitId" "careUnitId"
-  * root 1..1 string "root" "root"
-  * iIExtension 0..1 string "iIExtension" "iIExtension Heter extension i schemat."
-* careManagerType 0..* BackboneElement "careManagerType" "careManagerType"
-  * cVCode 0..1 string "cVCode" "cVCode Heter code i schemat."
-  * codeSystem 0..1 string "codeSystem" "codeSystem"
-  * codeSystemName 0..1 string "codeSystemName" "codeSystemName"
-  * codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
-  * displayName 0..1 string "displayName" "displayName"
-  * originalText 0..1 string "originalText" "originalText"
-* careProcessId 0..1 BackboneElement "careProcessId" "careProcessId"
-  * root 1..1 string "root" "root"
-  * iIExtension 0..1 string "iIExtension" "iIExtension Heter extension i schemat."
+* patientId 1..1 IIType "patientId" "patientId"
+* careGiverId 0..1 IIType "careGiverId" "careGiverId"
+* careUnitId 0..1 IIType "careUnitId" "careUnitId"
+* careManagerType 0..* CVType "careManagerType" "careManagerType"
+* careProcessId 0..1 IIType "careProcessId" "careProcessId"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetCareManagersRequestFieldDescriptions

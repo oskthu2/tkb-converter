@@ -1,3 +1,4 @@
+[CVType]: StructureDefinition-CVType.html
 [GetCareServiceOfferingsRequest]: StructureDefinition-getcareserviceofferings-request.html
 [GetCareServiceOfferings]: StructureDefinition-getcareserviceofferings.html
 [GetOfferingCataloguesRequest]: StructureDefinition-getofferingcatalogues-request.html

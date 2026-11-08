@@ -1,3 +1,6 @@
+// Elementen genereras ur HamtaVardtagareinformationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för druglogistics.dosedispensing v1.1.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: HamtaVardtagareinformation v1.0
 // Genererad: 2026-09-26
@@ -10,20 +13,20 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:HamtaVardtagareinformationResponder:1, HamtaVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* logicalAddress 1..1 BackboneElement "logicalAddress" "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter."
 * glnkod 1..1 string "glnkod" "glnkod"
-* Behorighetsinformation 1..1 BackboneElement "Behorighetsinformation" "Behorighetsinformation"
-  * fornamn 1..1 string "fornamn" "fornamn"
-  * efternamn 1..1 string "efternamn" "efternamn"
-  * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
-  * yrkeskod 0..1 code "yrkeskod" "yrkeskod"
-  * yrkeskod from YrkesKodVS (required)
-  * arbetsplatskod 1..1 string "arbetsplatskod" "arbetsplatskod"
-  * hsaid 0..1 string "hsaid" "hsaid"
-  * personnummer 0..1 string "personnummer" "personnummer"
-  * organisationsnummer 0..1 string "organisationsnummer" "organisationsnummer"
-* identitetstyp 1..1 code "identitetstyp" "identitetstyp"
+* Behorighetsinformation 1..1 Base "BehorighetsinfoRequest" "Behorighetsinformation"
+* Behorighetsinformation.fornamn 1..1 string "fornamn" "fornamn"
+* Behorighetsinformation.efternamn 1..1 string "efternamn" "efternamn"
+* Behorighetsinformation.forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
+* Behorighetsinformation.yrkeskod 0..1 code "yrkeskod" "yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH."
+* Behorighetsinformation.yrkeskod from YrkesKodVS (required)
+* Behorighetsinformation.arbetsplatskod 1..1 string "arbetsplatskod" "arbetsplatskod"
+* Behorighetsinformation.hsaid 0..1 string "hsaid" "hsaid"
+* Behorighetsinformation.personnummer 0..1 string "personnummer" "personnummer"
+* Behorighetsinformation.organisationsnummer 0..1 string "organisationsnummer" "organisationsnummer"
+* identitetstyp 1..1 code "identitetstyp" "identitetstyp Tillåtna värden: P, R, S."
 * identitetstyp from IdentitetstypVS (required)
 * personid 1..1 string "personid" "personid"
 

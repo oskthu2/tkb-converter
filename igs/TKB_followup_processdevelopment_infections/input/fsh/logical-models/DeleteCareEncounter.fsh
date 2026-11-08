@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteCareEncounterResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:processdevelopment:infections v1.0.2
 // Kontrakt: DeleteCareEncounter v1.0
 // Genererad: 2026-05-19
@@ -13,12 +16,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* careEncounterId 1..1 Identifier "careEncounterId för den vårdkontakt som ska raderas"
-  """
-  Root: Nationell OID för lokala id:n: 1.2.752.129.2.1.2.1
-  Extension: HSA-id för det system inom vilket careEncounterId är unikt + ":" + ID.
-  Kardinalitet: Obligatorisk.
-  """
+* careEncounterId 1..1 string "careEncounterId" "careEncounterId"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteCareEncounterRequestFieldDescriptions
@@ -33,17 +31,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
-  """
-  OK = operationen genomförd utan fel
-  ERROR = Fel vid operationen
-  INFO = Information finns om operationen
-  Kardinalitet: Obligatorisk.
-  """
-* comment 0..1 string "Beskrivning av fel eller information om genomförd operation"
-  """
-  Kardinalitet: Valfri.
-  """
+* ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, ERROR, INFO."
+* comment 0..1 string "comment" "comment"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteCareEncounterResponseFieldDescriptions

@@ -3,9 +3,7 @@
 
 RuleSet: GetImagingOutcomeRequestFieldDescriptions
 * careUnitHSAId ^definition = "Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType."
-* careUnitHSAId ^comment = "TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*).
-
-**Modellanteckning:** Filtrering på PDL-enhet. Kardinalitet: Valfri, lista."
+* careUnitHSAId ^comment = "TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*)."
 * patientId ^definition = "Id för patienten.
 
 id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
@@ -17,9 +15,7 @@ För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).
 För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).
 
 För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)"
-* patientId ^comment = "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).
-
-**Modellanteckning:** PersonIdType — id och type-OID. Obligatorisk."
+* patientId ^comment = "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1)."
 * datePeriod ^definition = "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som bildas av tidpunkterna authorTime, resultTime samt remissens authorTime i svaret, helt eller delvis överlappar med det angivna sökintervallet, dvs.
 
 det bildade intervallets startdatum ligger inom sökintervallets start- och slutdatum,

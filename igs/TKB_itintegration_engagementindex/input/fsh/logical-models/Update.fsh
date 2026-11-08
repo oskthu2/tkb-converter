@@ -1,3 +1,6 @@
+// Elementen genereras ur UpdateResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB itintegration:engagementindex v1.0.9
 // Kontrakt: Update v1.0
 // Genererad: 2026-03-19
@@ -17,23 +20,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 code "Resultatkod"
-    """
-    Statuskod som anger utfallet av uppdateringsoperationen.
-    Tillåtna värden:
-      OK    — Transaktionen har utförts enligt uppdraget.
-      INFO  — Transaktionen har utförts men det finns ett informationsmeddelande.
-      ERROR — Transaktionen har INTE kunnat utföras p.g.a. logiskt fel.
-    Kardinalitet: Obligatorisk.
-    """
-
-* comment 0..1 string "Kommentar"
-    """
-    Fritext-meddelande med ytterligare information om resultatet.
-    Används framförallt vid INFO och ERROR för att ge konsumenten
-    mer detaljerad information om vad som hänt.
-    Kardinalitet: Valfri.
-    """
+* ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, ERROR, INFO."
+* comment 0..1 string "comment" "comment"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert UpdateFieldDescriptions

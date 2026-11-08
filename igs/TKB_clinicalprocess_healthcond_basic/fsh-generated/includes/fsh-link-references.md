@@ -2,9 +2,12 @@
 [AddressPartTypeVS]: ValueSet-addressparttype-vs.html
 [GetObservations]: StructureDefinition-getobservations.html
 [GetObservationsRequest]: StructureDefinition-getobservations-request.html
+[IIType]: StructureDefinition-IIType.html
+[PartialTimeStampValueType]: StructureDefinition-PartialTimeStampValueType.html
 [PostalAddressUseCS]: CodeSystem-postaladdressuse-cs.html
 [PostalAddressUseVS]: ValueSet-postaladdressuse-vs.html
 [TelTypeCS]: CodeSystem-teltype-cs.html
 [TelTypeVS]: ValueSet-teltype-vs.html
 [TimeStampTypeFormatCS]: CodeSystem-timestamptypeformat-cs.html
 [TimeStampTypeFormatVS]: ValueSet-timestamptypeformat-vs.html
+[UUIDType]: StructureDefinition-UUIDType.html

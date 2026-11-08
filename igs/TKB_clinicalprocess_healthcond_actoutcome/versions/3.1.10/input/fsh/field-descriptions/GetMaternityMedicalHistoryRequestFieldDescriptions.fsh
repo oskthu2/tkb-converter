@@ -18,20 +18,6 @@ OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster 
 
 En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent."
 * patientId ^comment = "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1)."
-* datePeriod ^definition = "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som bildas av tidpunkterna documentTime, authorTime och signatureTime i svaret, helt eller delvis överlappar med det angivna sökintervallet, dvs.
-
-det bildade intervallets startdatum ligger inom sökintervallets start- och slutdatumet
-
-det bildade intervallets slutdatum ligger inom sökintervallets start- och slutdatum
-
-det bildade intervallets startdatum ligger före sökintervallets startdatum och slutdatum ligger efter sökintervallets slutdatum
-
-Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.
-
-Obs I schemat är elementet felaktigt döpt till timePeriod, men är av rätt typ dvs DatePeriodType.
-
-Elementnamnet ändras i nästa majorversion."
-* datePeriod ^comment = "TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1)."
 * sourceSystemHSAId ^definition = "Begränsar sökningen till mödravårdsjournal som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
 
 Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).

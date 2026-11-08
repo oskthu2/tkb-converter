@@ -28,28 +28,41 @@
         "definition": "Logisk modell för tjänstekontraktet GetConsentsForCareProvider\n(RIV-TA urn:riv:ehr:patientconsent:querying:GetConsentsForCareProviderResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser alla giltiga samtyckesintyg för en viss vårdgivare med grundinformation.\nStödjer paginering via flaggan HasMore och CreatedOnOrAfter för inkrementell hämtning.\nValfritt returneras även makulerade/återkallade intyg via getCancelledFlag."
       },
       {
-        "id": "getconsentsforcareprovider.result",
-        "path": "getconsentsforcareprovider.result",
-        "short": "Statusinformation för anropet",
-        "definition": "Statusinformation för anropet",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType",
+        "short": "GetAllAssertionsResultType",
+        "definition": "GetAllAssertionsResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.result.resultCode",
-        "path": "getconsentsforcareprovider.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Result",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Result.ResultCode",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ],
         "binding": {
@@ -58,10 +71,10 @@
         }
       },
       {
-        "id": "getconsentsforcareprovider.result.resultText",
-        "path": "getconsentsforcareprovider.result.resultText",
-        "short": "Fritext beskrivning av resultatet",
-        "definition": "Fritext beskrivning av resultatet",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Result.ResultText",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,10 +84,10 @@
         ]
       },
       {
-        "id": "getconsentsforcareprovider.moreOnOrAfter",
-        "path": "getconsentsforcareprovider.moreOnOrAfter",
-        "short": "Tidpunkt från och med vilken nästa sekvens av intyg kan hämtas",
-        "definition": "Returneras alltid. Används som inparameter i nästa anrop vid HasMore = true.",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.MoreOnOrAfter",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.MoreOnOrAfter",
+        "short": "MoreOnOrAfter",
+        "definition": "MoreOnOrAfter",
         "min": 1,
         "max": "1",
         "type": [
@@ -84,10 +97,10 @@
         ]
       },
       {
-        "id": "getconsentsforcareprovider.hasMore",
-        "path": "getconsentsforcareprovider.hasMore",
-        "short": "Flagga om det finns fler intyg att hämta",
-        "definition": "Flagga om det finns fler intyg att hämta",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.HasMore",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.HasMore",
+        "short": "HasMore",
+        "definition": "HasMore",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,41 +110,41 @@
         ]
       },
       {
-        "id": "getconsentsforcareprovider.assertions",
-        "path": "getconsentsforcareprovider.assertions",
-        "short": "Lista med giltiga PDL-intyg",
-        "definition": "Lista med giltiga PDL-intyg",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions",
+        "short": "PDLAssertionType",
+        "definition": "Assertions",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.assertions.assertionId",
-        "path": "getconsentsforcareprovider.assertions.assertionId",
-        "short": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
-        "definition": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.AssertionId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.AssertionId",
+        "short": "AssertionId",
+        "definition": "AssertionId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.assertions.assertionType",
-        "path": "getconsentsforcareprovider.assertions.assertionType",
-        "short": "Typ av intyg (Consent eller Emergency)",
-        "definition": "Typ av intyg (Consent eller Emergency)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.AssertionType",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.AssertionType",
+        "short": "AssertionType",
+        "definition": "AssertionType Tillåtna värden: Consent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {
@@ -140,15 +153,15 @@
         }
       },
       {
-        "id": "getconsentsforcareprovider.assertions.scope",
-        "path": "getconsentsforcareprovider.assertions.scope",
-        "short": "Omfång/tillämpningsområde för intyget",
-        "definition": "Omfång/tillämpningsområde för intyget",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.Scope",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.Scope",
+        "short": "Scope",
+        "definition": "Scope Tillåtna värden: NationalLevel.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {
@@ -157,88 +170,49 @@
         }
       },
       {
-        "id": "getconsentsforcareprovider.assertions.patientId",
-        "path": "getconsentsforcareprovider.assertions.patientId",
-        "short": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
-        "definition": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.PatientId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.assertions.careProviderId",
-        "path": "getconsentsforcareprovider.assertions.careProviderId",
-        "short": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
-        "definition": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.CareProviderId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.assertions.careUnitId",
-        "path": "getconsentsforcareprovider.assertions.careUnitId",
-        "short": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
-        "definition": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.CareUnitId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.assertions.employeeId",
-        "path": "getconsentsforcareprovider.assertions.employeeId",
-        "short": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
-        "definition": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getconsentsforcareprovider.assertions.startDate",
-        "path": "getconsentsforcareprovider.assertions.startDate",
-        "short": "Startdatum för intygets giltighetstid",
-        "definition": "Startdatum för intygets giltighetstid",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getconsentsforcareprovider.assertions.endDate",
-        "path": "getconsentsforcareprovider.assertions.endDate",
-        "short": "Slutdatum för intygets giltighetstid",
-        "definition": "Slutdatum för intygets giltighetstid",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getconsentsforcareprovider.assertions.ownerId",
-        "path": "getconsentsforcareprovider.assertions.ownerId",
-        "short": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
-        "definition": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.EmployeeId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 0,
         "max": "1",
         "type": [
@@ -248,36 +222,75 @@
         ]
       },
       {
-        "id": "getconsentsforcareprovider.cancelledAssertions",
-        "path": "getconsentsforcareprovider.cancelledAssertions",
-        "short": "Lista med makulerade/återkallade intyg (returneras om getCancelledFlag = true)",
-        "definition": "Lista med makulerade/återkallade intyg (returneras om getCancelledFlag = true)",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getconsentsforcareprovider.cancelledAssertions.assertionId",
-        "path": "getconsentsforcareprovider.cancelledAssertions.assertionId",
-        "short": "Unik identifierare för det makulerade/återkallade intyget (UUID-format)",
-        "definition": "Unik identifierare för det makulerade/återkallade intyget (UUID-format)",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.StartDate",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.StartDate",
+        "short": "StartDate",
+        "definition": "StartDate",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "dateTime"
           }
         ]
       },
       {
-        "id": "getconsentsforcareprovider.cancelledAssertions.cancellationDate",
-        "path": "getconsentsforcareprovider.cancelledAssertions.cancellationDate",
-        "short": "Tidpunkt när makuleringen eller återkallan utfördes",
-        "definition": "Tidpunkt när makuleringen eller återkallan utfördes",
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.EndDate",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.EndDate",
+        "short": "EndDate",
+        "definition": "EndDate",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.OwnerId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.Assertions.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.CancelledAssertions",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.CancelledAssertions",
+        "short": "CancelledAssertionType",
+        "definition": "CancelledAssertions",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.CancelledAssertions.AssertionId",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.CancelledAssertions.AssertionId",
+        "short": "AssertionId",
+        "definition": "AssertionId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.GetAllAssertionsResultType.CancelledAssertions.CancellationDate",
+        "path": "getconsentsforcareprovider.GetAllAssertionsResultType.CancelledAssertions.CancellationDate",
+        "short": "CancellationDate",
+        "definition": "CancellationDate",
         "min": 1,
         "max": "1",
         "type": [

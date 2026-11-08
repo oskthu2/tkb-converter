@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetLogsForCareProvider\n(RIV-TA urn:riv:ehr:log:querying:GetLogsForCareProviderResponder:1).\nRepresenterar responsens informationsstruktur (log.querying:LogsResult).\nReturnerar loggposter för angiven vårdgivare."
       },
       {
-        "id": "getlogsforcareprovider.result",
-        "path": "getlogsforcareprovider.result",
-        "short": "Resultatkontainer",
-        "definition": "Resultatkontainer",
+        "id": "getlogsforcareprovider.LogsResultType",
+        "path": "getlogsforcareprovider.LogsResultType",
+        "short": "LogsResultType",
+        "definition": "LogsResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.result.resultCode",
-        "path": "getlogsforcareprovider.result.resultCode",
-        "short": "Statuskod för tjänsteanropet",
-        "definition": "Statuskod. Tillåtna värden: OK, ERROR, REPORTONQUEUE, REPORTINPROCESS,\nREPORTNOTFOUND, MAXQUERYRESULTEXCEEDED.\nKardinalitet: Obligatorisk.",
+        "id": "getlogsforcareprovider.LogsResultType.Result",
+        "path": "getlogsforcareprovider.LogsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getlogsforcareprovider.LogsResultType.Result.ResultCode",
+        "path": "getlogsforcareprovider.LogsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,11 +71,11 @@
         }
       },
       {
-        "id": "getlogsforcareprovider.result.resultText",
-        "path": "getlogsforcareprovider.result.resultText",
-        "short": "Beskrivande text till statuskoden",
-        "definition": "Beskrivande text till statuskoden",
-        "min": 0,
+        "id": "getlogsforcareprovider.LogsResultType.Result.ResultText",
+        "path": "getlogsforcareprovider.LogsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -71,10 +84,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.result.startInterval",
-        "path": "getlogsforcareprovider.result.startInterval",
-        "short": "Start på tillgängligt datumintervall för loggdata",
-        "definition": "Start på tillgängligt datumintervall för loggdata",
+        "id": "getlogsforcareprovider.LogsResultType.Result.StartInterval",
+        "path": "getlogsforcareprovider.LogsResultType.Result.StartInterval",
+        "short": "StartInterval",
+        "definition": "StartInterval",
         "min": 0,
         "max": "1",
         "type": [
@@ -84,10 +97,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.result.endInterval",
-        "path": "getlogsforcareprovider.result.endInterval",
-        "short": "Slut på tillgängligt datumintervall för loggdata",
-        "definition": "Slut på tillgängligt datumintervall för loggdata",
+        "id": "getlogsforcareprovider.LogsResultType.Result.EndInterval",
+        "path": "getlogsforcareprovider.LogsResultType.Result.EndInterval",
+        "short": "EndInterval",
+        "definition": "EndInterval",
         "min": 0,
         "max": "1",
         "type": [
@@ -97,10 +110,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.result.queuedReportId",
-        "path": "getlogsforcareprovider.result.queuedReportId",
-        "short": "Id för en pågående rapport",
-        "definition": "Returneras med statuskod REPORTONQUEUE eller REPORTINPROCESS.\nFormat: UUID (36 tecken). Kardinalitet: Valfri.",
+        "id": "getlogsforcareprovider.LogsResultType.Result.QueuedReportId",
+        "path": "getlogsforcareprovider.LogsResultType.Result.QueuedReportId",
+        "short": "QueuedReportId",
+        "definition": "QueuedReportId",
         "min": 0,
         "max": "1",
         "type": [
@@ -110,10 +123,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.result.queueTime",
-        "path": "getlogsforcareprovider.result.queueTime",
-        "short": "Uppskattad tid (sekunder) tills rapporten är klar",
-        "definition": "Uppskattad tid (sekunder) tills rapporten är klar",
+        "id": "getlogsforcareprovider.LogsResultType.Result.QueueTime",
+        "path": "getlogsforcareprovider.LogsResultType.Result.QueueTime",
+        "short": "QueueTime",
+        "definition": "QueueTime",
         "min": 0,
         "max": "1",
         "type": [
@@ -123,36 +136,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs",
-        "path": "getlogsforcareprovider.logs",
-        "short": "Samling av loggposter",
-        "definition": "Samling av loggposter",
+        "id": "getlogsforcareprovider.LogsResultType.Logs",
+        "path": "getlogsforcareprovider.LogsResultType.Logs",
+        "short": "LogsType",
+        "definition": "Logs",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log",
-        "path": "getlogsforcareprovider.logs.log",
-        "short": "En loggpost",
-        "definition": "En loggpost",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log",
+        "short": "LogType",
+        "definition": "Log",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.logId",
-        "path": "getlogsforcareprovider.logs.log.logId",
-        "short": "Unikt UUID-identifikationsnummer för loggposten",
-        "definition": "Unikt UUID-identifikationsnummer för loggposten",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.LogId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.LogId",
+        "short": "LogId",
+        "definition": "LogId",
         "min": 1,
         "max": "1",
         "type": [
@@ -162,36 +175,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.system",
-        "path": "getlogsforcareprovider.logs.log.system",
-        "short": "Systemet som loggat",
-        "definition": "Systemet som loggat",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.System",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.System",
+        "short": "SystemType",
+        "definition": "System",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.system.systemId",
-        "path": "getlogsforcareprovider.logs.log.system.systemId",
-        "short": "Systemets HSA-id",
-        "definition": "Systemets HSA-id",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemId",
+        "short": "SystemId",
+        "definition": "SystemId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.system.systemName",
-        "path": "getlogsforcareprovider.logs.log.system.systemName",
-        "short": "Systemets namn",
-        "definition": "Systemets namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemName",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemName",
+        "short": "SystemName",
+        "definition": "SystemName",
         "min": 0,
         "max": "1",
         "type": [
@@ -201,40 +214,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.activity",
-        "path": "getlogsforcareprovider.logs.log.activity",
-        "short": "Aktivitetsinformation",
-        "definition": "Aktivitetsinformation",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity",
+        "short": "ActivityType",
+        "definition": "Activity",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.activity.activityType",
-        "path": "getlogsforcareprovider.logs.log.activity.activityType",
-        "short": "Typ av aktivitet",
-        "definition": "Typ av aktivitet",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityType",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityType",
+        "short": "ActivityType",
+        "definition": "ActivityType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/ehr-log/ValueSet/activitytype-vs"
-        }
+        ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.activity.activityLevel",
-        "path": "getlogsforcareprovider.logs.log.activity.activityLevel",
-        "short": "Aktivitetsnivå",
-        "definition": "Aktivitetsnivå",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityLevel",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityLevel",
+        "short": "ActivityLevel",
+        "definition": "ActivityLevel",
         "min": 0,
         "max": "1",
         "type": [
@@ -244,10 +253,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.activity.activityArgs",
-        "path": "getlogsforcareprovider.logs.log.activity.activityArgs",
-        "short": "Övriga aktivitetsparametrar",
-        "definition": "Övriga aktivitetsparametrar",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityArgs",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityArgs",
+        "short": "ActivityArgs",
+        "definition": "ActivityArgs",
         "min": 0,
         "max": "1",
         "type": [
@@ -257,10 +266,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.activity.startDate",
-        "path": "getlogsforcareprovider.logs.log.activity.startDate",
-        "short": "Tidpunkt för aktiviteten",
-        "definition": "Tidpunkt för aktiviteten",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.StartDate",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.StartDate",
+        "short": "StartDate",
+        "definition": "StartDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -270,10 +279,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.activity.purpose",
-        "path": "getlogsforcareprovider.logs.log.activity.purpose",
-        "short": "Syfte med aktiviteten",
-        "definition": "Syfte med aktiviteten",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.Purpose",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Activity.Purpose",
+        "short": "Purpose",
+        "definition": "Purpose",
         "min": 1,
         "max": "1",
         "type": [
@@ -283,36 +292,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user",
-        "path": "getlogsforcareprovider.logs.log.user",
-        "short": "Användaren som utförde aktiviteten",
-        "definition": "Användaren som utförde aktiviteten",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User",
+        "short": "UserType",
+        "definition": "User",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.userId",
-        "path": "getlogsforcareprovider.logs.log.user.userId",
-        "short": "Användarens HSA-id",
-        "definition": "Användarens HSA-id",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.UserId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.UserId",
+        "short": "UserId",
+        "definition": "UserId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.employeeName",
-        "path": "getlogsforcareprovider.logs.log.user.employeeName",
-        "short": "Användarens namn",
-        "definition": "Användarens namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.Name",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.Name",
+        "short": "Name",
+        "definition": "Name",
         "min": 0,
         "max": "1",
         "type": [
@@ -322,23 +331,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.personId",
-        "path": "getlogsforcareprovider.logs.log.user.personId",
-        "short": "Medarbetarens personnummer",
-        "definition": "Medarbetarens personnummer",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getlogsforcareprovider.logs.log.user.assignment",
-        "path": "getlogsforcareprovider.logs.log.user.assignment",
-        "short": "Medarbetarens uppdragsnamn",
-        "definition": "Medarbetarens uppdragsnamn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.PersonId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.PersonId",
+        "short": "PersonId",
+        "definition": "PersonId",
         "min": 0,
         "max": "1",
         "type": [
@@ -348,10 +344,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.title",
-        "path": "getlogsforcareprovider.logs.log.user.title",
-        "short": "Medarbetarens yrkestitel",
-        "definition": "Medarbetarens yrkestitel",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.Assignment",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.Assignment",
+        "short": "Assignment",
+        "definition": "Assignment",
         "min": 0,
         "max": "1",
         "type": [
@@ -361,36 +357,10 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.careProvider",
-        "path": "getlogsforcareprovider.logs.log.user.careProvider",
-        "short": "Användarens vårdgivare",
-        "definition": "Användarens vårdgivare",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getlogsforcareprovider.logs.log.user.careProvider.careProviderId",
-        "path": "getlogsforcareprovider.logs.log.user.careProvider.careProviderId",
-        "short": "Vårdgivarens HSA-id",
-        "definition": "Vårdgivarens HSA-id",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getlogsforcareprovider.logs.log.user.careProvider.careProviderName",
-        "path": "getlogsforcareprovider.logs.log.user.careProvider.careProviderName",
-        "short": "Vårdgivarens namn",
-        "definition": "Vårdgivarens namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.Title",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.Title",
+        "short": "Title",
+        "definition": "Title",
         "min": 0,
         "max": "1",
         "type": [
@@ -400,36 +370,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.careUnit",
-        "path": "getlogsforcareprovider.logs.log.user.careUnit",
-        "short": "Användarens vårdenhet",
-        "definition": "Användarens vårdenhet",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider",
+        "short": "CareProviderType",
+        "definition": "CareProvider",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.careUnit.careUnitId",
-        "path": "getlogsforcareprovider.logs.log.user.careUnit.careUnitId",
-        "short": "Vårdenhetens HSA-id",
-        "definition": "Vårdenhetens HSA-id",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.user.careUnit.careUnitName",
-        "path": "getlogsforcareprovider.logs.log.user.careUnit.careUnitName",
-        "short": "Vårdenhetens namn",
-        "definition": "Vårdenhetens namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderName",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderName",
+        "short": "CareProviderName",
+        "definition": "CareProviderName",
         "min": 0,
         "max": "1",
         "type": [
@@ -439,36 +409,75 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources",
-        "path": "getlogsforcareprovider.logs.log.resources",
-        "short": "Resurser som aktiviteten avsåg",
-        "definition": "Resurser som aktiviteten avsåg",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit",
+        "short": "CareUnitType",
+        "definition": "CareUnit",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource",
-        "path": "getlogsforcareprovider.logs.log.resources.resource",
-        "short": "En resurs",
-        "definition": "En resurs",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitName",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitName",
+        "short": "CareUnitName",
+        "definition": "CareUnitName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources",
+        "short": "ResourcesType",
+        "definition": "Resources",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource",
+        "short": "ResourceType",
+        "definition": "Resource",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.resourceType",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.resourceType",
-        "short": "Resurstyp",
-        "definition": "Resurstyp",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.ResourceType",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.ResourceType",
+        "short": "ResourceType",
+        "definition": "ResourceType",
         "min": 1,
         "max": "1",
         "type": [
@@ -478,36 +487,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.patient",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.patient",
-        "short": "Patient",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient",
+        "short": "PatientType",
         "definition": "Patient",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.patient.patientId",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.patient.patientId",
-        "short": "Patientidentifierare",
-        "definition": "Patientidentifierare",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.patient.patientName",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.patient.patientName",
-        "short": "Patientens namn",
-        "definition": "Patientens namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName",
+        "short": "PatientName",
+        "definition": "PatientName",
         "min": 0,
         "max": "1",
         "type": [
@@ -517,36 +526,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.careProvider",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.careProvider",
-        "short": "Resursens ägande vårdgivare",
-        "definition": "Resursens ägande vårdgivare",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider",
+        "short": "CareProviderType",
+        "definition": "CareProvider",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.careProvider.careProviderId",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.careProvider.careProviderId",
-        "short": "Vårdgivarens HSA-id",
-        "definition": "Vårdgivarens HSA-id",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.careProvider.careProviderName",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.careProvider.careProviderName",
-        "short": "Vårdgivarens namn",
-        "definition": "Vårdgivarens namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName",
+        "short": "CareProviderName",
+        "definition": "CareProviderName",
         "min": 0,
         "max": "1",
         "type": [
@@ -556,36 +565,36 @@
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.careUnit",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.careUnit",
-        "short": "Resursens vårdenhet",
-        "definition": "Resursens vårdenhet",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit",
+        "short": "CareUnitType",
+        "definition": "CareUnit",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.careUnit.careUnitId",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.careUnit.careUnitId",
-        "short": "Vårdenhetens HSA-id",
-        "definition": "Vårdenhetens HSA-id",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getlogsforcareprovider.logs.log.resources.resource.careUnit.careUnitName",
-        "path": "getlogsforcareprovider.logs.log.resources.resource.careUnit.careUnitName",
-        "short": "Vårdenhetens namn",
-        "definition": "Vårdenhetens namn",
+        "id": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName",
+        "path": "getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName",
+        "short": "CareUnitName",
+        "definition": "CareUnitName",
         "min": 0,
         "max": "1",
         "type": [

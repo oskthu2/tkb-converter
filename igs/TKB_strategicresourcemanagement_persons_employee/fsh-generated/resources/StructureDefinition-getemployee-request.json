@@ -28,24 +28,18 @@
         "definition": "Logisk modell för begäran i GetEmployee\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeType), inklusive SOAP-huvuden enligt WSDL.",
         "constraint": [
           {
+            "key": "getemployeerequest-choice-1",
+            "severity": "error",
+            "human": "Exakt ett av personHsaId, personalIdentityNumber ska anges (xs:choice i schemat).",
+            "expression": "personHsaId.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployee-request"
+          },
+          {
             "key": "getemployee-request-hsaid-xor-pnr",
             "severity": "error",
             "human": "Exakt ett av personHsaId och personalIdentityNumber ska anges (xs:choice i schemat).",
             "expression": "personHsaId.exists() xor personalIdentityNumber.exists()",
             "source": "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployee-request"
-          }
-        ]
-      },
-      {
-        "id": "getemployee-request.logicalAddress",
-        "path": "getemployee-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The HSA-id of the source system",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
           }
         ]
       },
@@ -87,7 +81,10 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/DNType"
+            ]
           }
         ]
       },

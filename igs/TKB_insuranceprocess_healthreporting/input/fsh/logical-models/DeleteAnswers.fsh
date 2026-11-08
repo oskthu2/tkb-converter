@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteAnswersResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB insuranceprocess:healthreporting v3.1.0
 // Kontrakt: DeleteAnswers v1.0
 // Genererad: 2026-05-19
@@ -13,13 +16,18 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* careUnitId 1..1 Identifier "Vårdenhetens HSA-id"
-* careGiverId 1..1 Identifier "Vårdgivarens HSA-id"
-* answerId 0..* string "Ärendelådans identitet på svar som skall tas bort"
+* careUnitId 1..1 Base "II" "careUnitId"
+* careUnitId.root 0..1 string "root" "root (XML-attribut)"
+* careUnitId.extension 0..1 string "extension" "extension (XML-attribut)"
+* careUnitId.identifierName 0..1 string "identifierName" "identifierName (XML-attribut)"
+* careGiverId 1..1 Base "II" "careGiverId"
+* careGiverId.root 0..1 string "root" "root (XML-attribut)"
+* careGiverId.extension 0..1 string "extension" "extension (XML-attribut)"
+* careGiverId.identifierName 0..1 string "identifierName" "identifierName (XML-attribut)"
+* AnswerId 1..* string "AnswerId" "AnswerId"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteAnswersRequestFieldDescriptions
-
 
 Logical: DeleteAnswers
 Id: deleteanswers
@@ -31,11 +39,11 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Resultatinformation"
-* result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
-* result.infoText 0..1 string "Extra information om anropets utgång"
-* result.errorId 0..1 string "Felkategori"
-* result.errorText 0..1 string "Beskrivande text för felet"
+* result 0..1 Base "ResultOfCall" "result"
+* result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
+* result.infoText 0..1 string "infoText" "infoText"
+* result.errorId 0..1 code "errorId" "errorId Tillåtna värden: VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR."
+* result.errorText 0..1 string "errorText" "errorText"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteAnswersFieldDescriptions

@@ -1,3 +1,4 @@
+[DatePeriodType]: StructureDefinition-DatePeriodType.html
 [GetCareContacts]: StructureDefinition-getcarecontacts.html
 [GetCareContactsRequest]: StructureDefinition-getcarecontacts-request.html
 [GetCarePlans]: StructureDefinition-getcareaplans.html

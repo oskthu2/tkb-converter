@@ -4,9 +4,7 @@
 RuleSet: GetPersonsForProfileUnrestrictedRequestFieldDescriptions
 * personId ^definition = "En universellt unik identifierare."
 * personId ^comment = "TKB-fält: `personId` (`IIType`, kardinalitet 1..*)."
-* personId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* personId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
+* profile ^comment = "TKB-fält: `profile` (`LookupProfileType`, kardinalitet 1..1).
 
-**Modellanteckning:** iiExtension Heter extension i schemat."
-* profile ^comment = "TKB-fält: `profile` (`LookupProfileType`, kardinalitet 1..1)."
+**Modellanteckning:** profile Tillåtna värden: P1, P2, P3, P4, P5, P6, P7, P8, P9, P10."
 * ignoreReferredIdentity ^comment = "TKB-fält: `ignoreReferredIdentity` (`boolean`, kardinalitet 1..1)."

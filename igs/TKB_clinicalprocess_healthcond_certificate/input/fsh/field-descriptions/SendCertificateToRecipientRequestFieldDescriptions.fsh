@@ -6,12 +6,12 @@ RuleSet: SendCertificateToRecipientRequestFieldDescriptions
 * skickatTidpunkt ^comment = "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
 
 **Mappning DIM:** -"
-* intygsId ^definition = "Identitet på intyget."
-* intygsId ^comment = "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+* intygs-id ^definition = "Identitet på intyget."
+* intygs-id ^comment = "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
 
 **Mappning DIM:** Intyg.intygs-id"
-* patientPersonId ^definition = "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska skickas. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id."
-* patientPersonId ^comment = "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+* patientPerson-id ^definition = "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska skickas. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id."
+* patientPerson-id ^comment = "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
 
 **Mappning DIM:** Patient.person-id"
 * mottagare ^definition = "Kodat värde som anger den part i intygshanteringsprocessen som intyget ska skickas till."
@@ -21,14 +21,12 @@ RuleSet: SendCertificateToRecipientRequestFieldDescriptions
 * skickatAv ^definition = "Identifierar den person som skickar meddelandet. Denna information loggas men lagras inte i Intygstjänsten."
 * skickatAv ^comment = "TKB-fält: `skickatAv`.
 
-**Mappning DIM:** -
-
-**Modellanteckning:** hosPersonal eller personId (invånare) — exklusivt val (XML schema choice)."
+**Mappning DIM:** -"
 * skickatAv.hosPersonal ^definition = "Skall anges när anrop görs från vården, och enbart då."
 * skickatAv.hosPersonal ^comment = "TKB-fält: `../hosPersonal` (`HoSPersonal (se 7.1.4)`, kardinalitet 0..1).
 
 **Mappning DIM:** HoS-personal, Enhet, Vårdgivare"
-* skickatAv.personId ^definition = "Skall anges när anrop görs från en invånartjänst, och enbart då."
-* skickatAv.personId ^comment = "TKB-fält: `../person-id` (`PersonId (se 7.2.10)`, kardinalitet 0..1).
+* skickatAv.person-id ^definition = "Skall anges när anrop görs från en invånartjänst, och enbart då."
+* skickatAv.person-id ^comment = "TKB-fält: `../person-id` (`PersonId (se 7.2.10)`, kardinalitet 0..1).
 
 **Mappning DIM:** Patient.person-id"

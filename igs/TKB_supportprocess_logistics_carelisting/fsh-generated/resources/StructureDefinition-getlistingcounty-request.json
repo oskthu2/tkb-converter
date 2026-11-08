@@ -28,29 +28,16 @@
         "definition": "Logisk modell för begäran i GetListingCounty\n(urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2, GetListingCountyType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "getlistingcounty-request.logicalAddress",
-        "path": "getlistingcounty-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getlistingcounty-request.actor",
         "path": "getlistingcounty-request.actor",
-        "short": "actor",
+        "short": "ActorType",
         "definition": "Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren.",
         "comment": "TKB-fält: `actor` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -64,35 +51,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getlistingcounty-request.actor.actorId.root",
-        "path": "getlistingcounty-request.actor.actorId.root",
-        "short": "root",
-        "definition": "OID som visar typ av id.\n\nOm aktören representeras av invånare eller vårdnadshavare kan OID vara:\n\n”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704.\n\n” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV\n\nOm aktören är en organisation ska ett HSAId förmedlas som pekar ut organisationen. Fältet sätts då till ” 1.2.752.129.2.1.4.1”",
-        "comment": "TKB-fält: `actor.actorId.root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getlistingcounty-request.actor.actorId.iIExtension",
-        "path": "getlistingcounty-request.actor.actorId.iIExtension",
-        "short": "iIExtension",
-        "definition": "Id för aktören som kan vara ett personnummer eller samordningsnummer om aktören är invånare eller vårdnadshavare, alternativt ett HSAId om aktören är en organisation.",
-        "comment": "TKB-fält: `actor.actorId.extension` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -100,8 +59,8 @@
         "id": "getlistingcounty-request.actor.actorType",
         "path": "getlistingcounty-request.actor.actorType",
         "short": "actorType",
-        "definition": "actorType",
-        "comment": "TKB-fält: `../actorType` (`ActorTypeEnum`, kardinalitet 1..1).",
+        "definition": "actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.",
+        "comment": "TKB-fält: `../actorType` (`ActorTypeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.",
         "min": 1,
         "max": "1",
         "type": [
@@ -124,35 +83,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getlistingcounty-request.personId.root",
-        "path": "getlistingcounty-request.personId.root",
-        "short": "root",
-        "definition": "OID som visar typ av person-id som förmedlas. Kan vara:\n\n”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704.\n\n” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV",
-        "comment": "TKB-fält: `personId.root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getlistingcounty-request.personId.iIExtension",
-        "path": "getlistingcounty-request.personId.iIExtension",
-        "short": "iIExtension",
-        "definition": "Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.",
-        "comment": "TKB-fält: `personId.extension` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       }

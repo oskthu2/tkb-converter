@@ -2,10 +2,10 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: ProcessRegistrationNotificationRequestFieldDescriptions
-* registrationType ^definition = "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.
+* type ^definition = "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.
 
 Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret."
-* registrationType ^comment = "TKB-fält: `type` (`string`, kardinalitet 0..1)."
+* type ^comment = "TKB-fält: `type` (`string`, kardinalitet 0..1)."
 * patientId ^definition = "Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare.
 
 Fältet root sätts till OID för typ av identifierare.
@@ -36,7 +36,7 @@ Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandah
 
 Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret."
 * reference ^comment = "TKB-fält: `reference` (`ReferenceType`, kardinalitet 0..*)."
-* nkrrParameters ^definition = "Här kan parametrar som används i begäran för tjänstekontraktet GetFormData anges.
+* NkrrParameters ^definition = "Här kan parametrar som används i begäran för tjänstekontraktet GetFormData anges.
 
 Parametrarna ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret."
-* nkrrParameters ^comment = "TKB-fält: `NkrrParameters` (`NkrrParametersType`, kardinalitet 0..1)."
+* NkrrParameters ^comment = "TKB-fält: `NkrrParameters` (`NkrrParametersType`, kardinalitet 0..1)."

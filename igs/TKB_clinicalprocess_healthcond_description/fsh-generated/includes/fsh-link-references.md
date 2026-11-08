@@ -1,5 +1,6 @@
 [AssessmentCategoryCS]: CodeSystem-assessmentcategory-cs.html
 [AssessmentCategoryVS]: ValueSet-assessmentcategory-vs.html
+[DatePeriodType]: StructureDefinition-DatePeriodType.html
 [DiagnosisTypeCS]: CodeSystem-diagnosistype-cs.html
 [DiagnosisTypeVS]: ValueSet-diagnosistype-vs.html
 [GetAlertInformation]: StructureDefinition-getalertinformation.html

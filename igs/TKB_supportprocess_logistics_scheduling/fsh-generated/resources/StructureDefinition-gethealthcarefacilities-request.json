@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i GetHealthcareFacilities\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilitiesResponder:2, GetHealthcareFacilitiesType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "gethealthcarefacilities-request.logicalAddress",
-        "path": "gethealthcarefacilities-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Verksamhetens HSAID på enhetsnivå",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "gethealthcarefacilities-request.originalAppointmentId",
         "path": "gethealthcarefacilities-request.originalAppointmentId",
         "short": "originalAppointmentId",
@@ -50,49 +37,24 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/uuidType"
+            ]
           }
         ]
       },
       {
         "id": "gethealthcarefacilities-request.personId",
         "path": "gethealthcarefacilities-request.personId",
-        "short": "personId",
+        "short": "PersonIdType",
         "definition": "Filtrering av tidstyper baserat på invånares personnummer. Se kapitel Definition av komplexa typer för detaljerad information om hur de underliggande attributen populeras.",
         "comment": "TKB-fält: `personId` (`PersonIdType (IIType)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "gethealthcarefacilities-request.personId.root",
-        "path": "gethealthcarefacilities-request.personId.root",
-        "short": "root",
-        "definition": "Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "gethealthcarefacilities-request.personId.personIdExtension",
-        "path": "gethealthcarefacilities-request.personId.personIdExtension",
-        "short": "personIdExtension",
-        "definition": "personIdExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** personIdExtension Heter extension i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },

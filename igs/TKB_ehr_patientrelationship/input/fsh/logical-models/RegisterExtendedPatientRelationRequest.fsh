@@ -1,3 +1,6 @@
+// Elementen genereras ur RegisterExtendedPatientRelationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: RegisterExtendedPatientRelation v1.0 — Request
 // Genererad: 2026-05-19
@@ -36,5 +39,4 @@ Characteristics: #can-be-target
 * registrationAction.registeredBy.assignmentName 0..1 string "Optionellt uppdragsnamn (max 256 tecken)"
 * registrationAction.reasonText 0..1 string "Optionell orsak/anledning till registreringen (max 1024 tecken)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert RegisterExtendedPatientRelationRequestFieldDescriptions

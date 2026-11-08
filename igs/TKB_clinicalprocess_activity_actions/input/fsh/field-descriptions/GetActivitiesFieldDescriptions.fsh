@@ -15,18 +15,14 @@ RuleSet: GetActivitiesFieldDescriptions
 * activityGroup.additionalParticipant.device ^definition = "Deltagande artefakt
 
 Använd dessa i additionalParticipant i stället."
-* activityGroup.additionalParticipant.device ^comment = "TKB-fält: `device` (`DeviceType`, kardinalitet 0..0).
-
-**Modellanteckning:** Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location."
+* activityGroup.additionalParticipant.device ^comment = "TKB-fält: `device` (`DeviceType`, kardinalitet 0..0)."
 * activityGroup.additionalParticipant.location ^definition = "Plats för aktiviteten
 
 Använd dessa i additionalParticipant i stället."
-* activityGroup.additionalParticipant.location ^comment = "TKB-fält: `location` (`LocationType`, kardinalitet 0..0).
-
-**Modellanteckning:** Deltagande plats (LocationType). Exklusiv med person, organisation, device."
-* activityGroup.careProcessId ^definition = "UUID för den individanpassade vårdprocess som denna aktivitet ingår i"
-* activityGroup.careProcessId ^comment = "TKB-fält: `careProcessId` (`UUIDType`, kardinalitet 0..1)."
+* activityGroup.additionalParticipant.location ^comment = "TKB-fält: `location` (`LocationType`, kardinalitet 0..0)."
 * activityGroup.sourceSystem ^definition = "Källsystem som aktivitetsgruppen lagras i."
 * activityGroup.sourceSystem ^comment = "TKB-fält: `sourceSystem` (`SourceSystemType`, kardinalitet 1..1)."
+* activityGroup.careProcessId ^definition = "UUID för den individanpassade vårdprocess som denna aktivitet ingår i"
+* activityGroup.careProcessId ^comment = "TKB-fält: `careProcessId` (`UUIDType`, kardinalitet 0..1)."
 * activityGroup.activity ^definition = "De aktiviteter som ligger inom denna grupp av aktiviteter."
 * activityGroup.activity ^comment = "TKB-fält: `activity` (`ActivityType`, kardinalitet 1..*)."

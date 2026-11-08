@@ -8,3 +8,5 @@
 [GetMiuForPerson]: StructureDefinition-getmiuforperson.html
 [GetPersonsWithCommissionAtHealthCareUnitRequest]: StructureDefinition-getpersonswithcommissionathealthcareunit-request.html
 [GetPersonsWithCommissionAtHealthCareUnit]: StructureDefinition-getpersonswithcommissionathealthcareunit.html
+[SearchBaseType]: StructureDefinition-SearchBaseType.html
+[TelephoneNumberType]: StructureDefinition-TelephoneNumberType.html

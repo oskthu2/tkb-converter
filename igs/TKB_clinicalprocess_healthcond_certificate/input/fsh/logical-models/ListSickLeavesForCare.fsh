@@ -1,3 +1,6 @@
+// Elementen genereras ur ListSickLeavesForCareResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:healthcond:certificate v4.1-RC1
 // Kontrakt: ListSickLeavesForCare v1.0
 // Genererad: 2026-05-19
@@ -13,27 +16,29 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* sjukfallLista 1..1 BackboneElement "Lista med sjukfall"
-* sjukfallLista.sjukfall 0..* BackboneElement "Ett pågående sjukfall"
-* sjukfallLista.sjukfall.personId 1..1 Identifier "Patientens person- eller samordningsnummer"
-* sjukfallLista.sjukfall.patientFullstandigtNamn 0..1 string "Patientens namn"
-* sjukfallLista.sjukfall.enhetsId 1..1 Identifier "HSA-id för enhet"
-* sjukfallLista.sjukfall.personalId 1..1 Identifier "HSA-id för HoS-person som signerat nuvarande intyg"
-* sjukfallLista.sjukfall.startdatum 1..1 date "Datum då sjukfallet startade"
-* sjukfallLista.sjukfall.slutdatum 1..1 date "Datum då sjukfallet avslutas om det ej förlängs"
-* sjukfallLista.sjukfall.diagnoskod 1..1 BackboneElement "Huvuddiagnoskod i giltigt intyg"
-* sjukfallLista.sjukfall.diagnoskod.code 1..1 string "Diagnoskod"
-* sjukfallLista.sjukfall.diagnoskod.codeSystem 0..1 string "Identifierare för kodsystem (om känt)"
-* sjukfallLista.sjukfall.diagnoskod.codeSystemName 0..1 string "Namn på kodsystem (används ej)"
-* sjukfallLista.sjukfall.diagnoskod.codeSystemVersion 0..1 string "Version på kodsystem (används ej)"
-* sjukfallLista.sjukfall.diagnoskod.displayName 0..1 string "Klartext för kod (används ej)"
-* sjukfallLista.sjukfall.diagnoskod.originalText 0..1 string "Beskrivande text (används ej)"
-* sjukfallLista.sjukfall.antalIntyg 1..1 integer "Antal intyg som ingår i sjukfallet"
-* sjukfallLista.sjukfall.sjukskrivningslangd 1..1 integer "Sjukfallets totala längd i dagar"
-* sjukfallLista.sjukfall.sjukskrivningsgrad 1..1 BackboneElement "Sjukskrivningsgradsinfo"
-* sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad 1..1 integer "Aktiv sjukskrivningsgrad (%) vid hämtningstidpunkt"
-* sjukfallLista.sjukfall.sjukskrivningsgrad.grader 1..1 BackboneElement "Samtliga sjukskrivningsgrader i giltigt intyg"
-* sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad 1..4 integer "Sjukskrivningsgrad (%)"
+* sjukfallLista 1..1 Base "SjukfallLista" "sjukfallLista"
+* sjukfallLista.sjukfall 0..* Base "Sjukfall" "sjukfall"
+* sjukfallLista.sjukfall.person-id 1..1 Base "PersonId" "person-id"
+* sjukfallLista.sjukfall.patientFullstandigtNamn 0..1 string "patientFullstandigtNamn" "patientFullstandigtNamn"
+* sjukfallLista.sjukfall.enhets-id 1..1 Base "HsaId" "enhets-id"
+* sjukfallLista.sjukfall.personal-id 1..1 Base "HsaId" "personal-id"
+* sjukfallLista.sjukfall.startdatum 1..1 date "startdatum" "startdatum"
+* sjukfallLista.sjukfall.startdatum only DateType
+* sjukfallLista.sjukfall.slutdatum 1..1 date "slutdatum" "slutdatum"
+* sjukfallLista.sjukfall.slutdatum only DateType
+* sjukfallLista.sjukfall.diagnoskod 1..1 Base "Diagnoskod" "diagnoskod"
+* sjukfallLista.sjukfall.diagnoskod.code 1..1 string "code" "code"
+* sjukfallLista.sjukfall.diagnoskod.codeSystem 0..1 string "codeSystem" "codeSystem"
+* sjukfallLista.sjukfall.diagnoskod.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* sjukfallLista.sjukfall.diagnoskod.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* sjukfallLista.sjukfall.diagnoskod.displayName 0..1 string "displayName" "displayName"
+* sjukfallLista.sjukfall.diagnoskod.originalText 0..1 string "originalText" "originalText"
+* sjukfallLista.sjukfall.antalIntyg 1..1 integer "antalIntyg" "antalIntyg"
+* sjukfallLista.sjukfall.sjukskrivningslangd 1..1 integer "sjukskrivningslangd" "sjukskrivningslangd"
+* sjukfallLista.sjukfall.sjukskrivningsgrad 1..1 Base "Sjukskrivningsgrad" "sjukskrivningsgrad"
+* sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad 1..1 integer "aktivGrad" "aktivGrad"
+* sjukfallLista.sjukfall.sjukskrivningsgrad.grader 1..1 Base "Sjukskrivningsgrader" "grader"
+* sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad 1..4 integer "grad" "grad"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ListSickLeavesForCareFieldDescriptions
@@ -45,11 +50,11 @@ Description: "Logisk modell för requestparametrar i ListSickLeavesForCare."
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* enhetsId 1..1 Identifier "HSA-id för enhet"
-* maxDagarMellanIntyg 1..1 integer "Max antal dagars uppehåll mellan intyg i ett sjukfall"
-* minstaSjukskrivningslangd 0..1 integer "Minimal sjukskrivningslängd i dagar"
-* maxSjukskrivningslangd 0..1 integer "Maximal sjukskrivningslängd i dagar"
-* personalId 0..* Identifier "HSA-id för HoS-person som signerat nuvarande intyg (filter)"
+* enhets-id 1..1 Base "HsaId" "enhets-id"
+* maxDagarMellanIntyg 1..1 integer "maxDagarMellanIntyg" "maxDagarMellanIntyg"
+* minstaSjukskrivningslangd 0..1 integer "minstaSjukskrivningslangd" "minstaSjukskrivningslangd"
+* maxSjukskrivningslangd 0..1 integer "maxSjukskrivningslangd" "maxSjukskrivningslangd"
+* personal-id 0..* Base "HsaId" "personal-id"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ListSickLeavesForCareRequestFieldDescriptions

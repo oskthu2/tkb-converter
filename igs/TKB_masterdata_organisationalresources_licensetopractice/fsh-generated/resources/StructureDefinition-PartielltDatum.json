@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PartielltDatum",
+  "url": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum",
+  "name": "PartielltDatum",
+  "title": "PartielltDatum",
+  "status": "active",
+  "description": "Partielltdatum är en begränsning av Datum. Denna typ tillåter formaten \"ÅÅÅÅ[MM[DD]]\" Dvs enbart år eller år och månad. (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-partielltdatum-pattern",
+            "severity": "error",
+            "human": "PartielltDatum ska följa mönstret i schemat: [1-2][0-9]{3,3}(((0[1-9])|(1[0-2]))(((0[1-9])|([1-2][0-9])|(3[0-1])))?)?",
+            "expression": "matches('^(?:(?:[1-2][0-9]{3,3}(((0[1-9])|(1[0-2]))(((0[1-9])|([1-2][0-9])|(3[0-1])))?)?))$')",
+            "source": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"
+          }
+        ]
+      }
+    ]
+  }
+}

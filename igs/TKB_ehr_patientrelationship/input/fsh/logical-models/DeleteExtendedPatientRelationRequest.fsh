@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteExtendedPatientRelationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: DeleteExtendedPatientRelation v1.0 — Request
 // Genererad: 2026-05-19
@@ -24,5 +27,4 @@ Characteristics: #can-be-target
 * deletionAction.registeredBy.assignmentName 0..1 string "Optionellt uppdragsnamn (max 256 tecken)"
 * deletionAction.reasonText 0..1 string "Optionell anledning till makuleringen (max 1024 tecken)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteExtendedPatientRelationRequestFieldDescriptions

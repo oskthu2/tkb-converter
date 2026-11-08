@@ -30,14 +30,14 @@
       {
         "id": "getavailabletimeslots.timeslot",
         "path": "getavailabletimeslots.timeslot",
-        "short": "timeslot",
+        "short": "TimeslotType",
         "definition": "List med lediga tider",
         "comment": "TKB-fält: `timeslot` (`TimeslotType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -51,29 +51,33 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/uuidType"
+            ]
           }
         ]
       },
       {
         "id": "getavailabletimeslots.timeslot.timeType",
         "path": "getavailabletimeslots.timeslot.timeType",
-        "short": "timeType",
+        "short": "TimeTypeType",
         "definition": "Typ av tid som uttrycker var bokningen/besöket avser. Se datatypen TimeTypeType för vidare information.",
         "comment": "TKB-fält: `timeslot.timeType` (`TimeTypeType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getavailabletimeslots.timeslot.timeType.timeTypeCode",
-        "path": "getavailabletimeslots.timeslot.timeType.timeTypeCode",
-        "short": "timeTypeCode",
-        "definition": "timeTypeCode Heter code i schemat.",
+        "id": "getavailabletimeslots.timeslot.timeType.code",
+        "path": "getavailabletimeslots.timeslot.timeType.code",
+        "short": "code",
+        "definition": "code",
+        "comment": "TKB-fält: `../../code` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -106,217 +110,49 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.careContactCode.cvCode",
-        "path": "getavailabletimeslots.timeslot.timeType.careContactCode.cvCode",
-        "short": "cvCode",
-        "definition": "cvCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.careContactCode.codeSystem",
-        "path": "getavailabletimeslots.timeslot.timeType.careContactCode.codeSystem",
-        "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.careContactCode.codeSystemName",
-        "path": "getavailabletimeslots.timeslot.timeType.careContactCode.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.careContactCode.codeSystemVersion",
-        "path": "getavailabletimeslots.timeslot.timeType.careContactCode.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.careContactCode.displayName",
-        "path": "getavailabletimeslots.timeslot.timeType.careContactCode.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.careContactCode.originalText",
-        "path": "getavailabletimeslots.timeslot.timeType.careContactCode.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
           }
         ]
       },
       {
         "id": "getavailabletimeslots.timeslot.timeType.healthcareService",
         "path": "getavailabletimeslots.timeslot.timeType.healthcareService",
-        "short": "healthcareService",
+        "short": "HealthcareServiceType",
         "definition": "healthcareService",
         "comment": "TKB-fält: `../../healthcareService` (`HealthcareServiceType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode",
-        "short": "healthcareServiceCode",
-        "definition": "healthcareServiceCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../code` (`SnomedCtType`, kardinalitet 1..1).\n\n**Modellanteckning:** healthcareServiceCode Heter code i schemat.",
+        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.code",
+        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.code",
+        "short": "SnomedCtType",
+        "definition": "code",
+        "comment": "TKB-fält: `../../../code` (`SnomedCtType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.snomedCtCode",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.snomedCtCode",
-        "short": "snomedCtCode",
-        "definition": "snomedCtCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** snomedCtCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystem",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystem",
-        "short": "codeSystem",
-        "definition": "Tillåtna värden: 1.2.752.116.2.1.1.",
-        "comment": "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemName",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemVersion",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.displayName",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.originalText",
-        "path": "getavailabletimeslots.timeslot.timeType.healthcareService.healthcareServiceCode.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getavailabletimeslots.timeslot.timeType.healthcareService.information",
         "path": "getavailabletimeslots.timeslot.timeType.healthcareService.information",
-        "short": "information",
+        "short": "InformationType",
         "definition": "information",
         "comment": "TKB-fält: `../../../information` (`InformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -365,14 +201,14 @@
       {
         "id": "getavailabletimeslots.timeslot.timeType.healthcareService.conditionsToConfirm",
         "path": "getavailabletimeslots.timeslot.timeType.healthcareService.conditionsToConfirm",
-        "short": "conditionsToConfirm",
+        "short": "InformationType",
         "definition": "conditionsToConfirm",
         "comment": "TKB-fält: `../../../conditionsToConfirm` (`InformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -477,23 +313,23 @@
       {
         "id": "getavailabletimeslots.timeslot.timeType.appointmentRule",
         "path": "getavailabletimeslots.timeslot.timeType.appointmentRule",
-        "short": "appointmentRule",
+        "short": "TimeTypeRulesType",
         "definition": "appointmentRule",
         "comment": "TKB-fält: `../../appointmentRule` (`TimeTypeRulesType`, kardinalitet 0..3).",
         "min": 0,
         "max": "3",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.timeTypeRulesType",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.timeTypeRulesType",
-        "short": "timeTypeRulesType",
-        "definition": "timeTypeRulesType Heter type i schemat.",
-        "comment": "TKB-fält: `../../../type` (`ProcessEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** timeTypeRulesType Heter type i schemat.",
+        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.type",
+        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.type",
+        "short": "type",
+        "definition": "type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING.",
+        "comment": "TKB-fält: `../../../type` (`ProcessEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING.",
         "min": 1,
         "max": "1",
         "type": [
@@ -510,8 +346,8 @@
         "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonTextRequired",
         "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonTextRequired",
         "short": "reasonTextRequired",
-        "definition": "reasonTextRequired",
-        "comment": "TKB-fält: `../../../reasonTextRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).",
+        "definition": "reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
+        "comment": "TKB-fält: `../../../reasonTextRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
         "min": 1,
         "max": "1",
         "type": [
@@ -528,8 +364,8 @@
         "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodeRequired",
         "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodeRequired",
         "short": "reasonCodeRequired",
-        "definition": "reasonCodeRequired",
-        "comment": "TKB-fält: `../../../reasonCodeRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).",
+        "definition": "reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
+        "comment": "TKB-fält: `../../../reasonCodeRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
         "min": 1,
         "max": "1",
         "type": [
@@ -552,105 +388,21 @@
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.cvCode",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.cvCode",
-        "short": "cvCode",
-        "definition": "cvCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.codeSystem",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.codeSystem",
-        "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.codeSystemName",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.codeSystemVersion",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.displayName",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.originalText",
-        "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.reasonCodes.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
           }
         ]
       },
       {
         "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.information",
         "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.information",
-        "short": "information",
+        "short": "InformationType",
         "definition": "information",
         "comment": "TKB-fält: `../../../information` (`InformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -699,14 +451,14 @@
       {
         "id": "getavailabletimeslots.timeslot.timeType.appointmentRule.conditionToConfirm",
         "path": "getavailabletimeslots.timeslot.timeType.appointmentRule.conditionToConfirm",
-        "short": "conditionToConfirm",
+        "short": "InformationType",
         "definition": "conditionToConfirm",
         "comment": "TKB-fält: `../../../conditionToConfirm` (`InformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -762,7 +514,10 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/TS"
+            ]
           }
         ]
       },
@@ -776,7 +531,10 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/TS"
+            ]
           }
         ]
       },
@@ -797,98 +555,42 @@
       {
         "id": "getavailabletimeslots.timeslot.healthcareFacilityHSAId",
         "path": "getavailabletimeslots.timeslot.healthcareFacilityHSAId",
-        "short": "healthcareFacilityHSAId",
+        "short": "HSAIdType",
         "definition": "HSAId för vårdenheten som bokningen gäller hos.",
         "comment": "TKB-fält: `timeslot.healthcareFacilityHSAId` (`HSAIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.healthcareFacilityHSAId.root",
-        "path": "getavailabletimeslots.timeslot.healthcareFacilityHSAId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.healthcareFacilityHSAId.hSAIdExtension",
-        "path": "getavailabletimeslots.timeslot.healthcareFacilityHSAId.hSAIdExtension",
-        "short": "hSAIdExtension",
-        "definition": "hSAIdExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../extension` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** hSAIdExtension Heter extension i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getavailabletimeslots.timeslot.practitioner",
         "path": "getavailabletimeslots.timeslot.practitioner",
-        "short": "practitioner",
+        "short": "PractitionerType",
         "definition": "HoS-person som besöket är bokat hos. Se datatypen PractitionerType för vidare information.",
         "comment": "TKB-fält: `timeslot.practitioner` (`PractitionerType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getavailabletimeslots.timeslot.practitioner.HSAId",
         "path": "getavailabletimeslots.timeslot.practitioner.HSAId",
-        "short": "HSAId",
+        "short": "HSAIdType",
         "definition": "HSAId",
         "comment": "TKB-fält: `../../HSAId` (`HSAIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.practitioner.HSAId.root",
-        "path": "getavailabletimeslots.timeslot.practitioner.HSAId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.practitioner.HSAId.hSAIdExtension",
-        "path": "getavailabletimeslots.timeslot.practitioner.HSAId.hSAIdExtension",
-        "short": "hSAIdExtension",
-        "definition": "hSAIdExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** hSAIdExtension Heter extension i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
@@ -937,14 +639,14 @@
       {
         "id": "getavailabletimeslots.timeslot.resource",
         "path": "getavailabletimeslots.timeslot.resource",
-        "short": "resource",
+        "short": "ResourceType",
         "definition": "En resurs är något som kan tas i anspråk för eller krävs för genomförande av aktiviteter eller processer inom vård och omsorg och som inte avser personer eller organisationer. Exempel är olika typer av medicintekniska produkter inom hälso- och sjukvård och pengar som betalas ut till brukaren inom socialtjänst.\n\nSe datatypen ResourceType för vidare information.",
         "comment": "TKB-fält: `timeslot.resource` (`ResourceType`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -958,91 +660,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.typeOfResource.cvCode",
-        "path": "getavailabletimeslots.timeslot.resource.typeOfResource.cvCode",
-        "short": "cvCode",
-        "definition": "cvCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.typeOfResource.codeSystem",
-        "path": "getavailabletimeslots.timeslot.resource.typeOfResource.codeSystem",
-        "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.typeOfResource.codeSystemName",
-        "path": "getavailabletimeslots.timeslot.resource.typeOfResource.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.typeOfResource.codeSystemVersion",
-        "path": "getavailabletimeslots.timeslot.resource.typeOfResource.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.typeOfResource.displayName",
-        "path": "getavailabletimeslots.timeslot.resource.typeOfResource.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.typeOfResource.originalText",
-        "path": "getavailabletimeslots.timeslot.resource.typeOfResource.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
           }
         ]
       },
@@ -1056,91 +674,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.resourceAttribute.cvCode",
-        "path": "getavailabletimeslots.timeslot.resource.resourceAttribute.cvCode",
-        "short": "cvCode",
-        "definition": "cvCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cvCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.resourceAttribute.codeSystem",
-        "path": "getavailabletimeslots.timeslot.resource.resourceAttribute.codeSystem",
-        "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.resourceAttribute.codeSystemName",
-        "path": "getavailabletimeslots.timeslot.resource.resourceAttribute.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.resourceAttribute.codeSystemVersion",
-        "path": "getavailabletimeslots.timeslot.resource.resourceAttribute.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.resourceAttribute.displayName",
-        "path": "getavailabletimeslots.timeslot.resource.resourceAttribute.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailabletimeslots.timeslot.resource.resourceAttribute.originalText",
-        "path": "getavailabletimeslots.timeslot.resource.resourceAttribute.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
           }
         ]
       },
@@ -1191,7 +725,7 @@
         "path": "getavailabletimeslots.resultCode",
         "short": "resultCode",
         "definition": "Kan endast vara OK, INFO eller ERROR.",
-        "comment": "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_MAKE_APPOINTMENT, USER_IS_ALREADY_OCCUPIED, APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_UPDATE_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, USER_IS_ALREADY_OCCUPIED, UPDATE_APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, TOO_LATE_TO_CANCEL_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CANCEL_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CONFIRMED, TOO_LATE_TO_CONFIRM_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CONFIRM_IS_NOT_ALLOWED.",
         "min": 1,
         "max": "1",
         "type": [

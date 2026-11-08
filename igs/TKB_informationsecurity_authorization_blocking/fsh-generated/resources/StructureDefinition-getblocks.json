@@ -30,28 +30,28 @@
       {
         "id": "getblocks.blockHeader",
         "path": "getblocks.blockHeader",
-        "short": "blockHeader",
+        "short": "BlockHeaderType",
         "definition": "Lista över funna spärrar som är aktiva.",
-        "comment": "TKB-fält: `blockHeader` (`urn:riv:informationsecurity:authorization:blocking:4:BlockHeaderType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som representerar spärrdata, antingen innehållandes endast spärrdata, eller spärrdata tillsammans med avregistrerade spärrar, beroende på hur klienten efterfrågat data. Datatypen utökar datatypen Result.",
+        "comment": "TKB-fält: `blockHeader` (`urn:riv:informationsecurity:authorization:blocking:4:BlockHeaderType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getblocks.blockHeader.result",
         "path": "getblocks.blockHeader.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -59,8 +59,8 @@
         "id": "getblocks.blockHeader.result.resultCode",
         "path": "getblocks.blockHeader.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,14 +90,14 @@
       {
         "id": "getblocks.blockHeader.blocks",
         "path": "getblocks.blockHeader.blocks",
-        "short": "blocks",
+        "short": "BlockType",
         "definition": "Datatyp som representerar en existerande spärr med alla dess attribut. Datatypen beskriver grundformatet för en spärr.",
         "comment": "TKB-fält: `../blocks` (`BlockType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -119,8 +119,8 @@
         "id": "getblocks.blockHeader.blocks.blockType",
         "path": "getblocks.blockHeader.blocks.blockType",
         "short": "blockType",
-        "definition": "blockType",
-        "comment": "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).",
+        "definition": "blockType Tillåtna värden: Inner, Outer.",
+        "comment": "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** blockType Tillåtna värden: Inner, Outer.",
         "min": 1,
         "max": "1",
         "type": [
@@ -199,49 +199,21 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getblocks.blockHeader.blocks.patientId.root",
-        "path": "getblocks.blockHeader.blocks.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getblocks.blockHeader.blocks.patientId.iiExtension",
-        "path": "getblocks.blockHeader.blocks.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getblocks.blockHeader.blocks.excludedInformationTypes",
         "path": "getblocks.blockHeader.blocks.excludedInformationTypes",
-        "short": "excludedInformationTypes",
+        "short": "InformationTypeType",
         "definition": "Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation",
         "comment": "TKB-fält: `../../excludedInformationTypes` (`InformationTypeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -276,14 +248,14 @@
       {
         "id": "getblocks.blockHeader.blocks.temporaryRevokes",
         "path": "getblocks.blockHeader.blocks.temporaryRevokes",
-        "short": "temporaryRevokes",
+        "short": "TemporaryRevokeType",
         "definition": "Datatyp som representerar en tillfällig hävning för en spärr med alla dess attribut. En tillfällig hävning tillhör alltid en spärr. Datatypen beskriver grundformatet för en tillfällig hävning.",
         "comment": "TKB-fält: `../../temporaryRevokes` (`TemporaryRevokeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

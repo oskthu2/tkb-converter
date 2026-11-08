@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "SubjectOfCareIdType",
+  "url": "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/SubjectOfCareIdType",
+  "name": "SubjectOfCareIdType",
+  "title": "SubjectOfCareIdType",
+  "status": "active",
+  "description": "SubjectOfCareIdType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-subjectofcareidtype-pattern",
+            "severity": "error",
+            "human": "SubjectOfCareIdType ska följa mönstret i schemat: [0-9]{8}[0-9pPtTfF][0-9]{3}",
+            "expression": "matches('^(?:(?:[0-9]{8}[0-9pPtTfF][0-9]{3}))$')",
+            "source": "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/SubjectOfCareIdType"
+          }
+        ]
+      }
+    ]
+  }
+}

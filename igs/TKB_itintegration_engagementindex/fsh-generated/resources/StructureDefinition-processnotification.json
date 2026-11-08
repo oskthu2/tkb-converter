@@ -28,11 +28,11 @@
         "definition": "Logisk modell för tjänstekontraktet ProcessNotification\n(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).\nRepresenterar responsens informationsstruktur — ett statusbesked\npå att notifieringen mottagits och behandlats.\n\nOBS: ProcessNotification har en ovanlig dubbel roll i arkitekturen:\n- Engagemangsindex agerar PRODUCENT för att TA EMOT notifieringar från andra index.\n- Engagemangsindex agerar KONSUMENT för att SKICKA notifieringar till andra index.\nFr.o.m. version 1.0.9 agerar nationellt engagemangsindex ENBART som producent\n(tar emot notifieringar från lokala index). Nationellt EI skickar inte längre\nProcessNotification till lokala index eller verksamhetssystem.\nUndantag: Formulärtjänsten och Tidbokning/Kallelser har tidsbegränsat undantag."
       },
       {
-        "id": "processnotification.resultCode",
-        "path": "processnotification.resultCode",
-        "short": "Resultatkod",
+        "id": "processnotification.ResultCode",
+        "path": "processnotification.ResultCode",
+        "short": "ResultCode",
         "definition": "Status enligt generell regel.",
-        "comment": "TKB-fält: `ResultCode` (`Kodverk`, kardinalitet 1..1).\n\n**Modellanteckning:** Statuskod som anger utfallet av notifieringsoperationen.\nTillåtna värden:\nOK    — Transaktionen har utförts enligt uppdraget.\nINFO  — Transaktionen har utförts men det finns ett informationsmeddelande.\nERROR — Transaktionen har INTE kunnat utföras p.g.a. logiskt fel.",
+        "comment": "TKB-fält: `ResultCode` (`Kodverk`, kardinalitet 1..1).\n\n**Modellanteckning:** ResultCode Tillåtna värden: OK, ERROR, INFO.",
         "min": 1,
         "max": "1",
         "type": [
@@ -44,9 +44,9 @@
       {
         "id": "processnotification.comment",
         "path": "processnotification.comment",
-        "short": "Kommentar",
+        "short": "comment",
         "definition": "Meddelande enligt generell regel",
-        "comment": "TKB-fält: `comment` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Fritext-meddelande med ytterligare information om resultatet.\nAnvänds framförallt vid INFO och ERROR för att ge konsumenten\nmer detaljerad information om vad som hänt.",
+        "comment": "TKB-fält: `comment` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

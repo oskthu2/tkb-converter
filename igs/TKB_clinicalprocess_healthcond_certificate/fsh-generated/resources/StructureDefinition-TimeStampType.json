@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "TimeStampType",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType",
+  "name": "TimeStampType",
+  "title": "TimeStampType",
+  "status": "draft",
+  "description": "DateTime avgränsat till YYYY-MM-DDThh:mm:ss (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "dateTime",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/dateTime",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "dateTime",
+        "path": "dateTime",
+        "constraint": [
+          {
+            "key": "local-timestamptype-pattern",
+            "severity": "error",
+            "human": "TimeStampType ska följa mönstret i schemat: \\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d",
+            "expression": "matches('^(?:(?:\\\\d{4}-\\\\d\\\\d-\\\\d\\\\dT\\\\d\\\\d:\\\\d\\\\d:\\\\d\\\\d))$')",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"
+          }
+        ]
+      }
+    ]
+  }
+}

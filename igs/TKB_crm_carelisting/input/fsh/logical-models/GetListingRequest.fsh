@@ -1,3 +1,6 @@
+// Elementen genereras ur GetListing_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: GetListing v1.0 — Request
 // Namespace: urn:riv:crm:carelisting:GetListingResponder:1
@@ -13,13 +16,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* personId 1..1 string "Personnummer för vård- och omsorgstagaren"
-    """
-    Identitetsbeteckning för vård- och omsorgstagaren.
-    Personnummer kan anges med eller utan sekelsiffror. Bindestreck är valfritt.
-    Pattern: (([1-9]\d{7})|(\d{6}))[\-]?\d{4}
-    Kardinalitet: Obligatorisk.
-    """
+* personId 1..1 string "personId" "personId"
+* personId only SubjectOfCareIdType
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetListingRequestFieldDescriptions

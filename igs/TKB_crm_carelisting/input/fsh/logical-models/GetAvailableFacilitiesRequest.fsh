@@ -1,3 +1,6 @@
+// Elementen genereras ur GetAvailableFacilities_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: GetAvailableFacilities v1.0 — Request
 // Namespace: urn:riv:crm:carelisting:GetAvailableFacilitiesResponder:1
@@ -13,23 +16,9 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* countyCode 1..1 string "Länskod (SCB-kod) för regionen"
-    """
-    SCB-kod för det län/den region vars tillgängliga vårdenheter söks.
-    Kardinalitet: Obligatorisk.
-    """
-* healthcareFacilities 0..* Identifier "HSA-ID:n för specifika vårdenheter"
-    """
-    Lista med HSA-ID:n för specifika vårdenheter att hämta information om.
-    Tom lista innebär att information om alla tillgängliga vårdenheter ska hämtas.
-    Kardinalitet: Valfri, lista.
-    """
-* listingType 0..* string "Typer av vårdenheter att söka fram"
-    """
-    Anger vilka typer av vårdenheter som skall sökas fram.
-    Om inget anges hämtas alla.
-    Kardinalitet: Valfri, lista.
-    """
+* countyCode 1..1 string "countyCode" "countyCode"
+* healthcare_facilities 0..* string "healthcare_facilities" "Lista med Vårdenheter som man önskar information om eller tom sträng \"\" om information om alla tillgängliga vårdenehter ska hämtas."
+* listingType 0..* string "Anger vilka typer av vårdenheter som skall sökas fram. Om inget anges så hämtas alla." "Anger vilka typer av vårdenheter som skall sökas fram. Om inget anges så hämtas alla."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetAvailableFacilitiesRequestFieldDescriptions

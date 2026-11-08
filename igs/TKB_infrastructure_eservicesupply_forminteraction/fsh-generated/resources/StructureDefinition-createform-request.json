@@ -28,36 +28,49 @@
         "definition": "Logisk modell för requestparametrar i CreateForm."
       },
       {
-        "id": "createform-request.healthcare_Facility_CareUnit",
-        "path": "createform-request.healthcare_Facility_CareUnit",
-        "short": "Vårdenhetens HSA-id",
-        "definition": "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3.",
+        "id": "createform-request.healthcare_facility_CareUnit",
+        "path": "createform-request.healthcare_facility_CareUnit",
+        "short": "healthcare_facility_CareUnit",
+        "definition": "healthcare_facility_CareUnit",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform-request.clinicalProcessInterestId",
+        "path": "createform-request.clinicalProcessInterestId",
+        "short": "clinicalProcessInterestId",
+        "definition": "clinicalProcessInterestId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
       {
         "id": "createform-request.subjectOfCare",
         "path": "createform-request.subjectOfCare",
-        "short": "Personnummer",
-        "definition": "Starkt autentiserad användares personnummer. Tomt fält indikerar anonym användare.",
+        "short": "subjectOfCare",
+        "definition": "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "createform-request.templateId",
         "path": "createform-request.templateId",
-        "short": "Mall-id",
-        "definition": "Mallid för den formulärmall som skall användas.",
+        "short": "templateId",
+        "definition": "templateId",
         "min": 1,
         "max": "1",
         "type": [
@@ -69,8 +82,8 @@
       {
         "id": "createform-request.templateVersion",
         "path": "createform-request.templateVersion",
-        "short": "Mallversion",
-        "definition": "Mallens version. Utelämnas används den senaste versionen.",
+        "short": "templateVersion",
+        "definition": "templateVersion",
         "min": 0,
         "max": "1",
         "type": [
@@ -80,54 +93,41 @@
         ]
       },
       {
-        "id": "createform-request.clinicalProcessInterestId",
-        "path": "createform-request.clinicalProcessInterestId",
-        "short": "Hälsoärende-id",
-        "definition": "Indikerar att formuläret ingår i ett hälsoärende.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
         "id": "createform-request.actor",
         "path": "createform-request.actor",
-        "short": "Aktör",
-        "definition": "Aktör som skapar formuläret — invånaren själv, vårdnadshavare eller vårdpersonal.",
+        "short": "ActorType",
+        "definition": "actor",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "createform-request.actor.actorType",
-        "path": "createform-request.actor.actorType",
-        "short": "Aktörstyp",
-        "definition": "Typ av aktör.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "createform-request.actor.actorId",
         "path": "createform-request.actor.actorId",
-        "short": "Aktörs-id",
-        "definition": "Identifierare för aktören.",
-        "min": 0,
+        "short": "actorId",
+        "definition": "actorId",
+        "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+          }
+        ]
+      },
+      {
+        "id": "createform-request.actor.actorType",
+        "path": "createform-request.actor.actorType",
+        "short": "actorType",
+        "definition": "actorType Tillåtna värden: CITIZEN, GUARDIAN, CAREGIVER.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ]
       }

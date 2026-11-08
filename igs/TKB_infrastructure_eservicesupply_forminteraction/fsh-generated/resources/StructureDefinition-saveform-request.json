@@ -28,49 +28,10 @@
         "definition": "Logisk modell för requestparametrar i SaveForm."
       },
       {
-        "id": "saveform-request.formID",
-        "path": "saveform-request.formID",
-        "short": "Formulär-id",
-        "definition": "Formulärets ID.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "saveform-request.subjectOfCare",
-        "path": "saveform-request.subjectOfCare",
-        "short": "Personnummer",
-        "definition": "Starkt autentiserad användares personnummer.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "saveform-request.actor",
-        "path": "saveform-request.actor",
-        "short": "Aktör",
-        "definition": "Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "saveform-request.actor.actorType",
-        "path": "saveform-request.actor.actorType",
-        "short": "Aktörstyp",
-        "definition": "Typ av aktör.",
+        "id": "saveform-request.formId",
+        "path": "saveform-request.formId",
+        "short": "formId",
+        "definition": "formId",
         "min": 1,
         "max": "1",
         "type": [
@@ -80,15 +41,54 @@
         ]
       },
       {
-        "id": "saveform-request.actor.actorId",
-        "path": "saveform-request.actor.actorId",
-        "short": "Aktörs-id",
-        "definition": "Identifierare för aktören.",
+        "id": "saveform-request.subjectOfCare",
+        "path": "saveform-request.subjectOfCare",
+        "short": "subjectOfCare",
+        "definition": "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveform-request.actor",
+        "path": "saveform-request.actor",
+        "short": "ActorType",
+        "definition": "actor",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveform-request.actor.actorId",
+        "path": "saveform-request.actor.actorId",
+        "short": "actorId",
+        "definition": "actorId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+          }
+        ]
+      },
+      {
+        "id": "saveform-request.actor.actorType",
+        "path": "saveform-request.actor.actorType",
+        "short": "actorType",
+        "definition": "actorType Tillåtna värden: CITIZEN, GUARDIAN, CAREGIVER.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ]
       }

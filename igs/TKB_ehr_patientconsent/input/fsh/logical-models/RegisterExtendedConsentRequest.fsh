@@ -1,3 +1,6 @@
+// Elementen genereras ur RegisterExtendedConsentResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: RegisterExtendedConsent v1.0 — Request-modell
 // RIV-TA: urn:riv:ehr:patientconsent:administration:RegisterExtendedConsentResponder:1
@@ -50,5 +53,4 @@ Characteristics: #can-be-target
     * assignmentName 0..1 string "Namn på medarbetaruppdraget (max 256 tecken)"
   * reasonText 0..1 string "Anledning till åtgärden i fritext (max 1024 tecken)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert RegisterExtendedConsentRequestFieldDescriptions

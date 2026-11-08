@@ -1,3 +1,6 @@
+// Elementen genereras ur ProcessPrescriptionReasonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:processdevelopment:infections v1.0.2
 // Kontrakt: ProcessPrescriptionReason v1.0
 // Genererad: 2026-05-19
@@ -14,86 +17,27 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* prescriptionTime 0..1 string "Tidpunkt då registreringen av ordinationsorsaken gjordes (YYYYMMDDhhmmss)"
-  """
-  Tidpunkt i formatet YYYYMMDDhhmmss.
-  I de fall en ordination finns anges här, i annat fall lämnas fältet tomt.
-  Kardinalitet: Valfri.
-  """
-* substanceCode 1..1 CodeableConcept "Läkemedelssubstans som är del av en läkemedelsordination"
-  """
-  Hanterar information kring en läkemedelssubstans.
-  Kodverk: ATC. OID: 1.2.752.129.2.2.3.1.1
-  Kardinalitet: Obligatorisk.
-  """
-* prescriptionCareUnitId 1..1 Identifier "Medicinskt ansvarig för ordinationsmoment (HSA-id)"
-  """
-  OID för HSA-id: 1.2.752.129.2.1.4.1
-  Kardinalitet: Obligatorisk.
-  """
-* prescriptionLocationId 0..1 Identifier "Registreringsenhet för ordinationsmoment (HSA-id)"
-  """
-  OID för HSA-id: 1.2.752.129.2.1.4.1
-  Kardinalitet: Valfri.
-  """
-* prescriptionReasonCareUnitId 1..1 Identifier "Medicinskt ansvarig för ordinationsorsak (HSA-id)"
-  """
-  OID för HSA-id: 1.2.752.129.2.1.4.1
-  Kardinalitet: Obligatorisk.
-  """
-* prescriptionReasonLocationId 0..1 Identifier "Registreringsenhet för ordinationsorsak (HSA-id)"
-  """
-  OID för HSA-id: 1.2.752.129.2.1.4.1
-  Kardinalitet: Valfri.
-  """
-* conditionId 0..1 Identifier "Id för patientens diagnos"
-  """
-  Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
-  Kardinalitet: Valfri.
-  """
-* conditionCode 0..1 CodeableConcept "Kod och klartext för patientens diagnos"
-  """
-  Kodverk: SnomedCT, IV Annan, KSH97
-  Kardinalitet: Valfri.
-  """
-* source 0..1 CodeableConcept "Kod och klartext som anger hur infektionen uppstått"
-  """
-  Anger om det är samhälls- eller vårdförvärvad infektion eller ej infektion (vid förebyggande profylax).
-  Kodverk: IV Smittväg
-  Kardinalitet: Valfri.
-  """
-* activityCode 1..1 CodeableConcept "Information om en aktivitet som är relevant att registrera"
-  """
-  Kodverk: KVÅ, SnomedCT, IV Annan
-  Kardinalitet: Obligatorisk.
-  """
-* activityId 1..1 Identifier "Unik identifierare för aktivitet"
-  """
-  Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1.
-  OBSERVERA: attributet har olika betydelse beroende på om mallen för Activity (profylax)
-  eller Condition (infektion) används.
-  Kardinalitet: Obligatorisk.
-  """
-* patient 1..1 BackboneElement "Patientuppgifter"
-  """
-  Kardinalitet: Obligatorisk.
-  """
-* patient.patientId 1..1 Identifier "Patientens identifierare"
-* patient.birthTime 1..1 date "Patientens födelseår (ÅÅÅÅMMDD, ÅÅÅÅMM eller ÅÅÅÅ)"
-* patient.gender 1..1 CodeableConcept "Patientens kön"
-  """
-  Kodverk KV Kön, OID: 1.2.752.129.2.2.1.1
-  0 = not known, 1 = male, 2 = female, 9 = not applicable
-  """
-* prescriptionId 1..1 Identifier "Unik identifierare för ordinationen"
-  """
-  Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
-  Kardinalitet: Obligatorisk.
-  """
-* prescriptionReasonTime 0..1 string "Tidpunkt för ordinationen (YYYYMMDDhhmmss)"
-  """
-  Kardinalitet: Valfri.
-  """
+* prescriptionReason 1..1 Base "PrescriptionReasonType" "prescriptionReason"
+* prescriptionReason.prescriptionCareUnitId 1..1 IIType "prescriptionCareUnitId" "prescriptionCareUnitId"
+* prescriptionReason.prescriptionReasonCareUnitId 1..1 IIType "prescriptionReasonCareUnitId" "prescriptionReasonCareUnitId"
+* prescriptionReason.prescriptionTime 0..1 string "prescriptionTime" "prescriptionTime"
+* prescriptionReason.prescriptionTime only TimeStampType
+* prescriptionReason.prescriptionReasonTime 0..1 string "prescriptionReasonTime" "prescriptionReasonTime"
+* prescriptionReason.prescriptionReasonTime only TimeStampType
+* prescriptionReason.prescriptionLocationId 0..1 IIType "prescriptionLocationId" "prescriptionLocationId"
+* prescriptionReason.prescriptionReasonLocationId 0..1 IIType "prescriptionReasonLocationId" "prescriptionReasonLocationId"
+* prescriptionReason.activityCode 1..1 CVType "activityCode" "activityCode"
+* prescriptionReason.activityId 1..1 IIType "activityId" "activityId"
+* prescriptionReason.conditionId 1..1 IIType "conditionId" "conditionId"
+* prescriptionReason.conditionCode 1..1 CVType "conditionCode" "conditionCode"
+* prescriptionReason.source 1..1 CVType "source" "source"
+* prescriptionReason.prescriptionId 1..1 IIType "prescriptionId" "prescriptionId"
+* prescriptionReason.substanceCode 1..1 CVType "substanceCode" "substanceCode"
+* prescriptionReason.patient 1..1 Base "PatientType" "patient"
+* prescriptionReason.patient.id 1..1 IIType "id" "id"
+* prescriptionReason.patient.birthTime 1..1 string "birthTime" "birthTime"
+* prescriptionReason.patient.birthTime only DateType
+* prescriptionReason.patient.gender 1..1 CVType "gender" "gender"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ProcessPrescriptionReasonRequestFieldDescriptions
@@ -108,17 +52,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
-  """
-  OK = operationen genomförd utan fel
-  ERROR = Fel vid operationen. Felet beskrivs i elementet comment
-  INFO = Information finns om operationen. Informationen beskrivs i elementet comment
-  Kardinalitet: Obligatorisk.
-  """
-* comment 0..1 string "Beskrivning av fel eller information om genomförd operation"
-  """
-  Kardinalitet: Valfri.
-  """
+* ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, ERROR, INFO."
+* comment 0..1 string "comment" "comment"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ProcessPrescriptionReasonResponseFieldDescriptions

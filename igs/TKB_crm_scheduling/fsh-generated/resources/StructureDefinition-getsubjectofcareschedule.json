@@ -30,34 +30,53 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail",
         "path": "getsubjectofcareschedule.timeslotDetail",
-        "short": "Lista med användarens tider (TimeslotType)",
-        "definition": "Lista med invånarens bokade tider för angiven vårdenhet. Öppna kallelser ingår inte.\nKardinalitet: Valfri, lista.",
+        "short": "TimeslotType",
+        "definition": "timeslotDetail",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getsubjectofcareschedule.timeslotDetail.startTimeInclusive",
         "path": "getsubjectofcareschedule.timeslotDetail.startTimeInclusive",
-        "short": "Startdatum och klockslag (ÅÅÅÅMMDDttmmss)",
-        "definition": "Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.\nKardinalitet: Obligatorisk.",
-        "min": 1,
+        "short": "startTimeInclusive",
+        "definition": "startTimeInclusive",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS"
+            ]
           }
         ]
       },
       {
         "id": "getsubjectofcareschedule.timeslotDetail.endTimeExclusive",
         "path": "getsubjectofcareschedule.timeslotDetail.endTimeExclusive",
-        "short": "Slutdatum och klockslag (ÅÅÅÅMMDDttmmss)",
-        "definition": "Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.\nKardinalitet: Obligatorisk.",
+        "short": "endTimeExclusive",
+        "definition": "endTimeExclusive",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getsubjectofcareschedule.timeslotDetail.healthcare_facility",
+        "path": "getsubjectofcareschedule.timeslotDetail.healthcare_facility",
+        "short": "healthcare_facility",
+        "definition": "healthcare_facility",
         "min": 1,
         "max": "1",
         "type": [
@@ -67,37 +86,24 @@
         ]
       },
       {
-        "id": "getsubjectofcareschedule.timeslotDetail.healthcare_facility",
-        "path": "getsubjectofcareschedule.timeslotDetail.healthcare_facility",
-        "short": "HSA-id för mottagning/vårdenhet",
-        "definition": "HSA-id för mottagning/vårdenhet.\nKardinalitet: Obligatorisk.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
         "id": "getsubjectofcareschedule.timeslotDetail.performer",
         "path": "getsubjectofcareschedule.timeslotDetail.performer",
-        "short": "HSA-id för Hos-person",
-        "definition": "HSA-id för Hos-person som besöket är bokat hos.\nKardinalitet: Valfri.",
+        "short": "performer",
+        "definition": "performer",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getsubjectofcareschedule.timeslotDetail.bookingId",
         "path": "getsubjectofcareschedule.timeslotDetail.bookingId",
-        "short": "Bokningsidentitet",
-        "definition": "Bokningsidentitet för det bokade besöket.\nKardinalitet: Obligatorisk.",
-        "min": 1,
+        "short": "bookingId",
+        "definition": "bookingId",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -108,21 +114,24 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.subject_of_care",
         "path": "getsubjectofcareschedule.timeslotDetail.subject_of_care",
-        "short": "Personnummer enl. yyyymmddxxxx",
-        "definition": "Personnummer för invånaren.\nKardinalitet: Obligatorisk.",
-        "min": 1,
+        "short": "subject_of_care",
+        "definition": "subject_of_care",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType"
+            ]
           }
         ]
       },
       {
         "id": "getsubjectofcareschedule.timeslotDetail.purpose",
         "path": "getsubjectofcareschedule.timeslotDetail.purpose",
-        "short": "Beskrivning av besöksorsak angiven av vårdenhet",
-        "definition": "Beskrivning av besöksorsak angiven av vårdenhet.\nKardinalitet: Valfri.",
+        "short": "purpose",
+        "definition": "purpose",
         "min": 0,
         "max": "1",
         "type": [
@@ -134,8 +143,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.reason",
         "path": "getsubjectofcareschedule.timeslotDetail.reason",
-        "short": "Kontaktorsak som invånare uppger",
-        "definition": "Kontaktorsak som invånare uppger vid bokning.\nKardinalitet: Valfri.",
+        "short": "reason",
+        "definition": "reason",
         "min": 0,
         "max": "1",
         "type": [
@@ -147,8 +156,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.resourceName",
         "path": "getsubjectofcareschedule.timeslotDetail.resourceName",
-        "short": "Namn på resurs",
-        "definition": "Namn på resurs.\nKardinalitet: Valfri.",
+        "short": "resourceName",
+        "definition": "resourceName",
         "min": 0,
         "max": "1",
         "type": [
@@ -160,8 +169,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.healthcare_facility_name",
         "path": "getsubjectofcareschedule.timeslotDetail.healthcare_facility_name",
-        "short": "Namn på bokad mottagning/vårdenhet",
-        "definition": "Namn på bokad mottagning/vårdenhet.\nKardinalitet: Valfri.",
+        "short": "healthcare_facility_name",
+        "definition": "healthcare_facility_name",
         "min": 0,
         "max": "1",
         "type": [
@@ -173,8 +182,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.performerName",
         "path": "getsubjectofcareschedule.timeslotDetail.performerName",
-        "short": "Namn på HoS-person",
-        "definition": "Namn på HoS-person som besöket är bokat hos.\nKardinalitet: Valfri.",
+        "short": "performerName",
+        "definition": "performerName",
         "min": 0,
         "max": "1",
         "type": [
@@ -186,8 +195,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.resourceID",
         "path": "getsubjectofcareschedule.timeslotDetail.resourceID",
-        "short": "Identitet för resurs",
-        "definition": "Identitet för resurs.\nKardinalitet: Valfri.",
+        "short": "resourceID",
+        "definition": "resourceID",
         "min": 0,
         "max": "1",
         "type": [
@@ -199,8 +208,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.timeTypeName",
         "path": "getsubjectofcareschedule.timeslotDetail.timeTypeName",
-        "short": "Tidstyp",
-        "definition": "Tidstyp för det bokade besöket.\nKardinalitet: Valfri.",
+        "short": "timeTypeName",
+        "definition": "timeTypeName",
         "min": 0,
         "max": "1",
         "type": [
@@ -212,8 +221,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.timeTypeID",
         "path": "getsubjectofcareschedule.timeslotDetail.timeTypeID",
-        "short": "Identitet för tidstyp",
-        "definition": "Identitet för tidstyp.\nKardinalitet: Valfri.",
+        "short": "timeTypeID",
+        "definition": "timeTypeID",
         "min": 0,
         "max": "1",
         "type": [
@@ -225,8 +234,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.careTypeName",
         "path": "getsubjectofcareschedule.timeslotDetail.careTypeName",
-        "short": "Klartext för vårdtyp",
-        "definition": "Klartext för vårdtyp.\nKardinalitet: Valfri.",
+        "short": "careTypeName",
+        "definition": "careTypeName",
         "min": 0,
         "max": "1",
         "type": [
@@ -238,8 +247,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.careTypeID",
         "path": "getsubjectofcareschedule.timeslotDetail.careTypeID",
-        "short": "Identitet för vårdtyp",
-        "definition": "Identitet för vårdtyp.\nKardinalitet: Valfri.",
+        "short": "careTypeID",
+        "definition": "careTypeID",
         "min": 0,
         "max": "1",
         "type": [
@@ -251,8 +260,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.cancel_booking_allowed",
         "path": "getsubjectofcareschedule.timeslotDetail.cancel_booking_allowed",
-        "short": "Om bokningen kan avbokas",
-        "definition": "Sätts av producenten. Anger om bokningen kan avbokas.\nKardinalitet: Valfri.",
+        "short": "cancel_booking_allowed",
+        "definition": "cancel_booking_allowed",
         "min": 0,
         "max": "1",
         "type": [
@@ -264,8 +273,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.rebooking_allowed",
         "path": "getsubjectofcareschedule.timeslotDetail.rebooking_allowed",
-        "short": "Om bokningen kan ombokas",
-        "definition": "Sätts av producenten. Anger om bokningen kan ombokas.\nKardinalitet: Valfri.",
+        "short": "rebooking_allowed",
+        "definition": "rebooking_allowed",
         "min": 0,
         "max": "1",
         "type": [
@@ -277,8 +286,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.message_allowed",
         "path": "getsubjectofcareschedule.timeslotDetail.message_allowed",
-        "short": "Om orsak kan skickas",
-        "definition": "Sätts av producenten. Anger om orsak till av- eller ombokning kan skickas.\nKardinalitet: Valfri.",
+        "short": "message_allowed",
+        "definition": "message_allowed",
         "min": 0,
         "max": "1",
         "type": [
@@ -290,8 +299,8 @@
       {
         "id": "getsubjectofcareschedule.timeslotDetail.isInvitation",
         "path": "getsubjectofcareschedule.timeslotDetail.isInvitation",
-        "short": "Om bokningen är en kallelse",
-        "definition": "Sätts av producenten. Anger om bokningen skapats på vårdgivarens initiativ.\nKardinalitet: Valfri.",
+        "short": "isInvitation",
+        "definition": "isInvitation",
         "min": 0,
         "max": "1",
         "type": [

@@ -1,3 +1,6 @@
+// Elementen genereras ur UnlinkPersonIdentityResponder_4.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för strategicresourcemanagement.persons.person v5.1 (Genererat ur domänens XSD (tagg 5.1).; scripts/xsd_to_ig.py)
 // Kontrakt: UnlinkPersonIdentity v4.0
 // Genererad: 2026-09-26
@@ -10,23 +13,15 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:UnlinkPersonIdentityResponder:4, UnlinkPersonIdentityType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "4.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. http://tempuri.org"
-* actor 1..1 BackboneElement "actor" "Datatyp som identifierar en aktör."
-  * actorId 1..1 BackboneElement "actorId" "En universellt unik identifierare. Heter id i schemat."
-    * root 1..1 string "root" "root"
-    * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-  * professional 0..1 BackboneElement "professional" "Datatyp som identifierar en aktör inom en profession."
-    * organizationId 1..1 BackboneElement "organizationId" "En universellt unik identifierare."
-      * root 1..1 string "root" "root"
-      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-  * updateTime 0..1 string "updateTime" "updateTime"
-* unlinkFromIdentity 1..1 BackboneElement "unlinkFromIdentity" "En universellt unik identifierare."
-  * root 1..1 string "root" "root"
-  * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-* unlinkIdentity 1..1 BackboneElement "unlinkIdentity" "En universellt unik identifierare."
-  * root 1..1 string "root" "root"
-  * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
+* actor 1..1 Base "ActorType" "actor"
+* actor.id 1..1 IIType "id" "id"
+* actor.professional 0..1 Base "ProfessionalType" "professional"
+* actor.professional.organizationId 1..1 IIType "organizationId" "organizationId"
+* actor.updateTime 0..1 string "updateTime" "updateTime"
+* unlinkFromIdentity 1..1 IIType "unlinkFromIdentity" "unlinkFromIdentity"
+* unlinkIdentity 1..1 IIType "unlinkIdentity" "unlinkIdentity"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert UnlinkPersonIdentityRequestFieldDescriptions

@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i RegisterExtendedBlock\n(urn:riv:informationsecurity:authorization:blocking:RegisterExtendedBlockResponder:4, RegisterExtendedBlockType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "registerextendedblock-request.logicalAddress",
-        "path": "registerextendedblock-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "registerextendedblock-request.blockId",
         "path": "registerextendedblock-request.blockId",
         "short": "blockId",
@@ -59,7 +46,7 @@
         "path": "registerextendedblock-request.blockType",
         "short": "blockType",
         "definition": "Enumerationsvärde som anger om spärren är en inre (inom vårdenhet) eller yttre (inom vårdgivare).",
-        "comment": "TKB-fält: `blockType` (`urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `blockType` (`urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** blockType Tillåtna värden: Inner, Outer.",
         "min": 1,
         "max": "1",
         "type": [
@@ -77,40 +64,12 @@
         "path": "registerextendedblock-request.patientId",
         "short": "patientId",
         "definition": "Personidentitet på patienten såsom personnummer, samordningsnummer eller reservnummer.",
-        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:blocking:4:IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** En universellt unik identifierare.",
+        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:blocking:4:IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "registerextendedblock-request.patientId.root",
-        "path": "registerextendedblock-request.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "registerextendedblock-request.patientId.iiExtension",
-        "path": "registerextendedblock-request.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -187,14 +146,14 @@
       {
         "id": "registerextendedblock-request.registerAction",
         "path": "registerextendedblock-request.registerAction",
-        "short": "registerAction",
+        "short": "ActionType",
         "definition": "Identifierar de personer som begärt och registrerat spärren samt tidpunkter för dessa.",
-        "comment": "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+        "comment": "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -215,14 +174,14 @@
       {
         "id": "registerextendedblock-request.registerAction.requestedBy",
         "path": "registerextendedblock-request.registerAction.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -285,14 +244,14 @@
       {
         "id": "registerextendedblock-request.registerAction.registeredBy",
         "path": "registerextendedblock-request.registerAction.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

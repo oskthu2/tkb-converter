@@ -7,53 +7,25 @@ RuleSet: GetCommissionMembersIncludingProtectedPersonFieldDescriptions
 * personInformation.personHsaId ^definition = "Personens HSA-id.
 
 Ref. HSA-id (hsaIdentity) [R5]"
-* personInformation.personHsaId ^comment = "TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk."
+* personInformation.personHsaId ^comment = "TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1)."
 * personInformation.givenName ^definition = "Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]"
-* personInformation.givenName ^comment = "TKB-fält: `..givenName` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri."
+* personInformation.givenName ^comment = "TKB-fält: `..givenName` (`String`, kardinalitet 0..1)."
 * personInformation.middleAndSurName ^definition = "Mellan- och Efternamn separerade med mellanslag."
 * personInformation.middleAndSurName ^comment = "TKB-fält: `..middleAndSurName` (`String`, kardinalitet 1..1)."
 * personInformation.nickName ^definition = "Smeknamn. Får ej användas för presentation, endast för sökning."
 * personInformation.nickName ^comment = "TKB-fält: `..nickName` (`String`, kardinalitet 0..1)."
-* personInformation.personStartDate ^definition = "Eventuellt startdatum för personens anställning."
-* personInformation.personStartDate ^comment = "TKB-fält: `..personStartDate` (`dateTime`, kardinalitet 0..1).
-
-**Modellanteckning:** Eventuellt startdatum för personens anställning.
-Om startdatum ännu inte inträtt är anställningen ännu inte aktiv.
-Ref. startdatum (startDate) [R5]. Kardinalitet: Valfri."
-* personInformation.personEndDate ^definition = "Eventuellt slutdatum för personens anställning."
-* personInformation.personEndDate ^comment = "TKB-fält: `..personEndDate` (`dateTime`, kardinalitet 0..1).
-
-**Modellanteckning:** Eventuellt slutdatum för personens anställning.
-Om slutdatum passerats är anställningen inte längre aktiv.
-Ref. slutdatum (endDate) [R5]. Kardinalitet: Valfri."
 * personInformation.mail ^definition = "E-postadress. Ref. e-postadress (mail) [R5]"
-* personInformation.mail ^comment = "TKB-fält: `..mail` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** E-postadress. Ref. e-postadress (mail) [R5]. Kardinalitet: Valfri."
+* personInformation.mail ^comment = "TKB-fält: `..mail` (`String`, kardinalitet 0..1)."
 * personInformation.telephoneNumber ^definition = "Publikt direkttelefonnummer."
-* personInformation.telephoneNumber ^comment = "TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..*).
-
-**Modellanteckning:** Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]."
+* personInformation.telephoneNumber ^comment = "TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.switchboardNumber ^definition = "Telefonnummer till växel."
-* personInformation.switchboardNumber ^comment = "TKB-fält: `..switchboardNumber` (`Telefon`, kardinalitet 0..1).
-
-**Modellanteckning:** Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5]. Kardinalitet: Valfri."
+* personInformation.switchboardNumber ^comment = "TKB-fält: `..switchboardNumber` (`Telefon`, kardinalitet 0..1)."
 * personInformation.nonPublicTelephoneNumber ^definition = "Tjänstetelefonnummer."
-* personInformation.nonPublicTelephoneNumber ^comment = "TKB-fält: `..nonPublicTelephoneNumber` (`Telefon`, kardinalitet 0..*).
-
-**Modellanteckning:** Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]."
+* personInformation.nonPublicTelephoneNumber ^comment = "TKB-fält: `..nonPublicTelephoneNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.mobileNumber ^definition = "Mobiltelefonnummer."
-* personInformation.mobileNumber ^comment = "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*).
-
-**Modellanteckning:** Mobiltelefonnummer. Ref. mobiltelefon (mobile) [R5]. Kardinalitet: Valfri, lista."
+* personInformation.mobileNumber ^comment = "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.facsimileTelephoneNumber ^definition = "Faxnummer."
-* personInformation.facsimileTelephoneNumber ^comment = "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*).
-
-**Modellanteckning:** Faxnummer. Ref. fax (facsimileTelephoneNumber) [R5]. Kardinalitet: Valfri, lista."
+* personInformation.facsimileTelephoneNumber ^comment = "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.telephoneHour ^definition = "Telefontider för publik telefon (telephoneNumber)."
 * personInformation.telephoneHour ^comment = "TKB-fält: `..telephoneHour` (`TimeSpan`, kardinalitet 0..*)."
 * personInformation.telephoneHour.fromDay ^definition = "Från dag. Måndag (1) – Söndag (7)."
@@ -75,23 +47,23 @@ Ref. slutdatum (endDate) [R5]. Kardinalitet: Valfri."
 * personInformation.healthCareProfessionalLicence ^definition = "Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5]"
 * personInformation.healthCareProfessionalLicence ^comment = "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..*)."
 * personInformation.paTitle ^definition = "Personens befattning"
-* personInformation.paTitle ^comment = "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*).
-
-**Modellanteckning:** Personens befattning. Kardinalitet: Valfri, lista."
+* personInformation.paTitle ^comment = "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*)."
 * personInformation.paTitle.paTitleName ^definition = "Befattning. Ref. befattning (paTitleName) [R5]"
 * personInformation.paTitle.paTitleName ^comment = "TKB-fält: `.. ..paTitleName` (`String`, kardinalitet 0..1)."
 * personInformation.paTitle.paTitleCode ^definition = "Befattningskod. Ref. befattningskod (paTitleCode) [R5]"
 * personInformation.paTitle.paTitleCode ^comment = "TKB-fält: `.. ..paTitleCode` (`String`, kardinalitet 0..1)."
 * personInformation.specialityName ^definition = "Specialistutbildning utöver grundutbildning för läkare eller tandläkare."
-* personInformation.specialityName ^comment = "TKB-fält: `..specialityName` (`String`, kardinalitet 0..*).
-
-**Modellanteckning:** Specialistutbildning utöver grundutbildning för läkare eller tandläkare.
-Ref. specialitet (specialityName) [R5]. Kardinalitet: Valfri, lista."
+* personInformation.specialityName ^comment = "TKB-fält: `..specialityName` (`String`, kardinalitet 0..*)."
 * personInformation.specialityCode ^definition = "Klassificeringskod för specialistutbildning utöver grundutbildning för läkare eller tandläkare."
-* personInformation.specialityCode ^comment = "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*).
-
-**Modellanteckning:** Klassificeringskod för specialistutbildning utöver grundutbildning.
-Ref. specialitetskod (specialityCode) [R5]. Kardinalitet: Valfri, lista."
+* personInformation.specialityCode ^comment = "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*)."
+* personInformation.protectedPerson ^definition = "true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]"
+* personInformation.protectedPerson ^comment = "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1)."
+* personInformation.personStartDate ^definition = "Eventuellt startdatum för personens anställning."
+* personInformation.personStartDate ^comment = "TKB-fält: `..personStartDate` (`dateTime`, kardinalitet 0..1)."
+* personInformation.personEndDate ^definition = "Eventuellt slutdatum för personens anställning."
+* personInformation.personEndDate ^comment = "TKB-fält: `..personEndDate` (`dateTime`, kardinalitet 0..1)."
+* personInformation.feignedPerson ^definition = "true: om personen är ett fingerat objekt."
+* personInformation.feignedPerson ^comment = "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1)."
 * personInformation.healthCareProfessionalLicenceSpeciality ^definition = "Legitimerad yrkesgrupp och specialitet för läkare och tandläkare."
 * personInformation.healthCareProfessionalLicenceSpeciality ^comment = "TKB-fält: `..healthCareProfessionalLicenceSpeciality` (`HealthCareProfessionalLicenceSpecialityType`, kardinalitet 0..*)."
 * personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence ^definition = "Kod för Legitimerad yrkesgrupp som nedanstående specialitet hör till."
@@ -100,10 +72,3 @@ Ref. specialitetskod (specialityCode) [R5]. Kardinalitet: Valfri, lista."
 * personInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^comment = "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1)."
 * personInformation.healthCareProfessionalLicenceSpeciality.specialityName ^definition = "Klartext för namnet på specialistutbildning utöver grundutbildning"
 * personInformation.healthCareProfessionalLicenceSpeciality.specialityName ^comment = "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 1..1)."
-* personInformation.protectedPerson ^definition = "true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]"
-* personInformation.protectedPerson ^comment = "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1)."
-* personInformation.feignedPerson ^definition = "true: om personen är ett fingerat objekt."
-* personInformation.feignedPerson ^comment = "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1).
-
-**Modellanteckning:** true: om personen är ett fingerat objekt.
-Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Kardinalitet: Valfri."

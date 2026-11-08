@@ -30,42 +30,42 @@
       {
         "id": "getlogs.logsResult",
         "path": "getlogs.logsResult",
-        "short": "logsResult",
+        "short": "LogsResultType",
         "definition": "Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.\n\nVid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.",
-        "comment": "TKB-fält: `logsResult` (`urn:riv:informationsecurity:auditing:log:2:LogsResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som returneras av tjänst. logs är ej satt vid eventuella fel.",
+        "comment": "TKB-fält: `logsResult` (`urn:riv:informationsecurity:auditing:log:2:LogsResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getlogs.logsResult.reportResult",
         "path": "getlogs.logsResult.reportResult",
-        "short": "reportResult",
+        "short": "ReportResultType",
         "definition": "reportResult",
         "comment": "TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getlogs.logsResult.reportResult.result",
         "path": "getlogs.logsResult.reportResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -73,8 +73,8 @@
         "id": "getlogs.logsResult.reportResult.result.resultCode",
         "path": "getlogs.logsResult.reportResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
+        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -160,28 +160,28 @@
       {
         "id": "getlogs.logsResult.logs",
         "path": "getlogs.logsResult.logs",
-        "short": "logs",
+        "short": "LogsType",
         "definition": "Datatyp som håller lista med loggposter. Kan vara en tom lista",
         "comment": "TKB-fält: `../logs` (`LogsType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getlogs.logsResult.logs.log",
         "path": "getlogs.logsResult.logs.log",
-        "short": "log",
+        "short": "LogType",
         "definition": "Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost.",
         "comment": "TKB-fält: `../../log` (`LogType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -202,14 +202,14 @@
       {
         "id": "getlogs.logsResult.logs.log.system",
         "path": "getlogs.logsResult.logs.log.system",
-        "short": "system",
+        "short": "SystemType",
         "definition": "Datatyp som representerar ett system i loggposten. Det system som skapar loggposten.",
         "comment": "TKB-fält: `../../../system` (`SystemType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -244,14 +244,14 @@
       {
         "id": "getlogs.logsResult.logs.log.activity",
         "path": "getlogs.logsResult.logs.log.activity",
-        "short": "activity",
+        "short": "ActivityType",
         "definition": "Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå, tidpunkt samt syftet med aktiviteten.",
         "comment": "TKB-fält: `../../../activity` (`ActivityType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -328,14 +328,14 @@
       {
         "id": "getlogs.logsResult.logs.log.user",
         "path": "getlogs.logsResult.logs.log.user",
-        "short": "user",
+        "short": "UserType",
         "definition": "Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost.",
         "comment": "TKB-fält: `../../../user` (`UserType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -354,11 +354,11 @@
         ]
       },
       {
-        "id": "getlogs.logsResult.logs.log.user.userName",
-        "path": "getlogs.logsResult.logs.log.user.userName",
-        "short": "userName",
-        "definition": "userName Heter name i schemat.",
-        "comment": "TKB-fält: `../../../../name` (`UserName`, kardinalitet 0..1).\n\n**Modellanteckning:** userName Heter name i schemat.",
+        "id": "getlogs.logsResult.logs.log.user.name",
+        "path": "getlogs.logsResult.logs.log.user.name",
+        "short": "name",
+        "definition": "name",
+        "comment": "TKB-fält: `../../../../name` (`UserName`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -377,35 +377,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getlogs.logsResult.logs.log.user.personId.root",
-        "path": "getlogs.logsResult.logs.log.user.personId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getlogs.logsResult.logs.log.user.personId.iiExtension",
-        "path": "getlogs.logsResult.logs.log.user.personId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -440,14 +412,14 @@
       {
         "id": "getlogs.logsResult.logs.log.user.careProvider",
         "path": "getlogs.logsResult.logs.log.user.careProvider",
-        "short": "careProvider",
+        "short": "CareProviderType",
         "definition": "Datatyp som representerar en vårdgivare.",
         "comment": "TKB-fält: `../../../../careProvider` (`CareProviderType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -482,14 +454,14 @@
       {
         "id": "getlogs.logsResult.logs.log.user.careUnit",
         "path": "getlogs.logsResult.logs.log.user.careUnit",
-        "short": "careUnit",
+        "short": "CareUnitType",
         "definition": "Datatyp som representerar en vårdenhet.",
         "comment": "TKB-fält: `../../../../careUnit` (`CareUnitType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -524,28 +496,28 @@
       {
         "id": "getlogs.logsResult.logs.log.resources",
         "path": "getlogs.logsResult.logs.log.resources",
-        "short": "resources",
+        "short": "ResourcesType",
         "definition": "Information om aktuella resurser. En loggpost kan hålla en eller flera resurser.",
         "comment": "TKB-fält: `../../../resources` (`ResourcesType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getlogs.logsResult.logs.log.resources.resource",
         "path": "getlogs.logsResult.logs.log.resources.resource",
-        "short": "resource",
+        "short": "ResourceType",
         "definition": "Datatyp som representerar en resurs i loggposten.",
         "comment": "TKB-fält: `../../../../resource` (`ResourceType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -566,14 +538,14 @@
       {
         "id": "getlogs.logsResult.logs.log.resources.resource.patient",
         "path": "getlogs.logsResult.logs.log.resources.resource.patient",
-        "short": "patient",
+        "short": "PatientType",
         "definition": "Datatyp som representerar en patient i en resurs.",
         "comment": "TKB-fält: `../../../../../patient` (`PatientType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -587,35 +559,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getlogs.logsResult.logs.log.resources.resource.patient.patientId.root",
-        "path": "getlogs.logsResult.logs.log.resources.resource.patient.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getlogs.logsResult.logs.log.resources.resource.patient.patientId.iiExtension",
-        "path": "getlogs.logsResult.logs.log.resources.resource.patient.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -636,14 +580,14 @@
       {
         "id": "getlogs.logsResult.logs.log.resources.resource.careProvider",
         "path": "getlogs.logsResult.logs.log.resources.resource.careProvider",
-        "short": "careProvider",
+        "short": "CareProviderType",
         "definition": "Datatyp som representerar en vårdgivare.",
         "comment": "TKB-fält: `../../../../../careProvider` (`CareProviderType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -678,14 +622,14 @@
       {
         "id": "getlogs.logsResult.logs.log.resources.resource.careUnit",
         "path": "getlogs.logsResult.logs.log.resources.resource.careUnit",
-        "short": "careUnit",
+        "short": "CareUnitType",
         "definition": "Datatyp som representerar en vårdenhet.",
         "comment": "TKB-fält: `../../../../../careUnit` (`CareUnitType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

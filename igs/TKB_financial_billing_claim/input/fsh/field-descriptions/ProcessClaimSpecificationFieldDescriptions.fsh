@@ -3,6 +3,8 @@
 
 RuleSet: ProcessClaimSpecificationFieldDescriptions
 * resultCode ^definition = "Status enligt generell regel."
-* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO."
 * comment ^definition = "Meddelande enligt generell regel"
 * comment ^comment = "TKB-fält: `comment` (`string`, kardinalitet 0..1)."

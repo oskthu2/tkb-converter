@@ -1,3 +1,6 @@
+// Elementen genereras ur GetPatientRelationsForPatientResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: GetPatientRelationsForPatient v1.0
 // Namespace: urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForPatientResponder:1
@@ -14,35 +17,17 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Svarskod och eventuellt resultatmeddelande"
-  """
-  Innehåller resultCode och resultText. Alla koder förutom OK och INFO indikerar att åtgärden ej genomfördes.
-  """
-* result.resultCode 1..1 code "Svarskod"
-* result.resultCode from ResultCodeVS (required)
-* result.resultText 1..1 string "Optionellt felmeddelande (tomt om resultCode=OK)"
-
-* patientRelations 0..* BackboneElement "Lista med giltiga patientrelationer för patienten"
-  """
-  Lista med aktiva patientrelationer. Ogiltiga (utgångna, makulerade, återkallade) returneras ej.
-  """
-* patientRelations.patientRelationId 1..1 string "Unik UUID-identifierare för patientrelationen (max 36 tecken)"
-* patientRelations.patientId 1..1 string "Patientens personnummer eller samordningsnummer (max 12 tecken)"
-* patientRelations.careProviderId 1..1 Identifier "Vårdgivare-id (HSA-id, max 32 tecken)"
-  """
-  HSA-id för den vårdgivare som intyget är kopplat till.
-  system = urn:oid:1.2.752.129.2.1.4.1
-  """
-* patientRelations.careUnitId 1..1 Identifier "Vårdenhet-id (HSA-id, max 32 tecken)"
-  """
-  HSA-id för den vårdenhet som intyget är kopplat till.
-  system = urn:oid:1.2.752.129.2.1.4.1
-  """
-* patientRelations.employeeId 1..1 Identifier "Medarbetare-id (HSA-id, max 32 tecken)"
-  """
-  HSA-id för den medarbetare som patientrelationen avser.
-  system = urn:oid:1.2.752.129.2.1.4.1
-  """
-* patientRelations.startDate 1..1 dateTime "Startdatum för patientrelationens giltighetstid"
-* patientRelations.endDate 1..1 dateTime "Slutdatum/tidpunkt då giltigheten går ut"
-* patientRelations.ownerId 0..1 string "Optionell identifierare för systemet som skapade patientrelationen (max 512 tecken)"
+* GetPatientRelationsResultType 1..1 Base "GetPatientRelationsResultType" "GetPatientRelationsResultType"
+* GetPatientRelationsResultType.Result 1..1 Base "ResultType" "Result"
+* GetPatientRelationsResultType.Result.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* GetPatientRelationsResultType.Result.ResultCode from ResultCodeVS (required)
+* GetPatientRelationsResultType.Result.ResultText 1..1 string "ResultText" "ResultText"
+* GetPatientRelationsResultType.PatientRelations 0..* Base "PatientRelationType" "PatientRelations"
+* GetPatientRelationsResultType.PatientRelations.PatientRelationId 1..1 string "PatientRelationId" "PatientRelationId"
+* GetPatientRelationsResultType.PatientRelations.PatientId 1..1 string "PatientId" "PatientId"
+* GetPatientRelationsResultType.PatientRelations.CareProviderId 1..1 string "CareProviderId" "CareProviderId"
+* GetPatientRelationsResultType.PatientRelations.CareUnitId 1..1 string "CareUnitId" "CareUnitId"
+* GetPatientRelationsResultType.PatientRelations.EmployeeId 1..1 string "EmployeeId" "EmployeeId"
+* GetPatientRelationsResultType.PatientRelations.StartDate 1..1 dateTime "StartDate" "StartDate"
+* GetPatientRelationsResultType.PatientRelations.EndDate 1..1 dateTime "EndDate" "EndDate"
+* GetPatientRelationsResultType.PatientRelations.OwnerId 0..1 string "OwnerId" "OwnerId"

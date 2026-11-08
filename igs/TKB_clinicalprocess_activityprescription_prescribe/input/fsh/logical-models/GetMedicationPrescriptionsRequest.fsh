@@ -1,3 +1,6 @@
+// Elementen genereras ur GetMedicationPrescriptionsResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activityprescription:prescribe v2.0
 // Kontrakt: GetMedicationPrescriptions v2.0 — Request
 // Genererad: 2026-03-19
@@ -9,29 +12,16 @@ Description: "Logisk modell för requestparametrar i GetMedicationPrescriptions.
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* patientId 1..1 Identifier "Person- eller samordningsnummer"
-    """
-    Person- eller samordningsnummer enligt Skatteverket.
-    """
-* medicationPrescriptionSequenceId 0..* Identifier "Filter: unikt id för läkemedelsbehandlingen"
-    """
-    Om angivet returneras bara dessa behandlingssekvenser. Kan anges som lista.
-    """
-* includeMedicalDispenseAuthorizations 1..1 boolean "Inkludera expedieringsunderlag i svaret"
-* medicationStatus 1..1 code "Filtrera på status"
-    """
-    Inkludera ordinationer enligt FHIR MedicationRequest status-koder
-    (http://www.hl7.org/fhir/valueset-medicationrequest-status.html).
-    """
-* medicationListVersion 0..1 Identifier "Specifik version av läkemedelslistan"
-* currentVersion 1..1 boolean "Hämta senaste version"
-    """
-    Sätts till true om senaste version ska returneras.
-    """
-* validTimePeriod 0..1 BackboneElement "Tidsperiod för giltiga ordinationer"
-  * start 0..1 dateTime "Från-datum"
-  * end 0..1 dateTime "Till-datum"
-* registrationTime 0..1 dateTime "Hämta listan som den såg ut vid angiven tidpunkt (point-in-time)"
+* patientId 1..1 Identifier "patientId" "patientId"
+* medicationPrescriptionSequenceId 0..* Identifier "medicationPrescriptionSequenceId" "medicationPrescriptionSequenceId"
+* includeMedicalDispenseAuthorizations 1..1 boolean "includeMedicalDispenseAuthorizations" "includeMedicalDispenseAuthorizations"
+* medicationStatus 1..1 code "medicationStatus" "medicationStatus"
+* medicationListVersion 0..1 Identifier "medicationListVersion" "medicationListVersion"
+* currentVersion 1..1 boolean "currentVersion" "currentVersion"
+* validTimePeriod 0..1 Base "DateTimePeriodType" "validTimePeriod"
+* validTimePeriod.start 0..1 dateTime "start" "start"
+* validTimePeriod.end 0..1 dateTime "end" "end"
+* registrationTime 0..1 dateTime "registrationTime" "registrationTime"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetMedicationPrescriptionsRequestFieldDescriptions

@@ -4,6 +4,7 @@
 [AvregistreringsorsakVS]: ValueSet-avregistreringsorsak-vs.html
 [CivilstandKodCS]: CodeSystem-civilstandkod-cs.html
 [CivilstandKodVS]: ValueSet-civilstandkod-vs.html
+[DT]: StructureDefinition-DT.html
 [KonCS]: CodeSystem-kon-cs.html
 [KonVS]: ValueSet-kon-vs.html
 [LookupResidentForFullProfile]: StructureDefinition-lookupresidentforfullprofile.html
@@ -12,3 +13,4 @@
 [RelationStatusVS]: ValueSet-relationstatus-vs.html
 [RelationstypCS]: CodeSystem-relationstyp-cs.html
 [RelationstypVS]: ValueSet-relationstyp-vs.html
+[TS]: StructureDefinition-TS.html

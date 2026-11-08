@@ -1,3 +1,6 @@
+// Elementen genereras ur CancelTemporaryExtendedRevokeResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:blocking v3.2.2
 // Kontrakt: CancelTemporaryExtendedRevoke v2.0 (administration)
 // Genererad: 2026-09-16 (kompletterad — saknades i ursprunglig migrering, upptäckt via check_links.py)
@@ -16,7 +19,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* result 1..1 BackboneElement "Resultat av återkallningen"
-  * resultCode 1..1 code "Svarskod"
-  * resultCode from ResultCodeVS (required)
-  * resultText 0..1 string "Beskrivande text till svarskoden"
+* ResultType 1..1 Base "ResultType" "ResultType"
+* ResultType.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* ResultType.ResultCode from ResultCodeVS (required)
+* ResultType.ResultText 1..1 string "ResultText" "ResultText"

@@ -1,3 +1,6 @@
+// Elementen genereras ur SaveFormResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:supportservices:forminteraction v2.0
 // Kontrakt: SaveForm v2.0
 // Genererad: 2026-05-19
@@ -13,17 +16,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* formId 1..1 string "Formulärets unika ID (GUID)"
-* subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
-* pageAnswer 0..1 BackboneElement "Sida med sista besvarade frågor (om ej redan sparade)"
-  * pageNumber 1..1 integer "Sidans nummer"
-  * questionBlock 1..* BackboneElement "Frågegrupperingar med svar"
-    * question 1..* BackboneElement "Frågor med svar"
-      * questionId 1..1 string "Frågans ID"
-      * answer 0..1 BackboneElement "Invånarens svar"
-        * answerText 0..1 string "Svarstext"
-        * answeredAlternativeId 0..1 string "ID för valt svarsalternativ"
-
+* formId 1..1 string "formId" "formId"
+* subjectOfCare 0..1 string "subjectOfCare" "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt."
 
 Logical: SaveForm
 Id: saveform
@@ -37,6 +31,5 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* resultCode 1..1 string "Svarskod (OK = formuläret har avslutats)"
-* comment 0..1 string "Kommentar"
-* formId 0..1 string "Formulärets unika ID (bekräftelse)"
+* comment 0..1 string "comment" "comment"
+* resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."

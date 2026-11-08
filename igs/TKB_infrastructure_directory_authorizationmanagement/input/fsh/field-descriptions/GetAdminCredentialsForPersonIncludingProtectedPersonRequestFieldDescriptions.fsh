@@ -5,13 +5,9 @@ RuleSet: GetAdminCredentialsForPersonIncludingProtectedPersonRequestFieldDescrip
 * personHsaId ^definition = "Unik identifierare för den person vars behörighetsegenskaper ska sökas ut.
 
 Ref. HSA-id (hsaIdentity) [R5]"
-* personHsaId ^comment = "TKB-fält: `personHsaId *1)` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Exakt ett av fälten personHsaId och personalIdentityNumber ska anges."
+* personHsaId ^comment = "TKB-fält: `personHsaId *1)` (`String`, kardinalitet 0..1)."
 * personalIdentityNumber ^definition = "Person-id för den person vars behörighetsegenskaper ska sökas ut. Ref. person-id (personalIdentityNumber) [R5]"
-* personalIdentityNumber ^comment = "TKB-fält: `personalIdentityNumber *1)` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Exakt ett av fälten personHsaId och personalIdentityNumber ska anges."
+* personalIdentityNumber ^comment = "TKB-fält: `personalIdentityNumber *1)` (`String`, kardinalitet 0..1)."
 * authorizationScopeCode ^definition = "Behörighetsområdeskod som ska ingå i sökt Administrativt medarbetaruppdrag. Optional."
 * authorizationScopeCode ^comment = "TKB-fält: `authorizationScopeCode` (`String`, kardinalitet 0..1)."
 * authorizationScopePropertyCode ^definition = "Kod för behörighetsområdesegenskap som ska ingå i sökt Administrativt medarbetaruppdrag. Optional."

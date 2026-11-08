@@ -1,11 +1,9 @@
+// Elementen genereras ur GetDispensedDrugsResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activityprescription:logistics v1.0.2
 // Kontrakt: GetDispensedDrugs v1.0
 // Genererad: 2026-09-26
-
-Invariant: getdispenseddrugs-borttagen-fields
-Description: "borttagsdatum och borttagsorsak returneras endast om borttagen är sant"
-Expression: "borttagen = false implies (borttagsdatum.empty() and borttagsorsak.empty())"
-Severity: #error
 
 Logical: GetDispensedDrugs
 Id: getdispenseddrugs
@@ -19,205 +17,68 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* lakemedelsforteckning 0..* BackboneElement "Patientens läkemedelsförteckning"
-    """
-    XSD: Receptexpeditionsrad. Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation.
-    Om patienten saknar poster i läkemedelsförteckningen returneras en tom lista.
-    """
-  * obeys getdispenseddrugs-borttagen-fields
-  * aktorsExpeditionsId 1..1 string "Aktörens expeditionsId"
-      """
-      Fältlängd 1..35.
-      """
-  * antalForpackningar 0..1 integer "Antal förpackningar av utlämnad vara"
-      """
-      Returneras om posten ej är en dosdispenserad artikel.
-      """
-  * antalPillerKlartext 0..1 string "Antal avdelade doser inklusive enhet"
-      """
-      Returneras om posten är en dosdispenserad artikel. Exempel: "28 st". Fältlängd 1..10.
-      """
-  * artikelinformation 1..1 BackboneElement "Information om utlämnad artikel"
-    * antalEnhet 0..1 string "Enhet för antalForpackning"
-        """
-        Exempelvis "styck" eller "milliliter". Exempel där antalEnhet ingår: "6 x 5 x 0.72 milliliter". Fältlängd 1..80.
-        """
-    * antalIForpackning 0..1 decimal "Antal i förpackning"
-        """
-        Numerisk angivelse, exempelvis 0,72 (XSD-typ decimaltal, högst 3 decimaler). Exempel: "6 x 5 x 0.72 milliliter".
-        """
-    * antalYtterstaForpackning 0..1 integer "Antal yttersta förpackningar (multipel 2)"
-        """
-        Exempelvis 6. Exempel: "6 x 5 x 0.72 milliliter".
-        """
-    * antalYttreForpackning 0..1 integer "Antal yttre förpackningar (multipel 1)"
-        """
-        Exempelvis 5. Exempel: "6 x 5 x 0.72 milliliter".
-        """
-    * atckod 0..1 string "ATC-kod"
-        """
-        Exempel: "C07AB03". Fältlängd 1..8.
-        """
-    * atckodKlartext 0..1 string "Verksamt ämne enligt ATC-kod"
-        """
-        Exempel: "Atenolol". Fältlängd 1..240.
-        """
-    * forpackningsstorlek 0..1 string "Förpackningsstorlek"
-        """
-        Exempel: "6 x 5 x 0.72 milliliter". Fältlängd 1..50.
-        """
-    * forpackningstyp 0..1 string "Artikelns förpackningstyp"
-        """
-        Exempel: "Blister". Fältlängd 1..40.
-        """
-    * intressent 0..1 string "Ansvarigt företag för artikeln"
-        """
-        T.ex. innehavare av godkännande/registrering av försäljning eller parallellimportör. Exempel: "AstraZeneca AB". Fältlängd 1..160.
-        """
-    * lakemedelsform 0..1 string "Läkemedelsform"
-        """
-        Exempel: "Filmdragerad tablett". Fältlängd 1..160.
-        """
-    * lakemedelsformKod 0..1 string "Kod för läkemedelsform (beredningsformkod)"
-        """
-        Exempel: "FICOTA". Fältlängd 1..6.
-        """
-    * nplPackid 1..1 string "NPL Pack-id alternativt SB Pack-id"
-        """
-        Identitet på förskrivet läkemedel. Fältlängd 14..14.
-        """
-    * produktnamn 0..1 string "Läkemedelsnamn"
-        """
-        Fältlängd 1..100.
-        """
-    * styrka 0..1 decimal "Numerisk styrka"
-        """
-        Exempel "20.0" (XSD-typ decimaltal, högst 3 decimaler).
-        """
-    * styrkaEnhet 0..1 string "Styrkans enhet"
-        """
-        Exempel: "mg". Fältlängd 1..60.
-        """
-    * styrkaKlartext 0..1 string "Styrka i klartext"
-        """
-        Exempel: "20.0 mg". Fältlängd 1..80.
-        """
-  * borttagen 1..1 boolean "Markering om posten är borttagen"
-      """
-      Sant om posten är borttagen, annars falskt. En borttagen post ska visas överstruken med borttagsdatum och borttagsorsak.
-      """
-  * borttagsdatum 0..1 dateTime "Tidpunkt då posten markerades som borttagen"
-      """
-      Returneras endast om borttagen är sant.
-      """
-  * borttagsorsak 0..1 string "Kommentar för borttagen post"
-      """
-      Returneras endast om borttagen är sant. Fältlängd 1..50.
-      """
-  * doseringstext 1..1 string "Doseringsanvisning"
-      """
-      Doseringstext inklusive ändamål. Fältlängd 1..1016.
-      """
-  * expeditionsId 0..1 string "Expeditionsid hämtat från eHälsomyndigheten"
-      """
-      Fältlängd 1..31.
-      """
-  * expeditionsdatum 1..1 dateTime "Datum för utlämning från apotek"
-  * forskrivarensArbetsplatsnamn 0..1 string "Förskrivarens arbetsplats namn"
-      """
-      Fältlängd 1..35.
-      """
-  * forskrivarensArbetsplatsOrt 0..1 string "Förskrivarens arbetsplats ort"
-      """
-      Fältlängd 1..28.
-      """
-  * forskrivarnamn 0..1 string "Förskrivarens namn"
-      """
-      Fältlängd 1..71.
-      """
-  * forskrivarpostadress 0..1 string "Förskrivarens postadress"
-      """
-      Fältlängd 1..35.
-      """
-  * forskrivarpostnummer 0..1 string "Förskrivarens postnummer"
-      """
-      Fältlängd 5..6.
-      """
-  * forskrivarspecialiteter 0..* string "Förskrivarens specialitet i klartext"
-      """
-      Fältlängd 1..256.
-      """
-  * forskrivaryrke 0..1 string "Förskrivarens yrke i klartext"
-      """
-      Fältlängd 1..100.
-      """
-  * mangd 1..1 string "Totalt expedierad mängd"
-      """
-      Kan returneras som antalPillerKlartext eller antalForpackningar + forpackningsstorlek. Exempel: "28 st" eller "2x100 tabletter". Fältlängd 1..100.
-      """
-  * ordinationsmappning 0..1 BackboneElement "Information för att mappa posten till en ordination"
-      """
-      Saknas i vissa fall, t.ex. när samma läkemedel (nplpackid) förekommer flera gånger i samma expedition, vid pappers- och telefonrecept, och vid uttag från äldre receptexpeditionssystem (expeditionsid saknas).
-      """
-    * ordinationsId 1..1 string "Förskrivningens ordinationsid"
-    * produktradnummer 0..1 integer "Tillhörande recepts prdradnummer NEF i receptdepån"
-        """
-        Anges enbart om fältet är befintligt i receptdepån.
-        """
-    * radnummer 0..1 integer "Tillhörande recepts radnummer NEF i receptdepån"
-        """
-        Anges enbart om fältet är befintligt i receptdepån.
-        """
-  * radid 1..1 string "Unikt id för posten i läkemedelsförteckningen"
-      """
-      XSD-typ xs:long. Modellerad som string eftersom FHIR R4 saknar 64-bitars heltal (se ASSUME-APL-003).
-      """
-  * radnummer 0..1 integer "Radnummer för utlämnad vara i aktuell expedition"
-* patientinformation 0..1 BackboneElement "Information om patienten"
-    """
-    Information om patienten vars läkemedelsförteckning man hämtat.
-    Om patienten är markerad som 'Avliden' returneras inga rader ur läkemedelsförteckningen.
-    """
-  * patientidentifikation 0..1 BackboneElement "Patientidentifikation"
-      """
-      Kan enbart innehålla personnummer (kodverk OID 1.2.752.129.2.1.3), enhetligt utformat unikt person-id registrerat i folkbokföringen.
-      """
-    * kod 1..1 string "Patientens personnummer"
-        """
-        Fältlängd 1..12.
-        """
-    * kodverk 1..1 string "OID för kodverket"
-        """
-        Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).
-        För personnummer: 1.2.752.129.2.1.3.
-        """
-  * fornamn 0..1 string "Patientens förnamn"
-      """
-      För patient med skyddad identitet visas inte förnamn. Fältlängd 1..80.
-      """
-  * efternamn 0..1 string "Patientens efternamn"
-      """
-      För patient med skyddad identitet visas inte efternamn. Fältlängd 1..60.
-      """
-  * redigeratNamn 1..1 string "Redigerat namn"
-      """
-      Redigerat namn i formatet "mellannamn efternamn, förnamn". Förkortat till 36 tecken. Fältlängd 1..36.
-      """
-  * harRedigeratNamnForkortats 1..1 boolean "Anger om redigeratNamn har förkortats"
-  * avliden 1..1 boolean "Anger om patienten är avliden"
-      """
-      Sant om personen är markerad som avliden, annars falskt.
-      """
-* varningsnivaUppnadd 1..1 boolean "Varningsnivå för antal läsningar uppnådd"
-    """
-    Anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt.
-    """
-* resultCode 1..1 code "Resultatkod för anropet"
-* resultCode from ResultCodeVS (required)
-* comment 0..1 string "Kommentar till eventuella fel eller varningar"
-    """
-    Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment.
-    """
+* lakemedelsforteckning 0..* Base "Receptexpeditionsrad" "Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation. Om patienten saknar poster i läkemedelsförteckningen så returneras en tom lista."
+* lakemedelsforteckning.aktorsExpeditionsId 1..1 string "aktorsExpeditionsId" "aktorsExpeditionsId"
+* lakemedelsforteckning.antalForpackningar 0..1 integer "Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel." "Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel."
+* lakemedelsforteckning.antalPillerKlartext 0..1 string "antalPillerKlartext" "antalPillerKlartext"
+* lakemedelsforteckning.artikelinformation 1..1 Base "Artikelinformation" "Information om utlämnad artikel."
+* lakemedelsforteckning.artikelinformation.antalEnhet 0..1 string "antalEnhet" "antalEnhet"
+* lakemedelsforteckning.artikelinformation.antalIForpackning 0..1 decimal "antalIForpackning" "Antal i förpackning. Numerisk angivelse, exempelvis 0,72. Exempel där antalForpackning ingår: \"6 x 5 x 0.72 milliliter\"."
+* lakemedelsforteckning.artikelinformation.antalYtterstaForpackning 0..1 integer "antalYtterstaForpackning" "Antal multipel 2. Antal yttersta förpackningar för artikeln, exempelvis 6. Exempel där antalForpackning ingår: \"6 x 5 x 0.72 milliliter\"."
+* lakemedelsforteckning.artikelinformation.antalYttreForpackning 0..1 integer "antalYttreForpackning" "Antal multipel 1. Antal yttre förpackningar som varan har, exempelvis 5. Exempel där antalYttreForpackning ingår: \"6 x 5 x 0.72 milliliter\"."
+* lakemedelsforteckning.artikelinformation.atckod 0..1 string "atckod" "atckod"
+* lakemedelsforteckning.artikelinformation.atckodKlartext 0..1 string "atckodKlartext" "atckodKlartext"
+* lakemedelsforteckning.artikelinformation.forpackningsstorlek 0..1 string "forpackningsstorlek" "forpackningsstorlek"
+* lakemedelsforteckning.artikelinformation.forpackningstyp 0..1 string "forpackningstyp" "forpackningstyp"
+* lakemedelsforteckning.artikelinformation.intressent 0..1 string "intressent" "intressent"
+* lakemedelsforteckning.artikelinformation.lakemedelsform 0..1 string "lakemedelsform" "lakemedelsform"
+* lakemedelsforteckning.artikelinformation.lakemedelsformKod 0..1 string "lakemedelsformKod" "lakemedelsformKod"
+* lakemedelsforteckning.artikelinformation.nplPackid 1..1 string "nplPackid" "nplPackid"
+* lakemedelsforteckning.artikelinformation.produktnamn 0..1 string "produktnamn" "produktnamn"
+* lakemedelsforteckning.artikelinformation.styrka 0..1 decimal "Numerisk styrka. Exempel \"20.0\"." "Numerisk styrka. Exempel \"20.0\"."
+* lakemedelsforteckning.artikelinformation.styrkaEnhet 0..1 string "styrkaEnhet" "styrkaEnhet"
+* lakemedelsforteckning.artikelinformation.styrkaKlartext 0..1 string "styrkaKlartext" "styrkaKlartext"
+* lakemedelsforteckning.borttagen 1..1 boolean "Markering om posten är borttagen. Sant om posten är borttagen, annars falskt." "Markering om posten är borttagen. Sant om posten är borttagen, annars falskt."
+* lakemedelsforteckning.borttagsdatum 0..1 dateTime "Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant." "Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant."
+* lakemedelsforteckning.borttagsorsak 0..1 string "borttagsorsak" "borttagsorsak"
+* lakemedelsforteckning.doseringstext 1..1 string "doseringstext" "doseringstext"
+* lakemedelsforteckning.expeditionsId 0..1 string "expeditionsId" "expeditionsId"
+* lakemedelsforteckning.expeditionsdatum 1..1 dateTime "Datum för utlämning från apotek." "Datum för utlämning från apotek."
+* lakemedelsforteckning.forskrivarensArbetsplatsnamn 0..1 string "forskrivarensArbetsplatsnamn" "forskrivarensArbetsplatsnamn"
+* lakemedelsforteckning.forskrivarensArbetsplatsOrt 0..1 string "forskrivarensArbetsplatsOrt" "forskrivarensArbetsplatsOrt"
+* lakemedelsforteckning.forskrivarnamn 0..1 string "forskrivarnamn" "forskrivarnamn"
+* lakemedelsforteckning.forskrivarpostadress 0..1 string "forskrivarpostadress" "forskrivarpostadress"
+* lakemedelsforteckning.forskrivarpostnummer 0..1 string "forskrivarpostnummer" "forskrivarpostnummer"
+* lakemedelsforteckning.forskrivarspecialiteter 0..* string "forskrivarspecialiteter" "forskrivarspecialiteter"
+* lakemedelsforteckning.forskrivaryrke 0..1 string "forskrivaryrke" "forskrivaryrke"
+* lakemedelsforteckning.mangd 1..1 string "mangd" "mangd"
+* lakemedelsforteckning.ordinationsmappning 0..1 Base "Ordinationsmappning" "Information som behövs för att mappa en post i läkemedelsförteckningen till en ordination."
+* lakemedelsforteckning.ordinationsmappning.ordinationsId 1..1 string "Förskrivningens ordinationsid." "Förskrivningens ordinationsid."
+* lakemedelsforteckning.ordinationsmappning.produktradnummer 0..1 integer "Tillhörande recepts eventuella prdradnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån." "Tillhörande recepts eventuella prdradnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån."
+* lakemedelsforteckning.ordinationsmappning.radnummer 0..1 integer "Tillhörande recepts eventuella radnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån." "Tillhörande recepts eventuella radnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån."
+* lakemedelsforteckning.radid 1..1 string "Unikt id för posten i läkemedelsförteckningen." "Unikt id för posten i läkemedelsförteckningen."
+* lakemedelsforteckning.radnummer 0..1 integer "Radnummer för utlämnad vara i aktuell expedition." "Radnummer för utlämnad vara i aktuell expedition."
+* patientinformation 0..1 Base "Patientinformation" "Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som 'Avliden' så returneras inga rader ur läkemedelsförteckningen."
+* patientinformation.patientidentifikation 0..1 Base "Patientidentifikation" "Patientidentifikationen kan enbart innehålla följande typ: Personnummer från kodverk med OID 1.2.752.129.2.1.3 och är enhetligt utformat unikt person-id registrerat i folkbokföringen. Tilldelas av skattekontoret."
+* patientinformation.patientidentifikation.kod 1..1 string "kod" "kod"
+* patientinformation.patientidentifikation.kodverk 1..1 string "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2." "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2."
+* patientinformation.patientidentifikation.kodverk only OID
+* patientinformation.fornamn 0..1 string "fornamn" "fornamn"
+* patientinformation.efternamn 0..1 string "efternamn" "efternamn"
+* patientinformation.redigeratNamn 1..1 string "redigeratNamn" "redigeratNamn"
+* patientinformation.harRedigeratNamnForkortats 1..1 boolean "Anger om redigeratNamn har förkortats." "Anger om redigeratNamn har förkortats."
+* patientinformation.avliden 1..1 boolean "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt." "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt."
+* varningsnivaUppnadd 1..1 boolean "varningsnivaUppnadd" "Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt."
+* resultCode 1..1 code "Resultatkod för anropet." "Resultatkod för anropet. Tillåtna värden: OK, ERROR, INFO."
+* comment 0..1 string "comment" "comment"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetDispensedDrugsFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* lakemedelsforteckning obeys getdispenseddrugs-borttagen-fields
+
+Invariant: getdispenseddrugs-borttagen-fields
+Description: "borttagsdatum och borttagsorsak returneras endast om borttagen är sant"
+Expression: "borttagen = false implies (borttagsdatum.empty() and borttagsorsak.empty())"
+Severity: #error

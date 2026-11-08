@@ -2,9 +2,9 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: GetHealthCareUnitFieldDescriptions
-* healthCareUnit ^comment = "TKB-fält: `healthCareUnit` (`HealthCareUnitType`, kardinalitet 0..1).
-
-**Modellanteckning:** Aggregerat objekt med information om enheten, vårdenhet och vårdgivare."
+* healthCareUnit ^comment = "TKB-fält: `healthCareUnit` (`HealthCareUnitType`, kardinalitet 0..1)."
+* healthCareUnit.unitIsHealthCareUnit ^definition = "True, om enheten (funktionen) själv är en vårdenhet. Om enheten (funktionen) inte är vårdenhet kommer inget värde att returneras. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]"
+* healthCareUnit.unitIsHealthCareUnit ^comment = "TKB-fält: `..unitIsHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
 * healthCareUnit.healthCareUnitMemberHsaId ^definition = "Enhetens (funktionens) HSA-id. Ref. HSA-id (hsaIdentity) [R5]"
 * healthCareUnit.healthCareUnitMemberHsaId ^comment = "TKB-fält: `..healthCareUnitMemberHsaId` (`String`, kardinalitet 0..1)."
 * healthCareUnit.healthCareUnitMemberName ^definition = "Enhetens (funktionens) namn. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]"
@@ -19,8 +19,6 @@ Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (
 * healthCareUnit.healthCareUnitMemberEndDate ^comment = "TKB-fält: `..healthCareUnitMemberEndDate` (`dateTime`, kardinalitet 0..1)."
 * healthCareUnit.healthCareUnitHsaId ^definition = "Vårdenhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5]"
 * healthCareUnit.healthCareUnitHsaId ^comment = "TKB-fält: `..healthCareUnitHsaId` (`String`, kardinalitet 1..1)."
-* healthCareUnit.unitIsHealthCareUnit ^definition = "True, om enheten (funktionen) själv är en vårdenhet. Om enheten (funktionen) inte är vårdenhet kommer inget värde att returneras. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]"
-* healthCareUnit.unitIsHealthCareUnit ^comment = "TKB-fält: `..unitIsHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
 * healthCareUnit.healthCareUnitName ^definition = "Vårdenhetens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]"
 * healthCareUnit.healthCareUnitName ^comment = "TKB-fält: `..healthCareUnitName` (`String`, kardinalitet 1..1)."
 * healthCareUnit.healthCareUnitPublicName ^definition = "Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]"

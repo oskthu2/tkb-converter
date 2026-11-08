@@ -1,3 +1,6 @@
+// Elementen genereras ur GetHospCredentialsForPersonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:authorizationmanagement v2.4.4
 // Kontrakt: GetHospCredentialsForPerson v1.0
 // Genererad: 2026-05-19
@@ -13,30 +16,25 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* personalIdentityNumber 1..1 BackboneElement "Personens person- eller samordningsnummer"
-  * root 1..1 string "OID för typ av personnummer"
-    """
-    För personnummer: 1.2.752.129.2.1.3.1, för samordningsnummer: 1.2.752.129.2.1.3.3.
-    """
-  * personNumber 1..1 string "Person- eller samordningsnummer"
-* healthCareProfessionalLicence 0..* BackboneElement "Personens legitimerade yrkestitel(-lar)"
-  * healthCareProfessionalLicenceCode 1..1 string "Kod för legitimerad yrkestitel (Socialstyrelsens kodverk 1.2.752.116.3.1.3)"
-  * healtCareProfessionalLicenceName 1..1 string "Klartext för legitimerad yrkestitel"
-* personalPrescriptionCode 0..1 string "Personlig förskrivarkod"
-* healthCareProfessionalLicenceSpeciality 0..* BackboneElement "Specialistkod(er) kopplat till legitimerad yrkesgrupp"
-  * healthCareProfessionalLicenceCode 1..1 string "Kod för legitimerad yrkestitel specialistkoden hör till"
-  * specialityCode 1..1 string "Specialistkod"
-  * specialityName 1..1 string "Specialitet i klartext"
-* nursePrescriptionRight 0..* BackboneElement "Förskrivningsrätt för barnmorska/sjuksköterska"
-  * healthCareProfessionalLicence 1..1 string "Legitimerad yrkestitel (BM eller SJ)"
-  * prescriptionRight 1..1 boolean "Personen har förskrivningsrätt"
-* healthcareProfessionalLicenseIdentityNumber 0..1 string "Personens HOSP-id"
-* educationCode 0..* string "Utbildningskod (Socialstyrelsens kodverk HoSp utbildningskod 1.2.752.116.3.1.4)"
-* restrictions 0..* BackboneElement "Restriktioner för legitimation"
-  * healthCareProfessionalLicenceCode 1..1 string "Kod för legitimerad yrkestitel restriktionskoden hör till"
-  * restrictionCode 1..1 string "Restriktionskod (Socialstyrelsens kodverk Behörighetsbegränsning 1.2.752.116.3.1.5)"
-  * restrictionName 1..1 string "Restriktionskod i klartext"
-* feignedPerson 0..1 boolean "Personen är ett fingerat objekt"
+* personalIdentityNumber 1..1 IIType "personalIdentityNumber" "personalIdentityNumber"
+* healthCareProfessionalLicence 0..* Base "HealthCareProfessionalLicenceType" "healthCareProfessionalLicence"
+* healthCareProfessionalLicence.healthCareProfessionalLicenceCode 1..1 string "healthCareProfessionalLicenceCode" "healthCareProfessionalLicenceCode"
+* healthCareProfessionalLicence.healthCareProfessionalLicenceName 1..1 string "healthCareProfessionalLicenceName" "healthCareProfessionalLicenceName"
+* personalPrescriptionCode 0..1 string "personalPrescriptionCode" "personalPrescriptionCode"
+* healthCareProfessionalLicenceSpeciality 0..* Base "HCPSpecialityCodesType" "healthCareProfessionalLicenceSpeciality"
+* healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode 1..1 string "healthCareProfessionalLicenceCode" "healthCareProfessionalLicenceCode"
+* healthCareProfessionalLicenceSpeciality.specialityCode 1..1 string "specialityCode" "specialityCode"
+* healthCareProfessionalLicenceSpeciality.specialityName 1..1 string "specialityName" "specialityName"
+* nursePrescriptionRight 0..* Base "NursePrescriptionRightType" "nursePrescriptionRight"
+* nursePrescriptionRight.healthCareProfessionalLicence 1..1 string "healthCareProfessionalLicence" "healthCareProfessionalLicence"
+* nursePrescriptionRight.prescriptionRight 1..1 boolean "prescriptionRight" "prescriptionRight"
+* healthcareProfessionalLicenseIdentityNumber 0..1 string "healthcareProfessionalLicenseIdentityNumber" "healthcareProfessionalLicenseIdentityNumber"
+* educationCode 0..* string "educationCode" "educationCode"
+* restrictions 0..* Base "RestrictionType" "restrictions"
+* restrictions.healthCareProfessionalLicenceCode 1..1 string "healthCareProfessionalLicenceCode" "healthCareProfessionalLicenceCode"
+* restrictions.restrictionCode 1..1 string "restrictionCode" "restrictionCode"
+* restrictions.restrictionName 1..1 string "restrictionName" "restrictionName"
+* feignedPerson 0..1 boolean "feignedPerson" "feignedPerson"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetHospCredentialsForPersonFieldDescriptions

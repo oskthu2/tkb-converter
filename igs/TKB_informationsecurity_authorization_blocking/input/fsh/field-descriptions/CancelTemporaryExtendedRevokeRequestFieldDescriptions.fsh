@@ -5,9 +5,7 @@ RuleSet: CancelTemporaryExtendedRevokeRequestFieldDescriptions
 * temporaryRevokeId ^definition = "Identifierare för den tillfälliga hävning som skall återkallas."
 * temporaryRevokeId ^comment = "TKB-fält: `temporaryRevokeId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1)."
 * cancellationInfo ^definition = "Identifierar de personer som begärt och hävt den tillfälliga hävningen samt tidpunkter för dessa."
-* cancellationInfo ^comment = "TKB-fält: `cancellationInfo` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* cancellationInfo ^comment = "TKB-fält: `cancellationInfo` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1)."
 * cancellationInfo.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * cancellationInfo.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * cancellationInfo.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

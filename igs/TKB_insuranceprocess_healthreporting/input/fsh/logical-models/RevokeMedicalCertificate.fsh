@@ -1,3 +1,6 @@
+// Elementen genereras ur RevokeMedicalCertificateResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB insuranceprocess:healthreporting v3.1.0
 // Kontrakt: RevokeMedicalCertificate v1.0
 // Genererad: 2026-05-19
@@ -37,9 +40,7 @@ Characteristics: #can-be-target
 * patient.personId 1..1 Identifier "Patientens personnummer eller samordningsnummer"
 * patient.fullstandigtNamn 1..1 string "Patientens namn"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert RevokeMedicalCertificateRequestFieldDescriptions
-
 
 Logical: RevokeMedicalCertificate
 Id: revokemedicalcertificate
@@ -51,11 +52,11 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Resultatinformation"
-* result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
-* result.infoText 0..1 string "Extra information om anropets utgång"
-* result.errorId 0..1 string "Felkategori"
-* result.errorText 0..1 string "Beskrivande text för felet"
+* result 1..1 Base "ResultOfCall" "result"
+* result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
+* result.infoText 0..1 string "infoText" "infoText"
+* result.errorId 0..1 code "errorId" "errorId Tillåtna värden: VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR."
+* result.errorText 0..1 string "errorText" "errorText"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert RevokeMedicalCertificateFieldDescriptions

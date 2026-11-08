@@ -2,6 +2,7 @@
 [ActorTypeCS]: CodeSystem-carelisting-actortype-cs.html
 [CreateListingRequest]: StructureDefinition-createlisting-request.html
 [CreateListing]: StructureDefinition-createlisting.html
+[CVType]: StructureDefinition-CVType.html
 [GetAvailableHealthcareFacilitiesRequest]: StructureDefinition-getavailablehealthcarefacilities-request.html
 [GetAvailableHealthcareFacilities]: StructureDefinition-getavailablehealthcarefacilities.html
 [GetAvailableHealthcarePersonnelRequest]: StructureDefinition-getavailablehealthcarepersonnel-request.html

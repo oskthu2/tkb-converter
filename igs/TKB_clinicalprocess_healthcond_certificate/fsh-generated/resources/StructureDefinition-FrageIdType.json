@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "FrageIdType",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/FrageIdType",
+  "name": "FrageIdType",
+  "title": "FrageIdType",
+  "status": "draft",
+  "description": "FrageIdType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-frageidtype-pattern",
+            "severity": "error",
+            "human": "FrageIdType ska följa mönstret i schemat: [0-9]+",
+            "expression": "matches('^(?:(?:[0-9]+))$')",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/FrageIdType"
+          }
+        ]
+      }
+    ]
+  }
+}

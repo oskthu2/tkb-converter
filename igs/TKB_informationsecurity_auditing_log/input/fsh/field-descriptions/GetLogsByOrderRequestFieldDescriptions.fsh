@@ -11,13 +11,7 @@ Obs: modellen anger 0..* där TKB:n anger 0..500."
 * patientId ^definition = "Patientens personnummer, samordningsnummer, alternativt reservnummer"
 * patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:auditing:log:2:IIType`, kardinalitet 0..500).
 
-Obs: modellen anger 0..* där TKB:n anger 0..500.
-
-**Modellanteckning:** En universellt unik identifierare."
-* patientId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* patientId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+Obs: modellen anger 0..* där TKB:n anger 0..500."
 * userId ^definition = "Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigställts."
 * userId ^comment = "TKB-fält: `userId` (`urn:riv:informationsecurity:auditing:log:2:Id`, kardinalitet 0..500).
 

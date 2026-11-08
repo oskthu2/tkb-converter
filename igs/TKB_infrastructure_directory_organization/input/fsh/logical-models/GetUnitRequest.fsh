@@ -1,3 +1,6 @@
+// Elementen genereras ur GetUnitResponder_5.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:organization v5.0
 // Kontrakt: GetUnit v5.0
 // Genererad: 2026-05-19
@@ -9,29 +12,11 @@ Description: "Logisk modell för requestparametrar i GetUnit (RIV-TA urn:riv:inf
 Characteristics: #can-be-target
 
 * ^version = "5.0"
-* unitHsaId 1..1 string "HSA-id för sökt organisatorisk enhet. Ref. hsaIdentity [R5]."
-    """
-    Kardinalitet: Obligatorisk.
-    """
-* searchBase 0..1 string "Sökbas. Om ingen sökbas anges används c=SE som sökbas."
-    """
-    DN-format.
-    Kardinalitet: Valfri.
-    """
-* includeFeignedObject 0..1 boolean "true: om metoden ska leverera svar med fingerade objekt."
-    """
-    Uteblivet värde tolkas som false.
-    Kardinalitet: Valfri.
-    """
-* profile 0..* string "Anger hur mycket information om enheten som begärs."
-    """
-    Tillåtna värden: basic, extended, extended2, all (default).
-    basic: bara grundläggande information (*b).
-    extended: grundläggande + vård- och omsorgsinformation (*b, *e).
-    extended2: även nonPublicTelephoneNumber (*f), måste kombineras med annat profilvärde.
-    all: all tillgänglig information (*b, *e, *a) förutom nonPublicTelephoneNumber.
-    Kardinalitet: Valfri, lista.
-    """
+* unitHsaId 1..1 string "unitHsaId" "unitHsaId"
+* searchBase 0..1 string "searchBase" "searchBase"
+* searchBase only DNType
+* includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+* profile 0..* string "profile" "profile"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetUnitRequestFieldDescriptions

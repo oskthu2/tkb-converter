@@ -28,28 +28,41 @@
         "definition": "Logisk modell för tjänstekontraktet GetConsentsForPatient\n(RIV-TA urn:riv:ehr:patientconsent:querying:GetConsentsForPatientResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser giltiga samtyckesintyg för en viss patient och en viss vårdgivare med grundinformation.\nMed giltiga samtyckesintyg avses de samtyckesintyg, alternativt intyg om nödsituation, som används som\nunderlag vid en kontroll gällande åtkomst (CheckConsents). Ogiltiga intyg (giltigt t o m har passerats,\nmakulerade eller återkallade) returneras ej."
       },
       {
-        "id": "getconsentsforpatient.result",
-        "path": "getconsentsforpatient.result",
-        "short": "Statusinformation för anropet",
-        "definition": "Statusinformation för anropet",
+        "id": "getconsentsforpatient.GetConsentsResultType",
+        "path": "getconsentsforpatient.GetConsentsResultType",
+        "short": "GetConsentsResultType",
+        "definition": "GetConsentsResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.result.resultCode",
-        "path": "getconsentsforpatient.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod från samtyckestjänsten. OK innebär att transaktionen utfördes. Alla andra koder innebär att\nåtgärden inte genomfördes. Kodat enligt ResultCodeCS.",
+        "id": "getconsentsforpatient.GetConsentsResultType.Result",
+        "path": "getconsentsforpatient.GetConsentsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforpatient.GetConsentsResultType.Result.ResultCode",
+        "path": "getconsentsforpatient.GetConsentsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ],
         "binding": {
@@ -58,10 +71,10 @@
         }
       },
       {
-        "id": "getconsentsforpatient.result.resultText",
-        "path": "getconsentsforpatient.result.resultText",
-        "short": "Fritext beskrivning av resultatet",
-        "definition": "Fritext beskrivning av resultatet",
+        "id": "getconsentsforpatient.GetConsentsResultType.Result.ResultText",
+        "path": "getconsentsforpatient.GetConsentsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,41 +84,41 @@
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions",
-        "path": "getconsentsforpatient.pdlAssertions",
-        "short": "Lista med giltiga PDL-intyg för patient",
-        "definition": "Lista med giltiga PDL-intyg för patient",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions",
+        "short": "PDLAssertionType",
+        "definition": "PdlAssertions",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.assertionId",
-        "path": "getconsentsforpatient.pdlAssertions.assertionId",
-        "short": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
-        "definition": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionId",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionId",
+        "short": "AssertionId",
+        "definition": "AssertionId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.assertionType",
-        "path": "getconsentsforpatient.pdlAssertions.assertionType",
-        "short": "Typ av intyg (Consent eller Emergency)",
-        "definition": "Typ av intyg (Consent eller Emergency)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionType",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionType",
+        "short": "AssertionType",
+        "definition": "AssertionType Tillåtna värden: Consent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {
@@ -114,15 +127,15 @@
         }
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.scope",
-        "path": "getconsentsforpatient.pdlAssertions.scope",
-        "short": "Omfång/tillämpningsområde för intyget",
-        "definition": "Omfång/tillämpningsområde för intyget",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.Scope",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.Scope",
+        "short": "Scope",
+        "definition": "Scope Tillåtna värden: NationalLevel.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {
@@ -131,62 +144,62 @@
         }
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.patientId",
-        "path": "getconsentsforpatient.pdlAssertions.patientId",
-        "short": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
-        "definition": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.PatientId",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.careProviderId",
-        "path": "getconsentsforpatient.pdlAssertions.careProviderId",
-        "short": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
-        "definition": "Identifierare för vårdgivare. system = urn:oid:1.2.752.129.2.1.4.1",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareProviderId",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.careUnitId",
-        "path": "getconsentsforpatient.pdlAssertions.careUnitId",
-        "short": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
-        "definition": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareUnitId",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.employeeId",
-        "path": "getconsentsforpatient.pdlAssertions.employeeId",
-        "short": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
-        "definition": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.EmployeeId",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.startDate",
-        "path": "getconsentsforpatient.pdlAssertions.startDate",
-        "short": "Startdatum för intygets giltighetstid",
-        "definition": "Startdatum för intygets giltighetstid",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.StartDate",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.StartDate",
+        "short": "StartDate",
+        "definition": "StartDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -196,10 +209,10 @@
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.endDate",
-        "path": "getconsentsforpatient.pdlAssertions.endDate",
-        "short": "Slutdatum för intygets giltighetstid (om inget slutdatum gäller samtycket tills återkallat)",
-        "definition": "Slutdatum för intygets giltighetstid (om inget slutdatum gäller samtycket tills återkallat)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.EndDate",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.EndDate",
+        "short": "EndDate",
+        "definition": "EndDate",
         "min": 0,
         "max": "1",
         "type": [
@@ -209,10 +222,10 @@
         ]
       },
       {
-        "id": "getconsentsforpatient.pdlAssertions.ownerId",
-        "path": "getconsentsforpatient.pdlAssertions.ownerId",
-        "short": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
-        "definition": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
+        "id": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.OwnerId",
+        "path": "getconsentsforpatient.GetConsentsResultType.PdlAssertions.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
         "min": 0,
         "max": "1",
         "type": [

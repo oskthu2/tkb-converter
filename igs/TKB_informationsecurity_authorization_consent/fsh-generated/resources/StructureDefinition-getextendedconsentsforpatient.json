@@ -30,28 +30,28 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult",
-        "short": "getExtendedConsentsResult",
+        "short": "GetExtendedConsentsResultType",
         "definition": "Utökad information för samtycke.",
-        "comment": "TKB-fält: `getExtendedConsentsResult` (`urn:riv:informationsecurity:authorization:consent:2:GetExtendedConsentsResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg. Datatypen utökar datatypen Result.",
+        "comment": "TKB-fält: `getExtendedConsentsResult` (`urn:riv:informationsecurity:authorization:consent:2:GetExtendedConsentsResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.result",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -59,8 +59,8 @@
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.result.resultCode",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,28 +90,28 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions",
-        "short": "pdlAssertions",
+        "short": "ExtendedPDLAssertionType",
         "definition": "Datatyp som representerar ett samtycke med ett utökat format. Innehåller information vem som har begärt respektive registrerat samtycket, samt om och när samtycket är återkallat eller makulerat. Datatypen utökar datatypen PDLAssertion.",
         "comment": "TKB-fält: `../pdlAssertions` (`ExtendedPDLAssertionType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion",
-        "short": "pDLAssertion",
+        "short": "PDLAssertionType",
         "definition": "Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.",
         "comment": "TKB-fält: `../../pDLAssertion` (`PDLAssertionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -133,8 +133,8 @@
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.assertionType",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.assertionType",
         "short": "assertionType",
-        "definition": "assertionType",
-        "comment": "TKB-fält: `../../../assertionType` (`AssertionTypeType`, kardinalitet 1..1).",
+        "definition": "assertionType Tillåtna värden: Consent, Emergency.",
+        "comment": "TKB-fält: `../../../assertionType` (`AssertionTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** assertionType Tillåtna värden: Consent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [
@@ -151,8 +151,8 @@
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.scope",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.scope",
         "short": "scope",
-        "definition": "scope",
-        "comment": "TKB-fält: `../../../scope` (`ScopeType`, kardinalitet 1..1).",
+        "definition": "scope Tillåtna värden: NationalLevel.",
+        "comment": "TKB-fält: `../../../scope` (`ScopeType`, kardinalitet 1..1).\n\n**Modellanteckning:** scope Tillåtna värden: NationalLevel.",
         "min": 1,
         "max": "1",
         "type": [
@@ -259,35 +259,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId.root",
-        "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId.iiExtension",
-        "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -301,49 +273,21 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.representedBy.root",
-        "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.representedBy.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.representedBy.iiExtension",
-        "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.representedBy.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.registrationInfo",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.registrationInfo",
-        "short": "registrationInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../registrationInfo` (`ActionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -364,14 +308,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.registrationInfo.requestedBy",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.registrationInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -434,14 +378,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.registrationInfo.registeredBy",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.registrationInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -504,14 +448,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.cancellationInfo",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.cancellationInfo",
-        "short": "cancellationInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../cancellationInfo` (`ActionType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -532,14 +476,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.cancellationInfo.requestedBy",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.cancellationInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -602,14 +546,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.cancellationInfo.registeredBy",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.cancellationInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -672,14 +616,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.deletionInfo",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.deletionInfo",
-        "short": "deletionInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../deletionInfo` (`ActionType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -700,14 +644,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.deletionInfo.requestedBy",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.deletionInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -770,14 +714,14 @@
       {
         "id": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.deletionInfo.registeredBy",
         "path": "getextendedconsentsforpatient.getExtendedConsentsResult.pdlAssertions.deletionInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

@@ -18,10 +18,6 @@ careServiceId.root: `<UUID>`
 
 careServiceId.extension: Anges ej"
 * careServiceId ^comment = "TKB-fält: `careServiceId` (`IIType`, kardinalitet 0..*)."
-* careServiceId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* careServiceId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * typeOfCareService ^definition = "Typ av vård- och omsorgstjänst
 
 Begränsar sökningen så att endast poster med angiven typ av vård- och omsorgstjänst returneras.
@@ -42,14 +38,6 @@ Då verksamhetskod används: typeOfCareService.codesystem: 1.2.752.129.2.2.1.3
 
 Kod väljs från HSA verksamhetskodverk. Då en verksamhetskod används ska konsumenten logiskt lägga till prefixet ”Vårdtjänster inom verksamhetsområdet …” till klartexten för verksamhetskoden."
 * typeOfCareService ^comment = "TKB-fält: `typeOfCareService*` (`CVType`, kardinalitet 0..*)."
-* typeOfCareService.cvCode ^comment = "TKB-fält: `../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* typeOfCareService.codeSystem ^comment = "TKB-fält: `../codeSystem` (`string`, kardinalitet 1..1)."
-* typeOfCareService.codeSystemName ^comment = "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1)."
-* typeOfCareService.codeSystemVersion ^comment = "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* typeOfCareService.displayName ^comment = "TKB-fält: `../displayName` (`string`, kardinalitet 0..1)."
-* typeOfCareService.originalText ^comment = "TKB-fält: `../originalText` (`string`, kardinalitet 0..1)."
 * typeOfPlace ^definition = "Typ av plats
 
 Filtrerar sökresultatet så att endast poster med angiven typ av plats som vård-och omsorgstjänsten erbjuds på returneras.
@@ -62,7 +50,9 @@ VIRTUAL – endast virtuell plats
 
 ALL - både fysisk och virtuell plats"
 * typeOfPlace ^comment = "TKB-fält: `typeOfPlace` (`TypeOfPlaceType`, kardinalitet 1..1)."
-* typeOfPlace.typeOfPlaceEnum ^comment = "TKB-fält: `../typeOfPlaceEnum` (`TypeOfPlaceEnum`, kardinalitet 1..1)."
+* typeOfPlace.typeOfPlaceEnum ^comment = "TKB-fält: `../typeOfPlaceEnum` (`TypeOfPlaceEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** typeOfPlaceEnum Tillåtna värden: ALL, PHYSICAL, VIRTUAL."
 * typeOfBusiness ^definition = "Typ av verksamhet
 
 Filtrerar sökresultatet så att endast poster med angiven typ av verksamhet returneras.
@@ -73,14 +63,6 @@ typeOfBusiness.codeSystem:
 
 1.2.752.129.2.2.1.3"
 * typeOfBusiness ^comment = "TKB-fält: `typeOfBusiness*` (`CVType`, kardinalitet 0..*)."
-* typeOfBusiness.cvCode ^comment = "TKB-fält: `../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* typeOfBusiness.codeSystem ^comment = "TKB-fält: `../codeSystem` (`string`, kardinalitet 1..1)."
-* typeOfBusiness.codeSystemName ^comment = "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1)."
-* typeOfBusiness.codeSystemVersion ^comment = "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* typeOfBusiness.displayName ^comment = "TKB-fält: `../displayName` (`string`, kardinalitet 0..1)."
-* typeOfBusiness.originalText ^comment = "TKB-fält: `../originalText` (`string`, kardinalitet 0..1)."
 * providingOrganization ^definition = "Katalogansvarig organisation"
 * providingOrganization ^comment = "TKB-fält: `providingOrganization` (`searchProvidingOrganizationType`, kardinalitet 0..1)."
 * providingOrganization.providingOrganizationId ^definition = "Id på katalogansvarig organisation
@@ -91,10 +73,6 @@ För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root
 
 För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)"
 * providingOrganization.providingOrganizationId ^comment = "TKB-fält: `../providingOrganizationId` (`IIType`, kardinalitet 0..*)."
-* providingOrganization.providingOrganizationId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* providingOrganization.providingOrganizationId.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * providingOrganization.management ^definition = "Ägarform
 
 Filtrerar sökresultatet så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras.
@@ -103,14 +81,6 @@ Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14].
 
 Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras."
 * providingOrganization.management ^comment = "TKB-fält: `../management` (`CVType`, kardinalitet 0..*)."
-* providingOrganization.management.cvCode ^comment = "TKB-fält: `../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* providingOrganization.management.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1)."
-* providingOrganization.management.codeSystemName ^comment = "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1)."
-* providingOrganization.management.codeSystemVersion ^comment = "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* providingOrganization.management.displayName ^comment = "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1)."
-* providingOrganization.management.originalText ^comment = "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1)."
 * providingOrganization.publicProvider ^definition = "Offentlig huvudman
 
 Filtrerar sökresultatet så att endast poster där vård- och omsorgstjänst som erbjuds av en offentlig huvudman returneras om fältet sätts till true.
@@ -145,14 +115,6 @@ actorLanguage.displayName: Swedish
 
 actorLanguage.codeSystem: 1.0.639.3"
 * actorLanguage ^comment = "TKB-fält: `actorLanguage*` (`CVType`, kardinalitet 0..1)."
-* actorLanguage.cvCode ^comment = "TKB-fält: `../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* actorLanguage.codeSystem ^comment = "TKB-fält: `../codeSystem` (`string`, kardinalitet 1..1)."
-* actorLanguage.codeSystemName ^comment = "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1)."
-* actorLanguage.codeSystemVersion ^comment = "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* actorLanguage.displayName ^comment = "TKB-fält: `../displayName` (`string`, kardinalitet 0..1)."
-* actorLanguage.originalText ^comment = "TKB-fält: `../originalText` (`string`, kardinalitet 0..1)."
 * actorRole ^definition = "Roll för aktör
 
 Filtrerar sökresultatet så att poster med angiven roll returneras.
@@ -173,19 +135,7 @@ role.displayname: enskild person
 
 role.codesystem:  1.2.752.116.2.1.1"
 * actorRole ^comment = "TKB-fält: `actorRole*` (`CVType`, kardinalitet 0..1)."
-* actorRole.cvCode ^comment = "TKB-fält: `../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* actorRole.codeSystem ^comment = "TKB-fält: `../codeSystem` (`string`, kardinalitet 1..1)."
-* actorRole.codeSystemName ^comment = "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1)."
-* actorRole.codeSystemVersion ^comment = "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* actorRole.displayName ^comment = "TKB-fält: `../displayName` (`string`, kardinalitet 0..1)."
-* actorRole.originalText ^comment = "TKB-fält: `../originalText` (`string`, kardinalitet 0..1)."
 * performingOrganizationId ^comment = "TKB-fält: `performingOrganizationId` (`IIType`, kardinalitet 0..*)."
-* performingOrganizationId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* performingOrganizationId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * targetGroupAge ^definition = "Ålder
 
 Filtrerar sökresultatet så att endast poster med angiven ålder returneras.
@@ -214,14 +164,6 @@ targetGroupGender.code: 1
 
 targetGroupGender.codesystem: 1.2.752.129.2.2.1.1"
 * targetGroupGender ^comment = "TKB-fält: `targetGroupGender*` (`CVType`, kardinalitet 0..1)."
-* targetGroupGender.cvCode ^comment = "TKB-fält: `../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* targetGroupGender.codeSystem ^comment = "TKB-fält: `../codeSystem` (`string`, kardinalitet 1..1)."
-* targetGroupGender.codeSystemName ^comment = "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1)."
-* targetGroupGender.codeSystemVersion ^comment = "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* targetGroupGender.displayName ^comment = "TKB-fält: `../displayName` (`string`, kardinalitet 0..1)."
-* targetGroupGender.originalText ^comment = "TKB-fält: `../originalText` (`string`, kardinalitet 0..1)."
 * targetGroupAttribute ^definition = "Egenskap
 
 Filtrerar sökresultatet så att endast poster med angiven egenskap returneras. Egenskap avser ytterligare information om den person som söker hälso- och sjukvård eller socialtjänst."
@@ -236,14 +178,6 @@ Graviditetsvecka
 
 Kod från Snomed CT hierarkin 363787002 | observerbar företeelse |"
 * targetGroupAttribute.typeOfPersonalAttribute ^comment = "TKB-fält: `../../ typeOfPersonalAttribute*` (`CVType`, kardinalitet 1..1)."
-* targetGroupAttribute.typeOfPersonalAttribute.cvCode ^comment = "TKB-fält: `../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* targetGroupAttribute.typeOfPersonalAttribute.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1)."
-* targetGroupAttribute.typeOfPersonalAttribute.codeSystemName ^comment = "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1)."
-* targetGroupAttribute.typeOfPersonalAttribute.codeSystemVersion ^comment = "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* targetGroupAttribute.typeOfPersonalAttribute.displayName ^comment = "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1)."
-* targetGroupAttribute.typeOfPersonalAttribute.originalText ^comment = "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1)."
 * targetGroupAttribute.attributeValue ^comment = "TKB-fält: `../attributeValue` (`string`, kardinalitet 1..1)."
 * location ^definition = "Sökområde
 
@@ -266,15 +200,11 @@ Geografisk lokalisering, dvs den punkt på en karta sökningen ska utgå ifrån.
 * location.geographicalLocation.geographicalCoordinates.north ^definition = "Exempel
 
 geoLocation.north = 5407869"
-* location.geographicalLocation.geographicalCoordinates.north ^comment = "TKB-fält: `../../../north` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** north (xs:long i schemat.)"
+* location.geographicalLocation.geographicalCoordinates.north ^comment = "TKB-fält: `../../../north` (`long`, kardinalitet 1..1)."
 * location.geographicalLocation.geographicalCoordinates.east ^definition = "Exempel
 
 geoLocation.east = 485784"
-* location.geographicalLocation.geographicalCoordinates.east ^comment = "TKB-fält: `../../../east` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** east (xs:long i schemat.)"
+* location.geographicalLocation.geographicalCoordinates.east ^comment = "TKB-fält: `../../../east` (`long`, kardinalitet 1..1)."
 * location.geographicalLocation.radius ^definition = "Radie
 
 Radie utifrån den geografiska lokaliseringen angiven i positivt heltal och i antal meter.
@@ -293,14 +223,6 @@ county.codeSystem = 1.2.752.129.2.2.1.18
 
 county.displayName = Östergötlands län"
 * location.county ^comment = "TKB-fält: `../county*` (`CVType`, kardinalitet 0..*)."
-* location.county.cvCode ^comment = "TKB-fält: `../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* location.county.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1)."
-* location.county.codeSystemName ^comment = "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1)."
-* location.county.codeSystemVersion ^comment = "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* location.county.displayName ^comment = "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1)."
-* location.county.originalText ^comment = "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1)."
 * location.municipality ^definition = "Kommunkod
 
 Sökning på kommun. Kommunkod enligt SCB’s lista över län och kommuner, se referens R13. Fyrställig kod.
@@ -313,14 +235,6 @@ municipality.codeSystem = 1.2.752.129.2.2.1.17
 
 municipality.displayName = Huddinge"
 * location.municipality ^comment = "TKB-fält: `../municipality*` (`CVType`, kardinalitet 0..*)."
-* location.municipality.cvCode ^comment = "TKB-fält: `../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* location.municipality.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1)."
-* location.municipality.codeSystemName ^comment = "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1)."
-* location.municipality.codeSystemVersion ^comment = "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* location.municipality.displayName ^comment = "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1)."
-* location.municipality.originalText ^comment = "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1)."
 * searchTerm ^definition = "Fritextsökning för att filtrera på vård- och omsorgstjänst baserat på text i nedan listade fritextfält.
 
 För de beskrivande texter nedan som förekommer i flera språk ska sökningen ske i texten som motsvarar det språk som anges i actorLanguage.

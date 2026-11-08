@@ -1,3 +1,6 @@
+// Elementen genereras ur GetFunctionalStatusResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:healthcond:description v3.0.6
 // Kontrakt: GetFunctionalStatus v2.0
 // Namespace: urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2
@@ -14,30 +17,13 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* careUnitHSAId 0..* Identifier "Filtrering på vårdenhet" """
-    Filtrering på vårdenhet (careUnitHSAId).
-    Kardinalitet: Valfri, lista.
-  """
-
-* patientId 1..1 Identifier "Patientens id" """
-    Id för patienten. id = personnummer/samordningsnummer. type = OID för identifierartyp.
-    Kardinalitet: Obligatorisk.
-  """
-
-* datePeriod 0..1 Period "Datumperiod för sökning" """
-    Begränsar sökningen till det angivna intervallet. start och end på formatet ÅÅÅÅMMDD.
-    Kardinalitet: Valfri.
-  """
-
-* sourceSystemHSAId 0..1 Identifier "Källsystem HSA-id" """
-    Begränsar sökning till information om funktionsstatus från ett specifikt källsystem.
-    Kardinalitet: Valfri.
-  """
-
-* careContactId 0..* string "Vårdkontakts-id" """
-    Begränsar sökning till funktionsstatusobjekt kopplade till angiven vårdkontakt.
-    Kardinalitet: Valfri, lista.
-  """
+* careUnitHSAId 0..* string "careUnitHSAId" "careUnitHSAId"
+* careUnitHSAId only HSAIdType
+* patientId 1..1 PersonIdType "patientId" "patientId"
+* datePeriod 0..1 DatePeriodType "datePeriod" "datePeriod"
+* sourceSystemHSAId 0..1 string "sourceSystemHSAId" "sourceSystemHSAId"
+* sourceSystemHSAId only HSAIdType
+* careContactId 0..* string "careContactId" "careContactId"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetFunctionalStatusRequestFieldDescriptions

@@ -1,3 +1,6 @@
+// Elementen genereras ur GetFormTemplatesResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:eservicesupply:forminteraction v2.1
 // Kontrakt: GetFormTemplates v2.0
 // Genererad: 2026-05-19
@@ -13,24 +16,31 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* formTemplate 0..* BackboneElement "Formulärmall (FormTemplateType)" "Lista med formulärmallar som matchar sökkriterierna."
-  * templateId 1..1 string "Mall-id" "Typ av formulär. Kodverk för standardiserade id för formulärtyper."
-  * templateVersion 1..1 integer "Mallens version" "Versionsnummer för formulärmallen."
-  * anonymousForm 0..1 boolean "Anonym formulär" "Styr huruvida formulärmotorn stöder anonym användning av formuläret."
-  * category 1..1 CodeableConcept "Formulärkategori" "Formulärets kategori, t.ex. Anmälan, registrering, hälsodeklaration."
-  * category from FormCategoryVS (required)
-  * publishStatus 1..1 CodeableConcept "Publiceringsstatus" "Mallens publiceringsstatus."
-  * publishStatus from PublishStatusVS (required)
-  * mandatory 1..1 boolean "Obligatorisk" "Indikerar om formuläret är obligatoriskt att fylla i av användaren."
-  * formLanguage 1..1 string "Språk" "Beskriver vilket språk som används i formuläret, t.ex. swe eller eng."
-  * formCompleteText 0..1 string "Avslutningstext" "Text som visas för invånaren när formuläret är besvarat."
-  * instrumentCode 0..1 BackboneElement "Kod" "Koppling till klass för code. Används för att beskriva t.ex. formulärinstrument (AUDIT-C, PHQ-9, EQ-5D)."
-    * codeSystem 0..1 string "Kodsystem" "Kodsystemets identifierare."
-    * codeValue 0..1 string "Kodvärde" "Kodvärdet inom kodsystemet."
-    * displayName 0..1 string "Visningsnamn" "Visningsnamn för koden."
-
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
-* insert GetFormTemplatesFieldDescriptions
+* formTemplates 0..* Base "FormTemplateInfoType" "formTemplates"
+* formTemplates.anonymousForm 1..1 boolean "anonymousForm" "Attributet styr huruvida formulärmotorn stöder anonym användning av formuläret. Värden True = Tillåter anonym användning. \"SubjectOfCare\" får inte användas. False = Tillåter inte anonym användning. \"SubjectOfCare\" är obligatorisk attribut."
+* formTemplates.category 1..1 string "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration" "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration"
+* formTemplates.code 0..1 Base "CodeType" "code"
+* formTemplates.code.codeValue 1..1 string "Kod som används (Kodverk).Kod identifieras av \"codeSystem\"." "Kod som används (Kodverk).Kod identifieras av \"codeSystem\"."
+* formTemplates.code.codeSystem 1..1 string "Identifierar vilket kodverk som används." "Identifierar vilket kodverk som används."
+* formTemplates.description 0..1 string "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen." "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen."
+* formTemplates.formCompleteText 0..1 string "formCompleteText" "formCompleteText"
+* formTemplates.formName 1..1 string "Mallens namn. T.ex. Hälsodeklaration Mödravård" "Mallens namn. T.ex. Hälsodeklaration Mödravård"
+* formTemplates.formTitle 0..1 string "Mallens/formulärets rubrik. Används på formulärets introduktionssida." "Mallens/formulärets rubrik. Används på formulärets introduktionssida."
+* formTemplates.language 1..1 string "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005." "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005."
+* formTemplates.media 0..1 Base "MediaType" "media"
+* formTemplates.media.mediaURL 1..1 string "URL eller adress till media." "URL eller adress till media."
+* formTemplates.media.mediaType 1..1 string "Giltiga MIME typer." "Giltiga MIME typer."
+* formTemplates.media.mediaAlt 0..1 string "alternativ text som beskriver det element som attributet hör till" "alternativ text som beskriver det element som attributet hör till"
+* formTemplates.media.mediaCaption 0..1 string "URL eller adress till undertext." "URL eller adress till undertext."
+* formTemplates.maxNumberOfQuestions 1..1 integer "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10" "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10"
+* formTemplates.minNumberOfQuestions 1..1 integer "minNumberOfQuestions" "minNumberOfQuestions"
+* formTemplates.maxNumberOfPages 1..1 integer "maxNumberOfPages" "maxNumberOfPages"
+* formTemplates.minNumberOfPages 1..1 integer "minNumberOfPages" "minNumberOfPages"
+* formTemplates.mandatory 1..1 boolean "mandatory" "Indikerar om formuläret är obligatoriskt att fylla i av användaren. T.ex. Ett obligatoriskt formulär kan indikerar att formuläret är en del av en vårdprocess. True = obligatoriskt False = Frivilligt"
+* formTemplates.publishStatus 1..1 string "publishStatus" "publishStatus"
+* formTemplates.templateVersion 1..1 integer "templateVersion" "templateVersion"
+* formTemplates.templateId 1..1 string "templateId" "templateId"
+* formTemplates.term 1..1 string "term" "Villkor kopplade till formuläret. T.ex. Villkorstext som användaren/patienten måste godkänna innan formuläret kan besvaras."
 
 Logical: GetFormTemplatesRequest
 Id: getformtemplates-request
@@ -39,12 +49,11 @@ Description: "Logisk modell för requestparametrar i GetFormTemplates."
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* healthcare_Facility_CareUnit 1..1 Identifier "Vårdenhetens HSA-id" "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3."
-* publishedStatus 0..* CodeableConcept "Publiceringsstatus" "Indikerar vilken status en mall skall ha."
-* publishedStatus from PublishStatusVS (required)
-* subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn)."
-* templateIds 0..* string "Mall-id:n" "Typ av formulärmall. Om denna inte anges returneras ALLA tillgängliga formulärmallar för medborgaren."
-* clinicalProcessInterestIds 0..* Identifier "Hälsoärenden" "Hälsoärende-id:n för filtrering."
+* clinicalProcessInterestIds 0..* string "clinicalProcessInterestIds" "clinicalProcessInterestIds"
+* healthcare_facility_CareUnit 1..1 string "healthcare_facility_CareUnit" "healthcare_facility_CareUnit"
+* publishedStatus 0..* string "Filtrering parameter för mall. Utelämnas attributet returneras alla" "Filtrering parameter för mall. Utelämnas attributet returneras alla"
+* subjectOfCare 0..1 string "subjectOfCare" "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt."
+* templateIds 0..* string "templateIds" "templateIds"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetFormTemplatesRequestFieldDescriptions

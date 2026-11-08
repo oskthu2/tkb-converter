@@ -7,8 +7,6 @@ RuleSet: GetHealthCareProviderRequestFieldDescriptions
 * healthCareProviderOrgNo ^definition = "Organisationsnummer för en vårdgivare"
 * healthCareProviderOrgNo ^comment = "TKB-fält: `healthCareProviderOrgNo` (`String`, kardinalitet 0..1 *1))."
 * searchBase ^definition = "Sökbas. Om ingen sökbas anges används c=SE som sökbas."
-* searchBase ^comment = "TKB-fält: `searchBase *2)` (`DN`, kardinalitet 0..1).
-
-**Modellanteckning:** DN-format (Distinguished Name)."
+* searchBase ^comment = "TKB-fält: `searchBase *2)` (`DN`, kardinalitet 0..1)."
 * includeFeignedObject ^definition = "true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras."
 * includeFeignedObject ^comment = "TKB-fält: `includeFeignedObject` (`boolean`, kardinalitet 0..1)."

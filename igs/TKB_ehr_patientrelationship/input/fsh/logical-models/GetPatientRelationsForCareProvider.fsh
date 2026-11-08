@@ -1,3 +1,6 @@
+// Elementen genereras ur GetPatientRelationsForCareProviderResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: GetPatientRelationsForCareProvider v1.0
 // Namespace: urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForCareProviderResponder:1
@@ -15,31 +18,22 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Svarskod och eventuellt resultatmeddelande"
-* result.resultCode 1..1 code "Svarskod"
-* result.resultCode from ResultCodeVS (required)
-* result.resultText 1..1 string "Optionellt felmeddelande"
-
-* moreOnOrAfter 1..1 dateTime "Fr.o.m. vilken tidpunkt ytterligare patientrelationer finns att hämta"
-  """
-  Används iterativt som inparameter CreatedOnOrAfter för nästa anrop.
-  Returneras även om inga fler patientrelationer finns.
-  """
-* hasMore 1..1 boolean "Anger om det finns ytterligare patientrelationer att hämta"
-
-* patientRelations 0..* BackboneElement "Lista med aktiva patientrelationer"
-* patientRelations.patientRelationId 1..1 string "Unik UUID-identifierare för patientrelationen (max 36 tecken)"
-* patientRelations.patientId 1..1 string "Patientens personnummer eller samordningsnummer (max 12 tecken)"
-* patientRelations.careProviderId 1..1 Identifier "Vårdgivare-id (HSA-id)"
-* patientRelations.careUnitId 1..1 Identifier "Vårdenhet-id (HSA-id)"
-* patientRelations.employeeId 1..1 Identifier "Medarbetare-id (HSA-id)"
-* patientRelations.startDate 1..1 dateTime "Startdatum för giltighetstiden"
-* patientRelations.endDate 1..1 dateTime "Slutdatum för giltighetstiden"
-* patientRelations.ownerId 0..1 string "Optionell systemidentifierare (max 512 tecken)"
-
-* cancelledPatientRelations 0..* BackboneElement "Lista med makulerade och återkallade patientrelationer"
-  """
-  Returneras bara om getCancelledFlag=true i request.
-  """
-* cancelledPatientRelations.patientRelationId 1..1 string "Id på den makulerade/återkallade patientrelationen"
-* cancelledPatientRelations.cancellationDate 1..1 dateTime "Tidpunkt när makulering eller återkallan utfördes"
+* GetAllPatientRelationsResultType 1..1 Base "GetAllPatientRelationsResultType" "GetAllPatientRelationsResultType"
+* GetAllPatientRelationsResultType.Result 1..1 Base "ResultType" "Result"
+* GetAllPatientRelationsResultType.Result.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* GetAllPatientRelationsResultType.Result.ResultCode from ResultCodeVS (required)
+* GetAllPatientRelationsResultType.Result.ResultText 1..1 string "ResultText" "ResultText"
+* GetAllPatientRelationsResultType.MoreOnOrAfter 1..1 dateTime "MoreOnOrAfter" "MoreOnOrAfter"
+* GetAllPatientRelationsResultType.HasMore 1..1 boolean "HasMore" "HasMore"
+* GetAllPatientRelationsResultType.PatientRelations 0..* Base "PatientRelationType" "PatientRelations"
+* GetAllPatientRelationsResultType.PatientRelations.PatientRelationId 1..1 string "PatientRelationId" "PatientRelationId"
+* GetAllPatientRelationsResultType.PatientRelations.PatientId 1..1 string "PatientId" "PatientId"
+* GetAllPatientRelationsResultType.PatientRelations.CareProviderId 1..1 string "CareProviderId" "CareProviderId"
+* GetAllPatientRelationsResultType.PatientRelations.CareUnitId 1..1 string "CareUnitId" "CareUnitId"
+* GetAllPatientRelationsResultType.PatientRelations.EmployeeId 1..1 string "EmployeeId" "EmployeeId"
+* GetAllPatientRelationsResultType.PatientRelations.StartDate 1..1 dateTime "StartDate" "StartDate"
+* GetAllPatientRelationsResultType.PatientRelations.EndDate 1..1 dateTime "EndDate" "EndDate"
+* GetAllPatientRelationsResultType.PatientRelations.OwnerId 0..1 string "OwnerId" "OwnerId"
+* GetAllPatientRelationsResultType.CancelledPatientRelations 0..* Base "CancelledPatientRelationType" "CancelledPatientRelations"
+* GetAllPatientRelationsResultType.CancelledPatientRelations.PatientRelationId 1..1 string "PatientRelationId" "PatientRelationId"
+* GetAllPatientRelationsResultType.CancelledPatientRelations.CancellationDate 1..1 dateTime "CancellationDate" "CancellationDate"

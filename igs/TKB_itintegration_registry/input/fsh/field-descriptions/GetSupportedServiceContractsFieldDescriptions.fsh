@@ -3,7 +3,5 @@
 
 RuleSet: GetSupportedServiceContractsFieldDescriptions
 * serviceContractNamespace ^definition = "Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för anropet av GetSupportedServiceContracts."
-* serviceContractNamespace ^comment = "TKB-fält: `serviceContractNamespace` (`urn`, kardinalitet 0..*).
-
-**Modellanteckning:** Type which describes a service contract."
+* serviceContractNamespace ^comment = "TKB-fält: `serviceContractNamespace` (`urn`, kardinalitet 0..*)."
 * serviceContractNamespace.ServiceContractNamespace ^comment = "TKB-fält: `../ServiceContractNamespace` (`anyURI`, kardinalitet 1..1)."

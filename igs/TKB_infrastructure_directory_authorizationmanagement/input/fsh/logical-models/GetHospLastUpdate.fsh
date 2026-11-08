@@ -1,3 +1,6 @@
+// Elementen genereras ur GetHospLastUpdateResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:authorizationmanagement v2.4.4
 // Kontrakt: GetHospLastUpdate v1.0
 // Genererad: 2026-05-19
@@ -14,7 +17,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* lastUpdate 1..1 dateTime "Tidpunkt då HOSP-informationen tillgängliggjorts efter senaste utlämnande"
+* lastUpdate 1..1 dateTime "lastUpdate" "lastUpdate"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetHospLastUpdateFieldDescriptions

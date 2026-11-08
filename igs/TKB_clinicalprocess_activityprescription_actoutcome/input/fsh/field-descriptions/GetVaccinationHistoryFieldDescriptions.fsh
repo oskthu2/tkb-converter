@@ -3,9 +3,7 @@
 
 RuleSet: GetVaccinationHistoryFieldDescriptions
 * vaccinationMedicalRecord ^definition = "En strukturerad vaccinationsjournal."
-* vaccinationMedicalRecord ^comment = "TKB-fält: `vaccinationMedicalRecord` (`VaccinationMedicalRecordType`, kardinalitet 0..*).
-
-**Modellanteckning:** En strukturerad vaccinationsjournal. Kan innehålla en eller flera administreringsposter."
+* vaccinationMedicalRecord ^comment = "TKB-fält: `vaccinationMedicalRecord` (`VaccinationMedicalRecordType`, kardinalitet 0..*)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader ^definition = "Innehåller basinformation om dokumentet."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader ^comment = "TKB-fält: `../vaccinationMedicalRecordHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentId ^definition = "Identifierare för uppgift i patientjournal.
@@ -23,62 +21,11 @@ Sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)"
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime ^definition = "Händelsetidpunkt. Tidsangivelse för den vaccinationstidpunkt dokumentet gäller."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime ^comment = "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 0..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId ^definition = "Personidentifierare för patienten."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId ^comment = "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).
-
-**Modellanteckning:** id = patientens identifierare (12 tecken utan avskiljare).
-type = OID för typ av personidentifierare."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional ^definition = "Information avseende dokumentation av uppgiften som tillgängliggörs.
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId ^comment = "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional ^definition = "Information avseende dokumentation av uppgiften som tillgängliggörs.
 
 Notera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional ^comment = "TKB-fält: `../../accountableHealthCareProfessional` (`HealthCareProfessionalType`, kardinalitet 1..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.authorTime ^definition = "Tidpunkt då uppgiften dokumenterades eller senast uppdaterades.
-
-I de fall då uppgiften ursprungligen dokumenterats eller uppdaterats i ett annat informationssystem än tjänsteproducentens källsystem (t.ex. laboratorieinformationssystem), ska tidpunkten spegla informationen från systemet där uppgiften ursprungligen dokumenterades."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.authorTime ^comment = "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalHSAId ^definition = "HSA-id för hälso- och sjukvårdspersonal som dokumenterat uppgiften som tillgängliggörs.
-
-I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalName ^definition = "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalName ^comment = "TKB-fält: `../../../healthcareProfessionalName` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalRoleCode ^definition = "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.
-
-Anges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4) [R6].
-
-Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalRoleCode ^comment = "TKB-fält: `../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit ^definition = "Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit ^comment = "TKB-fält: `../../../healthcareProfessionalOrgUnit` (`OrgUnitType`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^definition = "HSA-id för organisationsenhet.
-
-I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^comment = "TKB-fält: `../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^definition = "Namnet på den organisation som hälso- och sjukvårdspersonen är uppdragstagare på."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^comment = "TKB-fält: `../../../../orgUnitName` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^definition = "Telefon till organisationsenhet"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^comment = "TKB-fält: `../../../../orgUnitTelecom` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^definition = "E-post till organisationsenhet"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^comment = "TKB-fält: `../../../../orgUnitEmail` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^definition = "Postadress för den organisation som hälso- och sjukvårdspersonen är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis:
-
-”Storgatan 12
-
-468 91 Lilleby”"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^comment = "TKB-fält: `../../../../orgUnitAddress` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^definition = "Text som anger namnet på plats eller ort för organisationens fysiska placering"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^comment = "TKB-fält: `../../../../orgUnitLocation` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalCareUnitHSAId ^definition = "HSA-id för vårdenheten där uppgiften är dokumenterad. För mer information av vad som avses med vårdenhet, se [R17].
-
-I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet).
-
-Regel 1.1"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalCareUnitHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalCareUnitHSAId` (`HSAIdType`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalCareGiverHSAId ^definition = "Id för uppgiftsägande vårdgivare. För mer information av vad som avses med vårdgivare, se [R17].
-
-I första hand HSA-id, i andra hand organisationsnummer.
-
-Regel 1.1"
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthCareProfessional.healthcareProfessionalCareGiverHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalCareGiverHSAId` (`HSAIdType`, kardinalitet 0..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional ^comment = "TKB-fält: `../../accountableHealthCareProfessional` (`HealthCareProfessionalType`, kardinalitet 1..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator ^definition = "Information avseende signering av uppgiften som tillgängliggörs."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator ^comment = "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime ^definition = "Tidpunkt då uppgiften signerades."
@@ -98,25 +45,15 @@ Notera att värdet kan, för samma uppgift, förändras med tiden på grund av a
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId ^definition = "Identitetet för den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet"
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId ^comment = "TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified ^definition = "Anger om dokumentet makulerats i källsystemet. Sätts i så fall till true annars false. Används bl.a. i statistik-/rapportuttag med hjälp av tjänstekontrakten."
-* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified ^comment = "TKB-fält: `../../nullified` (`boolean`, kardinalitet 1..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified ^comment = "TKB-fält: `../../nullified` (`boolean`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason ^definition = "Anger orsak till makulering. Får endast anges i kombination med att nullified = true"
 * vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason ^comment = "TKB-fält: `../../nullifiedReason` (`string`, kardinalitet 0..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody ^definition = "Består av en registrationData med ytterligare administrativ information samt en eller flera vaccinationData om utförda vaccinationer vid vaccinationstillfället."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody ^comment = "TKB-fält: `../vaccinationMedicalRecordBody` (`VaccinationMedicalRecordBodyType`, kardinalitet 1..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord ^definition = "Annan information än ovan som registreras vid eller relaterat till vaccinationstillfället"
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord ^comment = "TKB-fält: `../../registrationRecord` (`RegistrationRecordType`, kardinalitet 1..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date ^definition = "Datum då nedan vaccination(er) gavs"
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date ^comment = "TKB-fält: `../../../date` (`DateType`, kardinalitet 1..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode ^definition = "Postnummer för patientens senast kända bostadsadress"
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode ^comment = "TKB-fält: `../../../patientPostalCode` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote ^definition = "Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade information kan också använda här.
-
-Not: Om endast ostrukturerad vaccinationsinformation finns, kan, detta kontrakt produceras men i så fall inga administrationRecords nedan returneras."
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote ^comment = "TKB-fält: `../../../vaccinationUnstructuredNote` (`string`, kardinalitet 0..1)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory ^definition = "Information om patientens eventuella riskgruppstillhörighet, känd vid vaccinationstillfället, baserad på i förekommande fall patientens hälsodeklaration"
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory ^comment = "TKB-fält: `../../../riskCategory` (`CVType`, kardinalitet 0..*)."
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect ^definition = "Information om patienten erfarit någon eller några reaktioner hänför bara till vaccinationstillfället men ej specifik vaccination (i fall som när flera vaccin givits vid samma tillfälle)"
-* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect ^comment = "TKB-fält: `../../../patientAdverseEffect` (`CVType`, kardinalitet 0..*)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg ^definition = "Information om juridisk vårdgivare; hsaid (om finns) och kontaktuppgifter namn, e-post, tel, adress etc."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg ^comment = "TKB-fält: `../../../careGiverOrg` (`OrgUnitType`, kardinalitet 1..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact ^definition = "Kontaktperson hos juridiskt ansvarig vårdgivare"
@@ -133,6 +70,18 @@ Detta fält fylls med namnet på den organisationen som ansvarar för vaccinatio
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact ^comment = "TKB-fält: `../../../sourceSystemContact` (`ActorType`, kardinalitet 1..1)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId ^definition = "Utförande vårdenhetens registreringsId hos SMI"
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId ^comment = "TKB-fält: `../../../careUnitSmiId` (`String`, kardinalitet 0..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date ^definition = "Datum då nedan vaccination(er) gavs"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date ^comment = "TKB-fält: `../../../date` (`DateType`, kardinalitet 1..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode ^definition = "Postnummer för patientens senast kända bostadsadress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode ^comment = "TKB-fält: `../../../patientPostalCode` (`string`, kardinalitet 0..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote ^definition = "Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade information kan också använda här.
+
+Not: Om endast ostrukturerad vaccinationsinformation finns, kan, detta kontrakt produceras men i så fall inga administrationRecords nedan returneras."
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote ^comment = "TKB-fält: `../../../vaccinationUnstructuredNote` (`string`, kardinalitet 0..1)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory ^definition = "Information om patientens eventuella riskgruppstillhörighet, känd vid vaccinationstillfället, baserad på i förekommande fall patientens hälsodeklaration"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory ^comment = "TKB-fält: `../../../riskCategory` (`CVType`, kardinalitet 0..*)."
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect ^definition = "Information om patienten erfarit någon eller några reaktioner hänför bara till vaccinationstillfället men ej specifik vaccination (i fall som när flera vaccin givits vid samma tillfälle)"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect ^comment = "TKB-fält: `../../../patientAdverseEffect` (`CVType`, kardinalitet 0..*)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord ^definition = "Information om utförd(a) vaccination(er) vid tillfället. Ordinerad men av någon anledning ej given vaccination kan inkluderas."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord ^comment = "TKB-fält: `../../administrationRecord` (`AdministrationRecordType`, kardinalitet 0..*)."
 * vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationProgramName ^definition = "Information om vaccinationsprogram om vaccinationen är del av sådant program. Tillåter kodat värde liksom endast namn genom bruk av originalText i CVType."
@@ -200,10 +149,12 @@ Exempel: om tre doser krävs för att vaccinationen ska uppnå full dos anges de
 * result.resultCode ^definition = "Kan endast vara OK, INFO eller ERROR"
 * result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
 * result.errorCode ^definition = "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information."
-* result.errorCode ^comment = "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1)."
-* result.subcode ^definition = "Inga subkoder är specificerade."
-* result.subcode ^comment = "TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."
+* result.errorCode ^comment = "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST."
 * result.logId ^definition = "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."
 * result.logId ^comment = "TKB-fält: `../logId` (`string`, kardinalitet 1..1)."
+* result.subCode ^definition = "Inga subkoder är specificerade."
+* result.subCode ^comment = "TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."
 * result.message ^definition = "En beskrivande text som kan visas för användaren."
 * result.message ^comment = "TKB-fält: `../message` (`string`, kardinalitet 0..1)."

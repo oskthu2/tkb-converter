@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet CheckPatientRelation\n(RIV-TA urn:riv:ehr:patientrelationship:accesscontrol:CheckPatientRelationResponder:1).\nRepresenterar responsens informationsstruktur — kontrollresultat om patientrelation finns för angiven aktör."
       },
       {
-        "id": "checkpatientrelation.result",
-        "path": "checkpatientrelation.result",
-        "short": "Svarskod och eventuellt resultatmeddelande",
-        "definition": "Svarskod och eventuellt resultatmeddelande",
+        "id": "checkpatientrelation.CheckResultType",
+        "path": "checkpatientrelation.CheckResultType",
+        "short": "CheckResultType",
+        "definition": "CheckResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "checkpatientrelation.result.resultCode",
-        "path": "checkpatientrelation.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "checkpatientrelation.CheckResultType.Result",
+        "path": "checkpatientrelation.CheckResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "checkpatientrelation.CheckResultType.Result.ResultCode",
+        "path": "checkpatientrelation.CheckResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,10 +71,10 @@
         }
       },
       {
-        "id": "checkpatientrelation.result.resultText",
-        "path": "checkpatientrelation.result.resultText",
-        "short": "Optionellt felmeddelande",
-        "definition": "Optionellt felmeddelande",
+        "id": "checkpatientrelation.CheckResultType.Result.ResultText",
+        "path": "checkpatientrelation.CheckResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,10 +84,10 @@
         ]
       },
       {
-        "id": "checkpatientrelation.hasPatientrelation",
-        "path": "checkpatientrelation.hasPatientrelation",
-        "short": "Anger om en giltig patientrelation gällande åtkomst för angiven aktör hittades",
-        "definition": "true = giltig patientrelation finns, false = ingen giltig patientrelation finns.\nMed giltig avses ej utgången, ej makulerad och ej återkallad patientrelation.",
+        "id": "checkpatientrelation.CheckResultType.HasPatientrelation",
+        "path": "checkpatientrelation.CheckResultType.HasPatientrelation",
+        "short": "HasPatientrelation",
+        "definition": "HasPatientrelation",
         "min": 1,
         "max": "1",
         "type": [

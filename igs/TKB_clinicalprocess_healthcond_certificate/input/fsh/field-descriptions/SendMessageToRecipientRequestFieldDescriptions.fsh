@@ -2,24 +2,24 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: SendMessageToRecipientRequestFieldDescriptions
-* meddelandeId ^definition = "Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID."
-* meddelandeId ^comment = "TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).
+* meddelande-id ^definition = "Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID."
+* meddelande-id ^comment = "TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).
 
 **Mappning DIM:** Meddelande.meddelande-id"
-* referensId ^definition = "Valfri referens till entitet hos sändande part. Behöver ej vara unikt."
-* referensId ^comment = "TKB-fält: `referens-id` (`string`, kardinalitet 0..1).
+* referens-id ^definition = "Valfri referens till entitet hos sändande part. Behöver ej vara unikt."
+* referens-id ^comment = "TKB-fält: `referens-id` (`string`, kardinalitet 0..1).
 
 **Mappning DIM:** Meddelande.referens-id"
 * skickatTidpunkt ^definition = "Tidpunkt då meddelandet skickades."
 * skickatTidpunkt ^comment = "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
 
 **Mappning DIM:** Meddelande.avsänt tidpunkt"
-* intygsId ^definition = "Unikt ID för det intyg som meddelandet hör till."
-* intygsId ^comment = "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+* intygs-id ^definition = "Unikt ID för det intyg som meddelandet hör till."
+* intygs-id ^comment = "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
 
 **Mappning DIM:** Intyg.intygs-id"
-* patientPersonId ^definition = "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id."
-* patientPersonId ^comment = "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+* patientPerson-id ^definition = "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id."
+* patientPerson-id ^comment = "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
 
 **Mappning DIM:** Patient.person-id"
 * logiskAdressMottagare ^definition = "Logisk adress för den intygsmottagare som intygstjänsten ska vidarebefordra meddelandet till."
@@ -38,8 +38,8 @@ RuleSet: SendMessageToRecipientRequestFieldDescriptions
 * meddelande ^comment = "TKB-fält: `meddelande` (`string`, kardinalitet 1..1).
 
 **Mappning DIM:** Meddelande.meddelande"
-* paminnelseMeddelandeId ^definition = "Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om."
-* paminnelseMeddelandeId ^comment = "TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).
+* paminnelseMeddelande-id ^definition = "Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om."
+* paminnelseMeddelande-id ^comment = "TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).
 
 **Mappning DIM:** Meddelande.meddelande-id"
 * svarPa ^definition = "Om detta meddelande är ett svar på en fråga från intygsmottagaren ska referens till frågan skickas"

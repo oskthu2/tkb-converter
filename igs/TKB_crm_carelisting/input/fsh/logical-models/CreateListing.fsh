@@ -1,3 +1,6 @@
+// Elementen genereras ur CreateListing_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: CreateListing v1.0
 // Namespace: urn:riv:crm:carelisting:CreateListingResponder:1
@@ -15,24 +18,9 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* success 1..1 boolean "True om listningen genomfördes framgångsrikt"
-    """
-    True if the requested listing was successfully completed, else false.
-    False indicates that the user needs to try another option for listing.
-    Kardinalitet: Obligatorisk.
-    """
-* comment 0..1 string "Information som kompletterar angiven status"
-    """
-    Informationstext som kompletterar angiven status, t.ex. felmeddelande.
-    Kardinalitet: Valfri.
-    """
-* systemCode 0..1 string "Kod från underliggande listningssystem"
-    """
-    Kod från underliggande listningssystem, i syfte att användas i dialog
-    med respektive listningssystems förvaltning.
-    Tjänstekonsumenten får inte binda logik till värden på dessa koder.
-    Kardinalitet: Valfri.
-    """
+* success 1..1 boolean "success" "True if the requested listing was successfully completed, else false. False indicates that the user needs to try another option for listing."
+* comment 0..1 string "Information som kompletterar angiven status." "Information som kompletterar angiven status."
+* systemCode 0..1 string "systemCode" "Kod från underliggande listningssystem, i syfte att användas i dialog med respektive listningssystems förvaltning. Tjänstekonsumenten får inte binda logik till värden på dessa koder."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CreateListingFieldDescriptions

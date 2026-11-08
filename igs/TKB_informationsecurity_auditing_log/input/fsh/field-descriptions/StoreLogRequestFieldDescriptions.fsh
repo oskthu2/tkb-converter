@@ -3,9 +3,7 @@
 
 RuleSet: StoreLogRequestFieldDescriptions
 * log ^definition = "En kollektion av loggposter som ska lagras i loggtjänsten."
-* log ^comment = "TKB-fält: `Log*` (`urn:riv:informationsecurity:auditing:log:2:LogType`, kardinalitet 1..*).
-
-**Modellanteckning:** Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost."
+* log ^comment = "TKB-fält: `Log*` (`urn:riv:informationsecurity:auditing:log:2:LogType`, kardinalitet 1..*)."
 * log.logId ^comment = "TKB-fält: `../logId` (`Id`, kardinalitet 1..1)."
 * log.system ^definition = "Datatyp som representerar ett system i loggposten. Det system som skapar loggposten."
 * log.system ^comment = "TKB-fält: `../system` (`SystemType`, kardinalitet 1..1)."
@@ -21,15 +19,9 @@ RuleSet: StoreLogRequestFieldDescriptions
 * log.user ^definition = "Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost."
 * log.user ^comment = "TKB-fält: `../user` (`UserType`, kardinalitet 1..1)."
 * log.user.userId ^comment = "TKB-fält: `../../userId` (`HsaId`, kardinalitet 1..1)."
-* log.user.userName ^comment = "TKB-fält: `../../name` (`UserName`, kardinalitet 0..1).
-
-**Modellanteckning:** userName Heter name i schemat."
+* log.user.name ^comment = "TKB-fält: `../../name` (`UserName`, kardinalitet 0..1)."
 * log.user.personId ^definition = "En universellt unik identifierare."
 * log.user.personId ^comment = "TKB-fält: `../../personId` (`IIType`, kardinalitet 0..1)."
-* log.user.personId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* log.user.personId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * log.user.assignment ^comment = "TKB-fält: `../../assignment` (`Assignment`, kardinalitet 0..1)."
 * log.user.title ^comment = "TKB-fält: `../../title` (`UserTitle`, kardinalitet 0..1)."
 * log.user.careProvider ^definition = "Datatyp som representerar en vårdgivare."
@@ -49,10 +41,6 @@ RuleSet: StoreLogRequestFieldDescriptions
 * log.resources.resource.patient ^comment = "TKB-fält: `../../../patient` (`PatientType`, kardinalitet 0..1)."
 * log.resources.resource.patient.patientId ^definition = "En universellt unik identifierare."
 * log.resources.resource.patient.patientId ^comment = "TKB-fält: `../../../../patientId` (`IIType`, kardinalitet 1..1)."
-* log.resources.resource.patient.patientId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* log.resources.resource.patient.patientId.iiExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * log.resources.resource.patient.patientName ^comment = "TKB-fält: `../../../../patientName` (`PatientName`, kardinalitet 0..1)."
 * log.resources.resource.careProvider ^definition = "Datatyp som representerar en vårdgivare."
 * log.resources.resource.careProvider ^comment = "TKB-fält: `../../../careProvider` (`CareProviderType`, kardinalitet 1..1)."

@@ -7,10 +7,6 @@ RuleSet: AssertCareEngagementRequestFieldDescriptions
 * subjectOfCareId ^definition = "Person- eller samordningsnummer. 12 tecken enligt Skatteverkets format (ej bindestreck)."
 * subjectOfCareId ^comment = "TKB-fält: `subjectOfCareId` (`sträng`, kardinalitet 1..1)."
 * careUnitHsaIdentity ^definition = "HSA-id för medarbetarens uppdragsvårdenhet"
-* careUnitHsaIdentity ^comment = "TKB-fält: `careUnitHsaIdentity` (`sträng`, kardinalitet 1..1).
-
-**Modellanteckning:** HSA-id för den vårdenhet på vars uppdrag medarbetaren agerar och begär åtkomst
-till sammanhållen journalföring.
-System: urn:oid:1.2.752.129.2.1.4.1 (HSA)"
+* careUnitHsaIdentity ^comment = "TKB-fält: `careUnitHsaIdentity` (`sträng`, kardinalitet 1..1)."
 * careGiverHsaIdentity ^definition = "HSA-id för vårdgivaren där vårdenhet med HSA-id enligt careUnitHsaIdentity ingår."
 * careGiverHsaIdentity ^comment = "TKB-fält: `careGiverHsaIdentity` (`Sträng`, kardinalitet 1..1)."

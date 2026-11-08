@@ -2,11 +2,11 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: ProcessLaboratoryReportResponseFieldDescriptions
-* resultCode ^definition = "OK = operationen genomförd utan fel
+* ResultCode ^definition = "OK = operationen genomförd utan fel
 
 ERROR = Fel vid operationen
 
 INFO = Information finns om operationen"
-* resultCode ^comment = "TKB-fält: `code` (`String`, kardinalitet 1..1)."
+* ResultCode ^comment = "TKB-fält: `code` (`String`, kardinalitet 1..1)."
 * comment ^definition = "Beskrivning av fel som uppstått alternativt information om genomförd operation."
 * comment ^comment = "TKB-fält: `comment` (`String`, kardinalitet 0..1)."

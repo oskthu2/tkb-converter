@@ -1,3 +1,6 @@
+// Elementen genereras ur DeletePrescriptionReasonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB processdevelopment:infections v1.0.2
 // Kontrakt: DeletePrescriptionReason v1.0
 // Genererad: 2026-09-17
@@ -19,11 +22,6 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-// ingen invariant: regeln gäller requesten (exakt ett av activityId/conditionId), som inte har någon egen modell här.
-* resultCode 1..1 code "Resultatkod"
-* resultCode from ResultCodeVS (required)
-* comment 0..1 string "Kommentar"
-    """
-    Beskrivning av fel som uppstått alternativt information om genomförd
-    radering.
-    """
+* ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, ERROR, INFO."
+* ResultCode from ResultCodeVS (required)
+* comment 0..1 string "comment" "comment"

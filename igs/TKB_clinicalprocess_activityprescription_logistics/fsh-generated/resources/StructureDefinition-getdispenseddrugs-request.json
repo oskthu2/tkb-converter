@@ -39,14 +39,14 @@
       {
         "id": "getdispenseddrugs-request.patient",
         "path": "getdispenseddrugs-request.patient",
-        "short": "Patient vars läkemedelsförteckning skall hämtas",
+        "short": "Patient",
         "definition": "Patient vars läkemedelsförteckning skall hämtas.",
         "comment": "TKB-fält: `patient` (`Patient`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -60,15 +60,15 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getdispenseddrugs-request.patient.patientidentifikation.kod",
         "path": "getdispenseddrugs-request.patient.patientidentifikation.kod",
-        "short": "Patientens personnummer",
-        "definition": "Fältlängd 1..12.",
+        "short": "kod",
+        "definition": "kod",
         "min": 1,
         "max": "1",
         "type": [
@@ -80,34 +80,37 @@
       {
         "id": "getdispenseddrugs-request.patient.patientidentifikation.kodverk",
         "path": "getdispenseddrugs-request.patient.patientidentifikation.kodverk",
-        "short": "OID för kodverket",
-        "definition": "Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).\nFör personnummer: 1.2.752.129.2.1.3.",
+        "short": "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.",
+        "definition": "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/OID"
+            ]
           }
         ]
       },
       {
         "id": "getdispenseddrugs-request.anropandeVardpersonal",
         "path": "getdispenseddrugs-request.anropandeVardpersonal",
-        "short": "Anropande vårdpersonal",
+        "short": "Vardpersonal",
         "definition": "Anropande vårdpersonal.",
         "comment": "TKB-fält: `anropandeVardpersonal` (`Vardpersonal`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getdispenseddrugs-request.anropandeVardpersonal.efternamn",
         "path": "getdispenseddrugs-request.anropandeVardpersonal.efternamn",
-        "short": "Efternamn",
+        "short": "efternamn",
         "definition": "Användarnamn. Används i kombination med personHsaId för att identifiera användare.",
         "comment": "TKB-fält i Vardpersonal: `efternamn` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..35",
         "min": 1,
@@ -121,7 +124,7 @@
       {
         "id": "getdispenseddrugs-request.anropandeVardpersonal.fornamn",
         "path": "getdispenseddrugs-request.anropandeVardpersonal.fornamn",
-        "short": "Förnamn",
+        "short": "fornamn",
         "definition": "Användarnamn. Används i kombination med personHsaId för att identifiera användare.",
         "comment": "TKB-fält i Vardpersonal: `fornamn` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..35",
         "min": 1,
@@ -135,9 +138,9 @@
       {
         "id": "getdispenseddrugs-request.anropandeVardpersonal.personHsaId",
         "path": "getdispenseddrugs-request.anropandeVardpersonal.personHsaId",
-        "short": "HSA-id för läsande person",
+        "short": "personHsaId",
         "definition": "HSA-id för läsande person.",
-        "comment": "TKB-fält i Vardpersonal: `personHsaId` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..64\n\n**Modellanteckning:** Fältlängd 1..64.",
+        "comment": "TKB-fält i Vardpersonal: `personHsaId` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..64",
         "min": 1,
         "max": "1",
         "type": [
@@ -149,7 +152,7 @@
       {
         "id": "getdispenseddrugs-request.anropandeVardpersonal.vardenhetHsaId",
         "path": "getdispenseddrugs-request.anropandeVardpersonal.vardenhetHsaId",
-        "short": "HSA-id för läsande vårdenhet",
+        "short": "vardenhetHsaId",
         "definition": "HSA-id för läsande vårdenhet. Används för spårbarhet.",
         "comment": "TKB-fält i Vardpersonal: `vardenhetHsaId` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..64",
         "min": 1,
@@ -163,7 +166,7 @@
       {
         "id": "getdispenseddrugs-request.anropandeVardpersonal.vardgivareHsaId",
         "path": "getdispenseddrugs-request.anropandeVardpersonal.vardgivareHsaId",
-        "short": "HSA-id för läsande vårdgivare",
+        "short": "vardgivareHsaId",
         "definition": "HSA-id för läsande vårdgivare. Används för spårbarhet.",
         "comment": "TKB-fält i Vardpersonal: `vardgivareHsaId` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..64",
         "min": 1,
@@ -177,7 +180,7 @@
       {
         "id": "getdispenseddrugs-request.forskrivarkod",
         "path": "getdispenseddrugs-request.forskrivarkod",
-        "short": "Förskrivarens individuella förskrivarkod",
+        "short": "forskrivarkod",
         "definition": "Förskrivarens individuella förskrivarkod. Gruppförskrivarkoder får ej användas. Valideras mot FORS. Obligatorisk om atkomsttyp = SAM",
         "comment": "TKB-fält: `forskrivarkod` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 7..7",
         "min": 0,
@@ -191,17 +194,24 @@
       {
         "id": "getdispenseddrugs-request.identifieradArbetsplats",
         "path": "getdispenseddrugs-request.identifieradArbetsplats",
-        "short": "Identifierad arbetsplats",
+        "short": "ArbetsplatsIdentifikation",
         "definition": "Identifierad arbetsplats.",
-        "comment": "TKB-fält: `identifieradArbetsplats` (`ArbetsplatsIdentifikation`, kardinalitet 1..1).\n\n**Modellanteckning:** XSD: ArbetsplatsIdentifikation (xs:choice). Exakt ett av arbetsplatskod och arbetsplats ska anges.",
+        "comment": "TKB-fält: `identifieradArbetsplats` (`ArbetsplatsIdentifikation`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ],
         "constraint": [
+          {
+            "key": "getdispenseddrugsrequest-choice-1",
+            "severity": "error",
+            "human": "Exakt ett av arbetsplatskod, arbetsplats ska anges (xs:choice i schemat).",
+            "expression": "arbetsplatskod.exists() xor arbetsplats.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs-request"
+          },
           {
             "key": "getdispenseddrugs-request-arbetsplats-choice",
             "severity": "error",
@@ -214,7 +224,7 @@
       {
         "id": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplatskod",
         "path": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplatskod",
-        "short": "Förskrivarens arbetsplatskod",
+        "short": "arbetsplatskod",
         "definition": "Del av val. Förskrivarens arbetsplatskod. Valideras. Obligatorisk om arbetsplats inte anges.",
         "comment": "TKB-fält i ArbetsplatsIdentifikation: `arbetsplatskod` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Fältlängder:** 1..20",
         "min": 0,
@@ -228,22 +238,22 @@
       {
         "id": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplats",
         "path": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplats",
-        "short": "Förskrivarens arbetsplats",
+        "short": "Arbetsplats",
         "definition": "Del av val. Förskrivarens arbetsplats. Obligatorisk om arbetsplatskod inte anges.",
         "comment": "TKB-fält i ArbetsplatsIdentifikation: `arbetsplats` (`Arbetsplats`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsnamn",
         "path": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsnamn",
-        "short": "Namnet på användarens arbetsplats",
-        "definition": "Fältlängd 1..64.",
+        "short": "arbetsplatsnamn",
+        "definition": "arbetsplatsnamn",
         "min": 1,
         "max": "1",
         "type": [
@@ -255,8 +265,8 @@
       {
         "id": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsort",
         "path": "getdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsort",
-        "short": "Orten för användarens arbetsplats",
-        "definition": "Fältlängd 1..28.",
+        "short": "arbetsplatsort",
+        "definition": "arbetsplatsort",
         "min": 1,
         "max": "1",
         "type": [
@@ -268,20 +278,16 @@
       {
         "id": "getdispenseddrugs-request.atkomsttyp",
         "path": "getdispenseddrugs-request.atkomsttyp",
-        "short": "Treställig kod för typ av åtkomst",
+        "short": "Treställig kod för typ av åtkomst.",
         "definition": "Treställig kod för typ av åtkomst.",
-        "comment": "TKB-fält: `atkomsttyp` (`atkomsttyp`, kardinalitet 1..1).\n\n**Modellanteckning:** ENG = engångssamtycke, SAM = samtycke (tillsvidaresamtycke), NOD = nödåtkomst.",
+        "comment": "TKB-fält: `atkomsttyp` (`atkomsttyp`, kardinalitet 1..1).\n\n**Modellanteckning:** Treställig kod för typ av åtkomst. Tillåtna värden: ENG, SAM, NOD.",
         "min": 1,
         "max": "1",
         "type": [
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/ValueSet/atkomsttyp-vs"
-        }
+        ]
       }
     ]
   }

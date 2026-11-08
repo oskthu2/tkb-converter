@@ -13,9 +13,7 @@ RuleSet: RegisterTemporaryExtendedRevokeRequestFieldDescriptions
 * revokedForEmployeeId ^definition = "Anger HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten."
 * revokedForEmployeeId ^comment = "TKB-fält: `revokedForEmployeeId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 0..1)."
 * registerAction ^definition = "Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa."
-* registerAction ^comment = "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* registerAction ^comment = "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1)."
 * registerAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * registerAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * registerAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."
@@ -30,7 +28,9 @@ RuleSet: RegisterTemporaryExtendedRevokeRequestFieldDescriptions
 * registerAction.registeredBy.assignmentName ^comment = "TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1)."
 * registerAction.reasonText ^comment = "TKB-fält: `../reasonText` (`ReasonText`, kardinalitet 0..1)."
 * revokeReason ^definition = "Enumerationsvärde för orsak till tillfällig hävning."
-* revokeReason ^comment = "TKB-fält: `revokeReason` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType`, kardinalitet 1..1)."
+* revokeReason ^comment = "TKB-fält: `revokeReason` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType`, kardinalitet 1..1).
+
+**Modellanteckning:** revokeReason Tillåtna värden: PatientsConsent, Emergency."
 * revokeReasonText ^definition = "Kompletterande text för orsak till tillfällig hävning."
 * revokeReasonText ^comment = "TKB-fält: `revokeReasonText` (`urn:riv:informationsecurity:authorization:blocking:4:ReasonText`, kardinalitet 0..1)."
 * replicationTimeout ^definition = "Anger hur replikering till nationell spärrtjänst ska ske.

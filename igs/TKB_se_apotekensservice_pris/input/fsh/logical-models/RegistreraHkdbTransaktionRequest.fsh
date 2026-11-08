@@ -1,3 +1,6 @@
+// Elementen genereras ur RegistreraHkdbTransaktionResponder_1.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: RegistreraHkdbTransaktion v1.1
 // Genererad: 2026-09-26
@@ -50,5 +53,4 @@ Characteristics: #can-be-target
 * ursprungligtExpeditionsId 0..1 string "ursprungligtExpeditionsId" "Expeditionens ursprungliga expeditionsid, ska anges vid kreditering"
 * ursprungligTransTid 0..1 dateTime "ursprungligTransTid" "Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur RegistreraHkdbTransaktionResponder_1.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1.1.)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert RegistreraHkdbTransaktionRequestFieldDescriptions

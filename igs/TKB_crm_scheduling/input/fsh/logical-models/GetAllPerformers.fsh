@@ -1,3 +1,6 @@
+// Elementen genereras ur GetAllPerformersResponder_1.1.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB crm:scheduling v1.1
 // Kontrakt: GetAllPerformers v1.1
 // Genererad: 2026-03-24
@@ -14,29 +17,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.1"
-* performerInfos 0..* BackboneElement "Lista med medarbetare"
-    """
-    Lista med medarbetare (PerformerInfoType).
-    Kardinalitet: Valfri, lista.
-    """
-  * performer 1..1 Identifier "HSA-id för bokningsbar medarbetare"
-      """
-      HSA-id för bokningsbar medarbetare.
-      OBS: I schemat stavas fältet 'perfomer' (felstavning, issue id 19). FSH-modellen använder korrekt stavning.
-      Kardinalitet: Obligatorisk.
-      """
-  * firstName 1..1 string "Medarbetarens förnamn"
-      """
-      Medarbetarens förnamn.
-      Kardinalitet: Obligatorisk.
-      """
-  * lastName 1..1 string "Medarbetarens efternamn"
-      """
-      Medarbetarens efternamn.
-      Kardinalitet: Obligatorisk.
-      """
-  * title 0..1 string "Medarbetarens titel"
-      """
-      Medarbetarens titel.
-      Kardinalitet: Valfri.
-      """
+* performerInfos 0..* Base "PerformerInfoType" "performerInfos"
+* performerInfos.perfomer 1..1 string "perfomer" "perfomer"
+* performerInfos.firstName 1..1 string "firstName" "firstName"
+* performerInfos.lastName 1..1 string "lastName" "lastName"
+* performerInfos.title 0..1 string "title" "title"

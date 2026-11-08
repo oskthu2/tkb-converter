@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetPatientRelationsForPatient\n(RIV-TA urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForPatientResponder:1).\nRepresenterar responsens informationsstruktur — lista med giltiga patientrelationer för en patient."
       },
       {
-        "id": "getpatientrelationsforpatient.result",
-        "path": "getpatientrelationsforpatient.result",
-        "short": "Svarskod och eventuellt resultatmeddelande",
-        "definition": "Innehåller resultCode och resultText. Alla koder förutom OK och INFO indikerar att åtgärden ej genomfördes.",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType",
+        "short": "GetPatientRelationsResultType",
+        "definition": "GetPatientRelationsResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.result.resultCode",
-        "path": "getpatientrelationsforpatient.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.Result",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.Result.ResultCode",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,10 +71,10 @@
         }
       },
       {
-        "id": "getpatientrelationsforpatient.result.resultText",
-        "path": "getpatientrelationsforpatient.result.resultText",
-        "short": "Optionellt felmeddelande (tomt om resultCode=OK)",
-        "definition": "Optionellt felmeddelande (tomt om resultCode=OK)",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.Result.ResultText",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,23 +84,23 @@
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations",
-        "path": "getpatientrelationsforpatient.patientRelations",
-        "short": "Lista med giltiga patientrelationer för patienten",
-        "definition": "Lista med aktiva patientrelationer. Ogiltiga (utgångna, makulerade, återkallade) returneras ej.",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations",
+        "short": "PatientRelationType",
+        "definition": "PatientRelations",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.patientRelationId",
-        "path": "getpatientrelationsforpatient.patientRelations.patientRelationId",
-        "short": "Unik UUID-identifierare för patientrelationen (max 36 tecken)",
-        "definition": "Unik UUID-identifierare för patientrelationen (max 36 tecken)",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.PatientRelationId",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.PatientRelationId",
+        "short": "PatientRelationId",
+        "definition": "PatientRelationId",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,10 +110,10 @@
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.patientId",
-        "path": "getpatientrelationsforpatient.patientRelations.patientId",
-        "short": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
-        "definition": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.PatientId",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
@@ -110,62 +123,49 @@
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.careProviderId",
-        "path": "getpatientrelationsforpatient.patientRelations.careProviderId",
-        "short": "Vårdgivare-id (HSA-id, max 32 tecken)",
-        "definition": "HSA-id för den vårdgivare som intyget är kopplat till.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.CareProviderId",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.careUnitId",
-        "path": "getpatientrelationsforpatient.patientRelations.careUnitId",
-        "short": "Vårdenhet-id (HSA-id, max 32 tecken)",
-        "definition": "HSA-id för den vårdenhet som intyget är kopplat till.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.CareUnitId",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.employeeId",
-        "path": "getpatientrelationsforpatient.patientRelations.employeeId",
-        "short": "Medarbetare-id (HSA-id, max 32 tecken)",
-        "definition": "HSA-id för den medarbetare som patientrelationen avser.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.EmployeeId",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.startDate",
-        "path": "getpatientrelationsforpatient.patientRelations.startDate",
-        "short": "Startdatum för patientrelationens giltighetstid",
-        "definition": "Startdatum för patientrelationens giltighetstid",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getpatientrelationsforpatient.patientRelations.endDate",
-        "path": "getpatientrelationsforpatient.patientRelations.endDate",
-        "short": "Slutdatum/tidpunkt då giltigheten går ut",
-        "definition": "Slutdatum/tidpunkt då giltigheten går ut",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.StartDate",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.StartDate",
+        "short": "StartDate",
+        "definition": "StartDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -175,10 +175,23 @@
         ]
       },
       {
-        "id": "getpatientrelationsforpatient.patientRelations.ownerId",
-        "path": "getpatientrelationsforpatient.patientRelations.ownerId",
-        "short": "Optionell identifierare för systemet som skapade patientrelationen (max 512 tecken)",
-        "definition": "Optionell identifierare för systemet som skapade patientrelationen (max 512 tecken)",
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.EndDate",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.EndDate",
+        "short": "EndDate",
+        "definition": "EndDate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.OwnerId",
+        "path": "getpatientrelationsforpatient.GetPatientRelationsResultType.PatientRelations.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
         "min": 0,
         "max": "1",
         "type": [

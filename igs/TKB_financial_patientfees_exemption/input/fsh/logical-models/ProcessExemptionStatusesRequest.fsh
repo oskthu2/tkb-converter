@@ -1,3 +1,6 @@
+// Elementen genereras ur ProcessExemptionStatusesResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för financial.patientfees.exemption v1.0 (Genererad ur scheman i riv.financial.patientfees.exemption, commit fbd046e11e50; scripts/xsd_to_ig.py)
 // Kontrakt: ProcessExemptionStatuses v1.0
 // Genererad: 2026-09-26
@@ -10,48 +13,30 @@ Description: """
   (urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution"
-* requestId 1..1 BackboneElement "requestId" "requestId"
-  * root 1..1 string "root" "root"
-  * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-* feeExemption 0..* BackboneElement "feeExemption" "feeExemption"
-  * patientId 1..1 BackboneElement "patientId" "patientId"
-    * root 1..1 string "root" "root"
-    * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-  * transactions 0..* BackboneElement "transactions" "transactions"
-    * fee 0..1 BackboneElement "fee" "fee"
-      * amount 1..1 decimal "amount" "amount"
-      * currency 1..1 BackboneElement "currency" "currency"
-        * cvCode 0..1 string "cvCode" "cvCode Heter code i schemat."
-        * codeSystem 0..1 string "codeSystem" "codeSystem"
-        * codeSystemName 0..1 string "codeSystemName" "codeSystemName"
-        * codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
-        * displayName 0..1 string "displayName" "displayName"
-        * originalText 0..1 string "originalText" "originalText"
-    * dateOfVisit 0..1 string "dateOfVisit" "dateOfVisit"
-    * timeOfRegistration 0..1 string "timeOfRegistration" "timeOfRegistration"
-    * typeOfFee 1..1 code "typeOfFee" "typeOfFee"
-    * typeOfFee from TypeOfExemptionVS (required)
-    * careGiver 0..1 BackboneElement "careGiver" "careGiver"
-      * root 1..1 string "root" "root"
-      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-    * careUnit 0..1 BackboneElement "careUnit" "careUnit"
-      * root 1..1 string "root" "root"
-      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-  * exemptions 0..* BackboneElement "exemptions" "exemptions"
-    * exemptionId 1..1 string "exemptionId" "exemptionId Heter id i schemat."
-    * highCostProtectionPeriod 1..1 BackboneElement "highCostProtectionPeriod" "highCostProtectionPeriod"
-      * start 0..1 string "start" "start"
-      * end 0..1 string "end" "end"
-    * exemptionPeriod 1..1 BackboneElement "exemptionPeriod" "exemptionPeriod"
-      * start 0..1 string "start" "start"
-      * end 0..1 string "end" "end"
-    * typeOfExemption 1..1 code "typeOfExemption" "typeOfExemption"
-    * typeOfExemption from TypeOfExemptionVS (required)
-    * region 1..1 BackboneElement "region" "region"
-      * root 1..1 string "root" "root"
-      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
+* requestId 1..1 IIType "requestId" "requestId"
+* feeExemption 0..* Base "FeeExemptionType" "feeExemption"
+* feeExemption.patientId 1..1 IIType "patientId" "patientId"
+* feeExemption.transactions 0..* Base "TransactionType" "transactions"
+* feeExemption.transactions.fee 0..1 Base "AmountType" "fee"
+* feeExemption.transactions.fee.amount 1..1 decimal "amount" "amount"
+* feeExemption.transactions.fee.currency 1..1 CVType "currency" "currency"
+* feeExemption.transactions.dateOfVisit 0..1 string "dateOfVisit" "dateOfVisit"
+* feeExemption.transactions.dateOfVisit only DateType
+* feeExemption.transactions.timeOfRegistration 0..1 string "timeOfRegistration" "timeOfRegistration"
+* feeExemption.transactions.timeOfRegistration only TimeStampType
+* feeExemption.transactions.typeOfFee 1..1 code "typeOfFee" "typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION."
+* feeExemption.transactions.typeOfFee from TypeOfExemptionVS (required)
+* feeExemption.transactions.careGiver 0..1 IIType "careGiver" "careGiver"
+* feeExemption.transactions.careUnit 0..1 IIType "careUnit" "careUnit"
+* feeExemption.exemptions 0..* Base "ExemptionType" "exemptions"
+* feeExemption.exemptions.id 1..1 string "id" "id"
+* feeExemption.exemptions.highCostProtectionPeriod 1..1 DatePeriodType "highCostProtectionPeriod" "highCostProtectionPeriod"
+* feeExemption.exemptions.exemptionPeriod 1..1 DatePeriodType "exemptionPeriod" "exemptionPeriod"
+* feeExemption.exemptions.typeOfExemption 1..1 code "typeOfExemption" "typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION."
+* feeExemption.exemptions.typeOfExemption from TypeOfExemptionVS (required)
+* feeExemption.exemptions.region 1..1 IIType "region" "region"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ProcessExemptionStatusesRequestFieldDescriptions

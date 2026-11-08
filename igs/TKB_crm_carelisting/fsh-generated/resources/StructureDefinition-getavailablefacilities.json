@@ -28,39 +28,25 @@
         "definition": "Logisk modell för tjänstekontraktet GetAvailableFacilities (Visa möjliga tjänsteutövare)\n(RIV-TA urn:riv:crm:carelisting:GetAvailableFacilitiesResponder:1).\nRepresenterar responsens informationsstruktur.\nHämtar lista med tillgängliga vårdenheter (tjänsteutövare) inom en region."
       },
       {
-        "id": "getavailablefacilities.healthcareFacilities",
-        "path": "getavailablefacilities.healthcareFacilities",
-        "short": "Lista med tillgängliga vårdenheter",
+        "id": "getavailablefacilities.healthcare_facilities",
+        "path": "getavailablefacilities.healthcare_facilities",
+        "short": "Facility",
         "definition": "Lista med tillgängliga vårdenheter.",
         "comment": "TKB-fält: `healthcare_facilities` (`Facility`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getavailablefacilities.healthcareFacilities.facilityId",
-        "path": "getavailablefacilities.healthcareFacilities.facilityId",
-        "short": "HSA-ID för vårdenheten",
+        "id": "getavailablefacilities.healthcare_facilities.facilityId",
+        "path": "getavailablefacilities.healthcare_facilities.facilityId",
+        "short": "facilityId",
         "definition": "HSA-ID för vårdenheten.",
-        "comment": "TKB-fält: `healthcare_facilities.facilityId` (`string (HsaIdType)`, kardinalitet 1..1).\n\n**Modellanteckning:** HSA-ID eller alternativt Orgnr+lokalt id för vårdenheten.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getavailablefacilities.healthcareFacilities.facilityName",
-        "path": "getavailablefacilities.healthcareFacilities.facilityName",
-        "short": "Namn på vårdenheten",
-        "definition": "Namn på vårdenheten.",
-        "comment": "TKB-fält: `healthcare_facilities.facilityName` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** Enhetens officiella namn.",
+        "comment": "TKB-fält: `healthcare_facilities.facilityId` (`string (HsaIdType)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -70,11 +56,11 @@
         ]
       },
       {
-        "id": "getavailablefacilities.healthcareFacilities.hasQueue",
-        "path": "getavailablefacilities.healthcareFacilities.hasQueue",
-        "short": "Indikerar om vårdenheten har kö",
+        "id": "getavailablefacilities.healthcare_facilities.hasQueue",
+        "path": "getavailablefacilities.healthcare_facilities.hasQueue",
+        "short": "Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten.",
         "definition": "Indikerar om vårdenheten har kö vid listningar.",
-        "comment": "TKB-fält: `healthcare_facilities.hasQueue` (`boolean`, kardinalitet 0..1).\n\n**Modellanteckning:** Boolskt värde som indikerar om vårdenheten har kö vid listningar.\nKan utelämnas om information saknas eller inte behövs i kontexten.",
+        "comment": "TKB-fält: `healthcare_facilities.hasQueue` (`boolean`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -84,13 +70,27 @@
         ]
       },
       {
-        "id": "getavailablefacilities.healthcareFacilities.supportedListingTypes",
-        "path": "getavailablefacilities.healthcareFacilities.supportedListingTypes",
-        "short": "Listningstyper som vårdenheten stödjer",
+        "id": "getavailablefacilities.healthcare_facilities.supportedListingTypes",
+        "path": "getavailablefacilities.healthcare_facilities.supportedListingTypes",
+        "short": "supportedListingTypes",
         "definition": "Lista med listningstyper som vårdenheten stödjer.",
-        "comment": "TKB-fält: `healthcare_facilities.supportedListingTypes` (`string (ListingType)`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med listningstyper som vårdenheten stödjer.\nKan utelämnas om information saknas eller inte behövs.",
+        "comment": "TKB-fält: `healthcare_facilities.supportedListingTypes` (`string (ListingType)`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.",
         "min": 0,
         "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailablefacilities.healthcare_facilities.facilityName",
+        "path": "getavailablefacilities.healthcare_facilities.facilityName",
+        "short": "Namn på vårdenheten.",
+        "definition": "Namn på vårdenheten.",
+        "comment": "TKB-fält: `healthcare_facilities.facilityName` (`string`, kardinalitet 1..1).",
+        "min": 1,
+        "max": "1",
         "type": [
           {
             "code": "string"

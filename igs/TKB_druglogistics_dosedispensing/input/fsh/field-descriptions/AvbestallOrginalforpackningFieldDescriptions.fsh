@@ -2,7 +2,9 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: AvbestallOrginalforpackningFieldDescriptions
-* resultatkod ^comment = "TKB-fält: `resultatkod` (`ResultatkodEnum`, kardinalitet 1..1)."
+* resultatkod ^comment = "TKB-fält: `resultatkod` (`ResultatkodEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultatkod Tillåtna värden: 1, 2, 3."
 * meddelandetext ^comment = "TKB-fält: `meddelandetext` (`string`, kardinalitet 1..1)."
 * meddelandeid ^comment = "TKB-fält: `meddelandeid` (`int`, kardinalitet 1..1)."
 * Bestallningsrader ^comment = "TKB-fält: `Bestallningsrader` (`BestallningsinfoResponse`, kardinalitet 0..*)."
@@ -15,7 +17,9 @@ RuleSet: AvbestallOrginalforpackningFieldDescriptions
 * Bestallningsrader.Patientinformation.mellannamn ^comment = "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1)."
 * Bestallningsrader.Patientinformation.efternamn ^definition = "Anvandarens efternamn."
 * Bestallningsrader.Patientinformation.efternamn ^comment = "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1)."
-* Bestallningsrader.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1)."
+* Bestallningsrader.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S."
 * Bestallningsrader.Patientinformation.personid ^definition = "Anvandarens personid"
 * Bestallningsrader.Patientinformation.personid ^comment = "TKB-fält: `../../personid` (`string`, kardinalitet 1..1)."
 * Bestallningsrader.Patientinformation.lanskod ^definition = "Anvandarens folkbokforda lanskod"
@@ -29,7 +33,9 @@ RuleSet: AvbestallOrginalforpackningFieldDescriptions
 * Bestallningsrader.dosunderlagsversion ^comment = "TKB-fält: `../dosunderlagsversion` (`string`, kardinalitet 0..1)."
 * Bestallningsrader.bestallningsresultat ^comment = "TKB-fält: `../bestallningsresultat` (`int`, kardinalitet 0..1)."
 * Bestallningsrader.bestallningsresultattext ^comment = "TKB-fält: `../bestallningsresultattext` (`string`, kardinalitet 0..1)."
-* Bestallningsrader.bestallningsstatus ^comment = "TKB-fält: `../bestallningsstatus` (`BestallningsStatusEnum`, kardinalitet 1..1)."
+* Bestallningsrader.bestallningsstatus ^comment = "TKB-fält: `../bestallningsstatus` (`BestallningsStatusEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** bestallningsstatus Tillåtna värden: 1, 2, 3, 4, 5."
 * Bestallningsrader.statustidpunkt ^comment = "TKB-fält: `../statustidpunkt` (`dateTime`, kardinalitet 1..1)."
 * Bestallningsrader.bestallningstatustext ^comment = "TKB-fält: `../bestallningstatustext` (`string`, kardinalitet 0..1)."
 * Bestallningsrader.meddelandefranapotek ^comment = "TKB-fält: `../meddelandefranapotek` (`string`, kardinalitet 0..1)."

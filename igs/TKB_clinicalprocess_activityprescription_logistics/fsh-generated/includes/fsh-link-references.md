@@ -2,6 +2,7 @@
 [AtkomsttypVS]: ValueSet-atkomsttyp-vs.html
 [GetDispensedDrugs]: StructureDefinition-getdispenseddrugs.html
 [GetDispensedDrugsRequest]: StructureDefinition-getdispenseddrugs-request.html
+[OID]: StructureDefinition-OID.html
 [PrintListOfDispensedDrugs]: StructureDefinition-printlistofdispenseddrugs.html
 [PrintListOfDispensedDrugsRequest]: StructureDefinition-printlistofdispenseddrugs-request.html
 [ResultCodeVS]: ValueSet-resultcode-vs.html

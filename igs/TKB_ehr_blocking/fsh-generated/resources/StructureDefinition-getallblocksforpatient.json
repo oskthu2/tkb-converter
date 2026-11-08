@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetAllBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:querying:GetAllBlocksForPatientResponder:2).\nLäser alla nationellt kända/lagrade spärrar för en viss patient.\nRepresenterar responsens informationsstruktur."
       },
       {
-        "id": "getallblocksforpatient.result",
-        "path": "getallblocksforpatient.result",
-        "short": "Resultat av anropet",
-        "definition": "Resultat av anropet",
+        "id": "getallblocksforpatient.BlockHeaderType",
+        "path": "getallblocksforpatient.BlockHeaderType",
+        "short": "BlockHeaderType",
+        "definition": "BlockHeaderType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getallblocksforpatient.result.resultCode",
-        "path": "getallblocksforpatient.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "getallblocksforpatient.BlockHeaderType.Result",
+        "path": "getallblocksforpatient.BlockHeaderType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.Result.ResultCode",
+        "path": "getallblocksforpatient.BlockHeaderType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,36 +71,10 @@
         }
       },
       {
-        "id": "getallblocksforpatient.result.resultText",
-        "path": "getallblocksforpatient.result.resultText",
-        "short": "Beskrivande text till svarskoden",
-        "definition": "Beskrivande text till svarskoden",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.blocks",
-        "path": "getallblocksforpatient.blocks",
-        "short": "Lista över funna aktiva spärrar för angiven patient",
-        "definition": "Lista över funna aktiva spärrar för angiven patient",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.blocks.blockId",
-        "path": "getallblocksforpatient.blocks.blockId",
-        "short": "Unik identifierare för spärren (UUID)",
-        "definition": "Unik identifierare för spärren (UUID)",
+        "id": "getallblocksforpatient.BlockHeaderType.Result.ResultText",
+        "path": "getallblocksforpatient.BlockHeaderType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,10 +84,36 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.blockType",
-        "path": "getallblocksforpatient.blocks.blockType",
-        "short": "Typ av spärr",
-        "definition": "Typ av spärr",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks",
+        "short": "BlockType",
+        "definition": "Blocks",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.BlockId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.BlockId",
+        "short": "BlockId",
+        "definition": "BlockId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.BlockType",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.BlockType",
+        "short": "BlockType",
+        "definition": "BlockType Tillåtna värden: Inner, Outer.",
         "min": 1,
         "max": "1",
         "type": [
@@ -114,10 +127,10 @@
         }
       },
       {
-        "id": "getallblocksforpatient.blocks.patientId",
-        "path": "getallblocksforpatient.blocks.patientId",
-        "short": "Patientens personnummer eller samordningsnummer",
-        "definition": "Patientens personnummer eller samordningsnummer",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.PatientId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
@@ -127,10 +140,10 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.informationStartDate",
-        "path": "getallblocksforpatient.blocks.informationStartDate",
-        "short": "Startdatum för vilken information spärren gäller",
-        "definition": "Startdatum för vilken information spärren gäller",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.InformationStartDate",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.InformationStartDate",
+        "short": "InformationStartDate",
+        "definition": "InformationStartDate",
         "min": 0,
         "max": "1",
         "type": [
@@ -140,10 +153,10 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.informationEndDate",
-        "path": "getallblocksforpatient.blocks.informationEndDate",
-        "short": "Slutdatum för vilken information spärren gäller",
-        "definition": "Slutdatum för vilken information spärren gäller",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.InformationEndDate",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.InformationEndDate",
+        "short": "InformationEndDate",
+        "definition": "InformationEndDate",
         "min": 0,
         "max": "1",
         "type": [
@@ -153,10 +166,10 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.informationCareUnitId",
-        "path": "getallblocksforpatient.blocks.informationCareUnitId",
-        "short": "HSA-id för vårdenhet (vid inre spärr)",
-        "definition": "HSA-id för vårdenhet (vid inre spärr)",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.InformationCareUnitId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.InformationCareUnitId",
+        "short": "InformationCareUnitId",
+        "definition": "InformationCareUnitId",
         "min": 0,
         "max": "1",
         "type": [
@@ -166,10 +179,10 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.informationCareProviderId",
-        "path": "getallblocksforpatient.blocks.informationCareProviderId",
-        "short": "HSA-id för vårdgivare",
-        "definition": "HSA-id för vårdgivare",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.InformationCareProviderId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.InformationCareProviderId",
+        "short": "InformationCareProviderId",
+        "definition": "InformationCareProviderId",
         "min": 1,
         "max": "1",
         "type": [
@@ -179,23 +192,23 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.excludedInformationTypes",
-        "path": "getallblocksforpatient.blocks.excludedInformationTypes",
-        "short": "Informationstyper undantagna från spärren",
-        "definition": "Informationstyper undantagna från spärren",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes",
+        "short": "InformationTypeType",
+        "definition": "ExcludedInformationTypes",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.excludedInformationTypes.infoTypeId",
-        "path": "getallblocksforpatient.blocks.excludedInformationTypes.infoTypeId",
-        "short": "ID för informationstypen",
-        "definition": "ID för informationstypen",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId",
+        "short": "InfoTypeId",
+        "definition": "InfoTypeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -205,10 +218,10 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.excludedInformationTypes.infoTypeDescription",
-        "path": "getallblocksforpatient.blocks.excludedInformationTypes.infoTypeDescription",
-        "short": "Beskrivning av informationstypen",
-        "definition": "Beskrivning av informationstypen",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription",
+        "short": "InfoTypeDescription",
+        "definition": "InfoTypeDescription",
         "min": 1,
         "max": "1",
         "type": [
@@ -218,23 +231,23 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.temporaryRevokes",
-        "path": "getallblocksforpatient.blocks.temporaryRevokes",
-        "short": "Aktiva tillfälliga hävningar",
-        "definition": "Aktiva tillfälliga hävningar",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes",
+        "short": "TemporaryRevokeType",
+        "definition": "TemporaryRevokes",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.temporaryRevokes.temporaryRevokeId",
-        "path": "getallblocksforpatient.blocks.temporaryRevokes.temporaryRevokeId",
-        "short": "Unik ID för tillfällig hävning",
-        "definition": "Unik ID för tillfällig hävning",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId",
+        "short": "TemporaryRevokeId",
+        "definition": "TemporaryRevokeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -244,75 +257,10 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.blocks.temporaryRevokes.endDate",
-        "path": "getallblocksforpatient.blocks.temporaryRevokes.endDate",
-        "short": "Datum när hävningen upphör",
-        "definition": "Datum när hävningen upphör",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
-        "path": "getallblocksforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
-        "short": "HSA-id för vårdenhet med hävning",
-        "definition": "HSA-id för vårdenhet med hävning",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
-        "path": "getallblocksforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
-        "short": "HSA-id för enskild medarbetare",
-        "definition": "HSA-id för enskild medarbetare",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.blocks.temporaryRevokes.ownerId",
-        "path": "getallblocksforpatient.blocks.temporaryRevokes.ownerId",
-        "short": "System som registrerade hävningen",
-        "definition": "System som registrerade hävningen",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.blocks.ownerId",
-        "path": "getallblocksforpatient.blocks.ownerId",
-        "short": "System som registrerade spärren",
-        "definition": "System som registrerade spärren",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getallblocksforpatient.nextCreatedOnOrAfter",
-        "path": "getallblocksforpatient.nextCreatedOnOrAfter",
-        "short": "Tidsstämpel för nästa inkrementella hämtning",
-        "definition": "Tidsstämpel för nästa inkrementella hämtning",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.EndDate",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.EndDate",
+        "short": "EndDate",
+        "definition": "EndDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -322,10 +270,75 @@
         ]
       },
       {
-        "id": "getallblocksforpatient.latestCancellation",
-        "path": "getallblocksforpatient.latestCancellation",
-        "short": "Senaste makulerings- eller hävningstidpunkt",
-        "definition": "Senaste makulerings- eller hävningstidpunkt",
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId",
+        "short": "RevokedForCareUnitId",
+        "definition": "RevokedForCareUnitId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId",
+        "short": "RevokedForEmployeeId",
+        "definition": "RevokedForEmployeeId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.Blocks.OwnerId",
+        "path": "getallblocksforpatient.BlockHeaderType.Blocks.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.NextCreatedOnOrAfter",
+        "path": "getallblocksforpatient.BlockHeaderType.NextCreatedOnOrAfter",
+        "short": "NextCreatedOnOrAfter",
+        "definition": "NextCreatedOnOrAfter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getallblocksforpatient.BlockHeaderType.LatestCancellation",
+        "path": "getallblocksforpatient.BlockHeaderType.LatestCancellation",
+        "short": "LatestCancellation",
+        "definition": "LatestCancellation",
         "min": 1,
         "max": "1",
         "type": [

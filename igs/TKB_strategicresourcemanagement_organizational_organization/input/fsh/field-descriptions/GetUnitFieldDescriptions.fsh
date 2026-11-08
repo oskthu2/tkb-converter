@@ -142,10 +142,8 @@ enhetens namn `<blanktecken>` location"
 * unit.unitExtraInformation ^comment = "TKB-fält: `..unitExtraInformation` (`String`, kardinalitet 0..1)."
 * unit.unitFunction ^definition = "Information från direkt underliggande funktionsobjekt med  reservera funktionsnamn Avbokning Rådgivning"
 * unit.unitFunction ^comment = "TKB-fält: `..unitFunction` (`UnitFunctionType`, kardinalitet 0..n)."
-* unit.unitFunction.unitFunctionName ^definition = "unktionens namn (se )."
-* unit.unitFunction.unitFunctionName ^comment = "TKB-fält: `.. ..name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** unitFunctionName Heter name i schemat."
+* unit.unitFunction.name ^definition = "unktionens namn (se )."
+* unit.unitFunction.name ^comment = "TKB-fält: `.. ..name` (`String`, kardinalitet 1..1)."
 * unit.unitFunction.telephoneHour ^definition = "Telefontider för telefonnummer i parametern telephoneNumber."
 * unit.unitFunction.telephoneHour ^comment = "TKB-fält: `.. ..telephoneHour` (`TimeSpan`, kardinalitet 0..n)."
 * unit.unitFunction.telephoneHour.fromDay ^definition = "Från dag. Måndag (1) – Söndag (7)."

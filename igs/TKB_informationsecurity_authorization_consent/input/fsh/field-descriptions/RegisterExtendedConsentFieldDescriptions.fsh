@@ -3,8 +3,8 @@
 
 RuleSet: RegisterExtendedConsentFieldDescriptions
 * result ^definition = "Status för om tjänsten utfördes."
-* result ^comment = "TKB-fält: `result` (`urn:riv:informationsecurity:authorization:consent:2:ResultType`, kardinalitet 1..1).
+* result ^comment = "TKB-fält: `result` (`urn:riv:informationsecurity:authorization:consent:2:ResultType`, kardinalitet 1..1)."
+* result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeType`, kardinalitet 1..1).
 
-**Modellanteckning:** Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
-* result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeType`, kardinalitet 1..1)."
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
 * result.resultText ^comment = "TKB-fält: `../resultText` (`string`, kardinalitet 0..1)."

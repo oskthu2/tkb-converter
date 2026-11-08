@@ -1,11 +1,9 @@
+// Elementen genereras ur GetCommissionsForPersonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:commission v1.0 RC1
 // Kontrakt: GetCommissionsForPerson v1.0 — Request
 // Genererad: 2026-04-09
-
-Invariant: getcommissionsforperson-request-hsaid-xor-pnr
-Description: "Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler)."
-Expression: "personalHsaId.exists() xor personalIdentityNumber.exists()"
-Severity: #error
 
 Logical: GetCommissionsForPersonRequest
 Id: getcommissionsforperson-request
@@ -36,5 +34,9 @@ Characteristics: #can-be-target
     Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.
     """
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetCommissionsForPersonRequestFieldDescriptions
+
+Invariant: getcommissionsforperson-request-hsaid-xor-pnr
+Description: "Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler)."
+Expression: "personalHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error

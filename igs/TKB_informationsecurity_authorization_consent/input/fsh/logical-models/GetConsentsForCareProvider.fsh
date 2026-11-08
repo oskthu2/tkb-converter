@@ -1,3 +1,6 @@
+// Elementen genereras ur GetConsentsForCareProviderResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för informationsecurity.authorization.consent v2.0.4 (Genererad ur scheman i riv.informationsecurity.authorization.consent, tagg 2.0.4; scripts/xsd_to_ig.py)
 // Kontrakt: GetConsentsForCareProvider v2.0
 // Genererad: 2026-09-26
@@ -10,32 +13,31 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2, GetConsentsForCareProviderResponseType).
 """
 Characteristics: #can-be-target
+
 * ^version = "2.0"
-* getAllAssertionsResult 1..1 BackboneElement "getAllAssertionsResult" "Datatyp som representerar en lista med giltiga intyg tillsammans med en lista av makulerade och återkallade intyg. Den används för att dela upp svaret från tjänsten i mindre delar baserat på tidpunkt. Datatypen innehåller information om det finns ytterligare intyg att hämta samt en ny starttidpunkt för när nästa sekvens av intyg startar. Datatypen utökar datatypen Result."
-  * result 1..1 BackboneElement "result" "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
-    * resultCode 1..1 code "resultCode" "resultCode"
-    * resultCode from ResultCodeVS (required)
-    * resultText 0..1 string "resultText" "resultText"
-  * moreOnOrAfter 1..1 dateTime "moreOnOrAfter" "moreOnOrAfter"
-  * hasMore 1..1 boolean "hasMore" "hasMore"
-  * assertions 0..* BackboneElement "assertions" "Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg."
-    * assertionId 1..1 string "assertionId" "assertionId"
-    * assertionType 1..1 code "assertionType" "assertionType"
-    * assertionType from AssertionTypeVS (required)
-    * scope 1..1 code "scope" "scope"
-    * scope from ScopeVS (required)
-    * careProviderId 1..1 string "careProviderId" "careProviderId"
-    * careUnitId 1..1 string "careUnitId" "careUnitId"
-    * employeeId 0..1 string "employeeId" "employeeId"
-    * startDate 1..1 dateTime "startDate" "startDate"
-    * endDate 0..1 dateTime "endDate" "endDate"
-    * ownerId 0..1 string "ownerId" "ownerId"
-    * patientId 1..1 BackboneElement "patientId" "En universellt unik identifierare."
-      * root 1..1 string "root" "root"
-      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-  * cancelledAssertions 0..* BackboneElement "cancelledAssertions" "Datatyp som representerar ett makulerat eller återkallat samtycke samt tidpunkten när makuleringen eller återkallan utfördes."
-    * assertionId 1..1 string "assertionId" "assertionId"
-    * cancellationDate 1..1 dateTime "cancellationDate" "cancellationDate"
+* getAllAssertionsResult 1..1 Base "GetAllAssertionsResultType" "getAllAssertionsResult"
+* getAllAssertionsResult.result 1..1 Base "ResultType" "result"
+* getAllAssertionsResult.result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* getAllAssertionsResult.result.resultCode from ResultCodeVS (required)
+* getAllAssertionsResult.result.resultText 0..1 string "resultText" "resultText"
+* getAllAssertionsResult.moreOnOrAfter 1..1 dateTime "moreOnOrAfter" "moreOnOrAfter"
+* getAllAssertionsResult.hasMore 1..1 boolean "hasMore" "hasMore"
+* getAllAssertionsResult.assertions 0..* Base "PDLAssertionType" "assertions"
+* getAllAssertionsResult.assertions.assertionId 1..1 string "assertionId" "assertionId"
+* getAllAssertionsResult.assertions.assertionType 1..1 code "assertionType" "assertionType Tillåtna värden: Consent, Emergency."
+* getAllAssertionsResult.assertions.assertionType from AssertionTypeVS (required)
+* getAllAssertionsResult.assertions.scope 1..1 code "scope" "scope Tillåtna värden: NationalLevel."
+* getAllAssertionsResult.assertions.scope from ScopeVS (required)
+* getAllAssertionsResult.assertions.careProviderId 1..1 string "careProviderId" "careProviderId"
+* getAllAssertionsResult.assertions.careUnitId 1..1 string "careUnitId" "careUnitId"
+* getAllAssertionsResult.assertions.employeeId 0..1 string "employeeId" "employeeId"
+* getAllAssertionsResult.assertions.startDate 1..1 dateTime "startDate" "startDate"
+* getAllAssertionsResult.assertions.endDate 0..1 dateTime "endDate" "endDate"
+* getAllAssertionsResult.assertions.ownerId 0..1 string "ownerId" "ownerId"
+* getAllAssertionsResult.assertions.patientId 1..1 IIType "patientId" "patientId"
+* getAllAssertionsResult.cancelledAssertions 0..* Base "CancelledAssertionType" "cancelledAssertions"
+* getAllAssertionsResult.cancelledAssertions.assertionId 1..1 string "assertionId" "assertionId"
+* getAllAssertionsResult.cancelledAssertions.cancellationDate 1..1 dateTime "cancellationDate" "cancellationDate"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetConsentsForCareProviderFieldDescriptions

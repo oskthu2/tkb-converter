@@ -1,3 +1,6 @@
+// Elementen genereras ur CheckConsentResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: CheckConsent v1.0
 // RIV-TA: urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1
@@ -18,14 +21,11 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Statusinformation för anropet"
-  * resultCode 1..1 CodeableConcept "Svarskod"
-  * resultCode from ResultCodeVS (required)
-  * resultText 1..1 string "Fritext beskrivning av resultatet"
-* hasConsent 1..1 boolean "Om ett giltigt intyg gällande åtkomst för angiven aktör hittades"
-* assertionType 0..1 CodeableConcept "Typ av funnet intyg (Consent eller Emergency)"
-  """
-  Returneras om ett giltigt intyg hittades (hasConsent = true).
-  Anger om det är ett samtycke eller nödsituationsintyg.
-  """
-* assertionType from AssertionTypeVS (required)
+* CheckResultType 1..1 Base "CheckResultType" "CheckResultType"
+* CheckResultType.Result 1..1 Base "ResultType" "Result"
+* CheckResultType.Result.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* CheckResultType.Result.ResultCode from ResultCodeVS (required)
+* CheckResultType.Result.ResultText 1..1 string "ResultText" "ResultText"
+* CheckResultType.HasConsent 1..1 boolean "HasConsent" "HasConsent"
+* CheckResultType.AssertionType 0..1 code "AssertionType" "AssertionType Tillåtna värden: Consent, Emergency."
+* CheckResultType.AssertionType from AssertionTypeVS (required)

@@ -28,49 +28,192 @@
         "definition": "Logisk modell för requestparametrar i SaveFormPage."
       },
       {
-        "id": "saveformpage-request.formID",
-        "path": "saveformpage-request.formID",
-        "short": "Formulär-id",
-        "definition": "Formulärets unika id.",
+        "id": "saveformpage-request.formId",
+        "path": "saveformpage-request.formId",
+        "short": "formId",
+        "definition": "formId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "saveformpage-request.pageAnswers",
-        "path": "saveformpage-request.pageAnswers",
-        "short": "Svar på sida (PageAnswerType)",
-        "definition": "Invånarens besvarade frågor för aktuell sida.",
+        "id": "saveformpage-request.pageAnswer",
+        "path": "saveformpage-request.pageAnswer",
+        "short": "PageAnswerType",
+        "definition": "pageAnswer",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.pageNumber",
+        "path": "saveformpage-request.pageAnswer.pageNumber",
+        "short": "pageNumber",
+        "definition": "pageNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks",
+        "short": "QuestionBlockAnswersType",
+        "definition": "questionAnswerBlocks",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.blockNumber",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.blockNumber",
+        "short": "blockNumber",
+        "definition": "blockNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers",
+        "short": "QuestionAnswerType",
+        "definition": "questionAnswers",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers",
+        "short": "AnswerType",
+        "definition": "answers",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerAlternativeNumber",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerAlternativeNumber",
+        "short": "Svarsalternativets id/nummer.",
+        "definition": "Svarsalternativets id/nummer.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerStatus",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerStatus",
+        "short": "AnswerStatusType",
+        "definition": "answerStatus",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerStatus.resultCode",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerStatus.resultCode",
+        "short": "resultCode",
+        "definition": "Signalerar om frågan är ifylld på ett felaktigt sätt. Felkod. OK - Transaktion utförd INFO - Transaktion utförd med kommentar. ERROR - Transaktion ej genomförd Tillåtna värden: OK, ERROR, INFO.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerStatus.resultCodeText",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.answerStatus.resultCodeText",
+        "short": "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+        "definition": "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.value",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.answers.value",
+        "short": "Patientens/användarens svar.",
+        "definition": "Patientens/användarens svar.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.questionNumber",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlocks.questionAnswers.questionNumber",
+        "short": "questionNumber",
+        "definition": "questionNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
           }
         ]
       },
       {
         "id": "saveformpage-request.subjectOfCare",
         "path": "saveformpage-request.subjectOfCare",
-        "short": "Personnummer",
-        "definition": "Starkt autentiserad användares personnummer.",
+        "short": "subjectOfCare",
+        "definition": "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "saveformpage-request.temporarySave",
         "path": "saveformpage-request.temporarySave",
-        "short": "Temporärspara",
-        "definition": "True = temporär sparning (utan validering), False/utelämnad = normal hantering.",
+        "short": "Formuläret skall sparas temporärt. - Indata skall ej valideras. - Samma CurrentPage returneras.",
+        "definition": "Formuläret skall sparas temporärt. - Indata skall ej valideras. - Samma CurrentPage returneras.",
         "min": 0,
         "max": "1",
         "type": [
@@ -82,39 +225,39 @@
       {
         "id": "saveformpage-request.actor",
         "path": "saveformpage-request.actor",
-        "short": "Aktör",
-        "definition": "Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal.",
+        "short": "ActorType",
+        "definition": "actor",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "saveformpage-request.actor.actorType",
-        "path": "saveformpage-request.actor.actorType",
-        "short": "Aktörstyp",
-        "definition": "Typ av aktör.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "saveformpage-request.actor.actorId",
         "path": "saveformpage-request.actor.actorId",
-        "short": "Aktörs-id",
-        "definition": "Identifierare för aktören.",
-        "min": 0,
+        "short": "actorId",
+        "definition": "actorId",
+        "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.actor.actorType",
+        "path": "saveformpage-request.actor.actorType",
+        "short": "actorType",
+        "definition": "actorType Tillåtna värden: CITIZEN, GUARDIAN, CAREGIVER.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ]
       }

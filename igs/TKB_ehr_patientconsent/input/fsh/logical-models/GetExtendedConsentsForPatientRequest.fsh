@@ -1,3 +1,6 @@
+// Elementen genereras ur GetExtendedConsentsForPatientResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: GetExtendedConsentsForPatient v1.0 — Request-modell
 // RIV-TA: urn:riv:ehr:patientconsent:administration:GetExtendedConsentsForPatientResponder:1
@@ -23,5 +26,4 @@ Characteristics: #can-be-target
   Om true returneras även makulerade, återkallade och utgångna intyg.
   """
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetExtendedConsentsForPatientRequestFieldDescriptions

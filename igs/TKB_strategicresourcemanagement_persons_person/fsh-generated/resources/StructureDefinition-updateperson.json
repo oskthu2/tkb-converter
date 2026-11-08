@@ -30,28 +30,28 @@
       {
         "id": "updateperson.updatePersonResult",
         "path": "updateperson.updatePersonResult",
-        "short": "updatePersonResult",
+        "short": "UpdatePersonResultType",
         "definition": "UpdatePersonResult med status för om tjänsten utfördes, samt eventuellt uppdaterad/skapad personpost. För felkoder, se datatyp resultType",
         "comment": "TKB-fält: `updatePersonResult` (`urn:riv:strategicresourcemanagement:persons:person:5:UpdatePersonResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.result",
         "path": "updateperson.updatePersonResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -59,8 +59,8 @@
         "id": "updateperson.updatePersonResult.result.resultCode",
         "path": "updateperson.updatePersonResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, ERROR.",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR.",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,14 +90,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord",
         "path": "updateperson.updatePersonResult.personRecord",
-        "short": "personRecord",
+        "short": "PersonRecordType",
         "definition": "Grupp för personpost",
         "comment": "TKB-fält: `../personRecord` (`PersonRecordType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -111,35 +111,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.personalIdentity.root",
-        "path": "updateperson.updatePersonResult.personRecord.personalIdentity.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.personalIdentity.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.personalIdentity.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -160,14 +132,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.identityLevelDate",
         "path": "updateperson.updatePersonResult.personRecord.identityLevelDate",
-        "short": "identityLevelDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../identityLevelDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -175,8 +147,8 @@
         "id": "updateperson.updatePersonResult.personRecord.identityLevelDate.format",
         "path": "updateperson.updatePersonResult.personRecord.identityLevelDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -190,11 +162,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.identityLevelDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.identityLevelDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.identityLevelDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.identityLevelDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -260,11 +232,11 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordVersion",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordVersion",
-        "short": "personRecordVersion",
-        "definition": "personRecordVersion Heter version i schemat.",
-        "comment": "TKB-fält: `../../version` (`Timestamp`, kardinalitet 0..1).\n\n**Modellanteckning:** personRecordVersion Heter version i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.version",
+        "path": "updateperson.updatePersonResult.personRecord.version",
+        "short": "version",
+        "definition": "version",
+        "comment": "TKB-fält: `../../version` (`Timestamp`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -274,22 +246,22 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordName",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordName",
-        "short": "personRecordName",
+        "id": "updateperson.updatePersonResult.personRecord.name",
+        "path": "updateperson.updatePersonResult.personRecord.name",
+        "short": "NameType",
         "definition": "Namn",
-        "comment": "TKB-fält: `../../name` (`NameType`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn Heter name i schemat.",
+        "comment": "TKB-fält: `../../name` (`NameType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordName.givenNameIndicator",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordName.givenNameIndicator",
+        "id": "updateperson.updatePersonResult.personRecord.name.givenNameIndicator",
+        "path": "updateperson.updatePersonResult.personRecord.name.givenNameIndicator",
         "short": "givenNameIndicator",
         "definition": "givenNameIndicator",
         "comment": "TKB-fält: `../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1).",
@@ -302,8 +274,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordName.givenName",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordName.givenName",
+        "id": "updateperson.updatePersonResult.personRecord.name.givenName",
+        "path": "updateperson.updatePersonResult.personRecord.name.givenName",
         "short": "givenName",
         "definition": "givenName",
         "comment": "TKB-fält: `../../../givenName` (`String80`, kardinalitet 0..1).",
@@ -316,8 +288,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordName.middleName",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordName.middleName",
+        "id": "updateperson.updatePersonResult.personRecord.name.middleName",
+        "path": "updateperson.updatePersonResult.personRecord.name.middleName",
         "short": "middleName",
         "definition": "middleName",
         "comment": "TKB-fält: `../../../middleName` (`String80`, kardinalitet 0..1).",
@@ -330,8 +302,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordName.surname",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordName.surname",
+        "id": "updateperson.updatePersonResult.personRecord.name.surname",
+        "path": "updateperson.updatePersonResult.personRecord.name.surname",
         "short": "surname",
         "definition": "surname",
         "comment": "TKB-fält: `../../../surname` (`String80`, kardinalitet 0..1).",
@@ -344,8 +316,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personRecordName.notificationName",
-        "path": "updateperson.updatePersonResult.personRecord.personRecordName.notificationName",
+        "id": "updateperson.updatePersonResult.personRecord.name.notificationName",
+        "path": "updateperson.updatePersonResult.personRecord.name.notificationName",
         "short": "notificationName",
         "definition": "notificationName",
         "comment": "TKB-fält: `../../../notificationName` (`String40`, kardinalitet 0..1).",
@@ -360,14 +332,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.linkedIdentity",
         "path": "updateperson.updatePersonResult.personRecord.linkedIdentity",
-        "short": "linkedIdentity",
+        "short": "LinkedIdentityType",
         "definition": "Klass för att koppla ihop 2 identiteter. Ex en nationell reservidentitet till ett PNR",
         "comment": "TKB-fält: `../../linkedIdentity` (`LinkedIdentityType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -381,35 +353,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.linkedIdentity.referredPersonalIdentity.root",
-        "path": "updateperson.updatePersonResult.personRecord.linkedIdentity.referredPersonalIdentity.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.linkedIdentity.referredPersonalIdentity.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.linkedIdentity.referredPersonalIdentity.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -444,14 +388,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.referredPersonalIdentities",
         "path": "updateperson.updatePersonResult.personRecord.referredPersonalIdentities",
-        "short": "referredPersonalIdentities",
+        "short": "ReferredPersonalIdentityType",
         "definition": "Klass för Hänvisningspersonnummer. För de personer som bytt personnummer anges tidigare personnummer/samordningsnummer som hänvisningspersonnummer. Det gamla personnumret/samordningsnumret utgör även det en egen personpost. I det fallet anges det nya personnumret som hänvisningspersonnummer. En person kan få nytt personnummer efter exempelvis ändring av en persons födelsetid eller vid beslut om ändrad könstillhörighet. Klassen håller ihop personidentiteter av typerna personnummer och samordningsnummer enligt Skatteverket till skillnad från klassen KoppladIdenitet som är Personuppgiftstjänstens egna klass för att kunna koppla ihop alla typer av personidentiteter (inkl. reservidentiteter).",
         "comment": "TKB-fält: `../../referredPersonalIdentities` (`ReferredPersonalIdentityType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -465,35 +409,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.referredPersonalIdentities.referredPersonalIdentity.root",
-        "path": "updateperson.updatePersonResult.personRecord.referredPersonalIdentities.referredPersonalIdentity.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.referredPersonalIdentities.referredPersonalIdentity.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.referredPersonalIdentities.referredPersonalIdentity.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -514,28 +430,28 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.birth",
         "path": "updateperson.updatePersonResult.personRecord.birth",
-        "short": "birth",
+        "short": "BirthType",
         "definition": "Uppgifter om födelse",
         "comment": "TKB-fält: `../../birth` (`BirthType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth",
         "path": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth",
-        "short": "dateOfBirth",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -543,8 +459,8 @@
         "id": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth.format",
         "path": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -558,11 +474,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth.value",
+        "path": "updateperson.updatePersonResult.personRecord.birth.dateOfBirth.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -574,14 +490,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.birth.placeOfBirthSweden",
         "path": "updateperson.updatePersonResult.personRecord.birth.placeOfBirthSweden",
-        "short": "placeOfBirthSweden",
+        "short": "PlaceOfBirthSwedenType",
         "definition": "Uppgifter om hemort i Sverige",
         "comment": "TKB-fält: `../../../placeOfBirthSweden` (`PlaceOfBirthSwedenType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -616,14 +532,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.birth.birthAbroad",
         "path": "updateperson.updatePersonResult.personRecord.birth.birthAbroad",
-        "short": "birthAbroad",
+        "short": "BirthAbroadType",
         "definition": "Uppgifter om födelse i utlandet",
         "comment": "TKB-fält: `../../../birthAbroad` (`BirthAbroadType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -658,28 +574,28 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality",
-        "short": "populationRegistrationLocality",
+        "short": "PopulationRegistrationLocalityType",
         "definition": "Uppgifter om folkbokföring",
         "comment": "TKB-fält: `../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate",
-        "short": "populationRegistrationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -687,8 +603,8 @@
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -702,11 +618,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.populationRegistrationLocality.populationRegistrationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -830,14 +746,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord",
-        "short": "populationRegistrationRecord",
+        "short": "PopulationRegistrationRecordType",
         "definition": "Folkbokföringspost",
         "comment": "TKB-fält: `../../populationRegistrationRecord` (`PopulationRegistrationRecordType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -858,14 +774,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase",
-        "short": "notificationCase",
+        "short": "NotificationCaseType",
         "definition": "Ärendeuppgifter",
         "comment": "TKB-fält: `../../../notificationCase` (`NotificationCaseType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -928,14 +844,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate",
-        "short": "notificationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../notificationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -943,8 +859,8 @@
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -958,11 +874,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.notificationCase.notificationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -974,42 +890,42 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords",
-        "short": "historicalRecords",
+        "short": "HistoricalRecordsType",
         "definition": "Grupp för historik",
         "comment": "TKB-fält: `../../../historicalRecords` (`HistoricalRecordsType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality",
-        "short": "populationRegistrationLocality",
+        "short": "PopulationRegistrationLocalityType",
         "definition": "Uppgifter om folkbokföring",
         "comment": "TKB-fält: `../../../../populationRegistrationLocality` (`PopulationRegistrationLocalityType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate",
-        "short": "populationRegistrationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../../populationRegistrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1017,8 +933,8 @@
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1032,11 +948,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.populationRegistrationLocality.populationRegistrationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1160,14 +1076,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress",
         "path": "updateperson.updatePersonResult.personRecord.populationRegistrationRecord.historicalRecords.historicalAddress",
-        "short": "historicalAddress",
+        "short": "ResidentialAddressType",
         "definition": "Svensk adress",
         "comment": "TKB-fält: `../../../../historicalAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1244,28 +1160,28 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation",
-        "short": "addressInformation",
+        "short": "AddressInformationType",
         "definition": "Grupp för adressuppgifter",
         "comment": "TKB-fält: `../../addressInformation` (`AddressInformationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.residentialAddress",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.residentialAddress",
-        "short": "residentialAddress",
+        "short": "ResidentialAddressType",
         "definition": "Svensk adress",
         "comment": "TKB-fält: `../../../residentialAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1342,14 +1258,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.nationalKeys",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.nationalKeys",
-        "short": "nationalKeys",
+        "short": "NationalKeysType",
         "definition": "Riksnycklar",
         "comment": "TKB-fält: `../../../nationalKeys` (`NationalKeysType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1398,14 +1314,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.district",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.district",
-        "short": "district",
+        "short": "DistrictType",
         "definition": "Grupp för Distriktskod",
         "comment": "TKB-fält: `../../../district` (`DistrictType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1426,14 +1342,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.specialPostalAddress",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.specialPostalAddress",
-        "short": "specialPostalAddress",
+        "short": "ResidentialAddressType",
         "definition": "Svensk adress",
         "comment": "TKB-fält: `../../../specialPostalAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1510,14 +1426,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad",
-        "short": "addressAbroad",
+        "short": "AddressAbroadType",
         "definition": "Utlandsadress",
         "comment": "TKB-fält: `../../../addressAbroad` (`AddressAbroadType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1580,14 +1496,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate",
-        "short": "addressAbroadDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../addressAbroadDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1595,8 +1511,8 @@
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate.format",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1610,11 +1526,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.addressAbroadDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1626,14 +1542,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate",
-        "short": "votingDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../votingDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1641,8 +1557,8 @@
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate.format",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1656,11 +1572,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.addressInformation.addressAbroad.votingDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1672,14 +1588,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.givenAddress",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.givenAddress",
-        "short": "givenAddress",
+        "short": "ResidentialAddressType",
         "definition": "Svensk adress",
         "comment": "TKB-fält: `../../../givenAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1756,14 +1672,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.addressInformation.UUID",
         "path": "updateperson.updatePersonResult.personRecord.addressInformation.UUID",
-        "short": "UUID",
+        "short": "UUIDType",
         "definition": "UUID för fastighet, aderess och lägenhet",
         "comment": "TKB-fält: `../../../UUID` (`UUIDType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1812,14 +1728,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.contactInformation",
         "path": "updateperson.updatePersonResult.personRecord.contactInformation",
-        "short": "contactInformation",
+        "short": "ContactInformationType",
         "definition": "Klass för patientens egna angivna kontakuppgifter",
         "comment": "TKB-fält: `../../contactInformation` (`ContactInformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1852,11 +1768,11 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.contactInformation.contactInformationValue",
-        "path": "updateperson.updatePersonResult.personRecord.contactInformation.contactInformationValue",
-        "short": "contactInformationValue",
-        "definition": "contactInformationValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** contactInformationValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.contactInformation.value",
+        "path": "updateperson.updatePersonResult.personRecord.contactInformation.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1896,14 +1812,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.contactInformation.period",
         "path": "updateperson.updatePersonResult.personRecord.contactInformation.period",
-        "short": "period",
+        "short": "DatePeriodType",
         "definition": "period",
         "comment": "TKB-fält: `../../../period` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1952,14 +1868,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.contactPerson",
         "path": "updateperson.updatePersonResult.personRecord.contactPerson",
-        "short": "contactPerson",
+        "short": "ContactPersonType",
         "definition": "contactPerson",
         "comment": "TKB-fält: `../../contactPerson` (`ContactPersonType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2036,14 +1952,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonAddress",
         "path": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonAddress",
-        "short": "contactPersonAddress",
+        "short": "ResidentialAddressType",
         "definition": "Svensk adress",
         "comment": "TKB-fält: `../../../contactPersonAddress` (`ResidentialAddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2120,14 +2036,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation",
         "path": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation",
-        "short": "contactPersonContactInformation",
+        "short": "ContactInformationType",
         "definition": "Klass för patientens egna angivna kontakuppgifter",
         "comment": "TKB-fält: `../../../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2160,11 +2076,11 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
-        "path": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
-        "short": "contactInformationValue",
-        "definition": "contactInformationValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** contactInformationValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation.value",
+        "path": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -2204,14 +2120,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation.period",
         "path": "updateperson.updatePersonResult.personRecord.contactPerson.contactPersonContactInformation.period",
-        "short": "period",
+        "short": "DatePeriodType",
         "definition": "period",
         "comment": "TKB-fält: `../../../../period` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2260,14 +2176,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.confirmedIdentity",
         "path": "updateperson.updatePersonResult.personRecord.confirmedIdentity",
-        "short": "confirmedIdentity",
+        "short": "ConfirmedIdentityType",
         "definition": "Klass för hur reservidentitetsuppgifter är styrkta.",
         "comment": "TKB-fält: `../../confirmedIdentity` (`ConfirmedIdentityType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2316,14 +2232,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.confirmedIdentity.validDatePeriod",
         "path": "updateperson.updatePersonResult.personRecord.confirmedIdentity.validDatePeriod",
-        "short": "validDatePeriod",
+        "short": "DatePeriodType",
         "definition": "validDatePeriod",
         "comment": "TKB-fält: `../../../validDatePeriod` (`DatePeriodType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2386,14 +2302,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.administrativeInformation",
         "path": "updateperson.updatePersonResult.personRecord.administrativeInformation",
-        "short": "administrativeInformation",
+        "short": "AdministrativeInformationType",
         "definition": "Klass för administrativa tilläggsuppgifter. Normalt tilläggsuppgifter kring en person med en reservidentitet som registreras i samband med uttag av reservidentitet (LRID/NRID).",
         "comment": "TKB-fält: `../../administrativeInformation` (`AdministrativeInformationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2442,14 +2358,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.deregistration",
         "path": "updateperson.updatePersonResult.personRecord.deregistration",
-        "short": "deregistration",
+        "short": "DeregistrationType",
         "definition": "Uppgifter om avregistrering",
         "comment": "TKB-fält: `../../deregistration` (`DeregistrationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2470,14 +2386,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate",
         "path": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate",
-        "short": "deregistrationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2485,8 +2401,8 @@
         "id": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -2500,11 +2416,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.deregistration.deregistrationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2516,14 +2432,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate",
         "path": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate",
-        "short": "foundDeadAtDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2531,8 +2447,8 @@
         "id": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate.format",
         "path": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -2546,11 +2462,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.deregistration.foundDeadAtDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2562,14 +2478,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.maritalStatus",
         "path": "updateperson.updatePersonResult.personRecord.maritalStatus",
-        "short": "maritalStatus",
+        "short": "MaritalStatusType",
         "definition": "Civistånd",
         "comment": "TKB-fält: `../../maritalStatus` (`MaritalStatusType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2590,14 +2506,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate",
         "path": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate",
-        "short": "maritalStatusDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../maritalStatusDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2605,8 +2521,8 @@
         "id": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate.format",
         "path": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -2620,11 +2536,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.maritalStatus.maritalStatusDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2636,28 +2552,28 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.immigration",
         "path": "updateperson.updatePersonResult.personRecord.immigration",
-        "short": "immigration",
+        "short": "ImmigrationType",
         "definition": "Grupp för invandringsuppgifter",
         "comment": "TKB-fält: `../../immigration` (`ImmigrationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate",
         "path": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate",
-        "short": "immigrationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../immigrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2665,8 +2581,8 @@
         "id": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -2680,11 +2596,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.immigration.immigrationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2710,14 +2626,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.immigration.immigrationIdentity",
         "path": "updateperson.updatePersonResult.personRecord.immigration.immigrationIdentity",
-        "short": "immigrationIdentity",
+        "short": "ImmigrationIdentityType",
         "definition": "Grupp för personnummer och vilket land det är knutet till. Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo",
         "comment": "TKB-fält: `../../../immigrationIdentity` (`ImmigrationIdentityType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2752,14 +2668,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.citizenship",
         "path": "updateperson.updatePersonResult.personRecord.citizenship",
-        "short": "citizenship",
+        "short": "CitizenshipType",
         "definition": "Grupp för medborgarskap",
         "comment": "TKB-fält: `../../citizenship` (`CitizenshipType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2780,14 +2696,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate",
         "path": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate",
-        "short": "citizenshipDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../citizenshipDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2795,8 +2711,8 @@
         "id": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate.format",
         "path": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -2810,11 +2726,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2824,11 +2740,11 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipStatus",
-        "path": "updateperson.updatePersonResult.personRecord.citizenship.citizenshipStatus",
-        "short": "citizenshipStatus",
-        "definition": "citizenshipStatus Heter status i schemat.",
-        "comment": "TKB-fält: `../../../status` (`CodedValue`, kardinalitet 0..1).\n\n**Modellanteckning:** citizenshipStatus Heter status i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.citizenship.status",
+        "path": "updateperson.updatePersonResult.personRecord.citizenship.status",
+        "short": "status",
+        "definition": "status",
+        "comment": "TKB-fält: `../../../status` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -2840,28 +2756,28 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship",
         "path": "updateperson.updatePersonResult.personRecord.relationship",
-        "short": "relationship",
+        "short": "RelationshipType",
         "definition": "Grupp för relation",
         "comment": "TKB-fält: `../../relationship` (`RelationshipType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId",
-        "short": "relationshipId",
+        "short": "RelationshipIdType",
         "definition": "Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes.",
         "comment": "TKB-fält: `../../../relationshipId` (`RelationshipIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2875,49 +2791,21 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.personalIdentity.root",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.personalIdentity.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.personalIdentity.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.personalIdentity.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth",
-        "short": "dateOfBirth",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2925,8 +2813,8 @@
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth.format",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -2940,11 +2828,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth.value",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipId.dateOfBirth.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2970,14 +2858,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate",
-        "short": "relationshipFromDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../relationshipFromDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2985,8 +2873,8 @@
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate.format",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3000,11 +2888,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipFromDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3016,14 +2904,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate",
-        "short": "relationshipToDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../relationshipToDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3031,8 +2919,8 @@
         "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate.format",
         "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3046,11 +2934,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipToDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3060,22 +2948,22 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipName",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipName",
-        "short": "relationshipName",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.name",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.name",
+        "short": "NameType",
         "definition": "Namn",
-        "comment": "TKB-fält: `../../../name` (`NameType`, kardinalitet 0..1).\n\n**Modellanteckning:** Namn Heter name i schemat.",
+        "comment": "TKB-fält: `../../../name` (`NameType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.givenNameIndicator",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.givenNameIndicator",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.name.givenNameIndicator",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.name.givenNameIndicator",
         "short": "givenNameIndicator",
         "definition": "givenNameIndicator",
         "comment": "TKB-fält: `../../../../givenNameIndicator` (`GivenNameIndicator`, kardinalitet 0..1).",
@@ -3088,8 +2976,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.givenName",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.givenName",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.name.givenName",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.name.givenName",
         "short": "givenName",
         "definition": "givenName",
         "comment": "TKB-fält: `../../../../givenName` (`String80`, kardinalitet 0..1).",
@@ -3102,8 +2990,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.middleName",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.middleName",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.name.middleName",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.name.middleName",
         "short": "middleName",
         "definition": "middleName",
         "comment": "TKB-fält: `../../../../middleName` (`String80`, kardinalitet 0..1).",
@@ -3116,8 +3004,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.surname",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.surname",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.name.surname",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.name.surname",
         "short": "surname",
         "definition": "surname",
         "comment": "TKB-fält: `../../../../surname` (`String80`, kardinalitet 0..1).",
@@ -3130,8 +3018,8 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.notificationName",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipName.notificationName",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.name.notificationName",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.name.notificationName",
         "short": "notificationName",
         "definition": "notificationName",
         "comment": "TKB-fält: `../../../../notificationName` (`String40`, kardinalitet 0..1).",
@@ -3146,14 +3034,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration",
         "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration",
-        "short": "deregistration",
+        "short": "DeregistrationType",
         "definition": "Uppgifter om avregistrering",
         "comment": "TKB-fält: `../../../deregistration` (`DeregistrationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3174,14 +3062,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate",
         "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate",
-        "short": "deregistrationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../deregistrationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3189,8 +3077,8 @@
         "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3204,11 +3092,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.deregistrationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3220,14 +3108,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate",
         "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate",
-        "short": "foundDeadAtDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../../foundDeadAtDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3235,8 +3123,8 @@
         "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate.format",
         "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3250,11 +3138,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.deregistration.foundDeadAtDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3264,11 +3152,11 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.relationship.relationshipStatus",
-        "path": "updateperson.updatePersonResult.personRecord.relationship.relationshipStatus",
-        "short": "relationshipStatus",
-        "definition": "relationshipStatus Heter status i schemat.",
-        "comment": "TKB-fält: `../../../status` (`CodedValue`, kardinalitet 0..1).\n\n**Modellanteckning:** relationshipStatus Heter status i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.relationship.status",
+        "path": "updateperson.updatePersonResult.personRecord.relationship.status",
+        "short": "status",
+        "definition": "status",
+        "comment": "TKB-fält: `../../../status` (`CodedValue`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -3280,28 +3168,28 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData",
-        "short": "coOrdinationNumberData",
+        "short": "CoOrdinationNumberDataType",
         "definition": "Grupp för de personer som ej är folkbokförda men som har tilldelats ett samordningsnummer för identifiering av personen. Syftet med samordningsnummer är att myndigheter och andra samhällsfunktioner ska kunna identifiera personer även om de inte är folkbokförda i Sverige.",
         "comment": "TKB-fält: `../../coOrdinationNumberData` (`CoOrdinationNumberDataType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate",
-        "short": "allocationDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../allocationDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3309,8 +3197,8 @@
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate.format",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3324,11 +3212,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.allocationDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3340,14 +3228,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate",
-        "short": "preliminaryTransferDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../preliminaryTransferDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3355,8 +3243,8 @@
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate.format",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3370,11 +3258,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.preliminaryTransferDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3386,14 +3274,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate",
-        "short": "renewalDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../renewalDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3401,8 +3289,8 @@
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate.format",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3416,11 +3304,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.renewalDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3432,14 +3320,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate",
-        "short": "deceasedDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../deceasedDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3447,8 +3335,8 @@
         "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate.format",
         "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3462,11 +3350,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.coOrdinationNumberData.deceasedDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3478,14 +3366,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.personalIdentityStatus",
         "path": "updateperson.updatePersonResult.personRecord.personalIdentityStatus",
-        "short": "personalIdentityStatus",
+        "short": "PersonalIdentityStatusType",
         "definition": "Klass som beskriver status för ett samordningsnummer. Status, datum och orsak ska vara obligatoriska uppgifter, när de finns, för aviseringar innehållande samordningsnummer.",
         "comment": "TKB-fält: `../../personalIdentityStatus` (`PersonalIdentityStatusType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3506,14 +3394,14 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate",
         "path": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate",
-        "short": "identityStatusDate",
+        "short": "PartialDateType",
         "definition": "Kan beskriva ett datum med variabel noggrannhet.",
         "comment": "TKB-fält: `../../../identityStatusDate` (`PartialDateType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3521,8 +3409,8 @@
         "id": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate.format",
         "path": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate.format",
         "short": "format",
-        "definition": "format",
-        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).",
+        "definition": "format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
+        "comment": "TKB-fält: `../../../../format` (`DateTypeFormatType`, kardinalitet 1..1).\n\n**Modellanteckning:** format Tillåtna värden: YYYY, YYYY-MM, YYYY-MM-DD.",
         "min": 1,
         "max": "1",
         "type": [
@@ -3536,11 +3424,11 @@
         }
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate.partialDateValue",
-        "path": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate.partialDateValue",
-        "short": "partialDateValue",
-        "definition": "partialDateValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).\n\n**Modellanteckning:** partialDateValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate.value",
+        "path": "updateperson.updatePersonResult.personRecord.personalIdentityStatus.identityStatusDate.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../../value` (`PartialDateValue`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -3566,70 +3454,42 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.updatePersonActor",
         "path": "updateperson.updatePersonResult.personRecord.updatePersonActor",
-        "short": "updatePersonActor",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en aktör.",
         "comment": "TKB-fält: `../../updatePersonActor` (`ActorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.actorId",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.actorId",
-        "short": "actorId",
+        "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.id",
+        "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.id",
+        "short": "id",
         "definition": "En universellt unik identifierare.",
         "comment": "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.actorId.root",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.actorId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.actorId.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.actorId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.professional",
         "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.professional",
-        "short": "professional",
+        "short": "ProfessionalType",
         "definition": "Datatyp som identifierar en aktör inom en profession.",
         "comment": "TKB-fält: `../../../professional` (`ProfessionalType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3643,35 +3503,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.professional.organizationId.root",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.professional.organizationId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonActor.professional.organizationId.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonActor.professional.organizationId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -3692,70 +3524,42 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor",
         "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor",
-        "short": "updatePersonContactInformationActor",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en aktör.",
         "comment": "TKB-fält: `../../updatePersonContactInformationActor` (`ActorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.actorId",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.actorId",
-        "short": "actorId",
+        "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.id",
+        "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.id",
+        "short": "id",
         "definition": "En universellt unik identifierare.",
         "comment": "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.actorId.root",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.actorId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.actorId.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.actorId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.professional",
         "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.professional",
-        "short": "professional",
+        "short": "ProfessionalType",
         "definition": "Datatyp som identifierar en aktör inom en profession.",
         "comment": "TKB-fält: `../../../professional` (`ProfessionalType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -3769,35 +3573,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.professional.organizationId.root",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.professional.organizationId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
-        "path": "updateperson.updatePersonResult.personRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -3818,23 +3594,23 @@
       {
         "id": "updateperson.updatePersonResult.personRecord.attachment",
         "path": "updateperson.updatePersonResult.personRecord.attachment",
-        "short": "attachment",
+        "short": "MultimediaType",
         "definition": "Datatyp som beskriver en multimediatyp. Data kan förekomma som inbäddat element eller hänvisas via en referens URL.",
         "comment": "TKB-fält: `../../attachment` (`MultimediaType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.attachment.multimediaId",
-        "path": "updateperson.updatePersonResult.personRecord.attachment.multimediaId",
-        "short": "multimediaId",
-        "definition": "multimediaId Heter id i schemat.",
-        "comment": "TKB-fält: `../../../id` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** multimediaId Heter id i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.attachment.id",
+        "path": "updateperson.updatePersonResult.personRecord.attachment.id",
+        "short": "id",
+        "definition": "id",
+        "comment": "TKB-fält: `../../../id` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -3858,11 +3634,11 @@
         ]
       },
       {
-        "id": "updateperson.updatePersonResult.personRecord.attachment.multimediaValue",
-        "path": "updateperson.updatePersonResult.personRecord.attachment.multimediaValue",
-        "short": "multimediaValue",
-        "definition": "multimediaValue Heter value i schemat.",
-        "comment": "TKB-fält: `../../../value` (`base64Binary`, kardinalitet 0..1).\n\n**Modellanteckning:** multimediaValue Heter value i schemat.",
+        "id": "updateperson.updatePersonResult.personRecord.attachment.value",
+        "path": "updateperson.updatePersonResult.personRecord.attachment.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../../../value` (`base64Binary`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

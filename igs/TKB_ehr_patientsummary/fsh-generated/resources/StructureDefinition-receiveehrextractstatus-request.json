@@ -28,52 +28,39 @@
         "definition": "Logisk modell för begäran i ReceiveEhrExtractStatus\n(urn:riv:ehr:patientsummary:ReceiveEhrExtractInitiator:1, ReceiveEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "receiveehrextractstatus-request.logicalAddress",
-        "path": "receiveehrextractstatus-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. the HSA-id of the service producer",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "receiveehrextractstatus-request.parameters",
         "path": "receiveehrextractstatus-request.parameters",
-        "short": "parameters",
+        "short": "ParameterType",
         "definition": "Transaktions-id: detta är samma värde som användes i anropet till tjänsten ReceiveEhrExtract. Med hjälp av detta värde går det koppla samman statusanropet med ett tidigare anrop till tjänsten ReceiveEhrExtract.",
         "comment": "TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).\n\nObs: modellen anger 0..* där TKB:n anger 1..1.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "receiveehrextractstatus-request.parameters.parameterCode",
-        "path": "receiveehrextractstatus-request.parameters.parameterCode",
-        "short": "parameterCode",
-        "definition": "parameterCode Heter code i schemat.",
-        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).\n\n**Modellanteckning:** parameterCode Heter code i schemat.",
+        "id": "receiveehrextractstatus-request.parameters.code",
+        "path": "receiveehrextractstatus-request.parameters.code",
+        "short": "code",
+        "definition": "code",
+        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "receiveehrextractstatus-request.parameters.parameterName",
-        "path": "receiveehrextractstatus-request.parameters.parameterName",
-        "short": "parameterName",
-        "definition": "parameterName Heter name i schemat.",
-        "comment": "TKB-fält: `../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** parameterName Heter name i schemat.",
+        "id": "receiveehrextractstatus-request.parameters.name",
+        "path": "receiveehrextractstatus-request.parameters.name",
+        "short": "name",
+        "definition": "name",
+        "comment": "TKB-fält: `../name` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,11 +70,11 @@
         ]
       },
       {
-        "id": "receiveehrextractstatus-request.parameters.parameterValue",
-        "path": "receiveehrextractstatus-request.parameters.parameterValue",
-        "short": "parameterValue",
-        "definition": "parameterValue Heter value i schemat.",
-        "comment": "TKB-fält: `../value` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** parameterValue Heter value i schemat.",
+        "id": "receiveehrextractstatus-request.parameters.value",
+        "path": "receiveehrextractstatus-request.parameters.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../value` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -99,36 +86,37 @@
       {
         "id": "receiveehrextractstatus-request.response_detail",
         "path": "receiveehrextractstatus-request.response_detail",
-        "short": "response_detail",
+        "short": "ResponseDetailType",
         "definition": "Fel-, varnings- och/eller informationsmeddelanden.",
         "comment": "TKB-fält: `response_detail` (`ResponseDetailType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "receiveehrextractstatus-request.response_detail.responseDetailCode",
-        "path": "receiveehrextractstatus-request.response_detail.responseDetailCode",
-        "short": "responseDetailCode",
-        "definition": "responseDetailCode Heter code i schemat.",
+        "id": "receiveehrextractstatus-request.response_detail.code",
+        "path": "receiveehrextractstatus-request.response_detail.code",
+        "short": "code",
+        "definition": "code",
+        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "receiveehrextractstatus-request.response_detail.responseDetailText",
-        "path": "receiveehrextractstatus-request.response_detail.responseDetailText",
-        "short": "responseDetailText",
-        "definition": "responseDetailText Heter text i schemat.",
-        "comment": "TKB-fält: `../text` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** responseDetailText Heter text i schemat.",
+        "id": "receiveehrextractstatus-request.response_detail.text",
+        "path": "receiveehrextractstatus-request.response_detail.text",
+        "short": "text",
+        "definition": "text",
+        "comment": "TKB-fält: `../text` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -142,7 +130,7 @@
         "path": "receiveehrextractstatus-request.response_detail.type_code",
         "short": "type_code",
         "definition": "(XML-attribut.)",
-        "comment": "TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).",
+        "comment": "TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).\n\n**Modellanteckning:** type_code (XML-attribut) Tillåtna värden: E, W, I.",
         "min": 0,
         "max": "1",
         "type": [

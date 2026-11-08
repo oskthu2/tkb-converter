@@ -30,14 +30,14 @@
       {
         "id": "getehrextract.ehr_extract",
         "path": "getehrextract.ehr_extract",
-        "short": "ehr_extract",
+        "short": "EHR_EXTRACT",
         "definition": "Detaljerad patientinformation på formatet EN13606.",
-        "comment": "TKB-fält: `ehr_extract` (`EHR_EXTRACT`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.\n\n**Modellanteckning:** The root node of an EHR Extract.",
+        "comment": "TKB-fält: `ehr_extract` (`EHR_EXTRACT`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -51,7 +51,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -65,7 +65,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -79,7 +79,20 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getehrextract.ehr_extract.rm_id",
+        "path": "getehrextract.ehr_extract.rm_id",
+        "short": "rm_id",
+        "definition": "rm_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       },
@@ -93,7 +106,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -107,21 +120,21 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions",
         "path": "getehrextract.ehr_extract.all_compositions",
-        "short": "all_compositions",
+        "short": "COMPOSITION",
         "definition": "Key aggregation class representing the set of Record Components authored and committed during a single clinical encounter. Note the values for territory will indicate the legal framework under which the data was committed. The session_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.",
         "comment": "TKB-fält: `../all_compositions` (`COMPOSITION`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -149,16 +162,16 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getehrextract.ehr_extract.all_compositions.compositionName",
-        "path": "getehrextract.ehr_extract.all_compositions.compositionName",
-        "short": "compositionName",
-        "definition": "compositionName Heter name i schemat.",
-        "comment": "TKB-fält: `../../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** compositionName Heter name i schemat.",
+        "id": "getehrextract.ehr_extract.all_compositions.name",
+        "path": "getehrextract.ehr_extract.all_compositions.name",
+        "short": "name",
+        "definition": "name",
+        "comment": "TKB-fält: `../../name` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -177,7 +190,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -191,7 +204,7 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -205,7 +218,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -219,7 +232,7 @@
         "max": "1",
         "type": [
           {
-            "code": "integer"
+            "code": "string"
           }
         ]
       },
@@ -233,21 +246,21 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.links",
         "path": "getehrextract.ehr_extract.all_compositions.links",
-        "short": "links",
+        "short": "LINK",
         "definition": "Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.",
         "comment": "TKB-fält: `../../links` (`LINK`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -261,7 +274,7 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
@@ -275,7 +288,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -289,7 +302,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -303,7 +316,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -317,21 +330,21 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.feeder_audit",
         "path": "getehrextract.ehr_extract.all_compositions.feeder_audit",
-        "short": "feeder_audit",
+        "short": "AUDIT_INFO",
         "definition": "The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining \"attribute_version_status.coding_scheme_name\" in the printed standard.",
         "comment": "TKB-fält: `../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -345,7 +358,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -359,7 +372,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -373,7 +386,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -387,7 +400,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -401,7 +414,7 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
@@ -415,7 +428,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -429,7 +442,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -443,7 +456,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -457,7 +470,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Period"
+            "code": "string"
           }
         ]
       },
@@ -471,21 +484,21 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.attestations",
         "path": "getehrextract.ehr_extract.all_compositions.attestations",
-        "short": "attestations",
+        "short": "ATTESTATION_INFO",
         "definition": "Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.",
         "comment": "TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -499,7 +512,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Attachment"
+            "code": "string"
           }
         ]
       },
@@ -513,7 +526,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Attachment"
+            "code": "string"
           }
         ]
       },
@@ -527,7 +540,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -541,7 +554,7 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
@@ -555,21 +568,21 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.attestations.attester",
         "path": "getehrextract.ehr_extract.all_compositions.attestations.attester",
-        "short": "attester",
+        "short": "FUNCTIONAL_ROLE",
         "definition": "The participation of an entity in the EHR.",
         "comment": "TKB-fält: `../../../attester` (`FUNCTIONAL_ROLE`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -583,7 +596,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -597,7 +610,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -611,7 +624,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -625,7 +638,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -639,21 +652,21 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.other_participations",
         "path": "getehrextract.ehr_extract.all_compositions.other_participations",
-        "short": "other_participations",
+        "short": "FUNCTIONAL_ROLE",
         "definition": "The participation of an entity in the EHR.",
         "comment": "TKB-fält: `../../other_participations` (`FUNCTIONAL_ROLE`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -667,7 +680,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -681,7 +694,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -695,7 +708,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -709,7 +722,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -723,21 +736,21 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.committal",
         "path": "getehrextract.ehr_extract.all_compositions.committal",
-        "short": "committal",
+        "short": "AUDIT_INFO",
         "definition": "The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining \"attribute_version_status.coding_scheme_name\" in the printed standard.",
         "comment": "TKB-fält: `../../committal` (`AUDIT_INFO`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -751,7 +764,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -765,7 +778,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -779,7 +792,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -793,7 +806,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -807,7 +820,7 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
@@ -821,7 +834,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -835,21 +848,21 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.composer",
         "path": "getehrextract.ehr_extract.all_compositions.composer",
-        "short": "composer",
+        "short": "FUNCTIONAL_ROLE",
         "definition": "The participation of an entity in the EHR.",
         "comment": "TKB-fält: `../../composer` (`FUNCTIONAL_ROLE`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -863,7 +876,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -877,7 +890,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -891,7 +904,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -905,7 +918,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -919,21 +932,21 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.content",
         "path": "getehrextract.ehr_extract.all_compositions.content",
-        "short": "content",
+        "short": "CONTENT",
         "definition": "Superclass of Section and Entry that enables the former to include instances of itself. Abstrakt typ; instansen anges med xsi:type som en av SECTION, ENTRY.",
         "comment": "TKB-fält: `../../content` (`CONTENT`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -961,16 +974,16 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getehrextract.ehr_extract.all_compositions.content.contentName",
-        "path": "getehrextract.ehr_extract.all_compositions.content.contentName",
-        "short": "contentName",
-        "definition": "contentName Heter name i schemat.",
-        "comment": "TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** contentName Heter name i schemat.",
+        "id": "getehrextract.ehr_extract.all_compositions.content.name",
+        "path": "getehrextract.ehr_extract.all_compositions.content.name",
+        "short": "name",
+        "definition": "name",
+        "comment": "TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -989,7 +1002,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1003,7 +1016,7 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1017,7 +1030,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1031,7 +1044,7 @@
         "max": "1",
         "type": [
           {
-            "code": "integer"
+            "code": "string"
           }
         ]
       },
@@ -1045,21 +1058,21 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.content.links",
         "path": "getehrextract.ehr_extract.all_compositions.content.links",
-        "short": "links",
+        "short": "LINK",
         "definition": "Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.",
         "comment": "TKB-fält: `../../../links` (`LINK`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1073,7 +1086,7 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
@@ -1087,7 +1100,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -1101,7 +1114,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -1115,7 +1128,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -1129,21 +1142,21 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.all_compositions.content.feeder_audit",
         "path": "getehrextract.ehr_extract.all_compositions.content.feeder_audit",
-        "short": "feeder_audit",
+        "short": "AUDIT_INFO",
         "definition": "The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining \"attribute_version_status.coding_scheme_name\" in the printed standard.",
         "comment": "TKB-fält: `../../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1157,7 +1170,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1171,7 +1184,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1185,7 +1198,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1199,7 +1212,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -1213,7 +1226,7 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
@@ -1227,7 +1240,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -1241,763 +1254,21 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.section",
-        "path": "getehrextract.ehr_extract.all_compositions.content.section",
-        "short": "section",
-        "definition": "Element som bara finns när instansen är av subtypen SECTION (xsi:type).",
-        "comment": "TKB-fält: `../../../section` (`SECTION`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.section.members",
-        "path": "getehrextract.ehr_extract.all_compositions.content.section.members",
-        "short": "members",
-        "definition": "(Rekursiv typ, ej utvecklad.)",
-        "comment": "TKB-fält: `../../../../members` (`CONTENT`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
             "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry",
-        "short": "entry",
-        "definition": "Element som bara finns när instansen är av subtypen ENTRY (xsi:type).",
-        "comment": "TKB-fält: `../../../entry` (`ENTRY`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.act_id",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.act_id",
-        "short": "act_id",
-        "definition": "act_id",
-        "comment": "TKB-fält: `../../../../act_id` (`ST`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.act_status",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.act_status",
-        "short": "act_status",
-        "definition": "act_status",
-        "comment": "TKB-fält: `../../../../act_status` (`CS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information_category",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information_category",
-        "short": "subject_of_information_category",
-        "definition": "subject_of_information_category",
-        "comment": "TKB-fält: `../../../../subject_of_information_category` (`CS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.uncertainty_expressed",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.uncertainty_expressed",
-        "short": "uncertainty_expressed",
-        "definition": "uncertainty_expressed",
-        "comment": "TKB-fält: `../../../../uncertainty_expressed` (`BL`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "boolean"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items",
-        "short": "items",
-        "definition": "Superclass of Cluster and Element that enables the former to include instances of itself. The obs_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types. Abstrakt typ; instansen anges med xsi:type som en av CLUSTER, ELEMENT.",
-        "comment": "TKB-fält: `../../../../items` (`ITEM`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.archetype_id",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.archetype_id",
-        "short": "archetype_id",
-        "definition": "archetype_id",
-        "comment": "TKB-fält: `../../../../../archetype_id` (`ST`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.meaning",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.meaning",
-        "short": "meaning",
-        "definition": "meaning",
-        "comment": "TKB-fält: `../../../../../meaning` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.itemName",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.itemName",
-        "short": "itemName",
-        "definition": "itemName Heter name i schemat.",
-        "comment": "TKB-fält: `../../../../../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** itemName Heter name i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.orig_parent_ref",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.orig_parent_ref",
-        "short": "orig_parent_ref",
-        "definition": "orig_parent_ref",
-        "comment": "TKB-fält: `../../../../../orig_parent_ref` (`II`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.policy_ids",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.policy_ids",
-        "short": "policy_ids",
-        "definition": "policy_ids",
-        "comment": "TKB-fält: `../../../../../policy_ids` (`II`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.rc_id",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.rc_id",
-        "short": "rc_id",
-        "definition": "rc_id",
-        "comment": "TKB-fält: `../../../../../rc_id` (`II`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.sensitivity",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.sensitivity",
-        "short": "sensitivity",
-        "definition": "sensitivity",
-        "comment": "TKB-fält: `../../../../../sensitivity` (`INT`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "integer"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.synthesised",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.synthesised",
-        "short": "synthesised",
-        "definition": "synthesised",
-        "comment": "TKB-fält: `../../../../../synthesised` (`BL`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "boolean"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.links",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.links",
-        "short": "links",
-        "definition": "Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.",
-        "comment": "TKB-fält: `../../../../../links` (`LINK`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.follow_link",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.follow_link",
-        "short": "follow_link",
-        "definition": "follow_link",
-        "comment": "TKB-fält: `../../../../../../follow_link` (`BL`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "boolean"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.nature",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.nature",
-        "short": "nature",
-        "definition": "nature",
-        "comment": "TKB-fält: `../../../../../../nature` (`CS`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.role",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.role",
-        "short": "role",
-        "definition": "role",
-        "comment": "TKB-fält: `../../../../../../role` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.target_type",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.target_type",
-        "short": "target_type",
-        "definition": "target_type",
-        "comment": "TKB-fält: `../../../../../../target_type` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.target_id",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.links.target_id",
-        "short": "target_id",
-        "definition": "target_id",
-        "comment": "TKB-fält: `../../../../../../target_id` (`II`, kardinalitet 1..*).",
-        "min": 1,
-        "max": "*",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit",
-        "short": "feeder_audit",
-        "definition": "The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining \"attribute_version_status.coding_scheme_name\" in the printed standard.",
-        "comment": "TKB-fält: `../../../../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.committer",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.committer",
-        "short": "committer",
-        "definition": "committer",
-        "comment": "TKB-fält: `../../../../../../committer` (`II`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.ehr_system",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.ehr_system",
-        "short": "ehr_system",
-        "definition": "ehr_system",
-        "comment": "TKB-fält: `../../../../../../ehr_system` (`II`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.previous_version",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.previous_version",
-        "short": "previous_version",
-        "definition": "previous_version",
-        "comment": "TKB-fält: `../../../../../../previous_version` (`II`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.reason_for_revision",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.reason_for_revision",
-        "short": "reason_for_revision",
-        "definition": "reason_for_revision",
-        "comment": "TKB-fält: `../../../../../../reason_for_revision` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.time_committed",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.time_committed",
-        "short": "time_committed",
-        "definition": "time_committed",
-        "comment": "TKB-fält: `../../../../../../time_committed` (`TS`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.version_set_id",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.version_set_id",
-        "short": "version_set_id",
-        "definition": "version_set_id",
-        "comment": "TKB-fält: `../../../../../../version_set_id` (`II`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.version_status",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.feeder_audit.version_status",
-        "short": "version_status",
-        "definition": "version_status",
-        "comment": "TKB-fält: `../../../../../../version_status` (`CS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.emphasis",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.emphasis",
-        "short": "emphasis",
-        "definition": "emphasis",
-        "comment": "TKB-fält: `../../../../../emphasis` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.item_category",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.item_category",
-        "short": "item_category",
-        "definition": "item_category",
-        "comment": "TKB-fält: `../../../../../item_category` (`CS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.obs_time",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.obs_time",
-        "short": "obs_time",
-        "definition": "obs_time",
-        "comment": "TKB-fält: `../../../../../obs_time` (`IVL_TS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Period"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.cluster",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.cluster",
-        "short": "cluster",
-        "definition": "Element som bara finns när instansen är av subtypen CLUSTER (xsi:type).",
-        "comment": "TKB-fält: `../../../../../cluster` (`CLUSTER`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.cluster.structure_type",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.cluster.structure_type",
-        "short": "structure_type",
-        "definition": "structure_type",
-        "comment": "TKB-fält: `../../../../../../structure_type` (`CS`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.cluster.parts",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.cluster.parts",
-        "short": "parts",
-        "definition": "(Rekursiv typ, ej utvecklad.)",
-        "comment": "TKB-fält: `../../../../../../parts` (`ITEM`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.element",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.element",
-        "short": "element",
-        "definition": "Element som bara finns när instansen är av subtypen ELEMENT (xsi:type).",
-        "comment": "TKB-fält: `../../../../../element` (`ELEMENT`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.items.element.elementValue",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.items.element.elementValue",
-        "short": "elementValue",
-        "definition": "(ISO 21090 ANY, polymorft värde, modellerat som string.)",
-        "comment": "TKB-fält: `../../../../../../value` (`ANY`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider",
-        "short": "info_provider",
-        "definition": "The participation of an entity in the EHR.",
-        "comment": "TKB-fält: `../../../../info_provider` (`FUNCTIONAL_ROLE`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.function",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.function",
-        "short": "function",
-        "definition": "function",
-        "comment": "TKB-fält: `../../../../../function` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.healthcare_facility",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.healthcare_facility",
-        "short": "healthcare_facility",
-        "definition": "healthcare_facility",
-        "comment": "TKB-fält: `../../../../../healthcare_facility` (`II`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.mode",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.mode",
-        "short": "mode",
-        "definition": "mode",
-        "comment": "TKB-fält: `../../../../../mode` (`CS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.performer",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.performer",
-        "short": "performer",
-        "definition": "performer",
-        "comment": "TKB-fält: `../../../../../performer` (`II`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.service_setting",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.info_provider.service_setting",
-        "short": "service_setting",
-        "definition": "service_setting",
-        "comment": "TKB-fält: `../../../../../service_setting` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations",
-        "short": "other_participations",
-        "definition": "The participation of an entity in the EHR.",
-        "comment": "TKB-fält: `../../../../other_participations` (`FUNCTIONAL_ROLE`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.function",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.function",
-        "short": "function",
-        "definition": "function",
-        "comment": "TKB-fält: `../../../../../function` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.healthcare_facility",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.healthcare_facility",
-        "short": "healthcare_facility",
-        "definition": "healthcare_facility",
-        "comment": "TKB-fält: `../../../../../healthcare_facility` (`II`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.mode",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.mode",
-        "short": "mode",
-        "definition": "mode",
-        "comment": "TKB-fält: `../../../../../mode` (`CS`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.performer",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.performer",
-        "short": "performer",
-        "definition": "performer",
-        "comment": "TKB-fält: `../../../../../performer` (`II`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.service_setting",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.other_participations.service_setting",
-        "short": "service_setting",
-        "definition": "service_setting",
-        "comment": "TKB-fält: `../../../../../service_setting` (`CD`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information",
-        "short": "subject_of_information",
-        "definition": "Identifies the relationship of a person to the subject of care. Specifically used in Entry.subject_of_information.",
-        "comment": "TKB-fält: `../../../../subject_of_information` (`RELATED_PARTY`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information.party",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information.party",
-        "short": "party",
-        "definition": "party",
-        "comment": "TKB-fält: `../../../../../party` (`II`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information.relationship",
-        "path": "getehrextract.ehr_extract.all_compositions.content.entry.subject_of_information.relationship",
-        "short": "relationship",
-        "definition": "relationship",
-        "comment": "TKB-fält: `../../../../../relationship` (`ED`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Attachment"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.criteria",
         "path": "getehrextract.ehr_extract.criteria",
-        "short": "criteria",
+        "short": "EXTRACT_CRITERIA",
         "definition": "Restrictions or filters on the creation of the EHR Extract. The time_period should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.",
         "comment": "TKB-fält: `../criteria` (`EXTRACT_CRITERIA`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2011,7 +1282,7 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
@@ -2025,7 +1296,7 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2039,7 +1310,7 @@
         "max": "1",
         "type": [
           {
-            "code": "integer"
+            "code": "string"
           }
         ]
       },
@@ -2053,7 +1324,7 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
@@ -2081,21 +1352,21 @@
         "max": "1",
         "type": [
           {
-            "code": "Period"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.folders",
         "path": "getehrextract.ehr_extract.folders",
-        "short": "folders",
+        "short": "FOLDER",
         "definition": "Organises and groups Compositions within an EHR Extract.",
         "comment": "TKB-fält: `../folders` (`FOLDER`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2123,16 +1394,16 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getehrextract.ehr_extract.folders.folderName",
-        "path": "getehrextract.ehr_extract.folders.folderName",
-        "short": "folderName",
-        "definition": "folderName Heter name i schemat.",
-        "comment": "TKB-fält: `../../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** folderName Heter name i schemat.",
+        "id": "getehrextract.ehr_extract.folders.name",
+        "path": "getehrextract.ehr_extract.folders.name",
+        "short": "name",
+        "definition": "name",
+        "comment": "TKB-fält: `../../name` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2151,7 +1422,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2165,7 +1436,7 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2179,7 +1450,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2193,7 +1464,7 @@
         "max": "1",
         "type": [
           {
-            "code": "integer"
+            "code": "string"
           }
         ]
       },
@@ -2207,21 +1478,21 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.folders.links",
         "path": "getehrextract.ehr_extract.folders.links",
-        "short": "links",
+        "short": "LINK",
         "definition": "Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.",
         "comment": "TKB-fält: `../../links` (`LINK`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2235,7 +1506,7 @@
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
@@ -2249,7 +1520,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -2263,7 +1534,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -2277,7 +1548,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -2291,21 +1562,21 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.folders.feeder_audit",
         "path": "getehrextract.ehr_extract.folders.feeder_audit",
-        "short": "feeder_audit",
+        "short": "AUDIT_INFO",
         "definition": "The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining \"attribute_version_status.coding_scheme_name\" in the printed standard.",
         "comment": "TKB-fält: `../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2319,7 +1590,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2333,7 +1604,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2347,7 +1618,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2361,7 +1632,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -2375,7 +1646,7 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
@@ -2389,7 +1660,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2403,35 +1674,31 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.folders.sub_folders",
         "path": "getehrextract.ehr_extract.folders.sub_folders",
-        "short": "sub_folders",
+        "short": "FOLDER",
         "definition": "(Rekursiv typ, ej utvecklad.)",
-        "comment": "TKB-fält: `../../sub_folders` (`FOLDER`, kardinalitet 0..*).",
+        "comment": "TKB-fält: `../../sub_folders` (`FOLDER`, kardinalitet 0..*).\n\n**Modellanteckning:** sub_folders Rekursiv: samma struktur som getehrextract.ehr_extract.folders.",
         "min": 0,
         "max": "*",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
+        "contentReference": "#getehrextract.ehr_extract.folders"
       },
       {
         "id": "getehrextract.ehr_extract.folders.attestations",
         "path": "getehrextract.ehr_extract.folders.attestations",
-        "short": "attestations",
+        "short": "ATTESTATION_INFO",
         "definition": "Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.",
         "comment": "TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2445,7 +1712,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Attachment"
+            "code": "string"
           }
         ]
       },
@@ -2459,7 +1726,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Attachment"
+            "code": "string"
           }
         ]
       },
@@ -2473,7 +1740,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -2487,7 +1754,7 @@
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string"
           }
         ]
       },
@@ -2501,21 +1768,21 @@
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getehrextract.ehr_extract.folders.attestations.attester",
         "path": "getehrextract.ehr_extract.folders.attestations.attester",
-        "short": "attester",
+        "short": "FUNCTIONAL_ROLE",
         "definition": "The participation of an entity in the EHR.",
         "comment": "TKB-fält: `../../../attester` (`FUNCTIONAL_ROLE`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2529,7 +1796,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -2543,7 +1810,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2557,7 +1824,7 @@
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
         ]
       },
@@ -2571,7 +1838,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2585,7 +1852,7 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
@@ -2606,14 +1873,14 @@
       {
         "id": "getehrextract.ehr_extract.demographic_extract",
         "path": "getehrextract.ehr_extract.demographic_extract",
-        "short": "demographic_extract",
+        "short": "IDENTIFIED_ENTITY",
         "definition": "Superclass of all identified parties to the record. Note that the type of id is not given in the printed class description but is included in the class diagram on page 47 of the standard. Abstrakt typ; instansen anges med xsi:type som en av SOFTWARE_OR_DEVICE, ORGANISATION, PERSON.",
         "comment": "TKB-fält: `../demographic_extract` (`IDENTIFIED_ENTITY`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -2627,20 +1894,21 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getehrextract.ehr_extract.demographic_extract.identifiedEntityId",
-        "path": "getehrextract.ehr_extract.demographic_extract.identifiedEntityId",
-        "short": "identifiedEntityId",
-        "definition": "identifiedEntityId Heter id i schemat.",
+        "id": "getehrextract.ehr_extract.demographic_extract.id",
+        "path": "getehrextract.ehr_extract.demographic_extract.id",
+        "short": "id",
+        "definition": "id",
+        "comment": "TKB-fält: `../../id` (`II`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -2654,203 +1922,7 @@
         "max": "*",
         "type": [
           {
-            "code": "ContactPoint"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice",
-        "path": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice",
-        "short": "softwareOrDevice",
-        "definition": "Element som bara finns när instansen är av subtypen SOFTWARE_OR_DEVICE (xsi:type).",
-        "comment": "TKB-fält: `../../softwareOrDevice` (`SOFTWARE_OR_DEVICE`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.softwareOrDeviceCode",
-        "path": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.softwareOrDeviceCode",
-        "short": "softwareOrDeviceCode",
-        "definition": "softwareOrDeviceCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../code` (`CD`, kardinalitet 1..1).\n\n**Modellanteckning:** softwareOrDeviceCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.desc",
-        "path": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.desc",
-        "short": "desc",
-        "definition": "desc",
-        "comment": "TKB-fält: `../../../desc` (`ST`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
             "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.manufacturerModelName",
-        "path": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.manufacturerModelName",
-        "short": "manufacturerModelName",
-        "definition": "manufacturerModelName",
-        "comment": "TKB-fält: `../../../manufacturerModelName` (`ST`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.softwareOrDeviceVersion",
-        "path": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.softwareOrDeviceVersion",
-        "short": "softwareOrDeviceVersion",
-        "definition": "softwareOrDeviceVersion Heter version i schemat.",
-        "comment": "TKB-fält: `../../../version` (`ST`, kardinalitet 0..1).\n\n**Modellanteckning:** softwareOrDeviceVersion Heter version i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.owningOrganisation_id",
-        "path": "getehrextract.ehr_extract.demographic_extract.softwareOrDevice.owningOrganisation_id",
-        "short": "owningOrganisation_id",
-        "definition": "owningOrganisation_id",
-        "comment": "TKB-fält: `../../../owningOrganisation_id` (`ST`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.organisation",
-        "path": "getehrextract.ehr_extract.demographic_extract.organisation",
-        "short": "organisation",
-        "definition": "Element som bara finns när instansen är av subtypen ORGANISATION (xsi:type).",
-        "comment": "TKB-fält: `../../organisation` (`ORGANISATION`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.organisation.organisationCode",
-        "path": "getehrextract.ehr_extract.demographic_extract.organisation.organisationCode",
-        "short": "organisationCode",
-        "definition": "organisationCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../../code` (`CD`, kardinalitet 1..1).\n\n**Modellanteckning:** organisationCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.organisation.desc",
-        "path": "getehrextract.ehr_extract.demographic_extract.organisation.desc",
-        "short": "desc",
-        "definition": "desc",
-        "comment": "TKB-fält: `../../../desc` (`ST`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.organisation.organisationName",
-        "path": "getehrextract.ehr_extract.demographic_extract.organisation.organisationName",
-        "short": "organisationName",
-        "definition": "organisationName Heter name i schemat.",
-        "comment": "TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** organisationName Heter name i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.organisation.addr",
-        "path": "getehrextract.ehr_extract.demographic_extract.organisation.addr",
-        "short": "addr",
-        "definition": "addr",
-        "comment": "TKB-fält: `../../../addr` (`AD`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Address"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.person",
-        "path": "getehrextract.ehr_extract.demographic_extract.person",
-        "short": "person",
-        "definition": "Element som bara finns när instansen är av subtypen PERSON (xsi:type).",
-        "comment": "TKB-fält: `../../person` (`PERSON`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.person.personName",
-        "path": "getehrextract.ehr_extract.demographic_extract.person.personName",
-        "short": "personName",
-        "definition": "personName Heter name i schemat.",
-        "comment": "TKB-fält: `../../../name` (`EN`, kardinalitet 0..*).\n\n**Modellanteckning:** personName Heter name i schemat.",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "HumanName"
-          }
-        ]
-      },
-      {
-        "id": "getehrextract.ehr_extract.demographic_extract.person.addr",
-        "path": "getehrextract.ehr_extract.demographic_extract.person.addr",
-        "short": "addr",
-        "definition": "addr",
-        "comment": "TKB-fält: `../../../addr` (`AD`, kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Address"
           }
         ]
       },
@@ -2871,36 +1943,37 @@
       {
         "id": "getehrextract.response_detail",
         "path": "getehrextract.response_detail",
-        "short": "response_detail",
+        "short": "ResponseDetailType",
         "definition": "Fel-, varnings- och/eller informationsmeddelanden.",
         "comment": "TKB-fält: `response_detail` (`ResponseDetailType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getehrextract.response_detail.responseDetailCode",
-        "path": "getehrextract.response_detail.responseDetailCode",
-        "short": "responseDetailCode",
-        "definition": "responseDetailCode Heter code i schemat.",
+        "id": "getehrextract.response_detail.code",
+        "path": "getehrextract.response_detail.code",
+        "short": "code",
+        "definition": "code",
+        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getehrextract.response_detail.responseDetailText",
-        "path": "getehrextract.response_detail.responseDetailText",
-        "short": "responseDetailText",
-        "definition": "responseDetailText Heter text i schemat.",
-        "comment": "TKB-fält: `../text` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** responseDetailText Heter text i schemat.",
+        "id": "getehrextract.response_detail.text",
+        "path": "getehrextract.response_detail.text",
+        "short": "text",
+        "definition": "text",
+        "comment": "TKB-fält: `../text` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -2914,7 +1987,7 @@
         "path": "getehrextract.response_detail.type_code",
         "short": "type_code",
         "definition": "(XML-attribut.)",
-        "comment": "TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).",
+        "comment": "TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).\n\n**Modellanteckning:** type_code (XML-attribut) Tillåtna värden: E, W, I.",
         "min": 0,
         "max": "1",
         "type": [

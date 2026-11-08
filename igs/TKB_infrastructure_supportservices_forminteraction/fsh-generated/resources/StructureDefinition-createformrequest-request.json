@@ -28,10 +28,36 @@
         "definition": "Logisk modell för requestparametrar i CreateFormRequest\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateFormRequest:2).\nEtt vårdsystem skapar en begäran om att patient skall fylla i ett formulär.\nFormulärmotor skapar ett formulär och skickar indexpost till engagemangsindex\n(categorization = FormCreated)."
       },
       {
-        "id": "createformrequest-request.healthcareFacilityCareUnit",
-        "path": "createformrequest-request.healthcareFacilityCareUnit",
-        "short": "HSA-id för vårdenhet (ansvarig enhet)",
-        "definition": "HSA-id för vårdenhet (ansvarig enhet)",
+        "id": "createformrequest-request.formRequest",
+        "path": "createformrequest-request.formRequest",
+        "short": "FormRequestType",
+        "definition": "formRequest",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "createformrequest-request.formRequest.clinicalProcessInterestId",
+        "path": "createformrequest-request.formRequest.clinicalProcessInterestId",
+        "short": "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID.",
+        "definition": "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createformrequest-request.formRequest.expireDate",
+        "path": "createformrequest-request.formRequest.expireDate",
+        "short": "expireDate",
+        "definition": "expireDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -41,10 +67,10 @@
         ]
       },
       {
-        "id": "createformrequest-request.healthcareMedUnit",
-        "path": "createformrequest-request.healthcareMedUnit",
-        "short": "HSA-id för medicinsk ansvarig klinik/vårdcentral",
-        "definition": "HSA-id för medicinsk ansvarig klinik/vårdcentral",
+        "id": "createformrequest-request.formRequest.formText",
+        "path": "createformrequest-request.formRequest.formText",
+        "short": "formText",
+        "definition": "Unik text för Formulär. Används t.ex. \"CreateFormRequest\" för att bifoga en unik text för formuläret. T.ex. \"Hälsoundersökning inför besök X\".",
         "min": 0,
         "max": "1",
         "type": [
@@ -54,10 +80,10 @@
         ]
       },
       {
-        "id": "createformrequest-request.healthcareCareGiver",
-        "path": "createformrequest-request.healthcareCareGiver",
-        "short": "HSA-id för ansvarig vårdgivare (landsting/region)",
-        "definition": "HSA-id för ansvarig vårdgivare (landsting/region)",
+        "id": "createformrequest-request.formRequest.healthcare_CareGiver",
+        "path": "createformrequest-request.formRequest.healthcare_CareGiver",
+        "short": "Ansvarig vårdgivare (huvudman). T.ex. Landsting.",
+        "definition": "Ansvarig vårdgivare (huvudman). T.ex. Landsting.",
         "min": 0,
         "max": "1",
         "type": [
@@ -67,23 +93,10 @@
         ]
       },
       {
-        "id": "createformrequest-request.healthcareSystemId",
-        "path": "createformrequest-request.healthcareSystemId",
-        "short": "HSA-id för mottagande system",
-        "definition": "HSA-id för mottagande system",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "createformrequest-request.subjectOfCare",
-        "path": "createformrequest-request.subjectOfCare",
-        "short": "Patientens personnummer (yyyymmddnnnn)",
-        "definition": "Obligatorisk i CreateFormRequest — formulärbegäran är alltid knuten till en specifik patient.",
+        "id": "createformrequest-request.formRequest.healthcare_facility_CareUnit",
+        "path": "createformrequest-request.formRequest.healthcare_facility_CareUnit",
+        "short": "healthcare_facility_CareUnit",
+        "definition": "Vårdenheten som erbjuder/tillhandahåller formuläret. Fysisk mottagning. T.ex. Den avdelning som formuläret: se2321000016-1hz3",
         "min": 1,
         "max": "1",
         "type": [
@@ -93,10 +106,36 @@
         ]
       },
       {
-        "id": "createformrequest-request.templateId",
-        "path": "createformrequest-request.templateId",
-        "short": "Typ av formulärmall (KV Malltyp)",
-        "definition": "Typ av formulärmall (KV Malltyp)",
+        "id": "createformrequest-request.formRequest.healthcare_MedUnit",
+        "path": "createformrequest-request.formRequest.healthcare_MedUnit",
+        "short": "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik",
+        "definition": "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createformrequest-request.formRequest.healthcare_systemID",
+        "path": "createformrequest-request.formRequest.healthcare_systemID",
+        "short": "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem",
+        "definition": "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createformrequest-request.formRequest.keepUntil",
+        "path": "createformrequest-request.formRequest.keepUntil",
+        "short": "keepUntil",
+        "definition": "keepUntil",
         "min": 1,
         "max": "1",
         "type": [
@@ -106,10 +145,10 @@
         ]
       },
       {
-        "id": "createformrequest-request.templateVersion",
-        "path": "createformrequest-request.templateVersion",
-        "short": "Önskad version av formulärmallt",
-        "definition": "Önskad version av formulärmallt",
+        "id": "createformrequest-request.formRequest.subjectOfCare",
+        "path": "createformrequest-request.formRequest.subjectOfCare",
+        "short": "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
+        "definition": "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [
@@ -119,23 +158,10 @@
         ]
       },
       {
-        "id": "createformrequest-request.clinicalProcessInterestId",
-        "path": "createformrequest-request.clinicalProcessInterestId",
-        "short": "Hälsoärende-id (HSA-id + unik identifierare)",
-        "definition": "Hälsoärende-id (HSA-id + unik identifierare)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "createformrequest-request.formId",
-        "path": "createformrequest-request.formId",
-        "short": "Formulär-id genererat av vårdsystemet (GUID). Notera: vårdsystemet genererar detta.",
-        "definition": "Att notera: Vårdsystemet (konsumenten) genererar ett unikt id för formuläret (FormID).",
+        "id": "createformrequest-request.formRequest.templateId",
+        "path": "createformrequest-request.formRequest.templateId",
+        "short": "Typ av formulär. Kodverk för standardiserade id för formulärtyper.",
+        "definition": "Typ av formulär. Kodverk för standardiserade id för formulärtyper.",
         "min": 1,
         "max": "1",
         "type": [
@@ -145,28 +171,15 @@
         ]
       },
       {
-        "id": "createformrequest-request.expireDate",
-        "path": "createformrequest-request.expireDate",
-        "short": "Formulärets giltighetstid (ISO 8601 yyyyMMdd)",
-        "definition": "Formulärets giltighetstid (ISO 8601 yyyyMMdd)",
+        "id": "createformrequest-request.formRequest.templateVersion",
+        "path": "createformrequest-request.formRequest.templateVersion",
+        "short": "templateVersion",
+        "definition": "templateVersion",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "createformrequest-request.formText",
-        "path": "createformrequest-request.formText",
-        "short": "Unik text för formuläret, t.ex. Hälsoundersökning inför besök X",
-        "definition": "Unik text för formuläret, t.ex. Hälsoundersökning inför besök X",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "integer"
           }
         ]
       }

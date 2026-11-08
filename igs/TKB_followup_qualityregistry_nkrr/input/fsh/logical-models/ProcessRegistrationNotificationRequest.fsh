@@ -1,3 +1,6 @@
+// Elementen genereras ur ProcessRegistrationNotificationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:qualityregistry:nkrr v1.2.2
 // Kontrakt: ProcessRegistrationNotification v1.0
 // Genererad: 2026-05-19
@@ -12,71 +15,17 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* registrationType 0..1 string "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till"
-    """
-    Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.
-    Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller
-    för att beskriva hanteringen av notifiering till registret.
-    Typen av registrering ska vara unik inom en tjänsteproducent.
-    """
-* patientId 1..* Identifier "Id för patienten"
-    """
-    Id för patienten där fältet extension sätts till patientens identitetsbeteckning.
-    Anges med 12 tecken utan avskiljare.
-    Fältet root sätts till OID för typ av identifierare.
-    För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
-    För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
-    """
-* healthcareProviderId 1..1 Identifier "Id för informationsägande vårdgivare"
-    """
-    Id för informationsägande vårdgivare för informationen i notifieringen.
-    I första hand HSA-id (root = OID 1.2.752.129.2.1.4.1) alternativt i andra hand
-    organisationsnummer (root = OID 1.2.752.29.4.3).
-    """
-* registerUnitId 0..1 string "Id för registerenhet"
-    """
-    Id för registerenhet. Registerenhet är den minsta indelning av datatillhörighet som ett
-    kvalitetsregister använder för registrering och analys av data.
-    Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller.
-    """
-* reference 0..* BackboneElement "Information om referenser till tidigare registreringar i kvalitetsregistret"
-    """
-    Information om referenser till tidigare registreringar i kvalitetsregistret.
-    Informationen används för att ge rätt kontext på den avsedda registreringen.
-    Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller.
-    Obs: NkrrParameters eller reference får inte anges om fler än en patient anges.
-    """
-* reference.key 1..1 string "Nyckel för referens"
-    """
-    Nyckel för referens. Vad som ska anges som nyckel ska framgå i den informationsspecifikation
-    som kvalitetsregistret tillhandahåller.
-    """
-* reference.value 1..1 string "Information om tidigare registrering"
-    """
-    Information om tidigare registrering enligt den angivna nyckeln.
-    """
-* nkrrParameters 0..1 BackboneElement "Parametrar för tjänstekontraktet GetFormData"
-    """
-    Parametrar som används i begäran för tjänstekontraktet GetFormData.
-    Ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller.
-    Obs: NkrrParameters eller reference får inte anges om fler än en patient anges.
-    """
-* nkrrParameters.formId 0..1 string "Identifierare av mallen"
-    """
-    Identifierare av mallen.
-    """
-* nkrrParameters.sampleDate 0..* string "Datum för filtrering vid insamling av underlag"
-    """
-    Datum för filtrering vid insamling av underlag. Datum som skickas i attributet används för att
-    populera attributen careEncounterStartDate och careEncounterEndDate i tjänstekontraktet GetFormData.
-    Observera att ordningen på datumen som skickas kan ha betydelse.
-    """
-* nkrrParameters.careUnitId 0..* Identifier "Vårdenheter inom vilka underlag för registrering ska hämtas"
-    """
-    Vårdenheter inom vilka underlag för registrering ska hämtas.
-    Fältet root sätts till OID (1.2.752.129.2.1.4.1) för HSA.
-    Fältet extension sätts till HSA-id på vårdenhet.
-    """
+* type 0..1 string "type" "type"
+* patientId 1..* IIType "patientId" "patientId"
+* healthcareProviderId 1..1 IIType "healthcareProviderId" "healthcareProviderId"
+* registerUnitId 0..1 string "registerUnitId" "registerUnitId"
+* reference 0..* Base "ReferenceType" "reference"
+* reference.key 1..1 string "key" "key"
+* reference.value 1..1 string "value" "value"
+* NkrrParameters 0..1 Base "NkrrParameters" "NkrrParameters"
+* NkrrParameters.formId 0..1 string "formId" "formId"
+* NkrrParameters.sampleDate 0..* string "sampleDate" "sampleDate"
+* NkrrParameters.careUnitId 0..* IIType "careUnitId" "careUnitId"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ProcessRegistrationNotificationRequestFieldDescriptions

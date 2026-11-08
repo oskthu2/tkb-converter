@@ -1,3 +1,6 @@
+// Elementen genereras ur GetHealthCareUnitListResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:organization v5.0
 // Kontrakt: GetHealthCareUnitList v2.0
 // Genererad: 2026-05-19
@@ -13,31 +16,23 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* healthCareUnitList 0..1 BackboneElement "Lista av vårdenheter för angiven vårdgivare"
-    """
-    Aggregerat objekt med information om vårdgivaren och dess ingående vårdenheter.
-    Kardinalitet: Valfri.
-    """
-  * healthCareProviderHsaId 1..1 string "Vårdgivarens HSA-id. Ref. hsaIdentity [R5]."
-  * healthCareProviderName 1..1 string "Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]."
-  * healthCareProviderPublicName 1..1 string "Publikt officiellt namn på vårdgivaren."
-  * healthCareProviderOrgNo 1..1 string "Vårdgivarens organisationsnummer. Ref. orgNo [R5]."
-  * healthCareProviderStartDate 0..1 dateTime "Startdatum för vårdgivarens verksamhet. Ref. startDate [R5]."
-  * healthCareProviderEndDate 0..1 dateTime "Slutdatum för vårdgivarens verksamhet. Ref. endDate [R5]."
-  * feignedHealthCareProvider 0..1 boolean "true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]."
-  * archivedHealthCareProvider 0..1 boolean "true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]."
-  * healthCareUnit 0..* BackboneElement "Ingående vårdenhet enligt PDL"
-      """
-      Lista av vårdenheter som tillhör vårdgivaren.
-      Kardinalitet: Valfri, lista.
-      """
-    * healthCareUnitHsaId 1..1 string "HSA-identitet ingående enhet. Ref. hsaIdentity [R5]."
-    * healthCareUnitName 1..1 string "Namn ingående enhet. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]."
-    * healthCareUnitPublicName 1..1 string "Publikt officiellt namn på vårdenheten."
-    * healthCareUnitStartDate 0..1 dateTime "Startdatum för vårdenhetens verksamhet. Ref. startDate [R5]."
-    * healthCareUnitEndDate 0..1 dateTime "Slutdatum för vårdenhetens verksamhet. Ref. endDate [R5]."
-    * feignedHealthCareUnit 0..1 boolean "true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]."
-    * archivedHealthCareUnit 0..1 boolean "true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]."
+* healthCareUnitList 0..1 Base "HealthCareUnitListType" "healthCareUnitList"
+* healthCareUnitList.healthCareProviderHsaId 1..1 string "healthCareProviderHsaId" "healthCareProviderHsaId"
+* healthCareUnitList.healthCareProviderName 1..1 string "healthCareProviderName" "healthCareProviderName"
+* healthCareUnitList.healthCareProviderPublicName 1..1 string "healthCareProviderPublicName" "healthCareProviderPublicName"
+* healthCareUnitList.healthCareProviderOrgNo 1..1 string "healthCareProviderOrgNo" "healthCareProviderOrgNo"
+* healthCareUnitList.healthCareProviderStartDate 0..1 dateTime "healthCareProviderStartDate" "healthCareProviderStartDate"
+* healthCareUnitList.healthCareProviderEndDate 0..1 dateTime "healthCareProviderEndDate" "healthCareProviderEndDate"
+* healthCareUnitList.healthCareUnit 0..* Base "HealthCareUnitType" "healthCareUnit"
+* healthCareUnitList.healthCareUnit.healthCareUnitHsaId 1..1 string "healthCareUnitHsaId" "healthCareUnitHsaId"
+* healthCareUnitList.healthCareUnit.healthCareUnitName 1..1 string "healthCareUnitName" "healthCareUnitName"
+* healthCareUnitList.healthCareUnit.healthCareUnitPublicName 1..1 string "healthCareUnitPublicName" "healthCareUnitPublicName"
+* healthCareUnitList.healthCareUnit.healthCareUnitStartDate 0..1 dateTime "healthCareUnitStartDate" "healthCareUnitStartDate"
+* healthCareUnitList.healthCareUnit.healthCareUnitEndDate 0..1 dateTime "healthCareUnitEndDate" "healthCareUnitEndDate"
+* healthCareUnitList.healthCareUnit.feignedHealthCareUnit 0..1 boolean "feignedHealthCareUnit" "feignedHealthCareUnit"
+* healthCareUnitList.healthCareUnit.archivedHealthCareUnit 0..1 boolean "archivedHealthCareUnit" "archivedHealthCareUnit"
+* healthCareUnitList.feignedHealthCareProvider 0..1 boolean "feignedHealthCareProvider" "feignedHealthCareProvider"
+* healthCareUnitList.archivedHealthCareProvider 0..1 boolean "archivedHealthCareProvider" "archivedHealthCareProvider"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetHealthCareUnitListFieldDescriptions

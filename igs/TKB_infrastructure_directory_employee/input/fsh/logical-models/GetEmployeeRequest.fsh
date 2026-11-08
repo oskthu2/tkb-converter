@@ -1,3 +1,6 @@
+// Elementen genereras ur GetEmployeeResponder_4.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:employee v4.0
 // Kontrakt: GetEmployee v4.0 — Request
 // Genererad: 2026-05-19
@@ -15,30 +18,21 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "4.0"
+* personHsaId 0..1 string "personHsaId" "personHsaId"
+* personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"
+* searchBase 0..1 string "searchBase" "searchBase"
+* searchBase only DNType
+* includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+* profile 0..1 string "profile" "profile"
+* obeys getemployeerequest-choice-1
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
 * obeys getemployee-request-hsaid-xor-pnr
-* personHsaId 0..1 string "Sökt persons HSA-id"
-    """
-    Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].
-    Kardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.
-    """
-* personalIdentityNumber 0..1 string "Sökt persons Person-id (personnummer eller samordningsnummer)"
-    """
-    Sökt persons Person-id. Ref. person-id (personalIdentityNumber) [R5].
-    Kardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.
-    """
-* searchBase 0..1 string "Sökbas (DN)"
-    """
-    Sökbas. Om ingen sökbas anges används c=SE som sökbas. Kardinalitet: Valfri.
-    """
-* includeFeignedObject 0..1 boolean "Inkludera fingerade objekt"
-    """
-    true: om metoden ska leverera svar med fingerade objekt. Kardinalitet: Valfri.
-    """
-* profile 0..1 string "Profilval för returnerade attribut (BASIC, TITLE, CONTACT, FULL, extended1)"
-    """
-    Anger vilka attribut som returneras i svaret.
-    Om värdet utelämnas antas FULL. Kardinalitet: Valfri.
-    """
+
+Invariant: getemployeerequest-choice-1
+Description: "Exakt ett av personHsaId, personalIdentityNumber ska anges (xs:choice i schemat)."
+Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error
 
 Invariant: getemployee-request-hsaid-xor-pnr
 Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges."

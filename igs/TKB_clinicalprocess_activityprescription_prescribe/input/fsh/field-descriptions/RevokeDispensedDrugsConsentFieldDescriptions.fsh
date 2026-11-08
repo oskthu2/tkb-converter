@@ -7,7 +7,13 @@ RuleSet: RevokeDispensedDrugsConsentFieldDescriptions
 * result.resultCode ^definition = "Kan endast vara OK, INFO eller ERROR"
 * result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
 * result.errorCode ^definition = "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information."
-* result.errorCode ^comment = "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1)."
+* result.errorCode ^comment = "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED."
+* result.subcode ^definition = "Inga subkoder är specificerade."
+* result.subcode ^comment = "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR."
 * result.logId ^definition = "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."
 * result.logId ^comment = "TKB-fält: `../logId` (`string`, kardinalitet 1..1)."
 * result.message ^definition = "En beskrivande text som kan visas för användaren."

@@ -7,13 +7,17 @@ RuleSet: SkickaMeddelandenRequestFieldDescriptions
 * Behorighetsinformation.fornamn ^comment = "TKB-fält: `../fornamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.efternamn ^comment = "TKB-fält: `../efternamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.forskrivarkod ^comment = "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1)."
-* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1)."
+* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH."
 * Behorighetsinformation.arbetsplatskod ^comment = "TKB-fält: `../arbetsplatskod` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.hsaid ^comment = "TKB-fält: `../hsaid` (`string`, kardinalitet 0..1)."
 * Behorighetsinformation.personnummer ^comment = "TKB-fält: `../personnummer` (`string`, kardinalitet 0..1)."
 * Behorighetsinformation.organisationsnummer ^comment = "TKB-fält: `../organisationsnummer` (`string`, kardinalitet 0..1)."
 * Meddelandeninfo ^comment = "TKB-fält: `Meddelandeninfo` (`MeddelandeninfoRequest`, kardinalitet 1..1)."
-* Meddelandeninfo.Meddelandetyp ^comment = "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1)."
+* Meddelandeninfo.Meddelandetyp ^comment = "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** Meddelandetyp Tillåtna värden: OB, PB, FR, MB, VG."
 * Meddelandeninfo.Patientinformation ^comment = "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 0..1)."
 * Meddelandeninfo.Patientinformation.fornamn ^definition = "Anvandarens fornamn."
 * Meddelandeninfo.Patientinformation.fornamn ^comment = "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1)."
@@ -21,18 +25,24 @@ RuleSet: SkickaMeddelandenRequestFieldDescriptions
 * Meddelandeninfo.Patientinformation.mellannamn ^comment = "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1)."
 * Meddelandeninfo.Patientinformation.efternamn ^definition = "Anvandarens efternamn."
 * Meddelandeninfo.Patientinformation.efternamn ^comment = "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1)."
-* Meddelandeninfo.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1)."
+* Meddelandeninfo.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S."
 * Meddelandeninfo.Patientinformation.personid ^definition = "Anvandarens personid"
 * Meddelandeninfo.Patientinformation.personid ^comment = "TKB-fält: `../../personid` (`string`, kardinalitet 1..1)."
 * Meddelandeninfo.Patientinformation.lanskod ^definition = "Anvandarens folkbokforda lanskod"
 * Meddelandeninfo.Patientinformation.lanskod ^comment = "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1)."
 * Meddelandeninfo.Patientinformation.kommunkod ^definition = "Anvandarens folkbokforda kommunkod"
 * Meddelandeninfo.Patientinformation.kommunkod ^comment = "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1)."
-* Meddelandeninfo.kommunikationsriktning ^comment = "TKB-fält: `../kommunikationsriktning` (`KommunikationsriktningEnum`, kardinalitet 0..1)."
+* Meddelandeninfo.kommunikationsriktning ^comment = "TKB-fält: `../kommunikationsriktning` (`KommunikationsriktningEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** kommunikationsriktning Tillåtna värden: 1, 2."
 * Meddelandeninfo.tidigaremeddelandeid ^comment = "TKB-fält: `../tidigaremeddelandeid` (`string`, kardinalitet 0..1)."
 * Meddelandeninfo.ordinationsid ^comment = "TKB-fält: `../ordinationsid` (`string`, kardinalitet 0..1)."
 * Meddelandeninfo.glnkod ^comment = "TKB-fält: `../glnkod` (`string`, kardinalitet 0..1)."
 * Meddelandeninfo.sandningstidpunkt ^comment = "TKB-fält: `../sandningstidpunkt` (`dateTime`, kardinalitet 1..1)."
 * Meddelandeninfo.rubrik ^comment = "TKB-fält: `../rubrik` (`string`, kardinalitet 0..1)."
-* Meddelandeninfo.prioritet ^comment = "TKB-fält: `../prioritet` (`MeddelandePrioritetEnum`, kardinalitet 0..1)."
+* Meddelandeninfo.prioritet ^comment = "TKB-fält: `../prioritet` (`MeddelandePrioritetEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** prioritet Tillåtna värden: L, N, H."
 * Meddelandeninfo.meddelande ^comment = "TKB-fält: `../meddelande` (`string`, kardinalitet 1..1)."

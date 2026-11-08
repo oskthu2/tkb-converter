@@ -1,3 +1,4 @@
+[DatePeriodType]: StructureDefinition-DatePeriodType.html
 [GetRequestActivities]: StructureDefinition-getrequestactivities.html
 [GetRequestActivitiesRequest]: StructureDefinition-getrequestactivities-request.html
 [KvFormAvFramstallanCS]: CodeSystem-kvformavframstallan-cs.html

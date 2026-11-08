@@ -30,36 +30,36 @@
       {
         "id": "lookupresidentforfullprofile-request.personId",
         "path": "lookupresidentforfullprofile-request.personId",
-        "short": "Personnummer att slå upp",
+        "short": "personId",
         "definition": "Personnummer på format ÅÅÅÅMMDDNNNN. Flera personnummer kan anges i samma fråga. `personId` kan även vara reservnummer i det fall tjänstekonsumenten är en regional/lokal instans (format specifikt för aktuellt reservnummerkodverk). Se begränsning på antal `personId` enl. SLA-krav (avsnitt 4.6, max 1000/anrop)",
         "comment": "TKB-fält: `personId` (`Text`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "lookupresidentforfullprofile-request.lookUpSpecification",
         "path": "lookupresidentforfullprofile-request.lookUpSpecification",
-        "short": "Uppslagsbegränsning",
+        "short": "LookUpSpecificationType",
         "definition": "Urvalsbegränsning. Se datatypbeskrivning i avsnitt 5.2. _Obligatoriskt element enligt XSD, även om samtliga dess underfält är valfria — se ASSUME-PRM-001_",
-        "comment": "TKB-fält: `lookUpSpecification` (`LookUpSpecificationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Urvalsbegränsning enligt datatypen LookUpSpecificationType (avsnitt 5.2).\nElementet är enligt käll-XSD:t obligatoriskt även om samtliga dess underfält är\nvalfria — se ASSUME-PRM-001 i QUESTIONS.md.",
+        "comment": "TKB-fält: `lookUpSpecification` (`LookUpSpecificationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "lookupresidentforfullprofile-request.lookUpSpecification.avregistreringsorsak",
-        "path": "lookupresidentforfullprofile-request.lookUpSpecification.avregistreringsorsak",
-        "short": "Begränsning på avregistreringsorsak",
-        "definition": "2 tecken per värde. Ett eller flera värden ur AvregistreringsorsakKodKomplettTYPE\nbegränsar svaret till personer med någon av angivna avregistreringsorsaker.\nVärdet \"  \" (två blanktecken) begränsar svaret till personer utan\navregistreringsorsak. Värdet \"OO\" begränsar svaret till personer med\navregistreringskod som avviker från \"AV\" och \"GN\" (bakåtkompatibilitet med 1.0).\nUtelämnat fält innebär ingen begränsning.",
+        "id": "lookupresidentforfullprofile-request.lookUpSpecification.Avregistreringsorsak",
+        "path": "lookupresidentforfullprofile-request.lookUpSpecification.Avregistreringsorsak",
+        "short": "Avregistreringsorsak",
+        "definition": "Avregistreringsorsak",
         "min": 0,
         "max": "*",
         "type": [
@@ -69,41 +69,47 @@
         ]
       },
       {
-        "id": "lookupresidentforfullprofile-request.lookUpSpecification.sekretessmarkeringFilter",
-        "path": "lookupresidentforfullprofile-request.lookUpSpecification.sekretessmarkeringFilter",
-        "short": "Begränsning på sekretessmarkering",
-        "definition": "true (J) = returnera endast poster med sekretessmarkering. false (N) =\nreturnera endast poster utan sekretessmarkering (eller utan angiven\nsekretessmarkering).",
+        "id": "lookupresidentforfullprofile-request.lookUpSpecification.Sekretessmarkering",
+        "path": "lookupresidentforfullprofile-request.lookUpSpecification.Sekretessmarkering",
+        "short": "Sekretessmarkering",
+        "definition": "Sekretessmarkering Tillåtna värden: J, N.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "code"
           }
         ]
       },
       {
-        "id": "lookupresidentforfullprofile-request.lookUpSpecification.senasteAndringFolkbokforingFilter",
-        "path": "lookupresidentforfullprofile-request.lookUpSpecification.senasteAndringFolkbokforingFilter",
-        "short": "Begränsning på senaste ändringsdatum",
-        "definition": "Endast poster med senare datum i fältet SenasteAndringFolkbokforing än angivet\ndatum returneras. Strikt olikhet används — poster med samma datum returneras\ninte.",
+        "id": "lookupresidentforfullprofile-request.lookUpSpecification.SenasteAndringFolkbokforing",
+        "path": "lookupresidentforfullprofile-request.lookUpSpecification.SenasteAndringFolkbokforing",
+        "short": "SenasteAndringFolkbokforing",
+        "definition": "SenasteAndringFolkbokforing",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "date"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/DT"
+            ]
           }
         ]
       },
       {
         "id": "lookupresidentforfullprofile-request.lookUpSpecification.historiskTidpunkt",
         "path": "lookupresidentforfullprofile-request.lookUpSpecification.historiskTidpunkt",
-        "short": "Historisk tidpunkt",
-        "definition": "Anger historisk tidpunkt i syfte att svaret ska spegla personuppgifternas\nvärden vid denna tidpunkt. Kan inte kombineras med\nsenasteAndringFolkbokforingFilter.",
+        "short": "historiskTidpunkt",
+        "definition": "historiskTidpunkt",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/TS"
+            ]
           }
         ]
       }

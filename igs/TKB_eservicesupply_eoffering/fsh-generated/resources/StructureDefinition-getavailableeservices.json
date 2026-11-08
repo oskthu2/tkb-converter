@@ -30,47 +30,47 @@
       {
         "id": "getavailableeservices.availableEServices",
         "path": "getavailableeservices.availableEServices",
-        "short": "E-tjänster per vårdenhet",
+        "short": "availableEServicesType",
         "definition": "Lista med e-tjänster per vårdenhet.",
         "comment": "TKB-fält: `availableEServices` (`availableEServicesType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getavailableeservices.availableEServices.healthcareFacility",
-        "path": "getavailableeservices.availableEServices.healthcareFacility",
-        "short": "Vårdenhetsinformation",
+        "id": "getavailableeservices.availableEServices.healthcare_facility",
+        "path": "getavailableeservices.availableEServices.healthcare_facility",
+        "short": "healthcareFacilityInfoType",
         "definition": "Hsa-id för vårdenhet(er). Hsa-id måste vara ett giltigt hsa-id i HSA-katalogen.",
-        "comment": "TKB-fält: `healthcare_facility` (`hsaIdType`, kardinalitet 1..*).\n\nObs: modellen anger 1..1 där TKB:n anger 1..*.\n\n**Modellanteckning:** Vårdenhet som erbjuder e-tjänster.",
+        "comment": "TKB-fält: `healthcare_facility` (`hsaIdType`, kardinalitet 1..*).\n\nObs: modellen anger 1..1 där TKB:n anger 1..*.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityId",
-        "path": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityId",
-        "short": "Vårdenhetens HSA-id",
-        "definition": "Vårdenhetens hsa-id. Hsa-id måste vara ett giltigt hsa-id i HSA-katalogen.\nXSD: hsaIdType (string).\nKardinalitet: Obligatorisk.",
+        "id": "getavailableeservices.availableEServices.healthcare_facility.healthcare_facility",
+        "path": "getavailableeservices.availableEServices.healthcare_facility.healthcare_facility",
+        "short": "Vårdenhetens hsa-id.",
+        "definition": "Vårdenhetens hsa-id.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityName",
-        "path": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityName",
+        "id": "getavailableeservices.availableEServices.healthcare_facility.healthcare_facility_name",
+        "path": "getavailableeservices.availableEServices.healthcare_facility.healthcare_facility_name",
         "short": "Vårdenhetens namn",
         "definition": "Vårdenhetens namn. Utelämnas detta ska namnet hämtas från HSA-katalog.",
         "comment": "TKB-fält: `healthcare_facility_name` (`string`, kardinalitet 0..1).",
@@ -85,21 +85,21 @@
       {
         "id": "getavailableeservices.availableEServices.eservice",
         "path": "getavailableeservices.availableEServices.eservice",
-        "short": "E-tjänst",
+        "short": "eServiceType",
         "definition": "Information om e-tjänsten. Se avsnitt 6.",
         "comment": "TKB-fält: `availableEServices.eservice` (`eServiceType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getavailableeservices.availableEServices.eservice.commonName",
         "path": "getavailableeservices.availableEServices.eservice.commonName",
-        "short": "E-tjänstens namn",
+        "short": "E-tjänstens(resursens) namn.",
         "definition": "E-tjänstens namn. Ex: Tidbokning.",
         "comment": "TKB-fält: `commonName` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -113,7 +113,7 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.description",
         "path": "getavailableeservices.availableEServices.eservice.description",
-        "short": "Beskrivning av e-tjänst",
+        "short": "description",
         "definition": "Information om e-tjänsten. Kan innehålla beskrivningar och villkor för användandet av tjänsten (riktad mot användare/patient).",
         "comment": "TKB-fält: `description` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -127,7 +127,7 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.resourceId",
         "path": "getavailableeservices.availableEServices.eservice.resourceId",
-        "short": "E-tjänstens id",
+        "short": "E-tjänstens id. Unikt id för e-tjänsten. Tjänsteproducentens unika id.",
         "definition": "E-tjänstens id. Unikt id för e-tjänsten. Tjänsteproducentens unika id.",
         "comment": "TKB-fält: `resourceId` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -141,69 +141,65 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.securitylevel",
         "path": "getavailableeservices.availableEServices.eservice.securitylevel",
-        "short": "Autentiseringsnivå",
+        "short": "Tjänstens krav på autentiseringsnivå AL (Assurance level/tillitsnivå ISO/IEC 29115).",
         "definition": "Tjänstens krav på autentiseringsnivå (AL). Se [SecurityLevelCS](CodeSystem-securitylevel-cs.html).",
-        "comment": "TKB-fält: `securitylevel` (`securitylevelType`, kardinalitet 0..1).\n\n**Modellanteckning:** Tjänstens krav på autentiseringsnivå (Assurance Level, ISO/IEC 29115).\nAL1 = Tillitsnivå 1, AL2 = Tillitsnivå 2,\nAL3 = Mjuka certifikat/stark autentisering med engångskod,\nAL4 = Hårda certifikat.",
+        "comment": "TKB-fält: `securitylevel` (`securitylevelType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/eservicesupply-eoffering/ValueSet/securitylevel-vs"
-        }
+        ]
       },
       {
         "id": "getavailableeservices.availableEServices.eservice.url",
         "path": "getavailableeservices.availableEServices.eservice.url",
-        "short": "URL till e-tjänst",
+        "short": "URL till e-tjänst.",
         "definition": "URL till e-tjänst. Måste kunna nås via internet. Ex: https://host/funktion?operation",
         "comment": "TKB-fält: `url` (`anyURI`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "url"
+            "code": "uri"
           }
         ]
       },
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions",
         "path": "getavailableeservices.availableEServices.eservice.restrictions",
-        "short": "Restriktioner",
+        "short": "restrictionType",
         "definition": "Restriktioner för att använda e-tjänsten. En e-tjänst utan restriktioner är tillgänglig för alla.",
         "comment": "TKB-fält: `restrictions` (`restrictionType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode",
-        "short": "Betjäningsområde",
+        "short": "eServiceAreaCodeType",
         "definition": "Betjäningsområde — geografiskt område e-tjänsten täcker.",
-        "comment": "TKB-fält: `eserviceAreaCode` (`eServiceAreaCodeType`, kardinalitet 0..1).\n\n**Modellanteckning:** Information om e-tjänstens geografiska betjäningsområde (län, kommun och kommundel).",
+        "comment": "TKB-fält: `eserviceAreaCode` (`eServiceAreaCodeType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
-        "short": "Länskod",
+        "short": "Beskriver inom vilket län e-tjänsten erbjuds. E-tjänsten betjänar invånare i detta län.",
         "definition": "Länskod. Anger i vilka län e-tjänsten är tillgänglig/erbjuds.",
-        "comment": "TKB-fält: `countycode` (`string`, kardinalitet 1..*).\n\n**Modellanteckning:** Länskod. Anger i vilka län e-tjänsten är tillgänglig/erbjuds.\nE-tjänsten betjänar invånare i detta län.\nXSD: countycode (string).",
+        "comment": "TKB-fält: `countycode` (`string`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
@@ -215,9 +211,9 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
-        "short": "Kommunkod",
+        "short": "Beskriver inom vilken kommun e-tjänsten erbjuds. E-tjänsten betjänar invånare i denna kommun.",
         "definition": "Kommunkod. Avgränsar länskod. Utelämnas denna gäller hela länet.",
-        "comment": "TKB-fält: `municipalityCode` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Kommunkod. Avgränsar länskod. Visar i vilka specifika kommuner e-tjänsten erbjuds.\nUtelämnas denna gäller hela länet.",
+        "comment": "TKB-fält: `municipalityCode` (`string`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -229,9 +225,9 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
-        "short": "Kommundelskod",
+        "short": "Beskriver inom vilken kommundelskod e-tjänsten erbjuds. E-tjänsten betjänar invånare i denna kommundel.",
         "definition": "Kommundelskod. Avgränsar kommunkod. Utelämnas denna gäller hela kommunen.",
-        "comment": "TKB-fält: `municipalitySectionCode` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Kommundelskod. Avgränsar kommunkod. Visar i vilka specifika kommundelar e-tjänsten erbjuds.\nUtelämnas denna gäller hela kommunen.",
+        "comment": "TKB-fält: `municipalitySectionCode` (`string`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -243,25 +239,21 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.gender",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.gender",
-        "short": "Kön",
+        "short": "E-tjänsten riktar sig endast till ett visst kön. 1 = Man 2 = Kvinna",
         "definition": "E-tjänsten riktar sig till ett visst kön. 1 = Man, 2 = Kvinna. Se [GenderEofferingCS](CodeSystem-gender-eoffering-cs.html).",
-        "comment": "TKB-fält: `gender` (`genderType (string)`, kardinalitet 0..1).\n\n**Modellanteckning:** E-tjänsten riktar sig till ett visst kön.\n1 = Man, 2 = Kvinna.\nASSUME: Modellat som code med domänspecifikt ValueSet.\nXSD: genderType (string — ej enumeration i schemat).",
+        "comment": "TKB-fält: `gender` (`genderType (string)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "code"
+            "code": "string"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/eservicesupply-eoffering/ValueSet/gender-eoffering-vs"
-        }
+        ]
       },
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.listing",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.listing",
-        "short": "Listningskrav",
+        "short": "S= Kräver listning F = Kräver ej listning",
         "definition": "Listningskrav. true = kräver listning, false = kräver ej listning.",
         "comment": "TKB-fält: `listing` (`boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -275,7 +267,7 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.referal",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.referal",
-        "short": "Remisskrav",
+        "short": "S = Kräver remiss F = Kräver ej remiss",
         "definition": "Remisskrav. true = kräver remiss, false = kräver ej remiss.",
         "comment": "TKB-fält: `referal` (`boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -289,9 +281,9 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.referalTypeId",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.referalTypeId",
-        "short": "Remisstyp",
+        "short": "Definiera vilken typ av remiss e-tjänsten kräver.",
         "definition": "Kodverk för remisstyper 1–8 (KV Framställantyp).",
-        "comment": "TKB-fält: `referalTypeId` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** Kodverk för remisstyper 1–8 (KV Framställantyp).\nDefiniera vilken typ av remiss e-tjänsten kräver.\nQUESTIONS: Canonical URL för KV Framställantyp är okänd — se QUESTIONS.md.",
+        "comment": "TKB-fält: `referalTypeId` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -303,7 +295,7 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.ageMin",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.ageMin",
-        "short": "Ålderskrav minimum",
+        "short": "Ålderskrav min.",
         "definition": "Ålderskrav minimum (år).",
         "comment": "TKB-fält: `ageMin` (`integer`, kardinalitet 0..1).",
         "min": 0,
@@ -317,7 +309,7 @@
       {
         "id": "getavailableeservices.availableEServices.eservice.restrictions.ageMax",
         "path": "getavailableeservices.availableEServices.eservice.restrictions.ageMax",
-        "short": "Ålderskrav maximum",
+        "short": "Ålder max.",
         "definition": "Ålderskrav maximum (år).",
         "comment": "TKB-fält: `ageMax` (`integer`, kardinalitet 0..1).",
         "min": 0,

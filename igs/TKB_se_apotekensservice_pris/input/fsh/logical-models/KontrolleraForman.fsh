@@ -1,3 +1,6 @@
+// Elementen genereras ur KontrolleraFormanResponder_1_ext_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: KontrolleraForman v1.1
 // Genererad: 2026-09-26
@@ -15,5 +18,4 @@ Characteristics: #can-be-target
   * formanskod 1..1 string "formanskod" "Förmånskod R, U, L, eller F"
   * formansInfoId 1..1 string "formansInfoId" "Id som representerar det id som var satt i motsvarande ArtikelIdentiteterTo. Det vill säga antingen GTIN, Förpackningsid eller Varunr beroende på vad som frågats efter. Heter id i schemat."
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert KontrolleraFormanFieldDescriptions

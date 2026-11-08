@@ -1,3 +1,4 @@
+[CVType]: StructureDefinition-CVType.html
 [ProcessCervixScreeningInformationRequest]: StructureDefinition-processcervixscreeninginformation-request.html
 [ProcessCervixScreeningInformation]: StructureDefinition-processcervixscreeninginformation.html
 [ResultCodeVS]: ValueSet-CervixScreening-resultcode-vs.html

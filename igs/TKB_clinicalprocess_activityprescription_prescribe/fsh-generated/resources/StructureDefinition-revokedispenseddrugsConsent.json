@@ -30,21 +30,21 @@
       {
         "id": "revokedispenseddrugsConsent.result",
         "path": "revokedispenseddrugsConsent.result",
-        "short": "Resultat av begäran",
+        "short": "ResultType",
         "definition": "Innehåller information om begäran gick bra eller ej.",
         "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "revokedispenseddrugsConsent.result.resultCode",
         "path": "revokedispenseddrugsConsent.result.resultCode",
-        "short": "Svarskod",
+        "short": "resultCode",
         "definition": "Kan endast vara OK, INFO eller ERROR",
         "comment": "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
@@ -53,34 +53,40 @@
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/resultcode-vs"
-        }
+        ]
       },
       {
         "id": "revokedispenseddrugsConsent.result.errorCode",
         "path": "revokedispenseddrugsConsent.result.errorCode",
-        "short": "Felkod",
+        "short": "errorCode",
         "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
-        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
+        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/errorcode-vs"
-        }
+        ]
+      },
+      {
+        "id": "revokedispenseddrugsConsent.result.subcode",
+        "path": "revokedispenseddrugsConsent.result.subcode",
+        "short": "subcode",
+        "definition": "Inga subkoder är specificerade.",
+        "comment": "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
       },
       {
         "id": "revokedispenseddrugsConsent.result.logId",
         "path": "revokedispenseddrugsConsent.result.logId",
-        "short": "UUID för felanmälan",
+        "short": "logId",
         "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
         "comment": "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -94,7 +100,7 @@
       {
         "id": "revokedispenseddrugsConsent.result.message",
         "path": "revokedispenseddrugsConsent.result.message",
-        "short": "Beskrivande text",
+        "short": "message",
         "definition": "En beskrivande text som kan visas för användaren.",
         "comment": "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
         "min": 0,

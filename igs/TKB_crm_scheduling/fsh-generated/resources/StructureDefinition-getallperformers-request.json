@@ -30,21 +30,21 @@
       {
         "id": "getallperformers-request.healthcare_facility",
         "path": "getallperformers-request.healthcare_facility",
-        "short": "HSA-id för mottagning/vårdenhet",
+        "short": "healthcare_facility",
         "definition": "HSA-id för mottagning/vårdenhet.",
         "comment": "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "getallperformers-request.timeTypeIDs",
         "path": "getallperformers-request.timeTypeIDs",
-        "short": "Tidstypid för att begränsa svarslistan",
+        "short": "timeTypeIDs",
         "definition": "Tidstypid för att begränsa svarslistan.",
         "comment": "TKB-fält: `timeTypeIDs` (`TimeTypeIDType (string)`, kardinalitet 0..*).",
         "min": 0,
@@ -58,7 +58,7 @@
       {
         "id": "getallperformers-request.careTypeIDs",
         "path": "getallperformers-request.careTypeIDs",
-        "short": "Vårdtypsid för att begränsa svarslistan",
+        "short": "careTypeIDs",
         "definition": "Vårdtypsid för att begränsa svarslistan. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
         "comment": "TKB-fält: `careTypeIDs` (`CareTypeIDType (string)`, kardinalitet 0..*).",
         "min": 0,
@@ -72,14 +72,17 @@
       {
         "id": "getallperformers-request.subject_of_care",
         "path": "getallperformers-request.subject_of_care",
-        "short": "Personnummer enl. yyyymmddxxxx",
+        "short": "subject_of_care",
         "definition": "Personnummer enl. yyyymmddxxxx för begränsa/utöka svarslistan.",
         "comment": "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType"
+            ]
           }
         ]
       }

@@ -22,38 +22,6 @@ Ref. HSA-id (hsaIdentity) [R5]"
 
 Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3"
 * credentialInformation.healthCareProfessionalLicence ^comment = "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..n)."
-* credentialInformation.healthCareProfessionalLicenceCode ^definition = "Kod för personens Legitimerade yrkestitel.
-
-Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3"
-* credentialInformation.healthCareProfessionalLicenceCode ^comment = "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 0..n)."
-* credentialInformation.healthCareProfessionalLicenceSpeciality ^definition = "Personens Specialistkoder kopplat till aktuell Legitimerade Yrkesgrupp. Ref. Leg. yrkesgrupp och specialitet för läkare och tandläkare (hsaSosTitleCodeSpeciality) [R5]"
-* credentialInformation.healthCareProfessionalLicenceSpeciality ^comment = "TKB-fält: `.. healthCareProfessionalLicenceSpeciality` (`HCPSpecialityCodesType`, kardinalitet 0..n)."
-* credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode ^definition = "Kod för den Legitimerade yrkestitel som specialistkoden hör till. Ref. Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3"
-* credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode ^comment = "TKB-fält: `.. .. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1)."
-* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^definition = "Specialistkod, enligt något av Socialstyrelsens kodverk."
-* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^comment = "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** Enligt något av Socialstyrelsens kodverk: 1.2.752.116.3.1.6 (Läkare 1992),
-1.2.752.116.3.1.7 (Läkare 1996), 1.2.752.116.3.1.8 (Läkare 2008),
-1.2.752.116.3.1.9 (Läkare 2015), 1.2.752.116.3.1.10 (Tandläkare 1993),
-1.2.752.116.3.1.15 (temporär behörighet 2016), 1.2.752.116.3.1.17 (Tandläkare 2017),
-1.2.752.116.3.1.20 (Läkare 2021)."
-* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName ^definition = "Specialitet i klartext. Klartext för specialityCode ovan."
-* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName ^comment = "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 0..1)."
-* credentialInformation.occupationalCode ^definition = "Utökad yrkeskod, används för icke-legitimerade medarbetares åtkomst till tjänster hos eHälsomyndigheten."
-* credentialInformation.occupationalCode ^comment = "TKB-fält: `..occupationalCode` (`String`, kardinalitet 0..n)."
-* credentialInformation.personalIdentity ^definition = "Personens person- eller samordningsnummer
-
-Ref. Person-id (personalIdentityNumber) [R5]"
-* credentialInformation.personalIdentity ^comment = "TKB-fält: `..personalIdentity *5)` (`IIType`, kardinalitet 0..1).
-
-**Modellanteckning:** Returneras när profil extended1 anges. Ref. Person-id (personalIdentityNumber) [R5]."
-* credentialInformation.personalIdentity.root ^definition = "Anger typ av personalIdentity som returneras, för personnummer: 1.2.752.129.2.1.3.1, och för samordningsnummer: 1.2.752.129.2.1.3.3"
-* credentialInformation.personalIdentity.root ^comment = "TKB-fält: `.. ..root` (`String`, kardinalitet 1..1)."
-* credentialInformation.healthcareProfessionalLicenseIdentityNumber ^definition = "Personens Hosp-Id
-
-Ref. HOSP-id (hospIdentityNumber) [R5]"
-* credentialInformation.healthcareProfessionalLicenseIdentityNumber ^comment = "TKB-fält: `.. healthcareProfessionalLicenseIdentityNumber` (`String`, kardinalitet 0..1)."
 * credentialInformation.personalPrescriptionCode ^definition = "Personens förskrivarkod. Ref förskrivarkod (personalPrescriptionCode) [R5]"
 * credentialInformation.personalPrescriptionCode ^comment = "TKB-fält: `..personalPrescriptionCode` (`String`, kardinalitet 0..1)."
 * credentialInformation.groupPrescriptionCode ^definition = "Gruppförskrivarkod (er) som personen tilldelats av sin arbetsgivare. Ref. gruppförskrivarkod (hsaGroupPrescriptionCode) [R5]"
@@ -76,8 +44,6 @@ Ref. befattningskod (paTitleCode) [R5]"
 * credentialInformation.paTitleCode ^comment = "TKB-fält: `..paTitleCode` (`String`, kardinalitet 0..n)."
 * credentialInformation.protectedPerson ^definition = "true: om person har skyddade personuppgifter"
 * credentialInformation.protectedPerson ^comment = "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1)."
-* credentialInformation.feignedPerson ^definition = "true: om personen är ett fingerat objekt"
-* credentialInformation.feignedPerson ^comment = "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1)."
 * credentialInformation.commission ^definition = "De vårdmedarbetaruppdrag som personen är kopplad till"
 * credentialInformation.commission ^comment = "TKB-fält: `..commission` (`CommissionType`, kardinalitet 0..n)."
 * credentialInformation.commission.commissionName ^definition = "Vårdmedarbetaruppdragets Namn
@@ -102,16 +68,10 @@ Ref. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5]"
 * credentialInformation.commission.commissionRight.informationClass ^comment = "TKB-fält: `.. .. ..informationClass` (`String`, kardinalitet 1..1)."
 * credentialInformation.commission.commissionRight.scope ^definition = "Rättighet omfång"
 * credentialInformation.commission.commissionRight.scope ^comment = "TKB-fält: `.. .. ..scope` (`String`, kardinalitet 1..1)."
-* credentialInformation.commission.pharmacyIdentifier ^definition = "Unikt id för apotek. Ref. (hsaGlnCode + hsaBusinessCode) [R5]"
-* credentialInformation.commission.pharmacyIdentifier ^comment = "TKB-fält: `.. ..pharmacyIdentifier` (`String`, kardinalitet 0..1)."
-* credentialInformation.commission.feignedCommission ^definition = "true: om vårdmedarbetaruppdraget är ett fingerat objekt"
-* credentialInformation.commission.feignedCommission ^comment = "TKB-fält: `.. ..feignedCommission` (`Boolean`, kardinalitet 0..1)."
 * credentialInformation.commission.healthCareUnitHsaId ^definition = "HSA-id för vårdenhet enligt PDL
 
 Ref. HSA-id (hsaIdentity) [R5]"
-* credentialInformation.commission.healthCareUnitHsaId ^comment = "TKB-fält: `.. ..healthCareUnitHsaId *3)` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Saknas om uppdraget ligger direkt under Vårdgivaren."
+* credentialInformation.commission.healthCareUnitHsaId ^comment = "TKB-fält: `.. ..healthCareUnitHsaId *3)` (`String`, kardinalitet 0..1)."
 * credentialInformation.commission.healthCareUnitName ^definition = "Vårdenhetens namn
 
 Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]"
@@ -124,10 +84,6 @@ Ref. startdatum (startDate) [R5]"
 
 Ref. slutdatum (endDate) [R5]"
 * credentialInformation.commission.healthCareUnitEndDate ^comment = "TKB-fält: `.. ..healthCareUnitEndDate *3)` (`dateTime`, kardinalitet 0..1)."
-* credentialInformation.commission.feignedHealthCareUnit ^definition = "true: om vårdenheten är ett fingerat objekt"
-* credentialInformation.commission.feignedHealthCareUnit ^comment = "TKB-fält: `.. ..feignedHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
-* credentialInformation.commission.archivedHealthCareUnit ^definition = "true: om vårdenheten är ett arkiverat objekt"
-* credentialInformation.commission.archivedHealthCareUnit ^comment = "TKB-fält: `.. ..archivedHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
 * credentialInformation.commission.healthCareProviderHsaId ^definition = "Vårdgivarens HSA-id
 
 Ref. HSA-id (hsaIdentity) [R5]"
@@ -148,5 +104,39 @@ Ref. slutdatum (endDate) [R5]"
 * credentialInformation.commission.healthCareProviderEndDate ^comment = "TKB-fält: `.. ..healthCareProviderEndDate` (`dateTime`, kardinalitet 0..1)."
 * credentialInformation.commission.feignedHealthCareProvider ^definition = "true: om vårdgivaren är ett fingerat objekt"
 * credentialInformation.commission.feignedHealthCareProvider ^comment = "TKB-fält: `.. ..feignedHealthCareProvider` (`Boolean`, kardinalitet 0..1)."
+* credentialInformation.commission.feignedHealthCareUnit ^definition = "true: om vårdenheten är ett fingerat objekt"
+* credentialInformation.commission.feignedHealthCareUnit ^comment = "TKB-fält: `.. ..feignedHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
+* credentialInformation.commission.feignedCommission ^definition = "true: om vårdmedarbetaruppdraget är ett fingerat objekt"
+* credentialInformation.commission.feignedCommission ^comment = "TKB-fält: `.. ..feignedCommission` (`Boolean`, kardinalitet 0..1)."
 * credentialInformation.commission.archivedHealthCareProvider ^definition = "true: om vårdgivaren är ett arkiverat objekt"
 * credentialInformation.commission.archivedHealthCareProvider ^comment = "TKB-fält: `.. ..archivedHealthCareProvider` (`Boolean`, kardinalitet 0..1)."
+* credentialInformation.commission.archivedHealthCareUnit ^definition = "true: om vårdenheten är ett arkiverat objekt"
+* credentialInformation.commission.archivedHealthCareUnit ^comment = "TKB-fält: `.. ..archivedHealthCareUnit` (`Boolean`, kardinalitet 0..1)."
+* credentialInformation.commission.pharmacyIdentifier ^definition = "Unikt id för apotek. Ref. (hsaGlnCode + hsaBusinessCode) [R5]"
+* credentialInformation.commission.pharmacyIdentifier ^comment = "TKB-fält: `.. ..pharmacyIdentifier` (`String`, kardinalitet 0..1)."
+* credentialInformation.feignedPerson ^definition = "true: om personen är ett fingerat objekt"
+* credentialInformation.feignedPerson ^comment = "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1)."
+* credentialInformation.healthCareProfessionalLicenceCode ^definition = "Kod för personens Legitimerade yrkestitel.
+
+Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3"
+* credentialInformation.healthCareProfessionalLicenceCode ^comment = "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 0..n)."
+* credentialInformation.healthCareProfessionalLicenceSpeciality ^definition = "Personens Specialistkoder kopplat till aktuell Legitimerade Yrkesgrupp. Ref. Leg. yrkesgrupp och specialitet för läkare och tandläkare (hsaSosTitleCodeSpeciality) [R5]"
+* credentialInformation.healthCareProfessionalLicenceSpeciality ^comment = "TKB-fält: `.. healthCareProfessionalLicenceSpeciality` (`HCPSpecialityCodesType`, kardinalitet 0..n)."
+* credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode ^definition = "Kod för den Legitimerade yrkestitel som specialistkoden hör till. Ref. Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3"
+* credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode ^comment = "TKB-fält: `.. .. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1)."
+* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^definition = "Specialistkod, enligt något av Socialstyrelsens kodverk."
+* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^comment = "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1)."
+* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName ^definition = "Specialitet i klartext. Klartext för specialityCode ovan."
+* credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName ^comment = "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1."
+* credentialInformation.occupationalCode ^definition = "Utökad yrkeskod, används för icke-legitimerade medarbetares åtkomst till tjänster hos eHälsomyndigheten."
+* credentialInformation.occupationalCode ^comment = "TKB-fält: `..occupationalCode` (`String`, kardinalitet 0..n)."
+* credentialInformation.personalIdentity ^definition = "Personens person- eller samordningsnummer
+
+Ref. Person-id (personalIdentityNumber) [R5]"
+* credentialInformation.personalIdentity ^comment = "TKB-fält: `..personalIdentity *5)` (`IIType`, kardinalitet 0..1)."
+* credentialInformation.healthcareProfessionalLicenseIdentityNumber ^definition = "Personens Hosp-Id
+
+Ref. HOSP-id (hospIdentityNumber) [R5]"
+* credentialInformation.healthcareProfessionalLicenseIdentityNumber ^comment = "TKB-fält: `.. healthcareProfessionalLicenseIdentityNumber` (`String`, kardinalitet 0..1)."

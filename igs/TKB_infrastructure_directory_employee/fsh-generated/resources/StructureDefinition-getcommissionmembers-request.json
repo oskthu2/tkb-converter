@@ -30,8 +30,8 @@
       {
         "id": "getcommissionmembers-request.healthCareUnitHsaId",
         "path": "getcommissionmembers-request.healthCareUnitHsaId",
-        "short": "HSA-id för vårdenhet (PDL)",
-        "definition": "HSA-id för vårdenhet enligt PDL.\nRef. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.",
+        "short": "healthCareUnitHsaId",
+        "definition": "healthCareUnitHsaId",
         "min": 1,
         "max": "1",
         "type": [
@@ -43,8 +43,8 @@
       {
         "id": "getcommissionmembers-request.commissionPurpose",
         "path": "getcommissionmembers-request.commissionPurpose",
-        "short": "Vårdmedarbetaruppdragets ändamål",
-        "definition": "Vårdmedarbetaruppdragets ändamål enligt definierad värdemängd.\nRef. vårdmedarbetaruppdragets ändamål (hsaCommissionPurpose) [R5].\nKardinalitet: Obligatorisk.",
+        "short": "commissionPurpose",
+        "definition": "commissionPurpose",
         "min": 1,
         "max": "1",
         "type": [
@@ -56,8 +56,8 @@
       {
         "id": "getcommissionmembers-request.commissionRights",
         "path": "getcommissionmembers-request.commissionRights",
-        "short": "Vårdmedarbetaruppdragets rättigheter",
-        "definition": "Vårdmedarbetaruppdragets rättigheter enligt definierade värdemängder.\nSyntax: Aktivitet;Informationstyp;Omfång — alla delar behöver anges.\nRef. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5].\nKardinalitet: Valfri, lista.",
+        "short": "commissionRights",
+        "definition": "commissionRights",
         "min": 0,
         "max": "*",
         "type": [
@@ -69,8 +69,8 @@
       {
         "id": "getcommissionmembers-request.healthCareProfessionalLicense",
         "path": "getcommissionmembers-request.healthCareProfessionalLicense",
-        "short": "Legitimerad yrkesgrupp (filter)",
-        "definition": "Legitimerad yrkesgrupp enligt definierad värdemängd. Används som filter.\nRef. legitimerad yrkesgrupp (hsaTitle) [R5]. Kardinalitet: Valfri, lista.",
+        "short": "healthCareProfessionalLicense",
+        "definition": "healthCareProfessionalLicense",
         "min": 0,
         "max": "*",
         "type": [
@@ -82,21 +82,24 @@
       {
         "id": "getcommissionmembers-request.searchBase",
         "path": "getcommissionmembers-request.searchBase",
-        "short": "Sökbas (DN)",
-        "definition": "Sökbas. Om ingen sökbas anges används c=SE som sökbas. Kardinalitet: Valfri.",
+        "short": "searchBase",
+        "definition": "searchBase",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/DNType"
+            ]
           }
         ]
       },
       {
         "id": "getcommissionmembers-request.includeFeignedObject",
         "path": "getcommissionmembers-request.includeFeignedObject",
-        "short": "Inkludera fingerade objekt",
-        "definition": "true: om metoden ska leverera svar med fingerade objekt. Kardinalitet: Valfri.",
+        "short": "includeFeignedObject",
+        "definition": "includeFeignedObject",
         "min": 0,
         "max": "1",
         "type": [

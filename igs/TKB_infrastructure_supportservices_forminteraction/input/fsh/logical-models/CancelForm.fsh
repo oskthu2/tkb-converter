@@ -1,3 +1,6 @@
+// Elementen genereras ur CancelFormResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:supportservices:forminteraction v2.0
 // Kontrakt: CancelForm v2.0
 // Genererad: 2026-05-19
@@ -13,10 +16,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* formId 1..1 string "Formulärets unika ID (GUID) som skall avbrytas"
-* subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
-* reason 0..1 string "Anledning till avbrytning (valfri kommentar)"
-
+* formId 1..1 string "formId" "formId"
+* subjectOfCare 0..1 string "subjectOfCare" "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt."
 
 Logical: CancelForm
 Id: cancelform
@@ -29,5 +30,5 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* resultCode 1..1 string "Svarskod (OK = formuläret har avbrutits)"
-* comment 0..1 string "Kommentar"
+* comment 0..1 string "comment" "comment"
+* resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."

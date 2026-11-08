@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i DeleteEhrExtract\n(urn:riv:ehr:patientsummary:DeleteEhrExtractResponder:1, DeleteEhrExtractType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "deleteehrextract-request.logicalAddress",
-        "path": "deleteehrextract-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. the HSA-id of the service producer",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "deleteehrextract-request.ehr_system",
         "path": "deleteehrextract-request.ehr_system",
         "short": "ehr_system",
@@ -50,7 +37,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -64,21 +51,21 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "deleteehrextract-request.deletion",
         "path": "deleteehrextract-request.deletion",
-        "short": "deletion",
+        "short": "DeletionType",
         "definition": "Innehåller par av rcId och meaning.\n\nrcId:\n\nGlobalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.)\n\nmeaning:\n\nDen huvudinformationstyp som posten (som ska tas bort) gäller för.",
         "comment": "TKB-fält: `deletion` (`DeletionType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -92,7 +79,7 @@
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
@@ -106,44 +93,44 @@
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
         "id": "deleteehrextract-request.parameters",
         "path": "deleteehrextract-request.parameters",
-        "short": "parameters",
+        "short": "ParameterType",
         "definition": "Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten DeleteEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.",
         "comment": "TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).\n\nObs: modellen anger 0..* där TKB:n anger 1..1.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "deleteehrextract-request.parameters.parameterCode",
-        "path": "deleteehrextract-request.parameters.parameterCode",
-        "short": "parameterCode",
-        "definition": "parameterCode Heter code i schemat.",
-        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).\n\n**Modellanteckning:** parameterCode Heter code i schemat.",
+        "id": "deleteehrextract-request.parameters.code",
+        "path": "deleteehrextract-request.parameters.code",
+        "short": "code",
+        "definition": "code",
+        "comment": "TKB-fält: `../code` (`CD`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "deleteehrextract-request.parameters.parameterName",
-        "path": "deleteehrextract-request.parameters.parameterName",
-        "short": "parameterName",
-        "definition": "parameterName Heter name i schemat.",
-        "comment": "TKB-fält: `../name` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** parameterName Heter name i schemat.",
+        "id": "deleteehrextract-request.parameters.name",
+        "path": "deleteehrextract-request.parameters.name",
+        "short": "name",
+        "definition": "name",
+        "comment": "TKB-fält: `../name` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -153,11 +140,11 @@
         ]
       },
       {
-        "id": "deleteehrextract-request.parameters.parameterValue",
-        "path": "deleteehrextract-request.parameters.parameterValue",
-        "short": "parameterValue",
-        "definition": "parameterValue Heter value i schemat.",
-        "comment": "TKB-fält: `../value` (`ST`, kardinalitet 1..1).\n\n**Modellanteckning:** parameterValue Heter value i schemat.",
+        "id": "deleteehrextract-request.parameters.value",
+        "path": "deleteehrextract-request.parameters.value",
+        "short": "value",
+        "definition": "value",
+        "comment": "TKB-fält: `../value` (`ST`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [

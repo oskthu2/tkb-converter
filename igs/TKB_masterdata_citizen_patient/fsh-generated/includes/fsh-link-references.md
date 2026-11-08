@@ -1,3 +1,4 @@
+[DatePeriodType]: StructureDefinition-DatePeriodType.html
 [GetPatientContactInformationRequest]: StructureDefinition-getpatientcontactinformation-request.html
 [GetPatientContactInformation]: StructureDefinition-getpatientcontactinformation.html
 [TypeOfContactRelationCodeSystemVS]: ValueSet-masterdata-citizen-patient-typeofcontactrelationcodesystem-vs.html

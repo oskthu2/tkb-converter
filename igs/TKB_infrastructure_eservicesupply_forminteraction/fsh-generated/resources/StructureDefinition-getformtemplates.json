@@ -28,24 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetFormTemplates\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplates:2).\nRepresenterar responsens informationsstruktur — returnerar tillgängliga formulärmallar för invånare."
       },
       {
-        "id": "getformtemplates.formTemplate",
-        "path": "getformtemplates.formTemplate",
-        "short": "Formulärmall (FormTemplateType)",
-        "definition": "Objekt FormTemplateType.",
-        "comment": "TKB-fält: `FormTemplate` (kardinalitet 0..*).\n\n**Modellanteckning:** Lista med formulärmallar som matchar sökkriterierna.",
+        "id": "getformtemplates.formTemplates",
+        "path": "getformtemplates.formTemplates",
+        "short": "FormTemplateInfoType",
+        "definition": "formTemplates",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.templateId",
-        "path": "getformtemplates.formTemplate.templateId",
-        "short": "Mall-id",
-        "definition": "Typ av formulär. Kodverk för standardiserade id för formulärtyper.",
+        "id": "getformtemplates.formTemplates.anonymousForm",
+        "path": "getformtemplates.formTemplates.anonymousForm",
+        "short": "anonymousForm",
+        "definition": "Attributet styr huruvida formulärmotorn stöder anonym användning av formuläret. Värden True = Tillåter anonym användning. \"SubjectOfCare\" får inte användas. False = Tillåter inte anonym användning. \"SubjectOfCare\" är obligatorisk attribut.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.category",
+        "path": "getformtemplates.formTemplates.category",
+        "short": "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration",
+        "definition": "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration",
         "min": 1,
         "max": "1",
         "type": [
@@ -55,10 +67,179 @@
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.templateVersion",
-        "path": "getformtemplates.formTemplate.templateVersion",
-        "short": "Mallens version",
-        "definition": "Versionsnummer för formulärmallen.",
+        "id": "getformtemplates.formTemplates.code",
+        "path": "getformtemplates.formTemplates.code",
+        "short": "CodeType",
+        "definition": "code",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.code.codeValue",
+        "path": "getformtemplates.formTemplates.code.codeValue",
+        "short": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "definition": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.code.codeSystem",
+        "path": "getformtemplates.formTemplates.code.codeSystem",
+        "short": "Identifierar vilket kodverk som används.",
+        "definition": "Identifierar vilket kodverk som används.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.description",
+        "path": "getformtemplates.formTemplates.description",
+        "short": "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.",
+        "definition": "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.formCompleteText",
+        "path": "getformtemplates.formTemplates.formCompleteText",
+        "short": "formCompleteText",
+        "definition": "formCompleteText",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.formName",
+        "path": "getformtemplates.formTemplates.formName",
+        "short": "Mallens namn. T.ex. Hälsodeklaration Mödravård",
+        "definition": "Mallens namn. T.ex. Hälsodeklaration Mödravård",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.formTitle",
+        "path": "getformtemplates.formTemplates.formTitle",
+        "short": "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+        "definition": "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.language",
+        "path": "getformtemplates.formTemplates.language",
+        "short": "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.",
+        "definition": "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.media",
+        "path": "getformtemplates.formTemplates.media",
+        "short": "MediaType",
+        "definition": "media",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.media.mediaURL",
+        "path": "getformtemplates.formTemplates.media.mediaURL",
+        "short": "URL eller adress till media.",
+        "definition": "URL eller adress till media.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.media.mediaType",
+        "path": "getformtemplates.formTemplates.media.mediaType",
+        "short": "Giltiga MIME typer.",
+        "definition": "Giltiga MIME typer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.media.mediaAlt",
+        "path": "getformtemplates.formTemplates.media.mediaAlt",
+        "short": "alternativ text som beskriver det element som attributet hör till",
+        "definition": "alternativ text som beskriver det element som attributet hör till",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.media.mediaCaption",
+        "path": "getformtemplates.formTemplates.media.mediaCaption",
+        "short": "URL eller adress till undertext.",
+        "definition": "URL eller adress till undertext.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.maxNumberOfQuestions",
+        "path": "getformtemplates.formTemplates.maxNumberOfQuestions",
+        "short": "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10",
+        "definition": "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10",
         "min": 1,
         "max": "1",
         "type": [
@@ -68,57 +249,49 @@
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.anonymousForm",
-        "path": "getformtemplates.formTemplate.anonymousForm",
-        "short": "Anonym formulär",
-        "definition": "Styr huruvida formulärmotorn stöder anonym användning av formuläret.",
-        "min": 0,
+        "id": "getformtemplates.formTemplates.minNumberOfQuestions",
+        "path": "getformtemplates.formTemplates.minNumberOfQuestions",
+        "short": "minNumberOfQuestions",
+        "definition": "minNumberOfQuestions",
+        "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "integer"
           }
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.category",
-        "path": "getformtemplates.formTemplate.category",
-        "short": "Formulärkategori",
-        "definition": "Formulärets kategori, t.ex. Anmälan, registrering, hälsodeklaration.",
+        "id": "getformtemplates.formTemplates.maxNumberOfPages",
+        "path": "getformtemplates.formTemplates.maxNumberOfPages",
+        "short": "maxNumberOfPages",
+        "definition": "maxNumberOfPages",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "integer"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formcategory-vs"
-        }
+        ]
       },
       {
-        "id": "getformtemplates.formTemplate.publishStatus",
-        "path": "getformtemplates.formTemplate.publishStatus",
-        "short": "Publiceringsstatus",
-        "definition": "Mallens publiceringsstatus.",
+        "id": "getformtemplates.formTemplates.minNumberOfPages",
+        "path": "getformtemplates.formTemplates.minNumberOfPages",
+        "short": "minNumberOfPages",
+        "definition": "minNumberOfPages",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "integer"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs"
-        }
+        ]
       },
       {
-        "id": "getformtemplates.formTemplate.mandatory",
-        "path": "getformtemplates.formTemplate.mandatory",
-        "short": "Obligatorisk",
-        "definition": "Indikerar om formuläret är obligatoriskt att fylla i av användaren.",
+        "id": "getformtemplates.formTemplates.mandatory",
+        "path": "getformtemplates.formTemplates.mandatory",
+        "short": "mandatory",
+        "definition": "Indikerar om formuläret är obligatoriskt att fylla i av användaren. T.ex. Ett obligatoriskt formulär kan indikerar att formuläret är en del av en vårdprocess. True = obligatoriskt False = Frivilligt",
         "min": 1,
         "max": "1",
         "type": [
@@ -128,10 +301,10 @@
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.formLanguage",
-        "path": "getformtemplates.formTemplate.formLanguage",
-        "short": "Språk",
-        "definition": "Beskriver vilket språk som används i formuläret, t.ex. swe eller eng.",
+        "id": "getformtemplates.formTemplates.publishStatus",
+        "path": "getformtemplates.formTemplates.publishStatus",
+        "short": "publishStatus",
+        "definition": "publishStatus",
         "min": 1,
         "max": "1",
         "type": [
@@ -141,11 +314,24 @@
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.formCompleteText",
-        "path": "getformtemplates.formTemplate.formCompleteText",
-        "short": "Avslutningstext",
-        "definition": "Text som visas för invånaren när formuläret är besvarat.",
-        "min": 0,
+        "id": "getformtemplates.formTemplates.templateVersion",
+        "path": "getformtemplates.formTemplates.templateVersion",
+        "short": "templateVersion",
+        "definition": "templateVersion",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplates.templateId",
+        "path": "getformtemplates.formTemplates.templateId",
+        "short": "templateId",
+        "definition": "templateId",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -154,50 +340,11 @@
         ]
       },
       {
-        "id": "getformtemplates.formTemplate.instrumentCode",
-        "path": "getformtemplates.formTemplate.instrumentCode",
-        "short": "Kod",
-        "definition": "Koppling till klass för code. Används för att beskriva t.ex. formulärinstrument (AUDIT-C, PHQ-9, EQ-5D).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplates.formTemplate.instrumentCode.codeSystem",
-        "path": "getformtemplates.formTemplate.instrumentCode.codeSystem",
-        "short": "Kodsystem",
-        "definition": "Kodsystemets identifierare.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplates.formTemplate.instrumentCode.codeValue",
-        "path": "getformtemplates.formTemplate.instrumentCode.codeValue",
-        "short": "Kodvärde",
-        "definition": "Kodvärdet inom kodsystemet.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplates.formTemplate.instrumentCode.displayName",
-        "path": "getformtemplates.formTemplate.instrumentCode.displayName",
-        "short": "Visningsnamn",
-        "definition": "Visningsnamn för koden.",
-        "min": 0,
+        "id": "getformtemplates.formTemplates.term",
+        "path": "getformtemplates.formTemplates.term",
+        "short": "term",
+        "definition": "Villkor kopplade till formuläret. T.ex. Villkorstext som användaren/patienten måste godkänna innan formuläret kan besvaras.",
+        "min": 1,
         "max": "1",
         "type": [
           {

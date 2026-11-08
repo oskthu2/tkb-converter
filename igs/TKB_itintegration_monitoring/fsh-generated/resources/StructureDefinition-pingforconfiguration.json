@@ -28,9 +28,9 @@
         "definition": "Logisk modell för tjänstekontraktet PingForConfiguration\n(RIV-TA urn:riv:itintegration:monitoring:PingForConfigurationResponder:1).\nGenerisk \"ping\"-tjänst som varje RIVTA 2.1-tjänstekomponent ska exponera,\nutöver sina funktionella kontrakt, för att kunna övervakas och felsökas\nvia ett enhetligt gränssnitt. Representerar responsens informationsstruktur."
       },
       {
-        "id": "pingforconfiguration.pingVersion",
-        "path": "pingforconfiguration.pingVersion",
-        "short": "Version av tjänstekomponenten",
+        "id": "pingforconfiguration.version",
+        "path": "pingforconfiguration.version",
+        "short": "Version of the service component that responds.",
         "definition": "Version av den tjänstekomponent som svarar. Formatet och semantik är specifikt för respektive tjänsteproducent.",
         "comment": "TKB-fält: `version` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -44,35 +44,38 @@
       {
         "id": "pingforconfiguration.pingDateTime",
         "path": "pingforconfiguration.pingDateTime",
-        "short": "Tidpunkt för svar",
+        "short": "Date and time for the ping response.",
         "definition": "Datum och klockslag när ett svar skapades, på tidigare angivet tidsformat, ned på sekundnivå. Exempel: 20110311121021",
-        "comment": "TKB-fält: `pingDateTime` (`TS (tidsformat, se avsnitt 4)`, kardinalitet 1..1).\n\n**Modellanteckning:** Datum och klockslag när svaret skapades. Källdokumentets fälttyp är TS\n(RIV-TA-lokal regex-begränsad sträng på formatet YYYYMMDDhhmmss, se\nitintegration_monitoring_1.0.xsd), mappad till FHIR `instant`.",
+        "comment": "TKB-fält: `pingDateTime` (`TS (tidsformat, se avsnitt 4)`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "instant"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/itintegration-monitoring/StructureDefinition/TS"
+            ]
           }
         ]
       },
       {
         "id": "pingforconfiguration.configuration",
         "path": "pingforconfiguration.configuration",
-        "short": "Konfigurationsvärde",
+        "short": "ConfigurationType",
         "definition": "Lista med värden av miljövariabler från den svarande tjänstekomponenten. Ta med så mycket som möjligt som kan vara till hjälp vid felsökning och dialog kring vilken version som \"finns i andra änden\". Exempel kan vara JVM/.Net-version, operativsystem.",
-        "comment": "TKB-fält: `configuration` (`ConfigurationType`, kardinalitet 0..*).",
+        "comment": "TKB-fält: `configuration` (`ConfigurationType`, kardinalitet 0..*).\n\n**Modellanteckning:** Optional list of environment information from the service component.",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "pingforconfiguration.configuration.configurationName",
-        "path": "pingforconfiguration.configuration.configurationName",
-        "short": "Namn på miljövariabel",
+        "id": "pingforconfiguration.configuration.name",
+        "path": "pingforconfiguration.configuration.name",
+        "short": "name",
         "definition": "Namn på miljövariabel",
         "comment": "TKB-fält: `configuration.name` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -84,9 +87,9 @@
         ]
       },
       {
-        "id": "pingforconfiguration.configuration.configurationValue",
-        "path": "pingforconfiguration.configuration.configurationValue",
-        "short": "Värde på miljövariabel",
+        "id": "pingforconfiguration.configuration.value",
+        "path": "pingforconfiguration.configuration.value",
+        "short": "value",
         "definition": "Värde på miljövariabel",
         "comment": "TKB-fält: `configuration.value` (`string`, kardinalitet 1..1).",
         "min": 1,

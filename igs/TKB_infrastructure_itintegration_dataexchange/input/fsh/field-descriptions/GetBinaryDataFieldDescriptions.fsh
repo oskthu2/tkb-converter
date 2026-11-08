@@ -8,5 +8,3 @@ RuleSet: GetBinaryDataFieldDescriptions
 * binaryData.data ^comment = "TKB-fält: `../data` (`base64Binary`, kardinalitet 1..1)."
 * result ^definition = "Innehåller information om det gick bra eller ej att besvara förfrågan."
 * result ^comment = "TKB-fält: `result` (`ResultType`, kardinalitet 1..1)."
-* result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
-* result.resultText ^comment = "TKB-fält: `../resultText` (`string`, kardinalitet 0..1)."

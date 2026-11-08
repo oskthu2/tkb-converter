@@ -28,29 +28,16 @@
         "definition": "Logisk modell för begäran i GetPractitioners\n(urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "getpractitioners-request.logicalAddress",
-        "path": "getpractitioners-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Verksamhetens HSAID på enhetsnivå",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getpractitioners-request.actor",
         "path": "getpractitioners-request.actor",
-        "short": "actor",
+        "short": "ActorType",
         "definition": "Typ av aktör som anropar tjänstekontraktet. Se kapitel Definition av komplexa typer för detaljerad information om hur de underliggande attributen populeras. Om anropet sker i ett flöde där lediga tider ska hämtas utan att aktören är känd ska fältet actor och fältet personId utelämnas. Detta kan exempelvis vara applicerbart om anropet sker då ingen aktör autentiserat sig (”ej inloggat läge”).",
         "comment": "TKB-fält: `actor` (`ActorType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -64,175 +51,35 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorId.root",
-        "path": "getpractitioners-request.actor.actorId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorId.iiExtension",
-        "path": "getpractitioners-request.actor.actorId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getpractitioners-request.actor.actorType",
         "path": "getpractitioners-request.actor.actorType",
-        "short": "actorType",
+        "short": "SnomedCtType",
         "definition": "actorType",
         "comment": "TKB-fält: `../actorType` (`SnomedCtType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorType.snomedCtCode",
-        "path": "getpractitioners-request.actor.actorType.snomedCtCode",
-        "short": "snomedCtCode",
-        "definition": "snomedCtCode Heter code i schemat.",
-        "comment": "TKB-fält: `../../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** snomedCtCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorType.codeSystem",
-        "path": "getpractitioners-request.actor.actorType.codeSystem",
-        "short": "codeSystem",
-        "definition": "Tillåtna värden: 1.2.752.116.2.1.1.",
-        "comment": "TKB-fält: `../../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorType.codeSystemName",
-        "path": "getpractitioners-request.actor.actorType.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorType.codeSystemVersion",
-        "path": "getpractitioners-request.actor.actorType.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorType.displayName",
-        "path": "getpractitioners-request.actor.actorType.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.actor.actorType.originalText",
-        "path": "getpractitioners-request.actor.actorType.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getpractitioners-request.personId",
         "path": "getpractitioners-request.personId",
-        "short": "personId",
+        "short": "PersonIdType",
         "definition": "Filtrering av tidstyper baserat på invånares personnummer. . Se kapitel Definition av komplexa typer för detaljerad information om hur de underliggande attributen populeras.",
         "comment": "TKB-fält: `personId` (`PersonIdType (IIType)`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.personId.root",
-        "path": "getpractitioners-request.personId.root",
-        "short": "root",
-        "definition": "Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getpractitioners-request.personId.personIdExtension",
-        "path": "getpractitioners-request.personId.personIdExtension",
-        "short": "personIdExtension",
-        "definition": "personIdExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** personIdExtension Heter extension i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "Base"
           }
         ]
       },
@@ -246,7 +93,10 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/uuidType"
+            ]
           }
         ]
       },

@@ -17,12 +17,9 @@ RuleSet: CreateDraftCertificateRequestFieldDescriptions
 * intyg.skapadAv ^definition = "Hälso- och sjukvårdspersonal som skapar intyg."
 * intyg.skapadAv ^comment = "TKB-fält: `../skapadAv` (`HosPersonal (lokalt definierad i kontraktet)`, kardinalitet 1..1).
 
-**Mappning DIM:** Hos-personal
-
-**Modellanteckning:** Namn hämtas från vårdsystemet — ej från HSA — och skickas med i anropet.
-Uppgifter om vårdgivare ska ej skickas, utan hämtas från HSA via enhets-id."
-* intyg.skapadAv.personalId ^definition = "HSA-id för hälso- och sjukvårdspersonalen som skapar intygsutkastet."
-* intyg.skapadAv.personalId ^comment = "TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
+**Mappning DIM:** Hos-personal"
+* intyg.skapadAv.personal-id ^definition = "HSA-id för hälso- och sjukvårdspersonalen som skapar intygsutkastet."
+* intyg.skapadAv.personal-id ^comment = "TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
 
 **Mappning DIM:** HoS-personal.personal-id"
 * intyg.skapadAv.fullstandigtNamn ^definition = "Personalens förnamn + efternamn."
@@ -33,8 +30,8 @@ Uppgifter om vårdgivare ska ej skickas, utan hämtas från HSA via enhets-id."
 * intyg.skapadAv.enhet ^comment = "TKB-fält: `../../enhet` (`Enhet (lokalt definierad i kontraktet)`, kardinalitet 1..1).
 
 **Mappning DIM:** Enhet"
-* intyg.skapadAv.enhet.enhetsId ^definition = "HSA-id för enheten."
-* intyg.skapadAv.enhet.enhetsId ^comment = "TKB-fält: `../../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
+* intyg.skapadAv.enhet.enhets-id ^definition = "HSA-id för enheten."
+* intyg.skapadAv.enhet.enhets-id ^comment = "TKB-fält: `../../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
 
 **Mappning DIM:** Enhet.enhets-id"
 * intyg.skapadAv.enhet.enhetsnamn ^definition = "Enhetens namn."

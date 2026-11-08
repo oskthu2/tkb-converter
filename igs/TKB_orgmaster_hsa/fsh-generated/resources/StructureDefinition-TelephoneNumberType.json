@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "TelephoneNumberType",
+  "url": "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType",
+  "name": "TelephoneNumberType",
+  "title": "TelephoneNumberType",
+  "status": "draft",
+  "description": "TelephoneNumberType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-telephonenumbertype-pattern",
+            "severity": "error",
+            "human": "TelephoneNumberType ska följa mönstret i schemat: ([0-9])*",
+            "expression": "matches('^(?:(?:([0-9])*))$')",
+            "source": "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType"
+          }
+        ]
+      }
+    ]
+  }
+}
