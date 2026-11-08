@@ -1,3 +1,6 @@
+// Elementen genereras ur GetActivitiesResponder_1.3.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activity:actions v1.3
 // Kontrakt: GetActivities v1.3
 // Genererad: 2026-05-18
@@ -13,373 +16,182 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.3"
-* activityGroup 0..* BackboneElement "Grupp av aktiviteter"
-    """
-    Grupp av aktiviteter som delar samma patient, utförare, signerare, ytterligare deltagare,
-    källsystem, vårdprocess-id, utrustning, samt plats. Teknisk optimering för att minska
-    redundant data i de fall då flera aktiviteter gjorts med samma medverkande.
-    Kardinalitet: Valfri, lista.
-    """
-* activityGroup.patient 1..1 BackboneElement "Patient som aktivitetsgruppen avser"
-    """
-    Den patient som aktivitetsgruppen avser (PatientType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.patient.patientId 1..1 Identifier "Id för patienten"
-    """
-    Id för patienten (IIType). Ska anges med 12 tecken utan avskiljare.
-    root = OID för typ av identifierare (personnummer: 1.2.752.129.2.1.3.1,
-    samordningsnummer: 1.2.752.129.2.1.3.3, reservnummer: lokalt OID).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.patient.dateOfBirth 1..1 date "Patientens födelsedatum"
-    """
-    Anger patientens födelseår, månad och dag. Ej personnummer! Format ÅÅÅÅMMDD.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.patient.gender 0..1 CodeableConcept "Patientens kön"
-    """
-    Anger patientens kön (CVType). Kodas enligt KV kön OID 1.2.752.129.2.2.1.1.
-    Koder: 0=okänt, 1=man, 2=kvinna, 9=ej tillämpligt.
-    Kardinalitet: Valfri.
-    """
-
-* activityGroup.performerRole 1..1 BackboneElement "Den som utfört aktiviteter inom gruppen"
-    """
-    Den som utfört aktiviteter inom gruppen (PerformerRoleType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.performerRole.performerRoleId 0..1 Identifier "HSA-id för utförande person"
-    """
-    Identitet för personen som utfört aktiviteten (IIType).
-    Anges enbart om aktiviteten utförts av hälso- och sjukvårdspersonal. Anges med HSA-id.
-    root = OID för HSA-katalogen (1.2.752.129.2.1.4.1).
-    Kardinalitet: Villkorlig (se Regel 2.1).
-    """
-* activityGroup.performerRole.code 1..1 CodeableConcept "Roll som utföraren agerar i"
-    """
-    Beskriver den roll som utföraren agerar i under aktiviteten (CVType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.performerRole.person 0..1 BackboneElement "Person som utfört aktiviteten"
-    """
-    Beskriver den person som utfört aktiviteten (PersonType).
-    Kardinalitet: Villkorlig (se Regel 2.1).
-    """
-* activityGroup.performerRole.person.personId 0..1 Identifier "Identifierare för person"
-    """
-    Identifierare för person som utfört aktiviteten. Anges endast om aktiviteten utförts av
-    person som INTE klassas som hälso- och sjukvårdspersonal.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.performerRole.person.name 0..1 string "För- och efternamn i klartext"
-    """
-    För- och efternamn i klartext för person. Se Regel 2.1.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.performerRole.careUnit 0..1 BackboneElement "PDL-vårdenhet och PDL-vårdgivare"
-    """
-    Den PDL-vårdenhet och PDL-vårdgivare som aktiviteten utförs på uppdrag av.
-    Ska endast anges då den person som utfört aktiviteten är hälso- och sjukvårdspersonal.
-    Se Regel 2.1 och 2.6.
-    Kardinalitet: Villkorlig.
-    """
-* activityGroup.performerRole.careUnit.careUnitId 1..1 Identifier "HSA-id för PDL vårdenhet"
-    """
-    HSA-id för PDL vårdenhet som har ansvar för aktiviteten. Se Regel 2.6.
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.performerRole.careUnit.name 0..1 string "Vårdenhetens namn"
-    """
-    Vårdenhetens namn till vilken aktiviteten är knuten.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.performerRole.careUnit.careGiver 1..1 BackboneElement "Vårdgivaren som enheten hör till"
-    """
-    Den vårdgivare som enheten hör till (CareGiverType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.performerRole.careUnit.careGiver.careGiverId 1..1 Identifier "HSA-id för vårdgivaren"
-    """
-    Vårdgivarens identitet som enheten är anknuten till (IIType).
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1. Se Regel 2.6.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.performerRole.careUnit.careGiver.name 0..1 string "Vårdgivarens namn"
-    """
-    Vårdgivarens namn till vilken enheten är knuten.
-    Kardinalitet: Valfri.
-    """
-
-* activityGroup.legalAuthenticator 0..1 BackboneElement "Den som signerat aktiviteterna"
-    """
-    Den som signerat aktiviteterna inom gruppen (LegalAuthenticatorType).
-    Se Regel 2.4.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.legalAuthenticator obeys getactivities-legalauthenticator-id-or-name
-* activityGroup.legalAuthenticator.legalAuthenticatorId 0..1 Identifier "HSA-id för signerande person"
-    """
-    HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.
-    Minst ett av attributen legalAuthenticatorId eller name ska anges.
-    Kardinalitet: Villkorlig.
-    """
-* activityGroup.legalAuthenticator.time 1..1 dateTime "Tid för signeringen"
-    """
-    Tid för signeringen av aktiviteten. Format ÅÅÅÅMMDDttmmss, klockslaget är frivilligt.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.legalAuthenticator.name 0..1 string "Namn på signerande person"
-    """
-    För- och efternamn i klartext för signerande person. Se Regel 2.4.
-    Minst ett av attributen legalAuthenticatorId eller name ska anges.
-    Kardinalitet: Villkorlig.
-    """
-
-* activityGroup.additionalParticipant 0..* BackboneElement "Övriga deltagare"
-    """
-    Övriga deltagare relaterat till aktiviteterna inom gruppen (AdditionalParticipantType).
-    Kardinalitet: Valfri, lista.
-    """
-* activityGroup.additionalParticipant obeys getactivities-additionalparticipant-one-participant
-* activityGroup.additionalParticipant.additionalParticipantId 0..1 Identifier "Identifierare för ytterligare deltagare"
-    """
-    Identifierare för ytterligare deltagare (IIType).
-    Anges enbart om deltagaren klassas som hälso- och sjukvårdspersonal (HSA-id).
-    Kardinalitet: Villkorlig (se Regel 2.2).
-    """
-* activityGroup.additionalParticipant.type 1..1 CodeableConcept "Typ av deltagande"
-    """
-    Typ av deltagande (CVType). Beskriver hur deltagaren har deltagit i aktiviteten.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.additionalParticipant.role 1..1 CodeableConcept "Deltagarens roll"
-    """
-    Beskriver i vilken roll deltagaren agerar (CVType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.additionalParticipant.time 0..1 Period "Deltagandetid"
-    """
-    Om deltagandetiden för denna deltagare inte överensstämmer med aktivitetens tidsperiod
-    kan time-attributet ange när den specifika deltagaren deltog.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.person 0..1 BackboneElement "Deltagande övrig person"
-    """
-    Deltagande övrig person (PersonType). Exklusiv med organisation, device, location.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.person.personId 0..1 Identifier "Identifierare för person"
-    """
-    Identifierare för deltagande övrig person.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.person.name 0..1 string "För- och efternamn"
-    """
-    För- och efternamn i klartext för person.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.organisation 0..1 BackboneElement "Deltagande organisation"
-    """
-    Deltagande övrig organisation (OrganisationType). Exklusiv med person, device, location.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.organisation.organisationId 1..1 Identifier "HSA-id för organisation"
-    """
-    HSA-id för den organisation som denna ytterligare deltagare har sitt uppdrag hos.
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.additionalParticipant.organisation.name 0..1 string "Organisationens namn"
-    """
-    Organisationens namn i klartext.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.device 0..1 BackboneElement "Deltagande medicinskteknisk produkt"
-    """
-    Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.device.deviceId 0..1 Identifier "Identifierare för medicinskteknisk produkt"
-    """
-    Identifierare för instans av medicinskteknisk produkt.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.device.type 0..1 CodeableConcept "Typ av medicinskteknisk produkt"
-    """
-    Beskriver typ av medicinskteknisk produkt (CVType).
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.device.model 0..1 string "Modell för medicinskteknisk produkt"
-    """
-    Tillverkarens modellbeteckning (SCType). Kan anges som kod eller klartext.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.location 0..1 BackboneElement "Deltagande plats"
-    """
-    Deltagande plats (LocationType). Exklusiv med person, organisation, device.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.location.locationId 0..1 Identifier "HSA-id för plats/vårdenhet"
-    """
-    Identifiering för platsen. Anges om platsen är en vårdenhet (HSA-id).
-    Kardinalitet: Valfri.
-    """
-* activityGroup.additionalParticipant.location.name 1..1 string "Namn på plats"
-    """
-    Namn på den plats där en aktivitet har genomförts.
-    Kardinalitet: Obligatorisk.
-    """
-
-* activityGroup.careProcessId 0..1 string "UUID för individanpassad vårdprocess"
-    """
-    UUID för den individanpassade vårdprocess som denna aktivitet ingår i.
-    Kardinalitet: Valfri.
-    """
-
-* activityGroup.sourceSystem 1..1 BackboneElement "Källsystem"
-    """
-    Källsystem som aktivitetsgruppen lagras i (SourceSystemType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.sourceSystem.sourceSystemId 1..1 Identifier "HSA-id för källsystem"
-    """
-    HSA-id för källsystemet (IIType).
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1.
-    Kardinalitet: Obligatorisk.
-    """
-
-* activityGroup.activity 1..* BackboneElement "Aktiviteter i gruppen"
-    """
-    De aktiviteter som ligger inom denna grupp (ActivityType).
-    Kardinalitet: Obligatorisk, lista (minst en).
-    """
-* activityGroup.activity obeys getactivities-activity-time-when-performed
-* activityGroup.activity.activityId 1..1 Identifier "Unik identifierare för aktiviteten"
-    """
-    En unik identifierare för aktiviteten (IIType). Ska vara konsistent och beständig
-    mellan majorversioner av kontrakt och mellan kontrakt.
-    root = källsystemets HSA-id.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.code 1..1 CodeableConcept "Typ av aktivitet"
-    """
-    Kod för den typ av aktivitet som avses (CVType), exempelvis KVÅ-kod för åtgärd.
-    Antingen code eller description måste finnas (teknisk implementation kräver code).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.status 0..1 CodeableConcept "Aktivitetens status"
-    """
-    Kod för aktivitetens status, t.ex. planerad eller utförd (CVType).
-    Kodas enligt SNOMED CT refset aktivitetsstatus (SCTID: 56421000052109).
-    codeSystem = 1.2.752.116.2.1.1 (snomed-ct-se).
-    Om statuskoden utelämnas antas aktiviteten vara utförd.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.activity.targetSite 0..1 CodeableConcept "Lokalisation"
-    """
-    Angivelse av lokalisation (CVType) — anatomi, funktion eller system.
-    Används om inte type-attributet innefattar tillräcklig information.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.activity.time 0..1 Period "Tidsperiod för aktiviteten"
-    """
-    Tidsperiod för aktiviteten (PartialTimePeriodType). Om aktiviteten skedde vid en tidpunkt
-    sätts sluttid till samma tid som starttid. Minst en av start och end måste vara angiven.
-    Obligatorisk om status är utförd (398166005) eller saknas. Se Regel 2.3.
-    Kardinalitet: Villkorlig.
-    """
-* activityGroup.activity.time obeys getactivities-activity-time-start-or-end
-* activityGroup.activity.method 0..1 CodeableConcept "Tillvägagångssätt"
-    """
-    Kod för typ av tillvägagångssätt för genomförandet av aktiviteten (CVType).
-    Kardinalitet: Valfri.
-    """
-* activityGroup.activity.description 0..1 string "Fritextbeskrivning av aktiviteten"
-    """
-    Fritextbeskrivning av aktiviteten som kompletterar kodbeteckningen.
-    Kardinalitet: Valfri.
-    """
-* activityGroup.activity.approvedForPatient 1..1 boolean "Menprövad — information får delas till patient"
-    """
-    Anger om information får delas till patient (menprövad).
-    true = informationen får delas, false = informationen ska inte delas.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.registrationTime 1..1 instant "Dokumentationstidpunkt"
-    """
-    När uppgiften registrerades i patientens journal (TimeStampType).
-    Kan skilja sig från signeringstidpunkt i LegalAuthenticator.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation 0..* BackboneElement "Typade samband till andra informationsmängder"
-    """
-    Beskriver typade samband till andra informationsmängder (RelationType).
-    Exempelvis kan en post-operativ infektion ha ett samband till en tidigare operation.
-    Kardinalitet: Valfri, lista.
-    """
-* activityGroup.activity.relation.code 1..1 CodeableConcept "Typ av relation"
-    """
-    Anger vilken typ av relation den refererade informationen har till hämtad aktivitet (CVType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation.referredInformation 1..1 BackboneElement "Refererad information"
-    """
-    Den refererade externa informationen (ReferredInformationType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation.referredInformation.referredInformationId 1..1 Identifier "Id för refererad information"
-    """
-    Den refererade externa informationens identitet (IIType).
-    root = HSA-id för källsystem.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation.referredInformation.time 1..1 dateTime "Starttid av refererad information"
-    """
-    Starttid av refererad information (PartialTimeStampType). Se Regel 2.5 — ska kunna
-    användas som inparameter i ett tidsintervallbaserat sökvillkor till den relaterade tjänsten.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation.referredInformation.type 1..1 string "Typ av refererad information"
-    """
-    Typ av uppgift i patientjournal (Categorization-kod från engagemangsindex).
-    Exempel: 'chb-o' (observation), 'caa-ga' (aktivitet).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation.referredInformation.informationOwner 1..1 BackboneElement "Informationsägare"
-    """
-    Vårdgivare som är informationsägare av den refererade informationen (InformationOwnerType).
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.relation.referredInformation.informationOwner.informationOwnerId 1..1 Identifier "Informationsägarens HSA-id"
-    """
-    Informationsägare av refererad information (IIType).
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.additionalInformation 0..* BackboneElement "Ytterligare information"
-    """
-    Ytterligare information kopplad till aktiviteten (AdditionalInformationType).
-    Kardinalitet: Valfri, lista.
-    """
-* activityGroup.activity.additionalInformation.key 1..1 string "Nyckel för ytterligare information"
-    """
-    Typ av ytterligare information. Tillåtna värden: 'Planeringstid' eller 'Orsak'.
-    Kardinalitet: Obligatorisk.
-    """
-* activityGroup.activity.additionalInformation.value 1..1 string "Värde för ytterligare information"
-    """
-    Värde för ytterligare information. Planeringstid = PartialTimeStampType-format.
-    Orsak = kod enligt CVType.
-    Kardinalitet: Obligatorisk.
-    """
-
-// Fältregler från TKB avsnitt 7.1 (Regler i svaret) som FHIRPath-invarianter.
-// Uttrycken utvärderas i kontexten för det element som har obeys-regeln.
+* activityGroup 0..* Base "ActivityGroupType" "activityGroup"
+* activityGroup.patient 1..1 Base "PatientType" "patient"
+* activityGroup.patient.id 1..1 IIType "id" "id"
+* activityGroup.patient.dateOfBirth 1..1 string "dateOfBirth" "dateOfBirth"
+* activityGroup.patient.dateOfBirth only DateType
+* activityGroup.patient.gender 0..1 Base "CVType" "gender"
+* activityGroup.patient.gender.code 1..1 string "code" "code"
+* activityGroup.patient.gender.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.patient.gender.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.patient.gender.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.patient.gender.displayName 0..1 string "displayName" "displayName"
+* activityGroup.performerRole 1..1 Base "PerformerRoleType" "performerRole"
+* activityGroup.performerRole.id 0..1 IIType "id" "id"
+* activityGroup.performerRole.code 1..1 Base "CVType" "code"
+* activityGroup.performerRole.code.code 1..1 string "code" "code"
+* activityGroup.performerRole.code.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.performerRole.code.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.performerRole.code.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.performerRole.code.displayName 0..1 string "displayName" "displayName"
+* activityGroup.performerRole.person 0..1 Base "PersonType" "person"
+* activityGroup.performerRole.person.id 0..1 IIType "id" "id"
+* activityGroup.performerRole.person.name 0..1 string "name" "name"
+* activityGroup.performerRole.careUnit 0..1 Base "CareUnitType" "careUnit"
+* activityGroup.performerRole.careUnit.id 1..1 IIType "id" "id"
+* activityGroup.performerRole.careUnit.name 0..1 string "name" "name"
+* activityGroup.performerRole.careUnit.careGiver 1..1 Base "CareGiverType" "careGiver"
+* activityGroup.performerRole.careUnit.careGiver.id 1..1 IIType "id" "id"
+* activityGroup.performerRole.careUnit.careGiver.name 0..1 string "name" "name"
+* activityGroup.legalAuthenticator 0..1 Base "LegalAuthenticatorType" "legalAuthenticator"
+* activityGroup.legalAuthenticator.id 0..1 IIType "id" "id"
+* activityGroup.legalAuthenticator.time 1..1 Base "PartialTimeStampType" "time"
+* activityGroup.legalAuthenticator.time.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.legalAuthenticator.time.value 1..1 string "value" "value"
+* activityGroup.legalAuthenticator.time.value only PartialTimeStampValueType
+* activityGroup.legalAuthenticator.name 0..1 string "name" "name"
+* activityGroup.additionalParticipant 0..* Base "AdditionalParticipantType" "additionalParticipant"
+* activityGroup.additionalParticipant.id 0..1 IIType "id" "id"
+* activityGroup.additionalParticipant.type 1..1 Base "CVType" "type"
+* activityGroup.additionalParticipant.type.code 1..1 string "code" "code"
+* activityGroup.additionalParticipant.type.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.additionalParticipant.type.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.additionalParticipant.type.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.additionalParticipant.type.displayName 0..1 string "displayName" "displayName"
+* activityGroup.additionalParticipant.role 1..1 Base "CVType" "role"
+* activityGroup.additionalParticipant.role.code 1..1 string "code" "code"
+* activityGroup.additionalParticipant.role.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.additionalParticipant.role.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.additionalParticipant.role.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.additionalParticipant.role.displayName 0..1 string "displayName" "displayName"
+* activityGroup.additionalParticipant.time 0..1 TimePeriodType "time" "time"
+* activityGroup.additionalParticipant.person 0..1 Base "PersonType" "person"
+* activityGroup.additionalParticipant.person.id 0..1 IIType "id" "id"
+* activityGroup.additionalParticipant.person.name 0..1 string "name" "name"
+* activityGroup.additionalParticipant.organisation 0..1 Base "OrganisationType" "organisation"
+* activityGroup.additionalParticipant.organisation.id 1..1 IIType "id" "id"
+* activityGroup.additionalParticipant.organisation.name 0..1 string "name" "name"
+* activityGroup.additionalParticipant.device 0..1 Base "DeviceType" "device"
+* activityGroup.additionalParticipant.device.id 0..1 IIType "id" "id"
+* activityGroup.additionalParticipant.device.type 0..1 Base "CVType" "type"
+* activityGroup.additionalParticipant.device.type.code 1..1 string "code" "code"
+* activityGroup.additionalParticipant.device.type.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.additionalParticipant.device.type.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.additionalParticipant.device.type.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.additionalParticipant.device.type.displayName 0..1 string "displayName" "displayName"
+* activityGroup.additionalParticipant.device.model 0..1 Base "SCType" "model"
+* activityGroup.additionalParticipant.device.model.code 0..1 Base "CVType" "code"
+* activityGroup.additionalParticipant.device.model.code.code 1..1 string "code" "code"
+* activityGroup.additionalParticipant.device.model.code.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.additionalParticipant.device.model.code.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.additionalParticipant.device.model.code.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.additionalParticipant.device.model.code.displayName 0..1 string "displayName" "displayName"
+* activityGroup.additionalParticipant.device.model.value 0..1 string "value" "value"
+* activityGroup.additionalParticipant.location 0..1 Base "LocationType" "location"
+* activityGroup.additionalParticipant.location.id 0..1 IIType "id" "id"
+* activityGroup.additionalParticipant.location.name 1..1 string "name" "name"
+* activityGroup.additionalParticipant.location.address 0..* Base "AddressType" "address"
+* activityGroup.additionalParticipant.location.address.use 0..1 code "use" "use Tillåtna värden: PHYS, H, HV, WP, TMP."
+* activityGroup.additionalParticipant.location.address.part 1..* Base "AddressPartType" "part"
+* activityGroup.additionalParticipant.location.address.part.value 1..1 string "value" "value"
+* activityGroup.additionalParticipant.location.address.part.type 0..1 code "type" "type Tillåtna värden: AL, ADL, UNIT, UNID, DAL, DINSTA, DINSTQ, DINST, DMOD, DMODID, SAL, BNR, BNN, BNS, STR, STB, STTYP, DIR, INT, CAR, CEN, CNT, CPA, DEL, CTY, POB, ZIP, PRE, STA."
+* activityGroup.additionalParticipant.location.electronicAddress 0..* Base "TelType" "electronicAddress"
+* activityGroup.additionalParticipant.location.electronicAddress.use 1..1 code "use" "use Tillåtna värden: voice, fax, data, tty, sms."
+* activityGroup.additionalParticipant.location.electronicAddress.value 1..1 string "value" "value"
+* activityGroup.sourceSystem 1..1 Base "SourceSystemType" "sourceSystem"
+* activityGroup.sourceSystem.id 1..1 IIType "id" "id"
+* activityGroup.careProcessId 0..1 string "careProcessId" "careProcessId"
+* activityGroup.careProcessId only UUIDType
+* activityGroup.activity 1..* Base "ActivityType" "activity"
+* activityGroup.activity.id 1..1 IIType "id" "id"
+* activityGroup.activity.status 0..1 Base "CVType" "status"
+* activityGroup.activity.status.code 1..1 string "code" "code"
+* activityGroup.activity.status.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.activity.status.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.activity.status.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.activity.status.displayName 0..1 string "displayName" "displayName"
+* activityGroup.activity.code 1..1 Base "CVType" "code"
+* activityGroup.activity.code.code 1..1 string "code" "code"
+* activityGroup.activity.code.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.activity.code.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.activity.code.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.activity.code.displayName 0..1 string "displayName" "displayName"
+* activityGroup.activity.targetSite 0..1 Base "CVType" "targetSite"
+* activityGroup.activity.targetSite.code 1..1 string "code" "code"
+* activityGroup.activity.targetSite.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.activity.targetSite.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.activity.targetSite.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.activity.targetSite.displayName 0..1 string "displayName" "displayName"
+* activityGroup.activity.time 0..1 Base "PartialTimePeriodType" "time"
+* activityGroup.activity.time.start 0..1 Base "PartialTimeStampType" "start"
+* activityGroup.activity.time.start.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.activity.time.start.value 1..1 string "value" "value"
+* activityGroup.activity.time.start.value only PartialTimeStampValueType
+* activityGroup.activity.time.end 0..1 Base "PartialTimeStampType" "end"
+* activityGroup.activity.time.end.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.activity.time.end.value 1..1 string "value" "value"
+* activityGroup.activity.time.end.value only PartialTimeStampValueType
+* activityGroup.activity.method 0..1 Base "CVType" "method"
+* activityGroup.activity.method.code 1..1 string "code" "code"
+* activityGroup.activity.method.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.activity.method.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.activity.method.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.activity.method.displayName 0..1 string "displayName" "displayName"
+* activityGroup.activity.description 0..1 string "description" "description"
+* activityGroup.activity.approvedForPatient 1..1 boolean "approvedForPatient" "approvedForPatient"
+* activityGroup.activity.registrationTime 1..1 string "registrationTime" "registrationTime"
+* activityGroup.activity.registrationTime only TimeStampType
+* activityGroup.activity.relation 0..* Base "RelationType" "relation"
+* activityGroup.activity.relation.code 1..1 Base "CVType" "code"
+* activityGroup.activity.relation.code.code 1..1 string "code" "code"
+* activityGroup.activity.relation.code.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.activity.relation.code.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.activity.relation.code.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.activity.relation.code.displayName 0..1 string "displayName" "displayName"
+* activityGroup.activity.relation.referredInformation 1..1 Base "ReferredInformationType" "referredInformation"
+* activityGroup.activity.relation.referredInformation.id 1..1 IIType "id" "id"
+* activityGroup.activity.relation.referredInformation.time 1..1 Base "PartialTimeStampType" "time"
+* activityGroup.activity.relation.referredInformation.time.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.activity.relation.referredInformation.time.value 1..1 string "value" "value"
+* activityGroup.activity.relation.referredInformation.time.value only PartialTimeStampValueType
+* activityGroup.activity.relation.referredInformation.type 1..1 string "type" "type"
+* activityGroup.activity.relation.referredInformation.informationOwner 1..1 Base "InformationOwnerType" "informationOwner"
+* activityGroup.activity.relation.referredInformation.informationOwner.id 1..1 IIType "id" "id"
+* activityGroup.activity.additionalInformation 0..* Base "AdditionalInformationType" "additionalInformation"
+* activityGroup.activity.additionalInformation.key 1..1 string "key" "key"
+* activityGroup.activity.additionalInformation.value 1..1 Base "ValueANYType" "value"
+* activityGroup.activity.additionalInformation.value.pq 0..1 Base "PQType" "pq"
+* activityGroup.activity.additionalInformation.value.pq.value 1..1 decimal "value" "value"
+* activityGroup.activity.additionalInformation.value.pq.unit 1..1 string "unit" "unit"
+* activityGroup.activity.additionalInformation.value.ts 0..1 Base "PartialTimeStampType" "ts"
+* activityGroup.activity.additionalInformation.value.ts.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.activity.additionalInformation.value.ts.value 1..1 string "value" "value"
+* activityGroup.activity.additionalInformation.value.ts.value only PartialTimeStampValueType
+* activityGroup.activity.additionalInformation.value.ivl_ts 0..1 Base "PartialTimePeriodType" "ivl_ts"
+* activityGroup.activity.additionalInformation.value.ivl_ts.start 0..1 Base "PartialTimeStampType" "start"
+* activityGroup.activity.additionalInformation.value.ivl_ts.start.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.activity.additionalInformation.value.ivl_ts.start.value 1..1 string "value" "value"
+* activityGroup.activity.additionalInformation.value.ivl_ts.start.value only PartialTimeStampValueType
+* activityGroup.activity.additionalInformation.value.ivl_ts.end 0..1 Base "PartialTimeStampType" "end"
+* activityGroup.activity.additionalInformation.value.ivl_ts.end.format 1..1 code "format" "format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss."
+* activityGroup.activity.additionalInformation.value.ivl_ts.end.value 1..1 string "value" "value"
+* activityGroup.activity.additionalInformation.value.ivl_ts.end.value only PartialTimeStampValueType
+* activityGroup.activity.additionalInformation.value.cv 0..1 Base "CVType" "cv"
+* activityGroup.activity.additionalInformation.value.cv.code 1..1 string "code" "code"
+* activityGroup.activity.additionalInformation.value.cv.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityGroup.activity.additionalInformation.value.cv.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityGroup.activity.additionalInformation.value.cv.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityGroup.activity.additionalInformation.value.cv.displayName 0..1 string "displayName" "displayName"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetActivitiesFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* activityGroup.legalAuthenticator obeys getactivities-legalauthenticator-id-or-name
+* activityGroup.additionalParticipant obeys getactivities-additionalparticipant-one-participant
+* activityGroup.activity obeys getactivities-activity-time-when-performed
+* activityGroup.activity.time obeys getactivities-activity-time-start-or-end
 
 Invariant: getactivities-additionalparticipant-one-participant
 Description: "Exakt en av person, organisation, device och location ska anges i additionalParticipant (TKB 7.1, AdditionalParticipantType: 'Endast en av nedanstående')."
@@ -388,7 +200,7 @@ Severity: #error
 
 Invariant: getactivities-activity-time-when-performed
 Description: "time ska anges när status är utförd (SNOMED CT 398166005) eller saknas (TKB Regel 2.3)."
-Expression: "(status.empty() or status.coding.where(code = '398166005').exists()) implies time.exists()"
+Expression: "(status.empty() or status.where(code = '398166005').exists()) implies time.exists()"
 Severity: #error
 
 Invariant: getactivities-activity-time-start-or-end
@@ -398,5 +210,5 @@ Severity: #error
 
 Invariant: getactivities-legalauthenticator-id-or-name
 Description: "Minst ett av legalAuthenticatorId och name ska anges (TKB Regel 2.4)."
-Expression: "legalAuthenticatorId.exists() or name.exists()"
+Expression: "id.exists() or name.exists()"
 Severity: #error

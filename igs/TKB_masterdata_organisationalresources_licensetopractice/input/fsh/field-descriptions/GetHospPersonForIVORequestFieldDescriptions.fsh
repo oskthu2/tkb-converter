@@ -5,9 +5,7 @@ RuleSet: GetHospPersonForIVORequestFieldDescriptions
 * personnummer ^definition = "Söker en person efter personnummer. Anges enligt formatet ÅÅÅÅMMDDXXXX"
 * personnummer ^comment = "TKB-fält: `personnummer` (`String`, kardinalitet 0..1)."
 * samordningsnummer ^definition = "Samordningsnummer"
-* samordningsnummer ^comment = "TKB-fält: `samordningsnummer` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Söker en person efter samordningsnummer. Format: ÅÅÅÅMMDDXXXX (12 siffror)."
+* samordningsnummer ^comment = "TKB-fält: `samordningsnummer` (`String`, kardinalitet 0..1)."
 * efternamn ^definition = "Söker personer efter efternamn"
 * efternamn ^comment = "TKB-fält: `efternamn` (`String`, kardinalitet 0..1)."
 * fornamn ^definition = "Söker personer efter förnamn"
@@ -20,8 +18,8 @@ RuleSet: GetHospPersonForIVORequestFieldDescriptions
 * kommunKod ^comment = "TKB-fält: `kommunKod` (`String`, kardinalitet 0..1)."
 * folkbokforingsort ^definition = "Filtrerar sökning efter person utifrån folkbokföringsort. Tillåter wildcard i angiven sträng."
 * folkbokforingsort ^comment = "TKB-fält: `folkbokforingsort*` (`String`, kardinalitet 0..1)."
-* forskrivarkod ^definition = "Filtrerar sökning efter person utifrån kommunkod"
-* forskrivarkod ^comment = "TKB-fält: `forskrivarkod` (`String`, kardinalitet 0..1)."
+* forskrivarKod ^definition = "Filtrerar sökning efter person utifrån kommunkod"
+* forskrivarKod ^comment = "TKB-fält: `forskrivarkod` (`String`, kardinalitet 0..1)."
 * yrke ^definition = "Filtrerar sökning efter person utifrån grundyrke. Tillåter wildcard i angiven sträng."
 * yrke ^comment = "TKB-fält: `yrke*` (`String`, kardinalitet 0..1)."
 * specialistinriktning ^definition = "Filtrerar sökning efter person utifrån specialistinriktning, Tillåter wildcard i angiven sträng. Tillåter även att en av Socialstyrelsens specialistinriktningskoder anges."

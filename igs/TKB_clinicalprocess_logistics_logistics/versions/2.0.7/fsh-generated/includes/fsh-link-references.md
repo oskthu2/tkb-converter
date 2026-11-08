@@ -2,5 +2,9 @@
 [CareContactCodeVS]: ValueSet-carecontactcode-vs.html
 [CareContactStatusCS]: CodeSystem-carecontactstatus-cs.html
 [CareContactStatusVS]: ValueSet-carecontactstatus-vs.html
+[DatePeriodType]: StructureDefinition-DatePeriodType.html
 [GetCareContacts]: StructureDefinition-getcarecontacts.html
 [GetCareContactsRequest]: StructureDefinition-getcarecontacts-request.html
+[HealthcareProfessionalType]: StructureDefinition-HealthcareProfessionalType.html
+[OrgUnitType]: StructureDefinition-OrgUnitType.html
+[TimePeriodType]: StructureDefinition-TimePeriodType.html

@@ -4,22 +4,14 @@
 RuleSet: GetPersonContactInformationUnrestrictedFieldDescriptions
 * contactInformationRecord ^definition = "Uppgifter om personens kontaktuppgifter och kontaktpersoner"
 * contactInformationRecord ^comment = "TKB-fält: `contactInformationRecord` (`ContactInformationRecordType`, kardinalitet 0..1)."
-* contactInformationRecord.contactInformationRecordVersion ^comment = "TKB-fält: `../version` (`Timestamp`, kardinalitet 1..1).
-
-**Modellanteckning:** contactInformationRecordVersion Heter version i schemat."
+* contactInformationRecord.version ^comment = "TKB-fält: `../version` (`Timestamp`, kardinalitet 1..1)."
 * contactInformationRecord.personId ^definition = "En universellt unik identifierare."
 * contactInformationRecord.personId ^comment = "TKB-fält: `../personId` (`IIType`, kardinalitet 1..1)."
-* contactInformationRecord.personId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* contactInformationRecord.personId.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * contactInformationRecord.contactInformation ^definition = "Klass för patientens egna angivna kontakuppgifter"
 * contactInformationRecord.contactInformation ^comment = "TKB-fält: `../contactInformation` (`ContactInformationType`, kardinalitet 0..*)."
 * contactInformationRecord.contactInformation.contactType ^comment = "TKB-fält: `../../contactType` (`CodedValue`, kardinalitet 1..1)."
 * contactInformationRecord.contactInformation.use ^comment = "TKB-fält: `../../use` (`CodedValue`, kardinalitet 0..1)."
-* contactInformationRecord.contactInformation.contactInformationValue ^comment = "TKB-fält: `../../value` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** contactInformationValue Heter value i schemat."
+* contactInformationRecord.contactInformation.value ^comment = "TKB-fält: `../../value` (`string`, kardinalitet 0..1)."
 * contactInformationRecord.contactInformation.rank ^comment = "TKB-fält: `../../rank` (`int`, kardinalitet 0..1)."
 * contactInformationRecord.contactInformation.comment ^comment = "TKB-fält: `../../comment` (`string`, kardinalitet 0..1)."
 * contactInformationRecord.contactInformation.period ^comment = "TKB-fält: `../../period` (`DatePeriodType`, kardinalitet 0..1)."
@@ -43,9 +35,7 @@ RuleSet: GetPersonContactInformationUnrestrictedFieldDescriptions
 * contactInformationRecord.contactPerson.contactPersonContactInformation ^comment = "TKB-fält: `../../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*)."
 * contactInformationRecord.contactPerson.contactPersonContactInformation.contactType ^comment = "TKB-fält: `../../../contactType` (`CodedValue`, kardinalitet 1..1)."
 * contactInformationRecord.contactPerson.contactPersonContactInformation.use ^comment = "TKB-fält: `../../../use` (`CodedValue`, kardinalitet 0..1)."
-* contactInformationRecord.contactPerson.contactPersonContactInformation.contactInformationValue ^comment = "TKB-fält: `../../../value` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** contactInformationValue Heter value i schemat."
+* contactInformationRecord.contactPerson.contactPersonContactInformation.value ^comment = "TKB-fält: `../../../value` (`string`, kardinalitet 0..1)."
 * contactInformationRecord.contactPerson.contactPersonContactInformation.rank ^comment = "TKB-fält: `../../../rank` (`int`, kardinalitet 0..1)."
 * contactInformationRecord.contactPerson.contactPersonContactInformation.comment ^comment = "TKB-fält: `../../../comment` (`string`, kardinalitet 0..1)."
 * contactInformationRecord.contactPerson.contactPersonContactInformation.period ^comment = "TKB-fält: `../../../period` (`DatePeriodType`, kardinalitet 0..1)."
@@ -57,18 +47,10 @@ RuleSet: GetPersonContactInformationUnrestrictedFieldDescriptions
 * contactInformationRecord.optoutPaperNotification ^comment = "TKB-fält: `../optoutPaperNotification` (`boolean`, kardinalitet 0..1)."
 * contactInformationRecord.updatePersonContactInformationActor ^definition = "Datatyp som identifierar en aktör."
 * contactInformationRecord.updatePersonContactInformationActor ^comment = "TKB-fält: `../updatePersonContactInformationActor` (`ActorType`, kardinalitet 0..1)."
-* contactInformationRecord.updatePersonContactInformationActor.actorId ^definition = "En universellt unik identifierare."
-* contactInformationRecord.updatePersonContactInformationActor.actorId ^comment = "TKB-fält: `../../id` (`IIType`, kardinalitet 1..1)."
-* contactInformationRecord.updatePersonContactInformationActor.actorId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* contactInformationRecord.updatePersonContactInformationActor.actorId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* contactInformationRecord.updatePersonContactInformationActor.id ^definition = "En universellt unik identifierare."
+* contactInformationRecord.updatePersonContactInformationActor.id ^comment = "TKB-fält: `../../id` (`IIType`, kardinalitet 1..1)."
 * contactInformationRecord.updatePersonContactInformationActor.professional ^definition = "Datatyp som identifierar en aktör inom en profession."
 * contactInformationRecord.updatePersonContactInformationActor.professional ^comment = "TKB-fält: `../../professional` (`ProfessionalType`, kardinalitet 0..1)."
 * contactInformationRecord.updatePersonContactInformationActor.professional.organizationId ^definition = "En universellt unik identifierare."
 * contactInformationRecord.updatePersonContactInformationActor.professional.organizationId ^comment = "TKB-fält: `../../../organizationId` (`IIType`, kardinalitet 1..1)."
-* contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
-* contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * contactInformationRecord.updatePersonContactInformationActor.updateTime ^comment = "TKB-fält: `../../updateTime` (`Timestamp`, kardinalitet 0..1)."

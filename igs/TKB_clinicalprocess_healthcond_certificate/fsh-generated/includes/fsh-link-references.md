@@ -2,8 +2,11 @@
 [CertificateStatusUpdateForCareRequest]: StructureDefinition-certificatestatusupdateforcare-request.html
 [CreateDraftCertificate]: StructureDefinition-createdraftcertificate.html
 [CreateDraftCertificateRequest]: StructureDefinition-createdraftcertificate-request.html
+[DateType]: StructureDefinition-DateType.html
+[DelfrageIdType]: StructureDefinition-DelfrageIdType.html
 [ErrorIdCS]: CodeSystem-errorid-cs.html
 [ErrorIdVS]: ValueSet-errorid-vs.html
+[FrageIdType]: StructureDefinition-FrageIdType.html
 [GetCertificate]: StructureDefinition-getcertificate.html
 [GetCertificateRequest]: StructureDefinition-getcertificate-request.html
 [HandelskodCS]: CodeSystem-handelskod-cs.html
@@ -34,5 +37,7 @@
 [SetCertificateStatusRequest]: StructureDefinition-setcertificatestatus-request.html
 [StatuskodCS]: CodeSystem-statuskod-cs.html
 [StatuskodVS]: ValueSet-statuskod-vs.html
+[TimeStampMedMillisekunder]: StructureDefinition-TimeStampMedMillisekunder.html
+[TimeStampType]: StructureDefinition-TimeStampType.html
 [AmneskodCS]: CodeSystem-amneskod-cs.html
 [AmneskodVS]: ValueSet-amneskod-vs.html

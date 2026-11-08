@@ -34,9 +34,7 @@ RuleSet: GetHsaUnitFieldDescriptions
 * faxNumbers ^comment = "TKB-fält: `faxNumbers` (`faxNumbers`, kardinalitet 0..1)."
 * faxNumbers.faxNumber ^comment = "TKB-fält: `../faxNumber` (`string`, kardinalitet 0..*)."
 * geographicalCoordinatesRt90 ^comment = "TKB-fält: `geographicalCoordinatesRt90` (`CoordinatesType`, kardinalitet 0..1)."
-* geographicalCoordinatesRt90.coordinatesType ^comment = "TKB-fält: `../type` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** coordinatesType Heter type i schemat."
+* geographicalCoordinatesRt90.type ^comment = "TKB-fält: `../type` (`string`, kardinalitet 1..1)."
 * geographicalCoordinatesRt90.x ^comment = "TKB-fält: `../x` (`string`, kardinalitet 1..1)."
 * geographicalCoordinatesRt90.y ^comment = "TKB-fält: `../y` (`string`, kardinalitet 1..1)."
 * healthCareArea ^comment = "TKB-fält: `healthCareArea` (`string`, kardinalitet 0..1)."
@@ -55,6 +53,7 @@ RuleSet: GetHsaUnitFieldDescriptions
 * municipality ^comment = "TKB-fält: `municipality` (`string`, kardinalitet 0..1)."
 * municipalityCode ^comment = "TKB-fält: `municipalityCode` (`string`, kardinalitet 0..1)."
 * municipalitySection ^comment = "TKB-fält: `municipalitySection` (`string`, kardinalitet 0..1)."
+* name ^comment = "TKB-fält: `name` (`string`, kardinalitet 1..1)."
 * patientInformation ^comment = "TKB-fält: `patientInformation` (`string`, kardinalitet 0..1)."
 * postalAddress ^comment = "TKB-fält: `postalAddress` (`AddressType`, kardinalitet 0..1)."
 * postalAddress.addressLine ^comment = "TKB-fält: `../addressLine` (`string`, kardinalitet 1..*)."
@@ -91,9 +90,7 @@ RuleSet: GetHsaUnitFieldDescriptions
 * unitExtraInformation ^comment = "TKB-fält: `unitExtraInformation` (`string`, kardinalitet 0..1)."
 * unitFunctions ^comment = "TKB-fält: `unitFunctions` (`unitFunctions`, kardinalitet 1..1)."
 * unitFunctions.unitFunction ^comment = "TKB-fält: `../unitFunction` (`HsaUnitFunctionType`, kardinalitet 0..*)."
-* unitFunctions.unitFunction.hsaUnitFunctionName ^comment = "TKB-fält: `../../name` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** hsaUnitFunctionName Heter name i schemat."
+* unitFunctions.unitFunction.name ^comment = "TKB-fält: `../../name` (`string`, kardinalitet 1..1)."
 * unitFunctions.unitFunction.telephoneHours ^comment = "TKB-fält: `../../telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1)."
 * unitFunctions.unitFunction.telephoneHours.telephoneHour ^comment = "TKB-fält: `../../../telephoneHour` (`TimeSpanType`, kardinalitet 0..*)."
 * unitFunctions.unitFunction.telephoneHours.telephoneHour.fromDay ^comment = "TKB-fält: `../../../../fromDay` (`integer`, kardinalitet 1..1)."

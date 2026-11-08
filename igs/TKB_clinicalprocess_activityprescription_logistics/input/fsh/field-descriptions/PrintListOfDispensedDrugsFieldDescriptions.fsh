@@ -25,10 +25,10 @@ RuleSet: PrintListOfDispensedDrugsFieldDescriptions
 * pdf ^definition = "Utdrag från läkemedelsförteckningen som PDF."
 * pdf ^comment = "TKB-fält: `pdf` (`base64Binary`, kardinalitet 0..1)."
 * resultCode ^definition = "Resultatkod för anropet."
-* resultCode ^comment = "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** Resultatkod för anropet. Tillåtna värden: OK, ERROR, INFO."
 * comment ^definition = "Kommentar till eventuella fel eller varningar."
 * comment ^comment = "TKB-fält: `comment` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..1024
-
-**Modellanteckning:** Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment."
+**Fältlängder:** 1..1024"

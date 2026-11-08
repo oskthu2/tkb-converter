@@ -1,3 +1,6 @@
+// Elementen genereras ur KontrolleraFormanResponder_1_ext_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: KontrolleraForman v1.1
 // Genererad: 2026-09-26
@@ -43,5 +46,4 @@ Characteristics: #can-be-target
   * system 1..1 string "system" "GLN-kod för anropande system."
 * fodelsedatum 0..1 string "fodelsedatum" "Födelsedatum. Anges på formen yyyymmdd. Används vid framtagning av förmånskod när varan är preventivmedel med förmånskod R. Om personen är under 21 år blir förmånskoden F för dessa varor. Gäller när lagen om gratis preventivmedel för personer under 21 år trätt i kraft. (Refererat element ur KontrolleraFormanResponder_1_ext_1.0.xsd, namnrymd urn:riv:se.apotekensservice:pris:KontrolleraFormanResponder:1:ext:1.)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert KontrolleraFormanRequestFieldDescriptions

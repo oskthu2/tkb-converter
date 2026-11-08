@@ -28,28 +28,41 @@
         "definition": "Logisk modell för tjänstekontraktet CheckConsent\n(RIV-TA urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om nödsituation,\ngällande åtkomst för viss aktör (vårdenhet eller medarbetare). Med giltigt samtycke avses ett\nsamtycke som fortfarande är giltigt, ej makulerat eller återkallat."
       },
       {
-        "id": "checkconsent.result",
-        "path": "checkconsent.result",
-        "short": "Statusinformation för anropet",
-        "definition": "Statusinformation för anropet",
+        "id": "checkconsent.CheckResultType",
+        "path": "checkconsent.CheckResultType",
+        "short": "CheckResultType",
+        "definition": "CheckResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "checkconsent.result.resultCode",
-        "path": "checkconsent.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "checkconsent.CheckResultType.Result",
+        "path": "checkconsent.CheckResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "checkconsent.CheckResultType.Result.ResultCode",
+        "path": "checkconsent.CheckResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ],
         "binding": {
@@ -58,10 +71,10 @@
         }
       },
       {
-        "id": "checkconsent.result.resultText",
-        "path": "checkconsent.result.resultText",
-        "short": "Fritext beskrivning av resultatet",
-        "definition": "Fritext beskrivning av resultatet",
+        "id": "checkconsent.CheckResultType.Result.ResultText",
+        "path": "checkconsent.CheckResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,10 +84,10 @@
         ]
       },
       {
-        "id": "checkconsent.hasConsent",
-        "path": "checkconsent.hasConsent",
-        "short": "Om ett giltigt intyg gällande åtkomst för angiven aktör hittades",
-        "definition": "Om ett giltigt intyg gällande åtkomst för angiven aktör hittades",
+        "id": "checkconsent.CheckResultType.HasConsent",
+        "path": "checkconsent.CheckResultType.HasConsent",
+        "short": "HasConsent",
+        "definition": "HasConsent",
         "min": 1,
         "max": "1",
         "type": [
@@ -84,15 +97,15 @@
         ]
       },
       {
-        "id": "checkconsent.assertionType",
-        "path": "checkconsent.assertionType",
-        "short": "Typ av funnet intyg (Consent eller Emergency)",
-        "definition": "Returneras om ett giltigt intyg hittades (hasConsent = true).\nAnger om det är ett samtycke eller nödsituationsintyg.",
+        "id": "checkconsent.CheckResultType.AssertionType",
+        "path": "checkconsent.CheckResultType.AssertionType",
+        "short": "AssertionType",
+        "definition": "AssertionType Tillåtna värden: Consent, Emergency.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {

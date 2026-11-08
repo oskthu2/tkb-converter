@@ -1,3 +1,6 @@
+// Elementen genereras ur PrintListOfDispensedDrugsResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activityprescription:logistics v1.0.2
 // Kontrakt: PrintListOfDispensedDrugs v1.0
 // Genererad: 2026-09-26
@@ -13,48 +16,19 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* patientinformation 0..1 BackboneElement "Information om patienten"
-    """
-    Information om patienten vars läkemedelsförteckning man hämtat.
-    Om patienten är markerad som Avliden returneras ej pdf.
-    """
-  * patientidentifikation 0..1 BackboneElement "Patientidentifikation"
-      """
-      Kan enbart innehålla personnummer (kodverk OID 1.2.752.129.2.1.3), enhetligt utformat unikt person-id registrerat i folkbokföringen.
-      """
-    * kod 1..1 string "Patientens personnummer"
-        """
-        Fältlängd 1..12.
-        """
-    * kodverk 1..1 string "OID för kodverket"
-        """
-        Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).
-        För personnummer: 1.2.752.129.2.1.3.
-        """
-  * fornamn 0..1 string "Patientens förnamn"
-      """
-      För patient med skyddad identitet visas inte förnamn. Fältlängd 1..80.
-      """
-  * efternamn 0..1 string "Patientens efternamn"
-      """
-      För patient med skyddad identitet visas inte efternamn. Fältlängd 1..60.
-      """
-  * redigeratNamn 1..1 string "Redigerat namn"
-      """
-      Redigerat namn i formatet "mellannamn efternamn, förnamn". Förkortat till 36 tecken. Fältlängd 1..36.
-      """
-  * harRedigeratNamnForkortats 1..1 boolean "Anger om redigeratNamn har förkortats"
-  * avliden 1..1 boolean "Anger om patienten är avliden"
-      """
-      Sant om personen är markerad som avliden, annars falskt.
-      """
-* pdf 0..1 base64Binary "Utdrag från läkemedelsförteckningen som PDF"
-* resultCode 1..1 code "Resultatkod för anropet"
-* resultCode from ResultCodeVS (required)
-* comment 0..1 string "Kommentar till eventuella fel eller varningar"
-    """
-    Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment.
-    """
+* patientinformation 0..1 Base "Patientinformation" "Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som Avliden så returneras ej pdf."
+* patientinformation.patientidentifikation 0..1 Base "Patientidentifikation" "Patientidentifikationen kan enbart innehålla följande typ: Personnummer från kodverk med OID 1.2.752.129.2.1.3 och är enhetligt utformat unikt person-id registrerat i folkbokföringen. Tilldelas av skattekontoret."
+* patientinformation.patientidentifikation.kod 1..1 string "kod" "kod"
+* patientinformation.patientidentifikation.kodverk 1..1 string "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2." "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2."
+* patientinformation.patientidentifikation.kodverk only OID
+* patientinformation.fornamn 0..1 string "fornamn" "fornamn"
+* patientinformation.efternamn 0..1 string "efternamn" "efternamn"
+* patientinformation.redigeratNamn 1..1 string "redigeratNamn" "redigeratNamn"
+* patientinformation.harRedigeratNamnForkortats 1..1 boolean "Anger om redigeratNamn har förkortats." "Anger om redigeratNamn har förkortats."
+* patientinformation.avliden 1..1 boolean "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt." "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt."
+* pdf 0..1 base64Binary "Utdrag från läkemedelsförteckningen som PDF." "Utdrag från läkemedelsförteckningen som PDF."
+* resultCode 1..1 code "Resultatkod för anropet." "Resultatkod för anropet. Tillåtna värden: OK, ERROR, INFO."
+* comment 0..1 string "comment" "comment"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert PrintListOfDispensedDrugsFieldDescriptions

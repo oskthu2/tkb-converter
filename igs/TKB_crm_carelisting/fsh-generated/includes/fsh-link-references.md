@@ -10,3 +10,4 @@
 [GetPersonQueueStatusRequest]: StructureDefinition-getpersonqueuestatus-request.html
 [PersonQueueStatusCS]: CodeSystem-personqueuestatus-cs.html
 [PersonQueueStatusVS]: ValueSet-personqueuestatus-vs.html
+[SubjectOfCareIdType]: StructureDefinition-SubjectOfCareIdType.html

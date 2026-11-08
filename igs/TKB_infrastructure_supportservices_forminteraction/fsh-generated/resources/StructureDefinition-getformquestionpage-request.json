@@ -28,10 +28,23 @@
         "definition": "Logisk modell för requestparametrar i GetFormQuestionPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormQuestionPage:2).\nHoppa/navigera framåt eller bakåt i ett formulär."
       },
       {
+        "id": "getformquestionpage-request.direction",
+        "path": "getformquestionpage-request.direction",
+        "short": "direction",
+        "definition": "Begäran -Direction ”BACK” är inte tillåtet om objektet ”PagenumberBlockNumber” är 1. -Direction ”FORWARD” är inte tillåtet om föregående objektets LastBlock är sant (true). Vid ovanstående fel genereras ett exception.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
         "id": "getformquestionpage-request.formId",
         "path": "getformquestionpage-request.formId",
-        "short": "Formulärets unika ID (GUID)",
-        "definition": "Formulärets unika ID (GUID)",
+        "short": "formId",
+        "definition": "formId",
         "min": 1,
         "max": "1",
         "type": [
@@ -43,8 +56,8 @@
       {
         "id": "getformquestionpage-request.pageNumber",
         "path": "getformquestionpage-request.pageNumber",
-        "short": "Nummer på sidan navigering utgår ifrån. Ange 0 + FORWARD för första sidan, 0 + BACK för sista sidan.",
-        "definition": "Nummer på sidan navigering utgår ifrån. Ange 0 + FORWARD för första sidan, 0 + BACK för sista sidan.",
+        "short": "pageNumber",
+        "definition": "pageNumber",
         "min": 1,
         "max": "1",
         "type": [
@@ -54,23 +67,10 @@
         ]
       },
       {
-        "id": "getformquestionpage-request.direction",
-        "path": "getformquestionpage-request.direction",
-        "short": "Riktning: FORWARD eller BACK",
-        "definition": "BACK ej tillåtet om PageNumber = 1. FORWARD ej tillåtet om LastPage = true.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getformquestionpage-request.subjectOfCare",
         "path": "getformquestionpage-request.subjectOfCare",
-        "short": "Invånarens personnummer (yyyymmddnnnn)",
-        "definition": "Invånarens personnummer (yyyymmddnnnn)",
+        "short": "subjectOfCare",
+        "definition": "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [

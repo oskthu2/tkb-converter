@@ -6,5 +6,7 @@
 [KonVS]: ValueSet-kon-vs.html
 [LegitimeratYrkeCS]: CodeSystem-legitimerat-yrke-cs.html
 [LegitimeratYrkeVS]: ValueSet-legitimerat-yrke-vs.html
+[PartielltDatum]: StructureDefinition-PartielltDatum.html
+[PersonIdentitet]: StructureDefinition-PersonIdentitet.html
 [TypAvBehorighetsbegransningCS]: CodeSystem-typ-av-behorighetsbegransning-cs.html
 [TypAvBehorighetsbegransningVS]: ValueSet-typ-av-behorighetsbegransning-vs.html

@@ -28,23 +28,36 @@
         "definition": "Logisk modell för requestparametrar i GetDiagnosInformation.\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).\nAnges ej parametern diagnosKod returneras diagnosinformation för alla diagnoskoder."
       },
       {
+        "id": "getdiagnosinformation-request.informationsId",
+        "path": "getdiagnosinformation-request.informationsId",
+        "short": "informationsId",
+        "definition": "informationsId",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/IIType"
+          }
+        ]
+      },
+      {
         "id": "getdiagnosinformation-request.diagnosKod",
         "path": "getdiagnosinformation-request.diagnosKod",
-        "short": "Diagnoskod för filtrering av diagnosinformation",
+        "short": "ICD10SEType",
         "definition": "Anger om endast diagnosinformation skall hämtas för en eller ett antal diagnoskoder. Anges ej parametern returneras diagnosinformation för alla diagnoskoder.",
         "comment": "TKB-fält: `diagnosKod` (`CV`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getdiagnosinformation-request.avenEjAktiva",
         "path": "getdiagnosinformation-request.avenEjAktiva",
-        "short": "Anger om även inaktiv diagnosinformation skall hämtas",
+        "short": "avenEjAktiva",
         "definition": "Anger om även ej aktiv diagnosinformation skall hämtas. Anges ej villkoret returneras endast aktiva.",
         "comment": "TKB-fält: `avenEjAktiva` (`Boolean`, kardinalitet 0..1).",
         "min": 0,

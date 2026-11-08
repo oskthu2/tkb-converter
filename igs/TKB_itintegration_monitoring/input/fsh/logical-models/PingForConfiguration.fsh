@@ -1,3 +1,6 @@
+// Elementen genereras ur PingForConfigurationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB itintegration:monitoring v1.0
 // Kontrakt: PingForConfiguration v1.0
 // Genererad: 2026-09-14
@@ -15,27 +18,12 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* pingVersion 1..1 string "Version av tjänstekomponenten"
-    """
-    Version av den tjänstekomponent som svarar. Formatet och semantiken är
-    specifik för respektive tjänsteproducent.
-    Kardinalitet: Obligatorisk.
-    """
-* pingDateTime 1..1 instant "Tidpunkt för svar"
-    """
-    Datum och klockslag när svaret skapades. Källdokumentets fälttyp är TS
-    (RIV-TA-lokal regex-begränsad sträng på formatet YYYYMMDDhhmmss, se
-    itintegration_monitoring_1.0.xsd), mappad till FHIR `instant`.
-    Kardinalitet: Obligatorisk.
-    """
-* configuration 0..* BackboneElement "Konfigurationsvärde"
-    """
-    Lista med värden av miljövariabler från den svarande tjänstekomponenten
-    (t.ex. JVM/.Net-version, operativsystem). Så mycket som möjligt ska tas
-    med som kan vara till hjälp vid felsökning.
-    """
-* configuration.configurationName 1..1 string "Namn på miljövariabel"
-* configuration.configurationValue 1..1 string "Värde på miljövariabel"
+* version 1..1 string "Version of the service component that responds." "Version of the service component that responds."
+* pingDateTime 1..1 string "Date and time for the ping response." "Date and time for the ping response."
+* pingDateTime only TS
+* configuration 0..* Base "ConfigurationType" "Optional list of environment information from the service component."
+* configuration.name 1..1 string "name" "name"
+* configuration.value 1..1 string "value" "value"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert PingForConfigurationFieldDescriptions

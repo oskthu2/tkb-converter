@@ -244,3 +244,6 @@ En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten 
 ```
 
 ---
+
+- **Bitbucket-svar som är en HTML-sida (rate limit)** (upptäckt 2026-11-08 i `infrastructure.directory.organization` och `followup.processdevelopment.infections`): vid för många anrop svarar Bitbucket med en Atlassian-HTML-sida (`<meta name="details" content="request_rate_limited">`) och HTTP 200 i vissa fall, så `curl -o` sparar sidan som `.xsd`/`.wsdl`/`.docx`. Felsignatur: `ParseError: mismatched tag: line 7` i XSD-skripten. `preflight_lint.py` felmarkerar sådana filer i `input/images/`. Pausa mellan anropen (`sleep 1`) och kontrollera att filen inte börjar med `<!DOCTYPE html`.
+

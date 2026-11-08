@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i GetCareManagers\n(urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "getcaremanagers-request.logicalAddress",
-        "path": "getcaremanagers-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The county/region code",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getcaremanagers-request.patientId",
         "path": "getcaremanagers-request.patientId",
         "short": "patientId",
@@ -50,35 +37,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.patientId.root",
-        "path": "getcaremanagers-request.patientId.root",
-        "short": "root",
-        "definition": "Fältet sätts till OID motsvarande typ av patientidentifierare.\n\nFöljande patientId’n kan förmedlas:\n\n1) För personnummer skall Skatteverkets oid för personnummer (1.2.752.129.2.1.3.1) användas.\n\n2) För samordningsnummer skall Skatteverkets oid för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\n3) För nationellt reservid skall Ineras oid för nationellt reservid (1.2.752.74.9.1) användas.\n\nObservera:\n\nFör att en konsument och en producent ska kunna samverka behöver båda tjänstekomponenterna ha möjlighet till uppslag, antingen direkt eller indirekt, i Ineras nationella personuppgiftstjänst.",
-        "comment": "TKB-fält: `patientId.root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.patientId.iIExtension",
-        "path": "getcaremanagers-request.patientId.iIExtension",
-        "short": "iIExtension",
-        "definition": "Id för patienten. Anges med 12 tecken utan avskiljare.",
-        "comment": "TKB-fält: `patientId.extension` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -92,35 +51,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careGiverId.root",
-        "path": "getcaremanagers-request.careGiverId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careGiverId.iIExtension",
-        "path": "getcaremanagers-request.careGiverId.iIExtension",
-        "short": "iIExtension",
-        "definition": "iIExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -134,35 +65,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careUnitId.root",
-        "path": "getcaremanagers-request.careUnitId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careUnitId.iIExtension",
-        "path": "getcaremanagers-request.careUnitId.iIExtension",
-        "short": "iIExtension",
-        "definition": "iIExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -176,91 +79,7 @@
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careManagerType.cVCode",
-        "path": "getcaremanagers-request.careManagerType.cVCode",
-        "short": "cVCode",
-        "definition": "cVCode Heter code i schemat.",
-        "comment": "TKB-fält: `../code` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** cVCode Heter code i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careManagerType.codeSystem",
-        "path": "getcaremanagers-request.careManagerType.codeSystem",
-        "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../codeSystem` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careManagerType.codeSystemName",
-        "path": "getcaremanagers-request.careManagerType.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careManagerType.codeSystemVersion",
-        "path": "getcaremanagers-request.careManagerType.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careManagerType.displayName",
-        "path": "getcaremanagers-request.careManagerType.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careManagerType.originalText",
-        "path": "getcaremanagers-request.careManagerType.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
           }
         ]
       },
@@ -274,35 +93,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careProcessId.root",
-        "path": "getcaremanagers-request.careProcessId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getcaremanagers-request.careProcessId.iIExtension",
-        "path": "getcaremanagers-request.careProcessId.iIExtension",
-        "short": "iIExtension",
-        "definition": "iIExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       }

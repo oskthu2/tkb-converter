@@ -1,3 +1,6 @@
+// Elementen genereras ur GetEmployeeIncludingProtectedPersonResponder_4.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:employee v4.0
 // Kontrakt: GetEmployeeIncludingProtectedPerson v4.0 — Request
 // Genererad: 2026-05-19
@@ -13,42 +16,24 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "4.0"
-* obeys getemployeeincludingprotectedperson-request-hsaid-xor-pnr
-* personHsaId 0..1 string "Sökt persons HSA-id"
-    """
-    Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].
-    Kardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.
-    """
-* personalIdentityNumber 0..1 string "Sökt persons Person-id (personnummer eller samordningsnummer)"
-    """
-    Sökt persons Person-id (personnummer eller samordningsnummer).
-    Ref. person-id (personalIdentityNumber) [R5].
-    Kardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.
-    """
-* searchBase 0..1 string "Sökbas (DN)"
-    """
-    Sökbas. Om ingen sökbas anges används c=SE som sökbas.
-    Kardinalitet: Valfri.
-    """
-* includeFeignedObject 0..1 boolean "Inkludera fingerade objekt"
-    """
-    true: om metoden ska leverera svar med fingerade objekt.
-    Uteblivet värde tolkas som false. Kardinalitet: Valfri.
-    """
-* profile 0..1 string "Profilval för returnerade attribut (BASIC, TITLE, CONTACT, FULL, extended1)"
-    """
-    Anger vilka attribut som returneras i svaret.
-    BASIC: personHsaId, givenName, middleAndSurName, nickname, dn, protectedPerson, feignedPerson.
-    TITLE: Alla BASIC-attribut samt description, title, healthCareProfessionalLicence, m.fl.
-    CONTACT: Alla BASIC-attribut samt mail, telefonnummer, adress m.fl.
-    FULL: Alla BASIC-, TITLE- och CONTACT-attribut.
-    extended1: Alla FULL-attribut samt age och gender.
-    Om värdet utelämnas antas FULL.
-    Kardinalitet: Valfri.
-    """
+* personHsaId 0..1 string "personHsaId" "personHsaId"
+* personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"
+* searchBase 0..1 string "searchBase" "searchBase"
+* searchBase only DNType
+* includeFeignedObject 0..1 boolean "includeFeignedObject" "includeFeignedObject"
+* profile 0..1 string "profile" "profile"
+* obeys getemployeeincludingprotectedpersonrequest-choice-1
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetEmployeeIncludingProtectedPersonRequestFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* obeys getemployeeincludingprotectedperson-request-hsaid-xor-pnr
+
+Invariant: getemployeeincludingprotectedpersonrequest-choice-1
+Description: "Exakt ett av personHsaId, personalIdentityNumber ska anges (xs:choice i schemat)."
+Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error
 
 Invariant: getemployeeincludingprotectedperson-request-hsaid-xor-pnr
 Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges."

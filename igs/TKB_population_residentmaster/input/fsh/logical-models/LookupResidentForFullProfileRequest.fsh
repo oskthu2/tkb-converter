@@ -1,3 +1,6 @@
+// Elementen genereras ur LookupResidentForFullProfileResponder_1.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB population:residentmaster v1.2
 // Kontrakt: LookupResidentForFullProfile v1.2
 // Genererad: 2026-09-17
@@ -12,46 +15,14 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.2"
-* personId 1..* Identifier "Personnummer att slå upp"
-    """
-    Personnummer på format ÅÅÅÅMMDDNNNN. Flera personnummer kan anges i samma fråga
-    (max 1000 per anrop, se avsnitt 4.6). personId kan även vara reservnummer i det
-    fall tjänstekonsumenten är en regional/lokal instans.
-    Kardinalitet: Obligatorisk, minst ett värde.
-    """
-* lookUpSpecification 1..1 BackboneElement "Uppslagsbegränsning"
-    """
-    Urvalsbegränsning enligt datatypen LookUpSpecificationType (avsnitt 5.2).
-    Elementet är enligt käll-XSD:t obligatoriskt även om samtliga dess underfält är
-    valfria — se ASSUME-PRM-001 i QUESTIONS.md.
-    """
-  * avregistreringsorsak 0..* string "Begränsning på avregistreringsorsak"
-      """
-      2 tecken per värde. Ett eller flera värden ur AvregistreringsorsakKodKomplettTYPE
-      begränsar svaret till personer med någon av angivna avregistreringsorsaker.
-      Värdet "  " (två blanktecken) begränsar svaret till personer utan
-      avregistreringsorsak. Värdet "OO" begränsar svaret till personer med
-      avregistreringskod som avviker från "AV" och "GN" (bakåtkompatibilitet med 1.0).
-      Utelämnat fält innebär ingen begränsning.
-      """
-  * sekretessmarkeringFilter 0..1 boolean "Begränsning på sekretessmarkering"
-      """
-      true (J) = returnera endast poster med sekretessmarkering. false (N) =
-      returnera endast poster utan sekretessmarkering (eller utan angiven
-      sekretessmarkering).
-      """
-  * senasteAndringFolkbokforingFilter 0..1 date "Begränsning på senaste ändringsdatum"
-      """
-      Endast poster med senare datum i fältet SenasteAndringFolkbokforing än angivet
-      datum returneras. Strikt olikhet används — poster med samma datum returneras
-      inte.
-      """
-  * historiskTidpunkt 0..1 dateTime "Historisk tidpunkt"
-      """
-      Anger historisk tidpunkt i syfte att svaret ska spegla personuppgifternas
-      värden vid denna tidpunkt. Kan inte kombineras med
-      senasteAndringFolkbokforingFilter.
-      """
+* personId 1..* string "personId" "personId"
+* lookUpSpecification 1..1 Base "LookUpSpecificationType" "lookUpSpecification"
+* lookUpSpecification.Avregistreringsorsak 0..* string "Avregistreringsorsak" "Avregistreringsorsak"
+* lookUpSpecification.Sekretessmarkering 0..1 code "Sekretessmarkering" "Sekretessmarkering Tillåtna värden: J, N."
+* lookUpSpecification.SenasteAndringFolkbokforing 0..1 string "SenasteAndringFolkbokforing" "SenasteAndringFolkbokforing"
+* lookUpSpecification.SenasteAndringFolkbokforing only DT
+* lookUpSpecification.historiskTidpunkt 0..1 string "historiskTidpunkt" "historiskTidpunkt"
+* lookUpSpecification.historiskTidpunkt only TS
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert LookupResidentForFullProfileRequestFieldDescriptions

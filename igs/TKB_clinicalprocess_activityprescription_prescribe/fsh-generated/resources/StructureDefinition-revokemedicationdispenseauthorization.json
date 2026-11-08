@@ -28,23 +28,37 @@
         "definition": "Logisk modell för tjänstekontraktet RevokeMedicationDispenseAuthorization\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RevokeMedicationDispenseAuthorization:2).\nRepresenterar responsens informationsstruktur."
       },
       {
+        "id": "revokemedicationdispenseauthorization.medicationListVersion",
+        "path": "revokemedicationdispenseauthorization.medicationListVersion",
+        "short": "medicationListVersion",
+        "definition": "Version på patientens samlade läkemedelslista. Se kapitel 5.2 för exempel och regler kring format. Krävs i de fall där det expedieringsunderlag som ska makuleras är kopplat till en behandling.",
+        "comment": "TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
         "id": "revokemedicationdispenseauthorization.result",
         "path": "revokemedicationdispenseauthorization.result",
-        "short": "Resultat av begäran",
+        "short": "ResultType",
         "definition": "Innehåller information om begäran gick bra eller ej.",
         "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "revokemedicationdispenseauthorization.result.resultCode",
         "path": "revokemedicationdispenseauthorization.result.resultCode",
-        "short": "Svarskod",
+        "short": "resultCode",
         "definition": "Kan endast vara OK, INFO eller ERROR",
         "comment": "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
@@ -53,34 +67,40 @@
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/resultcode-vs"
-        }
+        ]
       },
       {
         "id": "revokemedicationdispenseauthorization.result.errorCode",
         "path": "revokemedicationdispenseauthorization.result.errorCode",
-        "short": "Felkod",
+        "short": "errorCode",
         "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
-        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
+        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/errorcode-vs"
-        }
+        ]
+      },
+      {
+        "id": "revokemedicationdispenseauthorization.result.subcode",
+        "path": "revokemedicationdispenseauthorization.result.subcode",
+        "short": "subcode",
+        "definition": "Inga subkoder är specificerade.",
+        "comment": "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
       },
       {
         "id": "revokemedicationdispenseauthorization.result.logId",
         "path": "revokemedicationdispenseauthorization.result.logId",
-        "short": "UUID för felanmälan",
+        "short": "logId",
         "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
         "comment": "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -94,7 +114,7 @@
       {
         "id": "revokemedicationdispenseauthorization.result.message",
         "path": "revokemedicationdispenseauthorization.result.message",
-        "short": "Beskrivande text",
+        "short": "message",
         "definition": "En beskrivande text som kan visas för användaren.",
         "comment": "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
         "min": 0,

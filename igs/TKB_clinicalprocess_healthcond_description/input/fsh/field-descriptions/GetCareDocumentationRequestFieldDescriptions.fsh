@@ -43,7 +43,4 @@ Se även regel sourceSystemId."
 * hasMoreReference ^definition = "Kan anges av tjänstekonsument när man tidigare fått ett hasMore-svar från tjänsteproducent att det finns ytterligare information att hämta.
 
 Se även regel hasMoreReference."
-* hasMoreReference ^comment = "TKB-fält: `hasMoreReference` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** Kan anges av tjänstekonsument när man tidigare fått ett svar med hasMore.
-Anropet måste då vara direktadresserat till den logiska adressen som angavs i hasMore."
+* hasMoreReference ^comment = "TKB-fält: `hasMoreReference` (`string`, kardinalitet 0..1)."

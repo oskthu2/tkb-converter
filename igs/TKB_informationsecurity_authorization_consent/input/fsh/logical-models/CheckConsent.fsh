@@ -1,3 +1,6 @@
+// Elementen genereras ur CheckConsentResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för informationsecurity.authorization.consent v2.0.4 (Genererad ur scheman i riv.informationsecurity.authorization.consent, tagg 2.0.4; scripts/xsd_to_ig.py)
 // Kontrakt: CheckConsent v2.0
 // Genererad: 2026-09-26
@@ -10,15 +13,16 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:CheckConsentResponder:2, CheckConsentResponseType).
 """
 Characteristics: #can-be-target
+
 * ^version = "2.0"
-* checkResult 1..1 BackboneElement "checkResult" "Datatyp som anger om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör. Datatypen utökar datatypen Result."
-  * result 1..1 BackboneElement "result" "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
-    * resultCode 1..1 code "resultCode" "resultCode"
-    * resultCode from ResultCodeVS (required)
-    * resultText 0..1 string "resultText" "resultText"
-  * hasConsent 1..1 boolean "hasConsent" "hasConsent"
-  * assertionType 0..1 code "assertionType" "assertionType"
-  * assertionType from AssertionTypeVS (required)
+* checkResult 1..1 Base "CheckResultType" "checkResult"
+* checkResult.result 1..1 Base "ResultType" "result"
+* checkResult.result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* checkResult.result.resultCode from ResultCodeVS (required)
+* checkResult.result.resultText 0..1 string "resultText" "resultText"
+* checkResult.hasConsent 1..1 boolean "hasConsent" "hasConsent"
+* checkResult.assertionType 0..1 code "assertionType" "assertionType Tillåtna värden: Consent, Emergency."
+* checkResult.assertionType from AssertionTypeVS (required)
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CheckConsentFieldDescriptions

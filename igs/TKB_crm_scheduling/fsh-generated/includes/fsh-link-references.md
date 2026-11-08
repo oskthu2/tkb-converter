@@ -20,5 +20,7 @@
 [MakeBookingRequest]: StructureDefinition-makebooking-request.html
 [ResultCodeCS]: CodeSystem-result-code-cs.html
 [ResultCodeVS]: ValueSet-result-code-vs.html
+[SubjectOfCareIdType]: StructureDefinition-SubjectOfCareIdType.html
+[TS]: StructureDefinition-TS.html
 [UpdateBooking]: StructureDefinition-updatebooking.html
 [UpdateBookingRequest]: StructureDefinition-updatebooking-request.html

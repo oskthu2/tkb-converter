@@ -28,57 +28,11 @@
         "definition": "Logisk modell för requestparametrar i GetFormTemplates."
       },
       {
-        "id": "getformtemplates-request.healthcare_Facility_CareUnit",
-        "path": "getformtemplates-request.healthcare_Facility_CareUnit",
-        "short": "Vårdenhetens HSA-id",
-        "definition": "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3",
-        "comment": "TKB-fält: `Healthcare_Facility_CareUnit` (kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplates-request.publishedStatus",
-        "path": "getformtemplates-request.publishedStatus",
-        "short": "Publiceringsstatus",
-        "definition": "Indikerar vilken status en mall skall ha.",
-        "comment": "TKB-fält: `PublishedStatus` (kardinalitet 0..*).",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs"
-        }
-      },
-      {
-        "id": "getformtemplates-request.subjectOfCare",
-        "path": "getformtemplates-request.subjectOfCare",
-        "short": "Personnummer",
-        "definition": "Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn). FormTemplate attributet \"anonymousForm\" styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
-        "comment": "TKB-fält: `SubjectOfCare` (kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplates-request.templateIds",
-        "path": "getformtemplates-request.templateIds",
-        "short": "Mall-id:n",
-        "definition": "Typ av formulärmall. Kodverk. Om denna inte anges skall formulärtjänsten som default returnera ALLA tillgängliga formulärmallar för medborgaren.",
-        "comment": "TKB-fält: `TemplateIds` (kardinalitet 0..*).",
+        "id": "getformtemplates-request.clinicalProcessInterestIds",
+        "path": "getformtemplates-request.clinicalProcessInterestIds",
+        "short": "clinicalProcessInterestIds",
+        "definition": "Hälsoärenden.",
+        "comment": "TKB-fält: `ClinicalProcessInterestIds` (kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -88,16 +42,58 @@
         ]
       },
       {
-        "id": "getformtemplates-request.clinicalProcessInterestIds",
-        "path": "getformtemplates-request.clinicalProcessInterestIds",
-        "short": "Hälsoärenden",
-        "definition": "Hälsoärenden.",
-        "comment": "TKB-fält: `ClinicalProcessInterestIds` (kardinalitet 0..*).\n\n**Modellanteckning:** Hälsoärende-id:n för filtrering.",
+        "id": "getformtemplates-request.healthcare_facility_CareUnit",
+        "path": "getformtemplates-request.healthcare_facility_CareUnit",
+        "short": "healthcare_facility_CareUnit",
+        "definition": "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3",
+        "comment": "TKB-fält: `Healthcare_Facility_CareUnit` (kardinalitet 1..1).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates-request.publishedStatus",
+        "path": "getformtemplates-request.publishedStatus",
+        "short": "Filtrering parameter för mall. Utelämnas attributet returneras alla",
+        "definition": "Indikerar vilken status en mall skall ha.",
+        "comment": "TKB-fält: `PublishedStatus` (kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates-request.subjectOfCare",
+        "path": "getformtemplates-request.subjectOfCare",
+        "short": "subjectOfCare",
+        "definition": "Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn). FormTemplate attributet \"anonymousForm\" styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
+        "comment": "TKB-fält: `SubjectOfCare` (kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates-request.templateIds",
+        "path": "getformtemplates-request.templateIds",
+        "short": "templateIds",
+        "definition": "Typ av formulärmall. Kodverk. Om denna inte anges skall formulärtjänsten som default returnera ALLA tillgängliga formulärmallar för medborgaren.",
+        "comment": "TKB-fält: `TemplateIds` (kardinalitet 0..*).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       }

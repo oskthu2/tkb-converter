@@ -1,11 +1,9 @@
+// Elementen genereras ur DeletePrescriptionReasonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:processdevelopment:infections v1.0.2
 // Kontrakt: DeletePrescriptionReason v1.0
 // Genererad: 2026-05-19
-
-Invariant: deleteprescriptionreason-request-activity-xor-condition
-Description: "Exakt ett av activityId och conditionId ska anges (TKB 7.2, Övriga regler)."
-Expression: "activityId.exists() xor conditionId.exists()"
-Severity: #error
 
 Logical: DeletePrescriptionReasonRequest
 Id: deleteprescriptionreason-request
@@ -19,22 +17,20 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* obeys deleteprescriptionreason-request-activity-xor-condition
-* activityId 0..1 Identifier "Aktivitets-id för den aktivitet som ska raderas (profylax)"
-  """
-  Anges när den ordinationsorsak som ska raderas är en aktivitet (profylax).
-  Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
-  Kardinalitet: Villkorlig — antingen activityId eller conditionId ska anges.
-  """
-* conditionId 0..1 Identifier "Tillstånds-id för det tillstånd/diagnos som ska raderas (infektion)"
-  """
-  Anges när den ordinationsorsak som ska raderas är ett tillstånd (infektion).
-  Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
-  Kardinalitet: Villkorlig — antingen activityId eller conditionId ska anges.
-  """
+* activityId 0..1 IIType "activityId" "activityId"
+* conditionId 0..1 IIType "conditionId" "conditionId"
+* obeys deleteprescriptionreasonrequest-choice-1
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeletePrescriptionReasonRequestFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* obeys deleteprescriptionreason-request-activity-xor-condition
+
+Invariant: deleteprescriptionreasonrequest-choice-1
+Description: "Exakt ett av activityId, conditionId ska anges (xs:choice i schemat)."
+Expression: "activityId.exists() xor conditionId.exists()"
+Severity: #error
 
 Logical: DeletePrescriptionReasonResponse
 Id: deleteprescriptionreason-response
@@ -46,17 +42,13 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
-  """
-  OK = operationen genomförd utan fel
-  ERROR = Fel vid operationen
-  INFO = Information finns om operationen
-  Kardinalitet: Obligatorisk.
-  """
-* comment 0..1 string "Beskrivning av fel eller information om genomförd operation"
-  """
-  Kardinalitet: Valfri.
-  """
+* ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, ERROR, INFO."
+* comment 0..1 string "comment" "comment"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeletePrescriptionReasonResponseFieldDescriptions
+
+Invariant: deleteprescriptionreason-request-activity-xor-condition
+Description: "Exakt ett av activityId och conditionId ska anges (TKB 7.2, Övriga regler)."
+Expression: "activityId.exists() xor conditionId.exists()"
+Severity: #error

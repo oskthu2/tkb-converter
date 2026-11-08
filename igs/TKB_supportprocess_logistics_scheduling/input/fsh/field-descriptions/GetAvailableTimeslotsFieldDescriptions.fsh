@@ -8,29 +8,11 @@ RuleSet: GetAvailableTimeslotsFieldDescriptions
 * timeslot.timeslotId ^comment = "TKB-fält: `timeslot.timeslotId` (`uuidType`, kardinalitet 1..1)."
 * timeslot.timeType ^definition = "Typ av tid som uttrycker var bokningen/besöket avser. Se datatypen TimeTypeType för vidare information."
 * timeslot.timeType ^comment = "TKB-fält: `timeslot.timeType` (`TimeTypeType`, kardinalitet 1..1)."
+* timeslot.timeType.code ^comment = "TKB-fält: `../../code` (`string`, kardinalitet 1..1)."
 * timeslot.timeType.hidden ^comment = "TKB-fält: `../../hidden` (`boolean`, kardinalitet 0..1)."
 * timeslot.timeType.careContactCode ^comment = "TKB-fält: `../../careContactCode` (`CVType`, kardinalitet 0..1)."
-* timeslot.timeType.careContactCode.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* timeslot.timeType.careContactCode.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* timeslot.timeType.careContactCode.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.careContactCode.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.careContactCode.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.careContactCode.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * timeslot.timeType.healthcareService ^comment = "TKB-fält: `../../healthcareService` (`HealthcareServiceType`, kardinalitet 0..*)."
-* timeslot.timeType.healthcareService.healthcareServiceCode ^comment = "TKB-fält: `../../../code` (`SnomedCtType`, kardinalitet 1..1).
-
-**Modellanteckning:** healthcareServiceCode Heter code i schemat."
-* timeslot.timeType.healthcareService.healthcareServiceCode.snomedCtCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** snomedCtCode Heter code i schemat."
-* timeslot.timeType.healthcareService.healthcareServiceCode.codeSystem ^definition = "Tillåtna värden: 1.2.752.116.2.1.1."
-* timeslot.timeType.healthcareService.healthcareServiceCode.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.healthcareService.healthcareServiceCode.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.healthcareService.healthcareServiceCode.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* timeslot.timeType.healthcareService.code ^comment = "TKB-fält: `../../../code` (`SnomedCtType`, kardinalitet 1..1)."
 * timeslot.timeType.healthcareService.information ^comment = "TKB-fält: `../../../information` (`InformationType`, kardinalitet 0..*)."
 * timeslot.timeType.healthcareService.information.header ^comment = "TKB-fält: `../../../../header` (`string`, kardinalitet 1..1)."
 * timeslot.timeType.healthcareService.information.description ^comment = "TKB-fält: `../../../../description` (`string`, kardinalitet 0..1)."
@@ -44,20 +26,16 @@ RuleSet: GetAvailableTimeslotsFieldDescriptions
 * timeslot.timeType.cancelAppointmentAllowed ^comment = "TKB-fält: `../../cancelAppointmentAllowed` (`boolean`, kardinalitet 1..1)."
 * timeslot.timeType.updateAppointmentAllowed ^comment = "TKB-fält: `../../updateAppointmentAllowed` (`boolean`, kardinalitet 1..1)."
 * timeslot.timeType.appointmentRule ^comment = "TKB-fält: `../../appointmentRule` (`TimeTypeRulesType`, kardinalitet 0..3)."
-* timeslot.timeType.appointmentRule.timeTypeRulesType ^comment = "TKB-fält: `../../../type` (`ProcessEnum`, kardinalitet 1..1).
+* timeslot.timeType.appointmentRule.type ^comment = "TKB-fält: `../../../type` (`ProcessEnum`, kardinalitet 1..1).
 
-**Modellanteckning:** timeTypeRulesType Heter type i schemat."
-* timeslot.timeType.appointmentRule.reasonTextRequired ^comment = "TKB-fält: `../../../reasonTextRequired` (`ReasonRequiredEnum`, kardinalitet 1..1)."
-* timeslot.timeType.appointmentRule.reasonCodeRequired ^comment = "TKB-fält: `../../../reasonCodeRequired` (`ReasonRequiredEnum`, kardinalitet 1..1)."
+**Modellanteckning:** type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING."
+* timeslot.timeType.appointmentRule.reasonTextRequired ^comment = "TKB-fält: `../../../reasonTextRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported."
+* timeslot.timeType.appointmentRule.reasonCodeRequired ^comment = "TKB-fält: `../../../reasonCodeRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported."
 * timeslot.timeType.appointmentRule.reasonCodes ^comment = "TKB-fält: `../../../reasonCodes` (`CVType`, kardinalitet 0..*)."
-* timeslot.timeType.appointmentRule.reasonCodes.cvCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* timeslot.timeType.appointmentRule.reasonCodes.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* timeslot.timeType.appointmentRule.reasonCodes.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.appointmentRule.reasonCodes.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.appointmentRule.reasonCodes.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* timeslot.timeType.appointmentRule.reasonCodes.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
 * timeslot.timeType.appointmentRule.information ^comment = "TKB-fält: `../../../information` (`InformationType`, kardinalitet 0..*)."
 * timeslot.timeType.appointmentRule.information.header ^comment = "TKB-fält: `../../../../header` (`string`, kardinalitet 1..1)."
 * timeslot.timeType.appointmentRule.information.description ^comment = "TKB-fält: `../../../../description` (`string`, kardinalitet 0..1)."
@@ -74,17 +52,9 @@ RuleSet: GetAvailableTimeslotsFieldDescriptions
 * timeslot.timeLength ^comment = "TKB-fält: `timeslot.timeLength` (`double`, kardinalitet 0..1)."
 * timeslot.healthcareFacilityHSAId ^definition = "HSAId för vårdenheten som bokningen gäller hos."
 * timeslot.healthcareFacilityHSAId ^comment = "TKB-fält: `timeslot.healthcareFacilityHSAId` (`HSAIdType`, kardinalitet 1..1)."
-* timeslot.healthcareFacilityHSAId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* timeslot.healthcareFacilityHSAId.hSAIdExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** hSAIdExtension Heter extension i schemat."
 * timeslot.practitioner ^definition = "HoS-person som besöket är bokat hos. Se datatypen PractitionerType för vidare information."
 * timeslot.practitioner ^comment = "TKB-fält: `timeslot.practitioner` (`PractitionerType`, kardinalitet 0..*)."
 * timeslot.practitioner.HSAId ^comment = "TKB-fält: `../../HSAId` (`HSAIdType`, kardinalitet 1..1)."
-* timeslot.practitioner.HSAId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* timeslot.practitioner.HSAId.hSAIdExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** hSAIdExtension Heter extension i schemat."
 * timeslot.practitioner.firstName ^comment = "TKB-fält: `../../firstName` (`string`, kardinalitet 1..1)."
 * timeslot.practitioner.lastName ^comment = "TKB-fält: `../../lastName` (`string`, kardinalitet 1..1)."
 * timeslot.practitioner.title ^comment = "TKB-fält: `../../title` (`string`, kardinalitet 0..1)."
@@ -95,29 +65,15 @@ Se datatypen ResourceType för vidare information."
 
 Obs: modellen anger 0..* där TKB:n anger 0..1."
 * timeslot.resource.typeOfResource ^comment = "TKB-fält: `../../typeOfResource` (`CVType`, kardinalitet 0..1)."
-* timeslot.resource.typeOfResource.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* timeslot.resource.typeOfResource.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* timeslot.resource.typeOfResource.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* timeslot.resource.typeOfResource.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* timeslot.resource.typeOfResource.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* timeslot.resource.typeOfResource.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * timeslot.resource.resourceAttribute ^comment = "TKB-fält: `../../resourceAttribute` (`CVType`, kardinalitet 0..1)."
-* timeslot.resource.resourceAttribute.cvCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cvCode Heter code i schemat."
-* timeslot.resource.resourceAttribute.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* timeslot.resource.resourceAttribute.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* timeslot.resource.resourceAttribute.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* timeslot.resource.resourceAttribute.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* timeslot.resource.resourceAttribute.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * timeslot.resource.description ^comment = "TKB-fält: `../../description` (`string`, kardinalitet 0..1)."
 * timeslot.withinCareGuarantee ^definition = "Flagga som visar huruvida denna tidslucka ligger inom Vårdgarantin. Flaggan är intressant att förmedla i samband med exempelvis ett nybokningsflöde, då invånaren söker efter lediga tider. Flaggan relaterar således till den tidpunkt då invånaren begärde att söka efter lediga tider. Om attributet utesluts kan en konsument inte dra slutsatser huruvida den erbjudna lediga tiden ligger inom eller utom vårdgarantin."
 * timeslot.withinCareGuarantee ^comment = "TKB-fält: `timeslot.withinCareGuarantee` (`boolean`, kardinalitet 0..1)."
 * timeslot.alternativeLocation ^comment = "TKB-fält: `../alternativeLocation` (`string`, kardinalitet 0..1)."
 * resultCode ^definition = "Kan endast vara OK, INFO eller ERROR."
-* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_MAKE_APPOINTMENT, USER_IS_ALREADY_OCCUPIED, APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_UPDATE_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, USER_IS_ALREADY_OCCUPIED, UPDATE_APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, TOO_LATE_TO_CANCEL_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CANCEL_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CONFIRMED, TOO_LATE_TO_CONFIRM_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CONFIRM_IS_NOT_ALLOWED."
 * resultText ^definition = "Kan utelämnas om resultCode = OK.
 
 Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR"

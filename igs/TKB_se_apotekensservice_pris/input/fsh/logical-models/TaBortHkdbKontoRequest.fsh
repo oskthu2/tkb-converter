@@ -1,3 +1,6 @@
+// Elementen genereras ur TaBortHkdbKontoResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: TaBortHkdbKonto v1.0
 // Genererad: 2026-09-26
@@ -10,34 +13,13 @@ Description: """
   (urn:riv:se.apotekensservice:pris:TaBortHkdbKontoResponder:1, TaBortHkdbKontoRequestType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB"
-* argosHeader 1..1 BackboneElement "argosHeader" "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction"
-  * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
-  * legitimationskod 0..1 string "legitimationskod" "legitimationskod"
-  * fornamn 0..1 string "fornamn" "fornamn"
-  * efternamn 0..1 string "efternamn" "efternamn"
-  * yrkesgrupp 0..1 string "yrkesgrupp" "yrkesgrupp"
-  * befattningskod 0..1 string "befattningskod" "befattningskod"
-  * arbetsplatskod 0..1 string "arbetsplatskod" "arbetsplatskod"
-  * arbetsplatsnamn 0..1 string "arbetsplatsnamn" "arbetsplatsnamn"
-  * postort 0..1 string "postort" "postort"
-  * postadress 0..1 string "postadress" "postadress"
-  * postnummer 0..1 string "postnummer" "postnummer"
-  * telefonnummer 0..1 string "telefonnummer" "telefonnummer"
-  * requestId 0..1 string "requestId" "requestId"
-  * rollnamn 0..1 string "rollnamn" "rollnamn"
-  * hsaID 0..1 string "hsaID" "hsaID"
-  * katalog 0..1 string "katalog" "katalog"
-  * organisationsnummer 0..1 string "organisationsnummer" "organisationsnummer"
-  * systemnamn 0..1 string "systemnamn" "systemnamn"
-  * systemversion 0..1 string "systemversion" "systemversion"
-  * systemIp 0..1 string "systemIp" "systemIp"
-* klientinformation 1..1 BackboneElement "klientinformation" "Objekt innehållande information om anropande klientsystem."
-  * anvandare 1..1 string "anvandare" "Unikt användarid i anropande system."
-  * session 1..1 string "session" "Sessionens id i anropande system."
-  * system 1..1 string "system" "GLN-kod för anropande system."
-* persNr 1..1 string "persNr" "Personnummer för den som ska tas bort."
+* klientinformation 1..1 Base "KlientinformationRequest" "Objekt innehållande information om anropande klientsystem."
+* klientinformation.anvandare 1..1 string "Unikt användarid i anropande system." "Unikt användarid i anropande system."
+* klientinformation.session 1..1 string "Sessionens id i anropande system." "Sessionens id i anropande system."
+* klientinformation.system 1..1 string "GLN-kod för anropande system." "GLN-kod för anropande system."
+* persNr 1..1 string "Personnummer för den som ska tas bort." "Personnummer för den som ska tas bort."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert TaBortHkdbKontoRequestFieldDescriptions

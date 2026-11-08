@@ -7,13 +7,17 @@ RuleSet: HamtaMeddelandenRequestFieldDescriptions
 * Behorighetsinformation.fornamn ^comment = "TKB-fält: `../fornamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.efternamn ^comment = "TKB-fält: `../efternamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.forskrivarkod ^comment = "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1)."
-* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1)."
+* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH."
 * Behorighetsinformation.arbetsplatskod ^comment = "TKB-fält: `../arbetsplatskod` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.hsaid ^comment = "TKB-fält: `../hsaid` (`string`, kardinalitet 0..1)."
 * Behorighetsinformation.personnummer ^comment = "TKB-fält: `../personnummer` (`string`, kardinalitet 0..1)."
 * Behorighetsinformation.organisationsnummer ^comment = "TKB-fält: `../organisationsnummer` (`string`, kardinalitet 0..1)."
 * Meddelandenutval ^comment = "TKB-fält: `Meddelandenutval` (`MeddelandenutvalRequest`, kardinalitet 1..1)."
-* Meddelandenutval.Meddelandetyp ^comment = "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1)."
+* Meddelandenutval.Meddelandetyp ^comment = "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** Meddelandetyp Tillåtna värden: OB, PB, FR, MB, VG."
 * Meddelandenutval.Patientinformation ^comment = "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 0..1)."
 * Meddelandenutval.Patientinformation.fornamn ^definition = "Anvandarens fornamn."
 * Meddelandenutval.Patientinformation.fornamn ^comment = "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1)."
@@ -21,7 +25,9 @@ RuleSet: HamtaMeddelandenRequestFieldDescriptions
 * Meddelandenutval.Patientinformation.mellannamn ^comment = "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1)."
 * Meddelandenutval.Patientinformation.efternamn ^definition = "Anvandarens efternamn."
 * Meddelandenutval.Patientinformation.efternamn ^comment = "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1)."
-* Meddelandenutval.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1)."
+* Meddelandenutval.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S."
 * Meddelandenutval.Patientinformation.personid ^definition = "Anvandarens personid"
 * Meddelandenutval.Patientinformation.personid ^comment = "TKB-fält: `../../personid` (`string`, kardinalitet 1..1)."
 * Meddelandenutval.Patientinformation.lanskod ^definition = "Anvandarens folkbokforda lanskod"
@@ -29,7 +35,9 @@ RuleSet: HamtaMeddelandenRequestFieldDescriptions
 * Meddelandenutval.Patientinformation.kommunkod ^definition = "Anvandarens folkbokforda kommunkod"
 * Meddelandenutval.Patientinformation.kommunkod ^comment = "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1)."
 * Meddelandenutval.meddelandeid ^comment = "TKB-fält: `../meddelandeid` (`string`, kardinalitet 0..1)."
-* Meddelandenutval.meddelandestatus ^comment = "TKB-fält: `../meddelandestatus` (`MeddelandeStatusEnum`, kardinalitet 0..1)."
+* Meddelandenutval.meddelandestatus ^comment = "TKB-fält: `../meddelandestatus` (`MeddelandeStatusEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** meddelandestatus Tillåtna värden: L, O, B, BLO, LO, BL."
 * Meddelandenutval.ordinationsid ^comment = "TKB-fält: `../ordinationsid` (`string`, kardinalitet 0..1)."
 * Meddelandenutval.vardgivarespersonid ^comment = "TKB-fält: `../vardgivarespersonid` (`string`, kardinalitet 0..1)."
 * Meddelandenutval.forskrivarkod ^comment = "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1)."

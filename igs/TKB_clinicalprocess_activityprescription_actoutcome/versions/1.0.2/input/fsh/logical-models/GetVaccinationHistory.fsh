@@ -1,18 +1,11 @@
+// Elementen genereras ur GetVaccinationHistoryResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activityprescription:actoutcome 1.0 (Bitbucket-tagg 1.0.2)
 // Kontrakt: GetVaccinationHistory v1.0
 // Källa: GetVaccinationHistoryResponder_1.0.xsd och clinicalprocess_activityprescription_actoutcome_1.0.xsd
 // Genererad: 2026-10-08
 // Elementnamn, ordning och kardinalitet följer XML-schemat; beskrivningar kommer från TKB:ns fältregler (avsnitt 7.6).
-
-Invariant: getvaccinationhistory-nullifiedreason
-Description: "nullifiedReason får endast anges i kombination med att nullified = true"
-Expression: "nullifiedReason.exists() implies nullified = true"
-Severity: #error
-
-Invariant: getvaccinationhistory-actor-hsaid-or-name
-Description: "ActorType: minst ett av hsaid och personName ska anges"
-Expression: "hsaid.exists() or personName.exists()"
-Severity: #error
 
 Logical: GetVaccinationHistory
 Id: getvaccinationhistory
@@ -25,152 +18,134 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* vaccinationMedicalRecord 0..* BackboneElement "En strukturerad vaccinationsjournal (VaccinationMedicalRecordType)"
-  * vaccinationMedicalRecordHeader 1..1 BackboneElement "Basinformation om dokumentet (PatientSummaryHeaderType)"
-    * documentId 1..1 string "Dokumentets identitet som är unik inom källsystemet"
-    * sourceSystemHSAId 1..1 Identifier "HSA-id för det system som dokumentet är skapat i"
-    * documentTitle 0..1 string "Titel som beskriver den information som sänds i dokumentet"
-    * documentTime 0..1 instant "Händelsetidpunkt (vaccinationstidpunkt dokumentet gäller)"
-      """
-      TimeStampType, formatet ÅÅÅÅMMDDttmmss utan tidszon (svensk tid, CET/CEST).
-      """
-    * patientId 1..1 Identifier "Identifierare för patient (PersonIdType)"
-      """
-      value (id) sätts till patientens identifierare, 12 tecken utan avskiljare.
-      system (type) sätts till OID för typ av identifierare: personnummer 1.2.752.129.2.1.3.1,
-      samordningsnummer 1.2.752.129.2.1.3.3, reservnummer lokalt definierat (t.ex. SLL 1.2.752.97.3.1.3).
-      """
-    * accountableHealthcareProfessional 1..1 BackboneElement "Ansvarig hälso- och sjukvårdsperson (HealthcareProfessionalType)"
-      * authorTime 1..1 instant "Tidpunkt då dokumentet skapades (senast uppdaterat)"
-      * healthcareProfessionalHSAId 0..1 Identifier "Hälso- och sjukvårdspersonens HSA-id"
-        """
-        Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39: om HSA-id inte finns tillgängligt kan Orgnr + lokalt id anges.
-        """
-      * healthcareProfessionalName 0..1 string "Namn på hälso- och sjukvårdspersonen"
-      * healthcareProfessionalRoleCode 0..1 CodeableConcept "Befattning (CVType)"
-        """
-        Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas.
-        CVType: code, codeSystem, codeSystemName, codeSystemVersion, displayName, originalText.
-        Om originalText anges ska inget annat värde anges.
-        """
-      * healthcareProfessionalOrgUnit 0..1 BackboneElement "Organisation som personen är uppdragstagare på (OrgUnitType)"
-        * orgUnitHSAid 0..1 Identifier "HSA-id för organisationsenhet"
-        * orgUnitName 0..1 string "Namn på organisationsenhet"
-        * orgUnitTelecom 0..1 string "Telefon till organisationsenhet"
-        * orgUnitEmail 0..1 string "Epost till enhet"
-        * orgUnitAddress 0..1 string "Postadress till organisationsenhet"
-        * orgUnitLocation 0..1 string "Plats eller ort för organisationens fysiska placering"
-      * healthcareProfessionalCareUnitHSAId 0..1 Identifier "HSA-id för vårdenhet"
-      * healthcareProfessionalCareGiverHSAId 0..1 Identifier "HSA-id för vårdgivaren"
-    * legalAuthenticator 0..1 BackboneElement "Information om vem som signerat dokumentet (LegalAuthenticatorType)"
-      * signatureTime 1..1 instant "Tidpunkt för signering"
-      * legalAuthenticatorHSAid 0..1 Identifier "HSA-id för person som signerat dokumentet"
-      * legalAuthenticatorName 0..1 string "Namnet i klartext för signerande person"
-    * approvedForPatient 1..1 boolean "Anger om information får delas till patient"
-    * careContactId 0..1 string "Identitet för den vård- och omsorgskontakt som föranlett dokumentet"
-    * nullified 0..1 boolean "Anger om dokumentet makulerats i källsystemet"
-      """
-      TKB:ns fältregler anger 1..1, XML-schemat 0..1. Modellen följer schemat (se QUESTIONS).
-      """
-    * nullifiedReason 0..1 boolean "Anger orsak till makulering"
-      """
-      TKB:ns fältregler anger typen string, XML-schemat xs:boolean. Modellen följer schemat (se QUESTIONS).
-      Får endast anges i kombination med att nullified = true.
-      """
-    * obeys getvaccinationhistory-nullifiedreason
-  * vaccinationMedicalRecordBody 1..1 BackboneElement "Vaccinationsjournalens innehåll (VaccinationMedicalRecordBodyType)"
-    * registrationRecord 1..1 BackboneElement "Information som registreras vid eller relaterat till vaccinationstillfället"
-      * careGiverOrg 1..1 BackboneElement "Information om juridisk vårdgivare (OrgUnitType)"
-        * orgUnitHSAid 0..1 Identifier "HSA-id för organisationsenhet"
-        * orgUnitName 0..1 string "Namn på organisationsenhet"
-        * orgUnitTelecom 0..1 string "Telefon till organisationsenhet"
-        * orgUnitEmail 0..1 string "Epost till organisationsenhet"
-        * orgUnitAddress 0..1 string "Postadress till organisationsenhet"
-        * orgUnitLocation 0..1 string "Plats eller ort för fysisk placering"
-      * careGiverContact 0..1 BackboneElement "Kontaktperson hos juridiskt ansvarig vårdgivare (ActorType)"
-        * hsaid 0..1 Identifier "HSA-id för personen"
-        * personName 0..1 string "Namn på personen"
-        * personEmail 0..1 string "Epostadress till personen"
-        * personTelecom 0..1 string "Telefon till personen"
-        * personAddress 0..1 string "Adress till personen"
-        * obeys getvaccinationhistory-actor-hsaid-or-name
-      * sourceSystemName 1..1 string "Klartextnamn på källsystemet"
-      * sourceSystemProductName 0..1 string "Klartextnamn på källsystemets produktnamn"
-      * sourceSystemProductVersion 0..1 string "Klartextnamn på källsystemets produktversion"
-      * sourceSystemContact 1..1 BackboneElement "Kontaktuppgifter till källsystemsansvarig (ActorType)"
-        * hsaid 0..1 Identifier "HSA-id för personen"
-        * personName 0..1 string "Namn på personen"
-        * personEmail 0..1 string "Epostadress till personen"
-        * personTelecom 0..1 string "Telefon till personen"
-        * personAddress 0..1 string "Adress till personen"
-        * obeys getvaccinationhistory-actor-hsaid-or-name
-      * careUnitSmiId 0..1 string "Utförande vårdenhetens registreringsId hos SMI"
-      * date 1..1 date "Datum då vaccination(er) gavs (DateType, ÅÅÅÅMMDD)"
-      * patientPostalCode 0..1 string "Postnummer för patientens senast kända bostadsadress"
-      * vaccinationUnstructuredNote 0..1 string "Läsbar fritextsammanfattning"
-        """
-        Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade informationen.
-        Kan formateras enligt HL7NarrativeBlock. Om endast ostrukturerad vaccinationsinformation finns kan kontraktet
-        produceras utan administrationRecord.
-        """
-      * riskCategory 0..* CodeableConcept "Patientens riskgruppstillhörighet vid vaccinationstillfället (CVType)"
-      * patientAdverseEffect 0..* CodeableConcept "Reaktioner vid vaccinationstillfället, ej specifik vaccination (CVType)"
-    * administrationRecord 0..* BackboneElement "Utförd(a) vaccination(er) vid tillfället (AdministrationRecordType)"
-      """
-      Ordinerad men av någon anledning ej given vaccination kan inkluderas.
-      """
-      * vaccinationProgramName 0..1 CodeableConcept "Vaccinationsprogram (CVType)"
-      * prescriberOrg 0..1 BackboneElement "Var vaccinationen ordinerats/förskrivits (OrgUnitType)"
-        * orgUnitHSAid 0..1 Identifier "HSA-id för organisationsenhet"
-        * orgUnitName 0..1 string "Namn på organisationsenhet"
-        * orgUnitTelecom 0..1 string "Telefon till organisationsenhet"
-        * orgUnitEmail 0..1 string "Epost till organisationsenhet"
-        * orgUnitAddress 0..1 string "Postadress till organisationsenhet"
-        * orgUnitLocation 0..1 string "Plats eller ort för fysisk placering"
-      * prescriberPerson 0..1 BackboneElement "Vem som ordinerat/förskrivit vaccinationen (ActorType)"
-        * hsaid 0..1 Identifier "HSA-id för personen"
-        * personName 0..1 string "Namn på personen"
-        * personEmail 0..1 string "Epostadress till personen"
-        * personTelecom 0..1 string "Telefon till personen"
-        * personAddress 0..1 string "Adress till personen"
-        * obeys getvaccinationhistory-actor-hsaid-or-name
-      * performerOrg 0..1 BackboneElement "Vårdenhet som utfört vaccinationen (OrgUnitType)"
-        * orgUnitHSAid 0..1 Identifier "HSA-id för organisationsenhet"
-        * orgUnitName 0..1 string "Namn på organisationsenhet"
-        * orgUnitTelecom 0..1 string "Telefon till organisationsenhet"
-        * orgUnitEmail 0..1 string "Epost till organisationsenhet"
-        * orgUnitAddress 0..1 string "Postadress till organisationsenhet"
-        * orgUnitLocation 0..1 string "Plats eller ort för fysisk placering"
-      * performer 0..1 BackboneElement "Vem som utfört (administrerat) vaccineringen (ActorType)"
-        * hsaid 0..1 Identifier "HSA-id för personen"
-        * personName 0..1 string "Namn på personen"
-        * personEmail 0..1 string "Epostadress till personen"
-        * personTelecom 0..1 string "Telefon till personen"
-        * personAddress 0..1 string "Adress till personen"
-        * obeys getvaccinationhistory-actor-hsaid-or-name
-      * anatomicalSite 0..1 CodeableConcept "Var på kroppen vaccinet givits (CVType)"
-      * route 0..1 CodeableConcept "Hur vaccinet givits, administrationsväg (CVType)"
-      * dosage 0..1 BackboneElement "Mängd vaccin som givits (DosageType)"
-        * quantity 0..1 Quantity "Mängd preparat som givits (PQType: value + unit enligt UCUM)"
-        * displayName 1..1 string "Fritextbeskrivning av preparat och mängd, t.ex. ”Twinrix 1 ml, 1 av 3”"
-      * isDoseComplete 0..1 boolean "True om vaccineringen räknas som hel dos"
-      * doseOrdinalNumber 0..1 integer "Ordningsnummer för delvaccinationen (1, 2, 3 …)"
-      * numberOfPrescribedDoses 0..1 integer "Antal delvaccinationer för full dos"
-      * sourceDescription 0..1 string "Källa för efterregistrerad vaccinering"
-      * commentPrescription 0..1 string "Fritext, t.ex. instruktioner i ordinationen"
-      * commentAdministration 0..1 string "Fritext, kommentarer vid vaccineringen"
-      * patientAdverseEffect 0..* CodeableConcept "Reaktioner hänförbara till den specifika administreringen (CVType)"
-      * vaccineType 0..1 CodeableConcept "Givet vaccin (CVType)"
-      * vaccineName 0..1 CodeableConcept "Givet vaccins produktnamn, t.ex. NPL-id (CVType)"
-      * vaccineBatchId 0..1 string "Batchnummer för vaccinets tillverkning"
-      * vaccineManufacturer 0..1 string "Namn på tillverkaren av vaccinet"
-      * vaccineTargetDisease 0..* CodeableConcept "Sjukdom(ar) vaccinet skyddar emot (CVType)"
-      * vaccinationUniqueReference 0..1 Identifier "Unik referens till källsystemets vaccinationsinformation (IIType)"
-        """
-        IIType: root (1..1) mappas till system, extension (0..1) till value. Om identiteten i källsystemet är globalt
-        unik (t.ex. UUID) kan den anges i root; annars anges källsystemets HSA-id i root och källsystemets lokala id
-        för vaccinationen i extension.
-        """
+* vaccinationMedicalRecord 0..* Base "VaccinationMedicalRecordType" "vaccinationMedicalRecord"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader 1..1 Base "PatientSummaryHeaderType" "vaccinationMedicalRecordHeader"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentId 1..1 string "documentId" "documentId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.sourceSystemHSAId 1..1 string "sourceSystemHSAId" "sourceSystemHSAId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTitle 0..1 string "documentTitle" "documentTitle"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime 0..1 string "documentTime" "documentTime"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime only TimeStampType
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId 1..1 PersonIdType "patientId" "patientId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional 1..1 Base "HealthcareProfessionalType" "accountableHealthcareProfessional"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.authorTime 1..1 string "authorTime" "authorTime"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.authorTime only TimeStampType
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId 0..1 string "healthcareProfessionalHSAId" "healthcareProfessionalHSAId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName 0..1 string "healthcareProfessionalName" "healthcareProfessionalName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode 0..1 CVType "healthcareProfessionalRoleCode" "healthcareProfessionalRoleCode"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit 0..1 Base "OrgUnitType" "healthcareProfessionalOrgUnit"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAid 0..1 string "orgUnitHSAid" "orgUnitHSAid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName 0..1 string "orgUnitName" "orgUnitName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom 0..1 string "orgUnitTelecom" "orgUnitTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail 0..1 string "orgUnitEmail" "orgUnitEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress 0..1 string "orgUnitAddress" "orgUnitAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation 0..1 string "orgUnitLocation" "orgUnitLocation"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId 0..1 string "healthcareProfessionalCareUnitHSAId" "healthcareProfessionalCareUnitHSAId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId 0..1 string "healthcareProfessionalCareGiverHSAId" "healthcareProfessionalCareGiverHSAId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator 0..1 Base "LegalAuthenticatorType" "legalAuthenticator"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime 1..1 string "signatureTime" "signatureTime"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime only TimeStampType
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAid 0..1 string "legalAuthenticatorHSAid" "legalAuthenticatorHSAid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName 0..1 string "legalAuthenticatorName" "legalAuthenticatorName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.approvedForPatient 1..1 boolean "approvedForPatient" "approvedForPatient"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId 0..1 string "careContactId" "careContactId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified 0..1 boolean "nullified" "nullified"
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason 0..1 boolean "nullifiedReason" "nullifiedReason"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody 1..1 Base "VaccinationMedicalRecordBodyType" "vaccinationMedicalRecordBody"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord 1..1 Base "RegistrationRecordType" "registrationRecord"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg 1..1 Base "OrgUnitType" "careGiverOrg"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitHSAid 0..1 string "orgUnitHSAid" "orgUnitHSAid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitName 0..1 string "orgUnitName" "orgUnitName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitTelecom 0..1 string "orgUnitTelecom" "orgUnitTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitEmail 0..1 string "orgUnitEmail" "orgUnitEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitAddress 0..1 string "orgUnitAddress" "orgUnitAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitLocation 0..1 string "orgUnitLocation" "orgUnitLocation"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact 0..1 Base "ActorType" "careGiverContact"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.hsaid 0..1 string "hsaid" "hsaid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personName 0..1 string "personName" "personName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personEmail 0..1 string "personEmail" "personEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personTelecom 0..1 string "personTelecom" "personTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personAddress 0..1 string "personAddress" "personAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemName 1..1 string "sourceSystemName" "sourceSystemName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductName 0..1 string "sourceSystemProductName" "sourceSystemProductName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductVersion 0..1 string "sourceSystemProductVersion" "sourceSystemProductVersion"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact 1..1 Base "ActorType" "sourceSystemContact"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.hsaid 0..1 string "hsaid" "hsaid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personName 0..1 string "personName" "personName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personEmail 0..1 string "personEmail" "personEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personTelecom 0..1 string "personTelecom" "personTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personAddress 0..1 string "personAddress" "personAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId 0..1 string "careUnitSmiId" "careUnitSmiId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date 1..1 string "date" "date"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date only DateType
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode 0..1 string "patientPostalCode" "patientPostalCode"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote 0..1 string "vaccinationUnstructuredNote" "vaccinationUnstructuredNote"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory 0..* CVType "riskCategory" "riskCategory"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect 0..* CVType "patientAdverseEffect" "patientAdverseEffect"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord 0..* Base "AdministrationRecordType" "administrationRecord"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationProgramName 0..1 CVType "vaccinationProgramName" "vaccinationProgramName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg 0..1 Base "OrgUnitType" "prescriberOrg"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitHSAid 0..1 string "orgUnitHSAid" "orgUnitHSAid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitName 0..1 string "orgUnitName" "orgUnitName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitTelecom 0..1 string "orgUnitTelecom" "orgUnitTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitEmail 0..1 string "orgUnitEmail" "orgUnitEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitAddress 0..1 string "orgUnitAddress" "orgUnitAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitLocation 0..1 string "orgUnitLocation" "orgUnitLocation"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson 0..1 Base "ActorType" "prescriberPerson"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.hsaid 0..1 string "hsaid" "hsaid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personName 0..1 string "personName" "personName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personEmail 0..1 string "personEmail" "personEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personTelecom 0..1 string "personTelecom" "personTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personAddress 0..1 string "personAddress" "personAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg 0..1 Base "OrgUnitType" "performerOrg"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitHSAid 0..1 string "orgUnitHSAid" "orgUnitHSAid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitName 0..1 string "orgUnitName" "orgUnitName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitTelecom 0..1 string "orgUnitTelecom" "orgUnitTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitEmail 0..1 string "orgUnitEmail" "orgUnitEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitAddress 0..1 string "orgUnitAddress" "orgUnitAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitLocation 0..1 string "orgUnitLocation" "orgUnitLocation"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer 0..1 Base "ActorType" "performer"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.hsaid 0..1 string "hsaid" "hsaid"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personName 0..1 string "personName" "personName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personEmail 0..1 string "personEmail" "personEmail"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personTelecom 0..1 string "personTelecom" "personTelecom"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personAddress 0..1 string "personAddress" "personAddress"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.anatomicalSite 0..1 CVType "anatomicalSite" "anatomicalSite"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.route 0..1 CVType "route" "route"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage 0..1 Base "DosageType" "dosage"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.quantity 0..1 Base "PQType" "quantity"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.quantity.value 1..1 decimal "value" "value"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.quantity.unit 1..1 string "unit" "unit"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.displayName 1..1 string "displayName" "displayName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.isDoseComplete 0..1 boolean "isDoseComplete" "isDoseComplete"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.doseOrdinalNumber 0..1 integer "doseOrdinalNumber" "doseOrdinalNumber"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.numberOfPrescribedDoses 0..1 integer "numberOfPrescribedDoses" "numberOfPrescribedDoses"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.sourceDescription 0..1 string "sourceDescription" "sourceDescription"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentPrescription 0..1 string "commentPrescription" "commentPrescription"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentAdministration 0..1 string "commentAdministration" "commentAdministration"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.patientAdverseEffect 0..* CVType "patientAdverseEffect" "patientAdverseEffect"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineType 0..1 CVType "vaccineType" "vaccineType"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineName 0..1 CVType "vaccineName" "vaccineName"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineBatchId 0..1 string "vaccineBatchId" "vaccineBatchId"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineManufacturer 0..1 string "vaccineManufacturer" "vaccineManufacturer"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineTargetDisease 0..* CVType "vaccineTargetDisease" "vaccineTargetDisease"
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationUniqueReference 0..1 IIType "vaccinationUniqueReference" "vaccinationUniqueReference"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetVaccinationHistoryFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* vaccinationMedicalRecord.vaccinationMedicalRecordHeader obeys getvaccinationhistory-nullifiedreason
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact obeys getvaccinationhistory-actor-hsaid-or-name
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact obeys getvaccinationhistory-actor-hsaid-or-name
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson obeys getvaccinationhistory-actor-hsaid-or-name
+* vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer obeys getvaccinationhistory-actor-hsaid-or-name
+
+Invariant: getvaccinationhistory-nullifiedreason
+Description: "nullifiedReason får endast anges i kombination med att nullified = true"
+Expression: "nullifiedReason.exists() implies nullified = true"
+Severity: #error
+
+Invariant: getvaccinationhistory-actor-hsaid-or-name
+Description: "ActorType: minst ett av hsaid och personName ska anges"
+Expression: "hsaid.exists() or personName.exists()"
+Severity: #error

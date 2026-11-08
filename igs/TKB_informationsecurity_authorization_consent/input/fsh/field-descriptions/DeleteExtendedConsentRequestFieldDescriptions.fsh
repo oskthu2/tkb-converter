@@ -5,9 +5,7 @@ RuleSet: DeleteExtendedConsentRequestFieldDescriptions
 * assertionId ^definition = "Identifierar det intyg som skall makuleras."
 * assertionId ^comment = "TKB-fält: `assertionId` (`urn:riv:informationsecurity:authorization:consent:2:Id`, kardinalitet 1..1)."
 * deletionAction ^definition = "Identifierar de personer som begärt och utfört makulering samt tidpunkter för dessa. En anledning till makuleringen i fritext kan även ges."
-* deletionAction ^comment = "TKB-fält: `deletionAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* deletionAction ^comment = "TKB-fält: `deletionAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1)."
 * deletionAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * deletionAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * deletionAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

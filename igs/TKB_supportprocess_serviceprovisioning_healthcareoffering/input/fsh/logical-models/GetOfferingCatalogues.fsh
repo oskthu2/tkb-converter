@@ -1,3 +1,6 @@
+// Elementen genereras ur GetOfferingCataloguesResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för supportprocess.serviceprovisioning.healthcareoffering v3.0.0 (Genererad ur scheman i riv.supportprocess.serviceprovisioning.healthcareoffering, tagg 3.0 (commit 0e5b32c68d33); scripts/xsd_to_ig.py)
 // Kontrakt: GetOfferingCatalogues v2.0
 // Genererad: 2026-09-26
@@ -10,44 +13,25 @@ Description: """
   (urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2, GetOfferingCataloguesResponseType).
 """
 Characteristics: #can-be-target
+
 * ^version = "2.0"
-* offeringCatalogue 0..* BackboneElement "offeringCatalogue" "offeringCatalogue"
-  * providingOrganization 1..* BackboneElement "providingOrganization" "providingOrganization"
-    * providingOrganizationId 1..1 BackboneElement "providingOrganizationId" "providingOrganizationId Heter id i schemat."
-      * root 1..1 string "root" "root"
-      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-    * providingOrganizationName 1..1 string "providingOrganizationName" "providingOrganizationName Heter name i schemat."
-    * management 1..1 BackboneElement "management" "management"
-      * cvCode 1..1 string "cvCode" "cvCode Heter code i schemat."
-      * codeSystem 1..1 string "codeSystem" "codeSystem"
-      * codeSystemName 0..1 string "codeSystemName" "codeSystemName"
-      * codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
-      * displayName 0..1 string "displayName" "displayName"
-      * originalText 0..1 string "originalText" "originalText"
-    * publicProvider 1..1 boolean "publicProvider" "publicProvider"
-    * description 0..* BackboneElement "description" "description"
-      * descriptionText 1..1 string "descriptionText" "descriptionText Heter text i schemat."
-      * descriptionLanguage 0..1 BackboneElement "descriptionLanguage" "descriptionLanguage Heter language i schemat."
-        * cvCode 1..1 string "cvCode" "cvCode Heter code i schemat."
-        * codeSystem 1..1 string "codeSystem" "codeSystem"
-        * codeSystemName 0..1 string "codeSystemName" "codeSystemName"
-        * codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
-        * displayName 0..1 string "displayName" "displayName"
-        * originalText 0..1 string "originalText" "originalText"
-      * role 0..* BackboneElement "role" "role"
-        * cvCode 1..1 string "cvCode" "cvCode Heter code i schemat."
-        * codeSystem 1..1 string "codeSystem" "codeSystem"
-        * codeSystemName 0..1 string "codeSystemName" "codeSystemName"
-        * codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
-        * displayName 0..1 string "displayName" "displayName"
-        * originalText 0..1 string "originalText" "originalText"
-  * interaction 1..1 BackboneElement "interaction" "interaction"
-    * logicalAddress 1..1 string "logicalAddress" "logicalAddress"
-    * interactionName 1..1 uri "interactionName" "interactionName Heter name i schemat."
-    * majorVersion 1..1 integer "majorVersion" "majorVersion"
-    * minorVersion 0..1 integer "minorVersion" "minorVersion"
-    * rivtaVersion 1..1 code "rivtaVersion" "rivtaVersion"
-    * rivtaVersion from RIVTAVersionVS (required)
+* offeringCatalogue 0..* Base "OfferingCatalogueType" "offeringCatalogue"
+* offeringCatalogue.providingOrganization 1..* Base "ProvidingOrganizationType" "providingOrganization"
+* offeringCatalogue.providingOrganization.id 1..1 IIType "id" "id"
+* offeringCatalogue.providingOrganization.name 1..1 string "name" "name"
+* offeringCatalogue.providingOrganization.management 1..1 CVType "management" "management"
+* offeringCatalogue.providingOrganization.publicProvider 1..1 boolean "publicProvider" "publicProvider"
+* offeringCatalogue.providingOrganization.description 0..* Base "DescriptionType" "description"
+* offeringCatalogue.providingOrganization.description.text 1..1 string "text" "text"
+* offeringCatalogue.providingOrganization.description.language 0..1 CVType "language" "language"
+* offeringCatalogue.providingOrganization.description.role 0..* CVType "role" "role"
+* offeringCatalogue.interaction 1..1 Base "InteractionType" "interaction"
+* offeringCatalogue.interaction.logicalAddress 1..1 string "logicalAddress" "logicalAddress"
+* offeringCatalogue.interaction.name 1..1 uri "name" "name"
+* offeringCatalogue.interaction.majorVersion 1..1 integer "majorVersion" "majorVersion"
+* offeringCatalogue.interaction.minorVersion 0..1 integer "minorVersion" "minorVersion"
+* offeringCatalogue.interaction.rivtaVersion 1..1 code "rivtaVersion" "rivtaVersion Tillåtna värden: 2.1."
+* offeringCatalogue.interaction.rivtaVersion from RIVTAVersionVS (required)
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetOfferingCataloguesFieldDescriptions

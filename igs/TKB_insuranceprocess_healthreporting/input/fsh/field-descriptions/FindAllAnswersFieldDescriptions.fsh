@@ -2,7 +2,9 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: FindAllAnswersFieldDescriptions
-* result ^comment = "TKB-fält: `result` (kardinalitet 1..1)."
+* result ^comment = "TKB-fält: `result` (kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * result.resultCode ^definition = "Information om anropet gick bra(OK, ERROR, INFO)"
 * result.resultCode ^comment = "TKB-fält: `result.resultCode` (`string`, kardinalitet 1..1)."
 * result.infoText ^definition = "Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text."

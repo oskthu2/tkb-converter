@@ -31,17 +31,44 @@
             "key": "processrequestconfirmation-forwarding-vid",
             "severity": "error",
             "human": "forwardingRecipient ska anges om och endast om typeOfRequestConfirmation = VID",
-            "expression": "forwardingRecipient.exists() = (typeOfRequestConfirmation = 'VID')",
+            "expression": "requestConfirmation.forwardingRecipient.exists() = (requestConfirmation.typeOfRequestConfirmation.code = 'VID')",
             "source": "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestconfirmation"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.requestId",
-        "path": "processrequestconfirmation.requestId",
-        "short": "Remiss id",
+        "id": "processrequestconfirmation.requestConfirmation",
+        "path": "processrequestconfirmation.requestConfirmation",
+        "short": "RequestConfirmationType",
+        "definition": "Remissbekräftelse",
+        "comment": "TKB-fält: `requestConfirmation` (`RequestConfirmationType`, kardinalitet 1..1).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.requestId",
+        "path": "processrequestconfirmation.requestConfirmation.requestId",
+        "short": "RequestIdType",
         "definition": "Remiss id\n\nDen ursprungliga remissens remiss-id",
-        "comment": "TKB-fält: `requestConfirmation.requestId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken\n\n**Modellanteckning:** Den ursprungliga remissens remiss-id. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.requestId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.requestId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.requestId.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
         "min": 1,
         "max": "1",
         "type": [
@@ -51,11 +78,24 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.requestConfirmationId",
-        "path": "processrequestconfirmation.requestConfirmationId",
-        "short": "Remissbekräftelse id",
+        "id": "processrequestconfirmation.requestConfirmation.requestConfirmationId",
+        "path": "processrequestconfirmation.requestConfirmation.requestConfirmationId",
+        "short": "RequestIdType",
         "definition": "Remissbekräftelse id\n\nUnik identifierare för remissbekräftelsen.\n\nKällsystem-Id(HSA-ID)#lokalt-id\n\nExempel: SE2321000012-0001#456",
-        "comment": "TKB-fält: `requestConfirmation.requestConfirmationId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken\n\n**Modellanteckning:** Unik identifierare för remissbekräftelsen. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.requestConfirmationId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.requestConfirmationId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.requestConfirmationId.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
         "min": 1,
         "max": "1",
         "type": [
@@ -65,11 +105,24 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.typeOfRequestConfirmation",
-        "path": "processrequestconfirmation.typeOfRequestConfirmation",
-        "short": "Typ av remissbekräftelse",
+        "id": "processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation",
+        "path": "processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation",
+        "short": "codeRequestConfirmationType",
         "definition": "Typ av remissbekräftelse\n\nAnger typ av svar.\n\nGiltiga värden är:\n\nBEK = Bekräftelse\n\nVID = Besked om vidareskickning\n\nKOM = Kompletterings-begäran\n\nAVB = Avbruten remiss\n\nAVV = Avvisad remiss",
         "comment": "TKB-fält: `requestConfirmation.typeOfRequestConfirmation` (`CodeRequestConfirmationType`, kardinalitet 1..1).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation.code",
+        "path": "processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation.code",
+        "short": "code",
+        "definition": "code (XML-attribut) Tillåtna värden: KOM, BEK, VID, AVB, AVV.",
         "min": 1,
         "max": "1",
         "type": [
@@ -83,65 +136,109 @@
         }
       },
       {
-        "id": "processrequestconfirmation.requestVersionNumber",
-        "path": "processrequestconfirmation.requestVersionNumber",
-        "short": "Remissversionsnummer",
+        "id": "processrequestconfirmation.requestConfirmation.requestVersionNumber",
+        "path": "processrequestconfirmation.requestConfirmation.requestVersionNumber",
+        "short": "requestVersionNumber",
         "definition": "Remissversionsnummer\n\nRemissens versionsnummer.\n\nVersion startar alltid på 1 och räknas sekventiellt upp för varje ny version.\n\nDenna räknas upp vid:\n\n- Ändrad remiss\n\n- Vidareskickad remiss\n\n- Ändrat betalningsansvar",
         "comment": "TKB-fält: `requestConfirmation.requestVersionNumber` (`VersionNumberType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (0*[1-9]+|[1-9])\\d*",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "positiveInt"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType"
+            ]
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.requestConfirmationTime",
-        "path": "processrequestconfirmation.requestConfirmationTime",
-        "short": "Remissbekräftelse-tidpunkt",
+        "id": "processrequestconfirmation.requestConfirmation.requestConfirmationTime",
+        "path": "processrequestconfirmation.requestConfirmation.requestConfirmationTime",
+        "short": "TimeStampType",
         "definition": "Remissbekräftelse-tidpunkt\n\nTidpunkt då remissbekräftelsen skapades.",
         "comment": "TKB-fält: `requestConfirmation.requestConfirmationTime` (`TimeStampType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.patient",
-        "path": "processrequestconfirmation.patient",
-        "short": "Patient",
+        "id": "processrequestconfirmation.requestConfirmation.requestConfirmationTime.value",
+        "path": "processrequestconfirmation.requestConfirmation.requestConfirmationTime.value",
+        "short": "value",
+        "definition": "value (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.patient",
+        "path": "processrequestconfirmation.requestConfirmation.patient",
+        "short": "SimplePatientType",
         "definition": "Patient",
-        "comment": "TKB-fält: `requestConfirmation.patient` (`SimplePatientType`, kardinalitet 1..1).\n\n**Modellanteckning:** Patient (SimplePatientType).",
+        "comment": "TKB-fält: `requestConfirmation.patient` (`SimplePatientType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.patient.personId",
-        "path": "processrequestconfirmation.patient.personId",
-        "short": "Person id",
+        "id": "processrequestconfirmation.requestConfirmation.patient.personId",
+        "path": "processrequestconfirmation.requestConfirmation.patient.personId",
+        "short": "PersonIdType",
         "definition": "Person id\n\nPatientens identitet",
-        "comment": "TKB-fält: `requestConfirmation.patient.personId` (`PersonIdType`, kardinalitet 1..1).\n\n**Modellanteckning:** Patientens identitet. value = personidentifierare (12 tecken utan skiljetecken för personnummer, samordningsnummer och nationellt reservId); system = OID för typ av personidentifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer), 1.2.752.74.9.1 (nationellt reservId). RIV-TA: personId.extension/root.",
+        "comment": "TKB-fält: `requestConfirmation.patient.personId` (`PersonIdType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.patient.patientName",
-        "path": "processrequestconfirmation.patient.patientName",
-        "short": "Namn",
+        "id": "processrequestconfirmation.requestConfirmation.patient.personId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.patient.personId.extension",
+        "short": "extension",
+        "definition": "Personidentifierare för patienten.\n\nOm identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken.",
+        "comment": "TKB-fält: `requestConfirmation.patient.personId.extension` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** extension (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.patient.personId.root",
+        "path": "processrequestconfirmation.requestConfirmation.patient.personId.root",
+        "short": "root",
+        "definition": "OID för typ av personidentifierare.\n\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.\n\nFör andra typer av personidentifierare sätts root till aktuell OID.",
+        "comment": "TKB-fält: `requestConfirmation.patient.personId.root` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** root (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.patient.name",
+        "path": "processrequestconfirmation.requestConfirmation.patient.name",
+        "short": "name",
         "definition": "Namn\n\nAlla personnamn skrivs sammanslaget enligt formatet \" Mellannamn Efternamn, Förnamn\". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.\n\nImplementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet.",
         "comment": "TKB-fält: `requestConfirmation.patient.name` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 216 tecken",
         "min": 0,
@@ -153,39 +250,52 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation",
-        "path": "processrequestconfirmation.confirmingOrganisation",
-        "short": "Organisatorisk enhet",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation",
+        "short": "FullOrganisationType",
         "definition": "Organisatorisk enhet\n\nDen faktiska enhet som skickar bekräftelsemeddelandet. Detta kan skilja sig från den ansvariga vårdenheten enligt PDL.",
         "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation` (`FullOrganisationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation.careUnitId",
-        "path": "processrequestconfirmation.confirmingOrganisation.careUnitId",
-        "short": "Enhet id",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId",
+        "short": "HsaIdType",
         "definition": "Enhet id\n\nHSA-id för enhet.",
-        "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation.careUnitName",
-        "path": "processrequestconfirmation.confirmingOrganisation.careUnitName",
-        "short": "Enhet namn",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitName",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitName",
+        "short": "careUnitName",
         "definition": "Enhet namn\n\nNamn på enhet.",
-        "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitName` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Namn på enhet. Maxlängd 64 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitName` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
         "min": 0,
         "max": "1",
         "type": [
@@ -195,9 +305,9 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation.careUnitTelephone",
-        "path": "processrequestconfirmation.confirmingOrganisation.careUnitTelephone",
-        "short": "Enhet telefon",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitTelephone",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitTelephone",
+        "short": "careUnitTelephone",
         "definition": "Enhet telefon\n\nTelefon till enhet.",
         "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitTelephone` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -209,9 +319,9 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation.careUnitEmail",
-        "path": "processrequestconfirmation.confirmingOrganisation.careUnitEmail",
-        "short": "Enhet epost",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitEmail",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitEmail",
+        "short": "careUnitEmail",
         "definition": "Enhet epost\n\nE-post till enhet.",
         "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitEmail` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -223,9 +333,9 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation.careUnitAddress",
-        "path": "processrequestconfirmation.confirmingOrganisation.careUnitAddress",
-        "short": "Enhet adress",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitAddress",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitAddress",
+        "short": "careUnitAddress",
         "definition": "Enhet adress\n\nAdress till enhet.",
         "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitAddress` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -237,9 +347,9 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.confirmingOrganisation.careUnitLocation",
-        "path": "processrequestconfirmation.confirmingOrganisation.careUnitLocation",
-        "short": "Enhet plats",
+        "id": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitLocation",
+        "path": "processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitLocation",
+        "short": "careUnitLocation",
         "definition": "Enhet plats\n\nText som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.",
         "comment": "TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitLocation` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -251,53 +361,52 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.author",
-        "path": "processrequestconfirmation.author",
-        "short": "Remissbesvarare",
+        "id": "processrequestconfirmation.requestConfirmation.author",
+        "path": "processrequestconfirmation.requestConfirmation.author",
+        "short": "AuthorType",
         "definition": "Remissbesvarare\n\nRemissbekräftande person och organisation",
         "comment": "TKB-fält: `requestConfirmation.author` (`AuthorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.author.healthcareProfessional",
-        "path": "processrequestconfirmation.author.healthcareProfessional",
-        "short": "Hälso- och sjukvårdspersonal",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional",
+        "short": "HealthcareProfessionalType",
         "definition": "Hälso- och sjukvårdspersonal",
         "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalId",
-        "path": "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalId",
-        "short": "Personal id",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id",
+        "short": "HsaIdType",
         "definition": "Personal id\n\nHSA-id för remissbekräftande personal",
-        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för personen. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.id.",
+        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalName",
-        "path": "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalName",
-        "short": "Personal namn",
-        "definition": "Personalnamn",
-        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Namn, valfri formatering. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.name.",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id.extension",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
         "min": 1,
         "max": "1",
         "type": [
@@ -307,151 +416,204 @@
         ]
       },
       {
-        "id": "processrequestconfirmation.author.typeOfHealthcareProfessional",
-        "path": "processrequestconfirmation.author.typeOfHealthcareProfessional",
-        "short": "Typ av hälso- och sjukvårdspersonal",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional.name",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessional.name",
+        "short": "name",
+        "definition": "Personalnamn",
+        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.author.typeOfHealthcareProfessional",
+        "path": "processrequestconfirmation.requestConfirmation.author.typeOfHealthcareProfessional",
+        "short": "typeOfHealthcareProfessional",
         "definition": "Typ av hälso- och sjukvårdspersonal\n\nKod för yrkestitel från Snomed CT enligt urvalen nedan:\n\ncode: se urval_legitimerade_yrken\n\ncodeSystem: OID 1.2.752.129.5.1.70\n\neller\n\ncode: se yrken_i_halso-_och_sjukvarden_ej_legitimerade\n\ncodeSystem: 1.2.752.129.7.1.5\n\nUrvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
         "comment": "TKB-fält: `requestConfirmation.author.typeOfHealthcareProfessional` (`CVType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.author.healthcareProfessionalOrganisation",
-        "path": "processrequestconfirmation.author.healthcareProfessionalOrganisation",
-        "short": "Organisatorisk enhet",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation",
+        "short": "OrganisationType",
         "definition": "Organisatorisk enhet\n\nremissbekräftande",
-        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Enhet (jmf. PDL) som ansvarar för informationen.",
+        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.author.healthcareProfessionalOrganisation.careUnitId",
-        "path": "processrequestconfirmation.author.healthcareProfessionalOrganisation.careUnitId",
-        "short": "Enhet id",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId",
+        "short": "HsaIdType",
         "definition": "Enhet id\n\nHSA-id för verksamhet som ansvarar för remissbekräftelsen.",
-        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.recipient",
-        "path": "processrequestconfirmation.recipient",
-        "short": "Mottagare",
+        "id": "processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.recipient",
+        "path": "processrequestconfirmation.requestConfirmation.recipient",
+        "short": "RecipientType",
         "definition": "Mottagare",
-        "comment": "TKB-fält: `requestConfirmation.recipient` (`RecipientType`, kardinalitet 1..1).\n\n**Modellanteckning:** Remitterande enhet som bekräftelsen adresseras till.",
+        "comment": "TKB-fält: `requestConfirmation.recipient` (`RecipientType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.recipient.organisation",
-        "path": "processrequestconfirmation.recipient.organisation",
-        "short": "Organisatorisk enhet",
+        "id": "processrequestconfirmation.requestConfirmation.recipient.organisation",
+        "path": "processrequestconfirmation.requestConfirmation.recipient.organisation",
+        "short": "OrganisationType",
         "definition": "Organisatorisk enhet\n\nmottagare",
-        "comment": "TKB-fält: `requestConfirmation.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Mottagande enhet; HSA-id används som logisk adress.",
+        "comment": "TKB-fält: `requestConfirmation.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.recipient.organisation.careUnitId",
-        "path": "processrequestconfirmation.recipient.organisation.careUnitId",
-        "short": "Enhet id",
+        "id": "processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId",
+        "path": "processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId",
+        "short": "HsaIdType",
         "definition": "Enhet id\n\nHSA-id för remitterande enhet, till vilken remissbekräftelsen adresseras.",
-        "comment": "TKB-fält: `requestConfirmation.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.forwardingRecipient",
-        "path": "processrequestconfirmation.forwardingRecipient",
-        "short": "Mottagare vidarebefordran",
+        "id": "processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.forwardingRecipient",
+        "path": "processrequestconfirmation.requestConfirmation.forwardingRecipient",
+        "short": "RecipientType",
         "definition": "Mottagare vidarebefordran\n\nObligatorisk att ange när typen på requestConfirmation.typeOfRequestConfirmation är VID (Besked om vidareskickning).\n\nSka inte anges om typen på requestConfirmation.typeOfRequestConfirmation är annan än VID (Besked om vidareskickning).",
         "comment": "TKB-fält: `requestConfirmation.forwardingRecipient` (`RecipientType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.forwardingRecipient.organisation",
-        "path": "processrequestconfirmation.forwardingRecipient.organisation",
-        "short": "Organisatorisk enhet",
+        "id": "processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation",
+        "path": "processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation",
+        "short": "OrganisationType",
         "definition": "Organisatorisk enhet\n\nny mottagare",
-        "comment": "TKB-fält: `requestConfirmation.forwardingRecipient.organisation` (`OrganisationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Mottagande enhet; HSA-id används som logisk adress.",
+        "comment": "TKB-fält: `requestConfirmation.forwardingRecipient.organisation` (`OrganisationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.forwardingRecipient.organisation.careUnitId",
-        "path": "processrequestconfirmation.forwardingRecipient.organisation.careUnitId",
-        "short": "Enhet id",
+        "id": "processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId",
+        "path": "processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId",
+        "short": "HsaIdType",
         "definition": "Enhet id\n\nHSA-id för remissmottagande enhet av den vidareskickade remissen.",
-        "comment": "TKB-fält: `requestConfirmation.forwardingRecipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.forwardingRecipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.outcome",
-        "path": "processrequestconfirmation.outcome",
-        "short": "Bekräftelsemeddelande",
+        "id": "processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId.extension",
+        "path": "processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId.extension",
+        "short": "extension",
+        "definition": "extension (XML-attribut)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processrequestconfirmation.requestConfirmation.outcome",
+        "path": "processrequestconfirmation.requestConfirmation.outcome",
+        "short": "RequestReceivedConfirmationOutcomeType",
         "definition": "Bekräftelsemeddelande",
-        "comment": "TKB-fält: `requestConfirmation.outcome` (`RequestReceivedConfirmationOutcomeType`, kardinalitet 1..1).\n\n**Modellanteckning:** Bekräftelsemeddelande (RequestReceivedConfirmationOutcomeType).",
+        "comment": "TKB-fält: `requestConfirmation.outcome` (`RequestReceivedConfirmationOutcomeType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processrequestconfirmation.outcome.outcomeText",
-        "path": "processrequestconfirmation.outcome.outcomeText",
-        "short": "Svarstext",
+        "id": "processrequestconfirmation.requestConfirmation.outcome.outcomeText",
+        "path": "processrequestconfirmation.requestConfirmation.outcome.outcomeText",
+        "short": "outcomeText",
         "definition": "Svarstext\n\nMeddelande till remissens avsändare.",
-        "comment": "TKB-fält: `requestConfirmation.outcome.outcomeText` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Meddelande till remissens avsändare. Maxlängd 8192 tecken.",
+        "comment": "TKB-fält: `requestConfirmation.outcome.outcomeText` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken",
         "min": 1,
         "max": "1",
         "type": [

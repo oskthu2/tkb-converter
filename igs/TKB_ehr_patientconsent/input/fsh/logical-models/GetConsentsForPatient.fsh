@@ -1,3 +1,6 @@
+// Elementen genereras ur GetConsentsForPatientResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: GetConsentsForPatient v1.0
 // RIV-TA: urn:riv:ehr:patientconsent:querying:GetConsentsForPatientResponder:1
@@ -19,27 +22,21 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Statusinformation för anropet"
-  * resultCode 1..1 CodeableConcept "Svarskod"
-    """
-    Svarskod från samtyckestjänsten. OK innebär att transaktionen utfördes. Alla andra koder innebär att
-    åtgärden inte genomfördes. Kodat enligt ResultCodeCS.
-    """
-  * resultCode from ResultCodeVS (required)
-  * resultText 1..1 string "Fritext beskrivning av resultatet"
-* pdlAssertions 0..* BackboneElement "Lista med giltiga PDL-intyg för patient"
-  * assertionId 1..1 Identifier "Unik identifierare för intyget (UUID-format, max 36 tecken)"
-  * assertionType 1..1 CodeableConcept "Typ av intyg (Consent eller Emergency)"
-  * assertionType from AssertionTypeVS (required)
-  * scope 1..1 CodeableConcept "Omfång/tillämpningsområde för intyget"
-  * scope from ScopeVS (required)
-  * patientId 1..1 Identifier "Patientens personnummer eller samordningsnummer (max 12 tecken)"
-  * careProviderId 1..1 Identifier "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)"
-    """
-    Identifierare för vårdgivare. system = urn:oid:1.2.752.129.2.1.4.1
-    """
-  * careUnitId 1..1 Identifier "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)"
-  * employeeId 0..1 Identifier "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)"
-  * startDate 1..1 dateTime "Startdatum för intygets giltighetstid"
-  * endDate 0..1 dateTime "Slutdatum för intygets giltighetstid (om inget slutdatum gäller samtycket tills återkallat)"
-  * ownerId 0..1 string "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)"
+* GetConsentsResultType 1..1 Base "GetConsentsResultType" "GetConsentsResultType"
+* GetConsentsResultType.Result 1..1 Base "ResultType" "Result"
+* GetConsentsResultType.Result.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* GetConsentsResultType.Result.ResultCode from ResultCodeVS (required)
+* GetConsentsResultType.Result.ResultText 1..1 string "ResultText" "ResultText"
+* GetConsentsResultType.PdlAssertions 0..* Base "PDLAssertionType" "PdlAssertions"
+* GetConsentsResultType.PdlAssertions.AssertionId 1..1 string "AssertionId" "AssertionId"
+* GetConsentsResultType.PdlAssertions.AssertionType 1..1 code "AssertionType" "AssertionType Tillåtna värden: Consent, Emergency."
+* GetConsentsResultType.PdlAssertions.AssertionType from AssertionTypeVS (required)
+* GetConsentsResultType.PdlAssertions.Scope 1..1 code "Scope" "Scope Tillåtna värden: NationalLevel."
+* GetConsentsResultType.PdlAssertions.Scope from ScopeVS (required)
+* GetConsentsResultType.PdlAssertions.PatientId 1..1 string "PatientId" "PatientId"
+* GetConsentsResultType.PdlAssertions.CareProviderId 1..1 string "CareProviderId" "CareProviderId"
+* GetConsentsResultType.PdlAssertions.CareUnitId 1..1 string "CareUnitId" "CareUnitId"
+* GetConsentsResultType.PdlAssertions.EmployeeId 0..1 string "EmployeeId" "EmployeeId"
+* GetConsentsResultType.PdlAssertions.StartDate 1..1 dateTime "StartDate" "StartDate"
+* GetConsentsResultType.PdlAssertions.EndDate 0..1 dateTime "EndDate" "EndDate"
+* GetConsentsResultType.PdlAssertions.OwnerId 0..1 string "OwnerId" "OwnerId"

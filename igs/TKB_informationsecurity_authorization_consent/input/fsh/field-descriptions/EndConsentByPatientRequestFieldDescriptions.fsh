@@ -5,22 +5,10 @@ RuleSet: EndConsentByPatientRequestFieldDescriptions
 * assertionId ^definition = "Unikt id som identifierar det intyg som skall avslutas."
 * assertionId ^comment = "TKB-fält: `assertionId` (`urn:riv:informationsecurity:authorization:consent:2:Id`, kardinalitet 1..1)."
 * patientId ^definition = "Personidentitet på patienten/brukaren vars samtycken skall hämtas."
-* patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** En universellt unik identifierare."
-* patientId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* patientId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1)."
 * representedById ^definition = "Personidentitet för den företrädare/vårdnadshavare som företräder patienten/brukaren.
 
 Ska anges om samtycket avslutas av företrädare/vårdnadshavare."
-* representedById ^comment = "TKB-fält: `representedById` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1).
-
-**Modellanteckning:** En universellt unik identifierare."
-* representedById.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* representedById.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* representedById ^comment = "TKB-fält: `representedById` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1)."
 * endDateTime ^definition = "Frivillig tidpunkt/tidsstämpel för när samtycket ska avslutas. Tidstämpeln ska som tidigast vara nuvarande tidpunkt, alternativt före en tidigare given sista giltighetstidpunkt som är i framtiden. Om ingen tidpunkt anges ska producenten tolka samtyckets nya giltighetstidpunkt t o m nuvarande tidpunkt."
 * endDateTime ^comment = "TKB-fält: `endDateTime` (`xs:dateTime`, kardinalitet 0..1)."

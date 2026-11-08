@@ -1,3 +1,6 @@
+// Elementen genereras ur GetEmployeeIncludingProtectedPersonResponder_4.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:employee v4.0
 // Kontrakt: GetEmployeeIncludingProtectedPerson v4.0
 // Genererad: 2026-05-19
@@ -14,164 +17,59 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "4.0"
-* personInformation 0..* BackboneElement "Information om personen"
-    """
-    Information om personen. Om personen har flera person-objekt returneras en instans per objekt.
-    Kardinalitet: 0..*.
-    """
-* personInformation.personHsaId 1..1 string "Personens HSA-id"
-    """
-    Personens HSA-id. Ref. HSA-id (hsaIdentity) i Informationsspecifikationen [R5].
-    Kardinalitet: Obligatorisk.
-    """
-* personInformation.givenName 0..1 string "Tilltalsnamn"
-    """
-    Tilltalsnamn. Endast ett litet antal personer saknar helt förnamn.
-    Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.middleAndSurName 1..1 string "Mellan- och Efternamn"
-    """
-    Mellan- och Efternamn separerade med mellanslag.
-    Ref. mellannamn (middleName) [R5] / Ref. efternamn (sn, surName) [R5].
-    Kardinalitet: Obligatorisk.
-    """
-* personInformation.nickName 0..1 string "Smeknamn"
-    """
-    Smeknamn. Används då tilltalsnamn inte är det namn personen vill använda.
-    Får ej användas för presentation, endast för sökning.
-    Ref. smeknamn (nickName) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.mail 0..1 string "E-postadress"
-    """
-    E-postadress. Ref. e-postadress (mail) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.telephoneNumber 0..* string "Publikt direkttelefonnummer"
-    """
-    Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5].
-    Kardinalitet: Valfri, lista.
-    """
-* personInformation.switchboardNumber 0..1 string "Telefonnummer till växel"
-    """
-    Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5].
-    Kardinalitet: Valfri.
-    """
-* personInformation.nonPublicTelephoneNumber 0..* string "Tjänstetelefonnummer"
-    """
-    Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5].
-    Kardinalitet: Valfri, lista.
-    """
-* personInformation.mobileNumber 0..* string "Mobiltelefonnummer"
-    """
-    Mobiltelefonnummer. Ref. mobiltelefon (mobile) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.facsimileTelephoneNumber 0..* string "Faxnummer"
-    """
-    Faxnummer. Ref. fax (facsimileTelephoneNumber) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.telephoneHour 0..* BackboneElement "Telefontider"
-    """
-    Telefontider för publik telefon (telephoneNumber).
-    Ref. telefontid (telephoneHours) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.telephoneHour.fromDay 1..1 string "Från dag (1=Måndag, 7=Söndag)"
-* personInformation.telephoneHour.fromTime 1..1 string "Från tid (ISO-8601)"
-* personInformation.telephoneHour.toDay 1..1 string "Till dag (1=Måndag, 7=Söndag)"
-* personInformation.telephoneHour.toTime 1..1 string "Till tid (ISO-8601)"
-* personInformation.telephoneHour.comment 0..1 string "Information om aktuellt tidsintervall"
-* personInformation.telephoneHour.fromDate 0..1 string "Gäller från och med detta datum"
-* personInformation.telephoneHour.toDate 0..1 string "Gäller till och med detta datum"
-* personInformation.postalAddress 0..1 BackboneElement "Postadress (ostrukturerat format)"
-    """
-    Postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5].
-    Kommer på sikt att ersättas av structuredPostalAddress.
-    """
-* personInformation.postalAddress.addressLine 1..* string "Adressrad"
-* personInformation.structuredPostalAddress 0..1 BackboneElement "Postadress (strukturerat format)"
-    """
-    Vårdenhetens postadress i strukturerat format.
-    Ref. Strukturerad postadress (hsaPostalAddress) [R5].
-    Kommer på sikt att ersätta postalAddress.
-    """
-* personInformation.structuredPostalAddress.addressee 1..* string "Adressat"
-* personInformation.structuredPostalAddress.street 0..1 string "Gata"
-* personInformation.structuredPostalAddress.premisesNumber 0..1 string "Adressplatsnummer"
-* personInformation.structuredPostalAddress.premisesLetter 0..1 string "Adressplatslittera"
-* personInformation.structuredPostalAddress.postCode 1..1 string "Postnummer"
-* personInformation.structuredPostalAddress.town 1..1 string "Postort"
-* personInformation.description 0..1 string "Generell beskrivning"
-    """
-    Generell beskrivning. Ref. beskrivning (description) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.title 0..1 string "Titel i fritext"
-    """
-    Titel i fritext. Ref. titel (title) [R5]. Kardinalitet: Valfri.
-    """
-* personInformation.healthCareProfessionalLicence 0..* string "Legitimerad yrkesgrupp"
-    """
-    Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5].
-    Kardinalitet: Valfri, lista.
-    """
-* personInformation.healthCareProfessionalLicenceSpeciality 0..* BackboneElement "Legitimerad yrkesgrupp och specialitet"
-    """
-    Legitimerad yrkesgrupp och specialitet för läkare och tandläkare.
-    Ref. leg.yrkesgrupp och specialitet (hsaSosTitleCodeSpeciality) [R5].
-    """
-* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence 1..1 string "Kod för legitimerad yrkesgrupp"
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode 1..1 string "Kod för specialistutbildning"
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityName 1..1 string "Klartext för specialistutbildning"
-* personInformation.paTitle 0..* BackboneElement "Personens befattning"
-    """
-    Personens befattning. Kardinalitet: Valfri, lista.
-    """
-* personInformation.paTitle.paTitleName 0..1 string "Befattning"
-    """
-    Befattning. Ref. befattning (paTitleName) [R5].
-    """
-* personInformation.paTitle.paTitleCode 0..1 string "Befattningskod"
-    """
-    Befattningskod. Ref. befattningskod (paTitleCode) [R5].
-    """
-* personInformation.specialityName 0..* string "Specialistutbildning (klartext)"
-    """
-    Specialistutbildning utöver grundutbildning för läkare eller tandläkare.
-    Ref. specialitet (specialityName) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.specialityCode 0..* string "Specialistutbildning (kod)"
-    """
-    Klassificeringskod för specialistutbildning utöver grundutbildning.
-    Ref. specialitetskod (specialityCode) [R5]. Kardinalitet: Valfri, lista.
-    """
-* personInformation.dn 1..1 string "Distinguished Name (DN)"
-    """
-    Distinguished Name — objektets placering (sökväg) i katalogen.
-    Exempel: cn=Henrika Littorin,ou=Anställda,...,c=SE.
-    Kardinalitet: Obligatorisk.
-    """
-* personInformation.protectedPerson 0..1 boolean "true om person har skyddad identitet"
-    """
-    true: om person har skyddad identitet.
-    Om personen inte har skyddad identitet returneras inget värde.
-    Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5].
-    Kardinalitet: Valfri.
-    """
-* personInformation.feignedPerson 0..1 boolean "true om personen är ett fingerat objekt"
-    """
-    true: om personen är ett fingerat objekt.
-    Ref. hjälpklassen Fingerat objekt (hsaFeignedDataObject) [R5].
-    Kardinalitet: Valfri.
-    """
-* personInformation.age 0..1 string "Personens ålder i hela år"
-    """
-    Personens ålder, anges i jämna år. Returneras då profil=extended1.
-    Värdet hämtas från personens person- eller samordningsnummer [R5].
-    Kardinalitet: Valfri (villkorlig — kräver profile=extended1).
-    """
-* personInformation.gender 0..1 string "Personens kön (0=okänt, 1=man, 2=kvinna)"
-    """
-    Personens kön. 0=okänt, 1=man, 2=kvinna. Returneras då profil=extended1.
-    Värdet beräknas från personens person- eller samordningsnummer [R5].
-    Kardinalitet: Valfri (villkorlig — kräver profile=extended1).
-    """
+* personInformation 0..* Base "PersonInformationType" "personInformation"
+* personInformation.personHsaId 1..1 string "personHsaId" "personHsaId"
+* personInformation.givenName 0..1 string "givenName" "givenName"
+* personInformation.middleAndSurName 1..1 string "middleAndSurName" "middleAndSurName"
+* personInformation.nickName 0..1 string "nickName" "nickName"
+* personInformation.mail 0..1 string "mail" "mail"
+* personInformation.telephoneNumber 0..* string "telephoneNumber" "telephoneNumber"
+* personInformation.telephoneNumber only TelephoneNumberType
+* personInformation.switchboardNumber 0..1 string "switchboardNumber" "switchboardNumber"
+* personInformation.switchboardNumber only TelephoneNumberType
+* personInformation.nonPublicTelephoneNumber 0..* string "nonPublicTelephoneNumber" "nonPublicTelephoneNumber"
+* personInformation.nonPublicTelephoneNumber only TelephoneNumberType
+* personInformation.mobileNumber 0..* string "mobileNumber" "mobileNumber"
+* personInformation.mobileNumber only TelephoneNumberType
+* personInformation.facsimileTelephoneNumber 0..* string "facsimileTelephoneNumber" "facsimileTelephoneNumber"
+* personInformation.facsimileTelephoneNumber only TelephoneNumberType
+* personInformation.telephoneHour 0..* Base "TimeSpanType" "telephoneHour"
+* personInformation.telephoneHour.fromDay 1..1 string "fromDay" "fromDay"
+* personInformation.telephoneHour.fromTime 1..1 time "fromTime" "fromTime"
+* personInformation.telephoneHour.toDay 1..1 string "toDay" "toDay"
+* personInformation.telephoneHour.toTime 1..1 time "toTime" "toTime"
+* personInformation.telephoneHour.comment 0..1 string "comment" "comment"
+* personInformation.telephoneHour.fromDate 0..1 string "fromDate" "fromDate"
+* personInformation.telephoneHour.toDate 0..1 string "toDate" "toDate"
+* personInformation.postalAddress 0..1 Base "AddressType" "postalAddress"
+* personInformation.postalAddress.addressLine 1..* string "addressLine" "addressLine"
+* personInformation.description 0..1 string "description" "description"
+* personInformation.title 0..1 string "title" "title"
+* personInformation.healthCareProfessionalLicence 0..* string "healthCareProfessionalLicence" "healthCareProfessionalLicence"
+* personInformation.paTitle 0..* Base "PaTitleType" "paTitle"
+* personInformation.paTitle.paTitleName 0..1 string "paTitleName" "paTitleName"
+* personInformation.paTitle.paTitleCode 0..1 string "paTitleCode" "paTitleCode"
+* personInformation.specialityName 0..* string "specialityName" "specialityName"
+* personInformation.specialityCode 0..* string "specialityCode" "specialityCode"
+* personInformation.dn 1..1 string "dn" "dn"
+* personInformation.dn only DNType
+* personInformation.protectedPerson 0..1 boolean "protectedPerson" "protectedPerson"
+* personInformation.personStartDate 0..1 dateTime "personStartDate" "personStartDate"
+* personInformation.personEndDate 0..1 dateTime "personEndDate" "personEndDate"
+* personInformation.feignedPerson 0..1 boolean "feignedPerson" "feignedPerson"
+* personInformation.healthCareProfessionalLicenceSpeciality 0..* Base "HealthCareProfessionalLicenceSpecialityType" "healthCareProfessionalLicenceSpeciality"
+* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence 1..1 string "healthCareProfessionalLicence" "healthCareProfessionalLicence"
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode 1..1 string "specialityCode" "specialityCode"
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityName 1..1 string "specialityName" "specialityName"
+* personInformation.age 0..1 string "age" "age"
+* personInformation.gender 0..1 string "gender" "gender"
+* personInformation.structuredPostalAddress 0..1 Base "StructuredPostalAddressType" "structuredPostalAddress"
+* personInformation.structuredPostalAddress.addressee 1..* string "addressee" "addressee"
+* personInformation.structuredPostalAddress.street 0..1 string "street" "street"
+* personInformation.structuredPostalAddress.premisesNumber 0..1 string "premisesNumber" "premisesNumber"
+* personInformation.structuredPostalAddress.premisesLetter 0..1 string "premisesLetter" "premisesLetter"
+* personInformation.structuredPostalAddress.postCode 1..1 string "postCode" "postCode"
+* personInformation.structuredPostalAddress.town 1..1 string "town" "town"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetEmployeeIncludingProtectedPersonFieldDescriptions

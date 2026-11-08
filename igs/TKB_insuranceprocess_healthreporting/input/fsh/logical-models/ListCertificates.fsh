@@ -1,3 +1,6 @@
+// Elementen genereras ur ListCertificatesResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB insuranceprocess:healthreporting v3.1.0
 // Kontrakt: ListCertificates v1.0
 // Genererad: 2026-05-19
@@ -22,9 +25,7 @@ Characteristics: #can-be-target
 * fromDate 0..1 date "Startdatum för sökning på utfärdandedatum"
 * toDate 0..1 date "Slutdatum för sökning på utfärdandedatum"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ListCertificatesRequestFieldDescriptions
-
 
 Logical: ListCertificates
 Id: listcertificates
@@ -36,25 +37,24 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* certificateMeta 0..* BackboneElement "Metadata om ett intyg"
-* certificateMeta.certificateId 1..1 string "Identitet på intyget (GUID)"
-* certificateMeta.certificateType 1..1 string "Typ av intyg"
-* certificateMeta.validFrom 1..1 date "Startdatum för sjukskrivningsperioden"
-* certificateMeta.validTo 1..1 date "Slutdatum för sjukskrivningsperioden"
-* certificateMeta.issuerName 1..1 string "Namn för Hos-person som utfärdat intyget"
-* certificateMeta.facilityName 1..1 string "Namn på Hos-vårdenhet där intyget utfärdats"
-* certificateMeta.signDate 1..1 date "Datum när intyget signerades"
-* certificateMeta.available 1..1 string "Om intyget är tillgängligt och kan användas"
-* certificateMeta.certificateStatus 0..* BackboneElement "Statustyper för olika mottagare"
-* certificateMeta.certificateStatus.target 1..1 string "Mottagare för en status (t.ex. FK)"
-* certificateMeta.certificateStatus.certificateStatusType 1..1 CodeableConcept "Typ av statusändring för intyget"
-* certificateMeta.certificateStatus.certificateStatusType from StatusVS (extensible)
-* certificateMeta.certificateStatus.timestamp 1..1 dateTime "När statusen sattes"
-* result 0..1 BackboneElement "Resultatinformation"
-* result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
-* result.infoText 0..1 string "Extra information om anropets utgång"
-* result.errorId 0..1 string "Felkategori"
-* result.errorText 0..1 string "Beskrivande text för felet"
+* meta 0..* Base "CertificateMetaType" "meta"
+* meta.certificateId 1..1 string "certificateId" "certificateId"
+* meta.certificateType 1..1 string "certificateType" "certificateType"
+* meta.validFrom 1..1 date "validFrom" "validFrom"
+* meta.validTo 1..1 date "validTo" "validTo"
+* meta.issuerName 1..1 string "issuerName" "issuerName"
+* meta.facilityName 1..1 string "facilityName" "facilityName"
+* meta.signDate 1..1 date "signDate" "signDate"
+* meta.available 1..1 string "available" "available"
+* meta.status 0..* Base "CertificateStatusType" "status"
+* meta.status.target 1..1 string "target" "target"
+* meta.status.type 1..1 code "type" "type Tillåtna värden: UNHANDLED, DELETED, RESTORED, CANCELLED, SENT, RECEIVED, IN_PROGRESS, PROCESSED."
+* meta.status.timestamp 1..1 dateTime "timestamp" "timestamp"
+* result 0..1 Base "ResultOfCall" "result"
+* result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
+* result.infoText 0..1 string "infoText" "infoText"
+* result.errorId 0..1 code "errorId" "errorId Tillåtna värden: VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR."
+* result.errorText 0..1 string "errorText" "errorText"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ListCertificatesFieldDescriptions

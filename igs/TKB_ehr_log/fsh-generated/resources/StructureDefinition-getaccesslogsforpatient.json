@@ -28,23 +28,37 @@
         "definition": "Logisk modell för tjänstekontraktet GetAccessLogsForPatient\n(RIV-TA urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1).\nRepresenterar responsens informationsstruktur (log.querying:AccessLogsResult).\nReturnerar lista för angiven patient med vilka vårdaktörer som har haft åtkomst\ntill information, inklusive tidpunkt, syfte och resurstyp.\nStödjer aggregering — queuedReportId får inte användas vid aggregerande anrop."
       },
       {
-        "id": "getaccesslogsforpatient.result",
-        "path": "getaccesslogsforpatient.result",
-        "short": "Resultatkontainer",
-        "definition": "Resultatkontainer",
+        "id": "getaccesslogsforpatient.AccessLogsResultType",
+        "path": "getaccesslogsforpatient.AccessLogsResultType",
+        "short": "AccessLogsResultType",
+        "definition": "Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK.\n\nVid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.",
+        "comment": "TKB-fält: `AccessLogsResultType` (`logquerying:AccessLogsResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getaccesslogsforpatient.result.resultCode",
-        "path": "getaccesslogsforpatient.result.resultCode",
-        "short": "Statuskod",
-        "definition": "Statuskod",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,11 +72,11 @@
         }
       },
       {
-        "id": "getaccesslogsforpatient.result.resultText",
-        "path": "getaccesslogsforpatient.result.resultText",
-        "short": "Beskrivande text",
-        "definition": "Beskrivande text",
-        "min": 0,
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result.ResultText",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -71,10 +85,10 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.result.startInterval",
-        "path": "getaccesslogsforpatient.result.startInterval",
-        "short": "Start på tillgängligt datumintervall",
-        "definition": "Start på tillgängligt datumintervall",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval",
+        "short": "StartInterval",
+        "definition": "StartInterval",
         "min": 0,
         "max": "1",
         "type": [
@@ -84,10 +98,10 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.result.endInterval",
-        "path": "getaccesslogsforpatient.result.endInterval",
-        "short": "Slut på tillgängligt datumintervall",
-        "definition": "Slut på tillgängligt datumintervall",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval",
+        "short": "EndInterval",
+        "definition": "EndInterval",
         "min": 0,
         "max": "1",
         "type": [
@@ -97,10 +111,10 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.result.queuedReportId",
-        "path": "getaccesslogsforpatient.result.queuedReportId",
-        "short": "Id för pågående rapport (UUID)",
-        "definition": "Ska inte returneras/användas när aggregerande tjänst anropas.",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId",
+        "short": "QueuedReportId",
+        "definition": "QueuedReportId",
         "min": 0,
         "max": "1",
         "type": [
@@ -110,10 +124,10 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.result.queueTime",
-        "path": "getaccesslogsforpatient.result.queueTime",
-        "short": "Uppskattad väntetid i sekunder",
-        "definition": "Uppskattad väntetid i sekunder",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime",
+        "short": "QueueTime",
+        "definition": "QueueTime",
         "min": 0,
         "max": "1",
         "type": [
@@ -123,49 +137,49 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs",
-        "path": "getaccesslogsforpatient.accessLogs",
-        "short": "Samling av åtkomstloggar",
-        "definition": "Samling av åtkomstloggar",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs",
+        "short": "AccessLogsType",
+        "definition": "AccesssLogs",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog",
-        "short": "En åtkomstlogg",
-        "definition": "Representerar en enskild åtkomst — vem som haft åtkomst, när, varför och till vilken resurs.\nDatatyp: log.querying:AccessLogType.",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog",
+        "short": "AccessLogType",
+        "definition": "AccessLog",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.careProviderId",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.careProviderId",
-        "short": "HSA-id för vårdgivaren vars medarbetare haft åtkomst",
-        "definition": "HSA-id för vårdgivaren vars medarbetare haft åtkomst",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.careProviderName",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.careProviderName",
-        "short": "Vårdgivarens namn",
-        "definition": "Vårdgivarens namn",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName",
+        "short": "CareProviderName",
+        "definition": "CareProviderName",
         "min": 0,
         "max": "1",
         "type": [
@@ -175,23 +189,23 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.careUnitId",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.careUnitId",
-        "short": "HSA-id för vårdenhet",
-        "definition": "HSA-id för vårdenhet",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.careUnitName",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.careUnitName",
-        "short": "Vårdenhetens namn",
-        "definition": "Vårdenhetens namn",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName",
+        "short": "CareUnitName",
+        "definition": "CareUnitName",
         "min": 0,
         "max": "1",
         "type": [
@@ -201,49 +215,10 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.userId",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.userId",
-        "short": "HSA-id för medarbetaren som haft åtkomst",
-        "definition": "HSA-id för medarbetaren som haft åtkomst",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.userName",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.userName",
-        "short": "Medarbetarens namn",
-        "definition": "Medarbetarens namn",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.userTitle",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.userTitle",
-        "short": "Medarbetarens yrkestitel",
-        "definition": "Medarbetarens yrkestitel",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.accessDate",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.accessDate",
-        "short": "Tidpunkt för åtkomst",
-        "definition": "Tidpunkt för åtkomst",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate",
+        "short": "AccessDate",
+        "definition": "AccessDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -253,10 +228,10 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.purpose",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.purpose",
-        "short": "Syfte med åtkomsten",
-        "definition": "Syfte med åtkomsten",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId",
+        "short": "UserId",
+        "definition": "UserId",
         "min": 1,
         "max": "1",
         "type": [
@@ -266,10 +241,49 @@
         ]
       },
       {
-        "id": "getaccesslogsforpatient.accessLogs.accessLog.resourceType",
-        "path": "getaccesslogsforpatient.accessLogs.accessLog.resourceType",
-        "short": "Typ av resurs som åtkomsten avsåg",
-        "definition": "Typ av resurs som åtkomsten avsåg",
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName",
+        "short": "UserName",
+        "definition": "UserName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle",
+        "short": "UserTitle",
+        "definition": "UserTitle",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose",
+        "short": "Purpose",
+        "definition": "Purpose",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType",
+        "path": "getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType",
+        "short": "ResourceType",
+        "definition": "ResourceType",
         "min": 1,
         "max": "1",
         "type": [

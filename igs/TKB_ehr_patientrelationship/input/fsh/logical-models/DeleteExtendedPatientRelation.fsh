@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteExtendedPatientRelationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: DeleteExtendedPatientRelation v1.0
 // Namespace: urn:riv:ehr:patientrelationship:administration:DeleteExtendedPatientRelationResponder:1
@@ -14,6 +17,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 code "Svarskod för åtgärden"
-* resultCode from ResultCodeVS (required)
-* resultText 1..1 string "Optionellt felmeddelande (tomt om resultCode=OK)"
+* ResultType 1..1 Base "ResultType" "ResultType"
+* ResultType.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* ResultType.ResultCode from ResultCodeVS (required)
+* ResultType.ResultText 1..1 string "ResultText" "ResultText"

@@ -3,7 +3,4 @@
 
 RuleSet: DeleteLaboratoryReportRequestFieldDescriptions
 * laboratoryReportId ^definition = "Svars-id för det laboratoriesvar med tillhörande information som ska raderas."
-* laboratoryReportId ^comment = "TKB-fält: `laboratoryReportId` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** Informationsspecifikation: Laboratoriesvar.svars-id
-Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1"
+* laboratoryReportId ^comment = "TKB-fält: `laboratoryReportId` (`IIType`, kardinalitet 1..1)."

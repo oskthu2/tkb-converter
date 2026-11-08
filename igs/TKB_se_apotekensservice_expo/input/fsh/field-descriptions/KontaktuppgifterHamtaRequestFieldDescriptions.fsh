@@ -3,6 +3,4 @@
 
 RuleSet: KontaktuppgifterHamtaRequestFieldDescriptions
 * orgNr ^definition = "Aktörens organisationsnummer"
-* orgNr ^comment = "TKB-fält: `orgNr` (`long`, kardinalitet 0..1).
-
-**Modellanteckning:** Aktörens organisationsnummer (xs:long i schemat.)"
+* orgNr ^comment = "TKB-fält: `orgNr` (`long`, kardinalitet 0..1)."

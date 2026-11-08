@@ -7,9 +7,7 @@ RuleSet: GetDispensedDrugsFieldDescriptions
 * lakemedelsforteckning.aktorsExpeditionsId ^definition = "Aktörens expeditionsId."
 * lakemedelsforteckning.aktorsExpeditionsId ^comment = "TKB-fält i Receptexpeditionsrad: `aktorsExpeditionsId` (`string`, kardinalitet 1..1).
 
-**Fältlängder:** 1..35
-
-**Modellanteckning:** Fältlängd 1..35."
+**Fältlängder:** 1..35"
 * lakemedelsforteckning.antalForpackningar ^definition = "Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel."
 * lakemedelsforteckning.antalForpackningar ^comment = "TKB-fält i Receptexpeditionsrad: `antalForpackningar` (`int`, kardinalitet 0..1)."
 * lakemedelsforteckning.antalPillerKlartext ^definition = "Antal avdelade doser inklusive enhet. Returneras om posten är en dosdispenserad artikel. Exempel: \"28 st\"."
@@ -19,9 +17,7 @@ RuleSet: GetDispensedDrugsFieldDescriptions
 * lakemedelsforteckning.artikelinformation ^definition = "Information om utlämnad artikel."
 * lakemedelsforteckning.artikelinformation ^comment = "TKB-fält i Receptexpeditionsrad: `artikelinformation` (`Artikelinformation`, kardinalitet 1..1)."
 * lakemedelsforteckning.borttagen ^definition = "Markering om posten är borttagen. Sant om posten är borttagen, annars falskt."
-* lakemedelsforteckning.borttagen ^comment = "TKB-fält i Receptexpeditionsrad: `borttagen` (`boolean`, kardinalitet 1..1).
-
-**Modellanteckning:** Sant om posten är borttagen, annars falskt. En borttagen post ska visas överstruken med borttagsdatum och borttagsorsak."
+* lakemedelsforteckning.borttagen ^comment = "TKB-fält i Receptexpeditionsrad: `borttagen` (`boolean`, kardinalitet 1..1)."
 * lakemedelsforteckning.borttagsdatum ^definition = "Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant."
 * lakemedelsforteckning.borttagsdatum ^comment = "TKB-fält i Receptexpeditionsrad: `borttagsdatum` (`dateTime`, kardinalitet 0..1)."
 * lakemedelsforteckning.borttagsorsak ^definition = "Kommentar för borttagen post. Returneras endast om borttagen är sant."
@@ -35,65 +31,45 @@ RuleSet: GetDispensedDrugsFieldDescriptions
 * lakemedelsforteckning.expeditionsId ^definition = "Expeditionsid hämtat från eHälsomyndigheten."
 * lakemedelsforteckning.expeditionsId ^comment = "TKB-fält i Receptexpeditionsrad: `expeditionsId` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..31
-
-**Modellanteckning:** Fältlängd 1..31."
+**Fältlängder:** 1..31"
 * lakemedelsforteckning.expeditionsdatum ^definition = "Datum för utlämning från apotek."
 * lakemedelsforteckning.expeditionsdatum ^comment = "TKB-fält i Receptexpeditionsrad: `expeditionsdatum` (`dateTime`, kardinalitet 1..1)."
 * lakemedelsforteckning.forskrivarensArbetsplatsnamn ^definition = "Förskrivarens arbetsplats namn."
 * lakemedelsforteckning.forskrivarensArbetsplatsnamn ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivarensArbetsplatsnamn` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..35
-
-**Modellanteckning:** Fältlängd 1..35."
+**Fältlängder:** 1..35"
 * lakemedelsforteckning.forskrivarensArbetsplatsOrt ^definition = "Förskrivarens arbetsplats ort."
 * lakemedelsforteckning.forskrivarensArbetsplatsOrt ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivarensArbetsplatsOrt` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..28
-
-**Modellanteckning:** Fältlängd 1..28."
+**Fältlängder:** 1..28"
 * lakemedelsforteckning.forskrivarnamn ^definition = "Förskrivarens namn."
 * lakemedelsforteckning.forskrivarnamn ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivarnamn` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..71
-
-**Modellanteckning:** Fältlängd 1..71."
+**Fältlängder:** 1..71"
 * lakemedelsforteckning.forskrivarpostadress ^definition = "Förskrivarens postadress."
 * lakemedelsforteckning.forskrivarpostadress ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivarpostadress` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..35
-
-**Modellanteckning:** Fältlängd 1..35."
+**Fältlängder:** 1..35"
 * lakemedelsforteckning.forskrivarpostnummer ^definition = "Förskrivarens postnummer."
 * lakemedelsforteckning.forskrivarpostnummer ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivarpostnummer` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 5..6
-
-**Modellanteckning:** Fältlängd 5..6."
+**Fältlängder:** 5..6"
 * lakemedelsforteckning.forskrivarspecialiteter ^definition = "Förskrivarens specialitet i klartext."
 * lakemedelsforteckning.forskrivarspecialiteter ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivarspecialiteter` (`string`, kardinalitet 0..*).
 
-**Fältlängder:** 1..256
-
-**Modellanteckning:** Fältlängd 1..256."
+**Fältlängder:** 1..256"
 * lakemedelsforteckning.forskrivaryrke ^definition = "Förskrivarens yrke i klartext."
 * lakemedelsforteckning.forskrivaryrke ^comment = "TKB-fält i Receptexpeditionsrad: `forskrivaryrke` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..100
-
-**Modellanteckning:** Fältlängd 1..100."
+**Fältlängder:** 1..100"
 * lakemedelsforteckning.mangd ^definition = "Totalt expedierad mängd. Kan returneras som: antalPillerKlartext eller antalForpackningar + forpackningsstorlek. Exempel: \"28 st\" eller \"2x100 tabletter\"."
 * lakemedelsforteckning.mangd ^comment = "TKB-fält i Receptexpeditionsrad: `mangd` (`string`, kardinalitet 1..1).
 
 **Fältlängder:** 1..100"
 * lakemedelsforteckning.ordinationsmappning ^definition = "Information som behövs för att mappa en post i läkemedelsförteckningen till en ordination."
-* lakemedelsforteckning.ordinationsmappning ^comment = "TKB-fält i Receptexpeditionsrad: `ordinationsmappning` (`Ordinationsmappning`, kardinalitet 0..1).
-
-**Modellanteckning:** Saknas i vissa fall, t.ex. när samma läkemedel (nplpackid) förekommer flera gånger i samma expedition, vid pappers- och telefonrecept, och vid uttag från äldre receptexpeditionssystem (expeditionsid saknas)."
+* lakemedelsforteckning.ordinationsmappning ^comment = "TKB-fält i Receptexpeditionsrad: `ordinationsmappning` (`Ordinationsmappning`, kardinalitet 0..1)."
 * lakemedelsforteckning.radid ^definition = "Unikt id för posten i läkemedelsförteckningen."
-* lakemedelsforteckning.radid ^comment = "TKB-fält i Receptexpeditionsrad: `radid` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** XSD-typ xs:long. Modellerad som string eftersom FHIR R4 saknar 64-bitars heltal (se ASSUME-APL-003)."
+* lakemedelsforteckning.radid ^comment = "TKB-fält i Receptexpeditionsrad: `radid` (`long`, kardinalitet 1..1)."
 * lakemedelsforteckning.radnummer ^definition = "Radnummer för utlämnad vara i aktuell expedition."
 * lakemedelsforteckning.radnummer ^comment = "TKB-fält i Receptexpeditionsrad: `radnummer` (`int`, kardinalitet 0..1)."
 * patientinformation ^definition = "Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som 'Avliden' så returneras inga rader ur läkemedelsförteckningen."
@@ -119,10 +95,10 @@ RuleSet: GetDispensedDrugsFieldDescriptions
 * varningsnivaUppnadd ^definition = "Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt."
 * varningsnivaUppnadd ^comment = "TKB-fält: `varningsnivaUppnadd` (`boolean`, kardinalitet 1..1)."
 * resultCode ^definition = "Resultatkod för anropet."
-* resultCode ^comment = "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** Resultatkod för anropet. Tillåtna värden: OK, ERROR, INFO."
 * comment ^definition = "Kommentar till eventuella fel eller varningar."
 * comment ^comment = "TKB-fält: `comment` (`string`, kardinalitet 0..1).
 
-**Fältlängder:** 1..1024
-
-**Modellanteckning:** Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment."
+**Fältlängder:** 1..1024"

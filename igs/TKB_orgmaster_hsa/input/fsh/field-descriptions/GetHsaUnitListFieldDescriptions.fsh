@@ -5,7 +5,5 @@ RuleSet: GetHsaUnitListFieldDescriptions
 * UnitList ^comment = "TKB-fält: `UnitList` (`UnitList`, kardinalitet 0..1)."
 * UnitList.unitListUnit ^comment = "TKB-fält: `../unitListUnit` (`UnitListUnit`, kardinalitet 0..*)."
 * UnitList.unitListUnit.hsaIdentity ^comment = "TKB-fält: `../../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1)."
-* UnitList.unitListUnit.unitListUnitName ^comment = "TKB-fält: `../../name` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** unitListUnitName Heter name i schemat."
+* UnitList.unitListUnit.name ^comment = "TKB-fält: `../../name` (`string`, kardinalitet 1..1)."
 * UnitList.unitListUnit.parentHsaIdentity ^comment = "TKB-fält: `../../parentHsaIdentity` (`HsaIdentityType`, kardinalitet 0..1)."

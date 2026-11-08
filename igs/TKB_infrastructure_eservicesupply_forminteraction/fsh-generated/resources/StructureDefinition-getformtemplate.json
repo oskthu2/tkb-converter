@@ -30,61 +30,22 @@
       {
         "id": "getformtemplate.formTemplates",
         "path": "getformtemplate.formTemplates",
-        "short": "Formulärmallar (FormTemplateType)",
-        "definition": "De hämtade formulärmallarna.",
+        "short": "FormTemplateType",
+        "definition": "formTemplates",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplate.formTemplates.templateId",
-        "path": "getformtemplate.formTemplates.templateId",
-        "short": "Mall-id",
-        "definition": "Typ av formulär. Kodverk för standardiserade id.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplate.formTemplates.templateVersion",
-        "path": "getformtemplate.formTemplates.templateVersion",
-        "short": "Mallens version",
-        "definition": "Versionsnummer för formulärmallen.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "integer"
-          }
-        ]
-      },
-      {
-        "id": "getformtemplate.formTemplates.healthcare_facility_CareUnit",
-        "path": "getformtemplate.formTemplates.healthcare_facility_CareUnit",
-        "short": "Vårdenhetens HSA-id",
-        "definition": "Ägare till formulärmallen.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getformtemplate.formTemplates.anonymousForm",
         "path": "getformtemplate.formTemplates.anonymousForm",
-        "short": "Anonym formulär",
-        "definition": "Styr huruvida formulärmotorn stöder anonym användning av formuläret.",
-        "min": 0,
+        "short": "anonymousForm",
+        "definition": "anonymousForm",
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -95,56 +56,74 @@
       {
         "id": "getformtemplate.formTemplates.category",
         "path": "getformtemplate.formTemplates.category",
-        "short": "Formulärkategori",
-        "definition": "Formulärets kategori.",
+        "short": "category",
+        "definition": "category",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
-          }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formcategory-vs"
-        }
-      },
-      {
-        "id": "getformtemplate.formTemplates.publishStatus",
-        "path": "getformtemplate.formTemplates.publishStatus",
-        "short": "Publiceringsstatus",
-        "definition": "Mallens publiceringsstatus.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs"
-        }
-      },
-      {
-        "id": "getformtemplate.formTemplates.mandatory",
-        "path": "getformtemplate.formTemplates.mandatory",
-        "short": "Obligatorisk",
-        "definition": "Indikerar om formuläret är obligatoriskt.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getformtemplate.formTemplates.formLanguage",
-        "path": "getformtemplate.formTemplates.formLanguage",
-        "short": "Språk",
-        "definition": "Formulärets språk, t.ex. swe eller eng.",
+        "id": "getformtemplate.formTemplates.code",
+        "path": "getformtemplate.formTemplates.code",
+        "short": "CodeType",
+        "definition": "code",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.code.codeValue",
+        "path": "getformtemplate.formTemplates.code.codeValue",
+        "short": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "definition": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
         "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.code.codeSystem",
+        "path": "getformtemplate.formTemplates.code.codeSystem",
+        "short": "Identifierar vilket kodverk som används.",
+        "definition": "Identifierar vilket kodverk som används.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.description",
+        "path": "getformtemplate.formTemplates.description",
+        "short": "description",
+        "definition": "description",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.descriptionInternal",
+        "path": "getformtemplate.formTemplates.descriptionInternal",
+        "short": "Beskrivningsfält. Intern kommentar - Visas ej för patient.",
+        "definition": "Beskrivningsfält. Intern kommentar - Visas ej för patient.",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -155,9 +134,1465 @@
       {
         "id": "getformtemplate.formTemplates.formCompleteText",
         "path": "getformtemplate.formTemplates.formCompleteText",
-        "short": "Avslutningstext",
-        "definition": "Text som visas när formuläret är besvarat.",
+        "short": "Informationstext vid avslutat och sparat formulär.",
+        "definition": "Informationstext vid avslutat och sparat formulär.",
         "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.formName",
+        "path": "getformtemplate.formTemplates.formName",
+        "short": "formName",
+        "definition": "formName",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.formTitle",
+        "path": "getformtemplate.formTemplates.formTitle",
+        "short": "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+        "definition": "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.healthCareFacilityUnit",
+        "path": "getformtemplate.formTemplates.healthCareFacilityUnit",
+        "short": "Ägaren av mallen. Hsa-id.",
+        "definition": "Ägaren av mallen. Hsa-id.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.language",
+        "path": "getformtemplate.formTemplates.language",
+        "short": "language",
+        "definition": "language",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.media",
+        "path": "getformtemplate.formTemplates.media",
+        "short": "MediaType",
+        "definition": "media",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.media.mediaURL",
+        "path": "getformtemplate.formTemplates.media.mediaURL",
+        "short": "URL eller adress till media.",
+        "definition": "URL eller adress till media.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.media.mediaType",
+        "path": "getformtemplate.formTemplates.media.mediaType",
+        "short": "Giltiga MIME typer.",
+        "definition": "Giltiga MIME typer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.media.mediaAlt",
+        "path": "getformtemplate.formTemplates.media.mediaAlt",
+        "short": "alternativ text som beskriver det element som attributet hör till",
+        "definition": "alternativ text som beskriver det element som attributet hör till",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.media.mediaCaption",
+        "path": "getformtemplate.formTemplates.media.mediaCaption",
+        "short": "URL eller adress till undertext.",
+        "definition": "URL eller adress till undertext.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.maxNumberOfQuestions",
+        "path": "getformtemplate.formTemplates.maxNumberOfQuestions",
+        "short": "maxNumberOfQuestions",
+        "definition": "maxNumberOfQuestions",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.minNumberOfQuestions",
+        "path": "getformtemplate.formTemplates.minNumberOfQuestions",
+        "short": "minNumberOfQuestions",
+        "definition": "minNumberOfQuestions",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.maxNumberOfPages",
+        "path": "getformtemplate.formTemplates.maxNumberOfPages",
+        "short": "maxNumberOfPages",
+        "definition": "maxNumberOfPages",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.minNumberOfPages",
+        "path": "getformtemplate.formTemplates.minNumberOfPages",
+        "short": "minNumberOfPages",
+        "definition": "minNumberOfPages",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages",
+        "path": "getformtemplate.formTemplates.pages",
+        "short": "TemplateRoutedPageType",
+        "definition": "pages",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page",
+        "path": "getformtemplate.formTemplates.pages.page",
+        "short": "TemplatePageType",
+        "definition": "page",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks",
+        "short": "TemplateQuestionBlockType",
+        "definition": "questionBlocks",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.blockNumber",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.blockNumber",
+        "short": "blockNumber",
+        "definition": "blockNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.description",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.description",
+        "short": "description",
+        "definition": "description",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.gridConfig",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.gridConfig",
+        "short": "GridConfigType",
+        "definition": "gridConfig",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.gridConfig.cols",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.gridConfig.cols",
+        "short": "cols",
+        "definition": "cols",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.gridConfig.rows",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.gridConfig.rows",
+        "short": "rows",
+        "definition": "rows",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.informationURL",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.informationURL",
+        "short": "informationURL",
+        "definition": "informationURL",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.numberOfQuestions",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.numberOfQuestions",
+        "short": "numberOfQuestions",
+        "definition": "numberOfQuestions",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions",
+        "short": "TemplateQuestionType",
+        "definition": "questions",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives",
+        "short": "AnswerAlternativeType",
+        "definition": "answerAlternatives",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.alternativeValue",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.alternativeValue",
+        "short": "Valbart svarsalternativ.",
+        "definition": "Valbart svarsalternativ.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.answerAlternativeNumber",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.answerAlternativeNumber",
+        "short": "Svarsalternativets id.",
+        "definition": "Svarsalternativets id.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.answerHelp",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.answerHelp",
+        "short": "Hjälptext till svarsalternativet. (placeholder)",
+        "definition": "Hjälptext till svarsalternativet. (placeholder)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.code",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.code",
+        "short": "CodeType",
+        "definition": "Objekt för att definiera kodverk kopplat till fråga.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.code.codeValue",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.code.codeValue",
+        "short": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "definition": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.code.codeSystem",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.code.codeSystem",
+        "short": "Identifierar vilket kodverk som används.",
+        "definition": "Identifierar vilket kodverk som används.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media",
+        "short": "MediaType",
+        "definition": "Svarsalternativ i bildform.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaURL",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaURL",
+        "short": "URL eller adress till media.",
+        "definition": "URL eller adress till media.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaType",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaType",
+        "short": "Giltiga MIME typer.",
+        "definition": "Giltiga MIME typer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaAlt",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaAlt",
+        "short": "alternativ text som beskriver det element som attributet hör till",
+        "definition": "alternativ text som beskriver det element som attributet hör till",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaCaption",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerAlternatives.media.mediaCaption",
+        "short": "URL eller adress till undertext.",
+        "definition": "URL eller adress till undertext.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMax",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMax",
+        "short": "answerMax",
+        "definition": "answerMax",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMin",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMin",
+        "short": "answerMin",
+        "definition": "answerMin",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMaxLength",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMaxLength",
+        "short": "answerMaxLength",
+        "definition": "answerMaxLength",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerPattern",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerPattern",
+        "short": "answerPattern",
+        "definition": "answerPattern",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerStep",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerStep",
+        "short": "answerStep",
+        "definition": "answerStep",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.code",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.code",
+        "short": "CodeType",
+        "definition": "code",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.code.codeValue",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.code.codeValue",
+        "short": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "definition": "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.code.codeSystem",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.code.codeSystem",
+        "short": "Identifierar vilket kodverk som används.",
+        "definition": "Identifierar vilket kodverk som används.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.description",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.description",
+        "short": "description",
+        "definition": "description",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.gridValue",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.gridValue",
+        "short": "GridValueType",
+        "definition": "gridValue",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.gridValue.col",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.gridValue.col",
+        "short": "col",
+        "definition": "col",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.gridValue.row",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.gridValue.row",
+        "short": "row",
+        "definition": "row",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.input",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.input",
+        "short": "input",
+        "definition": "input",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.inputUnit",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.inputUnit",
+        "short": "inputUnit",
+        "definition": "inputUnit",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media",
+        "short": "MediaType",
+        "definition": "URL till bild. Bilden kan används för att illustrera en fråga. (QuestionType Image)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaURL",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaURL",
+        "short": "URL eller adress till media.",
+        "definition": "URL eller adress till media.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaType",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaType",
+        "short": "Giltiga MIME typer.",
+        "definition": "Giltiga MIME typer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaAlt",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaAlt",
+        "short": "alternativ text som beskriver det element som attributet hör till",
+        "definition": "alternativ text som beskriver det element som attributet hör till",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaCaption",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.media.mediaCaption",
+        "short": "URL eller adress till undertext.",
+        "definition": "URL eller adress till undertext.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.informationURL",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.informationURL",
+        "short": "informationURL",
+        "definition": "informationURL",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.mandatory",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.mandatory",
+        "short": "mandatory",
+        "definition": "mandatory",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.maxNumberOfChoices",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.maxNumberOfChoices",
+        "short": "maxNumberOfChoices",
+        "definition": "maxNumberOfChoices",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.minNumberOfChoices",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.minNumberOfChoices",
+        "short": "minNumberOfChoices",
+        "definition": "minNumberOfChoices",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionNumber",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionNumber",
+        "short": "questionNumber",
+        "definition": "questionNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.subject",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.subject",
+        "short": "subject",
+        "definition": "subject",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionSuperior",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionSuperior",
+        "short": "QuestionSuperiorType",
+        "definition": "questionSuperior",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers",
+        "short": "superiorAnswerAlternativeNumbers",
+        "definition": "superiorAnswerAlternativeNumbers",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionSuperior.superiorQuestionNumber",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionSuperior.superiorQuestionNumber",
+        "short": "superiorQuestionNumber",
+        "definition": "superiorQuestionNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.validationEvents",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.validationEvents",
+        "short": "ValidationEventType",
+        "definition": "validationEvents",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.validationEvents.event",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.validationEvents.event",
+        "short": "event",
+        "definition": "Följande events är giltiga: mandatory answerMax answerMin answerMaxLength answerPattern maxNumberOfChoises minNumberOfChoises answerSuperior",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.validationEvents.text",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.validationEvents.text",
+        "short": "Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.",
+        "definition": "Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionAlign",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionAlign",
+        "short": "questionAlign",
+        "definition": "questionAlign",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMinLabel",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMinLabel",
+        "short": "answerMinLabel",
+        "definition": "answerMinLabel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMaxLabel",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerMaxLabel",
+        "short": "answerMaxLabel",
+        "definition": "answerMaxLabel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerPlaceholder",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.answerPlaceholder",
+        "short": "answerPlaceholder",
+        "definition": "answerPlaceholder",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionId",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.questions.questionId",
+        "short": "questionId",
+        "definition": "questionId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.subject",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.subject",
+        "short": "subject",
+        "definition": "subject",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.media",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.media",
+        "short": "MediaType",
+        "definition": "media",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaURL",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaURL",
+        "short": "URL eller adress till media.",
+        "definition": "URL eller adress till media.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaType",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaType",
+        "short": "Giltiga MIME typer.",
+        "definition": "Giltiga MIME typer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaAlt",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaAlt",
+        "short": "alternativ text som beskriver det element som attributet hör till",
+        "definition": "alternativ text som beskriver det element som attributet hör till",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaCaption",
+        "path": "getformtemplate.formTemplates.pages.page.questionBlocks.media.mediaCaption",
+        "short": "URL eller adress till undertext.",
+        "definition": "URL eller adress till undertext.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.description",
+        "path": "getformtemplate.formTemplates.pages.page.description",
+        "short": "description",
+        "definition": "description",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.informationURL",
+        "path": "getformtemplate.formTemplates.pages.page.informationURL",
+        "short": "informationURL",
+        "definition": "informationURL",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.subject",
+        "path": "getformtemplate.formTemplates.pages.page.subject",
+        "short": "subject",
+        "definition": "subject",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.pagenumber",
+        "path": "getformtemplate.formTemplates.pages.page.pagenumber",
+        "short": "pagenumber",
+        "definition": "pagenumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.media",
+        "path": "getformtemplate.formTemplates.pages.page.media",
+        "short": "MediaType",
+        "definition": "media",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.media.mediaURL",
+        "path": "getformtemplate.formTemplates.pages.page.media.mediaURL",
+        "short": "URL eller adress till media.",
+        "definition": "URL eller adress till media.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.media.mediaType",
+        "path": "getformtemplate.formTemplates.pages.page.media.mediaType",
+        "short": "Giltiga MIME typer.",
+        "definition": "Giltiga MIME typer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.media.mediaAlt",
+        "path": "getformtemplate.formTemplates.pages.page.media.mediaAlt",
+        "short": "alternativ text som beskriver det element som attributet hör till",
+        "definition": "alternativ text som beskriver det element som attributet hör till",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.page.media.mediaCaption",
+        "path": "getformtemplate.formTemplates.pages.page.media.mediaCaption",
+        "short": "URL eller adress till undertext.",
+        "definition": "URL eller adress till undertext.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing",
+        "path": "getformtemplate.formTemplates.pages.routing",
+        "short": "TemplateRoutingType",
+        "definition": "routing",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes",
+        "path": "getformtemplate.formTemplates.pages.routing.routes",
+        "short": "TemplateRouteType",
+        "definition": "routes",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes.pageNumber",
+        "path": "getformtemplate.formTemplates.pages.routing.routes.pageNumber",
+        "short": "pageNumber",
+        "definition": "pageNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes.rules",
+        "path": "getformtemplate.formTemplates.pages.routing.routes.rules",
+        "short": "TemplateRuleType",
+        "definition": "rules",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes.rules.blockNumber",
+        "path": "getformtemplate.formTemplates.pages.routing.routes.rules.blockNumber",
+        "short": "blockNumber",
+        "definition": "blockNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes.rules.questionNumber",
+        "path": "getformtemplate.formTemplates.pages.routing.routes.rules.questionNumber",
+        "short": "Frågans nummer",
+        "definition": "Frågans nummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes.rules.operator",
+        "path": "getformtemplate.formTemplates.pages.routing.routes.rules.operator",
+        "short": "EQ (equality) LT (less then) GT (greater)",
+        "definition": "EQ (equality) LT (less then) GT (greater) Tillåtna värden: EQ, LT, GT.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.pages.routing.routes.rules.value",
+        "path": "getformtemplate.formTemplates.pages.routing.routes.rules.value",
+        "short": "value",
+        "definition": "value",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.publishStatus",
+        "path": "getformtemplate.formTemplates.publishStatus",
+        "short": "publishStatus",
+        "definition": "publishStatus",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templateId",
+        "path": "getformtemplate.formTemplates.templateId",
+        "short": "templateId",
+        "definition": "templateId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templatePropagate",
+        "path": "getformtemplate.formTemplates.templatePropagate",
+        "short": "TemplatePropagateType",
+        "definition": "Attribut för att reglera hur mallen delas.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templatePropagate.countycodes",
+        "path": "getformtemplate.formTemplates.templatePropagate.countycodes",
+        "short": "countycodes",
+        "definition": "Avgränsande fält. Om Propagate \"true\" kan mallen delas inom en till flera länskoder. Om attributet är tomt delas mallen utan avgränsning. Avgärningens (länskod) gäller för inom det län verksamheten (hsa-id) verkar inom.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templatePropagate.propagate",
+        "path": "getformtemplate.formTemplates.templatePropagate.propagate",
+        "short": "Attribut för att indikera att mallen är global. True = Mallen delas (t.ex är nationell). False = Mallen delas inte.",
+        "definition": "Attribut för att indikera att mallen är global. True = Mallen delas (t.ex är nationell). False = Mallen delas inte.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templateVersion",
+        "path": "getformtemplate.formTemplates.templateVersion",
+        "short": "Mallens version.",
+        "definition": "Mallens version.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.term",
+        "path": "getformtemplate.formTemplates.term",
+        "short": "term",
+        "definition": "term",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas",
+        "path": "getformtemplate.formTemplates.calculationFormulas",
+        "short": "CalculationFormulaType",
+        "definition": "calculationFormulas",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.calculationId",
+        "path": "getformtemplate.formTemplates.calculationFormulas.calculationId",
+        "short": "calculationId",
+        "definition": "calculationId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.subject",
+        "path": "getformtemplate.formTemplates.calculationFormulas.subject",
+        "short": "subject",
+        "definition": "subject",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.descriptionCareActor",
+        "path": "getformtemplate.formTemplates.calculationFormulas.descriptionCareActor",
+        "short": "descriptionCareActor",
+        "definition": "descriptionCareActor",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.descriptionSubjectOfCare",
+        "path": "getformtemplate.formTemplates.calculationFormulas.descriptionSubjectOfCare",
+        "short": "descriptionSubjectOfCare",
+        "definition": "descriptionSubjectOfCare",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.approvedForSubjectOfCare",
+        "path": "getformtemplate.formTemplates.calculationFormulas.approvedForSubjectOfCare",
+        "short": "approvedForSubjectOfCare",
+        "definition": "approvedForSubjectOfCare",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.type",
+        "path": "getformtemplate.formTemplates.calculationFormulas.type",
+        "short": "type",
+        "definition": "type",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.license",
+        "path": "getformtemplate.formTemplates.calculationFormulas.license",
+        "short": "license",
+        "definition": "license",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.outcomePresentationPrecision",
+        "path": "getformtemplate.formTemplates.calculationFormulas.outcomePresentationPrecision",
+        "short": "outcomePresentationPrecision",
+        "definition": "outcomePresentationPrecision",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.calculationFormulas.formula",
+        "path": "getformtemplate.formTemplates.calculationFormulas.formula",
+        "short": "formula",
+        "definition": "formula",
+        "min": 1,
         "max": "1",
         "type": [
           {

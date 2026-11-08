@@ -5,9 +5,7 @@ RuleSet: GetEhrExtractFieldDescriptions
 * ehr_extract ^definition = "Detaljerad patientinformation på formatet EN13606."
 * ehr_extract ^comment = "TKB-fält: `ehr_extract` (`EHR_EXTRACT`, kardinalitet 0..1).
 
-Obs: modellen anger 0..* där TKB:n anger 0..1.
-
-**Modellanteckning:** The root node of an EHR Extract."
+Obs: modellen anger 0..* där TKB:n anger 0..1."
 * ehr_extract.authorising_party ^comment = "TKB-fält: `../authorising_party` (`II`, kardinalitet 0..1)."
 * ehr_extract.ehr_id ^comment = "TKB-fält: `../ehr_id` (`II`, kardinalitet 1..1)."
 * ehr_extract.ehr_system ^comment = "TKB-fält: `../ehr_system` (`II`, kardinalitet 1..1)."
@@ -17,9 +15,7 @@ Obs: modellen anger 0..* där TKB:n anger 0..1.
 * ehr_extract.all_compositions ^comment = "TKB-fält: `../all_compositions` (`COMPOSITION`, kardinalitet 0..*)."
 * ehr_extract.all_compositions.archetype_id ^comment = "TKB-fält: `../../archetype_id` (`ST`, kardinalitet 0..1)."
 * ehr_extract.all_compositions.meaning ^comment = "TKB-fält: `../../meaning` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.compositionName ^comment = "TKB-fält: `../../name` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** compositionName Heter name i schemat."
+* ehr_extract.all_compositions.name ^comment = "TKB-fält: `../../name` (`ST`, kardinalitet 1..1)."
 * ehr_extract.all_compositions.orig_parent_ref ^comment = "TKB-fält: `../../orig_parent_ref` (`II`, kardinalitet 0..1)."
 * ehr_extract.all_compositions.policy_ids ^comment = "TKB-fält: `../../policy_ids` (`II`, kardinalitet 0..*)."
 * ehr_extract.all_compositions.rc_id ^comment = "TKB-fält: `../../rc_id` (`II`, kardinalitet 1..1)."
@@ -85,9 +81,7 @@ Obs: modellen anger 0..* där TKB:n anger 0..1.
 * ehr_extract.all_compositions.content ^comment = "TKB-fält: `../../content` (`CONTENT`, kardinalitet 0..*)."
 * ehr_extract.all_compositions.content.archetype_id ^comment = "TKB-fält: `../../../archetype_id` (`ST`, kardinalitet 0..1)."
 * ehr_extract.all_compositions.content.meaning ^comment = "TKB-fält: `../../../meaning` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.contentName ^comment = "TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** contentName Heter name i schemat."
+* ehr_extract.all_compositions.content.name ^comment = "TKB-fält: `../../../name` (`ST`, kardinalitet 1..1)."
 * ehr_extract.all_compositions.content.orig_parent_ref ^comment = "TKB-fält: `../../../orig_parent_ref` (`II`, kardinalitet 0..1)."
 * ehr_extract.all_compositions.content.policy_ids ^comment = "TKB-fält: `../../../policy_ids` (`II`, kardinalitet 0..*)."
 * ehr_extract.all_compositions.content.rc_id ^comment = "TKB-fält: `../../../rc_id` (`II`, kardinalitet 1..1)."
@@ -109,74 +103,6 @@ Obs: modellen anger 0..* där TKB:n anger 0..1.
 * ehr_extract.all_compositions.content.feeder_audit.time_committed ^comment = "TKB-fält: `../../../../time_committed` (`TS`, kardinalitet 1..1)."
 * ehr_extract.all_compositions.content.feeder_audit.version_set_id ^comment = "TKB-fält: `../../../../version_set_id` (`II`, kardinalitet 0..1)."
 * ehr_extract.all_compositions.content.feeder_audit.version_status ^comment = "TKB-fält: `../../../../version_status` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.section ^definition = "Element som bara finns när instansen är av subtypen SECTION (xsi:type)."
-* ehr_extract.all_compositions.content.section ^comment = "TKB-fält: `../../../section` (`SECTION`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.section.members ^definition = "(Rekursiv typ, ej utvecklad.)"
-* ehr_extract.all_compositions.content.section.members ^comment = "TKB-fält: `../../../../members` (`CONTENT`, kardinalitet 0..*)."
-* ehr_extract.all_compositions.content.entry ^definition = "Element som bara finns när instansen är av subtypen ENTRY (xsi:type)."
-* ehr_extract.all_compositions.content.entry ^comment = "TKB-fält: `../../../entry` (`ENTRY`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.act_id ^comment = "TKB-fält: `../../../../act_id` (`ST`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.act_status ^comment = "TKB-fält: `../../../../act_status` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.subject_of_information_category ^comment = "TKB-fält: `../../../../subject_of_information_category` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.uncertainty_expressed ^comment = "TKB-fält: `../../../../uncertainty_expressed` (`BL`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items ^definition = "Superclass of Cluster and Element that enables the former to include instances of itself. The obs_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types. Abstrakt typ; instansen anges med xsi:type som en av CLUSTER, ELEMENT."
-* ehr_extract.all_compositions.content.entry.items ^comment = "TKB-fält: `../../../../items` (`ITEM`, kardinalitet 0..*)."
-* ehr_extract.all_compositions.content.entry.items.archetype_id ^comment = "TKB-fält: `../../../../../archetype_id` (`ST`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.meaning ^comment = "TKB-fält: `../../../../../meaning` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.itemName ^comment = "TKB-fält: `../../../../../name` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** itemName Heter name i schemat."
-* ehr_extract.all_compositions.content.entry.items.orig_parent_ref ^comment = "TKB-fält: `../../../../../orig_parent_ref` (`II`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.policy_ids ^comment = "TKB-fält: `../../../../../policy_ids` (`II`, kardinalitet 0..*)."
-* ehr_extract.all_compositions.content.entry.items.rc_id ^comment = "TKB-fält: `../../../../../rc_id` (`II`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.sensitivity ^comment = "TKB-fält: `../../../../../sensitivity` (`INT`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.synthesised ^comment = "TKB-fält: `../../../../../synthesised` (`BL`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.links ^definition = "Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme."
-* ehr_extract.all_compositions.content.entry.items.links ^comment = "TKB-fält: `../../../../../links` (`LINK`, kardinalitet 0..*)."
-* ehr_extract.all_compositions.content.entry.items.links.follow_link ^comment = "TKB-fält: `../../../../../../follow_link` (`BL`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.links.nature ^comment = "TKB-fält: `../../../../../../nature` (`CS`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.links.role ^comment = "TKB-fält: `../../../../../../role` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.links.target_type ^comment = "TKB-fält: `../../../../../../target_type` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.links.target_id ^comment = "TKB-fält: `../../../../../../target_id` (`II`, kardinalitet 1..*)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit ^definition = "The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining \"attribute_version_status.coding_scheme_name\" in the printed standard."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit ^comment = "TKB-fält: `../../../../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.committer ^comment = "TKB-fält: `../../../../../../committer` (`II`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.ehr_system ^comment = "TKB-fält: `../../../../../../ehr_system` (`II`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.previous_version ^comment = "TKB-fält: `../../../../../../previous_version` (`II`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.reason_for_revision ^comment = "TKB-fält: `../../../../../../reason_for_revision` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.time_committed ^comment = "TKB-fält: `../../../../../../time_committed` (`TS`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.version_set_id ^comment = "TKB-fält: `../../../../../../version_set_id` (`II`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.feeder_audit.version_status ^comment = "TKB-fält: `../../../../../../version_status` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.emphasis ^comment = "TKB-fält: `../../../../../emphasis` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.item_category ^comment = "TKB-fält: `../../../../../item_category` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.obs_time ^comment = "TKB-fält: `../../../../../obs_time` (`IVL_TS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.cluster ^definition = "Element som bara finns när instansen är av subtypen CLUSTER (xsi:type)."
-* ehr_extract.all_compositions.content.entry.items.cluster ^comment = "TKB-fält: `../../../../../cluster` (`CLUSTER`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.cluster.structure_type ^comment = "TKB-fält: `../../../../../../structure_type` (`CS`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.items.cluster.parts ^definition = "(Rekursiv typ, ej utvecklad.)"
-* ehr_extract.all_compositions.content.entry.items.cluster.parts ^comment = "TKB-fält: `../../../../../../parts` (`ITEM`, kardinalitet 0..*)."
-* ehr_extract.all_compositions.content.entry.items.element ^definition = "Element som bara finns när instansen är av subtypen ELEMENT (xsi:type)."
-* ehr_extract.all_compositions.content.entry.items.element ^comment = "TKB-fält: `../../../../../element` (`ELEMENT`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.items.element.elementValue ^definition = "(ISO 21090 ANY, polymorft värde, modellerat som string.)"
-* ehr_extract.all_compositions.content.entry.items.element.elementValue ^comment = "TKB-fält: `../../../../../../value` (`ANY`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.info_provider ^definition = "The participation of an entity in the EHR."
-* ehr_extract.all_compositions.content.entry.info_provider ^comment = "TKB-fält: `../../../../info_provider` (`FUNCTIONAL_ROLE`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.info_provider.function ^comment = "TKB-fält: `../../../../../function` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.info_provider.healthcare_facility ^comment = "TKB-fält: `../../../../../healthcare_facility` (`II`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.info_provider.mode ^comment = "TKB-fält: `../../../../../mode` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.info_provider.performer ^comment = "TKB-fält: `../../../../../performer` (`II`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.info_provider.service_setting ^comment = "TKB-fält: `../../../../../service_setting` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.other_participations ^definition = "The participation of an entity in the EHR."
-* ehr_extract.all_compositions.content.entry.other_participations ^comment = "TKB-fält: `../../../../other_participations` (`FUNCTIONAL_ROLE`, kardinalitet 0..*)."
-* ehr_extract.all_compositions.content.entry.other_participations.function ^comment = "TKB-fält: `../../../../../function` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.other_participations.healthcare_facility ^comment = "TKB-fält: `../../../../../healthcare_facility` (`II`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.other_participations.mode ^comment = "TKB-fält: `../../../../../mode` (`CS`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.other_participations.performer ^comment = "TKB-fält: `../../../../../performer` (`II`, kardinalitet 1..1)."
-* ehr_extract.all_compositions.content.entry.other_participations.service_setting ^comment = "TKB-fält: `../../../../../service_setting` (`CD`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.subject_of_information ^definition = "Identifies the relationship of a person to the subject of care. Specifically used in Entry.subject_of_information."
-* ehr_extract.all_compositions.content.entry.subject_of_information ^comment = "TKB-fält: `../../../../subject_of_information` (`RELATED_PARTY`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.subject_of_information.party ^comment = "TKB-fält: `../../../../../party` (`II`, kardinalitet 0..1)."
-* ehr_extract.all_compositions.content.entry.subject_of_information.relationship ^comment = "TKB-fält: `../../../../../relationship` (`ED`, kardinalitet 1..1)."
 * ehr_extract.criteria ^definition = "Restrictions or filters on the creation of the EHR Extract. The time_period should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types."
 * ehr_extract.criteria ^comment = "TKB-fält: `../criteria` (`EXTRACT_CRITERIA`, kardinalitet 0..*)."
 * ehr_extract.criteria.all_versions ^comment = "TKB-fält: `../../all_versions` (`BL`, kardinalitet 0..1)."
@@ -189,9 +115,7 @@ Obs: modellen anger 0..* där TKB:n anger 0..1.
 * ehr_extract.folders ^comment = "TKB-fält: `../folders` (`FOLDER`, kardinalitet 0..*)."
 * ehr_extract.folders.archetype_id ^comment = "TKB-fält: `../../archetype_id` (`ST`, kardinalitet 0..1)."
 * ehr_extract.folders.meaning ^comment = "TKB-fält: `../../meaning` (`CD`, kardinalitet 0..1)."
-* ehr_extract.folders.folderName ^comment = "TKB-fält: `../../name` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** folderName Heter name i schemat."
+* ehr_extract.folders.name ^comment = "TKB-fält: `../../name` (`ST`, kardinalitet 1..1)."
 * ehr_extract.folders.orig_parent_ref ^comment = "TKB-fält: `../../orig_parent_ref` (`II`, kardinalitet 0..1)."
 * ehr_extract.folders.policy_ids ^comment = "TKB-fält: `../../policy_ids` (`II`, kardinalitet 0..*)."
 * ehr_extract.folders.rc_id ^comment = "TKB-fält: `../../rc_id` (`II`, kardinalitet 1..1)."
@@ -214,7 +138,9 @@ Obs: modellen anger 0..* där TKB:n anger 0..1.
 * ehr_extract.folders.feeder_audit.version_set_id ^comment = "TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1)."
 * ehr_extract.folders.feeder_audit.version_status ^comment = "TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1)."
 * ehr_extract.folders.sub_folders ^definition = "(Rekursiv typ, ej utvecklad.)"
-* ehr_extract.folders.sub_folders ^comment = "TKB-fält: `../../sub_folders` (`FOLDER`, kardinalitet 0..*)."
+* ehr_extract.folders.sub_folders ^comment = "TKB-fält: `../../sub_folders` (`FOLDER`, kardinalitet 0..*).
+
+**Modellanteckning:** sub_folders Rekursiv: samma struktur som getehrextract.ehr_extract.folders."
 * ehr_extract.folders.attestations ^definition = "Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only."
 * ehr_extract.folders.attestations ^comment = "TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*)."
 * ehr_extract.folders.attestations.attested_view ^comment = "TKB-fält: `../../../attested_view` (`ED`, kardinalitet 0..1)."
@@ -233,39 +159,14 @@ Obs: modellen anger 0..* där TKB:n anger 0..1.
 * ehr_extract.demographic_extract ^definition = "Superclass of all identified parties to the record. Note that the type of id is not given in the printed class description but is included in the class diagram on page 47 of the standard. Abstrakt typ; instansen anges med xsi:type som en av SOFTWARE_OR_DEVICE, ORGANISATION, PERSON."
 * ehr_extract.demographic_extract ^comment = "TKB-fält: `../demographic_extract` (`IDENTIFIED_ENTITY`, kardinalitet 0..*)."
 * ehr_extract.demographic_extract.extract_id ^comment = "TKB-fält: `../../extract_id` (`II`, kardinalitet 1..1)."
+* ehr_extract.demographic_extract.id ^comment = "TKB-fält: `../../id` (`II`, kardinalitet 0..*)."
 * ehr_extract.demographic_extract.telecom ^comment = "TKB-fält: `../../telecom` (`TEL`, kardinalitet 0..*)."
-* ehr_extract.demographic_extract.softwareOrDevice ^definition = "Element som bara finns när instansen är av subtypen SOFTWARE_OR_DEVICE (xsi:type)."
-* ehr_extract.demographic_extract.softwareOrDevice ^comment = "TKB-fält: `../../softwareOrDevice` (`SOFTWARE_OR_DEVICE`, kardinalitet 0..1)."
-* ehr_extract.demographic_extract.softwareOrDevice.softwareOrDeviceCode ^comment = "TKB-fält: `../../../code` (`CD`, kardinalitet 1..1).
-
-**Modellanteckning:** softwareOrDeviceCode Heter code i schemat."
-* ehr_extract.demographic_extract.softwareOrDevice.desc ^comment = "TKB-fält: `../../../desc` (`ST`, kardinalitet 1..1)."
-* ehr_extract.demographic_extract.softwareOrDevice.manufacturerModelName ^comment = "TKB-fält: `../../../manufacturerModelName` (`ST`, kardinalitet 1..1)."
-* ehr_extract.demographic_extract.softwareOrDevice.softwareOrDeviceVersion ^comment = "TKB-fält: `../../../version` (`ST`, kardinalitet 0..1).
-
-**Modellanteckning:** softwareOrDeviceVersion Heter version i schemat."
-* ehr_extract.demographic_extract.softwareOrDevice.owningOrganisation_id ^comment = "TKB-fält: `../../../owningOrganisation_id` (`ST`, kardinalitet 0..1)."
-* ehr_extract.demographic_extract.organisation ^definition = "Element som bara finns när instansen är av subtypen ORGANISATION (xsi:type)."
-* ehr_extract.demographic_extract.organisation ^comment = "TKB-fält: `../../organisation` (`ORGANISATION`, kardinalitet 0..1)."
-* ehr_extract.demographic_extract.organisation.organisationCode ^comment = "TKB-fält: `../../../code` (`CD`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationCode Heter code i schemat."
-* ehr_extract.demographic_extract.organisation.desc ^comment = "TKB-fält: `../../../desc` (`ST`, kardinalitet 1..1)."
-* ehr_extract.demographic_extract.organisation.organisationName ^comment = "TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
-* ehr_extract.demographic_extract.organisation.addr ^comment = "TKB-fält: `../../../addr` (`AD`, kardinalitet 0..*)."
-* ehr_extract.demographic_extract.person ^definition = "Element som bara finns när instansen är av subtypen PERSON (xsi:type)."
-* ehr_extract.demographic_extract.person ^comment = "TKB-fält: `../../person` (`PERSON`, kardinalitet 0..1)."
-* ehr_extract.demographic_extract.person.personName ^comment = "TKB-fält: `../../../name` (`EN`, kardinalitet 0..*).
-
-**Modellanteckning:** personName Heter name i schemat."
-* ehr_extract.demographic_extract.person.addr ^comment = "TKB-fält: `../../../addr` (`AD`, kardinalitet 0..*)."
 * continuation_token ^comment = "TKB-fält: `continuation_token` (`ST`, kardinalitet 0..1)."
 * response_detail ^definition = "Fel-, varnings- och/eller informationsmeddelanden."
 * response_detail ^comment = "TKB-fält: `response_detail` (`ResponseDetailType`, kardinalitet 0..*)."
-* response_detail.responseDetailText ^comment = "TKB-fält: `../text` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** responseDetailText Heter text i schemat."
+* response_detail.code ^comment = "TKB-fält: `../code` (`CD`, kardinalitet 0..1)."
+* response_detail.text ^comment = "TKB-fält: `../text` (`ST`, kardinalitet 1..1)."
 * response_detail.type_code ^definition = "(XML-attribut.)"
-* response_detail.type_code ^comment = "TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1)."
+* response_detail.type_code ^comment = "TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).
+
+**Modellanteckning:** type_code (XML-attribut) Tillåtna värden: E, W, I."

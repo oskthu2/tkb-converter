@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i RegisterTemporaryExtendedRevoke\n(urn:riv:informationsecurity:authorization:blocking:RegisterTemporaryExtendedRevokeResponder:4, RegisterTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "registertemporaryextendedrevoke-request.logicalAddress",
-        "path": "registertemporaryextendedrevoke-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "registertemporaryextendedrevoke-request.temporaryRevokeId",
         "path": "registertemporaryextendedrevoke-request.temporaryRevokeId",
         "short": "temporaryRevokeId",
@@ -113,14 +100,14 @@
       {
         "id": "registertemporaryextendedrevoke-request.registerAction",
         "path": "registertemporaryextendedrevoke-request.registerAction",
-        "short": "registerAction",
+        "short": "ActionType",
         "definition": "Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa.",
-        "comment": "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+        "comment": "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -141,14 +128,14 @@
       {
         "id": "registertemporaryextendedrevoke-request.registerAction.requestedBy",
         "path": "registertemporaryextendedrevoke-request.registerAction.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -211,14 +198,14 @@
       {
         "id": "registertemporaryextendedrevoke-request.registerAction.registeredBy",
         "path": "registertemporaryextendedrevoke-request.registerAction.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -283,7 +270,7 @@
         "path": "registertemporaryextendedrevoke-request.revokeReason",
         "short": "revokeReason",
         "definition": "Enumerationsvärde för orsak till tillfällig hävning.",
-        "comment": "TKB-fält: `revokeReason` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `revokeReason` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType`, kardinalitet 1..1).\n\n**Modellanteckning:** revokeReason Tillåtna värden: PatientsConsent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [

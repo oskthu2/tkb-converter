@@ -486,7 +486,9 @@ def sync_ig(ig: Path, check: bool, report: bool = False, explain: bool = False, 
     md = pc / "7-tjanstekontrakt.md"
     if not md.exists() or not fshdir.exists():
         return [], []
-    files = sorted(p for p in fshdir.rglob("*.fsh") if GEN_DIR not in p.parts)
+    # Lokala datatyper (input/fsh/datatypes, scripts/xsd_logical_models.py) är inga kontrakt: en
+    # typ som DatePeriodType skulle annars ta över kontraktets fälttabell via rubriken.
+    files = sorted(p for p in fshdir.rglob("*.fsh") if GEN_DIR not in p.parts and "datatypes" not in p.parts)
     models = [m for f in files for m in parse_models(f)]
     if not models:
         return [], []
@@ -578,6 +580,16 @@ def sync_ig(ig: Path, check: bool, report: bool = False, explain: bool = False, 
         gen = fshdir / GEN_DIR / f"{mdl.name}FieldDescriptions.fsh"
         rs = f"{mdl.name}FieldDescriptions"
         if not slot:
+            # Ingen tabellrad träffar modellen längre: RuleSet:en och insert-raden tas bort,
+            # annars pekar den på element som inte finns och SUSHI fallerar (en tom RuleSet
+            # är ingen giltig FSH).
+            text = mdl.file.read_text(encoding="utf-8")
+            new_text = re.sub(rf"\n*(?:{re.escape(INSERT_COMMENT)}\n)?\*\s+insert\s+{re.escape(rs)}\s*\n", "\n", text)
+            if gen.exists() or new_text != text:
+                changed += [f for f in (gen, mdl.file) if f.exists()]
+                if not check:
+                    gen.unlink(missing_ok=True)
+                    mdl.file.write_text(new_text, encoding="utf-8")
             continue
         out = [GEN_HEADER, f"RuleSet: {rs}"]
         for e in mdl.elems:

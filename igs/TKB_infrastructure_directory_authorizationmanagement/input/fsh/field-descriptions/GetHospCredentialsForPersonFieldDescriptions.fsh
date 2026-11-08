@@ -6,16 +6,10 @@ RuleSet: GetHospCredentialsForPersonFieldDescriptions
 
 Ref. Person-id (personalIdentityNumber) [R5]"
 * personalIdentityNumber ^comment = "TKB-fält: `personalIdentityNumber` (`IIType`, kardinalitet 1..1)."
-* personalIdentityNumber.root ^definition = "Anger typ av personalIdentity som returneras"
-* personalIdentityNumber.root ^comment = "TKB-fält: `.. root` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** För personnummer: 1.2.752.129.2.1.3.1, för samordningsnummer: 1.2.752.129.2.1.3.3."
 * healthCareProfessionalLicence ^definition = "Personens Legitimerade yrkestitel(-lar)"
 * healthCareProfessionalLicence ^comment = "TKB-fält: `healthCareProfessionalLicence` (`healthCareProfessionalLicenceType`, kardinalitet 0..n)."
 * healthCareProfessionalLicence.healthCareProfessionalLicenceCode ^definition = "Kod för personens Legitimerade yrkestitel."
 * healthCareProfessionalLicence.healthCareProfessionalLicenceCode ^comment = "TKB-fält: `.. healthCareProfessionalLicenceCode` (`String`, kardinalitet 1..1)."
-* healthCareProfessionalLicence.healtCareProfessionalLicenceName ^definition = "Klartext för personens Legitimerade yrkestitel."
-* healthCareProfessionalLicence.healtCareProfessionalLicenceName ^comment = "TKB-fält: `.. healtCareProfessionalLicenceName` (`String`, kardinalitet 1..1)."
 * personalPrescriptionCode ^definition = "Personlig förskrivarkod. Ref. Förskrivarkod (personalPrescriptionCode) [R5]"
 * personalPrescriptionCode ^comment = "TKB-fält: `personalPrescriptionCode` (`String`, kardinalitet 0..1)."
 * healthCareProfessionalLicenceSpeciality ^definition = "Personens specialistkod(er) kopplat till aktuell legitimerad yrkesgrupp."

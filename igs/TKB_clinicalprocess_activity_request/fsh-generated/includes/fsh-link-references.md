@@ -10,6 +10,7 @@
 [RequestOutcomeTypeCS]: CodeSystem-requestoutcometype-cs.html
 [VersionReasonVS]: ValueSet-versionreason-vs.html
 [VersionReasonCS]: CodeSystem-versionreason-cs.html
+[CVType]: StructureDefinition-CVType.html
 [ErrorCodeVS]: ValueSet-errorcode-vs.html
 [ErrorCodeCS]: CodeSystem-errorcode-cs.html
 [ProcessResult]: StructureDefinition-process-result.html
@@ -18,3 +19,4 @@
 [ProcessRequestOutcome]: StructureDefinition-processrequestoutcome.html
 [ResultCodeVS]: ValueSet-resultcode-vs.html
 [ResultCodeCS]: CodeSystem-resultcode-cs.html
+[VersionNumberType]: StructureDefinition-VersionNumberType.html

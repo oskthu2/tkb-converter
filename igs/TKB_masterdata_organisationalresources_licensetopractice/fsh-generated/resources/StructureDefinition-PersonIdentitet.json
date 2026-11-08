@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PersonIdentitet",
+  "url": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet",
+  "name": "PersonIdentitet",
+  "title": "PersonIdentitet",
+  "status": "active",
+  "description": "PersonIdentitet (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-personidentitet-pattern",
+            "severity": "error",
+            "human": "PersonIdentitet ska följa mönstret i schemat: \\d{12}",
+            "expression": "matches('^(?:(?:\\\\d{12}))$')",
+            "source": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet"
+          }
+        ]
+      }
+    ]
+  }
+}

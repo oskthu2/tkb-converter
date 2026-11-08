@@ -5,9 +5,7 @@ RuleSet: RevokeExtendedBlockRequestFieldDescriptions
 * blockId ^definition = "Unik, global identifierare för spärren."
 * blockId ^comment = "TKB-fält: `blockId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1)."
 * revokeAction ^definition = "Identifierar de personer som begärt och permanent hävt spärren samt tidpunkter för dessa."
-* revokeAction ^comment = "TKB-fält: `revokeAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* revokeAction ^comment = "TKB-fält: `revokeAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1)."
 * revokeAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * revokeAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * revokeAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

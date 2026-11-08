@@ -1,3 +1,6 @@
+// Elementen genereras ur CheckBlocksResponder_3.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:blocking v3.2.2
 // Kontrakt: CheckBlocks v3.0 — Request-parametrar
 // Genererad: 2026-04-09
@@ -19,5 +22,4 @@ Characteristics: #can-be-target
   * informationType 0..1 string "Informationstyp att kontrollera (lämna tomt för alla typer)"
 * patientId 1..1 string "Patientens personnummer eller samordningsnummer"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CheckBlocksRequestFieldDescriptions

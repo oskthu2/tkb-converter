@@ -1,3 +1,6 @@
+// Elementen genereras ur LasLFVardsystemResponder_4.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.lf v7.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: LasLFVardsystem v4.1
 // Genererad: 2026-09-26
@@ -58,5 +61,4 @@ Characteristics: #can-be-target
 * varningsnivaUppnadd 1..1 boolean "varningsnivaUppnadd" "Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt."
 * avPatientSparradePosterArBorttagna 1..1 boolean "avPatientSparradePosterArBorttagna" "Markering som anger om poster plockats bort ur resultatet pga att patienten spärrat dessa, dvs det finns poster som är spärrade och därför inte är med i resultatet. (Refererat element ur LasLFVardsystemResponder_4.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4.1.)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert LasLFVardsystemFieldDescriptions

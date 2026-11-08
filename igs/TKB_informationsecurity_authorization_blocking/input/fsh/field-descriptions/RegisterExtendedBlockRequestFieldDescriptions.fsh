@@ -5,15 +5,11 @@ RuleSet: RegisterExtendedBlockRequestFieldDescriptions
 * blockId ^definition = "Unik, global identifierare för spärren. Tjänstekonsumenten ansvarar för att generera id:et."
 * blockId ^comment = "TKB-fält: `blockId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1)."
 * blockType ^definition = "Enumerationsvärde som anger om spärren är en inre (inom vårdenhet) eller yttre (inom vårdgivare)."
-* blockType ^comment = "TKB-fält: `blockType` (`urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType`, kardinalitet 1..1)."
+* blockType ^comment = "TKB-fält: `blockType` (`urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType`, kardinalitet 1..1).
+
+**Modellanteckning:** blockType Tillåtna värden: Inner, Outer."
 * patientId ^definition = "Personidentitet på patienten såsom personnummer, samordningsnummer eller reservnummer."
-* patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:blocking:4:IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** En universellt unik identifierare."
-* patientId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* patientId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:blocking:4:IIType`, kardinalitet 1..1)."
 * informationStartDate ^definition = "Ej obligatoriskt startdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller efter denna tidpunkt."
 * informationStartDate ^comment = "TKB-fält: `informationStartDate` (`xs:DateTime`, kardinalitet 0..1)."
 * informationEndDate ^definition = "Ej obligatoriskt slutdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller före denna tidpunkt."
@@ -25,9 +21,7 @@ RuleSet: RegisterExtendedBlockRequestFieldDescriptions
 * excludedInformationTypes ^definition = "Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'."
 * excludedInformationTypes ^comment = "TKB-fält: `excludedInformationTypes` (`urn:riv:informationsecurity:authorization:blocking:4:InformationTypeIdValue`, kardinalitet 0..*)."
 * registerAction ^definition = "Identifierar de personer som begärt och registrerat spärren samt tidpunkter för dessa."
-* registerAction ^comment = "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* registerAction ^comment = "TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1)."
 * registerAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * registerAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * registerAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

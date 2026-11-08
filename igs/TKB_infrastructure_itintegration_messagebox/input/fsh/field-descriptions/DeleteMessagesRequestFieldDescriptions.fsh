@@ -3,6 +3,4 @@
 
 RuleSet: DeleteMessagesRequestFieldDescriptions
 * messageIds ^definition = "Meddelandeidentitet"
-* messageIds ^comment = "TKB-fält: `messageIds` (`long`, kardinalitet 1..n).
-
-**Modellanteckning:** messageIds (xs:long i schemat.)"
+* messageIds ^comment = "TKB-fält: `messageIds` (`long`, kardinalitet 1..n)."

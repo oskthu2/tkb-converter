@@ -3,25 +3,19 @@
 
 RuleSet: GetPatientContactInformationFieldDescriptions
 * lastUpdatedBy ^comment = "TKB-fält: `lastUpdatedBy` (`IIType`, kardinalitet 0..1)."
-* lastUpdatedBy.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* lastUpdatedBy.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * lastUpdatedTime ^comment = "TKB-fält: `lastUpdatedTime` (`TimeStampType`, kardinalitet 0..1)."
 * patient ^definition = "person_ID : Nationell identifikation på personen. Dock ej reservnummer. kommentar : Övrig kontaktuppgift för patient. Fri text"
 * patient ^comment = "TKB-fält: `patient` (`PatientType`, kardinalitet 0..1)."
-* patient.patientId ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** patientId Heter id i schemat."
-* patient.patientId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* patient.patientId.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* patient.id ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1..1)."
 * patient.comment ^comment = "TKB-fält: `../comment` (`string`, kardinalitet 0..1)."
 * contactInformation ^definition = "typ_av_telekom : Anger vilken typ av internet/telefoni-kommunikation som avses. Kodval ur kodverk med OID: 1.2.752.129.2.2.1.30 1 - Telefon - Användaren får välja mellan två svenska format: a) [riktnummer med inledande nolla] [följt av lokalt nummer] b) +46 [riktnummer utan inledande nolla][lokalt nummer] Tillåt blanktecken mellan grupper av siffror, samt minus (-) och slash (/) som separatorer emellan. 2 - Fax - Format som telefon ovan. 3 - Mobiltelefon - Format som telefon ovan. Dock endast riktnummer på 070, 072, 073 och 076 (mobiltelefoni), eller 010 (geografiskt oberoende tjänster). Detta enligt nu gällande nummerplan, som dock ändras på sikt. 4 - Personsökare - Format som telefon ovan. Dock endast riktnummer på 074 (personsökning). 5 - Epost - Defineras enligt RFC 5322 Internet message format !6! - !hemsida! - !Ska inte användas för detta tjänstekontrakt! För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:TelecomTypeEnum typ_av_kontakt : Anger om tele- e-Kom adress t.ex. är privat eller till arbetet kv teleekomkontakttyp OID: 1.2.752.129.2.2.1.29 Exempel: privat, arbete För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:ContactTypeEnum nummer_eller_elektronisk_adress : Tele-/Mobil-/Sökare-/Fax-nummer eller elektronisk adress kommentar : Övrig kontaktuppgift per telnr/email"
 * contactInformation ^comment = "TKB-fält: `contactInformation` (`ContactInfoType`, kardinalitet 0..*)."
-* contactInformation.telecomType ^comment = "TKB-fält: `../telecomType` (`TypeOfTelecomPatientEnum`, kardinalitet 1..1)."
-* contactInformation.contactType ^comment = "TKB-fält: `../contactType` (`TypeOfContactEnum`, kardinalitet 0..1)."
+* contactInformation.telecomType ^comment = "TKB-fält: `../telecomType` (`TypeOfTelecomPatientEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** telecomType Tillåtna värden: 1, 2, 3, 4, 5."
+* contactInformation.contactType ^comment = "TKB-fält: `../contactType` (`TypeOfContactEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** contactType Tillåtna värden: 1, 2."
 * contactInformation.numberOrElectronicalAddress ^comment = "TKB-fält: `../numberOrElectronicalAddress` (`string`, kardinalitet 1..1)."
 * contactInformation.comment ^comment = "TKB-fält: `../comment` (`string`, kardinalitet 0..1)."
 * contactInformation.otherContactInfo ^definition = "completingContactInfo: Fri text Kompletterande information som inte går att notera i strukturerat format."
@@ -31,9 +25,11 @@ RuleSet: GetPatientContactInformationFieldDescriptions
 * contactPerson ^comment = "TKB-fält: `contactPerson` (`ContactPersonType`, kardinalitet 0..*)."
 * contactPerson.relationType ^definition = "codeSystem: Släkt relation (OID 1.2.752.129.2.2.1.24) Närstående relation (OID 1.2.752.129.2.2.1.8) Företrädare (OID 1.2.752.129.2.2.1.23) code: Any code valid in the given codeSystem, for more info see urn:riv:masterdata:citizen:patient:enums:1:TypeOfRelativeEnum urn:riv:masterdata:citizen:patient:enums:1:TypeOfCloseRelationEnum urn:riv:masterdata:citizen:patient:enums:1:TypeOfRepresentativeEnum"
 * contactPerson.relationType ^comment = "TKB-fält: `../relationType` (`ContactRelationType`, kardinalitet 1..1)."
-* contactPerson.relationType.contactRelationCode ^definition = "Union av kodverken TypeOfRelativeEnum, TypeOfCloseRelationEnum, TypeOfRepresentativeEnum."
-* contactPerson.relationType.contactRelationCode ^comment = "TKB-fält: `../../code` (`TypeOfContactRelationEnum`, kardinalitet 1..1)."
-* contactPerson.relationType.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`TypeOfContactRelationCodeSystemEnum`, kardinalitet 1..1)."
+* contactPerson.relationType.code ^definition = "Union av kodverken TypeOfRelativeEnum, TypeOfCloseRelationEnum, TypeOfRepresentativeEnum."
+* contactPerson.relationType.code ^comment = "TKB-fält: `../../code` (`TypeOfContactRelationEnum`, kardinalitet 1..1)."
+* contactPerson.relationType.codeSystem ^comment = "TKB-fält: `../../codeSystem` (`TypeOfContactRelationCodeSystemEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** codeSystem Tillåtna värden: 1.2.752.129.2.2.1.24, 1.2.752.129.2.2.1.8, 1.2.752.129.2.2.1.23."
 * contactPerson.rank ^comment = "TKB-fält: `../rank` (`int`, kardinalitet 1..1)."
 * contactPerson.otherContactInfo ^definition = "completingContactInfo: Fri text Kompletterande information som inte går att notera i strukturerat format."
 * contactPerson.otherContactInfo ^comment = "TKB-fält: `../otherContactInfo` (`OtherContactInfoType`, kardinalitet 0..1)."
@@ -48,8 +44,12 @@ RuleSet: GetPatientContactInformationFieldDescriptions
 * contactPerson.contactPersonAddress.city ^comment = "TKB-fält: `../../city` (`string`, kardinalitet 1..1)."
 * contactPerson.contactInformation ^definition = "Kontaktpersonens telefonnummer typ_av_telekom : Anger vilken typ av telefonikommunikation som avses. Kodval ur kodverk med OID: 1.2.752.129.2.2.1.30 1 - Telefon - Användaren får välja mellan två svenska format: a) [riktnummer med inledande nolla] [följt av lokalt nummer] b) +46 [riktnummer utan inledande nolla][lokalt nummer] Tillåt blanktecken mellan grupper av siffror, samt minus (-) och slash (/) som separatorer emellan. 2 - Fax - Format som telefon ovan. 3 - Mobiltelefon - Format som telefon ovan. Dock endast riktnummer på 070, 072, 073 och 076 (mobiltelefoni), eller 010 (geografiskt oberoende tjänster). Detta enligt nu gällande nummerplan, som dock ändras på sikt. 4 - Personsökare - Format som telefon ovan. Dock endast riktnummer på 074 (personsökning). !5! - !Epost! - !SKA INTE ANVÄNDAS FÖR KONTAKTPERSONER! !6! - !hemsida! - !Ska inte användas för detta tjänstekontrakt! För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:TelecomTypeEnum typ_av_kontakt : Anger om telefonnummer t.ex. är privat eller till arbetet kv tele ekomkontakttyp OID: 1.2.752.129.2.2.1.29 Exempel: privat, arbete För mer info, se definition av urn:riv:masterdata:citizen:patient:enums:1:ContactTypeEnum nummer : Tele-/Mobil-/Sökare-/Fax-nummer kommentar : Övrig kontaktuppgift per telnr/email"
 * contactPerson.contactInformation ^comment = "TKB-fält: `../contactInformation` (`ContactPersonTelephoneContactInfoType`, kardinalitet 0..*)."
-* contactPerson.contactInformation.telecomType ^comment = "TKB-fält: `../../telecomType` (`TypeOfTelecomContactPersonEnum`, kardinalitet 1..1)."
-* contactPerson.contactInformation.contactType ^comment = "TKB-fält: `../../contactType` (`TypeOfContactEnum`, kardinalitet 0..1)."
+* contactPerson.contactInformation.telecomType ^comment = "TKB-fält: `../../telecomType` (`TypeOfTelecomContactPersonEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** telecomType Tillåtna värden: 1, 2, 3, 4."
+* contactPerson.contactInformation.contactType ^comment = "TKB-fält: `../../contactType` (`TypeOfContactEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** contactType Tillåtna värden: 1, 2."
 * contactPerson.contactInformation.numberOrElectronicalAddress ^comment = "TKB-fält: `../../numberOrElectronicalAddress` (`string`, kardinalitet 1..1)."
 * contactPerson.contactInformation.comment ^comment = "TKB-fält: `../../comment` (`string`, kardinalitet 0..1)."
 * contactPerson.contactInformation.otherContactInfo ^definition = "completingContactInfo: Fri text Kompletterande information som inte går att notera i strukturerat format."
@@ -58,10 +58,6 @@ RuleSet: GetPatientContactInformationFieldDescriptions
 * contactPerson.comment ^comment = "TKB-fält: `../comment` (`string`, kardinalitet 0..1)."
 * contactPerson.periodOfValidity ^definition = "Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD"
 * contactPerson.periodOfValidity ^comment = "TKB-fält: `../periodOfValidity` (`DatePeriodType`, kardinalitet 0..1)."
-* contactPerson.periodOfValidity.start ^comment = "TKB-fält: `../../start` (`DateType`, kardinalitet 1..1)."
-* contactPerson.periodOfValidity.end ^comment = "TKB-fält: `../../end` (`DateType`, kardinalitet 1..1)."
 * contactPerson.contactAllowed ^comment = "TKB-fält: `../contactAllowed` (`boolean`, kardinalitet 1..1)."
 * contactPerson.contactTime ^comment = "TKB-fält: `../contactTime` (`string`, kardinalitet 0..1)."
-* getPatientContactInformationVersion ^comment = "TKB-fält: `version` (`long`, kardinalitet 0..1).
-
-**Modellanteckning:** getPatientContactInformationVersion (xs:long i schemat.) Heter version i schemat."
+* version ^comment = "TKB-fält: `version` (`long`, kardinalitet 0..1)."

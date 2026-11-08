@@ -1,3 +1,6 @@
+// Elementen genereras ur GetAllHealthcareFacilitiesResponder_1.1.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB crm:scheduling v1.1
 // Kontrakt: GetAllHealthcareFacilities v1.1
 // Genererad: 2026-03-24
@@ -14,18 +17,6 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.1"
-* healthcareFacilityInfos 0..* BackboneElement "Lista med tillgängliga mottagningar/vårdenheter"
-    """
-    Lista med tillgängliga mottagningar/vårdenheter (HealthcareFacilityInfoType).
-    Kardinalitet: Valfri, lista.
-    """
-  * healthcare_facility 1..1 Identifier "HSA-id för mottagning/vårdenhet"
-      """
-      HSA-id för mottagning/vårdenhet.
-      Kardinalitet: Obligatorisk.
-      """
-  * healthcare_facility_name 0..1 string "Vårdenhetens föredragna namn"
-      """
-      Vårdenhetens föredragna namn vid visning för användare (i förhållande till HSA-katalogens innehåll).
-      Kardinalitet: Valfri.
-      """
+* healthcareFacilityInfos 0..* Base "HealthcareFacilityInfoType" "healthcareFacilityInfos"
+* healthcareFacilityInfos.healthcare_facility 1..1 string "healthcare_facility" "healthcare_facility"
+* healthcareFacilityInfos.healthcare_facility_name 0..1 string "healthcare_facility_name" "healthcare_facility_name"

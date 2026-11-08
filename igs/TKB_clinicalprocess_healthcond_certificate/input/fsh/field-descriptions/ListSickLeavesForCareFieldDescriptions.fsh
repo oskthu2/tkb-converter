@@ -8,8 +8,8 @@ RuleSet: ListSickLeavesForCareFieldDescriptions
 * sjukfallLista.sjukfall ^comment = "TKB-fält: `../sjukfall` (`Sjukfall (lokalt definierad i kontraktet)`, kardinalitet 0..*).
 
 **Mappning DIM:** Sjukfall"
-* sjukfallLista.sjukfall.personId ^definition = "Patientens person- eller samordningsnummer."
-* sjukfallLista.sjukfall.personId ^comment = "TKB-fält: `../../person-id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+* sjukfallLista.sjukfall.person-id ^definition = "Patientens person- eller samordningsnummer."
+* sjukfallLista.sjukfall.person-id ^comment = "TKB-fält: `../../person-id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
 
 **Mappning DIM:** Patient.person.id"
 * sjukfallLista.sjukfall.patientFullstandigtNamn ^definition = "Patientens namn."
@@ -20,12 +20,12 @@ RuleSet: ListSickLeavesForCareFieldDescriptions
 Patient.mellannamn
 
 Patient.efternamn"
-* sjukfallLista.sjukfall.enhetsId ^definition = "HSA-id för enhet."
-* sjukfallLista.sjukfall.enhetsId ^comment = "TKB-fält: `../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
+* sjukfallLista.sjukfall.enhets-id ^definition = "HSA-id för enhet."
+* sjukfallLista.sjukfall.enhets-id ^comment = "TKB-fält: `../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
 
 **Mappning DIM:** Enhet.enhets-id"
-* sjukfallLista.sjukfall.personalId ^definition = "HSA-id för HoS-person som har signerat nuvarande intyg i sjukfallet."
-* sjukfallLista.sjukfall.personalId ^comment = "TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
+* sjukfallLista.sjukfall.personal-id ^definition = "HSA-id för HoS-person som har signerat nuvarande intyg i sjukfallet."
+* sjukfallLista.sjukfall.personal-id ^comment = "TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
 
 **Mappning DIM:** HoS-personal.personal-id"
 * sjukfallLista.sjukfall.startdatum ^definition = "Datum då sjukfallet startade."

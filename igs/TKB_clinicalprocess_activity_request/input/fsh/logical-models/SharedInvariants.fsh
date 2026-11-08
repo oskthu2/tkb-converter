@@ -4,15 +4,15 @@
 
 Invariant: activity-request-condition-code-or-text
 Description: "Kliniskt tillstånd: ange antingen text eller kod, inte båda (schematron Verify condition)"
-Expression: "(conditionText.exists() and conditionCode.exists()).not()"
+Expression: "(text.exists() and code.exists()).not()"
 Severity: #error
 
 Invariant: activity-request-activity-code-or-text
 Description: "Åtgärd: ange antingen text eller kod, inte båda (schematron Verify desiredActivity)"
-Expression: "(activityText.exists() and activityCode.exists()).not()"
+Expression: "(text.exists() and code.exists()).not()"
 Severity: #error
 
 Invariant: activity-request-commitmenttype-chapter
 Description: "commitmentTypeChapter är obligatoriskt då commitmentType = 1 (schematron Verify paymentCommitment)"
-Expression: "commitmentType.coding.where(code = '1').exists() implies commitmentTypeChapter.exists()"
+Expression: "commitmentType.code = '1' implies commitmentTypeChapter.exists()"
 Severity: #error

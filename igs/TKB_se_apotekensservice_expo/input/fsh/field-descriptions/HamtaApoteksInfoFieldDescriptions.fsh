@@ -7,9 +7,7 @@ RuleSet: HamtaApoteksInfoFieldDescriptions
 * apoteksinformationLista.aktorsnamn ^definition = "Officiellt namn för aktör"
 * apoteksinformationLista.aktorsnamn ^comment = "TKB-fält: `../aktorsnamn` (`string`, kardinalitet 0..1)."
 * apoteksinformationLista.aktorsorgnr ^definition = "Aktörens organisationsnummer."
-* apoteksinformationLista.aktorsorgnr ^comment = "TKB-fält: `../aktorsorgnr` (`long`, kardinalitet 0..1).
-
-**Modellanteckning:** Aktörens organisationsnummer. (xs:long i schemat.)"
+* apoteksinformationLista.aktorsorgnr ^comment = "TKB-fält: `../aktorsorgnr` (`long`, kardinalitet 0..1)."
 * apoteksinformationLista.allmantelefon ^definition = "Telefonnummer för allmänheten"
 * apoteksinformationLista.allmantelefon ^comment = "TKB-fält: `../allmantelefon` (`string`, kardinalitet 0..1)."
 * apoteksinformationLista.besoksadress ^definition = "Expeditionsställets besöksadress"

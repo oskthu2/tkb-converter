@@ -1,3 +1,6 @@
+// Elementen genereras ur GetHealthCareUnitMembersResponder_2.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:organization v5.0
 // Kontrakt: GetHealthCareUnitMembers v2.1
 // Genererad: 2026-05-19
@@ -87,5 +90,4 @@ Characteristics: #can-be-target
     * feignedHealthCareUnitMember 0..1 boolean "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]."
     * archivedHealthCareUnitMember 0..1 boolean "true: om enheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]."
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetHealthCareUnitMembersFieldDescriptions

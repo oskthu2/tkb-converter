@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i GetAvailableHealthcareFacilities\n(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2, GetAvailableHealthcareFacilitiesType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "getavailablehealthcarefacilities-request.logicalAddress",
-        "path": "getavailablehealthcarefacilities-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The county/region code",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getavailablehealthcarefacilities-request.healthcareFacilities",
         "path": "getavailablehealthcarefacilities-request.healthcareFacilities",
         "short": "healthcareFacilities",
@@ -50,7 +37,10 @@
         "max": "*",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"
+            ]
           }
         ]
       },
@@ -64,91 +54,7 @@
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarefacilities-request.listingTypes.cVCode",
-        "path": "getavailablehealthcarefacilities-request.listingTypes.cVCode",
-        "short": "cVCode",
-        "definition": "Kod för listningstypen som ska filtreras på. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för code vara PV.\n\nRegioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.\n\nDe regionala koderna förväntas hämtas av tjänstekonsument via tjänstekontraktet GetListingTypes (adresserat till aktuell region).",
-        "comment": "TKB-fält: `listingTypes.code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cVCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarefacilities-request.listingTypes.codeSystem",
-        "path": "getavailablehealthcarefacilities-request.listingTypes.codeSystem",
-        "short": "codeSystem",
-        "definition": "Sätts till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas.\n\nOm listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för codeSystem vara ”1.2.752.129.5.1.27”.\n\nhttps://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2",
-        "comment": "TKB-fält: `listingTypes.codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarefacilities-request.listingTypes.codeSystemName",
-        "path": "getavailablehealthcarefacilities-request.listingTypes.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarefacilities-request.listingTypes.codeSystemVersion",
-        "path": "getavailablehealthcarefacilities-request.listingTypes.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarefacilities-request.listingTypes.displayName",
-        "path": "getavailablehealthcarefacilities-request.listingTypes.displayName",
-        "short": "displayName",
-        "definition": "Fältet kan utelämnas av konsument. Det är producentens (regionens listningssystem) ansvar att tillhandahålla listningstypens namn. En producent kan ignorera detta värde om konsument ändå skickar med ett namn på listningtyp för filtreringen. Filtreringen ska ske baserat på kombinationen code + codeSystem.",
-        "comment": "TKB-fält: `listingTypes.displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarefacilities-request.listingTypes.originalText",
-        "path": "getavailablehealthcarefacilities-request.listingTypes.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType"
           }
         ]
       }

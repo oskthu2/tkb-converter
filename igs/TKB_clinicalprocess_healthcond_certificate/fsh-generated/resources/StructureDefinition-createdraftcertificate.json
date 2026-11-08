@@ -28,55 +28,51 @@
         "definition": "Logisk modell för tjänstekontraktet CreateDraftCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:CreateDraftCertificate:3).\nRepresenterar responsens informationsstruktur — intygs-id på skapade intygsutkastet."
       },
       {
-        "id": "createdraftcertificate.intygsId",
-        "path": "createdraftcertificate.intygsId",
-        "short": "Unikt ID för det intygsutkast som skapats",
+        "id": "createdraftcertificate.intygs-id",
+        "path": "createdraftcertificate.intygs-id",
+        "short": "IntygId",
         "definition": "Unikt ID för det intygsutkast som skapats.",
-        "comment": "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 0..1).\n\n**Mappning DIM:** Intyg.intygs-id\n\n**Modellanteckning:** Returneras om anropet lyckades. Utelämnas vid fel.",
+        "comment": "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 0..1).\n\n**Mappning DIM:** Intyg.intygs-id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "createdraftcertificate.result",
         "path": "createdraftcertificate.result",
-        "short": "Information om anropets resultat",
+        "short": "ResultType",
         "definition": "Information om anropets resultat (OK, ERROR, INFO)",
         "comment": "TKB-fält: `result` (`ResultType  (se 7.1.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** -",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "createdraftcertificate.result.resultCode",
         "path": "createdraftcertificate.result.resultCode",
-        "short": "Resultatkod (OK/INFO/ERROR)",
-        "definition": "Resultatkod (OK/INFO/ERROR)",
+        "short": "resultCode",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/resultkod-vs"
-        }
+        ]
       },
       {
         "id": "createdraftcertificate.result.resultText",
         "path": "createdraftcertificate.result.resultText",
-        "short": "Fritext",
-        "definition": "Fritext",
+        "short": "resultText",
+        "definition": "resultText",
         "min": 0,
         "max": "1",
         "type": [
@@ -88,19 +84,15 @@
       {
         "id": "createdraftcertificate.result.errorId",
         "path": "createdraftcertificate.result.errorId",
-        "short": "Felkod vid ERROR",
-        "definition": "Felkod vid ERROR",
+        "short": "errorId",
+        "definition": "errorId Tillåtna värden: VALIDATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR, REVOKED.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/errorid-vs"
-        }
+        ]
       }
     ]
   }

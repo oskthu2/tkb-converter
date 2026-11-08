@@ -1,3 +1,6 @@
+// Elementen genereras ur CreateFormRequestResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:eservicesupply:forminteraction v2.1
 // Kontrakt: CreateFormRequest v2.0
 // Genererad: 2026-05-19
@@ -13,14 +16,18 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.1"
-* formRequestResponses 0..* BackboneElement "Formulärbegäranssvar (FormRequestResponseType)" "Lista med svar per formulärbegäran."
-  * clinicalProcessInterestId 0..1 Identifier "Hälsoärende-id" "Hälsoärende id."
-  * formId 1..1 Identifier "Formulär-id" "Det skapade formulärets unika id, sätts av producenten."
-  * healthcare_Facility_CareUnit 1..1 Identifier "Vårdenhetens HSA-id" "Hsa-id vårdenhet (informationsägare)."
-  * subjectOfCare 0..1 Identifier "Personnummer" "Personnummer patient/invånare."
-* comment 0..1 string "Kommentar" "Attribut för felsignalering. Skall kunna visas för slutanvändaren."
-* resultCode 1..1 CodeableConcept "Resultatkod" "Möjliga värden: OK, INFO, ERROR."
-* resultCode from ResultCodeVS (required)
+* formRequests 1..* Base "FormRequestType" "formRequests"
+* formRequests.clinicalProcessInterestId 0..1 string "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID." "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID."
+* formRequests.expireDate 1..1 string "expireDate" "expireDate"
+* formRequests.formText 0..1 string "formText" "Unik text för Formulär. Används t.ex. \"CreateFormRequest\" för att bifoga en unik text för formuläret. T.ex. \"Hälsoundersökning inför besök X\"."
+* formRequests.healthcare_CareGiver 0..1 string "Ansvarig vårdgivare (huvudman). T.ex. Landsting." "Ansvarig vårdgivare (huvudman). T.ex. Landsting."
+* formRequests.healthcare_facility_CareUnit 1..1 string "healthcare_facility_CareUnit" "Vårdenheten som erbjuder/tillhandahåller formuläret. Fysisk mottagning. T.ex. Den avdelning som formuläret: se2321000016-1hz3"
+* formRequests.healthcare_MedUnit 0..1 string "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik" "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik"
+* formRequests.healthcare_systemID 0..1 string "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem" "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem"
+* formRequests.keepUntil 1..1 string "keepUntil" "keepUntil"
+* formRequests.subjectOfCare 0..1 string "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt." "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt."
+* formRequests.templateId 1..1 string "Typ av formulär. Kodverk för standardiserade id för formulärtyper." "Typ av formulär. Kodverk för standardiserade id för formulärtyper."
+* formRequests.templateVersion 0..1 integer "templateVersion" "templateVersion"
 
 Logical: CreateFormRequestRequest
 Id: createformrequest-request
@@ -29,15 +36,15 @@ Description: "Logisk modell för requestparametrar i CreateFormRequest."
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* formRequests 1..* BackboneElement "Formulärbegäran (FormRequestType)" "Lista med formulärbegäran att skapa."
-  * healthcare_CareGiver 0..1 Identifier "Vårdenhetens HSA-id (vårdgivare)" "Hsa-id vårdgivare (informationsägare)."
-  * healthcare_MedUnit 0..1 Identifier "Medicinsk ansvarig enhet" "Hsa-id medicinskt ansvarig (informationsägare)."
-  * healthcare_Facility_CareUnit 1..1 Identifier "Vårdenhetens HSA-id" "Hsa-id vårdenhet (informationsägare)."
-  * healthcare_systemID 0..1 Identifier "System-id" "Hsa-id vårdsystem."
-  * subjectOfCare 0..1 Identifier "Personnummer" "Personnummer patient/invånare. Utelämnas hanteras formulär som anonymt."
-  * templateId 1..1 string "Formulärmall-id" "Formulärmall id."
-  * templateVersion 0..1 integer "Mallversion" "Formulärmall version."
-  * clinicalProcessInterestId 0..1 Identifier "Hälsoärende-id" "Hälsoärende id."
-  * formText 0..1 string "Formulärtext" "Formulärtext för formulärbegäran."
-  * expireDate 1..1 string "Utgångsdatum" "Datum för att reglera hur länge patient/invånaren kan besvara formulär."
-  * keepUntil 1..1 string "Bevaras till" "Datum för hur länge formulär lagras innan gallring/arkivering. Tomt indikerar tillsvidare."
+* formRequests 1..* Base "FormRequestType" "formRequests"
+* formRequests.clinicalProcessInterestId 0..1 string "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID." "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID."
+* formRequests.expireDate 1..1 string "expireDate" "expireDate"
+* formRequests.formText 0..1 string "formText" "Unik text för Formulär. Används t.ex. \"CreateFormRequest\" för att bifoga en unik text för formuläret. T.ex. \"Hälsoundersökning inför besök X\"."
+* formRequests.healthcare_CareGiver 0..1 string "Ansvarig vårdgivare (huvudman). T.ex. Landsting." "Ansvarig vårdgivare (huvudman). T.ex. Landsting."
+* formRequests.healthcare_facility_CareUnit 1..1 string "healthcare_facility_CareUnit" "Vårdenheten som erbjuder/tillhandahåller formuläret. Fysisk mottagning. T.ex. Den avdelning som formuläret: se2321000016-1hz3"
+* formRequests.healthcare_MedUnit 0..1 string "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik" "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik"
+* formRequests.healthcare_systemID 0..1 string "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem" "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem"
+* formRequests.keepUntil 1..1 string "keepUntil" "keepUntil"
+* formRequests.subjectOfCare 0..1 string "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt." "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt."
+* formRequests.templateId 1..1 string "Typ av formulär. Kodverk för standardiserade id för formulärtyper." "Typ av formulär. Kodverk för standardiserade id för formulärtyper."
+* formRequests.templateVersion 0..1 integer "templateVersion" "templateVersion"

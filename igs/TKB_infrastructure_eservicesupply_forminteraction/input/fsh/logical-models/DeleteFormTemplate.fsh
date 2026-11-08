@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteFormTemplateResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:eservicesupply:forminteraction v2.1
 // Kontrakt: DeleteFormTemplate v1.0
 // Genererad: 2026-09-16 (kompletterad — saknades i ursprunglig migrering, upptäckt via check_links.py)
@@ -14,9 +17,9 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 CodeableConcept "Resultatkod" "Signalerar status på operationen (OK, INFO, ERROR)."
+* resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
 * resultCode from ResultCodeVS (required)
-* resultText 0..1 string "Kommentar" "Attribut för felsignalering. Skall kunna visas för slutanvändaren."
+* resultText 0..1 string "resultText" "resultText"
 
 Logical: DeleteFormTemplateRequest
 Id: deleteformtemplate-request
@@ -25,6 +28,6 @@ Description: "Logisk modell för requestparametrar i DeleteFormTemplate."
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* templateId 1..1 string "Mall-id" "Unikt id för formulärmallen."
-* templateVersion 1..1 integer "Mallversion" "Version av formulärmall som ska makuleras."
-* healthCareFacilityUnit 1..1 Identifier "Vårdenhet" "HSA-id för den vårdenhet som är ägare till formulärmallen."
+* templateId 1..1 string "templateId" "templateId"
+* templateVersion 1..1 integer "templateVersion" "templateVersion"
+* healthCareFacilityUnit 1..1 string "healthCareFacilityUnit" "healthCareFacilityUnit"

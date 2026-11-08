@@ -1,3 +1,6 @@
+// Elementen genereras ur GetFmbResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB processmanagement:decisionsupport:insurancemedicinedecisionsupport v1.0
 // Kontrakt: GetFmb v1.0 — Request
 // Genererad: 2026-05-19
@@ -13,22 +16,9 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* underlagsId 0..* Identifier "Identifierare för ett specifikt beslutsunderlag"
-  """
-  Anger om endast ett eller ett antal underlag skall hämtas och i så fall vilka.
-  Anges inget underlagsId returneras alla underlag.
-  """
-* diagnosKod 0..* CodeableConcept "Diagnoskod för filtrering av beslutsunderlag"
-  """
-  Anger om beslutsunderlag endast skall hämtas för en eller ett antal diagnoskoder.
-  Anges med ICD-10-SE kodverket.
-  Anges ingen diagnoskod returneras alla underlag.
-  """
-* avenEjAktiva 0..1 boolean "Anger om även inaktiva beslutsunderlag skall hämtas"
-  """
-  Anger om även ej aktiva beslutsunderlag skall hämtas.
-  Anges ej attributet hämtas endast aktiva.
-  """
+* underlagsId 0..* IIType "underlagsId" "underlagsId"
+* diagnosKod 0..* Base "ICD10SEType" "diagnosKod"
+* avenEjAktiva 0..1 boolean "avenEjAktiva" "avenEjAktiva"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetFmbRequestFieldDescriptions

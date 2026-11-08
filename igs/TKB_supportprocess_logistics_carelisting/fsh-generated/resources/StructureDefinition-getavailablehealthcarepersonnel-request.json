@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i GetAvailableHealthcarePersonnel\n(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcarePersonnelResponder:2, GetAvailableHealthcarePersonnelType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "getavailablehealthcarepersonnel-request.logicalAddress",
-        "path": "getavailablehealthcarepersonnel-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The county/region code",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "getavailablehealthcarepersonnel-request.personId",
         "path": "getavailablehealthcarepersonnel-request.personId",
         "short": "personId",
@@ -50,35 +37,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.personId.root",
-        "path": "getavailablehealthcarepersonnel-request.personId.root",
-        "short": "root",
-        "definition": "OID som visar typ av person-id som förmedlas. Kan vara:\n\n”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704.\n\n” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV",
-        "comment": "TKB-fält: `personId.root` (`string`).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.personId.iIExtension",
-        "path": "getavailablehealthcarepersonnel-request.personId.iIExtension",
-        "short": "iIExtension",
-        "definition": "Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.",
-        "comment": "TKB-fält: `personId.extension` (`string`).\n\n**Modellanteckning:** iIExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -92,7 +51,10 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"
+            ]
           }
         ]
       },
@@ -106,91 +68,7 @@
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.listingTypes.cVCode",
-        "path": "getavailablehealthcarepersonnel-request.listingTypes.cVCode",
-        "short": "cVCode",
-        "definition": "cVCode Heter code i schemat.",
-        "comment": "TKB-fält: `../code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** cVCode Heter code i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.listingTypes.codeSystem",
-        "path": "getavailablehealthcarepersonnel-request.listingTypes.codeSystem",
-        "short": "codeSystem",
-        "definition": "codeSystem",
-        "comment": "TKB-fält: `../codeSystem` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.listingTypes.codeSystemName",
-        "path": "getavailablehealthcarepersonnel-request.listingTypes.codeSystemName",
-        "short": "codeSystemName",
-        "definition": "codeSystemName",
-        "comment": "TKB-fält: `../codeSystemName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.listingTypes.codeSystemVersion",
-        "path": "getavailablehealthcarepersonnel-request.listingTypes.codeSystemVersion",
-        "short": "codeSystemVersion",
-        "definition": "codeSystemVersion",
-        "comment": "TKB-fält: `../codeSystemVersion` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.listingTypes.displayName",
-        "path": "getavailablehealthcarepersonnel-request.listingTypes.displayName",
-        "short": "displayName",
-        "definition": "displayName",
-        "comment": "TKB-fält: `../displayName` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getavailablehealthcarepersonnel-request.listingTypes.originalText",
-        "path": "getavailablehealthcarepersonnel-request.listingTypes.originalText",
-        "short": "originalText",
-        "definition": "originalText",
-        "comment": "TKB-fält: `../originalText` (`string`, kardinalitet 0..1).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType"
           }
         ]
       }

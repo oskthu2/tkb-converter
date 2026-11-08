@@ -5,7 +5,9 @@ RuleSet: UpdateListingFieldDescriptions
 * resultCode ^definition = "Kan vara OK, INFO, ERROR alternativt något av följande specifika koder (se även resultText nedan):
 
 ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED"
-* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT."
 * resultText ^definition = "Kan utelämnas om resultCode = OK.
 
 Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.

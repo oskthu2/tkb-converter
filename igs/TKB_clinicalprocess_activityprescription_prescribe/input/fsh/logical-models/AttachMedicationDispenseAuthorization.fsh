@@ -1,3 +1,6 @@
+// Elementen genereras ur AttachMedicationDispenseAuthorizationResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activityprescription:prescribe v2.0
 // Kontrakt: AttachMedicationDispenseAuthorization v2.0
 // Genererad: 2026-03-19
@@ -13,13 +16,13 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* result 1..1 BackboneElement "Resultat av begäran"
-  * resultCode 1..1 code "Svarskod"
-  * resultCode from ResultCodeVS (required)
-  * errorCode 0..1 code "Felkod"
-  * errorCode from ErrorCodeVS (required)
-  * logId 1..1 string "UUID för felanmälan"
-  * message 0..1 string "Beskrivande text"
+* medicationListVersion 1..1 Identifier "medicationListVersion" "medicationListVersion"
+* result 1..1 Base "ResultType" "result"
+* result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, INFO, ERROR."
+* result.errorCode 0..1 code "errorCode" "errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED."
+* result.subcode 0..1 code "subcode" "subcode Tillåtna värden: SUB_RR_ERROR."
+* result.logId 1..1 string "logId" "logId"
+* result.message 0..1 string "message" "message"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert AttachMedicationDispenseAuthorizationFieldDescriptions

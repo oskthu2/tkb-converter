@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "TS",
+  "url": "https://fhir.inera.se/ig/itintegration-monitoring/StructureDefinition/TS",
+  "name": "TS",
+  "title": "TS",
+  "status": "active",
+  "description": "Regexp declaration for timestamp in the format: YYYYMMDDHHMMSS (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-ts-pattern",
+            "severity": "error",
+            "human": "TS ska följa mönstret i schemat: [1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}",
+            "expression": "matches('^(?:(?:[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}))$')",
+            "source": "https://fhir.inera.se/ig/itintegration-monitoring/StructureDefinition/TS"
+          }
+        ]
+      }
+    ]
+  }
+}

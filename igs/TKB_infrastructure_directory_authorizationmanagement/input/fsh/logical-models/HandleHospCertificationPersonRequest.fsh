@@ -1,3 +1,6 @@
+// Elementen genereras ur HandleHospCertificationPersonResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:authorizationmanagement v2.4.4
 // Kontrakt: HandleHospCertificationPerson v1.0 — Request
 // Genererad: 2026-05-19
@@ -9,17 +12,10 @@ Description: "Logisk modell för requestparametrar i HandleHospCertificationPers
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* personalIdentityNumber 1..1 string "Person-id för personen vars HOSP-uppgifter ska begäras utlämnade"
-  """
-  Ref. person-id (personalIdentityNumber) [R5].
-  """
-* operation 1..1 code "Operation: add eller remove"
-  """
-  'add' för att lägga till personen, 'remove' för att ta bort personen från utlämningsförfrågningar.
-  """
-* operation from HospOperationVS (required)
-* certificationId 0..1 string "Alternativ id för personposten (frivillig)"
-* reason 0..1 string "Anledning till avregistrering (frivillig, loggas ej)"
+* personalIdentityNumber 1..1 string "personalIdentityNumber" "personalIdentityNumber"
+* operation 1..1 code "operation" "operation Tillåtna värden: add, remove."
+* certificationId 0..1 string "certificationId" "certificationId"
+* reason 0..1 string "reason" "reason"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert HandleHospCertificationPersonRequestFieldDescriptions

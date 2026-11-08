@@ -4,35 +4,21 @@
 RuleSet: UpdatePersonContactInformationUnrestrictedRequestFieldDescriptions
 * actor ^definition = "Datatyp som identifierar en aktör."
 * actor ^comment = "TKB-fält: `actor` (`ActorType`, kardinalitet 1..1)."
-* actor.actorId ^definition = "En universellt unik identifierare."
-* actor.actorId ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1..1)."
-* actor.actorId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* actor.actorId.iiExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* actor.id ^definition = "En universellt unik identifierare."
+* actor.id ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1..1)."
 * actor.professional ^definition = "Datatyp som identifierar en aktör inom en profession."
 * actor.professional ^comment = "TKB-fält: `../professional` (`ProfessionalType`, kardinalitet 0..1)."
 * actor.professional.organizationId ^definition = "En universellt unik identifierare."
 * actor.professional.organizationId ^comment = "TKB-fält: `../../organizationId` (`IIType`, kardinalitet 1..1)."
-* actor.professional.organizationId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* actor.professional.organizationId.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * actor.updateTime ^comment = "TKB-fält: `../updateTime` (`Timestamp`, kardinalitet 0..1)."
 * personId ^definition = "En universellt unik identifierare."
 * personId ^comment = "TKB-fält: `personId` (`IIType`, kardinalitet 1..1)."
-* personId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* personId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * versionToUpdate ^comment = "TKB-fält: `versionToUpdate` (`Timestamp`, kardinalitet 0..1)."
 * contactInformation ^definition = "Klass för patientens egna angivna kontakuppgifter"
 * contactInformation ^comment = "TKB-fält: `contactInformation` (`ContactInformationType`, kardinalitet 0..*)."
 * contactInformation.contactType ^comment = "TKB-fält: `../contactType` (`CodedValue`, kardinalitet 1..1)."
 * contactInformation.use ^comment = "TKB-fält: `../use` (`CodedValue`, kardinalitet 0..1)."
-* contactInformation.contactInformationValue ^comment = "TKB-fält: `../value` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** contactInformationValue Heter value i schemat."
+* contactInformation.value ^comment = "TKB-fält: `../value` (`string`, kardinalitet 0..1)."
 * contactInformation.rank ^comment = "TKB-fält: `../rank` (`int`, kardinalitet 0..1)."
 * contactInformation.comment ^comment = "TKB-fält: `../comment` (`string`, kardinalitet 0..1)."
 * contactInformation.period ^comment = "TKB-fält: `../period` (`DatePeriodType`, kardinalitet 0..1)."
@@ -56,9 +42,7 @@ RuleSet: UpdatePersonContactInformationUnrestrictedRequestFieldDescriptions
 * contactPerson.contactPersonContactInformation ^comment = "TKB-fält: `../contactPersonContactInformation` (`ContactInformationType`, kardinalitet 0..*)."
 * contactPerson.contactPersonContactInformation.contactType ^comment = "TKB-fält: `../../contactType` (`CodedValue`, kardinalitet 1..1)."
 * contactPerson.contactPersonContactInformation.use ^comment = "TKB-fält: `../../use` (`CodedValue`, kardinalitet 0..1)."
-* contactPerson.contactPersonContactInformation.contactInformationValue ^comment = "TKB-fält: `../../value` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** contactInformationValue Heter value i schemat."
+* contactPerson.contactPersonContactInformation.value ^comment = "TKB-fält: `../../value` (`string`, kardinalitet 0..1)."
 * contactPerson.contactPersonContactInformation.rank ^comment = "TKB-fält: `../../rank` (`int`, kardinalitet 0..1)."
 * contactPerson.contactPersonContactInformation.comment ^comment = "TKB-fält: `../../comment` (`string`, kardinalitet 0..1)."
 * contactPerson.contactPersonContactInformation.period ^comment = "TKB-fält: `../../period` (`DatePeriodType`, kardinalitet 0..1)."

@@ -1,3 +1,6 @@
+// Elementen genereras ur DeleteEhrExtractInitiator_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för ehr.patientsummary v1.0 (fält ur XSD, se TKB avsnitt 3–7; scripts/xsd_to_ig.py)
 // Kontrakt: DeleteEhrExtractStatus v1.0
 // Genererad: 2026-09-26
@@ -10,17 +13,17 @@ Description: """
   (urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "1.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. the HSA-id of the service producer"
-* parameters 0..* BackboneElement "parameters" "parameters"
-  * parameterCode 0..1 CodeableConcept "parameterCode" "parameterCode Heter code i schemat."
-  * parameterName 1..1 string "parameterName" "parameterName Heter name i schemat."
-  * parameterValue 1..1 string "parameterValue" "parameterValue Heter value i schemat."
-* response_detail 0..* BackboneElement "response_detail" "response_detail"
-  * responseDetailCode 0..1 CodeableConcept "responseDetailCode" "responseDetailCode Heter code i schemat."
-  * responseDetailText 1..1 string "responseDetailText" "responseDetailText Heter text i schemat."
-  * type_code 0..1 code "type_code" "(XML-attribut.)"
-  * type_code from ResponseDetailTypeCodesVS (required)
+* parameters 0..* Base "ParameterType" "parameters"
+* parameters.code 0..1 string "code" "code"
+* parameters.name 1..1 string "name" "name"
+* parameters.value 1..1 string "value" "value"
+* response_detail 0..* Base "ResponseDetailType" "response_detail"
+* response_detail.code 0..1 string "code" "code"
+* response_detail.text 1..1 string "text" "text"
+* response_detail.type_code 0..1 code "type_code" "type_code (XML-attribut) Tillåtna värden: E, W, I."
+* response_detail.type_code from ResponseDetailTypeCodesVS (required)
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert DeleteEhrExtractStatusRequestFieldDescriptions

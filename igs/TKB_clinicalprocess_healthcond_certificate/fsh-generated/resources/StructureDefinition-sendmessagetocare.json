@@ -30,39 +30,35 @@
       {
         "id": "sendmessagetocare.result",
         "path": "sendmessagetocare.result",
-        "short": "Information om anropets resultat",
+        "short": "ResultType",
         "definition": "Information om anropets resultat (OK, ERROR, INFO)",
         "comment": "TKB-fält: `result` (`ResultType  (se 7.1.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** -",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "sendmessagetocare.result.resultCode",
         "path": "sendmessagetocare.result.resultCode",
-        "short": "Resultatkod (OK/INFO/ERROR)",
-        "definition": "Resultatkod (OK/INFO/ERROR)",
+        "short": "resultCode",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/resultkod-vs"
-        }
+        ]
       },
       {
         "id": "sendmessagetocare.result.resultText",
         "path": "sendmessagetocare.result.resultText",
-        "short": "Fritext",
-        "definition": "Fritext",
+        "short": "resultText",
+        "definition": "resultText",
         "min": 0,
         "max": "1",
         "type": [
@@ -74,19 +70,15 @@
       {
         "id": "sendmessagetocare.result.errorId",
         "path": "sendmessagetocare.result.errorId",
-        "short": "Felkod vid ERROR",
-        "definition": "Felkod vid ERROR",
+        "short": "errorId",
+        "definition": "errorId Tillåtna värden: VALIDATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR, REVOKED.",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/errorid-vs"
-        }
+        ]
       }
     ]
   }

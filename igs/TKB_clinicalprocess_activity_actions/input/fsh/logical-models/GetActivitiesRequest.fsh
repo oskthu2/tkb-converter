@@ -1,3 +1,6 @@
+// Elementen genereras ur GetActivitiesResponder_1.3.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:activity:actions v1.3
 // Kontrakt: GetActivities v1.3 — Request
 // Genererad: 2026-05-18
@@ -14,98 +17,37 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.3"
-* patientId 1..1 Identifier "Personidentifierare för patient"
-    """
-    Begränsar sökningen till angiven personidentifierare för en patient (IIType).
-    Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten.
-    root = OID för typ (personnummer: 1.2.752.129.2.1.3.1,
-    samordningsnummer: 1.2.752.129.2.1.3.3). Se Regel 1.1.
-    Kardinalitet: Obligatorisk.
-    """
-
-* time 0..1 Period "Sökintervall (tidsperiod)"
-    """
-    Begränsar sökningen till det angivna tidsintervallet (TimePeriodType).
-    Om sökningen begränsas med detta attribut ska poster som saknar Activity.Time inte returneras.
-    start och end är båda valfria (0..1 vardera) — format ÅÅÅÅMMDDttmmss.
-    Kardinalitet: Valfri.
-    """
-
-* activityCode 0..* CodeableConcept "Filter på typ av aktivitet"
-    """
-    Begränsar sökningen till en viss typ av aktivitet (CVType).
-    Motsvarar activity.code i svaret.
-    code och codeSystem är obligatoriska; displayName, codeSystemName, codeSystemVersion ska ignoreras.
-    Kardinalitet: Valfri, lista.
-    """
-
-* activityId 0..* Identifier "Filter på aktivitetsidentifierare"
-    """
-    Unikt värde för aktiviteten som också refererar till vilket källsystem informationen kommer ifrån.
-    Motsvarar activity/id i svaret (IIType).
-    root = källsystemets HSA-id, extension = unikt id i källsystemet.
-    Kardinalitet: Valfri, lista.
-    """
-
-* sourceSystemId 0..1 Identifier "Filter på källsystem"
-    """
-    Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet (IIType).
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för källsystemet.
-    Kardinalitet: Valfri.
-    """
-
-* careGiverId 0..1 Identifier "Filter på vårdgivare"
-    """
-    Begränsar sökningen till aktivitet från en specifik vårdgivare (IIType).
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för vårdgivaren.
-    Kardinalitet: Valfri.
-    """
-
-* careUnitId 0..1 Identifier "Filter på vårdenhet"
-    """
-    Begränsar sökningen till en vårdenhet (IIType).
-    root = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för PDL-vårdenheten.
-    Kardinalitet: Valfri.
-    """
-
-* interactionAgreementId 1..1 string "Interaktionsöverenskommelse-id"
-    """
-    Används inte i denna version. Ange alltid UUID: 2866a7c4-9c60-433f-9035-a4d779ffe7a1.
-    Kardinalitet: Obligatorisk.
-    """
-
-* relation 0..* BackboneElement "Filter på relationer"
-    """
-    Begränsar sökningen till aktiviteter med avseende på hur de är relaterade till
-    andra uppgifter i journalsystem (RelationFilterType).
-    Minst en av relation.typeCode och relation.relationId ska vara angiven.
-    Kardinalitet: Valfri, lista.
-    """
-* relation obeys getactivities-request-relation-type-or-id
-* relation.typeCode 0..1 CodeableConcept "Filter på relations-/sambandstyp"
-    """
-    Filtrera på relations-/sambandstyp (CVType).
-    code och codeSystem är valfria; displayName, codeSystemName, codeSystemVersion ska ignoreras.
-    Kardinalitet: Valfri.
-    """
-* relation.relationId 0..1 Identifier "Filter på identitet i relation"
-    """
-    Begränsar sökningen till aktiviteter med den identitet som anges i sambandet (IIType).
-    Exempelvis möjlighet att söka alla aktiviteter med relation till en viss observation.
-    Kardinalitet: Valfri.
-    """
-* relation.referredInformationType 1..1 string "Typ av refererad information"
-    """
-    Den typ av uppgift i patientjournal som sambandet pekar ut.
-    Kod från Categorization i engagemangsindexposten.
-    Möjliga värden: 'chb-o' (observation), 'caa-ga' (aktivitet).
-    Kardinalitet: Obligatorisk.
-    """
+* patientId 1..1 IIType "patientId" "patientId"
+* time 0..1 TimePeriodType "time" "time"
+* activityCode 0..* Base "CVType" "activityCode"
+* activityCode.code 1..1 string "code" "code"
+* activityCode.codeSystem 1..1 string "codeSystem" "codeSystem"
+* activityCode.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* activityCode.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* activityCode.displayName 0..1 string "displayName" "displayName"
+* activityId 0..* IIType "activityId" "activityId"
+* careGiverId 0..1 IIType "careGiverId" "careGiverId"
+* careUnitId 0..1 IIType "careUnitId" "careUnitId"
+* interactionAgreementId 1..1 string "interactionAgreementId" "interactionAgreementId"
+* interactionAgreementId only UUIDType
+* sourceSystemId 0..1 IIType "sourceSystemId" "sourceSystemId"
+* relation 0..* Base "RelationFilterType" "relation"
+* relation.id 0..1 IIType "id" "id"
+* relation.typeCode 0..1 Base "CVType" "typeCode"
+* relation.typeCode.code 1..1 string "code" "code"
+* relation.typeCode.codeSystem 1..1 string "codeSystem" "codeSystem"
+* relation.typeCode.codeSystemName 0..1 string "codeSystemName" "codeSystemName"
+* relation.typeCode.codeSystemVersion 0..1 string "codeSystemVersion" "codeSystemVersion"
+* relation.typeCode.displayName 0..1 string "displayName" "displayName"
+* relation.referredInformationType 1..1 string "referredInformationType" "referredInformationType"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetActivitiesRequestFieldDescriptions
 
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* relation obeys getactivities-request-relation-type-or-id
+
 Invariant: getactivities-request-relation-type-or-id
 Description: "Minst en av typeCode och relationId ska anges i ett relationsfilter (RelationFilterType)."
-Expression: "typeCode.exists() or relationId.exists()"
+Expression: "typeCode.exists() or id.exists()"
 Severity: #error

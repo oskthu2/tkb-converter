@@ -10,12 +10,12 @@ RuleSet: RevokeCertificateRequestFieldDescriptions
 * skickatTidpunkt ^comment = "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
 
 **Mappning DIM:** Makulering.tidpunkt"
-* intygsId ^definition = "Unikt ID för det intyg som skall makuleras."
-* intygsId ^comment = "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+* intygs-id ^definition = "Unikt ID för det intyg som skall makuleras."
+* intygs-id ^comment = "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
 
 **Mappning DIM:** Intyg.intygs-id"
-* patientPersonId ^definition = "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska makuleras. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id."
-* patientPersonId ^comment = "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+* patientPerson-id ^definition = "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska makuleras. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id."
+* patientPerson-id ^comment = "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
 
 **Mappning DIM:** Patient.person-id"
 * skickatAv ^definition = "Identifierar den som utför makuleringen."

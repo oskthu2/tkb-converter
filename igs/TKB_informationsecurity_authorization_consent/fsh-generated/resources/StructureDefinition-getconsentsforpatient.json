@@ -30,28 +30,28 @@
       {
         "id": "getconsentsforpatient.getConsentsResult",
         "path": "getconsentsforpatient.getConsentsResult",
-        "short": "getConsentsResult",
+        "short": "GetConsentsResultType",
         "definition": "Lista med giltiga samtycken för patient/brukare.",
-        "comment": "TKB-fält: `getConsentsResult` (`urn:riv:informationsecurity:authorization:consent:2:GetConsentsResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg. Datatypen utökar datatypen Result.",
+        "comment": "TKB-fält: `getConsentsResult` (`urn:riv:informationsecurity:authorization:consent:2:GetConsentsResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getconsentsforpatient.getConsentsResult.result",
         "path": "getconsentsforpatient.getConsentsResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -59,8 +59,8 @@
         "id": "getconsentsforpatient.getConsentsResult.result.resultCode",
         "path": "getconsentsforpatient.getConsentsResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,14 +90,14 @@
       {
         "id": "getconsentsforpatient.getConsentsResult.pdlAssertions",
         "path": "getconsentsforpatient.getConsentsResult.pdlAssertions",
-        "short": "pdlAssertions",
+        "short": "PDLAssertionType",
         "definition": "Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.",
         "comment": "TKB-fält: `../pdlAssertions` (`PDLAssertionType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -119,8 +119,8 @@
         "id": "getconsentsforpatient.getConsentsResult.pdlAssertions.assertionType",
         "path": "getconsentsforpatient.getConsentsResult.pdlAssertions.assertionType",
         "short": "assertionType",
-        "definition": "assertionType",
-        "comment": "TKB-fält: `../../assertionType` (`AssertionTypeType`, kardinalitet 1..1).",
+        "definition": "assertionType Tillåtna värden: Consent, Emergency.",
+        "comment": "TKB-fält: `../../assertionType` (`AssertionTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** assertionType Tillåtna värden: Consent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [
@@ -137,8 +137,8 @@
         "id": "getconsentsforpatient.getConsentsResult.pdlAssertions.scope",
         "path": "getconsentsforpatient.getConsentsResult.pdlAssertions.scope",
         "short": "scope",
-        "definition": "scope",
-        "comment": "TKB-fält: `../../scope` (`ScopeType`, kardinalitet 1..1).",
+        "definition": "scope Tillåtna värden: NationalLevel.",
+        "comment": "TKB-fält: `../../scope` (`ScopeType`, kardinalitet 1..1).\n\n**Modellanteckning:** scope Tillåtna värden: NationalLevel.",
         "min": 1,
         "max": "1",
         "type": [
@@ -245,35 +245,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getconsentsforpatient.getConsentsResult.pdlAssertions.patientId.root",
-        "path": "getconsentsforpatient.getConsentsResult.pdlAssertions.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getconsentsforpatient.getConsentsResult.pdlAssertions.patientId.iiExtension",
-        "path": "getconsentsforpatient.getConsentsResult.pdlAssertions.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       }

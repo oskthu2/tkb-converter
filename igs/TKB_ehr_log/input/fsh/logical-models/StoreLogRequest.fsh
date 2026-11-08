@@ -1,3 +1,6 @@
+// Elementen genereras ur StoreLogResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:log v1.2.3
 // Kontrakt: StoreLog v1.0 — Request
 // Namnrymd: urn:riv:ehr:log:store:StoreLogResponder:1
@@ -120,5 +123,4 @@ Characteristics: #can-be-target
         * careUnitId 1..1 Identifier "Vårdenhetens HSA-id"
         * careUnitName 0..1 string "Vårdenhetens namn"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert StoreLogRequestFieldDescriptions

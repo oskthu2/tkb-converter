@@ -26,10 +26,6 @@ det bildade intervallets startdatum ligger före sökintervallets startdatum och
 
 Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum."
 * timePeriod ^comment = "TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1)."
-* timePeriod.start ^definition = "Startdatum. Format ÅÅÅÅMMDD."
-* timePeriod.start ^comment = "TKB-fält: `.start` (`string`, kardinalitet 1..1)."
-* timePeriod.end ^definition = "Slutdatum. Format ÅÅÅÅMMDD."
-* timePeriod.end ^comment = "TKB-fält: `.end` (`string`, kardinalitet 1..1)."
 * sourceSystemHSAId ^definition = "Begränsar sökningen till vårdkontakt som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
 
 Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).

@@ -30,23 +30,23 @@
       {
         "id": "getmessages.result",
         "path": "getmessages.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Resultat",
-        "comment": "TKB-fält: `result` (kardinalitet 1..1).\n\n**Modellanteckning:** Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
+        "comment": "TKB-fält: `result` (kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getmessages.result.resultCode",
-        "path": "getmessages.result.resultCode",
-        "short": "resultCode",
+        "id": "getmessages.result.code",
+        "path": "getmessages.result.code",
+        "short": "code",
         "definition": "Information om anropet gick bra(OK, ERROR, INFO)",
-        "comment": "TKB-fält: `result.code` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Heter code i schemat.",
+        "comment": "TKB-fält: `result.code` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,14 +90,14 @@
       {
         "id": "getmessages.responses",
         "path": "getmessages.responses",
-        "short": "responses",
+        "short": "ResponseType",
         "definition": "Svar",
         "comment": "TKB-fält: `responses` (kardinalitet 0..n).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -105,8 +105,8 @@
         "id": "getmessages.responses.messageId",
         "path": "getmessages.responses.messageId",
         "short": "messageId",
-        "definition": "messageId (xs:long i schemat.)",
-        "comment": "TKB-fält: `../messageId` (`long`, kardinalitet 1..1).\n\n**Modellanteckning:** messageId (xs:long i schemat.)",
+        "definition": "messageId",
+        "comment": "TKB-fält: `../messageId` (`long`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -139,21 +139,7 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getmessages.responses.serviceContractType.ServiceContractNamespace",
-        "path": "getmessages.responses.serviceContractType.ServiceContractNamespace",
-        "short": "ServiceContractNamespace",
-        "definition": "ServiceContractNamespace",
-        "comment": "TKB-fält: `../../ServiceContractNamespace` (`anyURI`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "uri"
+            "code": "string"
           }
         ]
       },

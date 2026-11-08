@@ -1,3 +1,4 @@
+[DNType]: StructureDefinition-DNType.html
 [GetCommissionMembers]: StructureDefinition-getcommissionmembers.html
 [GetCommissionMembersRequest]: StructureDefinition-getcommissionmembers-request.html
 [GetCommissionMembersIncludingProtectedPerson]: StructureDefinition-getcommissionmembersincludingprotectedperson.html
@@ -6,3 +7,4 @@
 [GetEmployeeRequest]: StructureDefinition-getemployee-request.html
 [GetEmployeeIncludingProtectedPerson]: StructureDefinition-getemployeeincludingprotectedperson.html
 [GetEmployeeIncludingProtectedPersonRequest]: StructureDefinition-getemployeeincludingprotectedperson-request.html
+[TelephoneNumberType]: StructureDefinition-TelephoneNumberType.html

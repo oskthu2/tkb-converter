@@ -4,6 +4,8 @@
 [CancelAppointment]: StructureDefinition-cancelappointment.html
 [ConfirmAppointmentRequest]: StructureDefinition-confirmappointment-request.html
 [ConfirmAppointment]: StructureDefinition-confirmappointment.html
+[CVType]: StructureDefinition-CVType.html
+[DT]: StructureDefinition-DT.html
 [GetAppointmentRequest]: StructureDefinition-getappointment-request.html
 [GetAppointment]: StructureDefinition-getappointment.html
 [GetAppointmentsRequest]: StructureDefinition-getappointments-request.html
@@ -28,5 +30,7 @@
 [ResultCodeCS]: CodeSystem-scheduling-resultcode-cs.html
 [ProcessVS]: ValueSet-scheduling-process-vs.html
 [ProcessCS]: CodeSystem-scheduling-process-cs.html
+[TS]: StructureDefinition-TS.html
 [UpdateAppointmentRequest]: StructureDefinition-updateappointment-request.html
 [UpdateAppointment]: StructureDefinition-updateappointment.html
+[uuidType]: StructureDefinition-uuidType.html

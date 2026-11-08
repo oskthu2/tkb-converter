@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DateType",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType",
+  "name": "DateType",
+  "title": "DateType",
+  "status": "draft",
+  "description": "Date avgränsat till YYYY-MM-DD (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "date",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/date",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "date",
+        "path": "date",
+        "constraint": [
+          {
+            "key": "local-datetype-pattern",
+            "severity": "error",
+            "human": "DateType ska följa mönstret i schemat: \\d{4}-\\d\\d-\\d\\d",
+            "expression": "matches('^(?:(?:\\\\d{4}-\\\\d\\\\d-\\\\d\\\\d))$')",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType"
+          }
+        ]
+      }
+    ]
+  }
+}

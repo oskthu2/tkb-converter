@@ -2,10 +2,8 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: GetCareDocumentationRequestFieldDescriptions
-* careUnitHSAId ^definition = "Filtrering på vårdenhet vilket motsvarar careUnitHSAId i HealthcareProfessionalType."
-* careUnitHSAId ^comment = "TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*).
-
-**Modellanteckning:** Filtrering på vårdenhet vilket motsvarar careUnitHSAId i HealthcareProfessionalType. TKB-typ: HSAIdType. Kardinalitet: 0..*. OBS: elementet heter careUnitHSAid i XSD:n (GetCareDocumentationResponder_2.1.xsd / clinicalprocess_healthcond_description_2.1.xsd)."
+* careUnitHSAid ^definition = "Filtrering på vårdenhet vilket motsvarar careUnitHSAId i HealthcareProfessionalType."
+* careUnitHSAid ^comment = "TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*)."
 * patientId ^definition = "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
 
 Fältet type sätts till OID för typ av identifierare.
@@ -24,7 +22,7 @@ En tjänstekonsument som vill begära mha reservnummer måste därmed använda s
 
 Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum."
 * timePeriod ^comment = "TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1)."
-* sourceSystemHSAId ^definition = "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
+* sourceSystemHSAid ^definition = "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
 
 Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
 
@@ -37,6 +35,6 @@ Ska anges vid begäran på reservnummer.
 Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
 
 Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST."
-* sourceSystemHSAId ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1)."
+* sourceSystemHSAid ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1)."
 * careContactId ^definition = "Begränsar sökningen till den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. sourceSystemHSAId måste anges om denna parameter anges."
 * careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*)."

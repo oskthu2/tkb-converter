@@ -3,22 +3,10 @@
 
 RuleSet: GetMasterDataChangeSetFieldDescriptions
 * masterDataChangeSet ^comment = "TKB-fält: `MasterDataChangeSet` (`MasterDataChangeSetType`, kardinalitet 0..*)."
-* masterDataChangeSet.masterDataChangeSetId ^definition = "Id
+* masterDataChangeSet.id ^definition = "Id
 
 Identifierare som unikt pekar ut en katalogdatapost i källsystemet. Idt kan användas för att hämta posten med tjänstekontraktet som pekas ut i förfrågan."
-* masterDataChangeSet.masterDataChangeSetId ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1).
-
-**Modellanteckning:** masterDataChangeSetId Heter id i schemat."
-* masterDataChangeSet.masterDataChangeSetId.root ^definition = "En universellt unik identifierare eller en identifierare som tillsammans med värdet för ”extension”
-
-ger en universellt unik identifierare."
-* masterDataChangeSet.masterDataChangeSetId.root ^comment = "TKB-fält: `../id/root` (`string`, kardinalitet 1)."
-* masterDataChangeSet.masterDataChangeSetId.iiExtension ^definition = "En textsträng som tillsammans med värdet för \"root\" bildar en unik identifierare. Används om värdet på \"root\" inte är universellt unikt."
-* masterDataChangeSet.masterDataChangeSetId.iiExtension ^comment = "TKB-fält: `../id/extension` (`string`, kardinalitet 0..1).
-
-Obs: modellen anger 1..1 där TKB:n anger 0..1.
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* masterDataChangeSet.id ^comment = "TKB-fält: `../id` (`IIType`, kardinalitet 1)."
 * masterDataChangeSet.category ^definition = "Kategori
 
 Kategorisering av förändring.

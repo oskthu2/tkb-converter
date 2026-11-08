@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i RegisterExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "registerextendedconsent-request.logicalAddress",
-        "path": "registerextendedconsent-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som samtycket gäller för.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
         "id": "registerextendedconsent-request.assertionId",
         "path": "registerextendedconsent-request.assertionId",
         "short": "assertionId",
@@ -59,7 +46,7 @@
         "path": "registerextendedconsent-request.assertionType",
         "short": "assertionType",
         "definition": "Typ av intyg som ger direktåtkomst till information från andra vård-/omsorgsgivare enligt SVOD. Kan vara patientens/brukarens samtycke eller nödsituation.",
-        "comment": "TKB-fält: `assertionType` (`urn:riv:informationsecurity:authorization:consent:2:AssertionTypeType`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `assertionType` (`urn:riv:informationsecurity:authorization:consent:2:AssertionTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** assertionType Tillåtna värden: Consent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [
@@ -77,7 +64,7 @@
         "path": "registerextendedconsent-request.scope",
         "short": "scope",
         "definition": "Omfånget/tillämpningsområde på intyget.",
-        "comment": "TKB-fält: `scope` (`urn:riv:informationsecurity:authorization:consent:2:ScopeType`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `scope` (`urn:riv:informationsecurity:authorization:consent:2:ScopeType`, kardinalitet 1..1).\n\n**Modellanteckning:** scope Tillåtna värden: NationalLevel.",
         "min": 1,
         "max": "1",
         "type": [
@@ -95,40 +82,12 @@
         "path": "registerextendedconsent-request.patientId",
         "short": "patientId",
         "definition": "Personidentitet på patienten/brukaren på vilket samtycket ska registreras.",
-        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1).\n\n**Modellanteckning:** En universellt unik identifierare.",
+        "comment": "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "registerextendedconsent-request.patientId.root",
-        "path": "registerextendedconsent-request.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "registerextendedconsent-request.patientId.iiExtension",
-        "path": "registerextendedconsent-request.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
@@ -207,54 +166,26 @@
         "path": "registerextendedconsent-request.representedBy",
         "short": "representedBy",
         "definition": "Ej obligatorisk personidentitet på företrädare/vårdnadshavare som företräder patienten/brukaren. Värdet ska anges om samtycket är inhämtat från företrädare/vårdnadshavare.",
-        "comment": "TKB-fält: `representedBy` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1).\n\n**Modellanteckning:** En universellt unik identifierare.",
+        "comment": "TKB-fält: `representedBy` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "registerextendedconsent-request.representedBy.root",
-        "path": "registerextendedconsent-request.representedBy.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "registerextendedconsent-request.representedBy.iiExtension",
-        "path": "registerextendedconsent-request.representedBy.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "registerextendedconsent-request.registrationAction",
         "path": "registerextendedconsent-request.registrationAction",
-        "short": "registrationAction",
+        "short": "ActionType",
         "definition": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter för dessa.",
-        "comment": "TKB-fält: `registrationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+        "comment": "TKB-fält: `registrationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -275,14 +206,14 @@
       {
         "id": "registerextendedconsent-request.registrationAction.requestedBy",
         "path": "registerextendedconsent-request.registrationAction.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -345,14 +276,14 @@
       {
         "id": "registerextendedconsent-request.registrationAction.registeredBy",
         "path": "registerextendedconsent-request.registrationAction.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

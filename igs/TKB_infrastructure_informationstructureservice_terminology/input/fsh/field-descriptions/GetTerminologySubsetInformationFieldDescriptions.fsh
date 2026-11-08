@@ -9,5 +9,7 @@ RuleSet: GetTerminologySubsetInformationFieldDescriptions
 * SubsetInformation.Name ^comment = "TKB-fält: `../Name` (`SubsetNameType`, kardinalitet 1..1)."
 * SubsetInformation.Version ^definition = "Version för urval (XML-attribut.)"
 * SubsetInformation.Version ^comment = "TKB-fält: `../Version` (`SubsetVersionType`, kardinalitet 1..1)."
-* ResultCode ^comment = "TKB-fält: `ResultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
+* ResultCode ^comment = "TKB-fält: `ResultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** ResultCode Tillåtna värden: OK, ERROR, INFO."
 * comment ^comment = "TKB-fält: `comment` (`string`, kardinalitet 0..1)."

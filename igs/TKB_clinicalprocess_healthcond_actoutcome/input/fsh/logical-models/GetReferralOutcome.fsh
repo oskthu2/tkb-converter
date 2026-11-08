@@ -1,3 +1,6 @@
+// Elementen genereras ur GetReferralOutcomeResponder_3.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:healthcond:actoutcome v4.2.2
 // Kontrakt: GetReferralOutcome v3.2
 // Genererad: 2026-03-19
@@ -15,88 +18,59 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "3.2"
-* referralOutcome 0..* BackboneElement "Remissvar (ett per remiss)"
-
-// ── Header ───────────────────────────────────────────
-* referralOutcome.referralOutcomeHeader 1..1 BackboneElement "PatientSummaryHeader"
-
-* referralOutcome.referralOutcomeHeader.documentId 1..1 string "Dokumentets unika id"
-* referralOutcome.referralOutcomeHeader.sourceSystemHSAId 1..1 Identifier "Källsystemets HSA-id"
-* referralOutcome.referralOutcomeHeader.documentTitle 0..1 string "Dokumentets titel"
-* referralOutcome.referralOutcomeHeader.documentTime 1..1 instant "Dokumentets tidpunkt"
-* referralOutcome.referralOutcomeHeader.patientId 1..1 Identifier "Patientens id"
-* referralOutcome.referralOutcomeHeader.patientId.value 1..1 string "Patientens personnummer/samordningsnummer"
-* referralOutcome.referralOutcomeHeader.patientId.system 1..1 uri "OID för typ av identifierare"
-
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional 1..1 BackboneElement "Ansvarig hälso- och sjukvårdspersonal"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.authorTime 1..1 instant "Tidpunkt för dokumentation"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId 0..1 Identifier "Personalens HSA-id"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName 0..1 string "Personalens namn"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode 0..1 CodeableConcept "Yrkesroll"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit 0..1 BackboneElement "Organisationsenhet"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId 0..1 Identifier "OrgUnit HSA-id"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName 0..1 string "OrgUnit namn"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom 0..1 string "Telefon"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail 0..1 string "E-post"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress 0..1 string "Adress"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation 0..1 string "Plats"
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId 0..1 Identifier "Vårdenhetens HSA-id"
-  """
-  Regel 1: Krävs för spärrhantering och åtkomstkontroll.
-  """
-* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId 0..1 Identifier "Vårdgivarens HSA-id"
-  """
-  Regel 1: Krävs för spärrhantering och åtkomstkontroll.
-  """
-
-* referralOutcome.referralOutcomeHeader.legalAuthenticator 0..1 BackboneElement "Juridiskt ansvarig"
-* referralOutcome.referralOutcomeHeader.legalAuthenticator.signatureTime 1..1 instant "Signeringstidpunkt"
-* referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAid 0..1 Identifier "HSA-id"
-* referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorName 0..1 string "Namn"
-
-* referralOutcome.referralOutcomeHeader.approvedForPatient 1..1 boolean "Godkänd för patientvisning"
-* referralOutcome.referralOutcomeHeader.careContactId 0..1 string "Vårdkontaktid"
-
-// ── Body ─────────────────────────────────────────────
-* referralOutcome.referralOutcomeBody 1..1 BackboneElement "Remissvarsinformation"
-
-* referralOutcome.referralOutcomeBody.referralOutcomeTypeCode 1..1 CodeableConcept "Typ av remissvar"
-  """
-  Kodas enligt referralOutcomeTypeCodeEnum. Se QUESTIONS.md ASSUME-002 angående canonicalURL.
-  """
-* referralOutcome.referralOutcomeBody.referralOutcomeTitle 0..1 string "Remissvarets titel"
-* referralOutcome.referralOutcomeBody.referralOutcomeText 1..1 string "Remissvarets text"
-
-* referralOutcome.referralOutcomeBody.clinicalInformation 0..* BackboneElement "Klinisk information"
-* referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode 1..1 CodeableConcept "Klinisk informationskod"
-* referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText 1..1 string "Klinisk informationstext"
-
-* referralOutcome.referralOutcomeBody.act 0..* BackboneElement "Åtgärd"
-* referralOutcome.referralOutcomeBody.act.actId 0..1 string "Åtgärdens id"
-* referralOutcome.referralOutcomeBody.act.actCode 0..1 CodeableConcept "Åtgärdskod"
-* referralOutcome.referralOutcomeBody.act.actText 1..1 string "Åtgärdstext"
-* referralOutcome.referralOutcomeBody.act.actTime 0..1 instant "Tidpunkt för åtgärd"
-* referralOutcome.referralOutcomeBody.act.actResult 0..* BackboneElement "Resultat (multimedia)"
-* referralOutcome.referralOutcomeBody.act.actResult.mediaType 1..1 CodeableConcept "Medietyp"
-* referralOutcome.referralOutcomeBody.act.actResult.value 0..1 base64Binary "Binärt innehåll"
-* referralOutcome.referralOutcomeBody.act.actResult.reference 0..1 url "Referens-URL"
-
-* referralOutcome.referralOutcomeBody.attested 0..1 BackboneElement "Attestering"
-* referralOutcome.referralOutcomeBody.attested.attestedTime 1..1 instant "Attest-tidpunkt"
-* referralOutcome.referralOutcomeBody.attested.attesterHSAId 0..1 Identifier "Attesterarens HSA-id"
-* referralOutcome.referralOutcomeBody.attested.attesterName 0..1 string "Attesterarens namn"
-
-* referralOutcome.referralOutcomeBody.referral 1..1 BackboneElement "Remissens uppgifter"
-* referralOutcome.referralOutcomeBody.referral.referralId 1..1 string "Remissens id"
-* referralOutcome.referralOutcomeBody.referral.referralReason 1..1 string "Remissorsak"
-* referralOutcome.referralOutcomeBody.referral.referralTime 0..1 instant "Remisstidpunkt"
-* referralOutcome.referralOutcomeBody.referral.referralAuthor 1..1 BackboneElement "Remittent"
-* referralOutcome.referralOutcomeBody.referral.referralAuthor.authorTime 1..1 instant "Tidpunkt"
-* referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalHSAId 0..1 Identifier "HSA-id"
-* referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalName 0..1 string "Namn"
-* referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalRoleCode 0..1 CodeableConcept "Yrkesroll"
-* referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit 0..1 BackboneElement "Org-enhet"
-* referralOutcome.referralOutcomeBody.referral.careContactId 0..1 string "Vårdkontaktid"
+* referralOutcome 0..* Base "ReferralOutcomeType" "referralOutcome"
+* referralOutcome.referralOutcomeHeader 1..1 Base "PatientSummaryHeaderType" "referralOutcomeHeader"
+* referralOutcome.referralOutcomeHeader.documentId 1..1 string "documentId" "documentId"
+* referralOutcome.referralOutcomeHeader.sourceSystemHSAId 1..1 string "sourceSystemHSAId" "sourceSystemHSAId"
+* referralOutcome.referralOutcomeHeader.sourceSystemHSAId only HSAIdType
+* referralOutcome.referralOutcomeHeader.documentTitle 0..1 string "documentTitle" "documentTitle"
+* referralOutcome.referralOutcomeHeader.documentTime 0..1 string "documentTime" "documentTime"
+* referralOutcome.referralOutcomeHeader.documentTime only TimeStampType
+* referralOutcome.referralOutcomeHeader.patientId 1..1 PersonIdType "patientId" "patientId"
+* referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional 1..1 HealthcareProfessionalType "accountableHealthcareProfessional" "accountableHealthcareProfessional"
+* referralOutcome.referralOutcomeHeader.legalAuthenticator 0..1 LegalAuthenticatorType "legalAuthenticator" "legalAuthenticator"
+* referralOutcome.referralOutcomeHeader.approvedForPatient 1..1 boolean "approvedForPatient" "approvedForPatient"
+* referralOutcome.referralOutcomeHeader.careContactId 0..1 string "careContactId" "careContactId"
+* referralOutcome.referralOutcomeHeader.nullified 0..1 boolean "nullified" "nullified"
+* referralOutcome.referralOutcomeHeader.nullifiedReason 0..1 string "nullifiedReason" "nullifiedReason"
+* referralOutcome.referralOutcomeBody 1..1 Base "ReferralOutcomeBodyType" "referralOutcomeBody"
+* referralOutcome.referralOutcomeBody.referralOutcomeTypeCode 1..1 code "referralOutcomeTypeCode" "referralOutcomeTypeCode Tillåtna värden: SS, SR."
+* referralOutcome.referralOutcomeBody.referralOutcomeTypeCode from ReferralOutcomeTypeCodeVS (required)
+* referralOutcome.referralOutcomeBody.referralOutcomeTitle 0..1 string "referralOutcomeTitle" "referralOutcomeTitle"
+* referralOutcome.referralOutcomeBody.referralOutcomeText 1..1 string "referralOutcomeText" "referralOutcomeText"
+* referralOutcome.referralOutcomeBody.clinicalInformation 0..* Base "ClinicalInformationType" "clinicalInformation"
+* referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode 1..1 Base "ClinicalInformationCodeType" "clinicalInformationCode"
+* referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.code 1..1 string "code" "code"
+* referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.codeSystem 1..1 code "codeSystem" "codeSystem Tillåtna värden: 1.2.752.116.1.1.1.1.3."
+* referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText 1..1 string "clinicalInformationText" "clinicalInformationText"
+* referralOutcome.referralOutcomeBody.act 0..* Base "ActType" "act"
+* referralOutcome.referralOutcomeBody.act.actId 0..1 string "actId" "actId"
+* referralOutcome.referralOutcomeBody.act.actCode 0..1 Base "ActCodeType" "actCode"
+* referralOutcome.referralOutcomeBody.act.actCode.code 1..1 string "code" "code"
+* referralOutcome.referralOutcomeBody.act.actCode.codeSystem 1..1 string "codeSystem" "codeSystem"
+* referralOutcome.referralOutcomeBody.act.actText 1..1 string "actText" "actText"
+* referralOutcome.referralOutcomeBody.act.actTime 0..1 string "actTime" "actTime"
+* referralOutcome.referralOutcomeBody.act.actTime only TimeStampType
+* referralOutcome.referralOutcomeBody.act.actResult 0..* MultimediaType "actResult" "actResult"
+* referralOutcome.referralOutcomeBody.referral 1..1 Base "ReferralType" "referral"
+* referralOutcome.referralOutcomeBody.referral.referralId 1..1 string "referralId" "referralId"
+* referralOutcome.referralOutcomeBody.referral.referralReason 1..1 string "referralReason" "referralReason"
+* referralOutcome.referralOutcomeBody.referral.referralTime 0..1 string "referralTime" "referralTime"
+* referralOutcome.referralOutcomeBody.referral.referralTime only TimeStampType
+* referralOutcome.referralOutcomeBody.referral.referralAuthor 1..1 HealthcareProfessionalType "referralAuthor" "referralAuthor"
+* referralOutcome.referralOutcomeBody.referral.careContactId 0..1 string "careContactId" "careContactId"
+* referralOutcome.referralOutcomeBody.attested 0..1 Base "(anonym typ)" "attested"
+* referralOutcome.referralOutcomeBody.attested.attestedTime 1..1 string "attestedTime" "attestedTime"
+* referralOutcome.referralOutcomeBody.attested.attestedTime only TimeStampType
+* referralOutcome.referralOutcomeBody.attested.attesterHSAId 0..1 string "attesterHSAId" "attesterHSAId"
+* referralOutcome.referralOutcomeBody.attested.attesterHSAId only HSAIdType
+* referralOutcome.referralOutcomeBody.attested.attesterName 0..1 string "attesterName" "attesterName"
+* result 1..1 Base "ResultType" "result"
+* result.resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
+* result.errorCode 0..1 code "errorCode" "errorCode Tillåtna värden: INVALID_REQUEST."
+* result.logId 1..1 string "logId" "logId"
+* result.subCode 0..1 string "subCode" "subCode"
+* result.message 0..1 string "message" "message"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetReferralOutcomeFieldDescriptions

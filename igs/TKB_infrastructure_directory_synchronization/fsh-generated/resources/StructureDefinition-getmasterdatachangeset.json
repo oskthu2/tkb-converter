@@ -30,56 +30,28 @@
       {
         "id": "getmasterdatachangeset.masterDataChangeSet",
         "path": "getmasterdatachangeset.masterDataChangeSet",
-        "short": "masterDataChangeSet",
+        "short": "MasterDataChangeSetType",
         "definition": "masterDataChangeSet",
         "comment": "TKB-fält: `MasterDataChangeSet` (`MasterDataChangeSetType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId",
-        "path": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId",
-        "short": "masterDataChangeSetId",
+        "id": "getmasterdatachangeset.masterDataChangeSet.id",
+        "path": "getmasterdatachangeset.masterDataChangeSet.id",
+        "short": "id",
         "definition": "Id\n\nIdentifierare som unikt pekar ut en katalogdatapost i källsystemet. Idt kan användas för att hämta posten med tjänstekontraktet som pekas ut i förfrågan.",
-        "comment": "TKB-fält: `../id` (`IIType`, kardinalitet 1).\n\n**Modellanteckning:** masterDataChangeSetId Heter id i schemat.",
+        "comment": "TKB-fält: `../id` (`IIType`, kardinalitet 1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.root",
-        "path": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.root",
-        "short": "root",
-        "definition": "En universellt unik identifierare eller en identifierare som tillsammans med värdet för ”extension”\n\nger en universellt unik identifierare.",
-        "comment": "TKB-fält: `../id/root` (`string`, kardinalitet 1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.iiExtension",
-        "path": "getmasterdatachangeset.masterDataChangeSet.masterDataChangeSetId.iiExtension",
-        "short": "iiExtension",
-        "definition": "En textsträng som tillsammans med värdet för \"root\" bildar en unik identifierare. Används om värdet på \"root\" inte är universellt unikt.",
-        "comment": "TKB-fält: `../id/extension` (`string`, kardinalitet 0..1).\n\nObs: modellen anger 1..1 där TKB:n anger 0..1.\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/infrastructure-directory-synchronization/StructureDefinition/IIType"
           }
         ]
       },
@@ -111,21 +83,24 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       },
       {
         "id": "getmasterdatachangeset.masterDataChangeSet.attributes",
         "path": "getmasterdatachangeset.masterDataChangeSet.attributes",
-        "short": "attributes",
+        "short": "MasterDataAttributeType",
         "definition": "Angivelse av förändrade attribut för katalogposten.\n\nOm category är update kan förändrade fält anges i svaret, så att konsumenten kan härleda om uppdateringen är relevant för att trigga en hämtning av hela posten.",
         "comment": "TKB-fält: `../attributes` (`AttributeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

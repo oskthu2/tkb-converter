@@ -2,13 +2,15 @@
 // input/pagecontent/ — redigera inte för hand, ändra tabellen och kör om skriptet.
 
 RuleSet: UpdateBookingRequestFieldDescriptions
-* requestedTimeslot ^comment = "TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1).
-
-**Modellanteckning:** Ny tidsinformation för ombokningen."
+* requestedTimeslot ^comment = "TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1)."
 * requestedTimeslot.startTimeInclusive ^definition = "Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss."
-* requestedTimeslot.startTimeInclusive ^comment = "TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1)."
+* requestedTimeslot.startTimeInclusive ^comment = "TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * requestedTimeslot.endTimeExclusive ^definition = "Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss."
-* requestedTimeslot.endTimeExclusive ^comment = "TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1)."
+* requestedTimeslot.endTimeExclusive ^comment = "TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * requestedTimeslot.healthcare_facility ^definition = "HSA-id för mottagning/vårdenhet."
 * requestedTimeslot.healthcare_facility ^comment = "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1)."
 * requestedTimeslot.performer ^definition = "HSA-id för Hos-person som besöket är bokat hos."
@@ -16,11 +18,11 @@ RuleSet: UpdateBookingRequestFieldDescriptions
 * requestedTimeslot.bookingId ^definition = "Bokningsidentitet för det bokade besöket."
 * requestedTimeslot.bookingId ^comment = "TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 1..1).
 
-**Modellanteckning:** Bokningsidentitet för bokningen som ska ombokas. Måste avse en tidssatt bokning."
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * requestedTimeslot.subject_of_care ^definition = "Personnummer enl. yyyymmddxxxx."
 * requestedTimeslot.subject_of_care ^comment = "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).
 
-**Modellanteckning:** Personnummer för invånaren."
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * requestedTimeslot.purpose ^definition = "Beskrivning av besöksorsak angiven av vårdenhet."
 * requestedTimeslot.purpose ^comment = "TKB-fält: `purpose` (`string`, kardinalitet 0..1)."
 * requestedTimeslot.reason ^definition = "Kontaktorsak som invånare uppger vid bokning."
@@ -41,9 +43,7 @@ RuleSet: UpdateBookingRequestFieldDescriptions
 * requestedTimeslot.careTypeName ^comment = "TKB-fält: `careTypeName` (`string`, kardinalitet 0..1)."
 * requestedTimeslot.careTypeID ^definition = "Identitet för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes."
 * requestedTimeslot.careTypeID ^comment = "TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1)."
-* subject_of_care_info ^comment = "TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 0..1).
-
-**Modellanteckning:** Invånarens kontaktinformation. Valfri vid ombokning."
+* subject_of_care_info ^comment = "TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 0..1)."
 * subject_of_care_info.phone ^definition = "Telefonnummer."
 * subject_of_care_info.phone ^comment = "TKB-fält: `phone` (`string`, kardinalitet 0..1)."
 * subject_of_care_info.email ^definition = "Email-adress."

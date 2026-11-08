@@ -37,6 +37,4 @@ Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla
 Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST."
 * sourceSystemHSAId ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1)."
 * careContactId ^definition = "Begränsar sökningen till de diagnoser som dokumenterades vid hälso- och sjukvårdskontakt."
-* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).
-
-**Modellanteckning:** Begränsar sökningen till de diagnoser som dokumenterats vid angiven vårdkontakt."
+* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*)."

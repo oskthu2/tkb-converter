@@ -1,11 +1,9 @@
+// Elementen genereras ur GetCarePlansResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:logistics:logistics v3.0.13
 // Kontrakt: GetCarePlans v2.0 — Request
 // Genererad: 2026-03-19
-
-Invariant: getcareplans-sourcesystemhsaid-required
-Description: "sourceSystemHSAId ska anges när careContactId är angivet (TKB fältregel för sourceSystemHSAId). Regelns andra villkor, begäran på reservnummer, går inte att avgöra ur meddelandet och kontrolleras inte."
-Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"
-Severity: #error
 
 Logical: GetCarePlansRequest
 Id: getcareaplans-request
@@ -18,51 +16,21 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* obeys getcareplans-sourcesystemhsaid-required
-* careUnitHSAId 0..* string "Filtrering på PDL-enhet (vårdenhetens HSA-id)"
-    """
-    Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.
-    Typ HSAIdType (string).
-    Kardinalitet: Valfri, lista (0..*).
-    """
-* patientId 1..1 Identifier "Patientens identifierare"
-    """
-    Id för patienten. Anges med 12 tecken utan avskiljare.
-    system = OID för typ av identifierare:
-    - Personnummer: 1.2.752.129.2.1.3.1
-    - Samordningsnummer: 1.2.752.129.2.1.3.3
-    - Reservnummer: lokalt definierade OID (t.ex. SLL: 1.2.752.97.3.1.3)
-    Typ PersonIdType. Kardinalitet: Obligatorisk.
-    """
-* datePeriod 0..1 BackboneElement "Datumintervall för sökning"
-    """
-    Begränsar sökningen till det angivna datumintervallet. Returnerar poster där
-    documentTime ligger inom sökintervallets start- och slutdatum.
-    Typ DatePeriodType. Kardinalitet: Valfri.
-    """
-* datePeriod.start 1..1 date "Startdatum (YYYYMMDD)"
-    """
-    Startdatum för sökintervallet. Format ÅÅÅÅMMDD.
-    Kardinalitet: Obligatorisk om datePeriod anges.
-    """
-* datePeriod.end 1..1 date "Slutdatum (YYYYMMDD)"
-    """
-    Slutdatum för sökintervallet. Format ÅÅÅÅMMDD.
-    Kardinalitet: Obligatorisk om datePeriod anges.
-    """
-* sourceSystemHSAId 0..1 string "Källsystemets HSA-id"
-    """
-    Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet.
-    Värdet måste överensstämma med logicalAddress i anropets SOAP-header.
-    Fältet är tvingande om careContactId angivits eller vid begäran på reservnummer.
-    Typ HSAIdType (string). Kardinalitet: Valfri (villkorligt obligatorisk).
-    """
-* careContactId 0..* string "Specifika vårdkontakt-id:n att filtrera på"
-    """
-    Begränsar sökningen till vård- och omsorgsplaner kopplade till angivna vårdkontakter.
-    Matchar documentId i GetCareContacts-svaret.
-    Kardinalitet: Valfri, lista (0..*).
-    """
+* careUnitHSAId 0..* string "careUnitHSAId" "careUnitHSAId"
+* careUnitHSAId only HSAIdType
+* patientId 1..1 PersonIdType "patientId" "patientId"
+* datePeriod 0..1 DatePeriodType "datePeriod" "datePeriod"
+* sourceSystemHSAId 0..1 string "sourceSystemHSAId" "sourceSystemHSAId"
+* sourceSystemHSAId only HSAIdType
+* careContactId 0..* string "careContactId" "careContactId"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetCarePlansRequestFieldDescriptions
+
+// Invarianter för TKB:ns regler (tkb-fsh-model, Fältregler → FHIRPath-invarianter)
+* obeys getcareplans-sourcesystemhsaid-required
+
+Invariant: getcareplans-sourcesystemhsaid-required
+Description: "sourceSystemHSAId ska anges när careContactId är angivet (TKB fältregel för sourceSystemHSAId). Regelns andra villkor, begäran på reservnummer, går inte att avgöra ur meddelandet och kontrolleras inte."
+Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"
+Severity: #error

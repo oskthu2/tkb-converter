@@ -3,6 +3,8 @@
 
 RuleSet: HandleHospCertificationPersonFieldDescriptions
 * resultCode ^definition = "Resultat av ett \"add\" eller \"remove\"-anrop (OK eller ERROR)."
-* resultCode ^comment = "TKB-fält: `resultCode` (`String`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO."
 * resultText ^definition = "Beskrivning av fel vid resultCode=ERROR."
 * resultText ^comment = "TKB-fält: `resultText` (`String`, kardinalitet 0..1)."

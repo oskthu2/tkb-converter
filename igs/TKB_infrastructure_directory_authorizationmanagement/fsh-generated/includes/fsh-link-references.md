@@ -1,3 +1,4 @@
+[DNType]: StructureDefinition-DNType.html
 [GetAdminCredentialsForPerson]: StructureDefinition-getadmincredentialsforperson.html
 [GetAdminCredentialsForPersonRequest]: StructureDefinition-getadmincredentialsforperson-request.html
 [GetAdminCredentialsForPersonIncludingProtectedPerson]: StructureDefinition-getadmincredentialsforpersonincludingprotectedperson.html
@@ -13,3 +14,4 @@
 [HandleHospCertificationPersonRequest]: StructureDefinition-handlehospcertificationperson-request.html
 [HospOperationCS]: CodeSystem-hosp-operation-cs.html
 [HospOperationVS]: ValueSet-hosp-operation-vs.html
+[IIType]: StructureDefinition-IIType.html

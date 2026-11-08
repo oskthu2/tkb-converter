@@ -30,42 +30,42 @@
       {
         "id": "getinfologs.infoLogsResult",
         "path": "getinfologs.infoLogsResult",
-        "short": "infoLogsResult",
+        "short": "InfoLogsResultType",
         "definition": "Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK.\n\nVid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.",
-        "comment": "TKB-fält: `infoLogsResult` (`urn:riv:informationsecurity:auditing:log:2:InfoLogsResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som returneras av tjänst. careProviders är ej satt vid eventuella fel.",
+        "comment": "TKB-fält: `infoLogsResult` (`urn:riv:informationsecurity:auditing:log:2:InfoLogsResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getinfologs.infoLogsResult.reportResult",
         "path": "getinfologs.infoLogsResult.reportResult",
-        "short": "reportResult",
+        "short": "ReportResultType",
         "definition": "reportResult",
         "comment": "TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getinfologs.infoLogsResult.reportResult.result",
         "path": "getinfologs.infoLogsResult.reportResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -73,8 +73,8 @@
         "id": "getinfologs.infoLogsResult.reportResult.result.resultCode",
         "path": "getinfologs.infoLogsResult.reportResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
+        "comment": "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.",
         "min": 1,
         "max": "1",
         "type": [
@@ -160,28 +160,28 @@
       {
         "id": "getinfologs.infoLogsResult.careProviders",
         "path": "getinfologs.infoLogsResult.careProviders",
-        "short": "careProviders",
+        "short": "CareProvidersType",
         "definition": "Datatyp som håller lista med vårdgivare. Kan vara en tom lista.",
         "comment": "TKB-fält: `../careProviders` (`CareProvidersType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getinfologs.infoLogsResult.careProviders.careProvider",
         "path": "getinfologs.infoLogsResult.careProviders.careProvider",
-        "short": "careProvider",
+        "short": "CareProviderType",
         "definition": "Datatyp som representerar en vårdgivare.",
         "comment": "TKB-fält: `../../careProvider` (`CareProviderType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

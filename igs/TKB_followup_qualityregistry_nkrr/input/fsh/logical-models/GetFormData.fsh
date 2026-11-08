@@ -1,3 +1,6 @@
+// Elementen genereras ur GetFormDataResponder_1.2_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:qualityregistry:nkrr v1.2.2
 // Kontrakt: GetFormData v1.2
 // Genererad: 2026-05-19
@@ -76,5 +79,4 @@ Characteristics: #can-be-target
     Identifierare av loggpost hos tjänsteproducenten, t.ex. ett UUID som kan användas vid felsökning.
     """
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetFormDataFieldDescriptions

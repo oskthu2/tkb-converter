@@ -1,3 +1,6 @@
+// Elementen genereras ur GetRequestActivitiesResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB crm:requeststatus v2.0.1
 // Kontrakt: GetRequestActivities v2.0
 // Genererad: 2026-03-24
@@ -12,53 +15,12 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* careUnitHSAId 0..* Identifier "Filtrering på vårdenhet"
-  """
-  Begränsar sökning till angiven vårdenhet (accountableCareUnit i svaret).
-  root = 1.2.752.129.2.1.4.1 (HSA OID), extension = HSA-id på vårdenhet.
-  """
-
-* careGiverHSAId 0..* Identifier "Filtrering på vårdgivare"
-  """
-  Begränsar sökning till angiven vårdgivare (accountableHealthcareProvider i svaret).
-  root = 1.2.752.129.2.1.4.1 (HSA OID), extension = HSA-id på vårdgivare.
-  """
-
-* patientId 1..1 Identifier "Patientens personidentifierare"
-  """
-  Obligatorisk. Begränsar sökning till angiven personidentifierare.
-  Producenten ska returnera alla uppgifter kopplade till patienten, inkl. under andra id:n.
-  root = OID för typ av personidentifierare:
-    - Personnummer: 1.2.752.129.2.1.3.1
-    - Samordningsnummer: 1.2.752.129.2.1.3.3
-    - Övriga: aktuell OID
-  extension = patientens identifierare (12 tecken utan avskiljare).
-  OBS: Lokal reservidentitet kräver systemadressering — kan ej användas med EI/aggregerande tjänster.
-  """
-
-* datePeriod 0..1 Period "Söktidsperiod"
-  """
-  Begränsar sökning till angivet datumintervall.
-  Samtliga statusrader för en remiss returneras om minst en statusrad (body.eventTime) faller
-  inom intervallet, eller om statusrader spänner över hela intervallet.
-  OBS: Datumintervall (inte tidsstämplat) — tidpunkter konverteras till datum vid jämförelse.
-  """
-
-* sourceSystemHSAId 0..1 Identifier "Källsystem-id"
-  """
-  Begränsar sökning till angivet källsystem.
-  Värdet måste överensstämma med logicalAddress i SOAP-headern.
-  Aggregerande tjänster används ej när detta fält anges.
-  Ska anges vid begäran på reservnummer.
-  root = 1.2.752.129.2.1.4.1, extension = källsystemets HSA-id.
-  """
-
-* typeOfRequest 0..* CodeableConcept "Remisstyp"
-  """
-  Filtrering på remisstyp (Kv framställantyp, OID: 1.2.752.129.2.2.2.24).
-  1 = röntgenremiss, 2 = labbremiss, 4 = allmänremiss.
-  """
-* typeOfRequest from KvFramstallantypVS (required)
+* careUnitHSAId 0..* IIType "careUnitHSAId" "careUnitHSAId"
+* careGiverHSAId 0..* IIType "careGiverHSAId" "careGiverHSAId"
+* patientId 1..1 IIType "patientId" "patientId"
+* datePeriod 0..1 DatePeriodType "datePeriod" "datePeriod"
+* sourceSystemHSAId 0..1 IIType "sourceSystemHSAId" "sourceSystemHSAId"
+* typeOfRequest 0..* CVType "typeOfRequest" "typeOfRequest"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetRequestActivitiesRequestFieldDescriptions

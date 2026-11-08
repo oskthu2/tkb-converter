@@ -1,3 +1,6 @@
+// Elementen genereras ur AssertCareEngagementResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:accesscontrol v1.0.6
 // Kontrakt: AssertCareEngagement v1.0
 // RIV-TA namespace: urn:riv:ehr:accesscontrol:AssertCareEngagement:1
@@ -17,14 +20,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* hasCareEngagement 1..1 boolean "Åtkomstberättigande vårdrelation"
-    """
-    'true' om åtkomstberättigande vårdrelation kan anses föreligga, annars 'false'.
-    Kardinalitet: Obligatorisk.
-    Notering: Fältnamnet anges som 'HasCareEngagement' (versalt H) i TKB-tabellen
-    men som 'hasCareEngagement' i XSD. Normaliserat till camelCase i FHIR-modellen.
-    Kardinaliteten anges som '1' (utan punktnotation) i TKB — tolkat som 1..1.
-    """
+* HasCareEngagement 1..1 boolean "true if care engagement is asserted, else false" "true if care engagement is asserted, else false"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert AssertCareEngagementFieldDescriptions

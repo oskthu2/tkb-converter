@@ -1,3 +1,6 @@
+// Elementen genereras ur ProcessRegistrationNotificationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:qualityregistry:nkrr v1.2.2
 // Kontrakt: ProcessRegistrationNotification v1.0
 // Genererad: 2026-05-19
@@ -13,25 +16,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* referenceId 0..1 string "Identifierare som kan lämnas som referens"
-    """
-    Identifierare som kan lämnas som referens.
-    Ska specificeras och hanteras enligt den informationsspecifikation som kvalitetsregistret
-    tillhandahåller för att beskriva hanteringen av notifiering till registret.
-    """
-* result 1..1 BackboneElement "Information om mottagningen av notifieringen lyckades"
-    """
-    Information om mottagningen av notifieringen lyckades.
-    """
-* result.resultCode 1..1 CodeableConcept "Anger resultatet av notifieringen"
-    """
-    Anger resultatet av notifieringen. Kan endast vara OK, INFO eller ERROR.
-    """
-* result.resultCode from ResultCodeVS (required)
-* result.resultText 0..1 string "En beskrivande text som kan anges vid INFO eller ERROR"
-    """
-    En beskrivande text som kan anges vid INFO eller ERROR.
-    """
+* referenceId 0..1 string "referenceId" "referenceId"
+* result 1..1 ResultType "result" "result"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert ProcessRegistrationNotificationFieldDescriptions

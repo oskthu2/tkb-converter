@@ -1,3 +1,6 @@
+// Elementen genereras ur CheckBlocksResponder_4.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för informationsecurity.authorization.blocking v4.0.4 (Genererad ur scheman i riv.informationsecurity.authorization.blocking, tagg 4.0.4; scripts/xsd_to_ig.py)
 // Kontrakt: CheckBlocks v4.0
 // Genererad: 2026-09-26
@@ -10,22 +13,20 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:CheckBlocksResponder:4, CheckBlocksType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "4.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Om anropet sker på nationell nivå används SE165565594230-1000, i annat fall anges HSA-id för den organisation vars tjänst adresseras (t ex HSA-id för Region Skåne) Undantagsvis kan s.k. källsystembaserad adressering användas, (t ex. HSA-id för Region Skånes lokala spärrtjänst)."
-* accessingActor 1..1 BackboneElement "accessingActor" "Datatyp som identifierar en medarbetare/person som vill ha åtkomst till specifik information."
-  * employeeId 1..1 string "employeeId" "employeeId"
-  * careProviderId 1..1 string "careProviderId" "careProviderId"
-  * careUnitId 1..1 string "careUnitId" "careUnitId"
-* patientId 1..1 BackboneElement "patientId" "En universellt unik identifierare."
-  * root 1..1 string "root" "root"
-  * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
-* informationEntities 1..* BackboneElement "informationEntities" "Datatyp som representerar den information som behövs vid en kontroll om spärr föreligger."
-  * informationStartDate 1..1 dateTime "informationStartDate" "informationStartDate"
-  * informationEndDate 1..1 dateTime "informationEndDate" "informationEndDate"
-  * informationCareUnitId 1..1 string "informationCareUnitId" "informationCareUnitId"
-  * informationCareProviderId 1..1 string "informationCareProviderId" "informationCareProviderId"
-  * informationType 0..1 string "informationType" "informationType"
-  * rowNumber 1..1 integer "rowNumber" "rowNumber"
+* accessingActor 1..1 Base "AccessingActorType" "accessingActor"
+* accessingActor.employeeId 1..1 string "employeeId" "employeeId"
+* accessingActor.careProviderId 1..1 string "careProviderId" "careProviderId"
+* accessingActor.careUnitId 1..1 string "careUnitId" "careUnitId"
+* patientId 1..1 IIType "patientId" "patientId"
+* informationEntities 1..* Base "InformationEntityType" "informationEntities"
+* informationEntities.informationStartDate 1..1 dateTime "informationStartDate" "informationStartDate"
+* informationEntities.informationEndDate 1..1 dateTime "informationEndDate" "informationEndDate"
+* informationEntities.informationCareUnitId 1..1 string "informationCareUnitId" "informationCareUnitId"
+* informationEntities.informationCareProviderId 1..1 string "informationCareProviderId" "informationCareProviderId"
+* informationEntities.informationType 0..1 string "informationType" "informationType"
+* informationEntities.rowNumber 1..1 integer "rowNumber" "rowNumber"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CheckBlocksRequestFieldDescriptions

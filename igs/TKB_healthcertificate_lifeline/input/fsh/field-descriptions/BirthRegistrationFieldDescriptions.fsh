@@ -35,14 +35,16 @@ Får endast ha värde
 Förteckning över förekommande koder och beskrivning, se rubrik \"Lista över meddelandekoder\".
 
 Värde inom intervallet givet av tabell med meddlandekoder."
-* Meddelande.MeddelandeKod ^comment = "TKB-fält: `MeddelandeKod` (`int`, kardinalitet 1..1).
-
-**Modellanteckning:** Kod som indikerar orsaken till att personnummer ej returneras. datatyp = number"
+* Meddelande.MeddelandeKod ^comment = "TKB-fält: `MeddelandeKod` (`int`, kardinalitet 1..1)."
 * Meddelande.MeddelandeText ^definition = "Text som ger ytterligare information utöver MeddelandeKod om felorsak. Endast avsedd att nyttjas vid utveckling/felsökning."
 * Meddelande.MeddelandeText ^comment = "TKB-fält: `MeddelandeText` (`string`, kardinalitet 1..1)."
 * result ^definition = "Holds information about the success of the call. If INFO is set the field infoText should contain more information. If ERROR is set the fields errorId and errorText will contain information about the error."
 * result ^comment = "TKB-fält: `result` (`ResultOfCallType`, kardinalitet 0..1)."
-* result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeEnumType`, kardinalitet 1..1)."
+* result.resultCode ^comment = "TKB-fält: `../resultCode` (`ResultCodeEnumType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO."
 * result.infoText ^comment = "TKB-fält: `../infoText` (`string`, kardinalitet 0..1)."
-* result.errorId ^comment = "TKB-fält: `../errorId` (`ErrorIdEnumType`, kardinalitet 0..1)."
+* result.errorId ^comment = "TKB-fält: `../errorId` (`ErrorIdEnumType`, kardinalitet 0..1).
+
+**Modellanteckning:** errorId Tillåtna värden: VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR."
 * result.errorText ^comment = "TKB-fält: `../errorText` (`string`, kardinalitet 0..1)."

@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i HamtaMeddelanden\n(urn:riv:druglogistics:dosedispensing:HamtaMeddelandenResponder:1, HamtaMeddelandenType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "hamtameddelanden-request.logicalAddress",
-        "path": "hamtameddelanden-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
         "id": "hamtameddelanden-request.glnkod",
         "path": "hamtameddelanden-request.glnkod",
         "short": "glnkod",
@@ -57,14 +44,14 @@
       {
         "id": "hamtameddelanden-request.Behorighetsinformation",
         "path": "hamtameddelanden-request.Behorighetsinformation",
-        "short": "Behorighetsinformation",
+        "short": "BehorighetsinfoRequest",
         "definition": "Behorighetsinformation",
         "comment": "TKB-fält: `Behorighetsinformation` (`BehorighetsinfoRequest`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -114,8 +101,8 @@
         "id": "hamtameddelanden-request.Behorighetsinformation.yrkeskod",
         "path": "hamtameddelanden-request.Behorighetsinformation.yrkeskod",
         "short": "yrkeskod",
-        "definition": "yrkeskod",
-        "comment": "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).",
+        "definition": "yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
+        "comment": "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
         "min": 0,
         "max": "1",
         "type": [
@@ -187,14 +174,14 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval",
         "path": "hamtameddelanden-request.Meddelandenutval",
-        "short": "Meddelandenutval",
+        "short": "MeddelandenutvalRequest",
         "definition": "Meddelandenutval",
         "comment": "TKB-fält: `Meddelandenutval` (`MeddelandenutvalRequest`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -202,8 +189,8 @@
         "id": "hamtameddelanden-request.Meddelandenutval.Meddelandetyp",
         "path": "hamtameddelanden-request.Meddelandenutval.Meddelandetyp",
         "short": "Meddelandetyp",
-        "definition": "Meddelandetyp",
-        "comment": "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1).",
+        "definition": "Meddelandetyp Tillåtna värden: OB, PB, FR, MB, VG.",
+        "comment": "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** Meddelandetyp Tillåtna värden: OB, PB, FR, MB, VG.",
         "min": 1,
         "max": "1",
         "type": [
@@ -219,21 +206,21 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation",
-        "short": "Patientinformation",
+        "short": "PatientinfoResponse",
         "definition": "Patientinformation",
         "comment": "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.fornamn",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.fornamn",
-        "short": "fornamn",
+        "short": "Anvandarens fornamn.",
         "definition": "Anvandarens fornamn.",
         "comment": "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -247,7 +234,7 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.mellannamn",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.mellannamn",
-        "short": "mellannamn",
+        "short": "Anvandarens mellanamn.",
         "definition": "Anvandarens mellanamn.",
         "comment": "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -261,7 +248,7 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.efternamn",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.efternamn",
-        "short": "efternamn",
+        "short": "Anvandarens efternamn.",
         "definition": "Anvandarens efternamn.",
         "comment": "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -276,8 +263,8 @@
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.identitetstyp",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.identitetstyp",
         "short": "identitetstyp",
-        "definition": "identitetstyp",
-        "comment": "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).",
+        "definition": "identitetstyp Tillåtna värden: P, R, S.",
+        "comment": "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S.",
         "min": 1,
         "max": "1",
         "type": [
@@ -293,7 +280,7 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.personid",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.personid",
-        "short": "personid",
+        "short": "Anvandarens personid",
         "definition": "Anvandarens personid",
         "comment": "TKB-fält: `../../personid` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -307,7 +294,7 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.lanskod",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.lanskod",
-        "short": "lanskod",
+        "short": "Anvandarens folkbokforda lanskod",
         "definition": "Anvandarens folkbokforda lanskod",
         "comment": "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -321,7 +308,7 @@
       {
         "id": "hamtameddelanden-request.Meddelandenutval.Patientinformation.kommunkod",
         "path": "hamtameddelanden-request.Meddelandenutval.Patientinformation.kommunkod",
-        "short": "kommunkod",
+        "short": "Anvandarens folkbokforda kommunkod",
         "definition": "Anvandarens folkbokforda kommunkod",
         "comment": "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -350,8 +337,8 @@
         "id": "hamtameddelanden-request.Meddelandenutval.meddelandestatus",
         "path": "hamtameddelanden-request.Meddelandenutval.meddelandestatus",
         "short": "meddelandestatus",
-        "definition": "meddelandestatus",
-        "comment": "TKB-fält: `../meddelandestatus` (`MeddelandeStatusEnum`, kardinalitet 0..1).",
+        "definition": "meddelandestatus Tillåtna värden: L, O, B, BLO, LO, BL.",
+        "comment": "TKB-fält: `../meddelandestatus` (`MeddelandeStatusEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** meddelandestatus Tillåtna värden: L, O, B, BLO, LO, BL.",
         "min": 0,
         "max": "1",
         "type": [

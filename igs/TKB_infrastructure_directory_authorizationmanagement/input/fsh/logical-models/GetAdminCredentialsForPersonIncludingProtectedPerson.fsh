@@ -1,3 +1,6 @@
+// Elementen genereras ur GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:directory:authorizationmanagement v2.4.4
 // Kontrakt: GetAdminCredentialsForPersonIncludingProtectedPerson v2.0
 // Genererad: 2026-05-19
@@ -14,28 +17,28 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
-* adminCredentialInformation 0..* BackboneElement "Administrativa behörighetsegenskaper för sökt person"
-  * personHsaId 1..1 string "Personens HSA-id"
-  * givenName 0..1 string "Personens tilltalsnamn"
-  * middleAndSurName 1..1 string "Personens mellannamn och efternamn"
-  * protectedPerson 0..1 boolean "Personen har skyddade personuppgifter"
-  * feignedPerson 0..1 boolean "Personen är ett fingerat objekt"
-  * authorizationScopeProperties 0..* BackboneElement "Administrativa behörighetsegenskaper"
-    * authorizationScopeCode 1..1 string "Behörighetsområdeskod"
-    * authorizationScopeName 1..1 string "Behörighetsområdets namn"
-    * authorizationScopeDescription 0..1 string "Behörighetsområdets beskrivning"
-    * authorizationScopePropertyCode 1..1 string "Behörighetsområdesegenskap (kod)"
-    * authorizationScopePropertyName 1..1 string "Behörighetsområdesegenskapens namn"
-    * authorizationScopePropertyDescription 0..1 string "Behörighetsområdesegenskapens beskrivning"
-    * adminCommission 1..* BackboneElement "Administrativt medarbetaruppdrag"
-      * adminCommissionHsaId 1..1 string "HSA-id för det administrativa medarbetaruppdraget"
-      * adminCommissionResponsibleOrganisation 1..1 string "Organisationsnummer för ansvarig organisation"
-      * sector 0..* BackboneElement "Organisationsomfång för behörighetsområdesegenskapen"
-        * unitHsaId 1..1 string "HSA-id för objektet i organisationsomfånget"
-        * sectorFlag 0..1 boolean "True: objektets alla underliggande objekt ingår"
-        * objectName 1..1 string "Namn på objektet i organisationsomfånget"
-        * feignedUnit 0..1 boolean "Objektet är ett fingerat objekt"
-      * feignedAdminCommission 0..1 boolean "Administrativt medarbetaruppdrag är ett fingerat objekt"
+* adminCredentialInformation 0..* Base "AdminCredentialInformationType" "adminCredentialInformation"
+* adminCredentialInformation.personHsaId 1..1 string "personHsaId" "personHsaId"
+* adminCredentialInformation.givenName 0..1 string "givenName" "givenName"
+* adminCredentialInformation.middleAndSurName 1..1 string "middleAndSurName" "middleAndSurName"
+* adminCredentialInformation.protectedPerson 0..1 boolean "protectedPerson" "protectedPerson"
+* adminCredentialInformation.feignedPerson 0..1 boolean "feignedPerson" "feignedPerson"
+* adminCredentialInformation.authorizationScopeProperties 0..* Base "AuthorizationScopePropertyType" "authorizationScopeProperties"
+* adminCredentialInformation.authorizationScopeProperties.authorizationScopeCode 1..1 string "authorizationScopeCode" "authorizationScopeCode"
+* adminCredentialInformation.authorizationScopeProperties.authorizationScopeName 1..1 string "authorizationScopeName" "authorizationScopeName"
+* adminCredentialInformation.authorizationScopeProperties.authorizationScopeDescription 0..1 string "authorizationScopeDescription" "authorizationScopeDescription"
+* adminCredentialInformation.authorizationScopeProperties.authorizationScopePropertyCode 1..1 string "authorizationScopePropertyCode" "authorizationScopePropertyCode"
+* adminCredentialInformation.authorizationScopeProperties.authorizationScopePropertyName 1..1 string "authorizationScopePropertyName" "authorizationScopePropertyName"
+* adminCredentialInformation.authorizationScopeProperties.authorizationScopePropertyDescription 0..1 string "authorizationScopePropertyDescription" "authorizationScopePropertyDescription"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission 1..* Base "AdminCommissionType" "adminCommission"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.adminCommissionHsaId 1..1 string "adminCommissionHsaId" "adminCommissionHsaId"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.adminCommissionResponsibleOrganisation 1..1 string "adminCommissionResponsibleOrganisation" "adminCommissionResponsibleOrganisation"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.sector 0..* Base "SectorType" "sector"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.sector.unitHsaId 1..1 string "unitHsaId" "unitHsaId"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.sector.sectorFlag 0..1 boolean "sectorFlag" "sectorFlag"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.sector.name 1..1 string "name" "name"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.sector.feignedUnit 0..1 boolean "feignedUnit" "feignedUnit"
+* adminCredentialInformation.authorizationScopeProperties.adminCommission.feignedAdminCommission 0..1 boolean "feignedAdminCommission" "feignedAdminCommission"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetAdminCredentialsForPersonIncludingProtectedPersonFieldDescriptions

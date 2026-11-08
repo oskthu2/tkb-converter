@@ -30,9 +30,9 @@
       {
         "id": "processnotification-request.engagementTransaction",
         "path": "processnotification-request.engagementTransaction",
-        "short": "Engagemangstransaktion",
-        "definition": "En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.\nInnehållet ska spegla ursprunglig Update-begäran med tillägg av owner, creationTime\noch updateTime.\nKardinalitet: Obligatorisk, lista (minst en transaktion krävs).",
-        "comment": "TKB-fält: `engagementTransaction` (`EngagementTransactionType`, kardinalitet 1..*).\n\n**Modellanteckning:** En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.\nInnehållet ska spegla ursprunglig Update-begäran med tillägg av owner, creationTime\noch updateTime.",
+        "short": "EngagementTransactionType",
+        "definition": "engagementTransaction",
+        "comment": "TKB-fält: `engagementTransaction` (`EngagementTransactionType`, kardinalitet 1..*).",
         "min": 1,
         "max": "*",
         "type": [
@@ -44,7 +44,7 @@
       {
         "id": "processnotification-request.engagementTransaction.deleteFlag",
         "path": "processnotification-request.engagementTransaction.deleteFlag",
-        "short": "Raderingsflagga",
+        "short": "deleteFlag",
         "definition": "”true” anger att posten ska tas bort. False anger att posten ska skapas/uppdateras.",
         "comment": "TKB-fält: `engagementTransaction.deleteFlag` (`Boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -58,9 +58,9 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement",
         "path": "processnotification-request.engagementTransaction.engagement",
-        "short": "Engagemangspost",
-        "definition": "Engagemangspostens datavärden inklusive systemgenererade fält\n(owner, creationTime, updateTime) som skickas vidare från det sändande indexet.\nKardinalitet: Obligatorisk.",
-        "comment": "TKB-fält: `engagementTransaction .engagement` (`EngagementType`, kardinalitet 1..1).\n\n**Modellanteckning:** Engagemangspostens datavärden inklusive systemgenererade fält\n(owner, creationTime, updateTime) som skickas vidare från det sändande indexet.",
+        "short": "EngagementType",
+        "definition": "engagement",
+        "comment": "TKB-fält: `engagementTransaction .engagement` (`EngagementType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -72,21 +72,24 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement.registeredResidentIdentification",
         "path": "processnotification-request.engagementTransaction.engagement.registeredResidentIdentification",
-        "short": "Personidentitet",
+        "short": "registeredResidentIdentification",
         "definition": "Enligt formatregler i meddelandemodell",
-        "comment": "TKB-fält: `engagementTransaction .engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).\n\n**Modellanteckning:** Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType"
+            ]
           }
         ]
       },
       {
         "id": "processnotification-request.engagementTransaction.engagement.serviceDomain",
         "path": "processnotification-request.engagementTransaction.engagement.serviceDomain",
-        "short": "Tjänstedomänens namnrymd (URN)",
+        "short": "serviceDomain",
         "definition": "Namnrymd för Tjänstedomän\n\nexempel:\n\nurn:riv:clinicalprocess:activity:request",
         "comment": "TKB-fält: `engagementTransaction .engagement.serviceDomain` (`URN`, kardinalitet 1..1).",
         "min": 1,
@@ -100,7 +103,7 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement.categorization",
         "path": "processnotification-request.engagementTransaction.engagement.categorization",
-        "short": "Kategorisering",
+        "short": "categorization",
         "definition": "Enligt tjänstedomänens dokumentation.",
         "comment": "TKB-fält: `engagementTransaction .engagement.categorization` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -114,9 +117,9 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement.logicalAddress",
         "path": "processnotification-request.engagementTransaction.engagement.logicalAddress",
-        "short": "Logisk adress",
+        "short": "logicalAddress",
         "definition": "Enligt tjänstedomänens dokumentation.",
-        "comment": "TKB-fält: `engagementTransaction .engagement.logicalAddress` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Logisk adress för den tjänsteproducent som har information för posten.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.logicalAddress` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -128,9 +131,9 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
         "path": "processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
-        "short": "Affärsobjektets instansidentifierare",
+        "short": "businessObjectInstanceIdentifier",
         "definition": "Enligt tjänstedomänens dokumentation.",
-        "comment": "TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för det specifika affärsobjekt som posten avser.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -142,79 +145,88 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId",
         "path": "processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId",
-        "short": "Kliniskt processintresse-ID",
+        "short": "clinicalProcessInterestId",
         "definition": "Enligt tjänstedomänens dokumentation.",
-        "comment": "TKB-fält: `engagementTransaction .engagement.clinicalProcessInterestId` (`HSA-id`, kardinalitet 1..1).\n\n**Modellanteckning:** Identifierare för kliniskt processintresse.\nOBS: I ProcessNotification Request anges typen som HSA-id i TKB, till skillnad från\nstring i Update Request. Modelleras som Identifier med HSA OID.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).",
+        "comment": "TKB-fält: `engagementTransaction .engagement.clinicalProcessInterestId` (`HSA-id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "processnotification-request.engagementTransaction.engagement.mostRecentContent",
         "path": "processnotification-request.engagementTransaction.engagement.mostRecentContent",
-        "short": "Senast relevant innehållstidpunkt",
+        "short": "mostRecentContent",
         "definition": "Enligt tjänstedomänens dokumentation.",
-        "comment": "TKB-fält: `engagementTransaction .engagement.mostRecentContent` (`TS`, kardinalitet 0..1).\n\n**Modellanteckning:** Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning bestäms av den tillämpande tjänstedomänens TKB.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.mostRecentContent` (`TS`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS"
+            ]
           }
         ]
       },
       {
         "id": "processnotification-request.engagementTransaction.engagement.sourceSystem",
         "path": "processnotification-request.engagementTransaction.engagement.sourceSystem",
-        "short": "Källsystem (HSA-id)",
+        "short": "sourceSystem",
         "definition": "Källsystemet som innehåller den information som EI-posten pekar ut.\n\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.",
         "comment": "TKB-fält: `engagementTransaction .engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
         "id": "processnotification-request.engagementTransaction.engagement.creationTime",
         "path": "processnotification-request.engagementTransaction.engagement.creationTime",
-        "short": "Tidpunkt för skapande av indexpost",
+        "short": "creationTime",
         "definition": "YYYYMMDDhhmmss",
-        "comment": "TKB-fält: `engagementTransaction .engagement.creationTime` (`TS`, kardinalitet 1..1).\n\n**Modellanteckning:** Tidpunkt då indexposten ursprungligen skapades i det sändande indexet.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nOBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt\ni ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.\nProducenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.",
-        "min": 1,
+        "comment": "TKB-fält: `engagementTransaction .engagement.creationTime` (`TS`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS"
+            ]
           }
         ]
       },
       {
         "id": "processnotification-request.engagementTransaction.engagement.updateTime",
         "path": "processnotification-request.engagementTransaction.engagement.updateTime",
-        "short": "Tidpunkt för senaste uppdatering",
+        "short": "updateTime",
         "definition": "YYYYMMDDhhmmss",
-        "comment": "TKB-fält: `engagementTransaction .engagement.updateTime` (`TS`, kardinalitet 1..1).\n\n**Modellanteckning:** Tidpunkt då indexposten senast uppdaterades i det sändande indexet.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nOBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt\ni ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.\nProducenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.",
-        "min": 1,
+        "comment": "TKB-fält: `engagementTransaction .engagement.updateTime` (`TS`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS"
+            ]
           }
         ]
       },
       {
         "id": "processnotification-request.engagementTransaction.engagement.dataController",
         "path": "processnotification-request.engagementTransaction.engagement.dataController",
-        "short": "Personuppgiftsansvarig organisation",
+        "short": "dataController",
         "definition": "Identitet för den PUA som ansvarar för postens innehåll.\n\nI första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)\n\nViktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex.",
-        "comment": "TKB-fält: `engagementTransaction .engagement.dataController` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga.",
+        "comment": "TKB-fält: `engagementTransaction .engagement.dataController` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -226,14 +238,14 @@
       {
         "id": "processnotification-request.engagementTransaction.engagement.owner",
         "path": "processnotification-request.engagementTransaction.engagement.owner",
-        "short": "Ägande index (HSA-id)",
+        "short": "owner",
         "definition": "HSA-id för den organisations vars index tog emot ursprunglig uppdateringsbegäran.",
-        "comment": "TKB-fält: `engagementTransaction .engagement.owner` (`HSA-id`, kardinalitet 1..1).\n\n**Modellanteckning:** HSA-id för den organisation vars index tog emot ursprunglig uppdateringsbegäran.\nOBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt\ni ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.\nProducenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.\npR4: Om owner är samma som den egna instansen ska ingen uppdatering ske (undvika rundgång).\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).",
-        "min": 1,
+        "comment": "TKB-fält: `engagementTransaction .engagement.owner` (`HSA-id`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       }

@@ -7,7 +7,9 @@ RuleSet: UppdateraVardtagareinformationRequestFieldDescriptions
 * Behorighetsinformation.fornamn ^comment = "TKB-fält: `../fornamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.efternamn ^comment = "TKB-fält: `../efternamn` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.forskrivarkod ^comment = "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1)."
-* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1)."
+* Behorighetsinformation.yrkeskod ^comment = "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH."
 * Behorighetsinformation.arbetsplatskod ^comment = "TKB-fält: `../arbetsplatskod` (`string`, kardinalitet 1..1)."
 * Behorighetsinformation.hsaid ^comment = "TKB-fält: `../hsaid` (`string`, kardinalitet 0..1)."
 * Behorighetsinformation.personnummer ^comment = "TKB-fält: `../personnummer` (`string`, kardinalitet 0..1)."
@@ -25,7 +27,9 @@ RuleSet: UppdateraVardtagareinformationRequestFieldDescriptions
 * Vardtagare.Patientinformation.mellannamn ^comment = "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1)."
 * Vardtagare.Patientinformation.efternamn ^definition = "Anvandarens efternamn."
 * Vardtagare.Patientinformation.efternamn ^comment = "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1)."
-* Vardtagare.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1)."
+* Vardtagare.Patientinformation.identitetstyp ^comment = "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S."
 * Vardtagare.Patientinformation.personid ^definition = "Anvandarens personid"
 * Vardtagare.Patientinformation.personid ^comment = "TKB-fält: `../../personid` (`string`, kardinalitet 1..1)."
 * Vardtagare.Patientinformation.lanskod ^definition = "Anvandarens folkbokforda lanskod"
@@ -104,7 +108,9 @@ RuleSet: UppdateraVardtagareinformationRequestFieldDescriptions
 * Vardtagare.Produktionsinfo.dosmottagareid ^comment = "TKB-fält: `../../dosmottagareid` (`string`, kardinalitet 0..1)."
 * Vardtagare.Produktionsinfo.dosmottagarenamn ^comment = "TKB-fält: `../../dosmottagarenamn` (`string`, kardinalitet 0..1)."
 * Vardtagare.Vardtagarstatus ^comment = "TKB-fält: `../Vardtagarstatus` (`Vardtagarstatusinfo`, kardinalitet 0..*)."
-* Vardtagare.Vardtagarstatus.statuskod ^comment = "TKB-fält: `../../statuskod` (`VardtagarStatusEnum`, kardinalitet 1..1)."
+* Vardtagare.Vardtagarstatus.statuskod ^comment = "TKB-fält: `../../statuskod` (`VardtagarStatusEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** statuskod Tillåtna värden: 1, 2, 3, 4, 5, 6."
 * Vardtagare.Vardtagarstatus.frantid ^comment = "TKB-fält: `../../frantid` (`dateTime`, kardinalitet 0..1)."
 * Vardtagare.Vardtagarstatus.tilltid ^comment = "TKB-fält: `../../tilltid` (`dateTime`, kardinalitet 0..1)."
 * Vardtagare.vilandestatusorsak ^comment = "TKB-fält: `../vilandestatusorsak` (`string`, kardinalitet 0..*)."

@@ -3,4 +3,6 @@
 
 RuleSet: UpdatePatientContactInformationFieldDescriptions
 * message ^comment = "TKB-fält: `message` (`string`, kardinalitet 0..1)."
-* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnumType`, kardinalitet 1..1)."
+* resultCode ^comment = "TKB-fält: `resultCode` (`ResultCodeEnumType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO."

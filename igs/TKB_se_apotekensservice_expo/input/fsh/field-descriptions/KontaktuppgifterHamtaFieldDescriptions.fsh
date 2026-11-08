@@ -17,8 +17,6 @@ RuleSet: KontaktuppgifterHamtaFieldDescriptions
 * kontaktpersonLista.telefonnummer ^definition = "Kontaktpersonens telefonnummer."
 * kontaktpersonLista.telefonnummer ^comment = "TKB-fält: `../telefonnummer` (`string`, kardinalitet 1..1)."
 * orgNr ^definition = "Aktörens organisationsnummer"
-* orgNr ^comment = "TKB-fält: `orgNr` (`long`, kardinalitet 0..1).
-
-**Modellanteckning:** Aktörens organisationsnummer (xs:long i schemat.)"
+* orgNr ^comment = "TKB-fält: `orgNr` (`long`, kardinalitet 0..1)."
 * telefonnummerServicedesk ^definition = "Telefonnummer till aktörens servicedesk"
 * telefonnummerServicedesk ^comment = "TKB-fält: `telefonnummerServicedesk` (`string`, kardinalitet 0..1)."

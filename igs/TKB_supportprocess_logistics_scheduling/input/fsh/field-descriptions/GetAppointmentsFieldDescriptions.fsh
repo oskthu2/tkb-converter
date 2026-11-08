@@ -7,7 +7,3 @@ RuleSet: GetAppointmentsFieldDescriptions
 * appointment.appointmentId ^definition = "Unikt id för bokningen. Ska uttryckas som uuid (universally unique identifier)."
 * appointment.appointmentId ^comment = "TKB-fält: `appointment.appointmentId` (`uuidType`, kardinalitet 1..1)."
 * appointment.healthcareFacilityId ^comment = "TKB-fält: `../healthcareFacilityId` (`HSAIdType`, kardinalitet 1..1)."
-* appointment.healthcareFacilityId.root ^comment = "TKB-fält: `../../root` (`string`, kardinalitet 1..1)."
-* appointment.healthcareFacilityId.hSAIdExtension ^comment = "TKB-fält: `../../extension` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** hSAIdExtension Heter extension i schemat."

@@ -28,28 +28,41 @@
         "definition": "Logisk modell för tjänstekontraktet GetExtendedConsentsForPatient\n(RIV-TA urn:riv:ehr:patientconsent:administration:GetExtendedConsentsForPatientResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser registrerade samtyckesintyg för en viss patient med utökad information.\nReturnerar ExtendedPDLAssertion som innehåller registrerings-, återkallnings- och makuleringsinformation.\nDet är valbart om ogiltiga (makulerade, återkallade och utgångna) samtyckesintyg skall returneras."
       },
       {
-        "id": "getextendedconsentsforpatient.result",
-        "path": "getextendedconsentsforpatient.result",
-        "short": "Statusinformation för anropet",
-        "definition": "Statusinformation för anropet",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType",
+        "short": "GetExtendedConsentsResultType",
+        "definition": "GetExtendedConsentsResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.result.resultCode",
-        "path": "getextendedconsentsforpatient.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultCode",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
           }
         ],
         "binding": {
@@ -58,10 +71,10 @@
         }
       },
       {
-        "id": "getextendedconsentsforpatient.result.resultText",
-        "path": "getextendedconsentsforpatient.result.resultText",
-        "short": "Fritext beskrivning av resultatet",
-        "definition": "Fritext beskrivning av resultatet",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultText",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,54 +84,54 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions",
-        "path": "getextendedconsentsforpatient.pdlAssertions",
-        "short": "Lista med samtyckesintyg med utökat format",
-        "definition": "Lista med samtyckesintyg med utökat format",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions",
+        "short": "ExtendedPDLAssertionType",
+        "definition": "PdlAssertions",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion",
-        "short": "Grundinformation om intyget (PDLAssertionType)",
-        "definition": "Grundinformation om intyget (PDLAssertionType)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion",
+        "short": "PDLAssertionType",
+        "definition": "PDLAssertion",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.assertionId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.assertionId",
-        "short": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
-        "definition": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionId",
+        "short": "AssertionId",
+        "definition": "AssertionId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.assertionType",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.assertionType",
-        "short": "Typ av intyg (Consent eller Emergency)",
-        "definition": "Typ av intyg (Consent eller Emergency)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionType",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionType",
+        "short": "AssertionType",
+        "definition": "AssertionType Tillåtna värden: Consent, Emergency.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {
@@ -127,15 +140,15 @@
         }
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.scope",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.scope",
-        "short": "Omfång/tillämpningsområde för intyget",
-        "definition": "Omfång/tillämpningsområde för intyget",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.Scope",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.Scope",
+        "short": "Scope",
+        "definition": "Scope Tillåtna värden: NationalLevel.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "code"
           }
         ],
         "binding": {
@@ -144,62 +157,62 @@
         }
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.patientId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.patientId",
-        "short": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
-        "definition": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.PatientId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.careProviderId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.careProviderId",
-        "short": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
-        "definition": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareProviderId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareProviderId",
+        "short": "CareProviderId",
+        "definition": "CareProviderId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.careUnitId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.careUnitId",
-        "short": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
-        "definition": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareUnitId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareUnitId",
+        "short": "CareUnitId",
+        "definition": "CareUnitId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.employeeId",
-        "short": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
-        "definition": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.startDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.startDate",
-        "short": "Startdatum för intygets giltighetstid",
-        "definition": "Startdatum för intygets giltighetstid",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.StartDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.StartDate",
+        "short": "StartDate",
+        "definition": "StartDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -209,10 +222,10 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.endDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.endDate",
-        "short": "Slutdatum för intygets giltighetstid",
-        "definition": "Slutdatum för intygets giltighetstid",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EndDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EndDate",
+        "short": "EndDate",
+        "definition": "EndDate",
         "min": 0,
         "max": "1",
         "type": [
@@ -222,10 +235,10 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.ownerId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.pdlAssertion.ownerId",
-        "short": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
-        "definition": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.OwnerId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
         "min": 0,
         "max": "1",
         "type": [
@@ -235,36 +248,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.representedBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.representedBy",
-        "short": "Företrädare/vårdnadshavare som företräder patienten (max 12 tecken)",
-        "definition": "Företrädare/vårdnadshavare som företräder patienten (max 12 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RepresentedBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RepresentedBy",
+        "short": "RepresentedBy",
+        "definition": "RepresentedBy",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo",
-        "short": "Information om vem som begärt och registrerat intyget",
-        "definition": "Information om vem som begärt och registrerat intyget",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo",
+        "short": "ActionType",
+        "definition": "RegistrationInfo",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestDate",
-        "short": "Tidpunkt för begäran om registrering",
-        "definition": "Tidpunkt för begäran om registrering",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -274,49 +287,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy",
-        "short": "Aktör som begärt registreringen",
-        "definition": "Aktör som begärt registreringen",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy.employeeId",
-        "short": "HSA-id för medarbetaren (max 32 tecken)",
-        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy.assignmentId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy.assignmentName",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
-        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -326,10 +326,23 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registrationDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registrationDate",
-        "short": "Tidpunkt för genomförd registrering",
-        "definition": "Tidpunkt för genomförd registrering",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentName",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegistrationDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -339,49 +352,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy",
-        "short": "Aktör som utfört registreringen",
-        "definition": "Aktör som utfört registreringen",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy.employeeId",
-        "short": "HSA-id för medarbetaren (max 32 tecken)",
-        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy.assignmentId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy.assignmentName",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
-        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -391,10 +391,10 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.reasonText",
-        "path": "getextendedconsentsforpatient.pdlAssertions.registrationInfo.reasonText",
-        "short": "Anledning till åtgärden i fritext (max 1024 tecken)",
-        "definition": "Anledning till åtgärden i fritext (max 1024 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -404,23 +404,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo",
-        "short": "Information om återkallning (finns om intyget är återkallat)",
-        "definition": "Information om återkallning (finns om intyget är återkallat)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.ReasonText",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestDate",
-        "short": "Tidpunkt för begäran om återkallning",
-        "definition": "Tidpunkt för begäran om återkallning",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo",
+        "short": "ActionType",
+        "definition": "CancellationInfo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -430,49 +443,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy",
-        "short": "Aktör som begärt återkallningen",
-        "definition": "Aktör som begärt återkallningen",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy.employeeId",
-        "short": "HSA-id för medarbetaren (max 32 tecken)",
-        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy.assignmentId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy.assignmentName",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
-        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -482,10 +482,23 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registrationDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registrationDate",
-        "short": "Tidpunkt för genomförd återkallning",
-        "definition": "Tidpunkt för genomförd återkallning",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentName",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegistrationDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -495,49 +508,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy",
-        "short": "Aktör som utfört återkallningen",
-        "definition": "Aktör som utfört återkallningen",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy.employeeId",
-        "short": "HSA-id för medarbetaren (max 32 tecken)",
-        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy.assignmentId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy.assignmentName",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
-        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -547,10 +547,10 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.reasonText",
-        "path": "getextendedconsentsforpatient.pdlAssertions.cancellationInfo.reasonText",
-        "short": "Anledning till återkallningen i fritext (max 1024 tecken)",
-        "definition": "Anledning till återkallningen i fritext (max 1024 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -560,23 +560,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo",
-        "short": "Information om makulering (finns om intyget är makulerat)",
-        "definition": "Information om makulering (finns om intyget är makulerat)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.ReasonText",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestDate",
-        "short": "Tidpunkt för begäran om makulering",
-        "definition": "Tidpunkt för begäran om makulering",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo",
+        "short": "ActionType",
+        "definition": "DeletionInfo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -586,49 +599,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy",
-        "short": "Aktör som begärt makuleringen",
-        "definition": "Aktör som begärt makuleringen",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy.employeeId",
-        "short": "HSA-id för medarbetaren (max 32 tecken)",
-        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy.assignmentId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy.assignmentName",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
-        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -638,10 +638,23 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registrationDate",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registrationDate",
-        "short": "Tidpunkt för genomförd makulering",
-        "definition": "Tidpunkt för genomförd makulering",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentName",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegistrationDate",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -651,49 +664,36 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy",
-        "short": "Aktör som utfört makuleringen",
-        "definition": "Aktör som utfört makuleringen",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy.employeeId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy.employeeId",
-        "short": "HSA-id för medarbetaren (max 32 tecken)",
-        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy.assignmentId",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ]
-      },
-      {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy.assignmentName",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
-        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -703,10 +703,23 @@
         ]
       },
       {
-        "id": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.reasonText",
-        "path": "getextendedconsentsforpatient.pdlAssertions.deletionInfo.reasonText",
-        "short": "Anledning till makuleringen i fritext (max 1024 tecken)",
-        "definition": "Anledning till makuleringen i fritext (max 1024 tecken)",
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.ReasonText",
+        "path": "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
         "min": 0,
         "max": "1",
         "type": [

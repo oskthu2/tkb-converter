@@ -1,3 +1,6 @@
+// Elementen genereras ur PrisfragaResponder_4.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: Prisfraga v4.1
 // Genererad: 2026-09-26
@@ -24,5 +27,4 @@ Characteristics: #can-be-target
   * prisTillagg 0..1 decimal "prisTillagg" "Radens ev. pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
   * radNr 1..1 integer "radNr" "Radnr."
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert PrisfragaFieldDescriptions

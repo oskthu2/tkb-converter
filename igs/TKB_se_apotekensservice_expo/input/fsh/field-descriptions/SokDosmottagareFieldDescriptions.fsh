@@ -11,9 +11,7 @@ RuleSet: SokDosmottagareFieldDescriptions
 * resultat.apotek.apoteksinformationLista.aktorsnamn ^definition = "Officiellt namn för aktör"
 * resultat.apotek.apoteksinformationLista.aktorsnamn ^comment = "TKB-fält: `../../../aktorsnamn` (`string`, kardinalitet 0..1)."
 * resultat.apotek.apoteksinformationLista.aktorsorgnr ^definition = "Aktörens organisationsnummer."
-* resultat.apotek.apoteksinformationLista.aktorsorgnr ^comment = "TKB-fält: `../../../aktorsorgnr` (`long`, kardinalitet 0..1).
-
-**Modellanteckning:** Aktörens organisationsnummer. (xs:long i schemat.)"
+* resultat.apotek.apoteksinformationLista.aktorsorgnr ^comment = "TKB-fält: `../../../aktorsorgnr` (`long`, kardinalitet 0..1)."
 * resultat.apotek.apoteksinformationLista.allmantelefon ^definition = "Telefonnummer för allmänheten"
 * resultat.apotek.apoteksinformationLista.allmantelefon ^comment = "TKB-fält: `../../../allmantelefon` (`string`, kardinalitet 0..1)."
 * resultat.apotek.apoteksinformationLista.besoksadress ^definition = "Expeditionsställets besöksadress"

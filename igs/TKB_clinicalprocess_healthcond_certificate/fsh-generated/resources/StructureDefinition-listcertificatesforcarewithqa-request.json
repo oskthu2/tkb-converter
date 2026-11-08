@@ -37,71 +37,78 @@
         ]
       },
       {
-        "id": "listcertificatesforcarewithqa-request.personId",
-        "path": "listcertificatesforcarewithqa-request.personId",
-        "short": "Person- eller samordningsnummer för patienten",
+        "id": "listcertificatesforcarewithqa-request.person-id",
+        "path": "listcertificatesforcarewithqa-request.person-id",
+        "short": "PersonId",
         "definition": "Person- eller samordningsnummer för patienten.",
         "comment": "TKB-fält: `person-id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person-id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "listcertificatesforcarewithqa-request.enhetsId",
-        "path": "listcertificatesforcarewithqa-request.enhetsId",
-        "short": "HSA-id för enheten/enheterna (exklusivt med vardgivareId)",
+        "id": "listcertificatesforcarewithqa-request.enhets-id",
+        "path": "listcertificatesforcarewithqa-request.enhets-id",
+        "short": "HsaId",
         "definition": "HSA-id för enheten.",
-        "comment": "TKB-fält: `enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 0..*).\n\n**Mappning DIM:** Enhet.enhets-id\n\n**Modellanteckning:** Ska ej anges tillsammans med vardgivareId.",
+        "comment": "TKB-fält: `enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 0..*).\n\n**Mappning DIM:** Enhet.enhets-id",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "listcertificatesforcarewithqa-request.vardgivareId",
-        "path": "listcertificatesforcarewithqa-request.vardgivareId",
-        "short": "HSA-id för vårdgivaren (exklusivt med enhetsId)",
-        "definition": "Ska ej anges tillsammans med enhetsId.",
+        "id": "listcertificatesforcarewithqa-request.vardgivar-id",
+        "path": "listcertificatesforcarewithqa-request.vardgivar-id",
+        "short": "HsaId",
+        "definition": "HSA-id för vårdgivaren.",
+        "comment": "TKB-fält: `vardgivar-id` (`HsaId (se 7.2.5)`, kardinalitet 0..1).\n\n**Mappning DIM:** Vårdgivare.vårdgivar-id",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "listcertificatesforcarewithqa-request.fromTidpunkt",
         "path": "listcertificatesforcarewithqa-request.fromTidpunkt",
-        "short": "Hämta händelser från och med denna tidpunkt",
+        "short": "fromTidpunkt",
         "definition": "Hämta intyg och händelser, där händelserna inträffat från och med denna tidpunkt. Endast de händelser som inträffat från och med denna tidpunkt returneras, tillsammans med tillhörande intyg. Utelämnas för att hämta utan begränsning bakåt i tiden.",
         "comment": "TKB-fält: `fromTidpunkt` (`TimeStampType`, kardinalitet 0..1).\n\n**Mappning DIM:** -",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "dateTime",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       },
       {
         "id": "listcertificatesforcarewithqa-request.tomTidpunkt",
         "path": "listcertificatesforcarewithqa-request.tomTidpunkt",
-        "short": "Hämta händelser fram till och med denna tidpunkt",
+        "short": "tomTidpunkt",
         "definition": "Hämta intyg och händelser, där händelserna inträffat fram till och med denna tidpunkt. Endast de händelser som inträffat till och med denna tidpunkt returneras, tillsammans med tillhörande intyg. Utelämnas för att hämta utan begränsning framåt i tiden.",
         "comment": "TKB-fält: `tomTidpunkt` (`TimeStampType`, kardinalitet 0..1).\n\n**Mappning DIM:** -",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "dateTime"
+            "code": "dateTime",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       }

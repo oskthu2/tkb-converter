@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DNType",
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/DNType",
+  "name": "DNType",
+  "title": "DNType",
+  "status": "active",
+  "description": "DNType (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-dntype-pattern",
+            "severity": "error",
+            "human": "DNType ska följa mönstret i schemat: ([OUDCNLoudcnl]{1,2}=[0-9\\p{L}\\p{Zs}\\-.]*,?)*",
+            "expression": "matches('^(?:(?:([OUDCNLoudcnl]{1,2}=[0-9\\\\p{L}\\\\p{Zs}\\\\-.]*,?)*))$')",
+            "source": "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/DNType"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -28,24 +28,18 @@
         "definition": "Logisk modell för begäran i GetEmployeeIncludingProtectedPerson\n(urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeIncludingProtectedPersonResponder:2, GetEmployeeIncludingProtectedPersonType), inklusive SOAP-huvuden enligt WSDL.",
         "constraint": [
           {
+            "key": "getemployeeincludingprotectedpersonrequest-choice-1",
+            "severity": "error",
+            "human": "Exakt ett av personHsaId, personalIdentityNumber ska anges (xs:choice i schemat).",
+            "expression": "personHsaId.exists() xor personalIdentityNumber.exists()",
+            "source": "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployeeincludingprotectedperson-request"
+          },
+          {
             "key": "getemployeeprotected-request-hsaid-xor-pnr",
             "severity": "error",
             "human": "Exakt ett av personHsaId och personalIdentityNumber ska anges (xs:choice i schemat).",
             "expression": "personHsaId.exists() xor personalIdentityNumber.exists()",
             "source": "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/getemployeeincludingprotectedperson-request"
-          }
-        ]
-      },
-      {
-        "id": "getemployeeincludingprotectedperson-request.logicalAddress",
-        "path": "getemployeeincludingprotectedperson-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. The HSA-id of the source system",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
           }
         ]
       },
@@ -87,7 +81,10 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/strategicresourcemanagement-persons-employee/StructureDefinition/DNType"
+            ]
           }
         ]
       },

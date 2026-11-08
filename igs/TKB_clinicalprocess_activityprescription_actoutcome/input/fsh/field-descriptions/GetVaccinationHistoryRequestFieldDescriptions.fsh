@@ -19,9 +19,7 @@ För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) 
 För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
 
 För andra typer av personidentifierare sätts type till aktuell OID."
-* patientId ^comment = "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).
-
-**Modellanteckning:** Tjänsteproducenten ska i svaret enbart returnera information relaterad till angiven patient."
+* patientId ^comment = "TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1)."
 * timePeriod ^definition = "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där tidpunkterna documentTime, authorTime, signatureTime eller registrationrecord.date i svaret ligger inom sökintervallets start- och slutdatum.
 
 Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse med tidpunkter ska hela det dygn som anges i slutdatum betraktas som en del av sökintervallet."

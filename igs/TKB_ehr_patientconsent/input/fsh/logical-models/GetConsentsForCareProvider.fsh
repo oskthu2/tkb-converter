@@ -1,3 +1,6 @@
+// Elementen genereras ur GetConsentsForCareProviderResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: GetConsentsForCareProvider v1.0
 // RIV-TA: urn:riv:ehr:patientconsent:querying:GetConsentsForCareProviderResponder:1
@@ -18,28 +21,26 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* result 1..1 BackboneElement "Statusinformation för anropet"
-  * resultCode 1..1 CodeableConcept "Svarskod"
-  * resultCode from ResultCodeVS (required)
-  * resultText 1..1 string "Fritext beskrivning av resultatet"
-* moreOnOrAfter 1..1 dateTime "Tidpunkt från och med vilken nästa sekvens av intyg kan hämtas"
-  """
-  Returneras alltid. Används som inparameter i nästa anrop vid HasMore = true.
-  """
-* hasMore 1..1 boolean "Flagga om det finns fler intyg att hämta"
-* assertions 0..* BackboneElement "Lista med giltiga PDL-intyg"
-  * assertionId 1..1 Identifier "Unik identifierare för intyget (UUID-format, max 36 tecken)"
-  * assertionType 1..1 CodeableConcept "Typ av intyg (Consent eller Emergency)"
-  * assertionType from AssertionTypeVS (required)
-  * scope 1..1 CodeableConcept "Omfång/tillämpningsområde för intyget"
-  * scope from ScopeVS (required)
-  * patientId 1..1 Identifier "Patientens personnummer eller samordningsnummer (max 12 tecken)"
-  * careProviderId 1..1 Identifier "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)"
-  * careUnitId 1..1 Identifier "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)"
-  * employeeId 0..1 Identifier "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)"
-  * startDate 1..1 dateTime "Startdatum för intygets giltighetstid"
-  * endDate 0..1 dateTime "Slutdatum för intygets giltighetstid"
-  * ownerId 0..1 string "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)"
-* cancelledAssertions 0..* BackboneElement "Lista med makulerade/återkallade intyg (returneras om getCancelledFlag = true)"
-  * assertionId 1..1 Identifier "Unik identifierare för det makulerade/återkallade intyget (UUID-format)"
-  * cancellationDate 1..1 dateTime "Tidpunkt när makuleringen eller återkallan utfördes"
+* GetAllAssertionsResultType 1..1 Base "GetAllAssertionsResultType" "GetAllAssertionsResultType"
+* GetAllAssertionsResultType.Result 1..1 Base "ResultType" "Result"
+* GetAllAssertionsResultType.Result.ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
+* GetAllAssertionsResultType.Result.ResultCode from ResultCodeVS (required)
+* GetAllAssertionsResultType.Result.ResultText 1..1 string "ResultText" "ResultText"
+* GetAllAssertionsResultType.MoreOnOrAfter 1..1 dateTime "MoreOnOrAfter" "MoreOnOrAfter"
+* GetAllAssertionsResultType.HasMore 1..1 boolean "HasMore" "HasMore"
+* GetAllAssertionsResultType.Assertions 0..* Base "PDLAssertionType" "Assertions"
+* GetAllAssertionsResultType.Assertions.AssertionId 1..1 string "AssertionId" "AssertionId"
+* GetAllAssertionsResultType.Assertions.AssertionType 1..1 code "AssertionType" "AssertionType Tillåtna värden: Consent, Emergency."
+* GetAllAssertionsResultType.Assertions.AssertionType from AssertionTypeVS (required)
+* GetAllAssertionsResultType.Assertions.Scope 1..1 code "Scope" "Scope Tillåtna värden: NationalLevel."
+* GetAllAssertionsResultType.Assertions.Scope from ScopeVS (required)
+* GetAllAssertionsResultType.Assertions.PatientId 1..1 string "PatientId" "PatientId"
+* GetAllAssertionsResultType.Assertions.CareProviderId 1..1 string "CareProviderId" "CareProviderId"
+* GetAllAssertionsResultType.Assertions.CareUnitId 1..1 string "CareUnitId" "CareUnitId"
+* GetAllAssertionsResultType.Assertions.EmployeeId 0..1 string "EmployeeId" "EmployeeId"
+* GetAllAssertionsResultType.Assertions.StartDate 1..1 dateTime "StartDate" "StartDate"
+* GetAllAssertionsResultType.Assertions.EndDate 0..1 dateTime "EndDate" "EndDate"
+* GetAllAssertionsResultType.Assertions.OwnerId 0..1 string "OwnerId" "OwnerId"
+* GetAllAssertionsResultType.CancelledAssertions 0..* Base "CancelledAssertionType" "CancelledAssertions"
+* GetAllAssertionsResultType.CancelledAssertions.AssertionId 1..1 string "AssertionId" "AssertionId"
+* GetAllAssertionsResultType.CancelledAssertions.CancellationDate 1..1 dateTime "CancellationDate" "CancellationDate"

@@ -16,58 +16,30 @@ extension: `<personnummer>`
 
 Endast svenskt personnummer är tillåtet"
 * cervixScreeningInformation.subjectOfCare.personId ^comment = "TKB-fält: `../../personId` (`IIType`, kardinalitet 1..1)."
-* cervixScreeningInformation.subjectOfCare.personId.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.subjectOfCare.personId.iIExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
 * cervixScreeningInformation.sendingRegion ^definition = "Region som gör utlämnandet."
 * cervixScreeningInformation.sendingRegion ^comment = "TKB-fält: `../sendingRegion` (`RegionType`, kardinalitet 1..1)."
 * cervixScreeningInformation.sendingRegion.region ^definition = "Region."
 * cervixScreeningInformation.sendingRegion.region ^comment = "TKB-fält: `../../region` (`OrganisationType`, kardinalitet 1..1)."
-* cervixScreeningInformation.sendingRegion.region.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.sendingRegion.region.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.sendingRegion.region.organisationId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.sendingRegion.region.organisationId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.sendingRegion.region.organisationId.iIExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.sendingRegion.region.organisationName ^definition = "Regionens namn i klartext."
-* cervixScreeningInformation.sendingRegion.region.organisationName ^comment = "TKB-fält: `../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.sendingRegion.region.id ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.sendingRegion.region.name ^definition = "Regionens namn i klartext."
+* cervixScreeningInformation.sendingRegion.region.name ^comment = "TKB-fält: `../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.sendingRegion.careGiver ^definition = "Skall ej anges."
 * cervixScreeningInformation.sendingRegion.careGiver ^comment = "TKB-fält: `../../careGiver` (`OrganisationType`, kardinalitet 0..0)."
-* cervixScreeningInformation.sendingRegion.careGiver.organisationId ^definition = "Skall ej anges."
-* cervixScreeningInformation.sendingRegion.careGiver.organisationId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..0).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.sendingRegion.careGiver.organisationId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.sendingRegion.careGiver.organisationId.iIExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.sendingRegion.careGiver.organisationName ^definition = "Skall ej anges."
-* cervixScreeningInformation.sendingRegion.careGiver.organisationName ^comment = "TKB-fält: `../../../name` (`String`, kardinalitet 0..0).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.sendingRegion.careGiver.id ^definition = "Skall ej anges."
+* cervixScreeningInformation.sendingRegion.careGiver.id ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..0)."
+* cervixScreeningInformation.sendingRegion.careGiver.name ^definition = "Skall ej anges."
+* cervixScreeningInformation.sendingRegion.careGiver.name ^comment = "TKB-fält: `../../../name` (`String`, kardinalitet 0..0)."
 * cervixScreeningInformation.sendingRegion.careUnit ^definition = "Skall ej anges."
 * cervixScreeningInformation.sendingRegion.careUnit ^comment = "TKB-fält: `../../careUnit` (`OrganisationType`, kardinalitet 0..0)."
-* cervixScreeningInformation.sendingRegion.careUnit.organisationId ^definition = "Skall ej anges."
-* cervixScreeningInformation.sendingRegion.careUnit.organisationId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..0).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.sendingRegion.careUnit.organisationId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.sendingRegion.careUnit.organisationId.iIExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.sendingRegion.careUnit.organisationName ^definition = "Skall ej anges."
-* cervixScreeningInformation.sendingRegion.careUnit.organisationName ^comment = "TKB-fält: `../../../name` (`String`, kardinalitet 0..0).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.sendingRegion.careUnit.id ^definition = "Skall ej anges."
+* cervixScreeningInformation.sendingRegion.careUnit.id ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..0)."
+* cervixScreeningInformation.sendingRegion.careUnit.name ^definition = "Skall ej anges."
+* cervixScreeningInformation.sendingRegion.careUnit.name ^comment = "TKB-fält: `../../../name` (`String`, kardinalitet 0..0)."
 * cervixScreeningInformation.exclusion ^definition = "Information om exkludering från kallelse."
 * cervixScreeningInformation.exclusion ^comment = "TKB-fält: `../exclusion` (`ExclusionType`, kardinalitet 0..1)."
 * cervixScreeningInformation.exclusion.reason ^definition = "Orsak till att kvinnan ska exkluderas från kallelser.
@@ -88,14 +60,6 @@ originalText: Används ej
 
 Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet."
 * cervixScreeningInformation.exclusion.reason ^comment = "TKB-fält: `../../reason` (`CVType`, kardinalitet 1..1)."
-* cervixScreeningInformation.exclusion.reason.cVCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cVCode Heter code i schemat."
-* cervixScreeningInformation.exclusion.reason.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.exclusion.reason.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.exclusion.reason.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.exclusion.reason.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.exclusion.reason.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
 * cervixScreeningInformation.exclusion.registeredAt ^definition = "Datum då det ursprungligen registrerades att kvinnan ska exkluderas från kallelse.
 
 Datum anges på format ”ÅÅÅÅMMDD”"
@@ -104,61 +68,37 @@ Datum anges på format ”ÅÅÅÅMMDD”"
 * cervixScreeningInformation.exclusion.originalRegion ^comment = "TKB-fält: `../../originalRegion` (`RegionType`, kardinalitet 1..1)."
 * cervixScreeningInformation.exclusion.originalRegion.region ^definition = "Region."
 * cervixScreeningInformation.exclusion.originalRegion.region ^comment = "TKB-fält: `../../../region` (`OrganisationType`, kardinalitet 1..1)."
-* cervixScreeningInformation.exclusion.originalRegion.region.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.exclusion.originalRegion.region.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.exclusion.originalRegion.region.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.exclusion.originalRegion.region.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.exclusion.originalRegion.region.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.exclusion.originalRegion.region.organisationName ^definition = "Regionens namn i klartext."
-* cervixScreeningInformation.exclusion.originalRegion.region.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.exclusion.originalRegion.region.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.exclusion.originalRegion.region.name ^definition = "Regionens namn i klartext."
+* cervixScreeningInformation.exclusion.originalRegion.region.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.exclusion.originalRegion.careGiver ^definition = "Vårdgivare."
 * cervixScreeningInformation.exclusion.originalRegion.careGiver ^comment = "TKB-fält: `../../../careGiver` (`OrganisationType`, kardinalitet 0..1)."
-* cervixScreeningInformation.exclusion.originalRegion.careGiver.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.exclusion.originalRegion.careGiver.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.exclusion.originalRegion.careGiver.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.exclusion.originalRegion.careGiver.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.exclusion.originalRegion.careGiver.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.exclusion.originalRegion.careGiver.organisationName ^definition = "Vårdgivarens namn i klartext."
-* cervixScreeningInformation.exclusion.originalRegion.careGiver.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.exclusion.originalRegion.careGiver.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.exclusion.originalRegion.careGiver.name ^definition = "Vårdgivarens namn i klartext."
+* cervixScreeningInformation.exclusion.originalRegion.careGiver.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.exclusion.originalRegion.careUnit ^definition = "Vårdenhet."
 * cervixScreeningInformation.exclusion.originalRegion.careUnit ^comment = "TKB-fält: `../../../careUnit` (`OrganisationType`, kardinalitet 0..1)."
-* cervixScreeningInformation.exclusion.originalRegion.careUnit.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.exclusion.originalRegion.careUnit.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.exclusion.originalRegion.careUnit.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.exclusion.originalRegion.careUnit.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.exclusion.originalRegion.careUnit.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.exclusion.originalRegion.careUnit.organisationName ^definition = "Vårdenhetens namn i klartext."
-* cervixScreeningInformation.exclusion.originalRegion.careUnit.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.exclusion.originalRegion.careUnit.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.exclusion.originalRegion.careUnit.name ^definition = "Vårdenhetens namn i klartext."
+* cervixScreeningInformation.exclusion.originalRegion.careUnit.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.followUpGroups ^definition = "Information om uppföljningsgrupp (kontrollfil) för kvinna."
 * cervixScreeningInformation.followUpGroups ^comment = "TKB-fält: `../followUpGroups` (`FollowUpGroupType`, kardinalitet 0..*)."
-* cervixScreeningInformation.followUpGroups.followUpGroupType ^definition = "Typ av uppföljningsgrupp (kontrollfil).
+* cervixScreeningInformation.followUpGroups.type ^definition = "Typ av uppföljningsgrupp (kontrollfil).
 
 Urval ur SNOMED CT:
 
@@ -175,17 +115,7 @@ displayName: Valfritt (kan anges)
 originalText: Används ej
 
 Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet."
-* cervixScreeningInformation.followUpGroups.followUpGroupType ^comment = "TKB-fält: `../../type` (`CVType`, kardinalitet 1..1).
-
-**Modellanteckning:** followUpGroupType Heter type i schemat."
-* cervixScreeningInformation.followUpGroups.followUpGroupType.cVCode ^comment = "TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cVCode Heter code i schemat."
-* cervixScreeningInformation.followUpGroups.followUpGroupType.codeSystem ^comment = "TKB-fält: `../../../codeSystem` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.followUpGroups.followUpGroupType.codeSystemName ^comment = "TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.followUpGroups.followUpGroupType.codeSystemVersion ^comment = "TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.followUpGroups.followUpGroupType.displayName ^comment = "TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.followUpGroups.followUpGroupType.originalText ^comment = "TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1)."
+* cervixScreeningInformation.followUpGroups.type ^comment = "TKB-fält: `../../type` (`CVType`, kardinalitet 1..1)."
 * cervixScreeningInformation.followUpGroups.inclusionDate ^definition = "Datum då kvinna inkluderades i uppföljningsgrupp (kontrollfil).
 
 Datum anges på format ”ÅÅÅÅMMDD”"
@@ -194,58 +124,34 @@ Datum anges på format ”ÅÅÅÅMMDD”"
 * cervixScreeningInformation.followUpGroups.originalRegion ^comment = "TKB-fält: `../../originalRegion` (`RegionType`, kardinalitet 1..1)."
 * cervixScreeningInformation.followUpGroups.originalRegion.region ^definition = "Region."
 * cervixScreeningInformation.followUpGroups.originalRegion.region ^comment = "TKB-fält: `../../../region` (`OrganisationType`, kardinalitet 1..1)."
-* cervixScreeningInformation.followUpGroups.originalRegion.region.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.followUpGroups.originalRegion.region.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.followUpGroups.originalRegion.region.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.followUpGroups.originalRegion.region.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.followUpGroups.originalRegion.region.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.followUpGroups.originalRegion.region.organisationName ^definition = "Regionens namn i klartext."
-* cervixScreeningInformation.followUpGroups.originalRegion.region.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.followUpGroups.originalRegion.region.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.followUpGroups.originalRegion.region.name ^definition = "Regionens namn i klartext."
+* cervixScreeningInformation.followUpGroups.originalRegion.region.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.followUpGroups.originalRegion.careGiver ^definition = "Vårdgivare."
 * cervixScreeningInformation.followUpGroups.originalRegion.careGiver ^comment = "TKB-fält: `../../../careGiver` (`OrganisationType`, kardinalitet 0..1)."
-* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.organisationName ^definition = "Vårdgivarens namn i klartext."
-* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.name ^definition = "Vårdgivarens namn i klartext."
+* cervixScreeningInformation.followUpGroups.originalRegion.careGiver.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.followUpGroups.originalRegion.careUnit ^definition = "Vårdenhet."
 * cervixScreeningInformation.followUpGroups.originalRegion.careUnit ^comment = "TKB-fält: `../../../careUnit` (`OrganisationType`, kardinalitet 0..1)."
-* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.organisationName ^definition = "Vårdenhetens namn i klartext."
-* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.name ^definition = "Vårdenhetens namn i klartext."
+* cervixScreeningInformation.followUpGroups.originalRegion.careUnit.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.plannedInvitation ^definition = "Förmedlar det individuella kallelsedatum som frångår vårdprogrammets ordinarie kallelseintervall och har satts för en enskild kvinna"
 * cervixScreeningInformation.plannedInvitation ^comment = "TKB-fält: `../plannedInvitation` (`PlannedInvitationType`, kardinalitet 0..1)."
 * cervixScreeningInformation.plannedInvitation.date ^definition = "Planerat individuellt kallelsedatum"
@@ -260,63 +166,39 @@ extension: `<hsa-id>`"
 * cervixScreeningInformation.specimen.originalRegion ^comment = "TKB-fält: `../../originalRegion` (`RegionType`, kardinalitet 1..1)."
 * cervixScreeningInformation.specimen.originalRegion.region ^definition = "Region."
 * cervixScreeningInformation.specimen.originalRegion.region ^comment = "TKB-fält: `../../../region` (`OrganisationType`, kardinalitet 1..1)."
-* cervixScreeningInformation.specimen.originalRegion.region.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.specimen.originalRegion.region.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.specimen.originalRegion.region.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.specimen.originalRegion.region.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.specimen.originalRegion.region.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.specimen.originalRegion.region.organisationName ^definition = "Regionens namn i klartext."
-* cervixScreeningInformation.specimen.originalRegion.region.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.specimen.originalRegion.region.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.specimen.originalRegion.region.name ^definition = "Regionens namn i klartext."
+* cervixScreeningInformation.specimen.originalRegion.region.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.specimen.originalRegion.careGiver ^definition = "Vårdgivare."
 * cervixScreeningInformation.specimen.originalRegion.careGiver ^comment = "TKB-fält: `../../../careGiver` (`OrganisationType`, kardinalitet 0..1)."
-* cervixScreeningInformation.specimen.originalRegion.careGiver.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.specimen.originalRegion.careGiver.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.specimen.originalRegion.careGiver.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.specimen.originalRegion.careGiver.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.specimen.originalRegion.careGiver.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.specimen.originalRegion.careGiver.organisationName ^definition = "Vårdgivarens namn i klartext."
-* cervixScreeningInformation.specimen.originalRegion.careGiver.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.specimen.originalRegion.careGiver.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.specimen.originalRegion.careGiver.name ^definition = "Vårdgivarens namn i klartext."
+* cervixScreeningInformation.specimen.originalRegion.careGiver.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.specimen.originalRegion.careUnit ^definition = "Vårdnhet."
 * cervixScreeningInformation.specimen.originalRegion.careUnit ^comment = "TKB-fält: `../../../careUnit` (`OrganisationType`, kardinalitet 0..1)."
-* cervixScreeningInformation.specimen.originalRegion.careUnit.organisationId ^definition = "Anges med HSA-id.
+* cervixScreeningInformation.specimen.originalRegion.careUnit.id ^definition = "Anges med HSA-id.
 
 root: 1.2.752.129.2.1.4.1
 
 extension: `<hsa-id>`"
-* cervixScreeningInformation.specimen.originalRegion.careUnit.organisationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationId Heter id i schemat."
-* cervixScreeningInformation.specimen.originalRegion.careUnit.organisationId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.specimen.originalRegion.careUnit.organisationId.iIExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iIExtension Heter extension i schemat."
-* cervixScreeningInformation.specimen.originalRegion.careUnit.organisationName ^definition = "Vårdenhetens namn i klartext."
-* cervixScreeningInformation.specimen.originalRegion.careUnit.organisationName ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).
-
-**Modellanteckning:** organisationName Heter name i schemat."
+* cervixScreeningInformation.specimen.originalRegion.careUnit.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1)."
+* cervixScreeningInformation.specimen.originalRegion.careUnit.name ^definition = "Vårdenhetens namn i klartext."
+* cervixScreeningInformation.specimen.originalRegion.careUnit.name ^comment = "TKB-fält: `../../../../name` (`String`, kardinalitet 1..1)."
 * cervixScreeningInformation.specimen.HPVstatusList ^definition = "Provets HPV-status.
 
 Skall anges om och endast om provet har analyserats för HPV."
 * cervixScreeningInformation.specimen.HPVstatusList ^comment = "TKB-fält: `../../HPVstatusList` (`HPVstatusType`, kardinalitet 0..*)."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue ^definition = "Värde för HPV-status.
+* cervixScreeningInformation.specimen.HPVstatusList.value ^definition = "Värde för HPV-status.
 
 Urval ur SNOMED CT:
 
@@ -333,14 +215,4 @@ displayName: Valfritt (kan anges)
 originalText: Används ej
 
 Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue ^comment = "TKB-fält: `../../../value` (`CVType`, kardinalitet 1..1).
-
-**Modellanteckning:** hPVstatusValue Heter value i schemat."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue.cVCode ^comment = "TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** cVCode Heter code i schemat."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue.codeSystem ^comment = "TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1)."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue.codeSystemName ^comment = "TKB-fält: `../../../../codeSystemName` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue.codeSystemVersion ^comment = "TKB-fält: `../../../../codeSystemVersion` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue.displayName ^comment = "TKB-fält: `../../../../displayName` (`string`, kardinalitet 0..1)."
-* cervixScreeningInformation.specimen.HPVstatusList.hPVstatusValue.originalText ^comment = "TKB-fält: `../../../../originalText` (`string`, kardinalitet 0..1)."
+* cervixScreeningInformation.specimen.HPVstatusList.value ^comment = "TKB-fält: `../../../value` (`CVType`, kardinalitet 1..1)."

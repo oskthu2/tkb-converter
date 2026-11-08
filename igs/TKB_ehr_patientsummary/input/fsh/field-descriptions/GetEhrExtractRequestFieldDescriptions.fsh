@@ -21,12 +21,6 @@ Obs: modellen anger 0..* där TKB:n anger 1..1."
 * parameters ^comment = "TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
 
 Obs: modellen anger 0..* där TKB:n anger 1..1."
-* parameters.parameterCode ^comment = "TKB-fält: `../code` (`CD`, kardinalitet 0..1).
-
-**Modellanteckning:** parameterCode Heter code i schemat."
-* parameters.parameterName ^comment = "TKB-fält: `../name` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** parameterName Heter name i schemat."
-* parameters.parameterValue ^comment = "TKB-fält: `../value` (`ST`, kardinalitet 1..1).
-
-**Modellanteckning:** parameterValue Heter value i schemat."
+* parameters.code ^comment = "TKB-fält: `../code` (`CD`, kardinalitet 0..1)."
+* parameters.name ^comment = "TKB-fält: `../name` (`ST`, kardinalitet 1..1)."
+* parameters.value ^comment = "TKB-fält: `../value` (`ST`, kardinalitet 1..1)."

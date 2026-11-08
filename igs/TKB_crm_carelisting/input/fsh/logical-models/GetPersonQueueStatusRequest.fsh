@@ -1,3 +1,6 @@
+// Elementen genereras ur GetPersonQueueStatus_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: GetPersonQueueStatus v1.0 — Request
 // Namespace: urn:riv:crm:carelisting:GetPersonQueueStatusResponder:1
@@ -13,12 +16,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* personId 1..1 string "PersonID för den person vars köstatus önskas"
-    """
-    Identitetsbeteckning för vård- och omsorgstagaren vars köstatus efterfrågas.
-    Pattern: (([1-9]\d{7})|(\d{6}))[\-]?\d{4}
-    Kardinalitet: Obligatorisk.
-    """
+* personId 1..1 string "personId" "personId"
+* personId only SubjectOfCareIdType
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetPersonQueueStatusRequestFieldDescriptions

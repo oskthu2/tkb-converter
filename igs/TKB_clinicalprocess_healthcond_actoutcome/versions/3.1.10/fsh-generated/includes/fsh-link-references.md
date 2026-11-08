@@ -1,3 +1,4 @@
+[DatePeriodType]: StructureDefinition-DatePeriodType.html
 [DeliveryCodeCS]: CodeSystem-deliverycode-cs.html
 [DeliveryCodeVS]: ValueSet-deliverycode-vs.html
 [ErrorCodeCS]: CodeSystem-errorcode-cs.html
@@ -16,6 +17,7 @@
 [GetMaternityMedicalHistoryRequest]: StructureDefinition-getmaternitymedicalhistory-request.html
 [GetReferralOutcome]: StructureDefinition-getreferraloutcome.html
 [GetReferralOutcomeRequest]: StructureDefinition-getreferraloutcome-request.html
+[HealthcareProfessionalType]: StructureDefinition-HealthcareProfessionalType.html
 [MediaTypeCS]: CodeSystem-mediatype-cs.html
 [MediaTypeVS]: ValueSet-mediatype-vs.html
 [ReferralOutcomeTypeCodeCS]: CodeSystem-referraloutcometypecode-cs.html

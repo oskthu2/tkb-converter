@@ -5,13 +5,13 @@ RuleSet: GetLogsFieldDescriptions
 * logsResult ^definition = "Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.
 
 Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande."
-* logsResult ^comment = "TKB-fält: `logsResult` (`urn:riv:informationsecurity:auditing:log:2:LogsResultType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som returneras av tjänst. logs är ej satt vid eventuella fel."
+* logsResult ^comment = "TKB-fält: `logsResult` (`urn:riv:informationsecurity:auditing:log:2:LogsResultType`, kardinalitet 1..1)."
 * logsResult.reportResult ^comment = "TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1)."
 * logsResult.reportResult.result ^definition = "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
 * logsResult.reportResult.result ^comment = "TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1)."
-* logsResult.reportResult.result.resultCode ^comment = "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1)."
+* logsResult.reportResult.result.resultCode ^comment = "TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED."
 * logsResult.reportResult.result.resultText ^comment = "TKB-fält: `../../../resultText` (`string`, kardinalitet 0..1)."
 * logsResult.reportResult.startInterval ^comment = "TKB-fält: `../../startInterval` (`dateTime`, kardinalitet 0..1)."
 * logsResult.reportResult.endInterval ^comment = "TKB-fält: `../../endInterval` (`dateTime`, kardinalitet 0..1)."
@@ -36,15 +36,9 @@ Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som b
 * logsResult.logs.log.user ^definition = "Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost."
 * logsResult.logs.log.user ^comment = "TKB-fält: `../../../user` (`UserType`, kardinalitet 1..1)."
 * logsResult.logs.log.user.userId ^comment = "TKB-fält: `../../../../userId` (`HsaId`, kardinalitet 1..1)."
-* logsResult.logs.log.user.userName ^comment = "TKB-fält: `../../../../name` (`UserName`, kardinalitet 0..1).
-
-**Modellanteckning:** userName Heter name i schemat."
+* logsResult.logs.log.user.name ^comment = "TKB-fält: `../../../../name` (`UserName`, kardinalitet 0..1)."
 * logsResult.logs.log.user.personId ^definition = "En universellt unik identifierare."
 * logsResult.logs.log.user.personId ^comment = "TKB-fält: `../../../../personId` (`IIType`, kardinalitet 0..1)."
-* logsResult.logs.log.user.personId.root ^comment = "TKB-fält: `../../../../../root` (`string`, kardinalitet 1..1)."
-* logsResult.logs.log.user.personId.iiExtension ^comment = "TKB-fält: `../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * logsResult.logs.log.user.assignment ^comment = "TKB-fält: `../../../../assignment` (`Assignment`, kardinalitet 0..1)."
 * logsResult.logs.log.user.title ^comment = "TKB-fält: `../../../../title` (`UserTitle`, kardinalitet 0..1)."
 * logsResult.logs.log.user.careProvider ^definition = "Datatyp som representerar en vårdgivare."
@@ -64,10 +58,6 @@ Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som b
 * logsResult.logs.log.resources.resource.patient ^comment = "TKB-fält: `../../../../../patient` (`PatientType`, kardinalitet 0..1)."
 * logsResult.logs.log.resources.resource.patient.patientId ^definition = "En universellt unik identifierare."
 * logsResult.logs.log.resources.resource.patient.patientId ^comment = "TKB-fält: `../../../../../../patientId` (`IIType`, kardinalitet 1..1)."
-* logsResult.logs.log.resources.resource.patient.patientId.root ^comment = "TKB-fält: `../../../../../../../root` (`string`, kardinalitet 1..1)."
-* logsResult.logs.log.resources.resource.patient.patientId.iiExtension ^comment = "TKB-fält: `../../../../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * logsResult.logs.log.resources.resource.patient.patientName ^comment = "TKB-fält: `../../../../../../patientName` (`PatientName`, kardinalitet 0..1)."
 * logsResult.logs.log.resources.resource.careProvider ^definition = "Datatyp som representerar en vårdgivare."
 * logsResult.logs.log.resources.resource.careProvider ^comment = "TKB-fält: `../../../../../careProvider` (`CareProviderType`, kardinalitet 1..1)."

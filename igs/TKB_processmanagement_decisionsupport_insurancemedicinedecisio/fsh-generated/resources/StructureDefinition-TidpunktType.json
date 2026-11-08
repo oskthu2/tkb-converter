@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "TidpunktType",
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType",
+  "name": "TidpunktType",
+  "title": "TidpunktType",
+  "status": "active",
+  "description": "Tidpunkt \"ÅÅÅÅMMDD\" som matchar begränsad ISO 8601. TTidszon skall ej anges (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-tidpunkttype-pattern",
+            "severity": "error",
+            "human": "TidpunktType ska följa mönstret i schemat: [1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))",
+            "expression": "matches('^(?:(?:[1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))))$')",
+            "source": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType"
+          }
+        ]
+      }
+    ]
+  }
+}

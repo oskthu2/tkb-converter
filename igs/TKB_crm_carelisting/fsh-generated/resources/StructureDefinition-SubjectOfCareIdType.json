@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "SubjectOfCareIdType",
+  "url": "https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/SubjectOfCareIdType",
+  "name": "SubjectOfCareIdType",
+  "title": "SubjectOfCareIdType",
+  "status": "active",
+  "description": "Personnummer kan anges med eller utan sekelsiffror.Bindestreck är också valfritt (xs:simpleType i domänens schema.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "local-subjectofcareidtype-pattern",
+            "severity": "error",
+            "human": "SubjectOfCareIdType ska följa mönstret i schemat: (([1-9]\\d{7})|(\\d{6}))[\\-]?\\d{4}",
+            "expression": "matches('^(?:(?:(([1-9]\\\\d{7})|(\\\\d{6}))[\\\\-]?\\\\d{4}))$')",
+            "source": "https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/SubjectOfCareIdType"
+          }
+        ]
+      }
+    ]
+  }
+}

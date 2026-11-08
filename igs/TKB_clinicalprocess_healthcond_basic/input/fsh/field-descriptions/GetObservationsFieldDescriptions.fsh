@@ -9,10 +9,7 @@ RuleSet: GetObservationsFieldDescriptions
 * observationGroup.performerRole ^definition = "Den som utfört observationerna inom gruppen."
 * observationGroup.performerRole ^comment = "TKB-fält: `performerRole` (`PerformerRoleType`, kardinalitet 1..1)."
 * observationGroup.legalAuthenticator ^definition = "Den som signerat observationerna inom gruppen."
-* observationGroup.legalAuthenticator ^comment = "TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).
-
-**Modellanteckning:** En kompakt och specifik version av AdditionalParticipation; indirekt en Professionell aktör med
-deltagandetyp signerare enligt V-MIM."
+* observationGroup.legalAuthenticator ^comment = "TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1)."
 * observationGroup.additionalParticipant ^definition = "Övriga deltagare relaterat till observationerna inom gruppen."
 * observationGroup.additionalParticipant ^comment = "TKB-fält: `additionalParticipant` (`AdditionalParticipantType`, kardinalitet 0..*)."
 * observationGroup.sourceSystem ^definition = "Källsystem som observationsgruppen lagras i."

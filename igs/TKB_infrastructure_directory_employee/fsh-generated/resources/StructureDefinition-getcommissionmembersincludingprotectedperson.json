@@ -30,23 +30,23 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation",
         "path": "getcommissionmembersincludingprotectedperson.personInformation",
-        "short": "Information om personen",
+        "short": "PersonInformationType",
         "definition": "Information om personen. En person (ett HSA-id) returneras bara en gång även om personen är medlem i flera matchande vårdmedarbetaruppdrag.",
         "comment": "TKB-fält: `personInformation` (`PersonInformationType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.personHsaId",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.personHsaId",
-        "short": "Personens HSA-id",
+        "short": "personHsaId",
         "definition": "Personens HSA-id.\n\nRef. HSA-id (hsaIdentity) [R5]",
-        "comment": "TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.",
+        "comment": "TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,9 +58,9 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.givenName",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.givenName",
-        "short": "Tilltalsnamn",
+        "short": "givenName",
         "definition": "Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]",
-        "comment": "TKB-fält: `..givenName` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri.",
+        "comment": "TKB-fält: `..givenName` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -72,7 +72,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.middleAndSurName",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.middleAndSurName",
-        "short": "Mellan- och Efternamn",
+        "short": "middleAndSurName",
         "definition": "Mellan- och Efternamn separerade med mellanslag.",
         "comment": "TKB-fält: `..middleAndSurName` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -86,7 +86,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.nickName",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.nickName",
-        "short": "Smeknamn",
+        "short": "nickName",
         "definition": "Smeknamn. Får ej användas för presentation, endast för sökning.",
         "comment": "TKB-fält: `..nickName` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -98,39 +98,11 @@
         ]
       },
       {
-        "id": "getcommissionmembersincludingprotectedperson.personInformation.personStartDate",
-        "path": "getcommissionmembersincludingprotectedperson.personInformation.personStartDate",
-        "short": "Startdatum för personens anställning",
-        "definition": "Eventuellt startdatum för personens anställning.",
-        "comment": "TKB-fält: `..personStartDate` (`dateTime`, kardinalitet 0..1).\n\n**Modellanteckning:** Eventuellt startdatum för personens anställning.\nOm startdatum ännu inte inträtt är anställningen ännu inte aktiv.\nRef. startdatum (startDate) [R5]. Kardinalitet: Valfri.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getcommissionmembersincludingprotectedperson.personInformation.personEndDate",
-        "path": "getcommissionmembersincludingprotectedperson.personInformation.personEndDate",
-        "short": "Slutdatum för personens anställning",
-        "definition": "Eventuellt slutdatum för personens anställning.",
-        "comment": "TKB-fält: `..personEndDate` (`dateTime`, kardinalitet 0..1).\n\n**Modellanteckning:** Eventuellt slutdatum för personens anställning.\nOm slutdatum passerats är anställningen inte längre aktiv.\nRef. slutdatum (endDate) [R5]. Kardinalitet: Valfri.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.mail",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.mail",
-        "short": "E-postadress",
+        "short": "mail",
         "definition": "E-postadress. Ref. e-postadress (mail) [R5]",
-        "comment": "TKB-fält: `..mail` (`String`, kardinalitet 0..1).\n\n**Modellanteckning:** E-postadress. Ref. e-postadress (mail) [R5]. Kardinalitet: Valfri.",
+        "comment": "TKB-fält: `..mail` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -142,91 +114,106 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneNumber",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneNumber",
-        "short": "Publikt direkttelefonnummer",
+        "short": "telephoneNumber",
         "definition": "Publikt direkttelefonnummer.",
-        "comment": "TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..*).\n\n**Modellanteckning:** Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5].",
+        "comment": "TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType"
+            ]
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.switchboardNumber",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.switchboardNumber",
-        "short": "Telefonnummer till växel",
+        "short": "switchboardNumber",
         "definition": "Telefonnummer till växel.",
-        "comment": "TKB-fält: `..switchboardNumber` (`Telefon`, kardinalitet 0..1).\n\n**Modellanteckning:** Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5]. Kardinalitet: Valfri.",
+        "comment": "TKB-fält: `..switchboardNumber` (`Telefon`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType"
+            ]
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.nonPublicTelephoneNumber",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.nonPublicTelephoneNumber",
-        "short": "Tjänstetelefonnummer",
+        "short": "nonPublicTelephoneNumber",
         "definition": "Tjänstetelefonnummer.",
-        "comment": "TKB-fält: `..nonPublicTelephoneNumber` (`Telefon`, kardinalitet 0..*).\n\n**Modellanteckning:** Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5].",
+        "comment": "TKB-fält: `..nonPublicTelephoneNumber` (`Telefon`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType"
+            ]
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.mobileNumber",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.mobileNumber",
-        "short": "Mobiltelefonnummer",
+        "short": "mobileNumber",
         "definition": "Mobiltelefonnummer.",
-        "comment": "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*).\n\n**Modellanteckning:** Mobiltelefonnummer. Ref. mobiltelefon (mobile) [R5]. Kardinalitet: Valfri, lista.",
+        "comment": "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType"
+            ]
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.facsimileTelephoneNumber",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.facsimileTelephoneNumber",
-        "short": "Faxnummer",
+        "short": "facsimileTelephoneNumber",
         "definition": "Faxnummer.",
-        "comment": "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*).\n\n**Modellanteckning:** Faxnummer. Ref. fax (facsimileTelephoneNumber) [R5]. Kardinalitet: Valfri, lista.",
+        "comment": "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType"
+            ]
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour",
-        "short": "Telefontider",
+        "short": "TimeSpanType",
         "definition": "Telefontider för publik telefon (telephoneNumber).",
         "comment": "TKB-fält: `..telephoneHour` (`TimeSpan`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDay",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDay",
-        "short": "Från dag (1=Måndag, 7=Söndag)",
+        "short": "fromDay",
         "definition": "Från dag. Måndag (1) – Söndag (7).",
         "comment": "TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -240,21 +227,21 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromTime",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromTime",
-        "short": "Från tid (ISO-8601)",
+        "short": "fromTime",
         "definition": "Från tid. Format enligt ISO-8601.",
         "comment": "TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "time"
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDay",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDay",
-        "short": "Till dag (1=Måndag, 7=Söndag)",
+        "short": "toDay",
         "definition": "Till dag. Måndag (1) – Söndag (7).",
         "comment": "TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -268,21 +255,21 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toTime",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toTime",
-        "short": "Till tid (ISO-8601)",
+        "short": "toTime",
         "definition": "Till tid. Format enligt ISO-8601.",
         "comment": "TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "time"
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.comment",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.comment",
-        "short": "Information om aktuellt tidsintervall",
+        "short": "comment",
         "definition": "Information om aktuellt tidsintervall.",
         "comment": "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -296,7 +283,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDate",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDate",
-        "short": "Gäller från och med detta datum",
+        "short": "fromDate",
         "definition": "Tiden gäller från och med detta datum.",
         "comment": "TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -310,7 +297,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDate",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDate",
-        "short": "Gäller till och med detta datum",
+        "short": "toDate",
         "definition": "Tider gäller till och med detta datum.",
         "comment": "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -322,9 +309,48 @@
         ]
       },
       {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.postalAddress",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.postalAddress",
+        "short": "AddressType",
+        "definition": "postalAddress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.postalAddress.addressLine",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.postalAddress.addressLine",
+        "short": "addressLine",
+        "definition": "addressLine",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.description",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.description",
+        "short": "description",
+        "definition": "description",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.title",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.title",
-        "short": "Titel i fritext",
+        "short": "title",
         "definition": "Titel i fritext. Ref. titel (title) [R5]",
         "comment": "TKB-fält: `..title` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -338,7 +364,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicence",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicence",
-        "short": "Legitimerad yrkesgrupp",
+        "short": "healthCareProfessionalLicence",
         "definition": "Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5]",
         "comment": "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..*).",
         "min": 0,
@@ -352,21 +378,21 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.paTitle",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.paTitle",
-        "short": "Personens befattning",
+        "short": "PaTitleType",
         "definition": "Personens befattning",
-        "comment": "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*).\n\n**Modellanteckning:** Personens befattning. Kardinalitet: Valfri, lista.",
+        "comment": "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleName",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleName",
-        "short": "Befattning",
+        "short": "paTitleName",
         "definition": "Befattning. Ref. befattning (paTitleName) [R5]",
         "comment": "TKB-fält: `.. ..paTitleName` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -380,7 +406,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleCode",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleCode",
-        "short": "Befattningskod",
+        "short": "paTitleCode",
         "definition": "Befattningskod. Ref. befattningskod (paTitleCode) [R5]",
         "comment": "TKB-fält: `.. ..paTitleCode` (`String`, kardinalitet 0..1).",
         "min": 0,
@@ -394,9 +420,9 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.specialityName",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.specialityName",
-        "short": "Specialistutbildning (klartext)",
+        "short": "specialityName",
         "definition": "Specialistutbildning utöver grundutbildning för läkare eller tandläkare.",
-        "comment": "TKB-fält: `..specialityName` (`String`, kardinalitet 0..*).\n\n**Modellanteckning:** Specialistutbildning utöver grundutbildning för läkare eller tandläkare.\nRef. specialitet (specialityName) [R5]. Kardinalitet: Valfri, lista.",
+        "comment": "TKB-fält: `..specialityName` (`String`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -408,9 +434,9 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.specialityCode",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.specialityCode",
-        "short": "Specialistutbildning (kod)",
+        "short": "specialityCode",
         "definition": "Klassificeringskod för specialistutbildning utöver grundutbildning för läkare eller tandläkare.",
-        "comment": "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*).\n\n**Modellanteckning:** Klassificeringskod för specialistutbildning utöver grundutbildning.\nRef. specialitetskod (specialityCode) [R5]. Kardinalitet: Valfri, lista.",
+        "comment": "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -420,23 +446,95 @@
         ]
       },
       {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.dn",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.dn",
+        "short": "dn",
+        "definition": "dn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/DNType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.protectedPerson",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.protectedPerson",
+        "short": "protectedPerson",
+        "definition": "true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]",
+        "comment": "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.personStartDate",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.personStartDate",
+        "short": "personStartDate",
+        "definition": "Eventuellt startdatum för personens anställning.",
+        "comment": "TKB-fält: `..personStartDate` (`dateTime`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.personEndDate",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.personEndDate",
+        "short": "personEndDate",
+        "definition": "Eventuellt slutdatum för personens anställning.",
+        "comment": "TKB-fält: `..personEndDate` (`dateTime`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.feignedPerson",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.feignedPerson",
+        "short": "feignedPerson",
+        "definition": "true: om personen är ett fingerat objekt.",
+        "comment": "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality",
-        "short": "Legitimerad yrkesgrupp och specialitet",
+        "short": "HealthCareProfessionalLicenceSpecialityType",
         "definition": "Legitimerad yrkesgrupp och specialitet för läkare och tandläkare.",
         "comment": "TKB-fält: `..healthCareProfessionalLicenceSpeciality` (`HealthCareProfessionalLicenceSpecialityType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
-        "short": "Kod för legitimerad yrkesgrupp",
+        "short": "healthCareProfessionalLicence",
         "definition": "Kod för Legitimerad yrkesgrupp som nedanstående specialitet hör till.",
         "comment": "TKB-fält: `.. ..healthCareProfessionalLicence` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -450,7 +548,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
-        "short": "Kod för specialistutbildning",
+        "short": "specialityCode",
         "definition": "Kod för specialistutbildning utöver grundutbildning",
         "comment": "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -464,7 +562,7 @@
       {
         "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
         "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
-        "short": "Klartext för specialistutbildning",
+        "short": "specialityName",
         "definition": "Klartext för namnet på specialistutbildning utöver grundutbildning",
         "comment": "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 1..1).",
         "min": 1,
@@ -476,30 +574,119 @@
         ]
       },
       {
-        "id": "getcommissionmembersincludingprotectedperson.personInformation.protectedPerson",
-        "path": "getcommissionmembersincludingprotectedperson.personInformation.protectedPerson",
-        "short": "true om person har skyddad identitet",
-        "definition": "true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]",
-        "comment": "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1).",
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.age",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.age",
+        "short": "age",
+        "definition": "age",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getcommissionmembersincludingprotectedperson.personInformation.feignedPerson",
-        "path": "getcommissionmembersincludingprotectedperson.personInformation.feignedPerson",
-        "short": "true om personen är ett fingerat objekt",
-        "definition": "true: om personen är ett fingerat objekt.",
-        "comment": "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1).\n\n**Modellanteckning:** true: om personen är ett fingerat objekt.\nRef. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Kardinalitet: Valfri.",
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.gender",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.gender",
+        "short": "gender",
+        "definition": "gender",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "boolean"
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress",
+        "short": "StructuredPostalAddressType",
+        "definition": "structuredPostalAddress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.addressee",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.addressee",
+        "short": "addressee",
+        "definition": "addressee",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.street",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.street",
+        "short": "street",
+        "definition": "street",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.premisesNumber",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.premisesNumber",
+        "short": "premisesNumber",
+        "definition": "premisesNumber",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.premisesLetter",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.premisesLetter",
+        "short": "premisesLetter",
+        "definition": "premisesLetter",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.postCode",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.postCode",
+        "short": "postCode",
+        "definition": "postCode",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.town",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.structuredPostalAddress.town",
+        "short": "town",
+        "definition": "town",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
           }
         ]
       }

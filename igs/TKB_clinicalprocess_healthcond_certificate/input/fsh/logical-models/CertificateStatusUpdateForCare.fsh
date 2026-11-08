@@ -1,3 +1,6 @@
+// Elementen genereras ur CertificateStatusUpdateForCareResponder_3.2_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:healthcond:certificate v4.1-RC1
 // Kontrakt: CertificateStatusUpdateForCare v3.1 (TKB) / v3.2 (WSDL)
 // Genererad: 2026-05-19
@@ -20,7 +23,6 @@ Characteristics: #can-be-target
 * result.errorId 0..1 CodeableConcept "Felkod vid ERROR"
 * result.errorId from ErrorIdVS (required)
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CertificateStatusUpdateForCareFieldDescriptions
 
 Logical: CertificateStatusUpdateForCareRequest
@@ -68,5 +70,4 @@ Characteristics: #can-be-target
 * ref 0..1 string "Referens till entitet i integrerande vårdsystem (t.ex. vårdkontakt-id)"
 * hanteratAv 0..1 Identifier "HSA-id för HoS-personal som hanterar intyget"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CertificateStatusUpdateForCareRequestFieldDescriptions

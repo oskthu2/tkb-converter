@@ -1,3 +1,6 @@
+// Elementen genereras ur GetFormDataResponder_1.2_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB followup:qualityregistry:nkrr v1.2.2
 // Kontrakt: GetFormData v1.2
 // Genererad: 2026-05-19
@@ -51,5 +54,4 @@ Characteristics: #can-be-target
     I ett helautomatiserat förlopp efter en notifiering ska fälten inte anges.
     """
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetFormDataRequestFieldDescriptions

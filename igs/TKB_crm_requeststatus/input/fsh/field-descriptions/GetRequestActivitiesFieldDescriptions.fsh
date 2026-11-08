@@ -3,9 +3,7 @@
 
 RuleSet: GetRequestActivitiesFieldDescriptions
 * requestActivity ^definition = "Remisstatus som matchar begäran"
-* requestActivity ^comment = "TKB-fält: `requestActivity` (`RequestActivityType`, kardinalitet 0..*).
-
-**Modellanteckning:** Lista med statusrader för remisser. En rad per aktivitet/status som en remiss passerat i remissprocessen."
+* requestActivity ^comment = "TKB-fält: `requestActivity` (`RequestActivityType`, kardinalitet 0..*)."
 * requestActivity.header ^definition = "Innehåller information som är gemensam för remisstatusen som tillgängliggörs, exempelvis information om vilken hälso- och sjukvårdspersonal som är angiven som författare av en remisstatus samt information om signering."
 * requestActivity.header ^comment = "TKB-fält: `../header` (`HeaderType`, kardinalitet 1..1)."
 * requestActivity.header.accessControlHeader ^definition = "Information som används för kontroll av åtkomst."
@@ -54,6 +52,10 @@ root sätts till UUID
 
 extension anges ej"
 * requestActivity.header.accessControlHeader.careProcessId ^comment = "TKB-fält: `../../../careProcessId` (`IIType`, kardinalitet 0..1)."
+* requestActivity.header.accessControlHeader.lockTime ^definition = "Ska ej användas!
+
+Regel 2.2"
+* requestActivity.header.accessControlHeader.lockTime ^comment = "TKB-fält: `../../../lockTime` (`TimeStampType`, kardinalitet 0..0)."
 * requestActivity.header.accessControlHeader.blockComparisonTime ^definition = "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring. Gäller både yttre (mellan vårdgivare) och inre (mellan vårdenheter) spärr.
 
 Informationsägaren väljer själv en lämplig tidpunkt, t.ex. tidpunkten då remissen först skickades."
@@ -72,7 +74,7 @@ extension sätts till källsystemets HSA-id"
 * requestActivity.header.sourceSystemId ^comment = "TKB-fält: `../../sourceSystemId` (`IIType`, kardinalitet 1..1)."
 * requestActivity.header.record ^definition = "Information avseende remisstatusen som tillgängliggörs."
 * requestActivity.header.record ^comment = "TKB-fält: `../../record` (`RecordType`, kardinalitet 1..1)."
-* requestActivity.header.record.recordId ^definition = "Identifierare för remisstatus.
+* requestActivity.header.record.id ^definition = "Identifierare för remisstatus.
 
 Identifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
 
@@ -81,22 +83,19 @@ Identifieraren ska även vara konsistent och beständig mellan olika tjänstekon
 Root sätts till systemHSA-id
 
 Extension sätts till id för remissen"
-* requestActivity.header.record.recordId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1)."
+* requestActivity.header.record.id ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1)."
 * requestActivity.header.record.timestamp ^definition = "Den tidpunkt då remisstatusen skapades i tjänsteproducentens källsystem."
 * requestActivity.header.record.timestamp ^comment = "TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1)."
 * requestActivity.header.author ^definition = "Information avseende dokumentation av remisstatus som tillgängliggörs.
 
 Notera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses."
-* requestActivity.header.author ^comment = "TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1).
-
-**Modellanteckning:** Information om den hälso- och sjukvårdspersonal som dokumenterat remisstatusen.
-Avser inte den som enbart registrerar uppgiften från annan källa."
-* requestActivity.header.author.authorId ^definition = "HSA-id för hälso- och sjukvårdspersonal som dokumenterat remisstatusen som tillgängliggörs.
+* requestActivity.header.author ^comment = "TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1)."
+* requestActivity.header.author.id ^definition = "HSA-id för hälso- och sjukvårdspersonal som dokumenterat remisstatusen som tillgängliggörs.
 
 root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
 
 extension sätts till HSA-id"
-* requestActivity.header.author.authorId ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1)."
+* requestActivity.header.author.id ^comment = "TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1)."
 * requestActivity.header.author.name ^definition = "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn."
 * requestActivity.header.author.name ^comment = "TKB-fält: `../../../name` (`string`, kardinalitet 0..1)."
 * requestActivity.header.author.timestamp ^definition = "Tidpunkt då remisstatusen dokumenterades eller senast uppdaterades.
@@ -109,9 +108,7 @@ Anges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).
 
 Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText."
 * requestActivity.header.author.byRole ^comment = "TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1)."
-* requestActivity.body ^comment = "TKB-fält: `../body` (`RequestActivityBodyType`, kardinalitet 1..1).
-
-**Modellanteckning:** Innehåll för remisstatusen (body)."
+* requestActivity.body ^comment = "TKB-fält: `../body` (`RequestActivityBodyType`, kardinalitet 1..1)."
 * requestActivity.body.statusCode ^definition = "Angivelse av vilken status remissen befinner sig i.
 
 Anges med Kv status vårdbegäran [R5]
@@ -126,14 +123,14 @@ Tidpunkt då en händelse inträffade, dvs när en ändring av remisstatus sker.
 * requestActivity.body.eventTime ^comment = "TKB-fält: `../../eventTime` (`TimeStampType`, kardinalitet 1..1)."
 * requestActivity.body.request ^definition = "Den utfärdade remissen."
 * requestActivity.body.request ^comment = "TKB-fält: `../../request` (`RequestType`, kardinalitet 1..1)."
-* requestActivity.body.request.requestId ^definition = "Remiss-id. Unik identifierare av remissen.
+* requestActivity.body.request.id ^definition = "Remiss-id. Unik identifierare av remissen.
 
 Vid kännedom om remittentens id på remissen ska detta anges för att kunna koppla ihop flera status och följa remissens status-information över tid.
 
 I det fall kännedom om remittentens id på remissen saknas ska källsystemets unika id på remissen anges.
 
 I det fall remissens id (sträng) består av flera delar, t.ex. enligt formatet \"källsystem-Id(HSA-ID)#lokalt-id\" så ska hela strängen anges."
-* requestActivity.body.request.requestId ^comment = "TKB-fält: `../../../id` (`string`, kardinalitet 1..1)."
+* requestActivity.body.request.id ^comment = "TKB-fält: `../../../id` (`string`, kardinalitet 1..1)."
 * requestActivity.body.request.type ^definition = "Remisstyp. Kod och klartext som anger vilken typ av remiss som avses.
 
 Anges med Kv framställantyp [R5]
@@ -179,35 +176,28 @@ medium.displayName = skriftligt elektroniskt"
 * requestActivity.body.request.author ^definition = "Remittent
 
 Författare av remissen."
-* requestActivity.body.request.author ^comment = "TKB-fält: `../../../author` (`RequestAuthorType`, kardinalitet 0..1).
-
-**Modellanteckning:** Remittent — författare av remissen.
-Obligatoriskt när statusCode = 1 (Skickad), 7 (Svar mottaget) eller 11 (Makulerad)."
+* requestActivity.body.request.author ^comment = "TKB-fält: `../../../author` (`RequestAuthorType`, kardinalitet 0..1)."
 * requestActivity.body.request.author.name ^definition = "Remittentens namn"
 * requestActivity.body.request.author.name ^comment = "TKB-fält: `../../../../name` (`string`, kardinalitet 1..1)."
 * requestActivity.body.request.author.organization ^definition = "Remitterande enhet"
-* requestActivity.body.request.author.organization ^comment = "TKB-fält: `../../../../organization` (`OrganizationType`, kardinalitet 1..1).
-
-**Modellanteckning:** Den enhet som remittenten tillhör."
-* requestActivity.body.request.author.organization.organizationId ^definition = "Remitterande enhetens id
+* requestActivity.body.request.author.organization ^comment = "TKB-fält: `../../../../organization` (`OrganizationType`, kardinalitet 1..1)."
+* requestActivity.body.request.author.organization.id ^definition = "Remitterande enhetens id
 
 root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
 
 extension sätts till HSA-id"
-* requestActivity.body.request.author.organization.organizationId ^comment = "TKB-fält: `../../../../../id` (`IIType`, kardinalitet 0..1)."
+* requestActivity.body.request.author.organization.id ^comment = "TKB-fält: `../../../../../id` (`IIType`, kardinalitet 0..1)."
 * requestActivity.body.request.author.organization.name ^definition = "Remitterande enhetens namn."
 * requestActivity.body.request.author.organization.name ^comment = "TKB-fält: `../../../../../name` (`string`, kardinalitet 1..1)."
 * requestActivity.body.request.receivingOrganization ^definition = "Remissmottagande enhet."
-* requestActivity.body.request.receivingOrganization ^comment = "TKB-fält: `../../../receivingOrganization` (`OrganizationType`, kardinalitet 1..1).
-
-**Modellanteckning:** Den enhet som är mottagare av remissen (eller faktisk mottagare om remissen skickats vidare)."
-* requestActivity.body.request.receivingOrganization.receivingOrganizationId ^definition = "Remissmottagande enhets id
+* requestActivity.body.request.receivingOrganization ^comment = "TKB-fält: `../../../receivingOrganization` (`OrganizationType`, kardinalitet 1..1)."
+* requestActivity.body.request.receivingOrganization.id ^definition = "Remissmottagande enhets id
 
 Identitetsbeteckning för den som är angiven mottagare till remissen eller den faktiska mottagaren om detta ändras (om remissen har skickats vidare).
 
 root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
 
 extension sätts till HSA-id"
-* requestActivity.body.request.receivingOrganization.receivingOrganizationId ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 0..1)."
+* requestActivity.body.request.receivingOrganization.id ^comment = "TKB-fält: `../../../../id` (`IIType`, kardinalitet 0..1)."
 * requestActivity.body.request.receivingOrganization.name ^definition = "Remissmottagande enhetens namn."
 * requestActivity.body.request.receivingOrganization.name ^comment = "TKB-fält: `../../../../name` (`string`, kardinalitet 1..1)."

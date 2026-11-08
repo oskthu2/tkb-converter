@@ -28,19 +28,6 @@
         "definition": "Logisk modell för begäran i SkickaMeddelanden\n(urn:riv:druglogistics:dosedispensing:SkickaMeddelandenResponder:1, SkickaMeddelandenType), inklusive SOAP-huvuden enligt WSDL."
       },
       {
-        "id": "skickameddelanden-request.logicalAddress",
-        "path": "skickameddelanden-request.logicalAddress",
-        "short": "logicalAddress",
-        "definition": "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
         "id": "skickameddelanden-request.glnkod",
         "path": "skickameddelanden-request.glnkod",
         "short": "glnkod",
@@ -57,14 +44,14 @@
       {
         "id": "skickameddelanden-request.Behorighetsinformation",
         "path": "skickameddelanden-request.Behorighetsinformation",
-        "short": "Behorighetsinformation",
+        "short": "BehorighetsinfoRequest",
         "definition": "Behorighetsinformation",
         "comment": "TKB-fält: `Behorighetsinformation` (`BehorighetsinfoRequest`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -114,8 +101,8 @@
         "id": "skickameddelanden-request.Behorighetsinformation.yrkeskod",
         "path": "skickameddelanden-request.Behorighetsinformation.yrkeskod",
         "short": "yrkeskod",
-        "definition": "yrkeskod",
-        "comment": "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).",
+        "definition": "yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
+        "comment": "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
         "min": 0,
         "max": "1",
         "type": [
@@ -187,14 +174,14 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo",
         "path": "skickameddelanden-request.Meddelandeninfo",
-        "short": "Meddelandeninfo",
+        "short": "MeddelandeninfoRequest",
         "definition": "Meddelandeninfo",
         "comment": "TKB-fält: `Meddelandeninfo` (`MeddelandeninfoRequest`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -202,8 +189,8 @@
         "id": "skickameddelanden-request.Meddelandeninfo.Meddelandetyp",
         "path": "skickameddelanden-request.Meddelandeninfo.Meddelandetyp",
         "short": "Meddelandetyp",
-        "definition": "Meddelandetyp",
-        "comment": "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1).",
+        "definition": "Meddelandetyp Tillåtna värden: OB, PB, FR, MB, VG.",
+        "comment": "TKB-fält: `../Meddelandetyp` (`MeddelandetypEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** Meddelandetyp Tillåtna värden: OB, PB, FR, MB, VG.",
         "min": 1,
         "max": "1",
         "type": [
@@ -219,21 +206,21 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation",
-        "short": "Patientinformation",
+        "short": "PatientinfoResponse",
         "definition": "Patientinformation",
         "comment": "TKB-fält: `../Patientinformation` (`PatientinfoResponse`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.fornamn",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.fornamn",
-        "short": "fornamn",
+        "short": "Anvandarens fornamn.",
         "definition": "Anvandarens fornamn.",
         "comment": "TKB-fält: `../../fornamn` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -247,7 +234,7 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.mellannamn",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.mellannamn",
-        "short": "mellannamn",
+        "short": "Anvandarens mellanamn.",
         "definition": "Anvandarens mellanamn.",
         "comment": "TKB-fält: `../../mellannamn` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -261,7 +248,7 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.efternamn",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.efternamn",
-        "short": "efternamn",
+        "short": "Anvandarens efternamn.",
         "definition": "Anvandarens efternamn.",
         "comment": "TKB-fält: `../../efternamn` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -276,8 +263,8 @@
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.identitetstyp",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.identitetstyp",
         "short": "identitetstyp",
-        "definition": "identitetstyp",
-        "comment": "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).",
+        "definition": "identitetstyp Tillåtna värden: P, R, S.",
+        "comment": "TKB-fält: `../../identitetstyp` (`IdentitetstypEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** identitetstyp Tillåtna värden: P, R, S.",
         "min": 1,
         "max": "1",
         "type": [
@@ -293,7 +280,7 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.personid",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.personid",
-        "short": "personid",
+        "short": "Anvandarens personid",
         "definition": "Anvandarens personid",
         "comment": "TKB-fält: `../../personid` (`string`, kardinalitet 1..1).",
         "min": 1,
@@ -307,7 +294,7 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.lanskod",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.lanskod",
-        "short": "lanskod",
+        "short": "Anvandarens folkbokforda lanskod",
         "definition": "Anvandarens folkbokforda lanskod",
         "comment": "TKB-fält: `../../lanskod` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -321,7 +308,7 @@
       {
         "id": "skickameddelanden-request.Meddelandeninfo.Patientinformation.kommunkod",
         "path": "skickameddelanden-request.Meddelandeninfo.Patientinformation.kommunkod",
-        "short": "kommunkod",
+        "short": "Anvandarens folkbokforda kommunkod",
         "definition": "Anvandarens folkbokforda kommunkod",
         "comment": "TKB-fält: `../../kommunkod` (`string`, kardinalitet 0..1).",
         "min": 0,
@@ -336,8 +323,8 @@
         "id": "skickameddelanden-request.Meddelandeninfo.kommunikationsriktning",
         "path": "skickameddelanden-request.Meddelandeninfo.kommunikationsriktning",
         "short": "kommunikationsriktning",
-        "definition": "kommunikationsriktning",
-        "comment": "TKB-fält: `../kommunikationsriktning` (`KommunikationsriktningEnum`, kardinalitet 0..1).",
+        "definition": "kommunikationsriktning Tillåtna värden: 1, 2.",
+        "comment": "TKB-fält: `../kommunikationsriktning` (`KommunikationsriktningEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** kommunikationsriktning Tillåtna värden: 1, 2.",
         "min": 0,
         "max": "1",
         "type": [
@@ -424,8 +411,8 @@
         "id": "skickameddelanden-request.Meddelandeninfo.prioritet",
         "path": "skickameddelanden-request.Meddelandeninfo.prioritet",
         "short": "prioritet",
-        "definition": "prioritet",
-        "comment": "TKB-fält: `../prioritet` (`MeddelandePrioritetEnum`, kardinalitet 0..1).",
+        "definition": "prioritet Tillåtna värden: L, N, H.",
+        "comment": "TKB-fält: `../prioritet` (`MeddelandePrioritetEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** prioritet Tillåtna värden: L, N, H.",
         "min": 0,
         "max": "1",
         "type": [

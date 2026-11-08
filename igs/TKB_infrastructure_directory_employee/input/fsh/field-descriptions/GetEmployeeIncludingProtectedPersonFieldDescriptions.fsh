@@ -11,26 +11,17 @@ Ref. HSA-id (hsaIdentity) [R5]"
 * personInformation.givenName ^definition = "Tilltalsnamn.
 
 Ref. tilltalsnamn (givenName, gn) [R5]"
-* personInformation.givenName ^comment = "TKB-fält: `..givenName` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Tilltalsnamn. Endast ett litet antal personer saknar helt förnamn.
-Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri."
+* personInformation.givenName ^comment = "TKB-fält: `..givenName` (`String`, kardinalitet 0..1)."
 * personInformation.middleAndSurName ^definition = "Mellan- och Efternamn separerade med mellanslag. Ref. mellannamn (middleName) [R5]
 
 Ref. efternamn (sn, surName) [R5]"
 * personInformation.middleAndSurName ^comment = "TKB-fält: `..middleAndSurName` (`String`, kardinalitet 1..1)."
 * personInformation.nickName ^definition = "Smeknamn. Får ej användas för presentation, endast för sökning. Ref. smeknamn (nickName) [R5]"
-* personInformation.nickName ^comment = "TKB-fält: `..nickName` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** Smeknamn. Används då tilltalsnamn inte är det namn personen vill använda.
-Får ej användas för presentation, endast för sökning.
-Ref. smeknamn (nickName) [R5]. Kardinalitet: Valfri."
+* personInformation.nickName ^comment = "TKB-fält: `..nickName` (`String`, kardinalitet 0..1)."
 * personInformation.mail ^definition = "E-postadress.
 
 Ref. e-postadress (mail) [R5]"
-* personInformation.mail ^comment = "TKB-fält: `..mail` (`String`, kardinalitet 0..1).
-
-**Modellanteckning:** E-postadress. Ref. e-postadress (mail) [R5]. Kardinalitet: Valfri."
+* personInformation.mail ^comment = "TKB-fält: `..mail` (`String`, kardinalitet 0..1)."
 * personInformation.telephoneNumber ^definition = "Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]"
 * personInformation.telephoneNumber ^comment = "TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.switchboardNumber ^definition = "Telefonnummer till växel.
@@ -42,15 +33,11 @@ Ref. växeltelefon (hsaSwitchboardNumber) [R5]"
 * personInformation.mobileNumber ^definition = "Mobiltelefonnummer.
 
 Ref. mobiltelefon (mobile) [R5]"
-* personInformation.mobileNumber ^comment = "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*).
-
-**Modellanteckning:** Mobiltelefonnummer. Ref. mobiltelefon (mobile) [R5]. Kardinalitet: Valfri, lista."
+* personInformation.mobileNumber ^comment = "TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.facsimileTelephoneNumber ^definition = "Faxnummer.
 
 Ref. fax (facsimileTelephoneNumber) [R5]"
-* personInformation.facsimileTelephoneNumber ^comment = "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*).
-
-**Modellanteckning:** Faxnummer. Ref. fax (facsimileTelephoneNumber) [R5]. Kardinalitet: Valfri, lista."
+* personInformation.facsimileTelephoneNumber ^comment = "TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*)."
 * personInformation.telephoneHour ^definition = "Telefontider för publik telefon (telephoneNumber).
 
 Ref. telefontid (telephoneHours) [R5]"
@@ -70,12 +57,45 @@ Ref. telefontid (telephoneHours) [R5]"
 * personInformation.telephoneHour.toDate ^definition = "Tider gäller till och med detta datum."
 * personInformation.telephoneHour.toDate ^comment = "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1)."
 * personInformation.postalAddress ^definition = "Postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5]"
-* personInformation.postalAddress ^comment = "TKB-fält: `..postalAddress` (`AddressType`, kardinalitet 0..1).
-
-**Modellanteckning:** Postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5].
-Kommer på sikt att ersättas av structuredPostalAddress."
+* personInformation.postalAddress ^comment = "TKB-fält: `..postalAddress` (`AddressType`, kardinalitet 0..1)."
 * personInformation.postalAddress.addressLine ^definition = "Adressrad."
 * personInformation.postalAddress.addressLine ^comment = "TKB-fält: `.. ..addressLine` (`String`, kardinalitet 1..*)."
+* personInformation.description ^definition = "Generell beskrivning.
+
+Ref. beskrivning (description) [R5]"
+* personInformation.description ^comment = "TKB-fält: `..description` (`String`, kardinalitet 0..1)."
+* personInformation.title ^definition = "Titel i fritext. Ref. titel (title) [R5]"
+* personInformation.title ^comment = "TKB-fält: `..title` (`String`, kardinalitet 0..1)."
+* personInformation.healthCareProfessionalLicence ^definition = "Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5]"
+* personInformation.healthCareProfessionalLicence ^comment = "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..*)."
+* personInformation.paTitle ^definition = "Personens befattning"
+* personInformation.paTitle ^comment = "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*)."
+* personInformation.paTitle.paTitleName ^definition = "Befattning. Ref. befattning (paTitleName) [R5]"
+* personInformation.paTitle.paTitleName ^comment = "TKB-fält: `.. ..paTitleName` (`String`, kardinalitet 0..1)."
+* personInformation.paTitle.paTitleCode ^definition = "Befattningskod. Ref. befattningskod (paTitleCode) [R5]"
+* personInformation.paTitle.paTitleCode ^comment = "TKB-fält: `.. ..paTitleCode` (`String`, kardinalitet 0..1)."
+* personInformation.specialityName ^definition = "Specialistutbildning utöver grundutbildning för läkare eller tandläkare. Ref. specialitet (specialityName) [R5]"
+* personInformation.specialityName ^comment = "TKB-fält: `..specialityName` (`String`, kardinalitet 0..*)."
+* personInformation.specialityCode ^definition = "Klassificeringskod för specialistutbildning utöver grundutbildning. Ref. specialitetskod (specialityCode) [R5]"
+* personInformation.specialityCode ^comment = "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*)."
+* personInformation.dn ^definition = "\"Distinguished Name\". Objektets placering (sökväg) i katalogen."
+* personInformation.dn ^comment = "TKB-fält: `..dn` (`DN`, kardinalitet 1..1)."
+* personInformation.protectedPerson ^definition = "true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]"
+* personInformation.protectedPerson ^comment = "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1)."
+* personInformation.feignedPerson ^definition = "true: om personen är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedDataObject) [R5]"
+* personInformation.feignedPerson ^comment = "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1)."
+* personInformation.healthCareProfessionalLicenceSpeciality ^definition = "Legitimerad yrkesgrupp och specialitet för läkare och tandläkare."
+* personInformation.healthCareProfessionalLicenceSpeciality ^comment = "TKB-fält: `..healthCareProfessionalLicenceSpeciality` (`HealthCareProfessionalLicenceSpecialityType`, kardinalitet 0..*)."
+* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence ^definition = "Kod för Legitimerad yrkesgrupp som nedanstående specialitet hör till."
+* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence ^comment = "TKB-fält: `.. ..healthCareProfessionalLicence` (`String`, kardinalitet 1..1)."
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^definition = "Kod för specialistutbildning utöver grundutbildning"
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^comment = "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1)."
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityName ^definition = "Klartext för namnet på specialistutbildning utöver grundutbildning"
+* personInformation.healthCareProfessionalLicenceSpeciality.specialityName ^comment = "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 1..1)."
+* personInformation.age ^definition = "Personens ålder, anges i jämna år. Värdet hämtas från personens person- eller samordningsnummer."
+* personInformation.age ^comment = "TKB-fält: `..age *3)` (`String`, kardinalitet 0..1)."
+* personInformation.gender ^definition = "Personens kön. 0=okänt, 1=man, 2=kvinna. Värdet beräknas från personens person- eller samordningsnummer."
+* personInformation.gender ^comment = "TKB-fält: `..gender *3)` (`String`, kardinalitet 0..1)."
 * personInformation.structuredPostalAddress ^definition = "Vårdenhetens postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]"
 * personInformation.structuredPostalAddress ^comment = "TKB-fält: `..structuredPostalAddress` (`structuredPostalAddressType`, kardinalitet 0..1)."
 * personInformation.structuredPostalAddress.addressee ^definition = "Adressat"
@@ -90,45 +110,3 @@ Kommer på sikt att ersättas av structuredPostalAddress."
 * personInformation.structuredPostalAddress.postCode ^comment = "TKB-fält: `.. ..postCode` (`String`, kardinalitet 1..1)."
 * personInformation.structuredPostalAddress.town ^definition = "Postort"
 * personInformation.structuredPostalAddress.town ^comment = "TKB-fält: `.. ..town` (`String`, kardinalitet 1..1)."
-* personInformation.description ^definition = "Generell beskrivning.
-
-Ref. beskrivning (description) [R5]"
-* personInformation.description ^comment = "TKB-fält: `..description` (`String`, kardinalitet 0..1)."
-* personInformation.title ^definition = "Titel i fritext. Ref. titel (title) [R5]"
-* personInformation.title ^comment = "TKB-fält: `..title` (`String`, kardinalitet 0..1)."
-* personInformation.healthCareProfessionalLicence ^definition = "Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5]"
-* personInformation.healthCareProfessionalLicence ^comment = "TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..*)."
-* personInformation.healthCareProfessionalLicenceSpeciality ^definition = "Legitimerad yrkesgrupp och specialitet för läkare och tandläkare."
-* personInformation.healthCareProfessionalLicenceSpeciality ^comment = "TKB-fält: `..healthCareProfessionalLicenceSpeciality` (`HealthCareProfessionalLicenceSpecialityType`, kardinalitet 0..*)."
-* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence ^definition = "Kod för Legitimerad yrkesgrupp som nedanstående specialitet hör till."
-* personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence ^comment = "TKB-fält: `.. ..healthCareProfessionalLicence` (`String`, kardinalitet 1..1)."
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^definition = "Kod för specialistutbildning utöver grundutbildning"
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityCode ^comment = "TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1)."
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityName ^definition = "Klartext för namnet på specialistutbildning utöver grundutbildning"
-* personInformation.healthCareProfessionalLicenceSpeciality.specialityName ^comment = "TKB-fält: `.. ..specialityName` (`String`, kardinalitet 1..1)."
-* personInformation.paTitle ^definition = "Personens befattning"
-* personInformation.paTitle ^comment = "TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*).
-
-**Modellanteckning:** Personens befattning. Kardinalitet: Valfri, lista."
-* personInformation.paTitle.paTitleName ^definition = "Befattning. Ref. befattning (paTitleName) [R5]"
-* personInformation.paTitle.paTitleName ^comment = "TKB-fält: `.. ..paTitleName` (`String`, kardinalitet 0..1)."
-* personInformation.paTitle.paTitleCode ^definition = "Befattningskod. Ref. befattningskod (paTitleCode) [R5]"
-* personInformation.paTitle.paTitleCode ^comment = "TKB-fält: `.. ..paTitleCode` (`String`, kardinalitet 0..1)."
-* personInformation.specialityName ^definition = "Specialistutbildning utöver grundutbildning för läkare eller tandläkare. Ref. specialitet (specialityName) [R5]"
-* personInformation.specialityName ^comment = "TKB-fält: `..specialityName` (`String`, kardinalitet 0..*)."
-* personInformation.specialityCode ^definition = "Klassificeringskod för specialistutbildning utöver grundutbildning. Ref. specialitetskod (specialityCode) [R5]"
-* personInformation.specialityCode ^comment = "TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*)."
-* personInformation.dn ^definition = "\"Distinguished Name\". Objektets placering (sökväg) i katalogen."
-* personInformation.dn ^comment = "TKB-fält: `..dn` (`DN`, kardinalitet 1..1)."
-* personInformation.protectedPerson ^definition = "true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]"
-* personInformation.protectedPerson ^comment = "TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1).
-
-**Modellanteckning:** true: om person har skyddad identitet.
-Om personen inte har skyddad identitet returneras inget värde.
-Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]."
-* personInformation.feignedPerson ^definition = "true: om personen är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedDataObject) [R5]"
-* personInformation.feignedPerson ^comment = "TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1)."
-* personInformation.age ^definition = "Personens ålder, anges i jämna år. Värdet hämtas från personens person- eller samordningsnummer."
-* personInformation.age ^comment = "TKB-fält: `..age *3)` (`String`, kardinalitet 0..1)."
-* personInformation.gender ^definition = "Personens kön. 0=okänt, 1=man, 2=kvinna. Värdet beräknas från personens person- eller samordningsnummer."
-* personInformation.gender ^comment = "TKB-fält: `..gender *3)` (`String`, kardinalitet 0..1)."

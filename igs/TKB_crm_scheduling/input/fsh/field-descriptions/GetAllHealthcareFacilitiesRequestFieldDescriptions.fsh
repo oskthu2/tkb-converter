@@ -3,9 +3,7 @@
 
 RuleSet: GetAllHealthcareFacilitiesRequestFieldDescriptions
 * healthcare_facility ^definition = "HSA-id för mottagning/vårdenhet."
-* healthcare_facility ^comment = "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).
-
-**Modellanteckning:** HSA-id för mottagning/vårdenhet (kallande organisation)."
+* healthcare_facility ^comment = "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1)."
 * subject_of_care ^definition = "Personnummer enl. yyyymmddxxxx.
 
 Kan användas för att filtrera vad en tjänsteproducent ska returnera för en viss invånare (även vid nybokning)."

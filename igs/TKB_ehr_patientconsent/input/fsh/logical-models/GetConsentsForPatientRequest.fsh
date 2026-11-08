@@ -1,3 +1,6 @@
+// Elementen genereras ur GetConsentsForPatientResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientconsent v1.0.1_RC1
 // Kontrakt: GetConsentsForPatient v1.0 — Request-modell
 // RIV-TA: urn:riv:ehr:patientconsent:querying:GetConsentsForPatientResponder:1
@@ -19,5 +22,4 @@ Characteristics: #can-be-target
   PersonIdValue — personnummer, samordningsnummer eller reservnummer. Max 12 tecken.
   """
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetConsentsForPatientRequestFieldDescriptions

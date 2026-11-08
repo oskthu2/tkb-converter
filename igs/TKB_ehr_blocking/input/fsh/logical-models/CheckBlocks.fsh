@@ -1,3 +1,6 @@
+// Elementen genereras ur CheckBlocksResponder_3.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:blocking v3.2.2
 // Kontrakt: CheckBlocks v3.0 (accesscontrol)
 // Genererad: 2026-04-09
@@ -15,16 +18,4 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "3.0"
-* checkBlocksResult 1..1 BackboneElement "Resultatlista — ett resultat per begärd informationsresurs"
-  * result 0..* BackboneElement "Spärrkontrollresultat per informationsresurs"
-    * informationCareProviderId 1..1 string "HSA-id för vårdgivaren vars information kontrollerades"
-    * informationCareUnitId 0..1 string "HSA-id för vårdenhet (vid inre spärr)"
-    * informationType 0..1 string "Informationstyp som kontrollerades (t.ex. 'lak' eller 'upp')"
-    * checkStatus 1..1 code "Spärrresultat för denna informationsresurs"
-      """
-      BLOCKED = information är spärrad, UNBLOCKED = information är inte spärrad,
-      VALIDATIONERROR = ogiltiga parametrar för denna resurs
-      """
-    * resultCode 1..1 code "Svarskod för anropet som helhet"
-    * resultCode from ResultCodeVS (required)
-    * resultText 0..1 string "Beskrivande text till svarskoden"
+* CheckBlocksResultType 1..1 string "CheckBlocksResultType" "CheckBlocksResultType"

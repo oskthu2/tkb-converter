@@ -3,20 +3,24 @@
 
 RuleSet: GetExtendedConsentsForPatientFieldDescriptions
 * getExtendedConsentsResult ^definition = "Utökad information för samtycke."
-* getExtendedConsentsResult ^comment = "TKB-fält: `getExtendedConsentsResult` (`urn:riv:informationsecurity:authorization:consent:2:GetExtendedConsentsResultType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg. Datatypen utökar datatypen Result."
+* getExtendedConsentsResult ^comment = "TKB-fält: `getExtendedConsentsResult` (`urn:riv:informationsecurity:authorization:consent:2:GetExtendedConsentsResultType`, kardinalitet 1..1)."
 * getExtendedConsentsResult.result ^definition = "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
 * getExtendedConsentsResult.result ^comment = "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1)."
-* getExtendedConsentsResult.result.resultCode ^comment = "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1)."
+* getExtendedConsentsResult.result.resultCode ^comment = "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE."
 * getExtendedConsentsResult.result.resultText ^comment = "TKB-fält: `../../resultText` (`string`, kardinalitet 0..1)."
 * getExtendedConsentsResult.pdlAssertions ^definition = "Datatyp som representerar ett samtycke med ett utökat format. Innehåller information vem som har begärt respektive registrerat samtycket, samt om och när samtycket är återkallat eller makulerat. Datatypen utökar datatypen PDLAssertion."
 * getExtendedConsentsResult.pdlAssertions ^comment = "TKB-fält: `../pdlAssertions` (`ExtendedPDLAssertionType`, kardinalitet 0..*)."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion ^definition = "Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion ^comment = "TKB-fält: `../../pDLAssertion` (`PDLAssertionType`, kardinalitet 1..1)."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.assertionId ^comment = "TKB-fält: `../../../assertionId` (`Id`, kardinalitet 1..1)."
-* getExtendedConsentsResult.pdlAssertions.pDLAssertion.assertionType ^comment = "TKB-fält: `../../../assertionType` (`AssertionTypeType`, kardinalitet 1..1)."
-* getExtendedConsentsResult.pdlAssertions.pDLAssertion.scope ^comment = "TKB-fält: `../../../scope` (`ScopeType`, kardinalitet 1..1)."
+* getExtendedConsentsResult.pdlAssertions.pDLAssertion.assertionType ^comment = "TKB-fält: `../../../assertionType` (`AssertionTypeType`, kardinalitet 1..1).
+
+**Modellanteckning:** assertionType Tillåtna värden: Consent, Emergency."
+* getExtendedConsentsResult.pdlAssertions.pDLAssertion.scope ^comment = "TKB-fält: `../../../scope` (`ScopeType`, kardinalitet 1..1).
+
+**Modellanteckning:** scope Tillåtna värden: NationalLevel."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.careProviderId ^comment = "TKB-fält: `../../../careProviderId` (`HsaId`, kardinalitet 1..1)."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.careUnitId ^comment = "TKB-fält: `../../../careUnitId` (`HsaId`, kardinalitet 1..1)."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.employeeId ^comment = "TKB-fält: `../../../employeeId` (`HsaId`, kardinalitet 0..1)."
@@ -25,16 +29,8 @@ RuleSet: GetExtendedConsentsForPatientFieldDescriptions
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.ownerId ^comment = "TKB-fält: `../../../ownerId` (`OwnerId`, kardinalitet 0..1)."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId ^definition = "En universellt unik identifierare."
 * getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId ^comment = "TKB-fält: `../../../patientId` (`IIType`, kardinalitet 1..1)."
-* getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId.root ^comment = "TKB-fält: `../../../../root` (`string`, kardinalitet 1..1)."
-* getExtendedConsentsResult.pdlAssertions.pDLAssertion.patientId.iiExtension ^comment = "TKB-fält: `../../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * getExtendedConsentsResult.pdlAssertions.representedBy ^definition = "En universellt unik identifierare."
 * getExtendedConsentsResult.pdlAssertions.representedBy ^comment = "TKB-fält: `../../representedBy` (`IIType`, kardinalitet 0..1)."
-* getExtendedConsentsResult.pdlAssertions.representedBy.root ^comment = "TKB-fält: `../../../root` (`string`, kardinalitet 1..1)."
-* getExtendedConsentsResult.pdlAssertions.representedBy.iiExtension ^comment = "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
 * getExtendedConsentsResult.pdlAssertions.registrationInfo ^definition = "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
 * getExtendedConsentsResult.pdlAssertions.registrationInfo ^comment = "TKB-fält: `../../registrationInfo` (`ActionType`, kardinalitet 1..1)."
 * getExtendedConsentsResult.pdlAssertions.registrationInfo.requestDate ^comment = "TKB-fält: `../../../requestDate` (`dateTime`, kardinalitet 1..1)."

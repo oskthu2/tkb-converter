@@ -1,3 +1,6 @@
+// Elementen genereras ur RegistreraHkdbTransaktionResponder_1.1_ext.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
 // Kontrakt: RegistreraHkdbTransaktion v1.1
 // Genererad: 2026-09-26
@@ -22,5 +25,4 @@ Characteristics: #can-be-target
   * netto 1..1 decimal "netto" "Nettobelopp i kronor och ören"
 * resultat 1..1 integer "resultat" "Resultat av högkostnadsuppdatering. 1 - Transaktionen accepterad och registrerad."
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert RegistreraHkdbTransaktionFieldDescriptions

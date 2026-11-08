@@ -3,8 +3,6 @@
 
 RuleSet: FindAllQuestionsRequestFieldDescriptions
 * careUnitId ^definition = "Vårdenhetens hsa-id"
-* careUnitId ^comment = "TKB-fält: `careUnitId` (`hsaid`, kardinalitet 1..1).
-
-**Modellanteckning:** system = urn:oid:1.2.752.129.2.1.4.1 (HSA-ID)."
+* careUnitId ^comment = "TKB-fält: `careUnitId` (`hsaid`, kardinalitet 1..1)."
 * careGiverId ^definition = "Vårdgivarens hsa-id"
 * careGiverId ^comment = "TKB-fält: `careGiverId` (`hsaid`, kardinalitet 1..1)."

@@ -14,7 +14,3 @@ extension: patientens identitet
 
 personnummer: ÅÅÅÅMMDDNNNN"
 * patientId ^comment = "TKB-fält: `patientId` (`IIType`, kardinalitet 1..1)."
-* patientId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* patientId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 1..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."

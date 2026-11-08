@@ -30,22 +30,9 @@
       {
         "id": "saveformpage-request.formId",
         "path": "saveformpage-request.formId",
-        "short": "Formulärets unika ID (GUID)",
-        "definition": "Formulärets unika ID (GUID)",
+        "short": "formId",
+        "definition": "formId",
         "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "saveformpage-request.subjectOfCare",
-        "path": "saveformpage-request.subjectOfCare",
-        "short": "Invånarens personnummer (yyyymmddnnnn)",
-        "definition": "Invånarens personnummer (yyyymmddnnnn)",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -56,21 +43,21 @@
       {
         "id": "saveformpage-request.pageAnswer",
         "path": "saveformpage-request.pageAnswer",
-        "short": "Sida med besvarade frågor att spara",
-        "definition": "Innehåller sidans nummer och alla svar som invånaren har lämnat.",
+        "short": "PageAnswerType",
+        "definition": "pageAnswer",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "saveformpage-request.pageAnswer.pageNumber",
         "path": "saveformpage-request.pageAnswer.pageNumber",
-        "short": "Sidans nummer",
-        "definition": "Sidans nummer",
+        "short": "pageNumber",
+        "definition": "pageNumber",
         "min": 1,
         "max": "1",
         "type": [
@@ -80,36 +67,101 @@
         ]
       },
       {
-        "id": "saveformpage-request.pageAnswer.questionBlock",
-        "path": "saveformpage-request.pageAnswer.questionBlock",
-        "short": "Frågegrupperingar med svar",
-        "definition": "Frågegrupperingar med svar",
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock",
+        "short": "QuestionBlockAnswersType",
+        "definition": "questionAnswerBlock",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "saveformpage-request.pageAnswer.questionBlock.question",
-        "path": "saveformpage-request.pageAnswer.questionBlock.question",
-        "short": "Frågor med svar",
-        "definition": "Frågor med svar",
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.blockNumber",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.blockNumber",
+        "short": "blockNumber",
+        "definition": "blockNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer",
+        "short": "QuestionAnswerType",
+        "definition": "questionAnswer",
         "min": 1,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "saveformpage-request.pageAnswer.questionBlock.question.questionId",
-        "path": "saveformpage-request.pageAnswer.questionBlock.question.questionId",
-        "short": "Frågans ID",
-        "definition": "Frågans ID",
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer",
+        "short": "AnswerType",
+        "definition": "answer",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerAlternativeNumber",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerAlternativeNumber",
+        "short": "Svarsalternativets id/nummer.",
+        "definition": "Svarsalternativets id/nummer.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerStatus",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerStatus",
+        "short": "AnswerStatusType",
+        "definition": "answerStatus",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerStatus.resultCode",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerStatus.resultCode",
+        "short": "resultCode",
+        "definition": "Signalerar om frågan är ifylld på ett felaktigt sätt. Felkod. OK - Transaktion utförd INFO - Transaktion utförd med kommentar. ERROR - Transaktion ej genomförd Tillåtna värden: OK, ERROR, INFO.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerStatus.resultCodeText",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.answerStatus.resultCodeText",
+        "short": "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+        "definition": "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
         "min": 1,
         "max": "1",
         "type": [
@@ -119,23 +171,10 @@
         ]
       },
       {
-        "id": "saveformpage-request.pageAnswer.questionBlock.question.answer",
-        "path": "saveformpage-request.pageAnswer.questionBlock.question.answer",
-        "short": "Invånarens svar",
-        "definition": "Invånarens svar",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "saveformpage-request.pageAnswer.questionBlock.question.answer.answerText",
-        "path": "saveformpage-request.pageAnswer.questionBlock.question.answer.answerText",
-        "short": "Svarstext",
-        "definition": "Svarstext",
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.value",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.answer.value",
+        "short": "Patientens/användarens svar.",
+        "definition": "Patientens/användarens svar.",
         "min": 0,
         "max": "1",
         "type": [
@@ -145,10 +184,23 @@
         ]
       },
       {
-        "id": "saveformpage-request.pageAnswer.questionBlock.question.answer.answeredAlternativeId",
-        "path": "saveformpage-request.pageAnswer.questionBlock.question.answer.answeredAlternativeId",
-        "short": "ID för valt svarsalternativ",
-        "definition": "ID för valt svarsalternativ",
+        "id": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.questionNumber",
+        "path": "saveformpage-request.pageAnswer.questionAnswerBlock.questionAnswer.questionNumber",
+        "short": "questionNumber",
+        "definition": "questionNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage-request.subjectOfCare",
+        "path": "saveformpage-request.subjectOfCare",
+        "short": "subjectOfCare",
+        "definition": "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [
@@ -160,8 +212,8 @@
       {
         "id": "saveformpage-request.temporarySave",
         "path": "saveformpage-request.temporarySave",
-        "short": "Om true: temporärspara utan validering och returnera samma sida",
-        "definition": "Om true: temporärspara utan validering och returnera samma sida",
+        "short": "Formuläret skall sparas temporärt. - Indata skall ej valideras. - Samma CurrentPage returneras.",
+        "definition": "Formuläret skall sparas temporärt. - Indata skall ej valideras. - Samma CurrentPage returneras.",
         "min": 0,
         "max": "1",
         "type": [

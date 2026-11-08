@@ -5,7 +5,4 @@ RuleSet: ListMessagesRequestFieldDescriptions
 * targetOrganizations ^definition = "Verksamheter"
 * targetOrganizations ^comment = "TKB-fält: `targetOrganizations` (`string`, kardinalitet 0..n)."
 * serviceContractTypes ^definition = "Tjänstekontrakt"
-* serviceContractTypes ^comment = "TKB-fält: `serviceContractTypes` (`string`, kardinalitet 0..n).
-
-**Modellanteckning:** Type which describes a service contract. Used in interaction GetSupportedServiceContracts."
-* serviceContractTypes.ServiceContractNamespace ^comment = "TKB-fält: `../ServiceContractNamespace` (`anyURI`, kardinalitet 1..1)."
+* serviceContractTypes ^comment = "TKB-fält: `serviceContractTypes` (`string`, kardinalitet 0..n)."

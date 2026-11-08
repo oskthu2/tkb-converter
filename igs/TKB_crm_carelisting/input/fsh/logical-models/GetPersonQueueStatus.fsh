@@ -1,3 +1,6 @@
+// Elementen genereras ur GetPersonQueueStatus_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: GetPersonQueueStatus v1.0
 // Namespace: urn:riv:crm:carelisting:GetPersonQueueStatusResponder:1
@@ -16,41 +19,13 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* queueStatus 1..1 code "Köstatus: inQueue eller notInQueue"
-    """
-    Köstatus för personen i fråga.
-    Tillåtna värden: inQueue (i kö) eller notInQueue (inte i kö).
-    Kodverk: PersonQueueStatusVS.
-    Kardinalitet: Obligatorisk.
-    """
+* queueStatus 1..1 code "queueStatus" "queueStatus Tillåtna värden: inQueue, notInQueue."
 * queueStatus from PersonQueueStatusVS (required)
-* healthcareFacility 0..1 BackboneElement "Vårdenhet vars köstatus gäller"
-    """
-    Facility: vårdenhet där eventuell köstatus föreligger.
-    Utelämnas om personen inte är i kö.
-    Kardinalitet: Valfri.
-    """
-* healthcareFacility.facilityId 1..1 Identifier "HSA-ID för vårdenheten"
-    """
-    HSA-ID för vårdenheten.
-    System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id).
-    Kardinalitet: Obligatorisk.
-    """
-* healthcareFacility.facilityName 1..1 string "Namn på vårdenheten"
-    """
-    Enhetens officiella namn.
-    Kardinalitet: Obligatorisk.
-    """
-* healthcareFacility.hasQueue 0..1 boolean "Indikerar om vårdenheten har kö"
-    """
-    Boolskt värde som indikerar om vårdenheten har kö.
-    Kardinalitet: Valfri.
-    """
-* healthcareFacility.supportedListingTypes 0..* string "Listningstyper som vårdenheten stödjer"
-    """
-    Lista med listningstyper som vårdenheten stödjer.
-    Kardinalitet: Valfri, lista.
-    """
+* healthcare_facility 0..1 Base "Facility" "healthcare_facility"
+* healthcare_facility.facilityId 1..1 string "facilityId" "facilityId"
+* healthcare_facility.hasQueue 0..1 boolean "Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten." "Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten."
+* healthcare_facility.supportedListingTypes 0..* string "supportedListingTypes" "Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i."
+* healthcare_facility.facilityName 1..1 string "Namn på vårdenheten." "Namn på vårdenheten."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetPersonQueueStatusFieldDescriptions

@@ -30,28 +30,28 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult",
-        "short": "getExtendedBlocksResult",
+        "short": "GetExtendedBlocksResultType",
         "definition": "Svaret består av en spärrlista enligt det utökade, lokala spärrformatet.",
-        "comment": "TKB-fält: `getExtendedBlocksResult` (`urn:riv:informationsecurity:authorization:blocking:4:GetExtendedBlocksResultType`, kardinalitet 1..1).\n\n**Modellanteckning:** Datatyp som innehåller resultatet från tjänsten GetExtendedBlocksForPatient. Datatypen utökar datatypen Result.",
+        "comment": "TKB-fält: `getExtendedBlocksResult` (`urn:riv:informationsecurity:authorization:blocking:4:GetExtendedBlocksResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.result",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.result",
-        "short": "result",
+        "short": "ResultType",
         "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
         "comment": "TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -59,8 +59,8 @@
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.result.resultCode",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.result.resultCode",
         "short": "resultCode",
-        "definition": "resultCode",
-        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).",
+        "definition": "resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+        "comment": "TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -90,14 +90,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks",
-        "short": "blocks",
+        "short": "ExtendedBlockType",
         "definition": "Datatyp som representerar en spärr enligt det utökade formatet.",
         "comment": "TKB-fält: `../blocks` (`ExtendedBlockType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -119,8 +119,8 @@
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.blockType",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.blockType",
         "short": "blockType",
-        "definition": "blockType",
-        "comment": "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).",
+        "definition": "blockType Tillåtna värden: Inner, Outer.",
+        "comment": "TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** blockType Tillåtna värden: Inner, Outer.",
         "min": 1,
         "max": "1",
         "type": [
@@ -199,49 +199,21 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.root",
-        "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.root",
-        "short": "root",
-        "definition": "root",
-        "comment": "TKB-fält: `../../../root` (`string`, kardinalitet 1..1).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.iiExtension",
-        "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.iiExtension",
-        "short": "iiExtension",
-        "definition": "iiExtension Heter extension i schemat.",
-        "comment": "TKB-fält: `../../../extension` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** iiExtension Heter extension i schemat.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes",
-        "short": "excludedInformationTypes",
+        "short": "InformationTypeType",
         "definition": "Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation",
         "comment": "TKB-fält: `../../excludedInformationTypes` (`InformationTypeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -276,14 +248,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo",
-        "short": "registrationInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../registrationInfo` (`ActionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -304,14 +276,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -374,14 +346,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -444,14 +416,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo",
-        "short": "permanentRevokedInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../permanentRevokedInfo` (`ActionType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -472,14 +444,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -542,14 +514,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -612,14 +584,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo",
-        "short": "deletionInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../deletionInfo` (`ActionType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -640,14 +612,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -710,14 +682,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -780,14 +752,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes",
-        "short": "temporaryRevokes",
+        "short": "ExtendedTemporaryRevokeType",
         "definition": "Datatyp som representerar en tillfällig hävning enligt det utökade formatet.",
         "comment": "TKB-fält: `../../temporaryRevokes` (`ExtendedTemporaryRevokeType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -851,8 +823,8 @@
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revocationReason",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revocationReason",
         "short": "revocationReason",
-        "definition": "revocationReason",
-        "comment": "TKB-fält: `../../../revocationReason` (`TemporaryRevokeReasonType`, kardinalitet 0..1).",
+        "definition": "revocationReason Tillåtna värden: PatientsConsent, Emergency.",
+        "comment": "TKB-fält: `../../../revocationReason` (`TemporaryRevokeReasonType`, kardinalitet 0..1).\n\n**Modellanteckning:** revocationReason Tillåtna värden: PatientsConsent, Emergency.",
         "min": 0,
         "max": "1",
         "type": [
@@ -882,14 +854,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo",
-        "short": "registrationInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../../registrationInfo` (`ActionType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -910,14 +882,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -980,14 +952,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1050,14 +1022,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo",
-        "short": "cancellationInfo",
+        "short": "ActionType",
         "definition": "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
         "comment": "TKB-fält: `../../../cancellationInfo` (`ActionType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1078,14 +1050,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy",
-        "short": "requestedBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../../requestedBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -1148,14 +1120,14 @@
       {
         "id": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy",
         "path": "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy",
-        "short": "registeredBy",
+        "short": "ActorType",
         "definition": "Datatyp som identifierar en medarbetare/person.",
         "comment": "TKB-fält: `../../../../registeredBy` (`ActorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },

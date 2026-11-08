@@ -5,17 +5,15 @@ RuleSet: RegisterExtendedConsentRequestFieldDescriptions
 * assertionId ^definition = "Unik, global identifierare för intyget. Tjänstekonsumenten ansvarar för att generera id:et."
 * assertionId ^comment = "TKB-fält: `assertionId` (`urn:riv:informationsecurity:authorization:consent:2:Id`, kardinalitet 1..1)."
 * assertionType ^definition = "Typ av intyg som ger direktåtkomst till information från andra vård-/omsorgsgivare enligt SVOD. Kan vara patientens/brukarens samtycke eller nödsituation."
-* assertionType ^comment = "TKB-fält: `assertionType` (`urn:riv:informationsecurity:authorization:consent:2:AssertionTypeType`, kardinalitet 1..1)."
+* assertionType ^comment = "TKB-fält: `assertionType` (`urn:riv:informationsecurity:authorization:consent:2:AssertionTypeType`, kardinalitet 1..1).
+
+**Modellanteckning:** assertionType Tillåtna värden: Consent, Emergency."
 * scope ^definition = "Omfånget/tillämpningsområde på intyget."
-* scope ^comment = "TKB-fält: `scope` (`urn:riv:informationsecurity:authorization:consent:2:ScopeType`, kardinalitet 1..1)."
+* scope ^comment = "TKB-fält: `scope` (`urn:riv:informationsecurity:authorization:consent:2:ScopeType`, kardinalitet 1..1).
+
+**Modellanteckning:** scope Tillåtna värden: NationalLevel."
 * patientId ^definition = "Personidentitet på patienten/brukaren på vilket samtycket ska registreras."
-* patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1).
-
-**Modellanteckning:** En universellt unik identifierare."
-* patientId.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* patientId.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* patientId ^comment = "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1)."
 * careProviderId ^definition = "Id på den vård-/omsorgsgivare som intyget gäller för/kopplas till."
 * careProviderId ^comment = "TKB-fält: `careProviderId` (`urn:riv:informationsecurity:authorization:consent:2:HsaId`, kardinalitet 1..1)."
 * careUnitId ^definition = "Id på den enhet som intyget gäller för/kopplas till."
@@ -27,17 +25,9 @@ RuleSet: RegisterExtendedConsentRequestFieldDescriptions
 * endDate ^definition = "Ej obligatoriskt slutdatum för intygets giltighetstid. Om ett slutdatum är angivet gäller intyget t.o.m denna tidpunkt. Om inget slutdatum anges, gäller samtycket tills det blir avslutat eller makulerat."
 * endDate ^comment = "TKB-fält: `endDate` (`xs:DateTime`, kardinalitet 0..1)."
 * representedBy ^definition = "Ej obligatorisk personidentitet på företrädare/vårdnadshavare som företräder patienten/brukaren. Värdet ska anges om samtycket är inhämtat från företrädare/vårdnadshavare."
-* representedBy ^comment = "TKB-fält: `representedBy` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1).
-
-**Modellanteckning:** En universellt unik identifierare."
-* representedBy.root ^comment = "TKB-fält: `../root` (`string`, kardinalitet 1..1)."
-* representedBy.iiExtension ^comment = "TKB-fält: `../extension` (`string`, kardinalitet 0..1).
-
-**Modellanteckning:** iiExtension Heter extension i schemat."
+* representedBy ^comment = "TKB-fält: `representedBy` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1)."
 * registrationAction ^definition = "Identifierar de personer som begärt och registrerat intyget samt tidpunkter för dessa."
-* registrationAction ^comment = "TKB-fält: `registrationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* registrationAction ^comment = "TKB-fält: `registrationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1)."
 * registrationAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * registrationAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * registrationAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

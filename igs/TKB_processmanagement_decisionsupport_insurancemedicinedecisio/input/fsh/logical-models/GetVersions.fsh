@@ -1,3 +1,6 @@
+// Elementen genereras ur GetVersionsResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB processmanagement:decisionsupport:insurancemedicinedecisionsupport v1.0
 // Kontrakt: GetVersions v1.0
 // Genererad: 2026-05-19
@@ -14,31 +17,15 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* versioner 1..1 BackboneElement "Versionsinformation för FMB och diagnosinformation"
-* versioner.fmbSenasteVersionsuppdatering 1..1 dateTime "FMB — tidpunkt för senaste versionsuppdatering"
-  """
-  Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort)
-  bland alla producentens beslutsunderlag. Det kan vara ett underlag som ej returnerats i svaret
-  som föranlett ett nytt datum.
-  """
-* versioner.fmbSenasteAndring 1..1 dateTime "FMB — tidpunkt för senaste ändring"
-  """
-  Anger när ett beslutsunderlag senast uppdaterades, både mindre förändringar som ej givit en ny version
-  OCH versionsuppdateringar bland alla producentens beslutsunderlag. Det kan vara ett underlag som ej
-  returnerats i svaret.
-  """
-* versioner.diagnosInformationSenasteVersionsuppdatering 1..1 dateTime "Diagnosinformation — tidpunkt för senaste versionsuppdatering"
-  """
-  Anger när diagnosinformation senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort)
-  bland alla diagnosinformation. Det kan vara diagnosinformation som ej returnerats i svaret som
-  föranlett ett nytt datum.
-  """
-* versioner.diagnosInformationSenasteAndring 1..1 dateTime "Diagnosinformation — tidpunkt för senaste ändring"
-  """
-  Anger när diagnosinformation senast uppdaterades; både mindre förändringar som ej givit en ny version
-  OCH versionsuppdateringar bland alla producentens diagnosinformation. Det kan vara diagnosinformation
-  som ej returnerats i svaret.
-  """
+* versioner 0..1 Base "VersionerType" "versioner"
+* versioner.fmbSenasteVersionsuppdatering 1..1 string "fmbSenasteVersionsuppdatering" "fmbSenasteVersionsuppdatering"
+* versioner.fmbSenasteVersionsuppdatering only TidpunktType
+* versioner.fmbSenateAndring 1..1 string "fmbSenateAndring" "fmbSenateAndring"
+* versioner.fmbSenateAndring only TidpunktType
+* versioner.diagnosInformationSenasteVersionsuppdatering 1..1 string "diagnosInformationSenasteVersionsuppdatering" "diagnosInformationSenasteVersionsuppdatering"
+* versioner.diagnosInformationSenasteVersionsuppdatering only TidpunktType
+* versioner.diagnosInformationSenateAndring 1..1 string "diagnosInformationSenateAndring" "diagnosInformationSenateAndring"
+* versioner.diagnosInformationSenateAndring only TidpunktType
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetVersionsFieldDescriptions

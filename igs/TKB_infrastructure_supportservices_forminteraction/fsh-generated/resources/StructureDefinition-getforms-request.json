@@ -28,11 +28,24 @@
         "definition": "Logisk modell för requestparametrar i GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nHämtar alla pågående eller avslutade formulär för en invånare."
       },
       {
-        "id": "getforms-request.healthcareFacilityCareUnit",
-        "path": "getforms-request.healthcareFacilityCareUnit",
-        "short": "HSA-id för vårdenhet",
-        "definition": "HSA-id för vårdenhet",
-        "min": 1,
+        "id": "getforms-request.clinicalProcessInterestId",
+        "path": "getforms-request.clinicalProcessInterestId",
+        "short": "clinicalProcessInterestId",
+        "definition": "clinicalProcessInterestId",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getforms-request.healthcare_facility_CareUnit",
+        "path": "getforms-request.healthcare_facility_CareUnit",
+        "short": "healthcare_facility_CareUnit",
+        "definition": "healthcare_facility_CareUnit",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -43,8 +56,8 @@
       {
         "id": "getforms-request.subjectOfCare",
         "path": "getforms-request.subjectOfCare",
-        "short": "Invånarens personnummer (yyyymmddnnnn)",
-        "definition": "Invånarens personnummer (yyyymmddnnnn)",
+        "short": "subjectOfCare",
+        "definition": "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
         "min": 0,
         "max": "1",
         "type": [
@@ -54,29 +67,12 @@
         ]
       },
       {
-        "id": "getforms-request.formStatus",
-        "path": "getforms-request.formStatus",
-        "short": "Filterering på formulärstatus",
-        "definition": "Filterering på formulärstatus",
+        "id": "getforms-request.templateId",
+        "path": "getforms-request.templateId",
+        "short": "templateId",
+        "definition": "templateId",
         "min": 0,
         "max": "*",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
-        }
-      },
-      {
-        "id": "getforms-request.clinicalProcessInterestId",
-        "path": "getforms-request.clinicalProcessInterestId",
-        "short": "Hälsoärende-id",
-        "definition": "Hälsoärende-id",
-        "min": 0,
-        "max": "1",
         "type": [
           {
             "code": "string"

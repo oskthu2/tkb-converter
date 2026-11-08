@@ -1,3 +1,6 @@
+// Elementen genereras ur SaveFormResponder_2.1.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB infrastructure:eservicesupply:forminteraction v2.1
 // Kontrakt: SaveForm v2.1
 // Genererad: 2026-05-19
@@ -13,9 +16,8 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.1"
-* resultCode 1..1 CodeableConcept "Resultatkod" "Signalerar status på operationen (OK, INFO, ERROR)."
-* resultCode from ResultCodeVS (required)
-* comment 0..1 string "Kommentar" "Attribut för felsignalering. Skall kunna visas för slutanvändaren."
+* comment 0..1 string "comment" "comment"
+* resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
 
 Logical: SaveFormRequest
 Id: saveform-request
@@ -24,8 +26,8 @@ Description: "Logisk modell för requestparametrar i SaveForm."
 Characteristics: #can-be-target
 
 * ^version = "2.1"
-* formID 1..1 Identifier "Formulär-id" "Formulärets ID."
-* subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer."
-* actor 0..1 BackboneElement "Aktör" "Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal."
-  * actorType 1..1 string "Aktörstyp" "Typ av aktör."
-  * actorId 0..1 Identifier "Aktörs-id" "Identifierare för aktören."
+* formId 1..1 string "formId" "formId"
+* subjectOfCare 0..1 string "subjectOfCare" "Autentiserad invånare (personnummer). FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt."
+* actor 0..1 Base "ActorType" "actor"
+* actor.actorId 1..1 IIType "actorId" "actorId"
+* actor.actorType 1..1 code "actorType" "actorType Tillåtna värden: CITIZEN, GUARDIAN, CAREGIVER."

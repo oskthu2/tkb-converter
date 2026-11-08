@@ -1,3 +1,6 @@
+// Elementen genereras ur CancelExtendedPatientRelationResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:patientrelationship v1.0.1
 // Kontrakt: CancelExtendedPatientRelation v1.0 — Request
 // Genererad: 2026-05-19
@@ -24,5 +27,4 @@ Characteristics: #can-be-target
 * cancellationAction.registeredBy.assignmentName 0..1 string "Optionellt uppdragsnamn (max 256 tecken)"
 * cancellationAction.reasonText 0..1 string "Optionell anledning till återkallelsen (max 1024 tecken)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert CancelExtendedPatientRelationRequestFieldDescriptions

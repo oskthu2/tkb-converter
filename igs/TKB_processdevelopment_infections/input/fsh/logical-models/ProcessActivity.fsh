@@ -1,3 +1,7 @@
+// Elementen genereras ur ProcessActivityResponder_1.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+// Undantag, handskrivna (schemat är openEHR:s referensmodell): ProcessActivityRequest.
+
 // Genererad från TKB processdevelopment:infections v1.0.2
 // Kontrakt: ProcessActivity v1.0
 // Genererad: 2026-09-17
@@ -13,13 +17,9 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* resultCode 1..1 code "Resultatkod"
-* resultCode from ResultCodeVS (required)
-* comment 0..1 string "Kommentar"
-    """
-    Beskrivning av fel som uppstått alternativt information om genomförd
-    registrering.
-    """
+* ResultCode 1..1 code "ResultCode" "ResultCode Tillåtna värden: OK, ERROR, INFO."
+* ResultCode from ResultCodeVS (required)
+* comment 0..1 string "comment" "comment"
 
 Logical: ProcessActivityRequest
 Id: processactivity-request

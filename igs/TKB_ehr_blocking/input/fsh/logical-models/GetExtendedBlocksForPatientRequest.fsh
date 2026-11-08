@@ -1,3 +1,6 @@
+// Elementen genereras ur GetExtendedBlocksForPatientResponder_2.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:blocking v3.2.2
 // Kontrakt: GetExtendedBlocksForPatient v2.0 — Request-parametrar
 // Genererad: 2026-04-09
@@ -12,5 +15,4 @@ Characteristics: #can-be-target
 * careProviderId 1..1 string "HSA-id på den vårdgivare vars spärrar skall hämtas."
 * patientId 1..1 string "Personnummer på patienten vars spärrar skall hämtas."
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetExtendedBlocksForPatientRequestFieldDescriptions

@@ -28,125 +28,147 @@
         "definition": "Logisk modell för requestparametrar i tjänstekontraktet ProcessLaboratoryReport\n(RIV-TA urn:riv:followup:processdevelopment:infections:ProcessLaboratoryReport:1).\nRegistrerar ett nytt laboratoriesvar med tillhörande information om patient,\nbeställande enhet, provtagningstidpunkt och agensförekomst."
       },
       {
-        "id": "processlaboratoryreport-request.orgUnitId",
-        "path": "processlaboratoryreport-request.orgUnitId",
-        "short": "Beställande enhet (HSA-id)",
+        "id": "processlaboratoryreport-request.laboratoryReport",
+        "path": "processlaboratoryreport-request.laboratoryReport",
+        "short": "LaboratoryReportType",
+        "definition": "laboratoryReport",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processlaboratoryreport-request.laboratoryReport.orgUnitId",
+        "path": "processlaboratoryreport-request.laboratoryReport.orgUnitId",
+        "short": "orgUnitId",
         "definition": "Informationsspecifikation: Laboratoriesvar.har beställande.Enhet.enhets-id",
         "comment": "TKB-fält: `orgUnitId` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.reportId",
-        "path": "processlaboratoryreport-request.reportId",
-        "short": "Laboratoriesvars-id",
+        "id": "processlaboratoryreport-request.laboratoryReport.reportId",
+        "path": "processlaboratoryreport-request.laboratoryReport.reportId",
+        "short": "reportId",
         "definition": "Informationsspecifikation: Laboratoriesvar.laboratoriesvars-id",
         "comment": "TKB-fält: `reportId` (`IIType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.testTime",
-        "path": "processlaboratoryreport-request.testTime",
-        "short": "Provtagningstidpunkt (YYYYMMDDhhmmss)",
+        "id": "processlaboratoryreport-request.laboratoryReport.testTime",
+        "path": "processlaboratoryreport-request.laboratoryReport.testTime",
+        "short": "testTime",
         "definition": "Informationsspecifikation: Provtagning.provtagningstidpunkt",
         "comment": "TKB-fält: `testTime` (`TimeStampType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.observationTime",
-        "path": "processlaboratoryreport-request.observationTime",
-        "short": "Observationstidpunkt (YYYYMMDDhhmmss)",
+        "id": "processlaboratoryreport-request.laboratoryReport.observationTime",
+        "path": "processlaboratoryreport-request.laboratoryReport.observationTime",
+        "short": "observationTime",
         "definition": "Informationsspecifikation: Mikrobiologiskt fynd.observationstidpunkt",
         "comment": "TKB-fält: `observationTime` (`TimeStampType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"
+            ]
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.findingCode",
-        "path": "processlaboratoryreport-request.findingCode",
-        "short": "Agenskod för mikrobiologiskt fynd",
+        "id": "processlaboratoryreport-request.laboratoryReport.findingCode",
+        "path": "processlaboratoryreport-request.laboratoryReport.findingCode",
+        "short": "findingCode",
         "definition": "Informationsspecifikation: Mikrobiologiskt fynd.agenskod\n\nKodverk: NPU\n\nMöjliga koder: ATCC09689 (Clostridium difficile)",
         "comment": "TKB-fält: `findingCode` (`CVType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.patient",
-        "path": "processlaboratoryreport-request.patient",
-        "short": "Patientuppgifter",
+        "id": "processlaboratoryreport-request.laboratoryReport.patient",
+        "path": "processlaboratoryreport-request.laboratoryReport.patient",
+        "short": "PatientType",
         "definition": "Informationsspecifikation: Patient",
         "comment": "TKB-fält: `patient` (`PatientType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.patient.patientId",
-        "path": "processlaboratoryreport-request.patient.patientId",
-        "short": "Patientens identifierare",
-        "definition": "Patientens identifierare",
+        "id": "processlaboratoryreport-request.laboratoryReport.patient.id",
+        "path": "processlaboratoryreport-request.laboratoryReport.patient.id",
+        "short": "id",
+        "definition": "id",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.patient.birthTime",
-        "path": "processlaboratoryreport-request.patient.birthTime",
-        "short": "Patientens födelseår",
-        "definition": "Patientens födelseår",
+        "id": "processlaboratoryreport-request.laboratoryReport.patient.birthTime",
+        "path": "processlaboratoryreport-request.laboratoryReport.patient.birthTime",
+        "short": "birthTime",
+        "definition": "birthTime",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "date"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"
+            ]
           }
         ]
       },
       {
-        "id": "processlaboratoryreport-request.patient.gender",
-        "path": "processlaboratoryreport-request.patient.gender",
-        "short": "Patientens kön",
-        "definition": "Kodverk KV Kön, OID: 1.2.752.129.2.2.1.1",
+        "id": "processlaboratoryreport-request.laboratoryReport.patient.gender",
+        "path": "processlaboratoryreport-request.laboratoryReport.patient.gender",
+        "short": "gender",
+        "definition": "gender",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
           }
         ]
       }

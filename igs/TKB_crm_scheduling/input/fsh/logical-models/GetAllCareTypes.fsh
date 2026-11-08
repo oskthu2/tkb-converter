@@ -1,3 +1,6 @@
+// Elementen genereras ur GetAllCareTypesResponder_1.1.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB crm:scheduling v1.1
 // Kontrakt: GetAllCareTypes v1.1
 // Genererad: 2026-03-24
@@ -15,18 +18,6 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.1"
-* careTypes 0..* BackboneElement "Lista med vårdtyper"
-    """
-    Lista med tillgängliga vårdtyper (CareTypeType).
-    Kardinalitet: Valfri, lista.
-    """
-  * careTypeName 1..1 string "Beskrivande text för vårdtypen (att visas för användare)"
-      """
-      Beskrivande text för vårdtypen att visas för användaren.
-      Kardinalitet: Obligatorisk.
-      """
-  * careTypeId 1..1 string "Kod för vårdtypen (intern för vårdenheten)"
-      """
-      Intern kod för vårdtypen hos vårdenheten.
-      Kardinalitet: Obligatorisk.
-      """
+* careTypes 0..* Base "CareTypeType" "careTypes"
+* careTypes.careTypeName 1..1 string "careTypeName" "careTypeName"
+* careTypes.careTypeId 1..1 string "careTypeId" "careTypeId"

@@ -53,9 +53,7 @@ RuleSet: SkapaApotekRequestFieldDescriptions
 * oppetHallandeLista.veckodagnr ^definition = "Ett nummer för veckodagen 1-7 för Måndag till Söndag, V för vardagar."
 * oppetHallandeLista.veckodagnr ^comment = "TKB-fält: `../veckodagnr` (`string`, kardinalitet 0..1)."
 * orgNr ^definition = "Aktörens organisationsnummer"
-* orgNr ^comment = "TKB-fält: `orgNr` (`long`, kardinalitet 1..1).
-
-**Modellanteckning:** Aktörens organisationsnummer (xs:long i schemat.)"
+* orgNr ^comment = "TKB-fält: `orgNr` (`long`, kardinalitet 1..1)."
 * orgTypADM ^definition = "Kod ADM som beskriver typ av expeditionsställe. En organisatiorisk enhet inom ett företag som har rent administrativa uppgifter."
 * orgTypADM ^comment = "TKB-fält: `orgTypADM` (`boolean`, kardinalitet 1..1)."
 * orgTypDIST ^definition = "Kod DIST som beskriver typ av expeditionsställe. Distansapotek - Större apoteksenhet med ansvar att kunna distribuera apoteksvaror direkt till avtalskunder, apoteksombud eller privatpersoner"

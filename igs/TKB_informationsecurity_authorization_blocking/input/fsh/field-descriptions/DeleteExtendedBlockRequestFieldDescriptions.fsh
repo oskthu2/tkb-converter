@@ -5,9 +5,7 @@ RuleSet: DeleteExtendedBlockRequestFieldDescriptions
 * blockId ^definition = "Identifierare för den spärr som skall makuleras."
 * blockId ^comment = "TKB-fält: `blockId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1)."
 * deleteAction ^definition = "Identifierar de personer som begärt och makulerat spärren samt tidpunkter för dessa."
-* deleteAction ^comment = "TKB-fält: `deleteAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
+* deleteAction ^comment = "TKB-fält: `deleteAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1)."
 * deleteAction.requestDate ^comment = "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1)."
 * deleteAction.requestedBy ^definition = "Datatyp som identifierar en medarbetare/person."
 * deleteAction.requestedBy ^comment = "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1)."

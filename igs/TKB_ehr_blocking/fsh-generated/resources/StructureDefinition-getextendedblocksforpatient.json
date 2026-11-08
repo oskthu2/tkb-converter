@@ -28,23 +28,36 @@
         "definition": "Logisk modell för tjänstekontraktet GetExtendedBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:administration:GetExtendedBlocksForPatientResponder:2).\nLäser spärrar för en viss patient med utökad information inklusive aktörsinformation,\nhistorik och makulerade spärrar. Representerar responsens informationsstruktur."
       },
       {
-        "id": "getextendedblocksforpatient.result",
-        "path": "getextendedblocksforpatient.result",
-        "short": "Resultat av anropet",
-        "definition": "Resultat av anropet",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType",
+        "short": "GetExtendedBlocksResultType",
+        "definition": "GetExtendedBlocksResultType",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.result.resultCode",
-        "path": "getextendedblocksforpatient.result.resultCode",
-        "short": "Svarskod",
-        "definition": "Svarskod",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Result",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Result",
+        "short": "ResultType",
+        "definition": "Result",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Result.ResultCode",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Result.ResultCode",
+        "short": "ResultCode",
+        "definition": "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
         "min": 1,
         "max": "1",
         "type": [
@@ -58,36 +71,10 @@
         }
       },
       {
-        "id": "getextendedblocksforpatient.result.resultText",
-        "path": "getextendedblocksforpatient.result.resultText",
-        "short": "Beskrivande text till svarskoden",
-        "definition": "Beskrivande text till svarskoden",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks",
-        "path": "getextendedblocksforpatient.blocks",
-        "short": "Lista med utökad spärrinformation (inkl. makulerade och hävda spärrar)",
-        "definition": "Lista med utökad spärrinformation (inkl. makulerade och hävda spärrar)",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.blockId",
-        "path": "getextendedblocksforpatient.blocks.blockId",
-        "short": "Unik identifierare för spärren (UUID)",
-        "definition": "Unik identifierare för spärren (UUID)",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Result.ResultText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Result.ResultText",
+        "short": "ResultText",
+        "definition": "ResultText",
         "min": 1,
         "max": "1",
         "type": [
@@ -97,10 +84,36 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.blockType",
-        "path": "getextendedblocksforpatient.blocks.blockType",
-        "short": "Typ av spärr",
-        "definition": "Typ av spärr",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks",
+        "short": "ExtendedBlockType",
+        "definition": "Blocks",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.BlockId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.BlockId",
+        "short": "BlockId",
+        "definition": "BlockId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.BlockType",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.BlockType",
+        "short": "BlockType",
+        "definition": "BlockType Tillåtna värden: Inner, Outer.",
         "min": 1,
         "max": "1",
         "type": [
@@ -114,10 +127,10 @@
         }
       },
       {
-        "id": "getextendedblocksforpatient.blocks.patientId",
-        "path": "getextendedblocksforpatient.blocks.patientId",
-        "short": "Patientens personnummer eller samordningsnummer",
-        "definition": "Patientens personnummer eller samordningsnummer",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PatientId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PatientId",
+        "short": "PatientId",
+        "definition": "PatientId",
         "min": 1,
         "max": "1",
         "type": [
@@ -127,10 +140,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.informationStartDate",
-        "path": "getextendedblocksforpatient.blocks.informationStartDate",
-        "short": "Startdatum för vilken information spärren gäller",
-        "definition": "Startdatum för vilken information spärren gäller",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationStartDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationStartDate",
+        "short": "InformationStartDate",
+        "definition": "InformationStartDate",
         "min": 0,
         "max": "1",
         "type": [
@@ -140,10 +153,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.informationEndDate",
-        "path": "getextendedblocksforpatient.blocks.informationEndDate",
-        "short": "Slutdatum för vilken information spärren gäller",
-        "definition": "Slutdatum för vilken information spärren gäller",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationEndDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationEndDate",
+        "short": "InformationEndDate",
+        "definition": "InformationEndDate",
         "min": 0,
         "max": "1",
         "type": [
@@ -153,10 +166,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.informationCareUnitId",
-        "path": "getextendedblocksforpatient.blocks.informationCareUnitId",
-        "short": "HSA-id för vårdenhet (vid inre spärr)",
-        "definition": "HSA-id för vårdenhet (vid inre spärr)",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationCareUnitId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationCareUnitId",
+        "short": "InformationCareUnitId",
+        "definition": "InformationCareUnitId",
         "min": 0,
         "max": "1",
         "type": [
@@ -166,10 +179,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.informationCareProviderId",
-        "path": "getextendedblocksforpatient.blocks.informationCareProviderId",
-        "short": "HSA-id för vårdgivare",
-        "definition": "HSA-id för vårdgivare",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationCareProviderId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.InformationCareProviderId",
+        "short": "InformationCareProviderId",
+        "definition": "InformationCareProviderId",
         "min": 1,
         "max": "1",
         "type": [
@@ -179,23 +192,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.excludedInformationTypes",
-        "path": "getextendedblocksforpatient.blocks.excludedInformationTypes",
-        "short": "Informationstyper undantagna från spärren",
-        "definition": "Informationstyper undantagna från spärren",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.ExcludedInformationTypes",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.ExcludedInformationTypes",
+        "short": "InformationTypeType",
+        "definition": "ExcludedInformationTypes",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.excludedInformationTypes.infoTypeId",
-        "path": "getextendedblocksforpatient.blocks.excludedInformationTypes.infoTypeId",
-        "short": "ID för informationstypen",
-        "definition": "ID för informationstypen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.ExcludedInformationTypes.InfoTypeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.ExcludedInformationTypes.InfoTypeId",
+        "short": "InfoTypeId",
+        "definition": "InfoTypeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -205,10 +218,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.excludedInformationTypes.infoTypeDescription",
-        "path": "getextendedblocksforpatient.blocks.excludedInformationTypes.infoTypeDescription",
-        "short": "Beskrivning av informationstypen",
-        "definition": "Beskrivning av informationstypen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.ExcludedInformationTypes.InfoTypeDescription",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.ExcludedInformationTypes.InfoTypeDescription",
+        "short": "InfoTypeDescription",
+        "definition": "InfoTypeDescription",
         "min": 1,
         "max": "1",
         "type": [
@@ -218,88 +231,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo",
-        "short": "Aktörsinfo för registrering av spärren",
-        "definition": "Aktörsinfo för registrering av spärren",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo",
+        "short": "ActionType",
+        "definition": "RegistrationInfo",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.requestDate",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.requestDate",
-        "short": "Datum när spärren begärdes",
-        "definition": "Datum när spärren begärdes",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy",
-        "short": "Aktören som begärde spärren",
-        "definition": "Aktören som begärde spärren",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.registrationDate",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.registrationDate",
-        "short": "Datum när spärren registrerades",
-        "definition": "Datum när spärren registrerades",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -309,23 +257,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy",
-        "short": "Aktören som registrerade spärren",
-        "definition": "Aktören som registrerade spärren",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -335,10 +283,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -348,10 +296,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -361,36 +309,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.registrationInfo.reasonText",
-        "path": "getextendedblocksforpatient.blocks.registrationInfo.reasonText",
-        "short": "Orsak till spärren (max 1024 tecken)",
-        "definition": "Orsak till spärren (max 1024 tecken)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo",
-        "short": "Aktörsinfo vid permanent hävning (om spärren hävts)",
-        "definition": "Aktörsinfo vid permanent hävning (om spärren hävts)",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestDate",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestDate",
-        "short": "Datum när hävning begärdes",
-        "definition": "Datum när hävning begärdes",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegistrationDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -400,88 +322,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy",
-        "short": "Aktören som begärde hävningen",
-        "definition": "Aktören som begärde hävningen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registrationDate",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registrationDate",
-        "short": "Datum när hävningen registrerades",
-        "definition": "Datum när hävningen registrerades",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy",
-        "short": "Aktören som registrerade hävningen",
-        "definition": "Aktören som registrerade hävningen",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -491,10 +348,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -504,10 +361,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -517,10 +374,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.permanentRevokedInfo.reasonText",
-        "path": "getextendedblocksforpatient.blocks.permanentRevokedInfo.reasonText",
-        "short": "Orsak till hävningen",
-        "definition": "Orsak till hävningen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.ReasonText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.RegistrationInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
         "min": 0,
         "max": "1",
         "type": [
@@ -530,23 +387,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo",
-        "short": "Aktörsinfo vid makulering (om spärren makulerats)",
-        "definition": "Aktörsinfo vid makulering (om spärren makulerats)",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo",
+        "short": "ActionType",
+        "definition": "PermanentRevokedInfo",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.requestDate",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.requestDate",
-        "short": "Datum när makulering begärdes",
-        "definition": "Datum när makulering begärdes",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -556,23 +413,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy",
-        "short": "Aktören som begärde makuleringen",
-        "definition": "Aktören som begärde makuleringen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -582,10 +439,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -595,10 +452,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -608,10 +465,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.registrationDate",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.registrationDate",
-        "short": "Datum när makuleringen registrerades",
-        "definition": "Datum när makuleringen registrerades",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegistrationDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -621,23 +478,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy",
-        "short": "Aktören som registrerade makuleringen",
-        "definition": "Aktören som registrerade makuleringen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -647,10 +504,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -660,10 +517,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -673,10 +530,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.deletionInfo.reasonText",
-        "path": "getextendedblocksforpatient.blocks.deletionInfo.reasonText",
-        "short": "Orsak till makuleringen",
-        "definition": "Orsak till makuleringen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.ReasonText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.PermanentRevokedInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
         "min": 0,
         "max": "1",
         "type": [
@@ -686,23 +543,179 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes",
-        "short": "Tillfälliga hävningar (inkl. historik)",
-        "definition": "Tillfälliga hävningar (inkl. historik)",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo",
+        "short": "ActionType",
+        "definition": "DeletionInfo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegistrationDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.ReasonText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.DeletionInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes",
+        "short": "ExtendedTemporaryRevokeType",
+        "definition": "TemporaryRevokes",
         "min": 0,
         "max": "*",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.temporaryRevokeId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.temporaryRevokeId",
-        "short": "Unik ID för tillfällig hävning",
-        "definition": "Unik ID för tillfällig hävning",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.TemporaryRevokeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.TemporaryRevokeId",
+        "short": "TemporaryRevokeId",
+        "definition": "TemporaryRevokeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -712,10 +725,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.endDate",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.endDate",
-        "short": "Datum när hävningen upphör",
-        "definition": "Datum när hävningen upphör",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.EndDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.EndDate",
+        "short": "EndDate",
+        "definition": "EndDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -725,10 +738,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
-        "short": "HSA-id för vårdenhet",
-        "definition": "HSA-id för vårdenhet",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevokedForCareUnitId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevokedForCareUnitId",
+        "short": "RevokedForCareUnitId",
+        "definition": "RevokedForCareUnitId",
         "min": 1,
         "max": "1",
         "type": [
@@ -738,10 +751,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
-        "short": "HSA-id för enskild medarbetare",
-        "definition": "HSA-id för enskild medarbetare",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevokedForEmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevokedForEmployeeId",
+        "short": "RevokedForEmployeeId",
+        "definition": "RevokedForEmployeeId",
         "min": 0,
         "max": "1",
         "type": [
@@ -751,11 +764,11 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.reason",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.reason",
-        "short": "Orsak till tillfällig hävning",
-        "definition": "Orsak till tillfällig hävning",
-        "min": 1,
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevocationReason",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevocationReason",
+        "short": "RevocationReason",
+        "definition": "RevocationReason Tillåtna värden: PatientsConsent, Emergency.",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -768,23 +781,36 @@
         }
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo",
-        "short": "Aktörsinfo för registrering av hävningen",
-        "definition": "Aktörsinfo för registrering av hävningen",
-        "min": 1,
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevocationReasonText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RevocationReasonText",
+        "short": "RevocationReasonText",
+        "definition": "RevocationReasonText",
+        "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "string"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestDate",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestDate",
-        "short": "Datum när hävningen begärdes",
-        "definition": "Datum när hävningen begärdes",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo",
+        "short": "ActionType",
+        "definition": "RegistrationInfo",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -794,88 +820,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy",
-        "short": "Aktören som begärde hävningen",
-        "definition": "Aktören som begärde hävningen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registrationDate",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registrationDate",
-        "short": "Datum när hävningen registrerades",
-        "definition": "Datum när hävningen registrerades",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy",
-        "short": "Aktören som registrerade hävningen",
-        "definition": "Aktören som registrerade hävningen",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -885,10 +846,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -898,10 +859,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -911,36 +872,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.reasonText",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.registrationInfo.reasonText",
-        "short": "Fritext-orsak",
-        "definition": "Fritext-orsak",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo",
-        "short": "Aktörsinfo om hävningen har återkallats",
-        "definition": "Aktörsinfo om hävningen har återkallats",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "BackboneElement"
-          }
-        ]
-      },
-      {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestDate",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestDate",
-        "short": "Datum när återkallning begärdes",
-        "definition": "Datum när återkallning begärdes",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegistrationDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -950,23 +885,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy",
-        "short": "Aktören som begärde återkallningen",
-        "definition": "Aktören som begärde återkallningen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -976,10 +911,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -989,10 +924,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -1002,10 +937,36 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registrationDate",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registrationDate",
-        "short": "Datum när återkallningen registrerades",
-        "definition": "Datum när återkallningen registrerades",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.ReasonText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.RegistrationInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo",
+        "short": "ActionType",
+        "definition": "CancellationInfo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestDate",
+        "short": "RequestDate",
+        "definition": "RequestDate",
         "min": 1,
         "max": "1",
         "type": [
@@ -1015,23 +976,23 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy",
-        "short": "Aktören som registrerade återkallningen",
-        "definition": "Aktören som registrerade återkallningen",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy",
+        "short": "ActorType",
+        "definition": "RequestedBy",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.employeeId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.employeeId",
-        "short": "HSA-id för anställd",
-        "definition": "HSA-id för anställd",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
         "min": 1,
         "max": "1",
         "type": [
@@ -1041,10 +1002,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentId",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentId",
-        "short": "HSA-id för medarbetaruppdrag",
-        "definition": "HSA-id för medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
@@ -1054,10 +1015,10 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentName",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentName",
-        "short": "Namn på medarbetaruppdrag",
-        "definition": "Namn på medarbetaruppdrag",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RequestedBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
         "min": 0,
         "max": "1",
         "type": [
@@ -1067,15 +1028,119 @@
         ]
       },
       {
-        "id": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.reasonText",
-        "path": "getextendedblocksforpatient.blocks.temporaryRevokes.cancellationInfo.reasonText",
-        "short": "Fritext-orsak",
-        "definition": "Fritext-orsak",
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegistrationDate",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegistrationDate",
+        "short": "RegistrationDate",
+        "definition": "RegistrationDate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy",
+        "short": "ActorType",
+        "definition": "RegisteredBy",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy.EmployeeId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy.EmployeeId",
+        "short": "EmployeeId",
+        "definition": "EmployeeId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy.AssignmentId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy.AssignmentId",
+        "short": "AssignmentId",
+        "definition": "AssignmentId",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy.AssignmentName",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.RegisteredBy.AssignmentName",
+        "short": "AssignmentName",
+        "definition": "AssignmentName",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.ReasonText",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.CancellationInfo.ReasonText",
+        "short": "ReasonText",
+        "definition": "ReasonText",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.OwnerId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.TemporaryRevokes.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.OwnerId",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.OwnerId",
+        "short": "OwnerId",
+        "definition": "OwnerId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.LocallyCreated",
+        "path": "getextendedblocksforpatient.GetExtendedBlocksResultType.Blocks.LocallyCreated",
+        "short": "LocallyCreated",
+        "definition": "LocallyCreated",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
           }
         ]
       }

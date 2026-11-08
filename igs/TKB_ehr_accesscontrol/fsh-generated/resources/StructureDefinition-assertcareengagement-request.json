@@ -30,56 +30,68 @@
       {
         "id": "assertcareengagement-request.performer",
         "path": "assertcareengagement-request.performer",
-        "short": "HSA-id för medarbetaren som begär åtkomst",
+        "short": "HSAId of the performer (healthcare professional) requesting access to EHR records of the subject of care.",
         "definition": "HSA-id för medarbetare som begär åtkomst till sammanhållen journalföring. Ska vara HSA-id för den medarbetare som är autentiserad i tjänstekonsumenten och som begär åtkomst till sammanhållen journalföring.",
         "comment": "TKB-fält: `performer` (`sträng`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/HsaIdType"
+            ]
           }
         ]
       },
       {
         "id": "assertcareengagement-request.subjectOfCareId",
         "path": "assertcareengagement-request.subjectOfCareId",
-        "short": "Person- eller samordningsnummer",
+        "short": "Id of the subject of care of the EHR for which access is requested by the performer.",
         "definition": "Person- eller samordningsnummer. 12 tecken enligt Skatteverkets format (ej bindestreck).",
         "comment": "TKB-fält: `subjectOfCareId` (`sträng`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/SubjectOfCareIdType"
+            ]
           }
         ]
       },
       {
         "id": "assertcareengagement-request.careUnitHsaIdentity",
         "path": "assertcareengagement-request.careUnitHsaIdentity",
-        "short": "HSA-id för medarbetarens uppdragsvårdenhet",
+        "short": "HSAId of care unit where the performer is in duty when requesting access to EHR records of the subject of care.",
         "definition": "HSA-id för medarbetarens uppdragsvårdenhet",
-        "comment": "TKB-fält: `careUnitHsaIdentity` (`sträng`, kardinalitet 1..1).\n\n**Modellanteckning:** HSA-id för den vårdenhet på vars uppdrag medarbetaren agerar och begär åtkomst\ntill sammanhållen journalföring.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA)",
+        "comment": "TKB-fält: `careUnitHsaIdentity` (`sträng`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/HsaIdType"
+            ]
           }
         ]
       },
       {
         "id": "assertcareengagement-request.careGiverHsaIdentity",
         "path": "assertcareengagement-request.careGiverHsaIdentity",
-        "short": "HSA-id för vårdgivaren",
+        "short": "HSAId of the organisation operating the healthcare_facility",
         "definition": "HSA-id för vårdgivaren där vårdenhet med HSA-id enligt careUnitHsaIdentity ingår.",
         "comment": "TKB-fält: `careGiverHsaIdentity` (`Sträng`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Identifier"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/ehr-accesscontrol/StructureDefinition/HsaIdType"
+            ]
           }
         ]
       }

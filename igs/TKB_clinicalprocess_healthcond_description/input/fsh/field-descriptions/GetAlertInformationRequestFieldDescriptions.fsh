@@ -41,10 +41,6 @@ Ska anges vid begäran på reservnummer.
 Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
 
 Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST."
-* sourceSystemHSAId ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).
-
-**Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation från ett specifikt källsystem."
+* sourceSystemHSAId ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1)."
 * careContactId ^definition = "Begränsar sökningen till den uppmärksamhetsinformation som dokumenterades vid hälso- och sjukvårds kontakt."
-* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).
-
-**Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation kopplad till angiven vårdkontakt."
+* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*)."

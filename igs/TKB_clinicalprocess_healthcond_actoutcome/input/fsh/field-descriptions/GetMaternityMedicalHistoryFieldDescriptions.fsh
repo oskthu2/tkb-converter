@@ -17,7 +17,9 @@ Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett ex
 * maternityMedicalRecord.maternityMedicalRecordHeader.documentTitle ^definition = "Titel som beskriver den information som sänds i dokumentet."
 * maternityMedicalRecord.maternityMedicalRecordHeader.documentTitle ^comment = "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordHeader.documentTime ^definition = "Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten."
-* maternityMedicalRecord.maternityMedicalRecordHeader.documentTime ^comment = "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordHeader.documentTime ^comment = "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1."
 * maternityMedicalRecord.maternityMedicalRecordHeader.patientId ^definition = "Id för modern.
 
 id sätts till patientens identifierare, anges med 12 siffror utan avskiljare.
@@ -30,50 +32,10 @@ För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3)
 
 För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)"
 * maternityMedicalRecord.maternityMedicalRecordHeader.patientId ^comment = "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.authorTime ^definition = "Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem eller annan remittents journalsystem) är det tidpunkten då journalinformationen ursprungligen skapades som ska anges."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.authorTime ^comment = "TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId ^definition = "Författarens HSA-id."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalHSAId` (`HSAIdType`, kardinalitet 1..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName ^definition = "Författarens namn."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName ^comment = "TKB-fält: `../../../healthcareProfessionalName` (`string`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^definition = "Information om författarens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode ^comment = "TKB-fält: `../../../healthcareProfessionalRoleCode` (`CVType`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^definition = "Den organisation som författaren är uppdragstagare på."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit ^comment = "TKB-fält: `../../../healthcareProfessionalOrgUnit` (`OrgUnitType`)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^definition = "HSA-id för den organisation som författaren är uppdragstagare på."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId ^comment = "TKB-fält: `../../../../orgUnitHSAId` (`HSAIdType`, kardinalitet 1..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^definition = "Namnet på den organisation som författaren är uppdragstagare på."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName ^comment = "TKB-fält: `../../../../orgUnitName` (`string`, kardinalitet 1..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^definition = "Telefon till organisationsenhet."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom ^comment = "TKB-fält: `../../../../orgUnitTelecom` (`string`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^definition = "Epost till enhet."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail ^comment = "TKB-fält: `../../../../orgUnitEmail` (`string`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^definition = "Postadress för den organisation som författaren är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis:
-
-”Storgatan 12
-
-468 91 Lilleby”"
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress ^comment = "TKB-fält: `../../../../orgUnitAddress` (`string`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^definition = "Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation ^comment = "TKB-fält: `../../../../orgUnitLocation` (`string`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^definition = "HSA-id för Vårdenhet."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalCareUnitHSAId` (`HSAIdType`, kardinalitet 1..1).
-
-**Regel 1:** se Övriga regler för kontraktet.
-
-**Modellanteckning:** Regel 1: Obligatorisk i GetMaternityMedicalHistory."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^definition = "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för."
-* maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId ^comment = "TKB-fält: `../../../healthcareProfessionalCareGiverHSAId` (`HSAIdType`, kardinalitet 1..1).
-
-**Regel 1:** se Övriga regler för kontraktet.
-
-**Modellanteckning:** Regel 1: Obligatorisk i GetMaternityMedicalHistory."
 * maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.signatureTime ^definition = "Tidpunkt för signering."
 * maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.signatureTime ^comment = "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId ^definition = "HSA-id för person som signerat dokumentet."
 * maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId ^comment = "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIDType`, kardinalitet 0..1)."
-* maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName ^definition = "Namnen i klartext för signerande person."
-* maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName ^comment = "TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody ^definition = "Kan bestå av antingen en registrationRecord, en pregnancyCheckupRecord eller en postDeliveryRecord."
 * maternityMedicalRecord.maternityMedicalRecordBody ^comment = "TKB-fält: `../maternityMedicalRecordBody` (`MaternityMedicalRecordBodyType`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord ^definition = "Information som registreras vid inskrivningsbesöket."
@@ -92,10 +54,22 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromEmbryonicTransfer ^comment = "TKB-fält: `../../../expectedDayOfDeliveryFromEmbryonicTransfer` (`DateType`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length ^definition = "Längd vid inskrivning"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length ^comment = "TKB-fält: `../../../length` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight ^definition = "Vikt vid inskrivning [massa]"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight ^comment = "TKB-fält: `../../../weight` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex ^definition = "BMI vid inskrivning [massa/yta]"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex ^comment = "TKB-fält: `../../../bodyMassIndex` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.infertility ^definition = "Antal år med ofrivillig barnlöshet (decimaltal)"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.infertility ^comment = "TKB-fält: `../../../infertility` (`decimal`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity ^definition = "Tidigare graviditeter och förlossningar"
@@ -105,7 +79,9 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.month ^definition = "Månad för tidigare graviditet eller förlossning"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.month ^comment = "TKB-fält: `../../../../month` (`int`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery ^definition = "Graviditet förlossning enligt kodverk:"
-* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery ^comment = "TKB-fält: `../../../../delivery` (`DeliveryCodeEnum`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery ^comment = "TKB-fält: `../../../../delivery` (`DeliveryCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** delivery Tillåtna värden: 0, 1, 2, 4, 5."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.healthcareFacility ^definition = "Sjukhus"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.healthcareFacility ^comment = "TKB-fält: `../../../../healthcareFacility` (`string`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.progress ^definition = "Förlopp"
@@ -119,9 +95,15 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 2 = kvinna,
 
 9 = ej tillämpligt"
-* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.sex ^comment = "TKB-fält: `../../../../sex` (`SexCodeEnum`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.sex ^comment = "TKB-fält: `../../../../sex` (`SexCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** sex Tillåtna värden: 0, 1, 2, 9."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild ^definition = "Barnets vikt [massa]"
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild ^comment = "TKB-fält: `../../../../weightOfChild` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.gestation ^definition = "Graviditetsvecka."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.gestation ^comment = "TKB-fält: `../../../../gestation` (`int`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesThrombosis ^definition = "Trombos (true/false)"
@@ -146,22 +128,46 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.completeWeeksOfGestation ^comment = "TKB-fält: `../../../completeWeeksOfGestation` (`int`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight ^definition = "Moderns vikt [massa]"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight ^comment = "TKB-fält: `../../../weight` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight ^definition = "Symfys-fundus mått [längd]"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight ^comment = "TKB-fält: `../../../symphysisFundalHeight` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin ^definition = "Hb (Hemoglobin) [massa
 
 volym]"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin ^comment = "TKB-fält: `../../../haemoglobin` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic ^definition = "Systoliskt blodtryck [tryck]"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic ^comment = "TKB-fält: `../../../bloodPressureSystolic` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic ^definition = "Diastoliskt blodtryck [tryck]"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic ^comment = "TKB-fält: `../../../bloodPressureDiastolic` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria ^definition = "Proteinuri - Protein i urinet [massa
 
 volym]
 
 Mängden protein ska alltså anges i g/l eller motsvarande. Använd INTE mätstickans kodning (0, 1+, 2+…)"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria ^comment = "TKB-fält: `../../../proteinuria` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria ^definition = "Glucosuri - Glucos i urinet [antal
 
 volym]
@@ -170,6 +176,10 @@ Förväntad enhet är mmol/l. Använd INTE mätstickans kodning (0, 1+, 2+…)
 
 OBS! U på svenska men y på engelska (ICD10)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria ^comment = "TKB-fält: `../../../glycosuria` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition ^definition = "Fosterläge enligt kodverk:
 
 0 = head (huvud )
@@ -179,7 +189,9 @@ OBS! U på svenska men y på engelska (ICD10)."
 2 = oblique (snedläge)
 
 3 = transverse (tvärläge)"
-* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition ^comment = "TKB-fält: `../../../fetalPosition` (`FetalPositionCodeEnum`, kardinalitet 0..*)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition ^comment = "TKB-fält: `../../../fetalPosition` (`FetalPositionCodeEnum`, kardinalitet 0..*).
+
+**Modellanteckning:** fetalPosition Tillåtna värden: 0, 1, 2, 3."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation ^definition = "Föregående fosterdel enligt kodverk:
 
 0= mobile (rörligt),
@@ -187,9 +199,15 @@ OBS! U på svenska men y på engelska (ICD10)."
 1 = movable (ruckbart),
 
 2 = fixed (fix)"
-* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation ^comment = "TKB-fält: `../../../fetalPresentation` (`FetalPresentationCodeEnum`, kardinalitet 0..*)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation ^comment = "TKB-fält: `../../../fetalPresentation` (`FetalPresentationCodeEnum`, kardinalitet 0..*).
+
+**Modellanteckning:** fetalPresentation Tillåtna värden: 0, 1, 2, 3."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate ^definition = "Fosterljud, hjärtslag, ex. bpm [frekvens]"
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate ^comment = "TKB-fält: `../../../fetalHeartRate` (`PQType`, kardinalitet 0..*)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave ^definition = "Typ av ledighet enligt kodverk
 
 0 = Sjukskrivning,
@@ -197,7 +215,9 @@ OBS! U på svenska men y på engelska (ICD10)."
 1 = Havandekapsledighet,
 
 2 = Föräldrarledighet"
-* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave ^comment = "TKB-fält: `../../../typeOfLeave` (`TypeOfLeaveCodeEnum`, kardinalitet 0..*)."
+* maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave ^comment = "TKB-fält: `../../../typeOfLeave` (`TypeOfLeaveCodeEnum`, kardinalitet 0..*).
+
+**Modellanteckning:** typeOfLeave Tillåtna värden: 0, 1, 2."
 * maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration ^definition = "Läkemedel (även kostpreparat) som administrerats sedan registreringen
 
 föregående ”checkup”."
@@ -210,16 +230,26 @@ föregående ”checkup”."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord ^comment = "TKB-fält: `../../postDeliveryRecord` (`PostDeliveryRecordType`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord ^definition = "Efterskötningsjournal, moder"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord ^comment = "TKB-fält: `../../../motherPostDeliveryRecord` (`MotherPostDeliveryRecordType`, kardinalitet 1..1)."
-* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding ^definition = "Ammar (true/false)"
-* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding ^comment = "TKB-fält: `../../../../breastfeeding` (`boolean`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic ^definition = "Systoliskt blodtryck [tryck]"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic ^comment = "TKB-fält: `../../../../bloodPressureSystolic` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic ^definition = "Diastoliskt blodtryck [tryck]"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic ^comment = "TKB-fält: `../../../../bloodPressureDiastolic` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin ^definition = "Haemoglobin, t.ex. g/L [massa
 
 volym]"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin ^comment = "TKB-fält: `../../../../haemoglobin` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bodyTemperature ^definition = "Kroppstemperatur"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bodyTemperature ^comment = "TKB-fält: `../../../../bodyTemperature` (`decimal`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.scarsOK ^definition = "Sår/bristningar/klipp utan anmärkning (true/false)"
@@ -234,12 +264,18 @@ volym]"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusContracted ^comment = "TKB-fält: `../../../../uterusContracted` (`boolean`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusNote ^definition = "Kommentar till uterus med anmärkning. Kan endast anges då uterusContracted = false"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusNote ^comment = "TKB-fält: `../../../../uterusNote` (`string`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding ^definition = "Ammar (true/false)"
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding ^comment = "TKB-fält: `../../../../breastfeeding` (`boolean`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord ^definition = "Efterskötningsjournal, för barn ur samma graviditet"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord ^comment = "TKB-fält: `../../../childPostDeliveryRecord` (`ChildPostDeliveryRecordTypeType`, kardinalitet 1..*)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.ordinalNumber ^definition = "Ordningstal för barnet, med start på 1. Ju äldre barn desto lägre siffra."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.ordinalNumber ^comment = "TKB-fält: `../../../../ordinalNumber` (`integer`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight ^definition = "Barnets vikt [massa]"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight ^comment = "TKB-fält: `../../../../weight` (`PQType`, kardinalitet 0..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.value ^definition = "Mätetal mätt i enheten som anges av ”unit”."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.value ^comment = "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1)."
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.unit ^definition = "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]"
+* maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.unit ^comment = "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1 ^definition = "Apgar (0..10) efter 1 minut"
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1 ^comment = "TKB-fält: `../../../../apgarScore1` (`int`, kardinalitet 0..1)."
 * maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore5 ^definition = "Apgar (0..10) efter 5 minuter"

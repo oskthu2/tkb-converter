@@ -30,14 +30,14 @@
       {
         "id": "printlistofdispenseddrugs.patientinformation",
         "path": "printlistofdispenseddrugs.patientinformation",
-        "short": "Information om patienten",
+        "short": "Patientinformation",
         "definition": "Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som Avliden så returneras ej pdf.",
         "comment": "TKB-fält: `patientinformation` (`Patientinformation`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
@@ -51,15 +51,15 @@
         "max": "1",
         "type": [
           {
-            "code": "BackboneElement"
+            "code": "Base"
           }
         ]
       },
       {
         "id": "printlistofdispenseddrugs.patientinformation.patientidentifikation.kod",
         "path": "printlistofdispenseddrugs.patientinformation.patientidentifikation.kod",
-        "short": "Patientens personnummer",
-        "definition": "Fältlängd 1..12.",
+        "short": "kod",
+        "definition": "kod",
         "min": 1,
         "max": "1",
         "type": [
@@ -71,20 +71,23 @@
       {
         "id": "printlistofdispenseddrugs.patientinformation.patientidentifikation.kodverk",
         "path": "printlistofdispenseddrugs.patientinformation.patientidentifikation.kodverk",
-        "short": "OID för kodverket",
-        "definition": "Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).\nFör personnummer: 1.2.752.129.2.1.3.",
+        "short": "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.",
+        "definition": "Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/OID"
+            ]
           }
         ]
       },
       {
         "id": "printlistofdispenseddrugs.patientinformation.fornamn",
         "path": "printlistofdispenseddrugs.patientinformation.fornamn",
-        "short": "Patientens förnamn",
+        "short": "fornamn",
         "definition": "Patientens förnamn. För patient med skyddad identitet visas inte förnamn.",
         "comment": "TKB-fält i Patientinformation: `fornamn` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..80",
         "min": 0,
@@ -98,7 +101,7 @@
       {
         "id": "printlistofdispenseddrugs.patientinformation.efternamn",
         "path": "printlistofdispenseddrugs.patientinformation.efternamn",
-        "short": "Patientens efternamn",
+        "short": "efternamn",
         "definition": "Patientens efternamn. För patient med skyddad identitet visas inte efternamn.",
         "comment": "TKB-fält i Patientinformation: `efternamn` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..60",
         "min": 0,
@@ -112,7 +115,7 @@
       {
         "id": "printlistofdispenseddrugs.patientinformation.redigeratNamn",
         "path": "printlistofdispenseddrugs.patientinformation.redigeratNamn",
-        "short": "Redigerat namn",
+        "short": "redigeratNamn",
         "definition": "Redigerat namn i formatet \"mellannamn efternamn, förnamn\". Förkortat till 36 tecken.",
         "comment": "TKB-fält i Patientinformation: `redigeratNamn` (`string`, kardinalitet 1..1).\n\n**Fältlängder:** 1..36",
         "min": 1,
@@ -126,7 +129,7 @@
       {
         "id": "printlistofdispenseddrugs.patientinformation.harRedigeratNamnForkortats",
         "path": "printlistofdispenseddrugs.patientinformation.harRedigeratNamnForkortats",
-        "short": "Anger om redigeratNamn har förkortats",
+        "short": "Anger om redigeratNamn har förkortats.",
         "definition": "Anger om redigeratNamn har förkortats.",
         "comment": "TKB-fält i Patientinformation: `harRedigeratNamnForkortats` (`boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -140,7 +143,7 @@
       {
         "id": "printlistofdispenseddrugs.patientinformation.avliden",
         "path": "printlistofdispenseddrugs.patientinformation.avliden",
-        "short": "Anger om patienten är avliden",
+        "short": "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt.",
         "definition": "Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt.",
         "comment": "TKB-fält i Patientinformation: `avliden` (`boolean`, kardinalitet 1..1).",
         "min": 1,
@@ -154,7 +157,7 @@
       {
         "id": "printlistofdispenseddrugs.pdf",
         "path": "printlistofdispenseddrugs.pdf",
-        "short": "Utdrag från läkemedelsförteckningen som PDF",
+        "short": "Utdrag från läkemedelsförteckningen som PDF.",
         "definition": "Utdrag från läkemedelsförteckningen som PDF.",
         "comment": "TKB-fält: `pdf` (`base64Binary`, kardinalitet 0..1).",
         "min": 0,
@@ -168,27 +171,23 @@
       {
         "id": "printlistofdispenseddrugs.resultCode",
         "path": "printlistofdispenseddrugs.resultCode",
-        "short": "Resultatkod för anropet",
+        "short": "Resultatkod för anropet.",
         "definition": "Resultatkod för anropet.",
-        "comment": "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1).",
+        "comment": "TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** Resultatkod för anropet. Tillåtna värden: OK, ERROR, INFO.",
         "min": 1,
         "max": "1",
         "type": [
           {
             "code": "code"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/ValueSet/resultcode-vs"
-        }
+        ]
       },
       {
         "id": "printlistofdispenseddrugs.comment",
         "path": "printlistofdispenseddrugs.comment",
-        "short": "Kommentar till eventuella fel eller varningar",
+        "short": "comment",
         "definition": "Kommentar till eventuella fel eller varningar.",
-        "comment": "TKB-fält: `comment` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..1024\n\n**Modellanteckning:** Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment.",
+        "comment": "TKB-fält: `comment` (`string`, kardinalitet 0..1).\n\n**Fältlängder:** 1..1024",
         "min": 0,
         "max": "1",
         "type": [

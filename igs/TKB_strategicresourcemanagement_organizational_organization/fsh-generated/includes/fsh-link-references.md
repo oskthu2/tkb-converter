@@ -1,3 +1,4 @@
+[DNType]: StructureDefinition-DNType.html
 [GetHealthCareUnitRequest]: StructureDefinition-gethealthcareunit-request.html
 [GetHealthCareUnit]: StructureDefinition-gethealthcareunit.html
 [GetHealthCareUnitIncludingManagerRequest]: StructureDefinition-gethealthcareunitincludingmanager-request.html
@@ -8,3 +9,4 @@
 [GetHealthCareUnitMembers]: StructureDefinition-gethealthcareunitmembers.html
 [GetUnitRequest]: StructureDefinition-getunit-request.html
 [GetUnit]: StructureDefinition-getunit.html
+[TelephoneNumberType]: StructureDefinition-TelephoneNumberType.html

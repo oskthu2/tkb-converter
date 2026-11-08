@@ -29,5 +29,7 @@ RuleSet: GetConceptsFieldDescriptions
 * Subset.Concept.Term ^comment = "TKB-fält: `../../Term` (`ConceptTermType`, kardinalitet 1..1)."
 * Subset.Concept.LocalOrganizationExtensionId ^definition = "Id för system eller organisation (XML-attribut.)"
 * Subset.Concept.LocalOrganizationExtensionId ^comment = "TKB-fält: `../../LocalOrganizationExtensionId` (`LocalOrganizationExtensionIdType`, kardinalitet 0..1)."
-* ResultCode ^comment = "TKB-fält: `ResultCode` (`ResultCodeEnum`, kardinalitet 1..1)."
+* ResultCode ^comment = "TKB-fält: `ResultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** ResultCode Tillåtna värden: OK, ERROR, INFO."
 * comment ^comment = "TKB-fält: `comment` (`string`, kardinalitet 0..1)."

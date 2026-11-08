@@ -1,3 +1,6 @@
+// Elementen genereras ur GetAvailableFacilities_1_0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från informationsspecifikation crm:carelisting v1.0
 // Kontrakt: GetAvailableFacilities v1.0
 // Namespace: urn:riv:crm:carelisting:GetAvailableFacilitiesResponder:1
@@ -15,34 +18,11 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
-* healthcareFacilities 1..* BackboneElement "Lista med tillgängliga vårdenheter"
-    """
-    Facility: lista med tillgängliga vårdenheter i regionen.
-    Kardinalitet: Obligatorisk, lista.
-    """
-* healthcareFacilities.facilityId 1..1 Identifier "HSA-ID för vårdenheten"
-    """
-    HSA-ID eller alternativt Orgnr+lokalt id för vårdenheten.
-    System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id).
-    Kardinalitet: Obligatorisk.
-    """
-* healthcareFacilities.facilityName 1..1 string "Namn på vårdenheten"
-    """
-    Enhetens officiella namn.
-    Kardinalitet: Obligatorisk.
-    """
-* healthcareFacilities.hasQueue 0..1 boolean "Indikerar om vårdenheten har kö"
-    """
-    Boolskt värde som indikerar om vårdenheten har kö vid listningar.
-    Kan utelämnas om information saknas eller inte behövs i kontexten.
-    Kardinalitet: Valfri.
-    """
-* healthcareFacilities.supportedListingTypes 0..* string "Listningstyper som vårdenheten stödjer"
-    """
-    Lista med listningstyper som vårdenheten stödjer.
-    Kan utelämnas om information saknas eller inte behövs.
-    Kardinalitet: Valfri, lista.
-    """
+* healthcare_facilities 1..* Base "Facility" "healthcare_facilities"
+* healthcare_facilities.facilityId 1..1 string "facilityId" "facilityId"
+* healthcare_facilities.hasQueue 0..1 boolean "Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten." "Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten."
+* healthcare_facilities.supportedListingTypes 0..* string "supportedListingTypes" "Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i."
+* healthcare_facilities.facilityName 1..1 string "Namn på vårdenheten." "Namn på vårdenheten."
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetAvailableFacilitiesFieldDescriptions

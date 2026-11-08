@@ -1,3 +1,6 @@
+// Elementen genereras ur MakeBookingResponder_1.1.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB crm:scheduling v1.1
 // Kontrakt: MakeBooking v1.1
 // Genererad: 2026-03-24
@@ -14,22 +17,10 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.1"
-* bookingId 0..1 string "Id för skapad bokning"
-    """
-    Id för skapad bokning. Ska anges vid genomförd bokning (resultCode OK eller INFO), annars inte (ERROR).
-    Kardinalitet: Valfri (villkorlig).
-    """
-* resultCode 1..1 string "Status för den gjorda bokningen"
-    """
-    ResultCodeEnum: Status för den gjorda bokningen.
-    Möjliga värden: OK, INFO, ERROR.
-    Kardinalitet: Obligatorisk.
-    """
-* resultText 0..1 string "Ev. meddelande kopplat till resultatkoden"
-    """
-    Fritext meddelande kopplat till resultatkoden.
-    Kardinalitet: Valfri.
-    """
+* bookingId 0..1 string "bookingId" "bookingId"
+* resultCode 1..1 code "resultCode" "resultCode Tillåtna värden: OK, ERROR, INFO."
+* resultCode from ResultCodeVS (required)
+* resultText 0..1 string "resultText" "resultText"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert MakeBookingFieldDescriptions

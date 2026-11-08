@@ -3,9 +3,7 @@
 
 RuleSet: RegisterTemporaryRevokeRequestFieldDescriptions
 * temporaryRevokeRegistration ^definition = "Registreringsuppgifter för tillfällig hävning."
-* temporaryRevokeRegistration ^comment = "TKB-fält: `temporaryRevokeRegistration` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeRegistrationType`, kardinalitet 1..1).
-
-**Modellanteckning:** Datatyp som representerar en registrering av en tillfällig hävning med de attribut som behövs."
+* temporaryRevokeRegistration ^comment = "TKB-fält: `temporaryRevokeRegistration` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeRegistrationType`, kardinalitet 1..1)."
 * temporaryRevokeRegistration.temporaryRevokeId ^comment = "TKB-fält: `../temporaryRevokeId` (`Id`, kardinalitet 1..1)."
 * temporaryRevokeRegistration.blockId ^comment = "TKB-fält: `../blockId` (`Id`, kardinalitet 1..1)."
 * temporaryRevokeRegistration.endDate ^comment = "TKB-fält: `../endDate` (`dateTime`, kardinalitet 1..1)."

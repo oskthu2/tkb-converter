@@ -1,3 +1,6 @@
+// Elementen genereras ur GetLogsForCareProviderResponder_1.1.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB ehr:log v1.2.3
 // Kontrakt: GetLogsForCareProvider v1.1 — Request
 // Genererad: 2026-04-09
@@ -23,5 +26,4 @@ Characteristics: #can-be-target
     """
 * careUnitId 0..1 Identifier "HSA-id för specifik vårdenhet (valfritt filter)"
 
-// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetLogsForCareProviderRequestFieldDescriptions

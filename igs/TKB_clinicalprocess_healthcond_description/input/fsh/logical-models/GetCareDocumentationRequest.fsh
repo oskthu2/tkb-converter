@@ -1,3 +1,6 @@
+// Elementen genereras ur GetCareDocumentationResponder_3.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från TKB clinicalprocess:healthcond:description v3.0.6
 // Kontrakt: GetCareDocumentation v3.0
 // Namespace: urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3
@@ -14,37 +17,12 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "3.0"
-* careUnit 0..* Identifier "Filtrering på vårdenhet" """
-    Filtrering på vårdenhet vilket motsvarar accountableCareUnit HSA-id i svaret.
-    Kardinalitet: Valfri, lista.
-  """
-
-* healthcareProvider 0..* Identifier "Filtrering på vårdgivare" """
-    Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider HSA-id i svaret.
-    Kardinalitet: Valfri, lista.
-  """
-
-* patientId 1..1 Identifier "Patientens id" """
-    Id för patienten. extension sätts till personnummer eller samordningsnummer (12 tecken).
-    root sätts till OID för typ av identifierare.
-    Kardinalitet: Obligatorisk.
-  """
-
-* datePeriod 0..1 Period "Datumintervall för sökning" """
-    Begränsar sökningen till det angivna intervallet. start och end anges på formatet ÅÅÅÅMMDD.
-    Kardinalitet: Valfri.
-  """
-
-* sourceSystemId 0..1 Identifier "Källsystem-id" """
-    Begränsar sökningen till anteckningar som är skapade i det angivna källsystemet.
-    Kardinalitet: Valfri.
-  """
-
-* hasMoreReference 0..1 string "Referens för partiell hämtning" """
-    Kan anges av tjänstekonsument när man tidigare fått ett svar med hasMore.
-    Anropet måste då vara direktadresserat till den logiska adressen som angavs i hasMore.
-    Kardinalitet: Valfri.
-  """
+* careUnit 0..* IIType "careUnit" "careUnit"
+* healthcareProvider 0..* IIType "healthcareProvider" "healthcareProvider"
+* patientId 1..1 IIType "patientId" "patientId"
+* datePeriod 0..1 DatePeriodType "datePeriod" "datePeriod"
+* sourceSystemId 0..1 IIType "sourceSystemId" "sourceSystemId"
+* hasMoreReference 0..1 string "hasMoreReference" "hasMoreReference"
 
 // Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
 * insert GetCareDocumentationRequestFieldDescriptions

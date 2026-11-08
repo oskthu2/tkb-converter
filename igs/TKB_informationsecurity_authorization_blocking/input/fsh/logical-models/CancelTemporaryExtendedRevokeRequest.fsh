@@ -1,3 +1,6 @@
+// Elementen genereras ur CancelTemporaryExtendedRevokeResponder_4.0.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
+// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
+
 // Genererad från XSD för informationsecurity.authorization.blocking v4.0.4 (Genererad ur scheman i riv.informationsecurity.authorization.blocking, tagg 4.0.4; scripts/xsd_to_ig.py)
 // Kontrakt: CancelTemporaryExtendedRevoke v4.0
 // Genererad: 2026-09-26
@@ -10,21 +13,21 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:CancelTemporaryExtendedRevokeResponder:4, CancelTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+
 * ^version = "4.0"
-* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för."
 * temporaryRevokeId 1..1 string "temporaryRevokeId" "temporaryRevokeId"
-* cancellationInfo 1..1 BackboneElement "cancellationInfo" "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."
-  * requestDate 1..1 dateTime "requestDate" "requestDate"
-  * requestedBy 1..1 BackboneElement "requestedBy" "Datatyp som identifierar en medarbetare/person."
-    * employeeId 1..1 string "employeeId" "employeeId"
-    * assignmentId 0..1 string "assignmentId" "assignmentId"
-    * assignmentName 0..1 string "assignmentName" "assignmentName"
-  * registrationDate 1..1 dateTime "registrationDate" "registrationDate"
-  * registeredBy 1..1 BackboneElement "registeredBy" "Datatyp som identifierar en medarbetare/person."
-    * employeeId 1..1 string "employeeId" "employeeId"
-    * assignmentId 0..1 string "assignmentId" "assignmentId"
-    * assignmentName 0..1 string "assignmentName" "assignmentName"
-  * reasonText 0..1 string "reasonText" "reasonText"
+* cancellationInfo 1..1 Base "ActionType" "cancellationInfo"
+* cancellationInfo.requestDate 1..1 dateTime "requestDate" "requestDate"
+* cancellationInfo.requestedBy 1..1 Base "ActorType" "requestedBy"
+* cancellationInfo.requestedBy.employeeId 1..1 string "employeeId" "employeeId"
+* cancellationInfo.requestedBy.assignmentId 0..1 string "assignmentId" "assignmentId"
+* cancellationInfo.requestedBy.assignmentName 0..1 string "assignmentName" "assignmentName"
+* cancellationInfo.registrationDate 1..1 dateTime "registrationDate" "registrationDate"
+* cancellationInfo.registeredBy 1..1 Base "ActorType" "registeredBy"
+* cancellationInfo.registeredBy.employeeId 1..1 string "employeeId" "employeeId"
+* cancellationInfo.registeredBy.assignmentId 0..1 string "assignmentId" "assignmentId"
+* cancellationInfo.registeredBy.assignmentName 0..1 string "assignmentName" "assignmentName"
+* cancellationInfo.reasonText 0..1 string "reasonText" "reasonText"
 * cancelReasonText 0..1 string "cancelReasonText" "cancelReasonText"
 * replicationTimeout 1..1 integer "replicationTimeout" "replicationTimeout"
 
