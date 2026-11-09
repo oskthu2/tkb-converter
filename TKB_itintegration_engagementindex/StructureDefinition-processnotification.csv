@@ -1,0 +1,20 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processnotification","processnotification","","","",0,*,"","","","null {[]} {[]}
+","ProcessNotification","Logisk modell för tjänstekontraktet ProcessNotification
+(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).
+Representerar responsens informationsstruktur — ett statusbesked
+på att notifieringen mottagits och behandlats.
+
+OBS: ProcessNotification har en ovanlig dubbel roll i arkitekturen:
+- Engagemangsindex agerar PRODUCENT för att TA EMOT notifieringar från andra index.
+- Engagemangsindex agerar KONSUMENT för att SKICKA notifieringar till andra index.
+Fr.o.m. version 1.0.9 agerar nationellt engagemangsindex ENBART som producent
+(tar emot notifieringar från lokala index). Nationellt EI skickar inte längre
+ProcessNotification till lokala index eller verksamhetssystem.
+Undantag: Formulärtjänsten och Tidbokning/Kallelser har tidsbegränsat undantag.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processnotification.ResultCode","processnotification.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","Status enligt generell regel.","TKB-fält: `ResultCode` (`Kodverk`, kardinalitet 1..1).
+
+**Modellanteckning:** ResultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,,,,"",,,,"processnotification.ResultCode",1,1,"",""
+"processnotification.comment","processnotification.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Meddelande enligt generell regel","TKB-fält: `comment` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processnotification.comment",0,1,"",""

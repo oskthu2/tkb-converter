@@ -1,0 +1,14 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"endconsentbypatient-request","endconsentbypatient-request","","","",0,*,"","","","null {[]} {[]}
+","EndConsentByPatient — Request","Logisk modell för begäran i EndConsentByPatient
+(urn:riv:informationsecurity:authorization:consent:EndConsentByPatientResponder:1, EndConsentByPatientType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"endconsentbypatient-request.assertionId","endconsentbypatient-request.assertionId","","","",1,1,"","","","string {[]} {[]}
+","assertionId","Unikt id som identifierar det intyg som skall avslutas.","TKB-fält: `assertionId` (`urn:riv:informationsecurity:authorization:consent:2:Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"endconsentbypatient-request.assertionId",1,1,"",""
+"endconsentbypatient-request.patientId","endconsentbypatient-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","Personidentitet på patienten/brukaren vars samtycken skall hämtas.","TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"endconsentbypatient-request.patientId",1,1,"",""
+"endconsentbypatient-request.representedById","endconsentbypatient-request.representedById","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","representedById","Personidentitet för den företrädare/vårdnadshavare som företräder patienten/brukaren.
+
+Ska anges om samtycket avslutas av företrädare/vårdnadshavare.","TKB-fält: `representedById` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"endconsentbypatient-request.representedById",0,1,"",""
+"endconsentbypatient-request.endDateTime","endconsentbypatient-request.endDateTime","","","",0,1,"","","","dateTime {[]} {[]}
+","endDateTime","Frivillig tidpunkt/tidsstämpel för när samtycket ska avslutas. Tidstämpeln ska som tidigast vara nuvarande tidpunkt, alternativt före en tidigare given sista giltighetstidpunkt som är i framtiden. Om ingen tidpunkt anges ska producenten tolka samtyckets nya giltighetstidpunkt t o m nuvarande tidpunkt.","TKB-fält: `endDateTime` (`xs:dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"endconsentbypatient-request.endDateTime",0,1,"",""

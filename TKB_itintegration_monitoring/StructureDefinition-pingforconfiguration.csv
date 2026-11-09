@@ -1,0 +1,19 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"pingforconfiguration","pingforconfiguration","","","",0,*,"","","","null {[]} {[]}
+","PingForConfiguration","Logisk modell för tjänstekontraktet PingForConfiguration
+(RIV-TA urn:riv:itintegration:monitoring:PingForConfigurationResponder:1).
+Generisk ""ping""-tjänst som varje RIVTA 2.1-tjänstekomponent ska exponera,
+utöver sina funktionella kontrakt, för att kunna övervakas och felsökas
+via ett enhetligt gränssnitt. Representerar responsens informationsstruktur.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"pingforconfiguration.version","pingforconfiguration.version","","","",1,1,"","","","string {[]} {[]}
+","Version of the service component that responds.","Version av den tjänstekomponent som svarar. Formatet och semantik är specifikt för respektive tjänsteproducent.","TKB-fält: `version` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"pingforconfiguration.version",1,1,"",""
+"pingforconfiguration.pingDateTime","pingforconfiguration.pingDateTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-monitoring/StructureDefinition/TS]]} {[]}
+","Date and time for the ping response.","Datum och klockslag när ett svar skapades, på tidigare angivet tidsformat, ned på sekundnivå. Exempel: 20110311121021","TKB-fält: `pingDateTime` (`TS (tidsformat, se avsnitt 4)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"pingforconfiguration.pingDateTime",1,1,"",""
+"pingforconfiguration.configuration","pingforconfiguration.configuration","","","",0,*,"","","","Base {[]} {[]}
+","ConfigurationType","Lista med värden av miljövariabler från den svarande tjänstekomponenten. Ta med så mycket som möjligt som kan vara till hjälp vid felsökning och dialog kring vilken version som ""finns i andra änden"". Exempel kan vara JVM/.Net-version, operativsystem.","TKB-fält: `configuration` (`ConfigurationType`, kardinalitet 0..*).
+
+**Modellanteckning:** Optional list of environment information from the service component.","","","","","","","","",,,,,"",,,,"pingforconfiguration.configuration",0,*,"",""
+"pingforconfiguration.configuration.name","pingforconfiguration.configuration.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn på miljövariabel","TKB-fält: `configuration.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"pingforconfiguration.configuration.name",1,1,"",""
+"pingforconfiguration.configuration.value","pingforconfiguration.configuration.value","","","",1,1,"","","","string {[]} {[]}
+","value","Värde på miljövariabel","TKB-fält: `configuration.value` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"pingforconfiguration.configuration.value",1,1,"",""

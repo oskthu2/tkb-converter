@@ -1,0 +1,475 @@
+# SendMessageToRecipient — Request - clinicalprocess: healthcond: certificate v4.1.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SendMessageToRecipient — Request**
+
+## Logical Model: SendMessageToRecipient — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient-request | *Version*:2.1 |
+| Draft as of 2026-11-09 | *Computable Name*:SendMessageToRecipientRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-certificate|current/StructureDefinition/StructureDefinition-sendmessagetorecipient-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-sendmessagetorecipient-request.csv), [Excel](StructureDefinition-sendmessagetorecipient-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "sendmessagetorecipient-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient-request",
+  "version" : "2.1",
+  "name" : "SendMessageToRecipientRequest",
+  "title" : "SendMessageToRecipient — Request",
+  "status" : "draft",
+  "date" : "2026-11-09T03:21:30+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "sendmessagetorecipient-request",
+      "path" : "sendmessagetorecipient-request",
+      "short" : "SendMessageToRecipient — Request",
+      "definition" : "Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare)."
+    },
+    {
+      "id" : "sendmessagetorecipient-request.meddelande-id",
+      "path" : "sendmessagetorecipient-request.meddelande-id",
+      "short" : "meddelande-id",
+      "definition" : "Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID.",
+      "comment" : "TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.meddelande-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.referens-id",
+      "path" : "sendmessagetorecipient-request.referens-id",
+      "short" : "referens-id",
+      "definition" : "Valfri referens till entitet hos sändande part. Behöver ej vara unikt.",
+      "comment" : "TKB-fält: `referens-id` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.referens-id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatTidpunkt",
+      "path" : "sendmessagetorecipient-request.skickatTidpunkt",
+      "short" : "skickatTidpunkt",
+      "definition" : "Tidpunkt då meddelandet skickades.",
+      "comment" : "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.avsänt tidpunkt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.intygs-id",
+      "path" : "sendmessagetorecipient-request.intygs-id",
+      "short" : "IntygId",
+      "definition" : "Unikt ID för det intyg som meddelandet hör till.",
+      "comment" : "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.intygs-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.patientPerson-id",
+      "path" : "sendmessagetorecipient-request.patientPerson-id",
+      "short" : "PersonId",
+      "definition" : "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.",
+      "comment" : "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.logiskAdressMottagare",
+      "path" : "sendmessagetorecipient-request.logiskAdressMottagare",
+      "short" : "logiskAdressMottagare",
+      "definition" : "Logisk adress för den intygsmottagare som intygstjänsten ska vidarebefordra meddelandet till.",
+      "comment" : "TKB-fält: `logiskAdressMottagare` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Intygsmottagare.logisk adress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.amne",
+      "path" : "sendmessagetorecipient-request.amne",
+      "short" : "Amneskod",
+      "definition" : "Kodat värde som anger ämnet för frågan.",
+      "comment" : "TKB-fält: `amne*` (`Amneskod (se 7.2.1)`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.ämne",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.rubrik",
+      "path" : "sendmessagetorecipient-request.rubrik",
+      "short" : "rubrik",
+      "definition" : "En valfri rubrik som beskriver meddelandet.",
+      "comment" : "TKB-fält: `rubrik` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.rubrik",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.meddelande",
+      "path" : "sendmessagetorecipient-request.meddelande",
+      "short" : "meddelande",
+      "definition" : "Meddelandets text",
+      "comment" : "TKB-fält: `meddelande` (`string`, kardinalitet 1..1).\n\n**Mappning DIM:** Meddelande.meddelande",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.paminnelseMeddelande-id",
+      "path" : "sendmessagetorecipient-request.paminnelseMeddelande-id",
+      "short" : "paminnelseMeddelande-id",
+      "definition" : "Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om.",
+      "comment" : "TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.meddelande-id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.svarPa",
+      "path" : "sendmessagetorecipient-request.svarPa",
+      "short" : "MeddelandeReferens",
+      "definition" : "Om detta meddelande är ett svar på en fråga från intygsmottagaren ska referens till frågan skickas",
+      "comment" : "TKB-fält: `svarPa` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.svarPa.meddelande-id",
+      "path" : "sendmessagetorecipient-request.svarPa.meddelande-id",
+      "short" : "meddelande-id",
+      "definition" : "meddelande-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.svarPa.referens-id",
+      "path" : "sendmessagetorecipient-request.svarPa.referens-id",
+      "short" : "referens-id",
+      "definition" : "referens-id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv",
+      "path" : "sendmessagetorecipient-request.skickatAv",
+      "short" : "HosPersonal",
+      "definition" : "Information om den hälso- och sjukvårdspersonal som skickar meddelandet. Anges eftersom det inte behöver vara samma som signerade intyget.",
+      "comment" : "TKB-fält: `skickatAv` (`HosPersonal (se 7.1.4)`, kardinalitet 1..1).\n\n**Mappning DIM:** HoS-personal, Enhet, Vårdgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.personal-id",
+      "path" : "sendmessagetorecipient-request.skickatAv.personal-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.fullstandigtNamn",
+      "path" : "sendmessagetorecipient-request.skickatAv.fullstandigtNamn",
+      "short" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "definition" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.forskrivarkod",
+      "path" : "sendmessagetorecipient-request.skickatAv.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.befattning",
+      "path" : "sendmessagetorecipient-request.skickatAv.befattning",
+      "short" : "Befattning",
+      "definition" : "befattning",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet",
+      "short" : "Enhet",
+      "definition" : "enhet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.enhets-id",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.enhets-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.arbetsplatskod",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.arbetsplatskod",
+      "short" : "ArbetsplatsKod",
+      "definition" : "o.i.d för arbetsplatskod är 1.2.752.29.4.71",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.enhetsnamn",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.enhetsnamn",
+      "short" : "enhetsnamn",
+      "definition" : "enhetsnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.postadress",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.postnummer",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.postort",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.telefonnummer",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "telefonnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.epost",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.epost",
+      "short" : "epost",
+      "definition" : "epost",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.vardgivare",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.vardgivare",
+      "short" : "Vardgivare",
+      "definition" : "vardgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivare-id",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivare-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivarnamn",
+      "path" : "sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivarnamn",
+      "short" : "vardgivarnamn",
+      "definition" : "vardgivarnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.specialistkompetens",
+      "path" : "sendmessagetorecipient-request.skickatAv.specialistkompetens",
+      "short" : "Specialistkompetens",
+      "definition" : "specialistkompetens",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.specialistkompetens.code",
+      "path" : "sendmessagetorecipient-request.skickatAv.specialistkompetens.code",
+      "short" : "code",
+      "definition" : "code",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.specialistkompetens.displayName",
+      "path" : "sendmessagetorecipient-request.skickatAv.specialistkompetens.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.skickatAv.legitimeratYrke",
+      "path" : "sendmessagetorecipient-request.skickatAv.legitimeratYrke",
+      "short" : "LegitimeratYrkeType",
+      "definition" : "legitimeratYrke",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient-request.sistaDatumForSvar",
+      "path" : "sendmessagetorecipient-request.sistaDatumForSvar",
+      "short" : "sistaDatumForSvar",
+      "definition" : "Datum då vården senast vill ha ett svar.",
+      "comment" : "TKB-fält: `sistaDatumForSvar` (`DateType`, kardinalitet 0..1).\n\n**Mappning DIM:** Meddelande.sista datum för svar",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType"]
+      }]
+    }]
+  }
+}
+
+```

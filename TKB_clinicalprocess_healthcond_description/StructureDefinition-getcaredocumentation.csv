@@ -1,0 +1,184 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcaredocumentation","getcaredocumentation","","","",0,*,"","","","null {[]} {[]}
+","GetCareDocumentation","Logisk modell för tjänstekontraktet GetCareDocumentation
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).
+Representerar responsens informationsstruktur: journalanteckningar för en patient.
+Anteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning,
+slutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.
+Meddelandeformatet är kompatibelt med HL7 v3 CDA v2.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcaredocumentation.careDocumentation","getcaredocumentation.careDocumentation","","","",0,*,"","","","Base {[]} {[]}
+","CareDocumentationType","De anteckningar som matchar begäran.","TKB-fält: `careDocumentation` (`CareDocumentationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation",0,*,"",""
+"getcaredocumentation.careDocumentation.header","getcaredocumentation.careDocumentation.header","","","",1,1,"","","","Base {[]} {[]}
+","HeaderType","JoL-header.
+
+Innehåller metainformation som är gemensam för patientjournalinformation, exempelvis uppgift om vilken hälso- och sjukvårdspersonal
+
+som är angiven som författare av informationen och information om signering.","TKB-fält: `../header` (`HeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header",1,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader","getcaredocumentation.careDocumentation.header.accessControlHeader","","","",1,1,"","","","Base {[]} {[]}
+","AccessControlHeaderType","Information för kontroll av åtkomst.
+
+Syftet med denna del av headern är att den ska innehålla den information som behövs för konsumentens filtrering av informationen innan den visas upp för slutanvändaren eller på annat vis behandlas vidare, exempelvis för kontroll av spärrar (avseende vårdpersonals åtkomst till information; PDL) eller om informationen får visas för patienten eller inte (verksamhetens rätt till rådrum och menprövning).
+
+En konsument (en konsumerande tjänst/applikation) har inte rätt att ta del av något annat än innehållet i accessControlHeader innan de för ändamålet nödvändiga säkerhetskontrollerna har utförts.","TKB-fält: `../../accessControlHeader` (`AccessControlHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader",1,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider","getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","accountableHealthcareProvider","Id för informationsägande vårdgivare.
+
+I första hand HSAid alternativt i andra hand organisationsnummer.
+
+Om HSA-id används sätts fältet root till oid för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.
+
+Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret.
+
+Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.
+
+Se även regel Spärrhantering.","TKB-fält: `../../../accountableHealthcareProvider` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider",0,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit","getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","accountableCareUnit","Id för informationsägande vårdenhet angivet med HSA-id.
+
+Fältet root sätts OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.
+
+Fältet används för spärrkontroll och är obligatorisk om uppgiften i patientjournal ska kunna ses via sammanhållen journalföring.
+
+Se även regel Spärrhantering.","TKB-fält: `../../../accountableCareUnit` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit",0,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader.patientId","getcaredocumentation.careDocumentation.header.accessControlHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","Patientens identitetsbeteckning. Den identitetsbeteckning som denna uppgift lagrades under när uppgiften skapades ska om möjligt anges. Exempel på en situation då detta förekommer är exempelvis då patienten tidigare erhållit vård dokumenterat under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.
+
+Fältet root sätts till OID för kodverket för identifieraren:
+
+1) För personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+2) För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+Fältet extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.","TKB-fält: `../../../patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.patientId",1,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId","getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careProcessId","Id för den individanpassad vårdprocess som informationen journalförts inom ramen för. Består av ett lokalt genererat UUID.
+
+UUID anges i root och extension lämnas tomt.","TKB-fält: `../../../careProcessId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId",0,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime","getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","blockComparisonTime","Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring för kontroll av patientens (ev.) spärrade information, såväl yttre (mellan vårdgivare) som inre (mellan vårdenheter) spärr.
+
+Tidpunkten ska i så hög grad som möjligt överensstämma med den tidpunkt som ur patientens synvinkel är den mest naturliga. Detta är vanligtvis tidpunkten för patientens vårdkontakt som låg till grund för dokumentationen.","TKB-fält: `../../../blockComparisonTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime",1,1,"",""
+"getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient","getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Ansvarig vårdpersonals beslut, alternativt baserat på verksamhetens policy och regler (men-/sekretessprövning), huruvida informationen får delas till patient för ändamålet Patients åtkomst (Individens direktåtkomst).
+
+Om information beslutas delas sätts värdet i sådant fall till true, i annat fall till false. False innebär att informationen inte får delas till patient.
+
+Notera att flaggans värde kan, för samma information, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient.
+
+I sådana fall skall källsystemet uppdatera engagemangsindex för att konsumenter skall kunna bli notifierade därom.","TKB-fält: `../../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient",1,1,"",""
+"getcaredocumentation.careDocumentation.header.sourceSystemId","getcaredocumentation.careDocumentation.header.sourceSystemId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","sourceSystemId","Det källsystem som informationen lagras i.
+
+Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id.","TKB-fält: `../../sourceSystemId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.sourceSystemId",1,1,"",""
+"getcaredocumentation.careDocumentation.header.record","getcaredocumentation.careDocumentation.header.record","","","",1,1,"","","","Base {[]} {[]}
+","RecordType","Uppgift i patientjournal
+
+Metainformation avseende den dokumenterade informationen.","TKB-fält: `../../record` (`RecordType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.record",1,1,"",""
+"getcaredocumentation.careDocumentation.header.record.id","getcaredocumentation.careDocumentation.header.record.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Unik och beständig identifierare för uppgift i patientjournal.
+
+För att vara konsistent och beständig med tidigare majorversioner ska tjänsteproducenter av tidigare majorversioner av GetCareDocumentation endast ange root på samma sätt som documentId i tidigare majorversioner.
+
+Extension utelämnas. Denna hantering krävs för att tjänstekonsumenten ska kunna filtrera bort dubbletter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.
+
+Se även regel Verify unique recordId.","TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.record.id",1,1,"",""
+"getcaredocumentation.careDocumentation.header.record.timestamp","getcaredocumentation.careDocumentation.header.record.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.record.timestamp",1,1,"",""
+"getcaredocumentation.careDocumentation.header.author","getcaredocumentation.careDocumentation.header.author","","","",0,1,"","","","Base {[]} {[]}
+","AuthorType","Hälso- och sjukvårdspersonal som ansvarar för information i patientjournal. Notera att den som registrerar informationen från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte är författare.","TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author",0,1,"",""
+"getcaredocumentation.careDocumentation.header.author.id","getcaredocumentation.careDocumentation.header.author.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","HSA-id för hälso- och sjukvårdspersonal.
+
+Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.id",0,1,"",""
+"getcaredocumentation.careDocumentation.header.author.name","getcaredocumentation.careDocumentation.header.author.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn på hälso- och sjukvårdspersonal.","TKB-fält: `../../../name` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.name",0,1,"",""
+"getcaredocumentation.careDocumentation.header.author.timestamp","getcaredocumentation.careDocumentation.header.author.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem eller annan remittents journalsystem) är det tidpunkten då journalinformationen ursprungligen skapades som ska anges.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.timestamp",1,1,"",""
+"getcaredocumentation.careDocumentation.header.author.byRole","getcaredocumentation.careDocumentation.header.author.byRole","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","byRole","Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall kod från kodverket KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten. Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.","TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.byRole",0,1,"",""
+"getcaredocumentation.careDocumentation.header.author.orgUnit","getcaredocumentation.careDocumentation.header.author.orgUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType {[]} {[]}
+","orgUnit","Den organisation som författaren är uppdragstagare på.","TKB-fält: `../../../orgUnit` (`OrgUnitType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.orgUnit",0,1,"",""
+"getcaredocumentation.careDocumentation.header.signature","getcaredocumentation.careDocumentation.header.signature","","","",0,1,"","","","Base {[]} {[]}
+","SignatureType","Signeringsinformation","TKB-fält: `../../signature` (`SignatureType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature",0,1,"",""
+"getcaredocumentation.careDocumentation.header.signature.id","getcaredocumentation.careDocumentation.header.signature.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","HSA-id för hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.
+
+Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.id",0,1,"",""
+"getcaredocumentation.careDocumentation.header.signature.name","getcaredocumentation.careDocumentation.header.signature.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn på hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.","TKB-fält: `../../../name` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.name",0,1,"",""
+"getcaredocumentation.careDocumentation.header.signature.timestamp","getcaredocumentation.careDocumentation.header.signature.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Anger tidpunkten för signering av uppgift i patientjournal.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.timestamp",1,1,"",""
+"getcaredocumentation.careDocumentation.header.signature.byRole","getcaredocumentation.careDocumentation.header.signature.byRole","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","byRole","Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten.  Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.","TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.byRole",0,1,"",""
+"getcaredocumentation.careDocumentation.body","getcaredocumentation.careDocumentation.body","","","",1,1,"","","","Base {[]} {[]}
+","CareDocumentationBodyType","Journalanteckning","TKB-fält: `../body` (`CareDocumentationBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body",1,1,"","getcaredocumentation-body-xor:Antingen clinicalDocumentNoteText eller multimediaEntry ska anges, ej båda {clinicalDocumentNoteText.exists() xor multimediaEntry.exists()}
+"
+"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","clinicalDocumentNoteCode","Typ av anteckning. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `../../clinicalDocumentNoteCode` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode",1,1,"",""
+"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle","","","",0,1,"","","","string {[]} {[]}
+","clinicalDocumentNoteTitle","Titel på anteckningen.","TKB-fält: `../../clinicalDocumentNoteTitle` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle",0,1,"",""
+"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText","","","",0,1,"","","","string {[]} {[]}
+","clinicalDocumentNoteText","Journalanteckningens innehåll i text.
+
+Texten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3.
+
+Se även regel careDocumentationBody.","TKB-fält: `../../clinicalDocumentNoteText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText",0,1,"",""
+"getcaredocumentation.careDocumentation.body.multimediaEntry","getcaredocumentation.careDocumentation.body.multimediaEntry","","","",0,1,"","","","Base {[]} {[]}
+","MultimediaType","Journalanteckningens innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet.
+
+Vid användning av multimediaEntry kompletteras reglerna i tjänstekontraktsbeskrivningen med en Interaktionsöverenskommelse som ytterligare beskriver integrationen.
+
+Se även regel careDocumentationBody samt regel Binära bilagor.","TKB-fält: `../../multimediaEntry` (`MultimediaType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry",0,1,"","getcaredocumentation-multimedia-xor:Antingen value eller reference ska anges i multimediaEntry, ej båda {value.exists() xor reference.exists()}
+"
+"getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType","getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType","","","",1,1,"","","","string {[]} {[]}
+","mediaType","Typ av multimedia.
+
+Se interaktionsöverenskommelse för beskrivning av typer som hanteras.","TKB-fält: `../../../mediaType` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType",1,1,"",""
+"getcaredocumentation.careDocumentation.body.multimediaEntry.value","getcaredocumentation.careDocumentation.body.multimediaEntry.value","","","",0,1,"","","","base64Binary {[]} {[]}
+","value","Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges.
+
+Se även regel multimediaEntry.","TKB-fält: `../../../value` (`base64Binary`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry.value",0,1,"",""
+"getcaredocumentation.careDocumentation.body.multimediaEntry.reference","getcaredocumentation.careDocumentation.body.multimediaEntry.reference","","","",0,1,"","","","uri {[]} {[]}
+","reference","Referens till extern binär fil i form av en URL om interaktionsöverenskommelsen tillåter detta. Ett och endast ett av attributen value och reference ska anges.
+
+Se interaktionsöverenskommelse för ytterligare beskrivning.
+
+Se även regel multimediaEntry.","TKB-fält: `../../../reference` (`anyURI`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry.reference",0,1,"",""
+"getcaredocumentation.careDocumentation.body.dissentingOpinion","getcaredocumentation.careDocumentation.body.dissentingOpinion","","","",0,*,"","","","Base {[]} {[]}
+","DissentingOpinionType","Om patienten eller någon för denna ansvarig person (exempelvis vårdnadshavare) har lämnat en avvikande mening till journalanteckningen.","TKB-fält: `../../dissentingOpinion` (`DissentingOpinionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion",0,*,"",""
+"getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId","getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","opinionId","En universellt unik identifierare för den avvikande meningen. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat.","TKB-fält: `../../../opinionId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId",0,1,"",""
+"getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime","getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","authorTime","Tidpunkten då den avvikande meningen författades.","TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime",1,1,"",""
+"getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion","getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion","","","",1,1,"","","","string {[]} {[]}
+","opinion","Text som innehåller den avvikande meningen.","TKB-fält: `../../../opinion` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion",1,1,"",""
+"getcaredocumentation.careDocumentation.body.dissentingOpinion.personId","getcaredocumentation.careDocumentation.body.dissentingOpinion.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Id för författaren av den avvikande meningen.","TKB-fält: `../../../personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.personId",1,1,"",""
+"getcaredocumentation.careDocumentation.body.dissentingOpinion.personName","getcaredocumentation.careDocumentation.body.dissentingOpinion.personName","","","",1,1,"","","","string {[]} {[]}
+","personName","Namnet på författaren av den avvikande meningen.","TKB-fält: `../../../personName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.personName",1,1,"",""
+"getcaredocumentation.hasMore","getcaredocumentation.hasMore","","","",0,*,"","","","Base {[]} {[]}
+","HasMoreType","Anges av tjänsteproducent när det finns ytterligare information att hämta.
+
+Not: Vid svar från tjänsteproducent är kardinaliteten 0..1.
+
+Se även regel Partiell datahämtning.","TKB-fält: `hasMore` (`HasMoreType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation.hasMore",0,*,"",""
+"getcaredocumentation.hasMore.logicalAddress","getcaredocumentation.hasMore.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Den logiska adressen till tjänsteproducenten som genererar svaret och har mer information.","TKB-fält: `../logicalAddress` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.hasMore.logicalAddress",1,1,"",""
+"getcaredocumentation.hasMore.reference","getcaredocumentation.hasMore.reference","","","",1,1,"","","","string {[]} {[]}
+","reference","En unik identifierare som tjänstekonsumenten anger i nästa anrop för att hämta mer data. Om det då finns ytterligare mer information hos tjänsteproducenten ska en ny, unik identifierare levereras.
+
+Tjänsteproducenten avgör hur referensen byggs upp.
+
+Exempel: Base64({ ”queryHash” : ”7114efbb6a761fb1a2d6dae55b5612e1"", ”lastReturnedId” : 7685824}) = eyDigJ1xdWVyeUhhc2jigJ0gOiDigJ03MTE0ZWZiYjZhNzYxZmIxYTJkNmRhZTU1YjU2MTJlMSIsIOKAnWxhc3RSZXR1cm5lZElk4oCdIDogNzY4NTgyNH0=
+
+Re även regel Referensens giltighetstid.","TKB-fält: `../reference` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.hasMore.reference",1,1,"",""
+"getcaredocumentation.result","getcaredocumentation.result","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/ResultType {[]} {[]}
+","result","Innehåller information om det gick bra eller ej att besvara förfrågan.
+
+Se avsnitt 7.1.7 för beskrivning av hantering vid logiska fel.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.result",1,1,"",""

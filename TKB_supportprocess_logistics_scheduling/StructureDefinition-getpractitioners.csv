@@ -1,0 +1,22 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getpractitioners","getpractitioners","","","",0,*,"","","","null {[]} {[]}
+","GetPractitioners — Response","Logisk modell för svaret i GetPractitioners
+(urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getpractitioners.practitioner","getpractitioners.practitioner","","","",0,*,"","","","Base {[]} {[]}
+","PractitionerType","Information om bokningsbar vårdpersonal.","TKB-fält: `practitioner` (`PractitionerType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpractitioners.practitioner",0,*,"",""
+"getpractitioners.practitioner.HSAId","getpractitioners.practitioner.HSAId","","","",1,1,"","","","Base {[]} {[]}
+","HSAIdType","Bokningsbar vårdpersonals HsaId","TKB-fält: `practitioner.HSAId` (`HSAIdType`).","","","","","","","","",,,,,"",,,,"getpractitioners.practitioner.HSAId",1,1,"",""
+"getpractitioners.practitioner.firstName","getpractitioners.practitioner.firstName","","","",1,1,"","","","string {[]} {[]}
+","firstName","Vårdpersonals förnamn.","TKB-fält: `practitioner.firstName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpractitioners.practitioner.firstName",1,1,"",""
+"getpractitioners.practitioner.lastName","getpractitioners.practitioner.lastName","","","",1,1,"","","","string {[]} {[]}
+","lastName","Vårdpersonals efternamn.","TKB-fält: `practitioner.lastName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpractitioners.practitioner.lastName",1,1,"",""
+"getpractitioners.practitioner.title","getpractitioners.practitioner.title","","","",0,1,"","","","string {[]} {[]}
+","title","Vårdpersonals titel.","TKB-fält: `practitioner.title` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getpractitioners.practitioner.title",0,1,"",""
+"getpractitioners.resultCode","getpractitioners.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_MAKE_APPOINTMENT, USER_IS_ALREADY_OCCUPIED, APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_UPDATE_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, USER_IS_ALREADY_OCCUPIED, UPDATE_APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, TOO_LATE_TO_CANCEL_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CANCEL_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CONFIRMED, TOO_LATE_TO_CONFIRM_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CONFIRM_IS_NOT_ALLOWED.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-resultcode-vs","",,,,"getpractitioners.resultCode",1,1,"",""
+"getpractitioners.resultText","getpractitioners.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getpractitioners.resultText",0,1,"",""

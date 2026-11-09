@@ -1,0 +1,369 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"registermedicationdispenseauthorization","registermedicationdispenseauthorization","","","",0,*,"","","","null {[]} {[]}
+","RegisterMedicationDispenseAuthorization","Logisk modell för tjänstekontraktet RegisterMedicationDispenseAuthorization
+(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationDispenseAuthorization:1).
+Representerar responsens informationsstruktur.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization","registermedicationdispenseauthorization.medicationDispenseAuthorization","","","",1,1,"","","","Base {[]} {[]}
+","MedicationDispenseAuthorization","Expedieringsunderlag","TKB-fält: `medicationDispenseAuthorization` (`MedicationDispenseAuthorization_setter`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData","","","",0,1,"","","","Base {[]} {[]}
+","RegistrationData","id, registrerad av och registreringstidpunkt.
+
+Saknas initialt om ändringar gjorts på apotekssidan.","TKB-fält: `../registrationData` (`RegistrationData`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.id","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.id","","","",1,1,"","","","Identifier {[]} {[]}
+","Unikt id för det omgivande objektet.","Unikt id för det omgivande objektet.","TKB-fält: `../../id` (`Identifier`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.id",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy","","","",1,1,"","","","Base {[]} {[]}
+","HealthcareProfessionalType","Den person som registrerat ordinationen.","TKB-fält: `registeredBy` (`HealthcareProfessionalType`, kardinalitet 1..1).
+
+**Modellanteckning:** Den person som registrerat det omgivande objektet. Denna måste vara starkt autentiserad och det är informationen från autentiseringen som används. Det är vårdgivare och vårdenhet för registrerad av som utgör vårdgivare och vårdenhet för det omgivande objektet som helhet.Värdet sätts av NOD baserat på den Autentiseringsinformation som bifogas vid anrop av NOD:s tjänster.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalHSAId","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalHSAId","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för personen.","HSA-id för personen.","TKB-fält: `../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalHSAId",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.givenName","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.givenName","","","",0,1,"","","","string {[]} {[]}
+","Personens förnamn","Personens förnamn","TKB-fält: `../givenName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.givenName",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.familyName","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.familyName","","","",0,1,"","","","string {[]} {[]}
+","Personens efternamn","Personens efternamn","TKB-fält: `../familyName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.familyName",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalRoleCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalRoleCode","","","",0,1,"","","","code {[]} {[]}
+","healthcareProfessionalRoleCode","befattningskod, även kallat paTitleCode i HSA.
+
+Se: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf","TKB-fält: `../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalRoleCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.","HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.","TKB-fält: `../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.","HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.","TKB-fält: `../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registrationTime","registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registrationTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.","Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.","TKB-fält: `../../registrationTime` (`dateTime`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.registrationData.registrationTime",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.id","registermedicationdispenseauthorization.medicationDispenseAuthorization.id","","","",1,1,"","","","Identifier {[]} {[]}
+","Id på expedieringsunderlaget. Skapas av NOD-tjänsten (eller underliggande tjänster såsom av RR)","Id på expedieringsunderlaget. Skapas av NOD-tjänsten (eller underliggande tjänster såsom av RR)","TKB-fält: `../id` (`Identifier`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.id",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.medicationPrescriptionId","registermedicationdispenseauthorization.medicationDispenseAuthorization.medicationPrescriptionId","","","",0,1,"","","","Identifier {[]} {[]}
+","medicationPrescriptionId","Id på ursprunglig läkemedelsordination oavsett om läkemedelsordinationen ursprungligen skapats i NOD eller i ett vårdsystem och skickats som e-recept till OR/RR. Expedieringsunderlag som återskapas på information från OR/RR kan sakna ordinationsid.
+
+Om expedieringsunderlaget skapas av vårdsystemet ""löst"", dvs. utan referens till en Läkemedelsordination i NOD, ska vårdsystemet ange ordinationsid (som separat argument) för spårbarhet och för att kunna upptäcka dubbletter.
+
+Om Läkemedelsordination finns i NOD skapas ordinationsid av NOD-tjänsten.","TKB-fält: `../medicationPrescriptionId` (`Identifier`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.medicationPrescriptionId",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber","","","",1,1,"","","","Base {[]} {[]}
+","MedicalPrescriber","Sätts av NOD-tjänsten till inloggad användare (samma som registrerad av) för att säkerställa att förskrivaren är starkt autentiserad.","TKB-fält: `../prescriber` (`MedicalPrescriber`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.personalPrescriptionCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.personalPrescriptionCode","","","",0,1,"","","","string {[]} {[]}
+","personalPrescriptionCode","Förskrivarens individuella förskrivarkod (7 tecken), legitimationskod (6 tecken) eller förskrivarens gruppförskrivarkod då individuell kod saknas.
+
+Obligatorisk parameter om teknisk sprit eller läkemedel förskrivs.
+
+Gruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men via sin roll har erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av EHM.
+
+För användare som har gruppförskrivarkod gäller:
+
+befattningskod är obligatorisk
+
+För läkare (LK) - yrkeskod (dvs LK) är obligatorisk.
+
+Vid övriga yrken - yrkeskod och giltig legitimationskod är obligatoriska
+
+Valideras i AFF
+
+HSA: förskrivarkod, även kallat personalPrescriptionCode
+
+RR: förskrivarkod","TKB-fält: `../../personalPrescriptionCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.personalPrescriptionCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.legitimationCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.legitimationCode","","","",0,1,"","","","string {[]} {[]}
+","legitimationCode","Förskrivarens 7-ställiga förskrivarkod alternativt 6-ställiga legitimationskod. Legitimationskod för förskrivare är annars de 6 första siffrorna i förskrivarkoden.
+
+Se gruppförskrivarkod för villkor.
+
+HSA: Legitimationskod för leg.vårdpersonal (sjuksköterskor) saknas i HSA. Det finns grupplegitimationskoder som kan användas.
+
+yrkeskod	Gruppkod	yrkeskod klartext
+
+SJ	971000	Sjuksköterska
+
+AP	972000	Apotekare
+
+RC	973000	Receptarie
+
+RR: legitimationskod","TKB-fält: `../../legitimationCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.legitimationCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.hsaTitleCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.hsaTitleCode","","","",1,1,"","","","string {[]} {[]}
+","hsaTitleCode","Yrkeskod som definierar vilken typ av legitimation som användaren innehar.
+
+Se gruppförskrivarkod för villkor.
+
+Kontrolleras i receptregistret att personen har angiven yrkeskod.
+
+Valideras i AFF
+
+HSA:Legitimerad yrkesgrupp, även kallad hsaTitle innehåller yrkeskoden i klartext. Detta fält (yrkeskod) avser dock motsvarande tvåställiga kod. Se:""HSA Innehåll Legitimerad Yrkesgrupp"" på se www.inera.se/hsa.
+
+Notera också att samma användare kan inneha flera yrkesgrupper, t.ex. både Läkare och Sjuksköterska.
+
+RR: yrkeskod","TKB-fält: `../../hsaTitleCode` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.hsaTitleCode",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.hsaTitle","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.hsaTitle","","","",0,1,"","","","string {[]} {[]}
+","Förskrivarens yrke i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.","Förskrivarens yrke i klartext.
+
+Fylls i av NOD vid läsning från LF. Krav vid presentation.","TKB-fält: `../../hsaTitle` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.hsaTitle",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.speciallityCodes","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.speciallityCodes","","","",0,*,"","","","string {[]} {[]}
+","Förskrivarens specialiteter i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.","Förskrivarens specialiteter i klartext.
+
+Fylls i av NOD vid läsning från LF. Krav vid presentation.","TKB-fält: `../../speciallityCodes` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.speciallityCodes",0,*,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.paTitleCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.paTitleCode","","","",0,1,"","","","string {[]} {[]}
+","paTitleCode","Förskrivarens befattningskod.
+
+Se gruppförskrivarkod för villkor.
+
+HSA: befattningskod, även kallat paTitleCode.
+
+Notera också att samma användare kan inneha flera befattningskoder.
+
+RR: befattningskod","TKB-fält: `../../paTitleCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.paTitleCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.givenName","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.givenName","","","",1,1,"","","","string {[]} {[]}
+","Förskrivarens tilltalsnamn.HSA: tilltalsnamn (givenName)RR: förnamn","Förskrivarens tilltalsnamn.
+
+HSA: tilltalsnamn (givenName)
+
+RR: förnamn","TKB-fält: `../../givenName` (`string`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.givenName",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.familyName","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.familyName","","","",1,1,"","","","string {[]} {[]}
+","Förskrivarens efternamn.Valideras i AFF HSA: efternamnRR: efternamn","Förskrivarens efternamn.
+
+Valideras i AFF
+
+HSA: efternamn
+
+RR: efternamn","TKB-fält: `../../familyName` (`string`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.familyName",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork","","","",0,1,"","","","Base {[]} {[]}
+","PlaceOfWork","Arbetsplats","TKB-fält: `../../placeOfWork` (`PlaceOfWork`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.unitPrescriptionCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.unitPrescriptionCode","","","",0,1,"","","","string {[]} {[]}
+","unitPrescriptionCode","Förskrivarens arbetsplatskod eller grupparbetsplatskod
+
+Unik kod för identifiering av ordinatörens arbetsplats vid förskrivningstillfället.
+
+Arbetsplatskoden anges, hos vissa vårdgivare, för att styra ekonomiska transaktioner vid ordinationer inom förmånen. Det är vårdgivarna som själva hanterar arbetsplatskoderna genom att registrera dem i EHM:s ARKO.
+
+Saknar ordinatören ordinarie arbetsplats anges en grupparbetsplatskod.
+
+Obligatorisk parameter om förmån angivits.
+
+Valideras i AFF
+
+HSA: arbetsplatskod, även kallat unitPrescriptionCode.
+
+RR: arbetsplatskod","TKB-fält: `../../../unitPrescriptionCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.unitPrescriptionCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.careUnitName","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.careUnitName","","","",1,1,"","","","string {[]} {[]}
+","careUnitName","Förskrivarens lokalitet (adress 1). Ej gatunummer. Exempelvis: Vårdcentralen Humlan eller Privat, Kirurgi/ortopedi
+
+HSA: enhetsnamn (careUnitName )
+
+RR: arbetsplatsnamn","TKB-fält: `../../../careUnitName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.careUnitName",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.city","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.city","","","",1,1,"","","","string {[]} {[]}
+","Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFREDRR: arbetsplatsort","Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFRED
+
+RR: arbetsplatsort","TKB-fält: `../../../city` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.city",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.phoneNumber1","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.phoneNumber1","","","",0,1,"","","","string {[]} {[]}
+","Förskrivarens eller vårdcentralens telefonnummer.HSA: direkttelefon RR: telefonnummer1","Förskrivarens eller vårdcentralens telefonnummer.
+
+HSA: direkttelefon
+
+RR: telefonnummer1","TKB-fält: `../../../phoneNumber1` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.phoneNumber1",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.phoneNumber2","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.phoneNumber2","","","",0,1,"","","","string {[]} {[]}
+","Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.HSA: RR: telefonnummer2","Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.
+
+HSA:
+
+RR: telefonnummer2","TKB-fält: `../../../phoneNumber2` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.phoneNumber2",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.postalAdress","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.postalAdress","","","",0,1,"","","","string {[]} {[]}
+","postalAdress","Förskrivarens eller vårdcentralens gatuadress. Exempelvis: Storgatan 14B.
+
+HSA: postadress (postalAddress). Består av flera adressrader, som lämpligen konkateneras med komma som skiljetecken.
+
+RR: postadress","TKB-fält: `../../../postalAdress` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.postalAdress",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.postalCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.postalCode","","","",0,1,"","","","string {[]} {[]}
+","Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45HSA: postnummer (postalCode)RR: postnummer","Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45
+
+HSA: postnummer (postalCode)
+
+RR: postnummer","TKB-fält: `../../../postalCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriber.placeOfWork.postalCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation","","","",1,1,"","","","Base {[]} {[]}
+","PatientInformation","patientId eller patientInformation måste anges.","TKB-fält: `patientInformation` (`PatientInformation`, kardinalitet 1..1).
+
+**Modellanteckning:** I första hand ska svenskt personnummer användas. Vid Expedieringsunderlag för helförpackning gäller dessutom:Om samordningsnummer finns kan detta användas tillsammans med födelsetid.Expedieringsunderlag kan skapas även om både personnummer och samordningsnummer saknas, men då krävs att födelsetid och kön anges.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.patientId","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.patientId","","","",0,1,"","","","Identifier {[]} {[]}
+","patientId","Patientens personnummer eller samordningsnummer (fylls i från argument i tjänsteanropet)
+
+Endast om det är känt.
+
+PU: personid
+
+RR: personnummer","TKB-fält: `../patientId` (`Identifier`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.patientId",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.givenName","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.givenName","","","",0,1,"","","","string {[]} {[]}
+","givenName","Patientens förnamn.
+
+PU: förnamn. Alla förnamn med mellanslag emellan. Tilltalsnamnsmarkering anger vilket som används som tilltalsnamn.
+
+RR: förnamn","TKB-fält: `../givenName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.givenName",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.familyName","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.familyName","","","",0,1,"","","","string {[]} {[]}
+","Patientens efternamn.PU: efternamn RR: efternamn","Patientens efternamn.
+
+PU: efternamn
+
+RR: efternamn","TKB-fält: `../familyName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.familyName",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.dateOfBirth","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.dateOfBirth","","","",0,1,"","","","date {[]} {[]}
+","dateOfBirth","Födelsedatum (8 siffror).
+
+Anges för patient som saknar giltigt personnummer.
+
+Obligatoriskt att ange antingen personnummer eller födelsedatum på expedieringsunderlag.
+
+PU: födelsetid
+
+RR: födelsedatum","TKB-fält: `../dateOfBirth` (`date`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.dateOfBirth",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.gender","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.gender","","","",0,1,"","","","code {[]} {[]}
+","Patientens kön.Obligatorisk parameter om Personnummer saknas. {Male, Female, Unspecified}PU: könRR: kön","Patientens kön.
+
+Obligatorisk parameter om Personnummer saknas.
+
+{Male, Female, Unspecified}
+
+PU: kön
+
+RR: kön","TKB-fält: `../gender` (`GenderEnum`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.gender",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.deliveryAdress1","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.deliveryAdress1","","","",0,1,"","","","string {[]} {[]}
+","Patientens gatuadress 1.PU: utdelningsadress1RR: adress1","Patientens gatuadress 1.
+
+PU: utdelningsadress1
+
+RR: adress1","TKB-fält: `../deliveryAdress1` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.deliveryAdress1",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.deliveryAdress2","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.deliveryAdress2","","","",0,1,"","","","string {[]} {[]}
+","Patientens adress 2.PU: utdelningsadress2RR: adress2","Patientens adress 2.
+
+PU: utdelningsadress2
+
+RR: adress2","TKB-fält: `../deliveryAdress2` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.deliveryAdress2",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.postalCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.postalCode","","","",0,1,"","","","string {[]} {[]}
+","Patientens postnummer.PU: postnrRR: postnummer","Patientens postnummer.
+
+PU: postnr
+
+RR: postnummer","TKB-fält: `../postalCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.postalCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.city","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.city","","","",0,1,"","","","string {[]} {[]}
+","Patientens postort.PU: postortRR: postort","Patientens postort.
+
+PU: postort
+
+RR: postort","TKB-fält: `../city` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.city",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.phoneNumber1","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.phoneNumber1","","","",0,1,"","","","string {[]} {[]}
+","Patientens telefonnummer 1.PU: saknasRR: telefonnummer1","Patientens telefonnummer 1.
+
+PU: saknas
+
+RR: telefonnummer1","TKB-fält: `../phoneNumber1` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.phoneNumber1",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.phoneNumber2","registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.phoneNumber2","","","",0,1,"","","","string {[]} {[]}
+","Patientens telefonnummer 2.PU: saknasRR: telefonnummer2","Patientens telefonnummer 2.
+
+PU: saknas
+
+RR: telefonnummer2","TKB-fält: `../phoneNumber2` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.patientInformation.phoneNumber2",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriptionWriteTime","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriptionWriteTime","","","",1,1,"","","","dateTime {[]} {[]}
+","prescriptionWriteTime","(f.d. Ordinationstidpunkt)
+
+Tidpunkt då Expedieringsunderlaget skapas (vårdsystemets tid).
+
+När ett Expedieringsunderlag återskapas baserat på en befintlig förskrivning ska den ursprungliga tiden för förskrivning anges (i möjligaste mån).","TKB-fält: `../prescriptionWriteTime` (`dateTime`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriptionWriteTime",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriberComment","registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriberComment","","","",0,1,"","","","string {[]} {[]}
+","prescriberComment","Förskrivarens kommentar till farmaceut.
+
+Kommentaren skrivs ut på receptblanketten om e-receptet omvandlas till ett pappersrecept (dvs. skrivs ut på en receptblankett på apoteket)","TKB-fält: `../prescriberComment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.prescriberComment",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.receivingPharmacy","registermedicationdispenseauthorization.medicationDispenseAuthorization.receivingPharmacy","","","",0,1,"","","","string {[]} {[]}
+","receivingPharmacy","Apoteks-id (s.k. GLN-kod) om förskrivningen är direktadresserad.
+
+Mottagande apotek ska anges vid förskrivning av läkemedel typ 3 (narkotika osv). F.o.m. 2015-03-01 är detta dock inte nödvändigt vid iteration.
+
+Valideras i AFF","TKB-fält: `../receivingPharmacy` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.receivingPharmacy",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.deliveryMessage","registermedicationdispenseauthorization.medicationDispenseAuthorization.deliveryMessage","","","",0,1,"","","","string {[]} {[]}
+","Leveransinformation om ordinationen skickas till ett ombud","Leveransinformation om ordinationen skickas till ett ombud","TKB-fält: `../deliveryMessage` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.deliveryMessage",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.treatmentEndTime","registermedicationdispenseauthorization.medicationDispenseAuthorization.treatmentEndTime","","","",0,1,"","","","dateTime {[]} {[]}
+","treatmentEndTime","Datum och tid när patienten skall avsluta intag.
+
+Fältet är endast relevant för dospatienter. Efter detta datum så får expedieringsunderlaget status UTSATT och går inte längre att expediera (helförpackning) eller produceras inte i påse (dosdispenserat).
+
+Mappas från Läkemedelsordination.utsättningstidpunkt","TKB-fält: `../treatmentEndTime` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.treatmentEndTime",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.NPLPackid","registermedicationdispenseauthorization.medicationDispenseAuthorization.NPLPackid","","","",0,1,"","","","string {[]} {[]}
+","NPLPackid","NPL Pack-id alternativt SB Pack-id som identifierar läkemedelsartikel.
+
+Obligatorisk parameter om Varunr saknas. Om artikeln är ett läkemedel måste NPL Pack-id anges.
+
+Valideras i AFF.
+
+Om en Läkemedelsartikel angivits i Läkemedelsordination.ordinerat läkemedel måste attributvärdet överensstämma med dess NPL Pack.id.
+
+Mappas (vid Läkemedelsartikel) från Läkemedelsordination.ordinerat läkemedel.NPL Pack.id","TKB-fält: `../NPLPackid` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.NPLPackid",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.NPLid","registermedicationdispenseauthorization.medicationDispenseAuthorization.NPLid","","","",0,1,"","","","string {[]} {[]}
+","NPLid","NPL-id alternativt SB-id som identifierar produkt.
+
+Obligatorisk parameter om Varunr saknas. Om artikeln är ett läkemedel måste NPL-id.
+
+Valideras i AFF.
+
+Om en Läkemedelsprodukt angivits i Läkemedelsordination.ordinerat läkemedel måste attributvärdet överensstämma dess NPL-id.
+
+Mappas (vid Läkemedelsprodukt) från Läkemedelsordination.ordinerat läkemedel.NPL-id","TKB-fält: `../NPLid` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.NPLid",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.articleId","registermedicationdispenseauthorization.medicationDispenseAuthorization.articleId","","","",0,1,"","","","string {[]} {[]}
+","articleId","Identitet på förskrivet livsmedel eller handelsvara.
+
+Obligatorisk parameter om NPL-id och NPL pack-id saknas.
+
+Om artikeln är ett läkemedel får inte varunr anges. Valideras i AFF.
+
+Mappas (vid Handelsvara) från Läkemedelsordination.ordinerat läkemedel.varunr","TKB-fält: `../articleId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.articleId",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.dosageText1","registermedicationdispenseauthorization.medicationDispenseAuthorization.dosageText1","","","",1,1,"","","","string {[]} {[]}
+","dosageText1","Instruktion till patienten. Skrivs ut på Mina sparade recept, doseringsetikett och vid utskrift av elektroniskt recept.
+
+Mappas från a) text som genereras baserat på Läkemedelsordination.dosering +b)  Läkemedelsordination.användning.","TKB-fält: `../dosageText1` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.dosageText1",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.dosageText2","registermedicationdispenseauthorization.medicationDispenseAuthorization.dosageText2","","","",0,1,"","","","string {[]} {[]}
+","dosageText2","Kompletterande doseringstext till patienten
+
+Mappas från endera av
+
+Licensläkemedel.produktnamn/styrka/läkemedelsform/licensinformation
+
+eller
+
+Ex tempore. beskrivning","TKB-fält: `../dosageText2` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.dosageText2",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.languageCode","registermedicationdispenseauthorization.medicationDispenseAuthorization.languageCode","","","",0,1,"","","","string {[]} {[]}
+","Främmande språk för doseringstext enligt ISO-639-1","Främmande språk för doseringstext enligt ISO-639-1","TKB-fält: `../languageCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.languageCode",0,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.pupose","registermedicationdispenseauthorization.medicationDispenseAuthorization.pupose","","","",1,1,"","","","string {[]} {[]}
+","(Ändamål klartext)Mappas från Läkemedelsordination.behandlingsändamål","(Ändamål klartext)
+
+Mappas från Läkemedelsordination.behandlingsändamål","TKB-fält: `../pupose` (`string`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.pupose",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.reimbursed","registermedicationdispenseauthorization.medicationDispenseAuthorization.reimbursed","","","",1,1,"","","","boolean {[]} {[]}
+","Förskrivaren uppgift om ordinationen ska innefattas i förmånen.Falskt = Utan förmånSant =Med förmånValideras i AFF","Förskrivaren uppgift om ordinationen ska innefattas i förmånen.
+
+Falskt = Utan förmån
+
+Sant =Med förmån
+
+Valideras i AFF","TKB-fält: `../reimbursed` (`boolean`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.reimbursed",1,1,"",""
+"registermedicationdispenseauthorization.medicationDispenseAuthorization.validUntil","registermedicationdispenseauthorization.medicationDispenseAuthorization.validUntil","","","",1,1,"","","","date {[]} {[]}
+","validUntil","Expedieringsunderlagets sista giltighetsdag. Detta får inte överskrida förskrivningstidpunkt + 1 år och en dag.
+
+Patienten med en läkemedelsordination med utsättningstid bortom sista giltighetsdag kommer då att behöva ett nytt expedieringsunderlag för att hämta ut medicinen.
+
+Valideras i AFF","TKB-fält: `../validUntil` (`date`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationDispenseAuthorization.validUntil",1,1,"",""
+"registermedicationdispenseauthorization.medicationListVersion","registermedicationdispenseauthorization.medicationListVersion","","","",1,1,"","","","Identifier {[]} {[]}
+","medicationListVersion","Version på patientens samlade läkemedelslista.
+
+Se kapitel 5.2 för exempel och regler kring format.","TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.medicationListVersion",1,1,"",""
+"registermedicationdispenseauthorization.result","registermedicationdispenseauthorization.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.result",1,1,"",""
+"registermedicationdispenseauthorization.result.resultCode","registermedicationdispenseauthorization.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.result.resultCode",1,1,"",""
+"registermedicationdispenseauthorization.result.errorCode","registermedicationdispenseauthorization.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.result.errorCode",0,1,"",""
+"registermedicationdispenseauthorization.result.subcode","registermedicationdispenseauthorization.result.subcode","","","",0,1,"","","","code {[]} {[]}
+","subcode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.result.subcode",0,1,"",""
+"registermedicationdispenseauthorization.result.logId","registermedicationdispenseauthorization.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.result.logId",1,1,"",""
+"registermedicationdispenseauthorization.result.message","registermedicationdispenseauthorization.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registermedicationdispenseauthorization.result.message",0,1,"",""

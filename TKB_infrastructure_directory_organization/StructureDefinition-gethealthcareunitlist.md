@@ -1,0 +1,279 @@
+# GetHealthCareUnitList - infrastructure: directory: organization v5.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHealthCareUnitList**
+
+## Logical Model: GetHealthCareUnitList 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunitlist | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetHealthCareUnitList |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetHealthCareUnitList (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnitList:2). Representerar responsens informationsstruktur — lista av vårdenheter för en angiven vårdgivare. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-directory-organization|current/StructureDefinition/StructureDefinition-gethealthcareunitlist.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethealthcareunitlist.csv), [Excel](StructureDefinition-gethealthcareunitlist.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethealthcareunitlist",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunitlist",
+  "version" : "2.0",
+  "name" : "GetHealthCareUnitList",
+  "title" : "GetHealthCareUnitList",
+  "status" : "active",
+  "date" : "2026-11-09T03:37:41+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetHealthCareUnitList\n(RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnitList:2).\nRepresenterar responsens informationsstruktur — lista av vårdenheter för en angiven vårdgivare.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunitlist",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethealthcareunitlist",
+      "path" : "gethealthcareunitlist",
+      "short" : "GetHealthCareUnitList",
+      "definition" : "Logisk modell för tjänstekontraktet GetHealthCareUnitList\n(RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnitList:2).\nRepresenterar responsens informationsstruktur — lista av vårdenheter för en angiven vårdgivare."
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList",
+      "path" : "gethealthcareunitlist.healthCareUnitList",
+      "short" : "HealthCareUnitListType",
+      "definition" : "healthCareUnitList",
+      "comment" : "TKB-fält: `healthCareUnitList` (`HealthCareUnitListType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderHsaId",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderHsaId",
+      "short" : "healthCareProviderHsaId",
+      "definition" : "Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `..healthCareProviderHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderName",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderName",
+      "short" : "healthCareProviderName",
+      "definition" : "Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]",
+      "comment" : "TKB-fält: `..healthCareProviderName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderPublicName",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderPublicName",
+      "short" : "healthCareProviderPublicName",
+      "definition" : "Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]",
+      "comment" : "TKB-fält: `..healthCareProviderPublicName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderOrgNo",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderOrgNo",
+      "short" : "healthCareProviderOrgNo",
+      "definition" : "Vårdgivarens organisationsnummer. Ref. organisationsnummer (orgNo) [R5]",
+      "comment" : "TKB-fält: `..healthCareProviderOrgNo` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderStartDate",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderStartDate",
+      "short" : "healthCareProviderStartDate",
+      "definition" : "Startdatum för vårdgivarens verksamhet. Ref. startdatum (startDate) [R5]",
+      "comment" : "TKB-fält: `..healthCareProviderStartDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderEndDate",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareProviderEndDate",
+      "short" : "healthCareProviderEndDate",
+      "definition" : "Slutdatum för vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]",
+      "comment" : "TKB-fält: `..healthCareProviderEndDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit",
+      "short" : "HealthCareUnitType",
+      "definition" : "Ingående vårdenhet enligt PDL",
+      "comment" : "TKB-fält: `..healthCareUnit` (`HealthCareUnitType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitHsaId",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitHsaId",
+      "short" : "healthCareUnitHsaId",
+      "definition" : "HSA-identitet ingående enhet. Ref. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitName",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitName",
+      "short" : "healthCareUnitName",
+      "definition" : "Namn ingående enhet. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitPublicName",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitPublicName",
+      "short" : "healthCareUnitPublicName",
+      "definition" : "Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitPublicName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitStartDate",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitStartDate",
+      "short" : "healthCareUnitStartDate",
+      "definition" : "Startdatum för vårdenhetens verksamhet. Ref. startdatum (startDate) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitStartDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitEndDate",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.healthCareUnitEndDate",
+      "short" : "healthCareUnitEndDate",
+      "definition" : "Slutdatum för vårdenhetens verksamhet. Ref. slutdatum (endDate) [R5]",
+      "comment" : "TKB-fält: `.. ..healthCareUnitEndDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.feignedHealthCareUnit",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.feignedHealthCareUnit",
+      "short" : "feignedHealthCareUnit",
+      "definition" : "true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]",
+      "comment" : "TKB-fält: `.. ..feignedHealthCareUnit` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.archivedHealthCareUnit",
+      "path" : "gethealthcareunitlist.healthCareUnitList.healthCareUnit.archivedHealthCareUnit",
+      "short" : "archivedHealthCareUnit",
+      "definition" : "true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]",
+      "comment" : "TKB-fält: `.. ..archivedHealthCareUnit` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.feignedHealthCareProvider",
+      "path" : "gethealthcareunitlist.healthCareUnitList.feignedHealthCareProvider",
+      "short" : "feignedHealthCareProvider",
+      "definition" : "true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]",
+      "comment" : "TKB-fält: `..feignedHealthCareProvider` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethealthcareunitlist.healthCareUnitList.archivedHealthCareProvider",
+      "path" : "gethealthcareunitlist.healthCareUnitList.archivedHealthCareProvider",
+      "short" : "archivedHealthCareProvider",
+      "definition" : "true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]",
+      "comment" : "TKB-fält: `..archivedHealthCareProvider` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

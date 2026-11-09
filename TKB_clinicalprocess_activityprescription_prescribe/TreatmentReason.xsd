@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:clinicalprocess:activityprescription:prescribe:2"
+    xmlns:fhir="http://hl7.org/fhir"
+    xmlns:dosage='urn:riv:clinicalprocess:activityprescription:prescribe:2'
+    targetNamespace="urn:riv:clinicalprocess:activityprescription:prescribe:2" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="2.0">
+    
+    
+
+    <xs:complexType name="TreatmentReason">
+        <xs:sequence>
+            <xs:element name="code" type="fhir:code" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Snomed CT-koden för vald ordinationsorsak. <br/>Anges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO). <br/>Ordinationsorsak anges alltid i kodad form. Det finns därför en kod med innebörden Annan orsak Om denna kod används, används attributet annan orsak text för att ange denna orsak i fritext.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="otherReasonText" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Ordinationsorsak angiven i fritext om värdet Annan orsak väljs för ordinationsorsak SCT. <br/>Obligatorisk då ordinationsorsak SCT anges till Annan orsak (därmed obligatorisk i v. 1.0).<br/>Får ej anges om ordinationsorsak kod anges till något annat än Annan orsak.<br/>Not: Detta attribut får inte överföras till receptregistret eller finnas på recept/expedieringsunderlag. <br/>Ordinationsorsak i fritext får inte lagras i receptregistret.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="primaryReason" type="xs:boolean" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Uppgift om huruvida ordinationsorsaken är ”huvudorsak”, dvs. viktigare än andra angivna orsaker</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>

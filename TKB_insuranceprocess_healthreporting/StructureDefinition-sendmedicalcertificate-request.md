@@ -1,0 +1,363 @@
+# SendMedicalCertificate — Request - insuranceprocess: healthreporting v3.1.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SendMedicalCertificate — Request**
+
+## Logical Model: SendMedicalCertificate — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/sendmedicalcertificate-request | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:SendMedicalCertificateRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i tjänstekontraktet SendMedicalCertificate (RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1). Skickar ett meddelande om att ett läkarintyg skall skickas vidare till FK. Läkarintyget är tidigare insänt via RegisterMedicalCertificate. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.insuranceprocess-healthreporting|current/StructureDefinition/StructureDefinition-sendmedicalcertificate-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-sendmedicalcertificate-request.csv), [Excel](StructureDefinition-sendmedicalcertificate-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "sendmedicalcertificate-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/sendmedicalcertificate-request",
+  "version" : "1.0",
+  "name" : "SendMedicalCertificateRequest",
+  "title" : "SendMedicalCertificate — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:41:48+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i tjänstekontraktet SendMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1).\nSkickar ett meddelande om att ett läkarintyg skall skickas vidare till FK.\nLäkarintyget är tidigare insänt via RegisterMedicalCertificate.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/sendmedicalcertificate-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "sendmedicalcertificate-request",
+      "path" : "sendmedicalcertificate-request",
+      "short" : "SendMedicalCertificate — Request",
+      "definition" : "Logisk modell för requestparametrar i tjänstekontraktet SendMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1).\nSkickar ett meddelande om att ett läkarintyg skall skickas vidare till FK.\nLäkarintyget är tidigare insänt via RegisterMedicalCertificate."
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send",
+      "path" : "sendmedicalcertificate-request.send",
+      "short" : "Signal om att skicka ett intyg",
+      "definition" : "Sända signal om att skicka ett intyg",
+      "comment" : "TKB-fält: `send` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.vardReferensId",
+      "path" : "sendmedicalcertificate-request.send.vardReferensId",
+      "short" : "Identitet för detta meddelande från vården",
+      "definition" : "Identitet för detta meddelande från vården",
+      "comment" : "TKB-fält: `send.vardReferens-id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.avsantTidpunkt",
+      "path" : "sendmedicalcertificate-request.send.avsantTidpunkt",
+      "short" : "Tidpunkt då meddelandet skickades från vården",
+      "definition" : "Tidpunkt då meddelandet skickades från vården",
+      "comment" : "TKB-fält: `send.avsantTidpunkt` (`datumtid`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard",
+      "path" : "sendmedicalcertificate-request.send.adressVard",
+      "short" : "Vårdadress",
+      "definition" : "Vårdadress",
+      "comment" : "TKB-fält: `send.adressVard` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal",
+      "short" : "Vårdpersonal",
+      "definition" : "Vårdpersonal",
+      "comment" : "TKB-fält: `..adressVard.hosPersonal` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.personalId",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.personalId",
+      "short" : "HSA-Id för Hos-person som skickade meddelandet",
+      "definition" : "Hsa-Id för Hos-person som skickade meddelandet.",
+      "comment" : "TKB-fält: `..hosPersonal.personal-id` (`hsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.fullstandigtNamn",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.fullstandigtNamn",
+      "short" : "Namn för Hos-person som skickade meddelandet",
+      "definition" : "Namn för Hos-person som skickade meddelandet.",
+      "comment" : "TKB-fält: `..hosPersonal.fullstandigtNamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet",
+      "short" : "Vårdenhet",
+      "definition" : "Vårdenhet",
+      "comment" : "TKB-fält: `..hosPersonal.enhet` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.enhetsId",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.enhetsId",
+      "short" : "HSA-Id för Hos-vårdenhet",
+      "definition" : "Hsa-Id för Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.enhets-id` (`hsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.enhetsNamn",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.enhetsNamn",
+      "short" : "Namn på Hos-vårdenhet",
+      "definition" : "Namn på Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.enhets-namn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.postadress",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.postadress",
+      "short" : "Postadress",
+      "definition" : "Postadress för Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.postadress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.postnummer",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.postnummer",
+      "short" : "Postnummer",
+      "definition" : "Postnummer för Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.postnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.postort",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.postort",
+      "short" : "Postort",
+      "definition" : "Postort för Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.postort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.telefonnummer",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.telefonnummer",
+      "short" : "Telefonnummer",
+      "definition" : "Telefonnummer till Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.telefonnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.epost",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.epost",
+      "short" : "Epost",
+      "definition" : "Epost adress för Hos-vårdenhet varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..enhet.epost` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.vardgivare",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.vardgivare",
+      "short" : "Vårdgivare",
+      "definition" : "Vårdgivare",
+      "comment" : "TKB-fält: `..enhet.vardgivare` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.vardgivare.vardgivareId",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.vardgivare.vardgivareId",
+      "short" : "HSA-Id för Hos-vårdgivare",
+      "definition" : "Hsa-Id för Hos-vårdgivare varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..vardgivare.vardgivare-id` (`hsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.vardgivare.vardgivareNamn",
+      "path" : "sendmedicalcertificate-request.send.adressVard.hosPersonal.enhet.vardgivare.vardgivareNamn",
+      "short" : "Namn på Hos-vårdgivare",
+      "definition" : "Namn på Hos-vårdgivare varifrån meddelandet skickades.",
+      "comment" : "TKB-fält: `..vardgivare.vardgivare-namn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.lakarutlatande",
+      "path" : "sendmedicalcertificate-request.lakarutlatande",
+      "short" : "Läkarutlåtandet",
+      "definition" : "Läkarutlåtandet",
+      "comment" : "TKB-fält: `lakarutlatande` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.lakarutlatande.lakarutlatandeId",
+      "path" : "sendmedicalcertificate-request.lakarutlatande.lakarutlatandeId",
+      "short" : "Unikt id för läkarintyget",
+      "definition" : "Unikt id för läkarintyget som meddelandet gäller",
+      "comment" : "TKB-fält: `lakarutlatande.lakarutlatande-id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.lakarutlatande.signeringsTidpunkt",
+      "path" : "sendmedicalcertificate-request.lakarutlatande.signeringsTidpunkt",
+      "short" : "Signeringstidpunkt för läkarintyget",
+      "definition" : "Signeringstidpunkt för läkarintyget som meddelandet gäller",
+      "comment" : "TKB-fält: `lakarutlatande.signeringsTidpunkt` (`datumtid`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.lakarutlatande.patient",
+      "path" : "sendmedicalcertificate-request.lakarutlatande.patient",
+      "short" : "Patienten",
+      "definition" : "Patienten",
+      "comment" : "TKB-fält: `lakarutlatande.patient` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.lakarutlatande.patient.personId",
+      "path" : "sendmedicalcertificate-request.lakarutlatande.patient.personId",
+      "short" : "Patientens personnummer eller samordningsnummer",
+      "definition" : "Patientens personnummer eller samordningnummer",
+      "comment" : "TKB-fält: `patient.person-id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "sendmedicalcertificate-request.lakarutlatande.patient.fullstandigtNamn",
+      "path" : "sendmedicalcertificate-request.lakarutlatande.patient.fullstandigtNamn",
+      "short" : "Patientens namn",
+      "definition" : "Patientens namn",
+      "comment" : "TKB-fält: `patient.fullstandigtNamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

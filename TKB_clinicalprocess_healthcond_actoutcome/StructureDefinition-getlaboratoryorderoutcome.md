@@ -1,0 +1,1448 @@
+# GetLaboratoryOrderOutcome - clinicalprocess: healthcond: actoutcome v4.2.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetLaboratoryOrderOutcome**
+
+## Logical Model: GetLaboratoryOrderOutcome 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome | *Version*:4.2 |
+| Active as of 2026-11-09 | *Computable Name*:GetLaboratoryOrderOutcome |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome (RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcome:4). Representerar responsens informationsstruktur — multidisciplinära laboratoriesvar för en patient. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-actoutcome|current/StructureDefinition/StructureDefinition-getlaboratoryorderoutcome.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getlaboratoryorderoutcome.csv), [Excel](StructureDefinition-getlaboratoryorderoutcome.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getlaboratoryorderoutcome",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome",
+  "version" : "4.2",
+  "name" : "GetLaboratoryOrderOutcome",
+  "title" : "GetLaboratoryOrderOutcome",
+  "status" : "active",
+  "date" : "2026-11-09T03:19:47+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcome:4).\nRepresenterar responsens informationsstruktur — multidisciplinära laboratoriesvar\nför en patient.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getlaboratoryorderoutcome",
+      "path" : "getlaboratoryorderoutcome",
+      "short" : "GetLaboratoryOrderOutcome",
+      "definition" : "Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcome:4).\nRepresenterar responsens informationsstruktur — multidisciplinära laboratoriesvar\nför en patient."
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome",
+      "short" : "LaboratoryOrderOutcomeType",
+      "definition" : "Ett eller flera laboratoriesvar som matchar begäran.",
+      "comment" : "TKB-fält: `//*:laboratoryOrderOutcome` (`LaboratoryOrderOutcomeType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header",
+      "short" : "HeaderType",
+      "definition" : "Innehåller information som är gemensam för uppgifter i patientjournalen som tillgängliggörs, exempelvis information om vilken hälso- och sjukvårdspersonal som är angiven som författare av en uppgift samt information om signering.",
+      "comment" : "TKB-fält: `//*:header` (`HeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader",
+      "short" : "AccessControlHeaderType",
+      "definition" : "Information som används för kontroll av åtkomst. Tjänstekonsumenten får enbart ta del av uppgifterna i AccessControlHeaderType innan övrig information om uppgift i patientjournal kan bearbetas.",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader` (`AccessControlHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareGiver",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareGiver",
+      "short" : "accountableCareGiver",
+      "definition" : "Id för uppgiftsägande vårdgivare [R15].\n\nI första hand HSA-id, i andra hand organisationsnummer.\n\nOm HSA-id används:\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id\n\nOm organisationsnummer används:\n\nroot sätts till OID för organisationsnummer (1.2.752.29.4.3)\n\nextension sätts till organisationsnumret. Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:accountableCareGiver` (`IIType`, kardinalitet 1..1).\n\n**Regel 2.1:** Fältet krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av tjänstekonsumenter inom sammanhållen journalföring.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareUnit",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareUnit",
+      "short" : "accountableCareUnit",
+      "definition" : "HSA-id för vårdenheten [R15] där uppgiften är dokumenterad.\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:accountableCareUnit` (`IIType`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Regel 2.1:** Fältet krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av tjänstekonsumenter inom sammanhållen journalföring.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.originalPatientId",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.originalPatientId",
+      "short" : "originalPatientId",
+      "definition" : "Personidentifieraren som den tillgängliggjorda uppgiften lagrades under då den skapades. Detta fält anges endast då det skiljer sig från patientId, exempelvis då patienten tidigare erhållit vård som dokumenterats under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.\n\nroot sätts till OID för typ av personidentifierare.\n\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör andra typer av personidentifierare sätts root till aktuell OID.\n\nextension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:originalPatientId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.careProcessId",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.careProcessId",
+      "short" : "careProcessId",
+      "definition" : "Id för den individanpassade vårdprocess som uppgiften journalförts inom ramen för. Består av ett lokalt genererat UUID.",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:careProcessId` (`UUIDType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/UUIDType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.lockTime",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.lockTime",
+      "short" : "lockTime",
+      "definition" : "lockTime",
+      "comment" : "TKB-fält: `.//*:header/*:accessControlHeader/*:lockTime` (`TimeStampType`, kardinalitet 0..0).\n\n**Regel 2.2:** Detta element skall ej användas. Enligt SOSFS 2016:40 ska det ej längre finnas möjlighet att låsa osignerade journalanteckningar",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.blockComparisonTime",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.blockComparisonTime",
+      "short" : "blockComparisonTime",
+      "definition" : "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring. Gäller både yttre (mellan vårdgivare) och inre (mellan vårdenheter) spärr.\n\nI detta fält anges provtagningstidpunkt. Om ett svar innehåller analyser utförda på olika prov anges tidpunkt för det senast tagna provet.",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:blockComparisonTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.approvedForPatient",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "Ansvarig vårdpersonals beslut, alternativt verksamhetens policy och regler (men- och sekretessprövning), huruvida uppgiften får delas till patient för ändamålet patients åtkomst (Individens direktåtkomst).\n\nOm uppgiften beslutas delas sätts värdet till true, i annat fall till false. False innebär att uppgiften inte får delas till patient.\n\nNotera att värdet kan, för samma uppgift, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. I sådana fall skall källsystemet uppdatera engagemangsindex.",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.patientId",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.patientId",
+      "short" : "patientId",
+      "definition" : "Personidentifierare för patienten.\n\nroot sätts till OID för typ av personidentifierare.\n\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör andra typer av personidentifierare sätts root till aktuell OID.\n\nextension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\nObligatorisk vid nyanslutning",
+      "comment" : "TKB-fält: `//*:header/*:accessControlHeader/*:patientId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.sourceSystemId",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.sourceSystemId",
+      "short" : "sourceSystemId",
+      "definition" : "Det källsystem som uppgiften lagras i.\n\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\n\nextension sätts till källsystemets HSA-id",
+      "comment" : "TKB-fält: `//*:header/*:sourceSystemId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record",
+      "short" : "RecordType",
+      "definition" : "Information avseende uppgiften som tillgängliggörs.",
+      "comment" : "TKB-fält: `//*:header/*:record` (`RecordType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.id",
+      "short" : "id",
+      "definition" : "Identifierare för uppgift i patientjournal.\n\nIdentifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska även vara konsistent och beständig mellan olika tjänstekontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.\n\nMotsvarar Laboratoriesvar.id i informationsspecifikationen [R6]",
+      "comment" : "TKB-fält: `//*:header/*:record/*:id` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.timestamp",
+      "short" : "timestamp",
+      "definition" : "Den tidpunkt då uppgiften skapades i tjänsteproducentens källsystem. Denna information ska vara beständig även om tjänsteproducenten migrerat uppgiften från ett källsystem till en annat.\n\nMotsvarar Laboratoriesvar.svarstidpunkt i informationsspecifikationen [R6]",
+      "comment" : "TKB-fält: `//*:header/*:record/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author",
+      "short" : "AuthorType",
+      "definition" : "Information avseende dokumentation av uppgiften som tillgängliggörs.\n\nNotera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses.",
+      "comment" : "TKB-fält: `//*:header/*:author` (`AuthorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.id",
+      "short" : "id",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som dokumenterat uppgiften som tillgängliggörs.\n\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `//*:header/*:author/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.name",
+      "short" : "name",
+      "definition" : "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+      "comment" : "TKB-fält: `//*:header/*:author/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.timestamp",
+      "short" : "timestamp",
+      "definition" : "Tidpunkt då uppgiften dokumenterades eller senast uppdaterades.\n\nI de fall då uppgiften ursprungligen dokumenterats eller uppdaterats i ett annat informationssystem än tjänsteproducentens källsystem (t.ex. laboratorieinformationssystem), ska tidpunkten spegla informationen från systemet där uppgiften ursprungligen dokumenterades.",
+      "comment" : "TKB-fält: `//*:header/*:author/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.byRole",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.byRole",
+      "short" : "byRole",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.\n\nAnges med HSAs kodverk Befattning  (OID: 1.2.752.129.2.2.1.4).\n\nOm kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `//*:header/*:author/*:byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit",
+      "short" : "OrgUnitType",
+      "definition" : "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.",
+      "comment" : "TKB-fält: `//*:header/*:author/*:orgUnit` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.id",
+      "short" : "id",
+      "definition" : "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret.",
+      "comment" : "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.name",
+      "short" : "name",
+      "definition" : "Namn på organisationsenhet. Om tillgängligt skall detta anges.",
+      "comment" : "TKB-fält i OrgUnitType: `name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature",
+      "short" : "AuthorType",
+      "definition" : "Information avseende signering av laboratoriesvaret.\n\nLaboratoriesvaret signeras av en medicinskt ansvarig hälso- och sjukvårdspersonal på den ansvariga enheten.\n\nDen ansvariga enheten kan vara den remissmottagande enheten eller den utförande enheten (exempelvis vid patientnära analyser).",
+      "comment" : "TKB-fält: `//*:header/*:signature` (`AuthorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.id",
+      "short" : "id",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som signerat uppgiften som tillgängliggörs.\n\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `//*:header/*:signature/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.name",
+      "short" : "name",
+      "definition" : "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+      "comment" : "TKB-fält: `//*:header/*:signature/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.timestamp",
+      "short" : "timestamp",
+      "definition" : "Tidpunkt då uppgiften signerades.",
+      "comment" : "TKB-fält: `//*:header/*:signature/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.byRole",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.byRole",
+      "short" : "byRole",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid signeringstidpunkten.\n\nAnges med HSAs kodverk Befattning  (OID: 1.2.752.129.2.2.1.4).\n\nOm kod inte är tillgänglig anges befattning i klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `//*:header/*:signature/*:byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.orgUnit",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.orgUnit",
+      "short" : "OrgUnitType",
+      "definition" : "Anges ej för Signature",
+      "comment" : "TKB-fält: `//*:header/*:signature/*:orgUnit` (`OrgUnitType`, kardinalitet 0..0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.orgUnit.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.orgUnit.id",
+      "short" : "id",
+      "definition" : "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret.",
+      "comment" : "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.orgUnit.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.orgUnit.name",
+      "short" : "name",
+      "definition" : "Namn på organisationsenhet. Om tillgängligt skall detta anges.",
+      "comment" : "TKB-fält i OrgUnitType: `name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body",
+      "short" : "LaboratoryOrderOutcomeBodyType",
+      "definition" : "Information om laboratoriesvaret.",
+      "comment" : "TKB-fält: `//*:body` (`LaboratoryOrderOutcomeBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.identifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.identifier",
+      "short" : "identifier",
+      "definition" : "Angivelse av identitetsbeteckning för laboratoriesvaret.",
+      "comment" : "TKB-fält: `//*:body/*:identifier` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.laboratoryIdentifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.laboratoryIdentifier",
+      "short" : "laboratoryIdentifier",
+      "definition" : "Angivelse av identitetsbeteckning för laboratoriets arbetsorder.\n\nBenämns även som LID.",
+      "comment" : "TKB-fält: `//*:body/*:laboratoryIdentifier` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.type",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.type",
+      "short" : "type",
+      "definition" : "Kod för status av laboratoriesvar. Använd FHIR value set Diagnostic Report Status. Giltiga koder är final, partial eller preliminary. Se kodverket för beskrivning av respektive kod.\n\ncode:  En av koderna final, partial eller preliminary\n\ncodeSystem:  2.16.840.1.113883.4.642.3.235\n\ndisplayName: Klartext motsvarande den använda koden.",
+      "comment" : "TKB-fält: `//*:body/*:type` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.text",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.text",
+      "short" : "text",
+      "definition" : "Angivelse av utlåtande eller kommentar som gäller hela laboratoriesvaret.",
+      "comment" : "TKB-fält: `//*:body/*:text` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral",
+      "short" : "ReferralType",
+      "definition" : "Den remiss som ligger till grund för svaret.",
+      "comment" : "TKB-fält: `//*:body/*:referral` (`ReferralType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.identifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.identifier",
+      "short" : "identifier",
+      "definition" : "Angivelse av identitetsbeteckning för remissen.\n\nroot: logisk adress\n\nextension: remissens id, även kallad RID",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:identifier` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.timestamp",
+      "short" : "timestamp",
+      "definition" : "Tidsangivelse för när remiss skapats.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.version",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.version",
+      "short" : "version",
+      "definition" : "Version av remiss.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:version` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.question",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.question",
+      "short" : "question",
+      "definition" : "Remissens frågeställning.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:question` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requestedCareService",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requestedCareService",
+      "short" : "requestedCareService",
+      "definition" : "Kod för efterfrågad tjänst från utbudskatalog.\n\nDet finns inget kodverk eller urval utpekat för detta attribut. Regel 3.4\n\nOm kod ej kan anges kan datatypens attribut originalText användas för en fritextrepresentation.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:requestedCareService` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester",
+      "short" : "ActorType",
+      "definition" : "Hälso- och sjukvårdspersonal som skrivit remiss.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:requester` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.id",
+      "short" : "id",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal.\n\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\n\nextension sätts till HSA-id",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:requester/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.name",
+      "short" : "name",
+      "definition" : "Namn på hälso- och sjukvårdspersonal",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:requester/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.byRole",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.byRole",
+      "short" : "byRole",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt skall kod från HSA:s kodverk Befattning (OID: 1.2.752.129.2.2.1.4) [R3] användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten. Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:requester/*:byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit",
+      "short" : "OrgUnitType",
+      "definition" : "Den organisation som remittenten är uppdragstagare på. För detta fält är det obligatoriskt att ange både orgUnitType.id samt orgUnitType.name.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:requester/*:orgUnit` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.id",
+      "short" : "id",
+      "definition" : "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret.",
+      "comment" : "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.name",
+      "short" : "name",
+      "definition" : "Namn på organisationsenhet. Om tillgängligt skall detta anges.",
+      "comment" : "TKB-fält i OrgUnitType: `name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation",
+      "short" : "ReferralInformationType",
+      "definition" : "Ytterligare information från beställaren.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:referralInformation` (`ReferralInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralComment",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralComment",
+      "short" : "referralComment",
+      "definition" : "Kommentar på beställningen av laboratorieundersökningen.",
+      "comment" : "TKB-fält: `//*:body/*:referral/*:referralInformation/*:referralComment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralMedicalInformation",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralMedicalInformation",
+      "short" : "referralMedicalInformation",
+      "definition" : "referralMedicalInformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses",
+      "short" : "GroupOfAnalysesType",
+      "definition" : "Grupperar ett antal analyser som utförs på ett eller flera prov från samma provgivare och som man väljer att betrakta som en enhet. Detta är en möjlighet för ett laboratorium att för ett givet svar kommentera en egen vald mängd analyser med en gemensam gruppkommentar. En grupp som endast innehåller en enda analys utan angivelse av name eller code ska tolkas som att analysen inte är grupperad. Det är inte tillåtet att ha en grupp med flera analyser utan att ange attributet name eller code.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses` (`GroupOfAnalysesType`, kardinalitet 0..*).\n\n**Regel 3.1:** Om en groupOfAnalyses innehåller fler än en analysis måste attributet name eller code vara angivet.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.name",
+      "short" : "name",
+      "definition" : "Namn eller benämning för hela analysgruppen.\n\nObligatorisk om attributet comment anges.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.comment",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.comment",
+      "short" : "comment",
+      "definition" : "Kommentar för hela analysgruppen. Om en kommentar anges ska även attributet name anges.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.code",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.code",
+      "short" : "code",
+      "definition" : "Listkoder (NPU) som fungerar som en rubrik-kod för de ingående analyserna.\n\ncode.code: Kod från “Urval analyskoder laboratoriemedicin” (se [R16])\n\ncode.codeSystem: 1.2.752.108.1\n\nRegel 3.5\n\nOm kod ej kan anges kan datatypens attribut originalText användas för en fritextrepresentation.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:code` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis",
+      "short" : "AnalysisType",
+      "definition" : "Utförd analys.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis` (`AnalysisType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.identifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.identifier",
+      "short" : "identifier",
+      "definition" : "Id för utförd analys.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:identifier` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.timestamp",
+      "short" : "timestamp",
+      "definition" : "Den tidpunkt då analysen utfördes.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:timestamp` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.code",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.code",
+      "short" : "code",
+      "definition" : "Kod (NPU) för den analys som utförts.\n\ncode.code: Kod från “Urval analyskoder laboratoriemedicin” (se [R16])\n\ncode.codeSystem: 1.2.752.108.1\n\nRegel 3.5\n\nOm kod ej kan anges kan datatypens attribut originalText användas för en fritextrepresentation.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:code` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.method",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.method",
+      "short" : "method",
+      "definition" : "Kod (SNOMED-CT-SE) för den typ av tillvägagångssätt för utförandet av analysen som avses.\n\ncode.code: Kod från Urval analysmetod laboratoriemedicin (OID 1.2.752.129.5.1.18) (se [R10])\n\ncode.codeSystem:  1.2.752.116.2.1.1\n\nRegel 3.5\n\nOm kod ej kan anges kan datatypens attribut originalText användas för en fritextrepresentation.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:method` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.status",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.status",
+      "short" : "status",
+      "definition" : "Kod (SNOMED-CT-SE) för analysens status.\n\ncode.code: Kod från Urval analysstatus laboratoriemedicin (OID 1.2.752.129.5.1.6) (se [R10])\n\ncode.codeSystem:  1.2.752.116.2.1.1\n\nRegel 3.5\n\nOm status utelämnas ska detta tolkas som att analysen är slutförd. Fritextalternativ kan ej anges i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:status` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.comment",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.comment",
+      "short" : "comment",
+      "definition" : "Kommentar för enskild analys, exempelvis att svaret inte får användas för biobanksinfo.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.accredited",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.accredited",
+      "short" : "accredited",
+      "definition" : "Om analysen är ackrediterad sätts fältet till true.\n\nOm analysen inte är ackrediterad sätts fältet till false.\n\nOm analysens ackrediteringsstatus är okänd utelämnas elementet.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:accredited` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen",
+      "short" : "SpecimenType",
+      "definition" : "Information om ett prov.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen` (`SpecimenType`, kardinalitet 0..*).\n\n**Regel 3.2:** I schematypen analysis är specimen optional, men detta gäller bara relaterade analyser (som ärver specimeninformation från den översta analysen i en hierarki).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.identifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.identifier",
+      "short" : "identifier",
+      "definition" : "Identitetsbeteckning för ett prov.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:identifier` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.material",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.material",
+      "short" : "material",
+      "definition" : "Kod (SNOMED-CT-SE) för typ av provmaterial.\n\nKoden för provmaterial kan även innefatta information om provtagningsmetod.\n\ncode: Kod från Urval provtyp laboratoriemedicin (OID 1.2.752.129.5.1.13) (se [R10])\n\ncodeSystem: 1.2.752.116.2.1.1\n\nRegel 3.5\n\nOm kodad representation av provmaterialtyp från nationellt urval saknas kan datatypens attribut originalText användas för en fritextrepresentation.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:material` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.timestamp",
+      "short" : "timestamp",
+      "definition" : "Angivelse av den tidpunkt då provet är taget.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.anatomicalLocation",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.anatomicalLocation",
+      "short" : "anatomicalLocation",
+      "definition" : "Kod (SNOMED-CT-SE) som anger var provet är taget.\n\nExempel: höger arm, vänster njure.\n\ncode: Kod från Urval anatomisk lokalisation laboratoriemedicin (OID 1.2.752.129.5.1.7) (se [R10])\n\ncodeSystem: 1.2.752.116.2.1.1\n\nRegel 3.5\n\nOm kodad representation av lokalisation från nationellt urval saknas används endast CV-attributet originalText för att ange textuellt alternativ.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:anatomicalLocation` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.comment",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.comment",
+      "short" : "comment",
+      "definition" : "Angivelse av kommentar om enskilt prov.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity",
+      "short" : "SpecimenRelatedActivityType",
+      "definition" : "Håller information om aktiviteter relaterade till hantering av provet.\n\nInkluderar även t.ex. aktiviteter i samband med transport, frysning, förvaring, bearbetning och delning i sekundärprov.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:activity` (`SpecimenRelatedActivityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.code",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.code",
+      "short" : "code",
+      "definition" : "Kod (SNOMED-CT-SE) för provrelaterad aktivitet.\n\ncode: Kod från  SNOMED-CT-SE\n\ncodeSystem: 1.2.752.116.2.1.1\n\nDet finns inget urval utpekat för detta attribut. Regel 3.4",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:activity/*:code` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.time",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.time",
+      "short" : "time",
+      "definition" : "Angivelse av tidpunkt eller tidsintervall då den provrelaterade aktiviteten utfördes.\n\nOm tidpunkt anges sätts start- och sluttid till samma tidpunkt.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:activity/*:time` (`TimePeriodType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.method",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.method",
+      "short" : "method",
+      "definition" : "Kod (SNOMED-CT-SE) för metod för provrelaterad aktivitet.\n\ncode:  Kod från  SNOMED-CT-SE\n\ncodeSystem: 1.2.752.116.2.1.1\n\nDet finns inget urval utpekat för detta attribut. Regel 3.4",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:activity/*:method` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container",
+      "short" : "SpecimenContainerType",
+      "definition" : "Information om den eller de provbehållare som provet förvaras i.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container` (`SpecimenContainerType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.identifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.identifier",
+      "short" : "identifier",
+      "definition" : "Identitetsbeteckning för en provbehållare.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container/*:identifier` (`IIType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.type",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.type",
+      "short" : "type",
+      "definition" : "Kod (SNOMED-CT-SE) för typ av provbehållare.\n\ncode: Kod från Urval provbehållare laboratoriemedicin (OID 1.2.752.129.5.1.12) (se [R10])\n\ncodeSystem: 1.2.752.116.2.1.1\n\nRegel 3.5\n\nOm kod saknas anges typ av provbehållare i orginalText\n\nOm typ av provbehållartyp är okänd anges ”ospecificerad” i attributet originalText",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container/*:type` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device",
+      "short" : "DeviceType",
+      "definition" : "Information om den utrustning som använts för att utföra analysen.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:device` (`DeviceType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device.identifier",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device.identifier",
+      "short" : "identifier",
+      "definition" : "Identitetsbeteckningen för en analysutrustning.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:device/*:identifier` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result",
+      "short" : "LaboratoryAnalysisResultType",
+      "definition" : "Klassen LaboratoryAnalysisResultType håller information om resultat av den utförda analysen.\n\nDetta resultat kan exempelvis bestå av ett mätvärde inom laboratoriedisciplinen kemi, ett fynd av en viss bakterieart eller en textuell beskrivning av analysresultatet. Utöver detta kan en kommentar avseende analysresultatet anges separat.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result` (`LaboratoryAnalysisResultType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.type",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.type",
+      "short" : "type",
+      "definition" : "Kod för typ av laboratorieanalysresultat.\n\ncode: Enligt urval från tillämpningsanvisning\n\ncodeSystem: 1.2.752.108.1 (om NPU-kod) eller 1.2.752.116.2.1.1 (om Snomed CT)",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:type` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value",
+      "short" : "AnyValueType",
+      "definition" : "Angivelse av utfall av den utförda analysen angiven med en och endast en av datatyperna (se kapitel 5 för beskrivning av respektive datatyp):\n\nPQType – mätbart värde\n\nPQIntervalType - intervall av mätbart värde\n\nString – textuellt svar\n\nCVType – kodat värde",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:value` (`AnyValueType`, kardinalitet 1..1).\n\n**Regel 3.3:** Om enhet till provsvar ej finns anges unit som tom sträng.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.cv",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.cv",
+      "short" : "cv",
+      "definition" : "cv",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.pq",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.pq",
+      "short" : "pq",
+      "definition" : "pq",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PQType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.intervalPQ",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.intervalPQ",
+      "short" : "intervalPQ",
+      "definition" : "intervalPQ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PQIntervalType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.st",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value.st",
+      "short" : "st",
+      "definition" : "st",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment",
+      "short" : "comment",
+      "definition" : "Angivelse av kommentar som rör laboratorieanalysresultatet.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.interpretation",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.interpretation",
+      "short" : "interpretation",
+      "definition" : "Kod (SNOMED-CT-SE) för en tolkning av laboratorieanalysresultatet.\n\ncode:  Kod från Urval tolkning resultat laboratoriemedicin (OID 1.2.752.129.5.1.14) (se [R10])\n\ncodeSystem: 1.2.752.116.2.1.1\n\nEn sådan tolkning kan vara att analysresultatet ligger utanför aktuellt referensintervall, vilket även benämns som patologisk markör.\n\nRegel 3.5\n\nOm kod ej kan anges används CV-typens attribut originalText som fritextalternativ.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:interpretation` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference",
+      "short" : "ReferenceType",
+      "definition" : "Information om vilket referensintervall eller referensvärde som gäller för ett resultat.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference` (`ReferenceType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.interval",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.interval",
+      "short" : "interval",
+      "definition" : "Angivelse av referensintervall som numeriskt värde av mätvärden. Ett referensvärde anges genom att antingen ange ett intervall från det lägre värdet till det högre värdet som sätts till referensvärdet, alternativt från referensvärde som start på intervallet utan angivelse av intervallets slut för att ange att normalvärde ligger över referensvärdet.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference/*:interval` (`PQIntervalType`, kardinalitet 0..1).\n\n**Regel 3.3:** Om enhet till provsvar ej finns anges unit som tom sträng.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PQIntervalType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.description",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.description",
+      "short" : "description",
+      "definition" : "Textuell beskrivning av referensintervall.\n\nEtt och endast ett av attributen interval och description ska anges.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference/*:description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.population",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.population",
+      "short" : "population",
+      "definition" : "Angivelse av den referenspopulation som ligger till grund för angivet referensintervall.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference/*:population` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.comment",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.comment",
+      "short" : "comment",
+      "definition" : "Angivelse av kommentar för det angivna referensintervallet.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference/*:comment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature",
+      "short" : "SignatureType",
+      "definition" : "Information avseende signering av en enskild analys.\n\nAnalysen signeras av hälso- och sjukvårdspersonal på den remissvarsmottagande enheten när den förs in i patientjournalen.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature` (`SignatureType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.id",
+      "short" : "id",
+      "definition" : "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)\n\nExtension sätts till HSA-id för hälso- och sjukvårdspersonal",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.name",
+      "short" : "name",
+      "definition" : "Namn på hälso- och sjukvårdspersonal.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.timestamp",
+      "short" : "timestamp",
+      "definition" : "Tidpunkt för signering.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.byRole",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.byRole",
+      "short" : "byRole",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.\n\nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\n\nOm kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature",
+      "short" : "SignatureType",
+      "definition" : "Information avseende signering av en enskild analys.\n\nAnalysen signeras av den hälso- och sjukvårdspersonal som utför analysen.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature` (`SignatureType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.id",
+      "short" : "id",
+      "definition" : "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)\n\nExtension sätts till HSA-id för hälso- och sjukvårdspersonal",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.name",
+      "short" : "name",
+      "definition" : "Namn på hälso- och sjukvårdspersonal.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp",
+      "short" : "timestamp",
+      "definition" : "Tidpunkt då signering genomfördes.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.byRole",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.byRole",
+      "short" : "byRole",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.\n\nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\n\nOm kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related",
+      "short" : "AnalysisType",
+      "definition" : "Relaterade analyser, till exempel mikrobiologiska odlingssvar där resistensbestämning görs på fynd.",
+      "comment" : "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:related` (`AnalysisType`, kardinalitet 0..*).\n\n**Modellanteckning:** related Rekursiv: samma struktur som getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.",
+      "min" : 0,
+      "max" : "*",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome#getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis"
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit",
+      "short" : "OrgUnitType",
+      "definition" : "Mottagande enhet.",
+      "comment" : "TKB-fält: `//*:body/*:recipientUnit` (`OrgUnitType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.id",
+      "short" : "id",
+      "definition" : "Identitet för mottagande enhet.",
+      "comment" : "TKB-fält: `//*:body/*:recipientUnit/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.name",
+      "short" : "name",
+      "definition" : "Namn på mottagande enhet.",
+      "comment" : "TKB-fält: `//*:body/*:recipientUnit/*:name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature",
+      "short" : "SignatureType",
+      "definition" : "Information avseende signering av laboratoriesvaret.\n\nLaboratoriesvaret signeras av hälso- och sjukvårdspersonal på den remissvarsmottagande enheten när det förs in i patientjournalen.",
+      "comment" : "TKB-fält: `//*:body/*:recipientSignature` (`SignatureType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.id",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.id",
+      "short" : "id",
+      "definition" : "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)\n\nExtension sätts till HSA-id för hälso- och sjukvårdspersonal",
+      "comment" : "TKB-fält: `//*:body/*:recipientSignature/*:id` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.name",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.name",
+      "short" : "name",
+      "definition" : "Namn på hälso- och sjukvårdspersonal",
+      "comment" : "TKB-fält: `//*:body/*:recipientSignature/*:name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.timestamp",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.timestamp",
+      "short" : "timestamp",
+      "definition" : "Tidpunkt för signering.",
+      "comment" : "TKB-fält: `//*:body/*:recipientSignature/*:timestamp` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.byRole",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.byRole",
+      "short" : "byRole",
+      "definition" : "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.\n\nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\n\nOm kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.",
+      "comment" : "TKB-fält: `//*:body/*:recipientSignature/*:byRole` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation",
+      "short" : "ContactInformationType",
+      "definition" : "Information om var eller till vem vården kan vända sig vid frågor om laboratoriesvaret.",
+      "comment" : "TKB-fält: `//*:body/*:contactInformation` (`ContactInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation.text",
+      "path" : "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation.text",
+      "short" : "text",
+      "definition" : "Textuell beskrivning av kontaktinformation.\n\nDet kan t.ex. vara telefonnummer och öppettider till en kundtjänst, ett namn på en kontaktperson.",
+      "comment" : "TKB-fält: `//*:body/*:contactInformation/*:text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

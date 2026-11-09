@@ -1,0 +1,70 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getobservations-request","getobservations-request","","","",0,*,"","","","null {[]} {[]}
+","GetObservations — Request","Logisk modell för begäran i tjänstekontraktet GetObservations 1.2
+(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations).
+Den enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1).
+En begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getobservations-request.patientId","getobservations-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","patientId","Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.
+
+Regel 1.1","TKB-fält: `patientId` (`IIType`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getobservations-request.patientId",1,1,"",""
+"getobservations-request.time","getobservations-request.time","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","time","Begränsar sökningen till det angivna intervallet. Om tidsattributet Observation.Time i svaret är en tidpunkt innebär begränsningen att endast poster returneras där Observation.Time i svaret ligger inom sökintervallets start- och sluttidpunkt.
+
+Om tidsattributet Observation.Time i svaret är ett intervall innebär begränsningen att endast poster returneras där tidsintervallet som anges i attributet Observation.Time i svaret, överlappar med det angivna sökintervallet, dvs.
+
+det bildade intervallets starttidpunkt ligger inom sökintervallets start- och sluttidpunkt
+
+det bildade intervallets sluttidpunkt ligger inom sökintervallets start- och sluttidpunkt
+
+det bildade intervallets starttidpunkt ligger före sökintervallets starttidpunkt och sluttidpunkt ligger efter sökintervallets sluttidpunkt","TKB-fält: `time` (`TimePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.time",0,1,"",""
+"getobservations-request.observationType","getobservations-request.observationType","","","",0,*,"","","","Base {[]} {[]}
+","CVType","Begränsning av sökning avseende observationen till en viss typ av värde som man vill titta närmare på, t.ex. kliniskt fynd eller diagnoser.","TKB-fält: `observationType` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType",0,*,"",""
+"getobservations-request.observationType.code","getobservations-request.observationType.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för observationstyp","TKB-fält: `observationType.code` (`String`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.code",1,1,"",""
+"getobservations-request.observationType.codeSystem","getobservations-request.observationType.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodsystem för angiven kod för observationstyp.","TKB-fält: `observationType.codeSystem` (`String`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.codeSystem",1,1,"",""
+"getobservations-request.observationType.codeSystemName","getobservations-request.observationType.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `observationType.codeSystemName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.codeSystemName",0,1,"",""
+"getobservations-request.observationType.codeSystemVersion","getobservations-request.observationType.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Ska ignoreras i begäran och ej skickas.","TKB-fält: `observationType.codeSystemVersion` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.codeSystemVersion",0,1,"",""
+"getobservations-request.observationType.displayName","getobservations-request.observationType.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `observationType.displayName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.displayName",0,1,"",""
+"getobservations-request.observationId","getobservations-request.observationId","","","",0,*,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","observationId","Ett unikt värde för själva observationen som också refererar till vilket källsystem informationen kommer ifrån. Motsvarar observation/id i svaret.","TKB-fält: `observationId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations-request.observationId",0,*,"",""
+"getobservations-request.careGiverId","getobservations-request.careGiverId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","careGiverId","Används när man vill söka hos en specifik vårdgivare.","TKB-fält: `careGiverId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.careGiverId",0,1,"",""
+"getobservations-request.careUnitId","getobservations-request.careUnitId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","careUnitId","Begränsning av sökning mha HSAid för (PDL) vårdenhet som har ansvar för dokumentationen av obdervationen/observationerna.","TKB-fält: `careUnitId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.careUnitId",0,1,"",""
+"getobservations-request.interactionAgreementId","getobservations-request.interactionAgreementId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/UUIDType]]} {[]}
+","interactionAgreementId","Detta attribut används inte. Ange UUID
+
+2866a7c4-9c60-433f-9035-a4d779ffe7a1","TKB-fält: `interactionAgreementId` (`UUIDType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations-request.interactionAgreementId",1,1,"",""
+"getobservations-request.sourceSystemHSAId","getobservations-request.sourceSystemHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.  Motsvarar observationGroup/sourceSystem i svaret.","TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.sourceSystemHSAId",0,1,"",""
+"getobservations-request.relation","getobservations-request.relation","","","",0,*,"","","","Base {[]} {[]}
+","RelationFilterType","Endast de poster med relationer som matchar villkoren i denna lista skall returneras. Om listan är tom filtreras inte observationer på deras relationer.","TKB-fält: `relation` (`RelationFilterType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations-request.relation",0,*,"",""
+"getobservations-request.relation.id","getobservations-request.relation.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","Filtrera poster på den identitet som anges i sambandet/relationen. Detta ger exempelvis möjlighet att söka ut alla observationer som har en relation till en viss aktivitet.","TKB-fält: `relation.id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.id",0,1,"",""
+"getobservations-request.relation.typeCode","getobservations-request.relation.typeCode","","","",0,1,"","","","Base {[]} {[]}
+","CVType","Filtrera på sambandstyp","TKB-fält: `relation.typeCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode",0,1,"",""
+"getobservations-request.relation.typeCode.code","getobservations-request.relation.typeCode.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för sambandstyp","TKB-fält: `relation.typeCode.code` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.code",1,1,"",""
+"getobservations-request.relation.typeCode.codeSystem","getobservations-request.relation.typeCode.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodsystem för sambandstyp","TKB-fält: `relation.typeCode.codeSystem` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.codeSystem",1,1,"",""
+"getobservations-request.relation.typeCode.codeSystemName","getobservations-request.relation.typeCode.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `relation.typeCode.codeSystemName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.codeSystemName",0,1,"",""
+"getobservations-request.relation.typeCode.codeSystemVersion","getobservations-request.relation.typeCode.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Versionsnummer för använt kodsystem.","TKB-fält: `relation.typeCode.codeSystemVersion` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.codeSystemVersion",0,1,"",""
+"getobservations-request.relation.typeCode.displayName","getobservations-request.relation.typeCode.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `relation.typeCode.displayname` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.displayName",0,1,"",""
+"getobservations-request.relation.referredInformationType","getobservations-request.relation.referredInformationType","","","",1,1,"","","","string {[]} {[]}
+","referredInformationType","Den typ av uppgift i patientjournal som sambandet pekar ut. Detta är en kod från Categorization i engagemangsindexposten. I denna version av tjänstekontraktet är följande typer möjliga:
+
+chb-o  (observation)
+
+caa-a (aktivitet)","TKB-fält: `relation. referredInformationType` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.referredInformationType",1,1,"",""

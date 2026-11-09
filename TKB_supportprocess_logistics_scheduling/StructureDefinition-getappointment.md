@@ -1,0 +1,916 @@
+# GetAppointment — Response - supportprocess: logistics: scheduling v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetAppointment — Response**
+
+## Logical Model: GetAppointment — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetAppointment |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetAppointment (urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-scheduling|current/StructureDefinition/StructureDefinition-getappointment.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getappointment.csv), [Excel](StructureDefinition-getappointment.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getappointment",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment",
+  "version" : "2.0",
+  "name" : "GetAppointment",
+  "title" : "GetAppointment — Response",
+  "status" : "draft",
+  "date" : "2026-11-09T03:52:57+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getappointment",
+      "path" : "getappointment",
+      "short" : "GetAppointment — Response",
+      "definition" : "Logisk modell för svaret i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType)."
+    },
+    {
+      "id" : "getappointment.appointment",
+      "path" : "getappointment.appointment",
+      "short" : "AppointmentType",
+      "definition" : "Information om den aktuella tidbokningen.\n\nSvaret tillåts vara tomt i fallet där tidbokningssystemet inte kan matcha det angivna boknings-id eller personnumret som skickades i begäran",
+      "comment" : "TKB-fält: `appointment` (`AppointmentType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.appointmentId",
+      "path" : "getappointment.appointment.appointmentId",
+      "short" : "appointmentId",
+      "definition" : "Unikt id för bokningen. Ska uttryckas som uuid (universally unique identifier).",
+      "comment" : "TKB-fält: `appointment.appointmentId` (`uuidType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/uuidType"]
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.relatedAppointmentId",
+      "path" : "getappointment.appointment.relatedAppointmentId",
+      "short" : "relatedAppointmentId",
+      "definition" : "Unikt id för tidbokning(ar) som är relaterade till denna tidbokning. Ska uttryckas som uuid (universally unique identifier).",
+      "comment" : "TKB-fält: `appointment.relatedAppointmentId` (`uuidType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/uuidType"]
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot",
+      "path" : "getappointment.appointment.timeslot",
+      "short" : "TimeslotType",
+      "definition" : "Tidslucka som tidbokningen gäller",
+      "comment" : "TKB-fält: `appointment.timeslot` (`TimeslotType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeslotId",
+      "path" : "getappointment.appointment.timeslot.timeslotId",
+      "short" : "timeslotId",
+      "definition" : "Unikt id för tidsluckan. Ska uttryckas som uuid (universally unique identifier).",
+      "comment" : "TKB-fält: `appointment.timeslot.timeslotId` (`uuidType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/uuidType"]
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType",
+      "path" : "getappointment.appointment.timeslot.timeType",
+      "short" : "TimeTypeType",
+      "definition" : "Typ av tid som uttrycker var bokningen/besöket avser",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType` (`TimeTypeType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.code",
+      "path" : "getappointment.appointment.timeslot.timeType.code",
+      "short" : "code",
+      "definition" : "Kod för tidstypen",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.code` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.hidden",
+      "path" : "getappointment.appointment.timeslot.timeType.hidden",
+      "short" : "hidden",
+      "definition" : "Visar huruvida tidstypen är märkt som skyddad av verksamheten – hidden=TRUE.\n\nEn skyddad tidstyp ska inte vara valbar för invånare från en lista med tidstyper som vårdcentralen erbjuder, t ex vid ett nybokningsflöde. Skyddade tidstyper ska bara kunna bokas av invånare om verksamheten tilldelat tidstypen till invånaren, t ex genom en digital kallelse eller om invånare blivit triagerad i ett försteg och resultatet därifrån resulterat i tidstypen. Om attributet utelämnas ska tidstypen anses vara ”ej skyddad”.",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.hidden` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode",
+      "short" : "careContactCode",
+      "definition" : "Anger vilken typ av vårdkontakt som bokningen avser. Se Kv kontakttyp för vidare information (https://inera.atlassian.net/wiki/download/attachments/2648506471/kv_kontakttyp.xlsx?api=v2).\n\nObservera att schemat definierar kardinaliteten så som [0..*]. Schemats kardinalitet är applicerbart då tidstypen förmedlas tillsammans med en ledig tid (tidslucka) och då verksamheten erbjuder tiden valbart så som olika kontakttyper (t ex fysiskt besök eller videomöte). När vårdkontaktstypen förmedlas tillsammans med bokningen är det redan bestämt på vilket sätt besöket ska utföras. Därav kardinaliteten [0..1] i detta kontext.",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.careContactCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService",
+      "short" : "HealthcareServiceType",
+      "definition" : "Anger vilken typ av vårdtjänst",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.healthcareService` (`HealthcareServiceType`).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.code",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.code",
+      "short" : "SnomedCtType",
+      "definition" : "code",
+      "comment" : "TKB-fält: `../../../../code` (`SnomedCtType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information",
+      "short" : "InformationType",
+      "definition" : "information",
+      "comment" : "TKB-fält: `../../../../information` (`InformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information.header",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../../../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information.description",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../../../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information.link",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../../../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm",
+      "short" : "InformationType",
+      "definition" : "conditionsToConfirm",
+      "comment" : "TKB-fält: `../../../../conditionsToConfirm` (`InformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.header",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../../../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.description",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../../../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.link",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../../../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareTeam",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareTeam",
+      "short" : "healthcareTeam",
+      "definition" : "Anger huruvida patienten möter ett team av personal vid besöket. Om attributet utelämnas anses besöket ej vara av typen teambokning.",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.healthcareTeam` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.patientGroup",
+      "path" : "getappointment.appointment.timeslot.timeType.patientGroup",
+      "short" : "patientGroup",
+      "definition" : "Bokning av tid där flera personer/patienter i grupp möter vården för samma typ av vårdtjänst. Om attributet utelämnas anses besöket ej vara av typen gruppbokning",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.patientGroup` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.cancelAppointmentAllowed",
+      "path" : "getappointment.appointment.timeslot.timeType.cancelAppointmentAllowed",
+      "short" : "cancelAppointmentAllowed",
+      "definition" : "Anger huruvida invånaren tillåts att avboka bokningen via e-tjänst",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.cancelAppointmentAllowed` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.updateAppointmentAllowed",
+      "path" : "getappointment.appointment.timeslot.timeType.updateAppointmentAllowed",
+      "short" : "updateAppointmentAllowed",
+      "definition" : "Anger huruvida invånaren tillåts att omboka bokningen via e-tjänst",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.updateAppointmentAllowed` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule",
+      "short" : "TimeTypeRulesType",
+      "definition" : "Regler och inställningar som ska appliceras vid ett ny-/om- och avbokningsflöde. Observera kardinaliteten för attributet, endast en instans av appointmentRule får anges per flödestyp (Nybokning/Ombokning/Avbokning).",
+      "comment" : "TKB-fält: `appointment.timeslot.timeType.appointmentRule` (`TimeTypeRulesType`, kardinalitet 0..3).",
+      "min" : 0,
+      "max" : "3",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.type",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.type",
+      "short" : "type",
+      "definition" : "type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING.",
+      "comment" : "TKB-fält: `../../../../type` (`ProcessEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-process-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonTextRequired",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonTextRequired",
+      "short" : "reasonTextRequired",
+      "definition" : "reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
+      "comment" : "TKB-fält: `../../../../reasonTextRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-reasonrequired-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodeRequired",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodeRequired",
+      "short" : "reasonCodeRequired",
+      "definition" : "reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
+      "comment" : "TKB-fält: `../../../../reasonCodeRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-reasonrequired-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes",
+      "short" : "reasonCodes",
+      "definition" : "reasonCodes",
+      "comment" : "TKB-fält: `../../../../reasonCodes` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information",
+      "short" : "InformationType",
+      "definition" : "information",
+      "comment" : "TKB-fält: `../../../../information` (`InformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.header",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../../../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.description",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../../../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.link",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../../../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm",
+      "short" : "InformationType",
+      "definition" : "conditionToConfirm",
+      "comment" : "TKB-fält: `../../../../conditionToConfirm` (`InformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.header",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../../../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.description",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../../../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.link",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../../../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.startTime",
+      "path" : "getappointment.appointment.timeslot.startTime",
+      "short" : "startTime",
+      "definition" : "Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.",
+      "comment" : "TKB-fält: `appointment.timeslot.startTime` (`TS (string)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.endTime",
+      "path" : "getappointment.appointment.timeslot.endTime",
+      "short" : "endTime",
+      "definition" : "endTime",
+      "comment" : "TKB-fält: `../../endTime` (`TS`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeLength",
+      "path" : "getappointment.appointment.timeslot.timeLength",
+      "short" : "timeLength",
+      "definition" : "Längd på besöket i minuter",
+      "comment" : "TKB-fält: `appointment.timeslot.timeLength` (`double`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.healthcareFacilityHSAId",
+      "path" : "getappointment.appointment.timeslot.healthcareFacilityHSAId",
+      "short" : "HSAIdType",
+      "definition" : "healthcareFacilityHSAId",
+      "comment" : "TKB-fält: `../../healthcareFacilityHSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner",
+      "path" : "getappointment.appointment.timeslot.practitioner",
+      "short" : "PractitionerType",
+      "definition" : "practitioner",
+      "comment" : "TKB-fält: `../../practitioner` (`PractitionerType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.HSAId",
+      "path" : "getappointment.appointment.timeslot.practitioner.HSAId",
+      "short" : "HSAIdType",
+      "definition" : "HSAId",
+      "comment" : "TKB-fält: `../../../HSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.firstName",
+      "path" : "getappointment.appointment.timeslot.practitioner.firstName",
+      "short" : "firstName",
+      "definition" : "firstName",
+      "comment" : "TKB-fält: `../../../firstName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.lastName",
+      "path" : "getappointment.appointment.timeslot.practitioner.lastName",
+      "short" : "lastName",
+      "definition" : "lastName",
+      "comment" : "TKB-fält: `../../../lastName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.title",
+      "path" : "getappointment.appointment.timeslot.practitioner.title",
+      "short" : "title",
+      "definition" : "title",
+      "comment" : "TKB-fält: `../../../title` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource",
+      "path" : "getappointment.appointment.timeslot.resource",
+      "short" : "ResourceType",
+      "definition" : "En resurs är något som kan tas i anspråk för eller krävs för genomförande av aktiviteter eller processer inom vård och omsorg och som inte avser personer eller organisationer. Exempel är olika typer av medicintekniska produkter inom hälso- och sjukvård och pengar som betalas ut till brukaren inom socialtjänst.",
+      "comment" : "TKB-fält: `appointment.timeslot.resource` (`ResourceType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource",
+      "short" : "typeOfResource",
+      "definition" : "typeOfResource",
+      "comment" : "TKB-fält: `../../../typeOfResource` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute",
+      "short" : "resourceAttribute",
+      "definition" : "resourceAttribute",
+      "comment" : "TKB-fält: `../../../resourceAttribute` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.description",
+      "path" : "getappointment.appointment.timeslot.resource.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.withinCareGuarantee",
+      "path" : "getappointment.appointment.timeslot.withinCareGuarantee",
+      "short" : "withinCareGuarantee",
+      "definition" : "Flagga som visar huruvida denna tidslucka ligger inom Vårdgarantin. Flaggan är intressant att förmedla i samband med exempelvis ett nybokningsflöde, då invånaren söker efter lediga tider. Flaggan relaterar således till den tidpunkt då invånaren begärde att söka efter lediga tider.",
+      "comment" : "TKB-fält: `appointment.timeslot.withinCareGuarantee` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.alternativeLocation",
+      "path" : "getappointment.appointment.timeslot.alternativeLocation",
+      "short" : "alternativeLocation",
+      "definition" : "alternativeLocation",
+      "comment" : "TKB-fält: `../../alternativeLocation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.personId",
+      "path" : "getappointment.appointment.personId",
+      "short" : "PersonIdType",
+      "definition" : "Patientens personnummer, för den patient som tidbokningen gäller",
+      "comment" : "TKB-fält: `appointment.personId` (`PersonIdType / (IIType)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information",
+      "path" : "getappointment.appointment.information",
+      "short" : "InformationType",
+      "definition" : "Information som verksamheten vill förmedla inför besöket",
+      "comment" : "TKB-fält: `appointment.information` (`InformationType`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information.header",
+      "path" : "getappointment.appointment.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information.description",
+      "path" : "getappointment.appointment.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information.link",
+      "path" : "getappointment.appointment.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.status",
+      "path" : "getappointment.appointment.status",
+      "short" : "status",
+      "definition" : "Visar vilket tillstånd bokningen är i. Giltiga tillstånd:\n\n1) confirm = bokningen är bekräftad av patienten\n\n2) preliminary = bokningen är ännu inte bekräftad av patienten",
+      "comment" : "TKB-fält: `appointment.status` (`AppointmentStatusEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** status Tillåtna värden: confirmed, preliminary.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-appointmentstatus-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonText",
+      "path" : "getappointment.appointment.newAppointmentReasonText",
+      "short" : "newAppointmentReasonText",
+      "definition" : "Patientens angivna anledning till nybokningen i fritext.",
+      "comment" : "TKB-fält: `appointment.newAppointmentReasonText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode",
+      "path" : "getappointment.appointment.newAppointmentReasonCode",
+      "short" : "newAppointmentReasonCode",
+      "definition" : "Patientens angivna anledning till nybokningen, representerad som kod.",
+      "comment" : "TKB-fält: `appointment.newAppointmentReasonCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonText",
+      "path" : "getappointment.appointment.updateAppointmentReasonText",
+      "short" : "updateAppointmentReasonText",
+      "definition" : "Patientens angivna anledning till ombokningen i fritext. Om bokningen har ombokats i flera omgångar ska senaste anledningen anges.",
+      "comment" : "TKB-fält: `appointment.updateAppointmentReasonText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode",
+      "short" : "updateAppointmentReasonCode",
+      "definition" : "Patientens angivna anledning till ombokningen, representerad som kod. Om bokningen har ombokats i flera omgångar ska senaste anledningen anges.",
+      "comment" : "TKB-fält: `appointment.updateAppointmentReasonCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.alternativeLocation",
+      "path" : "getappointment.appointment.alternativeLocation",
+      "short" : "alternativeLocation",
+      "definition" : "En alternativ adress för bokningen att presentera för invånaren. En alternativ adress kan vara intressant att förmedla om besöket ska ske på annan adress än där mottagningen normalt utför besök. Fältet är frivilligt.",
+      "comment" : "TKB-fält: `appointment.alternativeLocation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference",
+      "path" : "getappointment.appointment.reference",
+      "short" : "ReferenceType",
+      "definition" : "Referenser som ska förmedlas till patienten kopplat till besöket. Referenserna kan exempelvis peka på websidor öppna på nätet.",
+      "comment" : "TKB-fält: `appointment.reference` (`ReferenceType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference.name",
+      "path" : "getappointment.appointment.reference.name",
+      "short" : "name",
+      "definition" : "name",
+      "comment" : "TKB-fält: `../../name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference.description",
+      "path" : "getappointment.appointment.reference.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference.link",
+      "path" : "getappointment.appointment.reference.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.resultCode",
+      "path" : "getappointment.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR.",
+      "comment" : "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_MAKE_APPOINTMENT, USER_IS_ALREADY_OCCUPIED, APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_UPDATE_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, USER_IS_ALREADY_OCCUPIED, UPDATE_APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, TOO_LATE_TO_CANCEL_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CANCEL_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CONFIRMED, TOO_LATE_TO_CONFIRM_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CONFIRM_IS_NOT_ALLOWED.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-resultcode-vs"
+      }
+    },
+    {
+      "id" : "getappointment.resultText",
+      "path" : "getappointment.resultText",
+      "short" : "resultText",
+      "definition" : "Kan utelämnas om resultCode = OK.\n\nProducent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR",
+      "comment" : "TKB-fält: `resultText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

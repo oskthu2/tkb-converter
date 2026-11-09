@@ -1,0 +1,715 @@
+# GetHospPersonForIVO - masterdata: organisationalresources: licensetopractice v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHospPersonForIVO**
+
+## Logical Model: GetHospPersonForIVO 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforivo | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetHospPersonForIVO |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetHospPersonForIVO (RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2). Representerar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation. Tjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register över hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.masterdata-organisationalresources-licensetopractice|current/StructureDefinition/StructureDefinition-gethosppersonforivo.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethosppersonforivo.csv), [Excel](StructureDefinition-gethosppersonforivo.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethosppersonforivo",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforivo",
+  "version" : "2.0",
+  "name" : "GetHospPersonForIVO",
+  "title" : "GetHospPersonForIVO",
+  "status" : "active",
+  "date" : "2026-11-09T03:45:04+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetHospPersonForIVO\n(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2).\nRepresenterar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation.\nTjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register\növer hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforivo",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethosppersonforivo",
+      "path" : "gethosppersonforivo",
+      "short" : "GetHospPersonForIVO",
+      "definition" : "Logisk modell för tjänstekontraktet GetHospPersonForIVO\n(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2).\nRepresenterar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation.\nTjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register\növer hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten."
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson",
+      "path" : "gethosppersonforivo.hospPerson",
+      "short" : "HospPersonType",
+      "definition" : "hospPerson",
+      "comment" : "TKB-fält: `hospPerson*` (`HospPersonType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.hospId",
+      "path" : "gethosppersonforivo.hospPerson.hospId",
+      "short" : "HospIdType",
+      "definition" : "Unikt ID för en person i HOSP",
+      "comment" : "TKB-fält: `..hospId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.hospId.extension",
+      "path" : "gethosppersonforivo.hospPerson.hospId.extension",
+      "short" : "extension",
+      "definition" : "Identitet.",
+      "comment" : "TKB-fält: `../../extension` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.hospId.root",
+      "path" : "gethosppersonforivo.hospPerson.hospId.root",
+      "short" : "root",
+      "definition" : "OID= \"1.2.752.116.3.1.1\".",
+      "comment" : "TKB-fält: `../../root` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.personId",
+      "path" : "gethosppersonforivo.hospPerson.personId",
+      "short" : "PersonIdType",
+      "definition" : "Ett personnummer eller samordningsnummer för en person.",
+      "comment" : "TKB-fält: `../personId` (`II`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.personId.extension",
+      "path" : "gethosppersonforivo.hospPerson.personId.extension",
+      "short" : "extension",
+      "definition" : "Identitet i form av ÅÅÅÅMMDDXXXX.",
+      "comment" : "TKB-fält: `../../ extension` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.personId.root",
+      "path" : "gethosppersonforivo.hospPerson.personId.root",
+      "short" : "root",
+      "definition" : "Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: \"1.2.752.129.2.1.3.1\"\n\nSamordningsnummer: \"1.2.752.129.2.1.3.3\"",
+      "comment" : "TKB-fält: `../../ root` (`String`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Modellanteckning:** root Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.tidigarePersonId",
+      "path" : "gethosppersonforivo.hospPerson.tidigarePersonId",
+      "short" : "PersonIdType",
+      "definition" : "Ett personnummer eller samordningsnummer för en person om de bytt personId.",
+      "comment" : "TKB-fält: `../tidigarePersonId` (`II`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.tidigarePersonId.extension",
+      "path" : "gethosppersonforivo.hospPerson.tidigarePersonId.extension",
+      "short" : "extension",
+      "definition" : "Identitet i form av ÅÅÅÅMMDDXXXX.",
+      "comment" : "TKB-fält: `../../ extension` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.tidigarePersonId.root",
+      "path" : "gethosppersonforivo.hospPerson.tidigarePersonId.root",
+      "short" : "root",
+      "definition" : "Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: \"1.2.752.129.2.1.3.1\"\n\nSamordningsnummer: \"1.2.752.129.2.1.3.3\"",
+      "comment" : "TKB-fält: `../../ root` (`String`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.\n\n**Modellanteckning:** root Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.efternamn",
+      "path" : "gethosppersonforivo.hospPerson.efternamn",
+      "short" : "efternamn",
+      "definition" : "En persons efternamn",
+      "comment" : "TKB-fält: `../efternamn` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.mellannamn",
+      "path" : "gethosppersonforivo.hospPerson.mellannamn",
+      "short" : "mellannamn",
+      "definition" : "En persons mellannamn.",
+      "comment" : "TKB-fält: `../mellannamn` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.samtligaFornamn",
+      "path" : "gethosppersonforivo.hospPerson.samtligaFornamn",
+      "short" : "samtligaFornamn",
+      "definition" : "En persons samtliga förnamn",
+      "comment" : "TKB-fält: `../samtligaFornamn` (`String`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.tilltalsnamn",
+      "path" : "gethosppersonforivo.hospPerson.tilltalsnamn",
+      "short" : "tilltalsnamn",
+      "definition" : "Markering för tilltalsnamn",
+      "comment" : "TKB-fält: `../tilltalsnamn` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.fodelsedatum",
+      "path" : "gethosppersonforivo.hospPerson.fodelsedatum",
+      "short" : "fodelsedatum",
+      "definition" : "Datum för en persons födelse, anges enligt ÅÅÅÅMMDD",
+      "comment" : "TKB-fält: `../fodelsedatum` (`date`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.kon",
+      "path" : "gethosppersonforivo.hospPerson.kon",
+      "short" : "KonType",
+      "definition" : "Personens kön. OID=\"1.2.752.116.3.1.3\"",
+      "comment" : "TKB-fält: `../kon` (`CV`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.lan",
+      "path" : "gethosppersonforivo.hospPerson.lan",
+      "short" : "LanType",
+      "definition" : "Personens länstillhörighet. OID=\"1.2.752.129.2.2.1.18\"",
+      "comment" : "TKB-fält: `../lan` (`CV`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.kommun",
+      "path" : "gethosppersonforivo.hospPerson.kommun",
+      "short" : "KommunType",
+      "definition" : "Personens kommuntillhörighet. OID=\"1.2.752.129.2.2.1.17\"",
+      "comment" : "TKB-fält: `../kommun` (`CV`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.folkbokforingsort",
+      "path" : "gethosppersonforivo.hospPerson.folkbokforingsort",
+      "short" : "folkbokforingsort",
+      "definition" : "Personens folkbokföringsort",
+      "comment" : "TKB-fält: `../folkbokforingsort` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.skyddadIdentitet",
+      "path" : "gethosppersonforivo.hospPerson.skyddadIdentitet",
+      "short" : "skyddadIdentitet",
+      "definition" : "Sant om personen har en sekretessmarkering",
+      "comment" : "TKB-fält: `../skyddadIdentitet*` (`Boolean`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning",
+      "path" : "gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning",
+      "short" : "skyddadIdentitetUpplysning",
+      "definition" : "Upplysning gällande en person med skyddad identitet",
+      "comment" : "TKB-fält: `../skyddadIdentitetUpplysning*` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.avliden",
+      "path" : "gethosppersonforivo.hospPerson.avliden",
+      "short" : "avliden",
+      "definition" : "Sant om en person är avliden",
+      "comment" : "TKB-fält: `../avliden` (`Boolean`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.avlidenDatum",
+      "path" : "gethosppersonforivo.hospPerson.avlidenDatum",
+      "short" : "avlidenDatum",
+      "definition" : "Datum för en avliden person. Anges som ÅÅÅÅMMDD",
+      "comment" : "TKB-fält: `../avlidenDatum` (`Datum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.utvandrad",
+      "path" : "gethosppersonforivo.hospPerson.utvandrad",
+      "short" : "utvandrad",
+      "definition" : "Sant om personen har utvandrat",
+      "comment" : "TKB-fält: `../utvandrad` (`Boolean`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.forskrivarkod",
+      "path" : "gethosppersonforivo.hospPerson.forskrivarkod",
+      "short" : "ForskrivarkodType",
+      "definition" : "En persons förskrivarkod",
+      "comment" : "TKB-fält: `../forskrivarkod` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.forskrivarkod.extension",
+      "path" : "gethosppersonforivo.hospPerson.forskrivarkod.extension",
+      "short" : "extension",
+      "definition" : "Förskrivarkod",
+      "comment" : "TKB-fält: `../../ extension` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.forskrivarkod.root",
+      "path" : "gethosppersonforivo.hospPerson.forskrivarkod.root",
+      "short" : "root",
+      "definition" : "OID = \" 1.2.752.116.3.1.2\"",
+      "comment" : "TKB-fält: `../../ root` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation",
+      "path" : "gethosppersonforivo.hospPerson.legitimation",
+      "short" : "LegitimationType",
+      "definition" : "Legitimation innehåller en beskrivning av en persons legitimation",
+      "comment" : "TKB-fält: `../legitimation` (`LegitimationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.legitimeratYrke",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.legitimeratYrke",
+      "short" : "LegitimeratYrkeTyp",
+      "definition" : "Anger vilket legitimerat yrke som avses",
+      "comment" : "TKB-fält: `../../ legitimeratYrke` (`CV`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.giltigLegitimation",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.giltigLegitimation",
+      "short" : "giltigLegitimation",
+      "definition" : "Anger om legitimationen är giltig",
+      "comment" : "TKB-fält: `../../giltigLegitimation` (`Boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.utbildning",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.utbildning",
+      "short" : "UtbildningType",
+      "definition" : "Anger en persons utbildning för denna legitimation. OID= \"1.2.752.116.3.1.4\"",
+      "comment" : "TKB-fält: `../../utbildning` (`CV`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.utbildningsland",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.utbildningsland",
+      "short" : "utbildningsland",
+      "definition" : "Land där utbildning skedde om ej svensk utbildning",
+      "comment" : "TKB-fält: `../../utbildningsland` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse",
+      "short" : "internationellOverrenskommelse",
+      "definition" : "Internationell överrenskommelse anges för personer som har primär legitimation inom annat EU/EES-land",
+      "comment" : "TKB-fält: `../../internationellOverrenskommelse` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.legitimationsDatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.legitimationsDatum",
+      "short" : "legitimationsDatum",
+      "definition" : "Datum från vilket legitimationen är giltig. Anges som ÅÅÅÅMMDD",
+      "comment" : "TKB-fält: `../../legitimationsDatum` (`Datum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut",
+      "short" : "beslutsdatumFysioterapeut",
+      "definition" : "Anger datum då en person övergått från legitimerat yrke SG till FT",
+      "comment" : "TKB-fält: `../../beslutsdatumFysioterapeut` (`Datum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.examensdatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.examensdatum",
+      "short" : "examensdatum",
+      "definition" : "Datum för examen",
+      "comment" : "TKB-fält: `../../examensdatum` (`Datum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.larosate",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.larosate",
+      "short" : "larosate",
+      "definition" : "Lärosäte för examen",
+      "comment" : "TKB-fält: `../../lärosäte` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.grundyrke",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.grundyrke",
+      "short" : "grundyrke",
+      "definition" : "Grundyrke för examen",
+      "comment" : "TKB-fält: `../../grundyrke` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.forskrivningsratt",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.forskrivningsratt",
+      "short" : "forskrivningsratt",
+      "definition" : "forskrivningsratt",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum",
+      "short" : "forskrivningsrattDatum",
+      "definition" : "forskrivningsrattDatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis",
+      "short" : "SpecialistbevisType",
+      "definition" : "specialistbevis",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning",
+      "short" : "SpecialistinriktningType",
+      "definition" : "Anger vilken specialistinriktning som avses, OIDer se informationsspecifikationen",
+      "comment" : "TKB-fält: `../../../specialistinriktning` (`CV`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland",
+      "short" : "utbildningsland",
+      "definition" : "Land där utbildning skedde om ej svensk utbildning",
+      "comment" : "TKB-fält: `../../../utbildningsland` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse",
+      "short" : "internationellOverrenskommelse",
+      "definition" : "Internationell överrenskommelse anges för personer som har primär legitimation inom annat EU/EES-land",
+      "comment" : "TKB-fält: `../../../internationellOverrenskommelse` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum",
+      "short" : "specialistbevisDatum",
+      "definition" : "Datum från vilket specialistbeviset är giltigt. Anges som ÅÅÅÅMMDD",
+      "comment" : "TKB-fält: `../../../ specialistbevisDatum` (`Datum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning",
+      "short" : "BehorighetsbegransningType",
+      "definition" : "behorighetsbegransning",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning",
+      "short" : "TypAvBehorighetsbegransning",
+      "definition" : "Anger typ av behörighetsbegränsning för en viss legitimation",
+      "comment" : "TKB-fält: `../../../typAvBehorighetsbegransning` (`CV`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum",
+      "short" : "fromDatum",
+      "definition" : "fromDatum",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum",
+      "short" : "tomDatum",
+      "definition" : "tomDatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.begransadForskrivningsrattText",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.begransadForskrivningsrattText",
+      "short" : "begransadForskrivningsrattText",
+      "definition" : "begransadForskrivningsrattText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet",
+      "short" : "OvrigBehorighetType",
+      "definition" : "ovrigBehorighet",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet",
+      "short" : "UtbildningType",
+      "definition" : "Anger vilken specialistinriktning som avses, OIDer se informationsspecifikationen",
+      "comment" : "TKB-fält: `../../../behorighet` (`CV`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum",
+      "path" : "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum",
+      "short" : "behorighetsDatum",
+      "definition" : "Datum från vilket behorigheten är giltigt. Anges som ÅÅÅÅMMDD",
+      "comment" : "TKB-fält: `../../../ behorighetsDatum` (`Datum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum"]
+      }]
+    }]
+  }
+}
+
+```

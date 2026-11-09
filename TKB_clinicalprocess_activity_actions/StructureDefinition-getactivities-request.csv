@@ -1,0 +1,75 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getactivities-request","getactivities-request","","","",0,*,"","","","null {[]} {[]}
+","GetActivities — Request","Logisk modell för requestparametrar i tjänstekontraktet GetActivities
+(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).
+Den enda obligatoriska sökparametern är patientId.
+Övriga parametrar är valfria filter (se Regel 1.1).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getactivities-request.patientId","getactivities-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","patientId","Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.
+
+Regel 1.1","TKB-fält: `patientId` (`IIType`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getactivities-request.patientId",1,1,"",""
+"getactivities-request.time","getactivities-request.time","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","time","Begränsar sökningen till det angivna intervallet. Om tidsattributet Activity.Time i svaret är en tidpunkt innebär begränsningen att endast poster returneras där Activity.Time i svaret ligger inom sökintervallets start- och sluttidpunkt.
+
+Om tidsattributet Activity.Time i svaret är ett intervall innebär begränsningen att endast poster returneras där tidsintervallet som anges i attributet Activity.Time i svaret, överlappar med det angivna sökintervallet, dvs.
+
+det bildade intervallets starttidpunkt ligger inom sökintervallets start- och sluttidpunkt
+
+det bildade intervallets sluttidpunkt ligger inom sökintervallets start- och sluttidpunkt
+
+det bildade intervallets starttidpunkt ligger före sökintervallets starttidpunkt och sluttidpunkt ligger efter sökintervallets sluttidpunkt
+
+Om sökningen begränsas med detta attribut ska poster som saknar Activity.Time inte returneras. Om sökningen inte begränsas med detta attribut returneras även poster som saknar Activity.Time.","TKB-fält: `time` (`TimePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities-request.time",0,1,"",""
+"getactivities-request.activityCode","getactivities-request.activityCode","","","",0,*,"","","","Base {[]} {[]}
+","CVType","Begränsar sökningen till en viss typ av aktivitet. Motsvarar activity.code i svaret.","TKB-fält: `activityCode` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getactivities-request.activityCode",0,*,"",""
+"getactivities-request.activityCode.code","getactivities-request.activityCode.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för aktivitet","TKB-fält: `activityCode.code` (`String`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getactivities-request.activityCode.code",1,1,"",""
+"getactivities-request.activityCode.codeSystem","getactivities-request.activityCode.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodsystem för angiven kod.","TKB-fält: `activityCode.codeSystem` (`String`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getactivities-request.activityCode.codeSystem",1,1,"",""
+"getactivities-request.activityCode.codeSystemName","getactivities-request.activityCode.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Del av standarddatatyp. Ska ignoreras i begäran.","TKB-fält: `activityCode.codeSystemName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities-request.activityCode.codeSystemName",0,1,"",""
+"getactivities-request.activityCode.codeSystemVersion","getactivities-request.activityCode.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Versionsnummer för använt kodsystem.","TKB-fält: `activityCode.codeSystemVersion` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities-request.activityCode.codeSystemVersion",0,1,"",""
+"getactivities-request.activityCode.displayName","getactivities-request.activityCode.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Del av standarddatatyp. Ska ignoreras i begäran.","TKB-fält: `activityCode.displayName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities-request.activityCode.displayName",0,1,"",""
+"getactivities-request.activityId","getactivities-request.activityId","","","",0,*,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","activityId","Ett unikt värde för själva aktiviteten som också refererar till vilket källsystem informationen kommer ifrån. Motsvarar activity/id i svaret.","TKB-fält: `activityId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getactivities-request.activityId",0,*,"",""
+"getactivities-request.careGiverId","getactivities-request.careGiverId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","careGiverId","Begränsar sökningen till aktivitet från en specifik vårdgivare. Motsvarar activityGroup/performerRole/careUnit/ careGiver i svaret.","TKB-fält: `careGiverId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities-request.careGiverId",0,1,"",""
+"getactivities-request.careUnitId","getactivities-request.careUnitId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","careUnitId","Begränsar sökningen till en vårdenhet (se [R15] förytterligare information om begreppet vårdenhet) som har ansvar för dokumentationen av en aktivitet. Motsvarar activityGroup/performerRole/careUnit/ i svaret.","TKB-fält: `careUnitId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities-request.careUnitId",0,1,"",""
+"getactivities-request.interactionAgreementId","getactivities-request.interactionAgreementId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/UUIDType]]} {[]}
+","interactionAgreementId","Detta attribut används inte. Ange alltid UUID
+
+2866a7c4-9c60-433f-9035-a4d779ffe7a1","TKB-fält: `interactionAgreementId` (`UUIDType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getactivities-request.interactionAgreementId",1,1,"",""
+"getactivities-request.sourceSystemId","getactivities-request.sourceSystemId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","sourceSystemId","Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem. Motsvarar activityGroup/sourceSystem i svaret.","TKB-fält: `sourceSystemId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities-request.sourceSystemId",0,1,"",""
+"getactivities-request.relation","getactivities-request.relation","","","",0,*,"","","","Base {[]} {[]}
+","RelationFilterType","Begränsar sökningen till aktiviteter med avseende på hur de är relaterade till andra uppgifter i journalsystem. Endast de poster med relationer som matchar villkoren i denna lista skall returneras. Om listan är tom filtreras inte aktiviteter på deras relationer. Motsvarar activityGroup/activity/relation i svaret.
+
+Minst en av relation.typeCode och relation.id skall vara angiven.","TKB-fält: `relation` (`RelationFilterType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getactivities-request.relation",0,*,"","getactivities-request-relation-type-or-id:Minst en av typeCode och relationId ska anges i ett relationsfilter (RelationFilterType). {typeCode.exists() or id.exists()}
+"
+"getactivities-request.relation.id","getactivities-request.relation.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","Begränsar sökningen till aktiviteter med den identitet som anges i sambandet/relationen. Detta ger exempelvis möjlighet att söka ut alla aktiviteter som har en relation till en viss observation.","TKB-fält: `relation.id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities-request.relation.id",0,1,"",""
+"getactivities-request.relation.typeCode","getactivities-request.relation.typeCode","","","",0,1,"","","","Base {[]} {[]}
+","CVType","Filtrera på relations-/sambandstyp","TKB-fält: `relation.typeCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities-request.relation.typeCode",0,1,"",""
+"getactivities-request.relation.typeCode.code","getactivities-request.relation.typeCode.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för relation/-sambandstyp","TKB-fält: `relation.typeCode.code` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getactivities-request.relation.typeCode.code",1,1,"",""
+"getactivities-request.relation.typeCode.codeSystem","getactivities-request.relation.typeCode.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodsystem för relation-/sambandstyp","TKB-fält: `relation.typeCode.codeSystem` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getactivities-request.relation.typeCode.codeSystem",1,1,"",""
+"getactivities-request.relation.typeCode.codeSystemName","getactivities-request.relation.typeCode.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `relation.typeCode.codeSystemName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities-request.relation.typeCode.codeSystemName",0,1,"",""
+"getactivities-request.relation.typeCode.codeSystemVersion","getactivities-request.relation.typeCode.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Versionsnummer för använt kodsystem.","TKB-fält: `relation.typeCode.codeSystemVersion` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities-request.relation.typeCode.codeSystemVersion",0,1,"",""
+"getactivities-request.relation.typeCode.displayName","getactivities-request.relation.typeCode.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `relation.typeCode.displayname` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities-request.relation.typeCode.displayName",0,1,"",""
+"getactivities-request.relation.referredInformationType","getactivities-request.relation.referredInformationType","","","",1,1,"","","","string {[]} {[]}
+","referredInformationType","Den typ av uppgift i patientjournal som sambandet pekar ut. Detta är en kod från Categorization i engagemangsindexposten. I denna version av tjänstekontraktet är följande typer möjliga:
+
+chb-o  (observation)
+
+caa-ga (aktivitet)","TKB-fält: `relation. referredInformationType` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getactivities-request.relation.referredInformationType",1,1,"",""

@@ -1,0 +1,327 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getactivities","getactivities","","","",0,*,"","","","null {[]} {[]}
+","GetActivities","Logisk modell för tjänstekontraktet GetActivities
+(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).
+Representerar responsens informationsstruktur — en lista av activityGroup-element.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getactivities.activityGroup","getactivities.activityGroup","","","",0,*,"","","","Base {[]} {[]}
+","ActivityGroupType","Grupp av aktiviteter som delar samma patient, utförare (m. tillhörande organisatorisk knytning), signerare, ytterligare deltagare, källsystem, vårdprocess-id, utrustning, samt plats. Denna nivå är framförallt till för att kunna begränsa mängden redundant data i överföringen i de fall då flera aktiviteter gjorts med samma medverkande (exempelvis de aktiviteter som utförts under ett visst operationstillfälle). Denna klass är en teknisk optimering som inte speglas i NI 2015:1.","TKB-fält: `activityGroup` (`ActivityGroupType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup",0,*,"",""
+"getactivities.activityGroup.patient","getactivities.activityGroup.patient","","","",1,1,"","","","Base {[]} {[]}
+","PatientType","Den patient som aktivitetsgruppen avser.","TKB-fält: `patient` (`PatientType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient",1,1,"",""
+"getactivities.activityGroup.patient.id","getactivities.activityGroup.patient.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.id",1,1,"",""
+"getactivities.activityGroup.patient.dateOfBirth","getactivities.activityGroup.patient.dateOfBirth","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","dateOfBirth","dateOfBirth","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.dateOfBirth",1,1,"",""
+"getactivities.activityGroup.patient.gender","getactivities.activityGroup.patient.gender","","","",0,1,"","","","Base {[]} {[]}
+","CVType","gender","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.gender",0,1,"",""
+"getactivities.activityGroup.patient.gender.code","getactivities.activityGroup.patient.gender.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.gender.code",1,1,"",""
+"getactivities.activityGroup.patient.gender.codeSystem","getactivities.activityGroup.patient.gender.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.gender.codeSystem",1,1,"",""
+"getactivities.activityGroup.patient.gender.codeSystemName","getactivities.activityGroup.patient.gender.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.gender.codeSystemName",0,1,"",""
+"getactivities.activityGroup.patient.gender.codeSystemVersion","getactivities.activityGroup.patient.gender.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.gender.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.patient.gender.displayName","getactivities.activityGroup.patient.gender.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.patient.gender.displayName",0,1,"",""
+"getactivities.activityGroup.performerRole","getactivities.activityGroup.performerRole","","","",1,1,"","","","Base {[]} {[]}
+","PerformerRoleType","Den som utfört aktiviteter inom gruppen.","TKB-fält: `performerRole` (`PerformerRoleType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole",1,1,"",""
+"getactivities.activityGroup.performerRole.id","getactivities.activityGroup.performerRole.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.id",0,1,"",""
+"getactivities.activityGroup.performerRole.code","getactivities.activityGroup.performerRole.code","","","",1,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.code",1,1,"",""
+"getactivities.activityGroup.performerRole.code.code","getactivities.activityGroup.performerRole.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.code.code",1,1,"",""
+"getactivities.activityGroup.performerRole.code.codeSystem","getactivities.activityGroup.performerRole.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.code.codeSystem",1,1,"",""
+"getactivities.activityGroup.performerRole.code.codeSystemName","getactivities.activityGroup.performerRole.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.code.codeSystemName",0,1,"",""
+"getactivities.activityGroup.performerRole.code.codeSystemVersion","getactivities.activityGroup.performerRole.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.code.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.performerRole.code.displayName","getactivities.activityGroup.performerRole.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.code.displayName",0,1,"",""
+"getactivities.activityGroup.performerRole.person","getactivities.activityGroup.performerRole.person","","","",0,1,"","","","Base {[]} {[]}
+","PersonType","person","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.person",0,1,"",""
+"getactivities.activityGroup.performerRole.person.id","getactivities.activityGroup.performerRole.person.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.person.id",0,1,"",""
+"getactivities.activityGroup.performerRole.person.name","getactivities.activityGroup.performerRole.person.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.person.name",0,1,"",""
+"getactivities.activityGroup.performerRole.careUnit","getactivities.activityGroup.performerRole.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","careUnit","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.careUnit",0,1,"",""
+"getactivities.activityGroup.performerRole.careUnit.id","getactivities.activityGroup.performerRole.careUnit.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.careUnit.id",1,1,"",""
+"getactivities.activityGroup.performerRole.careUnit.name","getactivities.activityGroup.performerRole.careUnit.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.careUnit.name",0,1,"",""
+"getactivities.activityGroup.performerRole.careUnit.careGiver","getactivities.activityGroup.performerRole.careUnit.careGiver","","","",1,1,"","","","Base {[]} {[]}
+","CareGiverType","careGiver","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.careUnit.careGiver",1,1,"",""
+"getactivities.activityGroup.performerRole.careUnit.careGiver.id","getactivities.activityGroup.performerRole.careUnit.careGiver.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.careUnit.careGiver.id",1,1,"",""
+"getactivities.activityGroup.performerRole.careUnit.careGiver.name","getactivities.activityGroup.performerRole.careUnit.careGiver.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.performerRole.careUnit.careGiver.name",0,1,"",""
+"getactivities.activityGroup.legalAuthenticator","getactivities.activityGroup.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Den som signerat aktiviteterna inom gruppen.","TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.legalAuthenticator",0,1,"","getactivities-legalauthenticator-id-or-name:Minst ett av legalAuthenticatorId och name ska anges (TKB Regel 2.4). {id.exists() or name.exists()}
+"
+"getactivities.activityGroup.legalAuthenticator.id","getactivities.activityGroup.legalAuthenticator.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.legalAuthenticator.id",0,1,"",""
+"getactivities.activityGroup.legalAuthenticator.time","getactivities.activityGroup.legalAuthenticator.time","","","",1,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","time","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.legalAuthenticator.time",1,1,"",""
+"getactivities.activityGroup.legalAuthenticator.time.format","getactivities.activityGroup.legalAuthenticator.time.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.legalAuthenticator.time.format",1,1,"",""
+"getactivities.activityGroup.legalAuthenticator.time.value","getactivities.activityGroup.legalAuthenticator.time.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.legalAuthenticator.time.value",1,1,"",""
+"getactivities.activityGroup.legalAuthenticator.name","getactivities.activityGroup.legalAuthenticator.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.legalAuthenticator.name",0,1,"",""
+"getactivities.activityGroup.additionalParticipant","getactivities.activityGroup.additionalParticipant","","","",0,*,"","","","Base {[]} {[]}
+","AdditionalParticipantType","Övriga deltagare relaterat till aktiviteterna inom gruppen.","TKB-fält: `additionalParticipant` (`AdditionalParticipantType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant",0,*,"","getactivities-additionalparticipant-one-participant:Exakt en av person, organisation, device och location ska anges i additionalParticipant (TKB 7.1, AdditionalParticipantType: 'Endast en av nedanstående'). {person.count() + organisation.count() + device.count() + location.count() = 1}
+"
+"getactivities.activityGroup.additionalParticipant.id","getactivities.activityGroup.additionalParticipant.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.id",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.type","getactivities.activityGroup.additionalParticipant.type","","","",1,1,"","","","Base {[]} {[]}
+","CVType","type","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.type",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.type.code","getactivities.activityGroup.additionalParticipant.type.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.type.code",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.type.codeSystem","getactivities.activityGroup.additionalParticipant.type.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.type.codeSystem",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.type.codeSystemName","getactivities.activityGroup.additionalParticipant.type.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.type.codeSystemName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.type.codeSystemVersion","getactivities.activityGroup.additionalParticipant.type.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.type.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.type.displayName","getactivities.activityGroup.additionalParticipant.type.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.type.displayName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.role","getactivities.activityGroup.additionalParticipant.role","","","",1,1,"","","","Base {[]} {[]}
+","CVType","role","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.role",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.role.code","getactivities.activityGroup.additionalParticipant.role.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.role.code",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.role.codeSystem","getactivities.activityGroup.additionalParticipant.role.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.role.codeSystem",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.role.codeSystemName","getactivities.activityGroup.additionalParticipant.role.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.role.codeSystemName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.role.codeSystemVersion","getactivities.activityGroup.additionalParticipant.role.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.role.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.role.displayName","getactivities.activityGroup.additionalParticipant.role.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.role.displayName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.time","getactivities.activityGroup.additionalParticipant.time","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","time","time","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.time",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.person","getactivities.activityGroup.additionalParticipant.person","","","",0,1,"","","","Base {[]} {[]}
+","PersonType","person","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.person",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.person.id","getactivities.activityGroup.additionalParticipant.person.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.person.id",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.person.name","getactivities.activityGroup.additionalParticipant.person.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.person.name",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.organisation","getactivities.activityGroup.additionalParticipant.organisation","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","organisation","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.organisation",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.organisation.id","getactivities.activityGroup.additionalParticipant.organisation.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.organisation.id",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.organisation.name","getactivities.activityGroup.additionalParticipant.organisation.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.organisation.name",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device","getactivities.activityGroup.additionalParticipant.device","","","",0,1,"","","","Base {[]} {[]}
+","DeviceType","Deltagande artefakt
+
+Använd dessa i additionalParticipant i stället.","TKB-fält: `device` (`DeviceType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.id","getactivities.activityGroup.additionalParticipant.device.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.id",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.type","getactivities.activityGroup.additionalParticipant.device.type","","","",0,1,"","","","Base {[]} {[]}
+","CVType","type","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.type",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.type.code","getactivities.activityGroup.additionalParticipant.device.type.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.type.code",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.type.codeSystem","getactivities.activityGroup.additionalParticipant.device.type.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.type.codeSystem",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.type.codeSystemName","getactivities.activityGroup.additionalParticipant.device.type.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.type.codeSystemName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.type.codeSystemVersion","getactivities.activityGroup.additionalParticipant.device.type.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.type.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.type.displayName","getactivities.activityGroup.additionalParticipant.device.type.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.type.displayName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model","getactivities.activityGroup.additionalParticipant.device.model","","","",0,1,"","","","Base {[]} {[]}
+","SCType","model","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.code","getactivities.activityGroup.additionalParticipant.device.model.code","","","",0,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.code",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.code.code","getactivities.activityGroup.additionalParticipant.device.model.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.code.code",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.code.codeSystem","getactivities.activityGroup.additionalParticipant.device.model.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.code.codeSystem",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemName","getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemVersion","getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.code.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.code.displayName","getactivities.activityGroup.additionalParticipant.device.model.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.code.displayName",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.device.model.value","getactivities.activityGroup.additionalParticipant.device.model.value","","","",0,1,"","","","string {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.device.model.value",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.location","getactivities.activityGroup.additionalParticipant.location","","","",0,1,"","","","Base {[]} {[]}
+","LocationType","Plats för aktiviteten
+
+Använd dessa i additionalParticipant i stället.","TKB-fält: `location` (`LocationType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.id","getactivities.activityGroup.additionalParticipant.location.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.id",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.name","getactivities.activityGroup.additionalParticipant.location.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.name",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.address","getactivities.activityGroup.additionalParticipant.location.address","","","",0,*,"","","","Base {[]} {[]}
+","AddressType","address","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.address",0,*,"",""
+"getactivities.activityGroup.additionalParticipant.location.address.use","getactivities.activityGroup.additionalParticipant.location.address.use","","","",0,1,"","","","code {[]} {[]}
+","use","use Tillåtna värden: PHYS, H, HV, WP, TMP.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.address.use",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.address.part","getactivities.activityGroup.additionalParticipant.location.address.part","","","",1,*,"","","","Base {[]} {[]}
+","AddressPartType","part","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.address.part",1,*,"",""
+"getactivities.activityGroup.additionalParticipant.location.address.part.value","getactivities.activityGroup.additionalParticipant.location.address.part.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.address.part.value",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.address.part.type","getactivities.activityGroup.additionalParticipant.location.address.part.type","","","",0,1,"","","","code {[]} {[]}
+","type","type Tillåtna värden: AL, ADL, UNIT, UNID, DAL, DINSTA, DINSTQ, DINST, DMOD, DMODID, SAL, BNR, BNN, BNS, STR, STB, STTYP, DIR, INT, CAR, CEN, CNT, CPA, DEL, CTY, POB, ZIP, PRE, STA.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.address.part.type",0,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.electronicAddress","getactivities.activityGroup.additionalParticipant.location.electronicAddress","","","",0,*,"","","","Base {[]} {[]}
+","TelType","electronicAddress","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.electronicAddress",0,*,"",""
+"getactivities.activityGroup.additionalParticipant.location.electronicAddress.use","getactivities.activityGroup.additionalParticipant.location.electronicAddress.use","","","",1,1,"","","","code {[]} {[]}
+","use","use Tillåtna värden: voice, fax, data, tty, sms.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.electronicAddress.use",1,1,"",""
+"getactivities.activityGroup.additionalParticipant.location.electronicAddress.value","getactivities.activityGroup.additionalParticipant.location.electronicAddress.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.additionalParticipant.location.electronicAddress.value",1,1,"",""
+"getactivities.activityGroup.sourceSystem","getactivities.activityGroup.sourceSystem","","","",1,1,"","","","Base {[]} {[]}
+","SourceSystemType","Källsystem som aktivitetsgruppen lagras i.","TKB-fält: `sourceSystem` (`SourceSystemType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.sourceSystem",1,1,"",""
+"getactivities.activityGroup.sourceSystem.id","getactivities.activityGroup.sourceSystem.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.sourceSystem.id",1,1,"",""
+"getactivities.activityGroup.careProcessId","getactivities.activityGroup.careProcessId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/UUIDType]]} {[]}
+","careProcessId","UUID för den individanpassade vårdprocess som denna aktivitet ingår i","TKB-fält: `careProcessId` (`UUIDType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.careProcessId",0,1,"",""
+"getactivities.activityGroup.activity","getactivities.activityGroup.activity","","","",1,*,"","","","Base {[]} {[]}
+","ActivityType","De aktiviteter som ligger inom denna grupp av aktiviteter.","TKB-fält: `activity` (`ActivityType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity",1,*,"","getactivities-activity-time-when-performed:time ska anges när status är utförd (SNOMED CT 398166005) eller saknas (TKB Regel 2.3). {(status.empty() or status.where(code = '398166005').exists()) implies time.exists()}
+"
+"getactivities.activityGroup.activity.id","getactivities.activityGroup.activity.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.id",1,1,"",""
+"getactivities.activityGroup.activity.status","getactivities.activityGroup.activity.status","","","",0,1,"","","","Base {[]} {[]}
+","CVType","status","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.status",0,1,"",""
+"getactivities.activityGroup.activity.status.code","getactivities.activityGroup.activity.status.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.status.code",1,1,"",""
+"getactivities.activityGroup.activity.status.codeSystem","getactivities.activityGroup.activity.status.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.status.codeSystem",1,1,"",""
+"getactivities.activityGroup.activity.status.codeSystemName","getactivities.activityGroup.activity.status.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.status.codeSystemName",0,1,"",""
+"getactivities.activityGroup.activity.status.codeSystemVersion","getactivities.activityGroup.activity.status.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.status.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.activity.status.displayName","getactivities.activityGroup.activity.status.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.status.displayName",0,1,"",""
+"getactivities.activityGroup.activity.code","getactivities.activityGroup.activity.code","","","",1,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.code",1,1,"",""
+"getactivities.activityGroup.activity.code.code","getactivities.activityGroup.activity.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.code.code",1,1,"",""
+"getactivities.activityGroup.activity.code.codeSystem","getactivities.activityGroup.activity.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.code.codeSystem",1,1,"",""
+"getactivities.activityGroup.activity.code.codeSystemName","getactivities.activityGroup.activity.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.code.codeSystemName",0,1,"",""
+"getactivities.activityGroup.activity.code.codeSystemVersion","getactivities.activityGroup.activity.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.code.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.activity.code.displayName","getactivities.activityGroup.activity.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.code.displayName",0,1,"",""
+"getactivities.activityGroup.activity.targetSite","getactivities.activityGroup.activity.targetSite","","","",0,1,"","","","Base {[]} {[]}
+","CVType","targetSite","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.targetSite",0,1,"",""
+"getactivities.activityGroup.activity.targetSite.code","getactivities.activityGroup.activity.targetSite.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.targetSite.code",1,1,"",""
+"getactivities.activityGroup.activity.targetSite.codeSystem","getactivities.activityGroup.activity.targetSite.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.targetSite.codeSystem",1,1,"",""
+"getactivities.activityGroup.activity.targetSite.codeSystemName","getactivities.activityGroup.activity.targetSite.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.targetSite.codeSystemName",0,1,"",""
+"getactivities.activityGroup.activity.targetSite.codeSystemVersion","getactivities.activityGroup.activity.targetSite.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.targetSite.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.activity.targetSite.displayName","getactivities.activityGroup.activity.targetSite.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.targetSite.displayName",0,1,"",""
+"getactivities.activityGroup.activity.time","getactivities.activityGroup.activity.time","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimePeriodType","time","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time",0,1,"","getactivities-activity-time-start-or-end:Minst en av start och end ska anges i aktivitetens tidsperiod (PartialTimePeriodType). {start.exists() or end.exists()}
+"
+"getactivities.activityGroup.activity.time.start","getactivities.activityGroup.activity.time.start","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","start","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time.start",0,1,"",""
+"getactivities.activityGroup.activity.time.start.format","getactivities.activityGroup.activity.time.start.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time.start.format",1,1,"",""
+"getactivities.activityGroup.activity.time.start.value","getactivities.activityGroup.activity.time.start.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time.start.value",1,1,"",""
+"getactivities.activityGroup.activity.time.end","getactivities.activityGroup.activity.time.end","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","end","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time.end",0,1,"",""
+"getactivities.activityGroup.activity.time.end.format","getactivities.activityGroup.activity.time.end.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time.end.format",1,1,"",""
+"getactivities.activityGroup.activity.time.end.value","getactivities.activityGroup.activity.time.end.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.time.end.value",1,1,"",""
+"getactivities.activityGroup.activity.method","getactivities.activityGroup.activity.method","","","",0,1,"","","","Base {[]} {[]}
+","CVType","method","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.method",0,1,"",""
+"getactivities.activityGroup.activity.method.code","getactivities.activityGroup.activity.method.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.method.code",1,1,"",""
+"getactivities.activityGroup.activity.method.codeSystem","getactivities.activityGroup.activity.method.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.method.codeSystem",1,1,"",""
+"getactivities.activityGroup.activity.method.codeSystemName","getactivities.activityGroup.activity.method.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.method.codeSystemName",0,1,"",""
+"getactivities.activityGroup.activity.method.codeSystemVersion","getactivities.activityGroup.activity.method.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.method.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.activity.method.displayName","getactivities.activityGroup.activity.method.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.method.displayName",0,1,"",""
+"getactivities.activityGroup.activity.description","getactivities.activityGroup.activity.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.description",0,1,"",""
+"getactivities.activityGroup.activity.approvedForPatient","getactivities.activityGroup.activity.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","approvedForPatient","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.approvedForPatient",1,1,"",""
+"getactivities.activityGroup.activity.registrationTime","getactivities.activityGroup.activity.registrationTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","registrationTime","registrationTime","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.registrationTime",1,1,"",""
+"getactivities.activityGroup.activity.relation","getactivities.activityGroup.activity.relation","","","",0,*,"","","","Base {[]} {[]}
+","RelationType","relation","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation",0,*,"",""
+"getactivities.activityGroup.activity.relation.code","getactivities.activityGroup.activity.relation.code","","","",1,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.code",1,1,"",""
+"getactivities.activityGroup.activity.relation.code.code","getactivities.activityGroup.activity.relation.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.code.code",1,1,"",""
+"getactivities.activityGroup.activity.relation.code.codeSystem","getactivities.activityGroup.activity.relation.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.code.codeSystem",1,1,"",""
+"getactivities.activityGroup.activity.relation.code.codeSystemName","getactivities.activityGroup.activity.relation.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.code.codeSystemName",0,1,"",""
+"getactivities.activityGroup.activity.relation.code.codeSystemVersion","getactivities.activityGroup.activity.relation.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.code.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.activity.relation.code.displayName","getactivities.activityGroup.activity.relation.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.code.displayName",0,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation","getactivities.activityGroup.activity.relation.referredInformation","","","",1,1,"","","","Base {[]} {[]}
+","ReferredInformationType","referredInformation","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.id","getactivities.activityGroup.activity.relation.referredInformation.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.id",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.time","getactivities.activityGroup.activity.relation.referredInformation.time","","","",1,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","time","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.time",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.time.format","getactivities.activityGroup.activity.relation.referredInformation.time.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.time.format",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.time.value","getactivities.activityGroup.activity.relation.referredInformation.time.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.time.value",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.type","getactivities.activityGroup.activity.relation.referredInformation.type","","","",1,1,"","","","string {[]} {[]}
+","type","type","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.type",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.informationOwner","getactivities.activityGroup.activity.relation.referredInformation.informationOwner","","","",1,1,"","","","Base {[]} {[]}
+","InformationOwnerType","informationOwner","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.informationOwner",1,1,"",""
+"getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id","getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation","getactivities.activityGroup.activity.additionalInformation","","","",0,*,"","","","Base {[]} {[]}
+","AdditionalInformationType","additionalInformation","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation",0,*,"",""
+"getactivities.activityGroup.activity.additionalInformation.key","getactivities.activityGroup.activity.additionalInformation.key","","","",1,1,"","","","string {[]} {[]}
+","key","key","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.key",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value","getactivities.activityGroup.activity.additionalInformation.value","","","",1,1,"","","","Base {[]} {[]}
+","ValueANYType","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.pq","getactivities.activityGroup.activity.additionalInformation.value.pq","","","",0,1,"","","","Base {[]} {[]}
+","PQType","pq","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.pq",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.pq.value","getactivities.activityGroup.activity.additionalInformation.value.pq.value","","","",1,1,"","","","decimal {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.pq.value",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.pq.unit","getactivities.activityGroup.activity.additionalInformation.value.pq.unit","","","",1,1,"","","","string {[]} {[]}
+","unit","unit","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.pq.unit",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ts","getactivities.activityGroup.activity.additionalInformation.value.ts","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","ts","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ts",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ts.format","getactivities.activityGroup.activity.additionalInformation.value.ts.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ts.format",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ts.value","getactivities.activityGroup.activity.additionalInformation.value.ts.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ts.value",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimePeriodType","ivl_ts","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts.start","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","start","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts.start.format","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.format",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts.start.value","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.start.value",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts.end","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","end","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts.end.format","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.format",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.ivl-ts.end.value","getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.ivl_ts.end.value",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.cv","getactivities.activityGroup.activity.additionalInformation.value.cv","","","",0,1,"","","","Base {[]} {[]}
+","CVType","cv","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.cv",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.cv.code","getactivities.activityGroup.activity.additionalInformation.value.cv.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.cv.code",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystem","getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystem",1,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemName","getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemName",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemVersion","getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.cv.codeSystemVersion",0,1,"",""
+"getactivities.activityGroup.activity.additionalInformation.value.cv.displayName","getactivities.activityGroup.activity.additionalInformation.value.cv.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getactivities.activityGroup.activity.additionalInformation.value.cv.displayName",0,1,"",""

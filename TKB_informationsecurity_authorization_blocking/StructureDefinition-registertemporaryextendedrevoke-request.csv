@@ -1,0 +1,52 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"registertemporaryextendedrevoke-request","registertemporaryextendedrevoke-request","","","",0,*,"","","","null {[]} {[]}
+","RegisterTemporaryExtendedRevoke — Request","Logisk modell för begäran i RegisterTemporaryExtendedRevoke
+(urn:riv:informationsecurity:authorization:blocking:RegisterTemporaryExtendedRevokeResponder:4, RegisterTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"registertemporaryextendedrevoke-request.temporaryRevokeId","registertemporaryextendedrevoke-request.temporaryRevokeId","","","",1,1,"","","","string {[]} {[]}
+","temporaryRevokeId","Unik, global identifierare för den tillfälliga hävningen. Tjänstekonsumenten ansvarar för att generera id:et.","TKB-fält: `temporaryRevokeId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.temporaryRevokeId",1,1,"",""
+"registertemporaryextendedrevoke-request.blockId","registertemporaryextendedrevoke-request.blockId","","","",1,1,"","","","string {[]} {[]}
+","blockId","Identifierare för den spärr som skall tillfälligt hävas.","TKB-fält: `blockId` (`urn:riv:informationsecurity:authorization:blocking:4:Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.blockId",1,1,"",""
+"registertemporaryextendedrevoke-request.endDate","registertemporaryextendedrevoke-request.endDate","","","",1,1,"","","","dateTime {[]} {[]}
+","endDate","Den tillfälliga hävningens giltighetsdatum. Hävningen upphör att gälla då denna tidpunkt inträffat.","TKB-fält: `endDate` (`xs:DateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.endDate",1,1,"",""
+"registertemporaryextendedrevoke-request.revokedForCareUnitId","registertemporaryextendedrevoke-request.revokedForCareUnitId","","","",1,1,"","","","string {[]} {[]}
+","revokedForCareUnitId","Anger HSA-id för den vårdenhet hävningen gäller för.","TKB-fält: `revokedForCareUnitId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.revokedForCareUnitId",1,1,"",""
+"registertemporaryextendedrevoke-request.revokedForEmployeeId","registertemporaryextendedrevoke-request.revokedForEmployeeId","","","",0,1,"","","","string {[]} {[]}
+","revokedForEmployeeId","Anger HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten.","TKB-fält: `revokedForEmployeeId` (`urn:riv:informationsecurity:authorization:blocking:4:HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.revokedForEmployeeId",0,1,"",""
+"registertemporaryextendedrevoke-request.registerAction","registertemporaryextendedrevoke-request.registerAction","","","",1,1,"","","","Base {[]} {[]}
+","ActionType","Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa.","TKB-fält: `registerAction` (`urn:riv:informationsecurity:authorization:blocking:4:ActionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.requestDate","registertemporaryextendedrevoke-request.registerAction.requestDate","","","",1,1,"","","","dateTime {[]} {[]}
+","requestDate","requestDate","TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.requestDate",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.requestedBy","registertemporaryextendedrevoke-request.registerAction.requestedBy","","","",1,1,"","","","Base {[]} {[]}
+","ActorType","Datatyp som identifierar en medarbetare/person.","TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.requestedBy",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.requestedBy.employeeId","registertemporaryextendedrevoke-request.registerAction.requestedBy.employeeId","","","",1,1,"","","","string {[]} {[]}
+","employeeId","employeeId","TKB-fält: `../../employeeId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.requestedBy.employeeId",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentId","registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentId","","","",0,1,"","","","string {[]} {[]}
+","assignmentId","assignmentId","TKB-fält: `../../assignmentId` (`HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentId",0,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentName","registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentName","","","",0,1,"","","","string {[]} {[]}
+","assignmentName","assignmentName","TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.requestedBy.assignmentName",0,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.registrationDate","registertemporaryextendedrevoke-request.registerAction.registrationDate","","","",1,1,"","","","dateTime {[]} {[]}
+","registrationDate","registrationDate","TKB-fält: `../registrationDate` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.registrationDate",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.registeredBy","registertemporaryextendedrevoke-request.registerAction.registeredBy","","","",1,1,"","","","Base {[]} {[]}
+","ActorType","Datatyp som identifierar en medarbetare/person.","TKB-fält: `../registeredBy` (`ActorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.registeredBy",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.registeredBy.employeeId","registertemporaryextendedrevoke-request.registerAction.registeredBy.employeeId","","","",1,1,"","","","string {[]} {[]}
+","employeeId","employeeId","TKB-fält: `../../employeeId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.registeredBy.employeeId",1,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentId","registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentId","","","",0,1,"","","","string {[]} {[]}
+","assignmentId","assignmentId","TKB-fält: `../../assignmentId` (`HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentId",0,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentName","registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentName","","","",0,1,"","","","string {[]} {[]}
+","assignmentName","assignmentName","TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.registeredBy.assignmentName",0,1,"",""
+"registertemporaryextendedrevoke-request.registerAction.reasonText","registertemporaryextendedrevoke-request.registerAction.reasonText","","","",0,1,"","","","string {[]} {[]}
+","reasonText","reasonText","TKB-fält: `../reasonText` (`ReasonText`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.registerAction.reasonText",0,1,"",""
+"registertemporaryextendedrevoke-request.revokeReason","registertemporaryextendedrevoke-request.revokeReason","","","",1,1,"","","","code {[]} {[]}
+","revokeReason","Enumerationsvärde för orsak till tillfällig hävning.","TKB-fält: `revokeReason` (`urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType`, kardinalitet 1..1).
+
+**Modellanteckning:** revokeReason Tillåtna värden: PatientsConsent, Emergency.","","","","","","","","",,"required","","https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-temporaryrevokereason-vs","",,,,"registertemporaryextendedrevoke-request.revokeReason",1,1,"",""
+"registertemporaryextendedrevoke-request.revokeReasonText","registertemporaryextendedrevoke-request.revokeReasonText","","","",0,1,"","","","string {[]} {[]}
+","revokeReasonText","Kompletterande text för orsak till tillfällig hävning.","TKB-fält: `revokeReasonText` (`urn:riv:informationsecurity:authorization:blocking:4:ReasonText`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.revokeReasonText",0,1,"",""
+"registertemporaryextendedrevoke-request.replicationTimeout","registertemporaryextendedrevoke-request.replicationTimeout","","","",1,1,"","","","integer {[]} {[]}
+","replicationTimeout","Anger hur replikering till nationell spärrtjänst ska ske.
+
+-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.
+
+-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.
+
+-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.","TKB-fält: `replicationTimeout` (`xs:Int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"registertemporaryextendedrevoke-request.replicationTimeout",1,1,"",""

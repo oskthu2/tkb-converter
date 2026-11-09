@@ -1,0 +1,592 @@
+# GetCredentialsForPerson - infrastructure: directory: authorizationmanagement v2.4.5
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCredentialsForPerson**
+
+## Logical Model: GetCredentialsForPerson 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/getcredentialsforperson | *Version*:2.2 |
+| Active as of 2026-11-09 | *Computable Name*:GetCredentialsForPerson |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetCredentialsForPerson (RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetCredentialsForPerson:2). Identisk med GetCredentialsForPersonIncludingProtectedPerson förutom att information om skyddade personer aldrig returneras (fältet protectedPerson returneras aldrig). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-directory-authorizationmanagement|current/StructureDefinition/StructureDefinition-getcredentialsforperson.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcredentialsforperson.csv), [Excel](StructureDefinition-getcredentialsforperson.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcredentialsforperson",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/getcredentialsforperson",
+  "version" : "2.2",
+  "name" : "GetCredentialsForPerson",
+  "title" : "GetCredentialsForPerson",
+  "status" : "active",
+  "date" : "2026-11-09T03:36:43+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetCredentialsForPerson\n(RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetCredentialsForPerson:2).\nIdentisk med GetCredentialsForPersonIncludingProtectedPerson förutom att information om\nskyddade personer aldrig returneras (fältet protectedPerson returneras aldrig).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/getcredentialsforperson",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcredentialsforperson",
+      "path" : "getcredentialsforperson",
+      "short" : "GetCredentialsForPerson",
+      "definition" : "Logisk modell för tjänstekontraktet GetCredentialsForPerson\n(RIV-TA urn:riv:infrastructure:directory:authorizationmanagement:GetCredentialsForPerson:2).\nIdentisk med GetCredentialsForPersonIncludingProtectedPerson förutom att information om\nskyddade personer aldrig returneras (fältet protectedPerson returneras aldrig)."
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation",
+      "path" : "getcredentialsforperson.credentialInformation",
+      "short" : "CredentialInformationType",
+      "definition" : "credentialInformation",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.givenName",
+      "path" : "getcredentialsforperson.credentialInformation.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.middleAndSurName",
+      "path" : "getcredentialsforperson.credentialInformation.middleAndSurName",
+      "short" : "middleAndSurName",
+      "definition" : "middleAndSurName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.personHsaId",
+      "path" : "getcredentialsforperson.credentialInformation.personHsaId",
+      "short" : "personHsaId",
+      "definition" : "personHsaId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicence",
+      "path" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicence",
+      "short" : "healthCareProfessionalLicence",
+      "definition" : "healthCareProfessionalLicence",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.personalPrescriptionCode",
+      "path" : "getcredentialsforperson.credentialInformation.personalPrescriptionCode",
+      "short" : "personalPrescriptionCode",
+      "definition" : "personalPrescriptionCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.groupPrescriptionCode",
+      "path" : "getcredentialsforperson.credentialInformation.groupPrescriptionCode",
+      "short" : "groupPrescriptionCode",
+      "definition" : "groupPrescriptionCode",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.nursePrescriptionRight",
+      "path" : "getcredentialsforperson.credentialInformation.nursePrescriptionRight",
+      "short" : "NursePrescriptionRightType",
+      "definition" : "nursePrescriptionRight",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.nursePrescriptionRight.healthCareProfessionalLicence",
+      "path" : "getcredentialsforperson.credentialInformation.nursePrescriptionRight.healthCareProfessionalLicence",
+      "short" : "healthCareProfessionalLicence",
+      "definition" : "healthCareProfessionalLicence",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.nursePrescriptionRight.prescriptionRight",
+      "path" : "getcredentialsforperson.credentialInformation.nursePrescriptionRight.prescriptionRight",
+      "short" : "prescriptionRight",
+      "definition" : "prescriptionRight",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.hsaSystemRole",
+      "path" : "getcredentialsforperson.credentialInformation.hsaSystemRole",
+      "short" : "HsaSystemRoleType",
+      "definition" : "hsaSystemRole",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.hsaSystemRole.systemId",
+      "path" : "getcredentialsforperson.credentialInformation.hsaSystemRole.systemId",
+      "short" : "systemId",
+      "definition" : "systemId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.hsaSystemRole.role",
+      "path" : "getcredentialsforperson.credentialInformation.hsaSystemRole.role",
+      "short" : "role",
+      "definition" : "role",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.paTitleCode",
+      "path" : "getcredentialsforperson.credentialInformation.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "paTitleCode",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.protectedPerson",
+      "path" : "getcredentialsforperson.credentialInformation.protectedPerson",
+      "short" : "protectedPerson",
+      "definition" : "protectedPerson",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission",
+      "path" : "getcredentialsforperson.credentialInformation.commission",
+      "short" : "CommissionType",
+      "definition" : "commission",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionName",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionName",
+      "short" : "commissionName",
+      "definition" : "commissionName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionHsaId",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionHsaId",
+      "short" : "commissionHsaId",
+      "definition" : "commissionHsaId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionPurpose",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionPurpose",
+      "short" : "commissionPurpose",
+      "definition" : "commissionPurpose",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionRight",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionRight",
+      "short" : "CommissionRightType",
+      "definition" : "commissionRight",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionRight.activity",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionRight.activity",
+      "short" : "activity",
+      "definition" : "activity",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionRight.informationClass",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionRight.informationClass",
+      "short" : "informationClass",
+      "definition" : "informationClass",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.commissionRight.scope",
+      "path" : "getcredentialsforperson.credentialInformation.commission.commissionRight.scope",
+      "short" : "scope",
+      "definition" : "scope",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitHsaId",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitHsaId",
+      "short" : "healthCareUnitHsaId",
+      "definition" : "healthCareUnitHsaId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitName",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitName",
+      "short" : "healthCareUnitName",
+      "definition" : "healthCareUnitName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitStartDate",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitStartDate",
+      "short" : "healthCareUnitStartDate",
+      "definition" : "healthCareUnitStartDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitEndDate",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareUnitEndDate",
+      "short" : "healthCareUnitEndDate",
+      "definition" : "healthCareUnitEndDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderHsaId",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderHsaId",
+      "short" : "healthCareProviderHsaId",
+      "definition" : "healthCareProviderHsaId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderName",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderName",
+      "short" : "healthCareProviderName",
+      "definition" : "healthCareProviderName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderOrgNo",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderOrgNo",
+      "short" : "healthCareProviderOrgNo",
+      "definition" : "healthCareProviderOrgNo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderStartDate",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderStartDate",
+      "short" : "healthCareProviderStartDate",
+      "definition" : "healthCareProviderStartDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderEndDate",
+      "path" : "getcredentialsforperson.credentialInformation.commission.healthCareProviderEndDate",
+      "short" : "healthCareProviderEndDate",
+      "definition" : "healthCareProviderEndDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.feignedHealthCareProvider",
+      "path" : "getcredentialsforperson.credentialInformation.commission.feignedHealthCareProvider",
+      "short" : "feignedHealthCareProvider",
+      "definition" : "feignedHealthCareProvider",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.feignedHealthCareUnit",
+      "path" : "getcredentialsforperson.credentialInformation.commission.feignedHealthCareUnit",
+      "short" : "feignedHealthCareUnit",
+      "definition" : "feignedHealthCareUnit",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.feignedCommission",
+      "path" : "getcredentialsforperson.credentialInformation.commission.feignedCommission",
+      "short" : "feignedCommission",
+      "definition" : "feignedCommission",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.archivedHealthCareProvider",
+      "path" : "getcredentialsforperson.credentialInformation.commission.archivedHealthCareProvider",
+      "short" : "archivedHealthCareProvider",
+      "definition" : "archivedHealthCareProvider",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.archivedHealthCareUnit",
+      "path" : "getcredentialsforperson.credentialInformation.commission.archivedHealthCareUnit",
+      "short" : "archivedHealthCareUnit",
+      "definition" : "archivedHealthCareUnit",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.commission.pharmacyIdentifier",
+      "path" : "getcredentialsforperson.credentialInformation.commission.pharmacyIdentifier",
+      "short" : "pharmacyIdentifier",
+      "definition" : "pharmacyIdentifier",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.feignedPerson",
+      "path" : "getcredentialsforperson.credentialInformation.feignedPerson",
+      "short" : "feignedPerson",
+      "definition" : "feignedPerson",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceCode",
+      "path" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceCode",
+      "short" : "healthCareProfessionalLicenceCode",
+      "definition" : "healthCareProfessionalLicenceCode",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality",
+      "path" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality",
+      "short" : "HCPSpecialityCodesType",
+      "definition" : "healthCareProfessionalLicenceSpeciality",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode",
+      "path" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicenceCode",
+      "short" : "healthCareProfessionalLicenceCode",
+      "definition" : "healthCareProfessionalLicenceCode",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+      "path" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+      "short" : "specialityCode",
+      "definition" : "specialityCode",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+      "path" : "getcredentialsforperson.credentialInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+      "short" : "specialityName",
+      "definition" : "specialityName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.occupationalCode",
+      "path" : "getcredentialsforperson.credentialInformation.occupationalCode",
+      "short" : "occupationalCode",
+      "definition" : "occupationalCode",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.personalIdentity",
+      "path" : "getcredentialsforperson.credentialInformation.personalIdentity",
+      "short" : "personalIdentity",
+      "definition" : "personalIdentity",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getcredentialsforperson.credentialInformation.healthcareProfessionalLicenseIdentityNumber",
+      "path" : "getcredentialsforperson.credentialInformation.healthcareProfessionalLicenseIdentityNumber",
+      "short" : "healthcareProfessionalLicenseIdentityNumber",
+      "definition" : "healthcareProfessionalLicenseIdentityNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

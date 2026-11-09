@@ -1,0 +1,16 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"updatelisting-request","updatelisting-request","","","",0,*,"","","","null {[]} {[]}
+","UpdateListing — Request","Logisk modell för begäran i UpdateListing
+(urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2, UpdateListingType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"updatelisting-request.personId","updatelisting-request.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer","TKB-fält: `personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.personId",1,1,"",""
+"updatelisting-request.newListingCounty","updatelisting-request.newListingCounty","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","newListingCounty","Region i vilken invånare valt att utomlänslista sig hos.
+
+Om länskoden är densamma som för den region som tar emot anropet, då ska anropet tolkas som att en tidigare utomlänslistning har upphört och att folkbokföringsregionen åter har ansvaret för invånaren. Folkbokföringsregionen ska då makulera information om att invånaren är utomlänslistad. Detta scenario kan exempelvis inträffa om den vårdenhet som invånaren utomlänslistat sig på upphör med sin verksamhet.","TKB-fält: `newListingCounty` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.newListingCounty",1,1,"",""
+"updatelisting-request.homeCounty","updatelisting-request.homeCounty","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","homeCounty","Invånares folkbokföringsregion.","TKB-fält: `homeCounty` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.homeCounty",1,1,"",""
+"updatelisting-request.listingType","updatelisting-request.listingType","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingType","Listningstyp som omlistningen (utomlänslistningen) gäller. Fältet ska endast förmedlas om den nya regionen har ett samverkansavtal med folkbokföringsregionen och behöver förmedla gemensamt överenskomna listningstyper som gäller i de båda regionerna.
+
+Se listningstyper i referens [R3]","TKB-fält: `listingType` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.listingType",0,1,"",""

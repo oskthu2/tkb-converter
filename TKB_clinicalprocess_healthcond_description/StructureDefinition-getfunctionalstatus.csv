@@ -1,0 +1,104 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getfunctionalstatus","getfunctionalstatus","","","",0,*,"","","","null {[]} {[]}
+","GetFunctionalStatus","Logisk modell för tjänstekontraktet GetFunctionalStatus
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2).
+Representerar responsens informationsstruktur: dokumenterade bedömningar av
+funktionsnedsättningar och/eller aktivitetsförmåga (PADL) för en patient.
+Bedömningskategori styrs av assessmentCategory: 'pad-pad' (PADL) eller 'fun-fun' (funktionsnedsättning).
+En tjänsteproducent måste använda samma värde för categorization i engagemangsindex som
+för assessmentCategory i svaret.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getfunctionalstatus.functionalStatusAssessment","getfunctionalstatus.functionalStatusAssessment","","","",0,*,"","","","Base {[]} {[]}
+","FunctionalStatusAssessmentType","De funktionsstatusbedömningar som matchar begäran.","TKB-fält: `functionalStatusAssessment` (`FunctionalStatusAssessmentTime`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment",0,*,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../functionalStatusAssessmentHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Funktionsbedömningens identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSA-id för det system tillgängliggör informationen.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","N/A","TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","Bedömningstidpunkt/händelsetidpunkt.","TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Identifierare för patient.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Information om den hälso- och sjukvårdsperson som ansvarar för funktionsstatusbedömninge, nedan kallas författare.","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional",1,1,"","getfunctionalstatus-pdl-careunit-caregiver:Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring. {healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()}
+"
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Information om vem som signerat informationen i dokumentet.","TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","signatureTime","Signaturtidpunkt.
+
+Tid vid vilken funktionsstatusbedömningen signeras.","TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","legalAuthenticatorHSAId","HSA-id för person som signerat dokumentet","TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","legalAuthenticatorName","Namnen i klartext för signerande person.","TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Vårdkontakts-id.
+
+Id för den vårdkontakt vid vilken funktionsstatusbedömningen gjorts.","TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","N/A","TKB-fält: `../../nullified` (`boolean`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","N/A","TKB-fält: `../../nullifiedReason` (`string`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody","","","",1,1,"","","","Base {[]} {[]}
+","FunctionalStatusAssessmentBodyType","functionalStatusAssessmentBody","TKB-fält: `../functionalStatusAssessmentBody` (`FunctionalStatusAssessmentBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory","","","",1,1,"","","","code {[]} {[]}
+","assessmentCategory","Bedömningskategori.
+
+Beskriver vilken kategori av bedömning som är gjord. Tillåtna värden är ""pad-pad"" (för PADL-bedömning) och ""fun-fun"" (för funktionsnedsättningsbedömningar).
+
+Värdet här ska stämma överens med elementet categorization i den Update som tjänsteproducent skickar till EI.","TKB-fält: `../../assessmentCategory` (`AssessmentCategoryEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/assessmentcategory-vs","",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Kommentar.
+
+Text som innehåller kommentar till totaliten av bedömningarna. Får endast användas om assessmentCategory = pad-pad.","TKB-fält: `../../comment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl","","","",0,*,"","","","Base {[]} {[]}
+","PADLType","Beskriver gjorda PADL-bedömningar.
+
+Får enbart anges samtidigt som assessmentCategory = pad-pad.","TKB-fält: `../../padl` (`PADLType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl",0,*,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","typeOfAssessment","Typ av PADL-bedömning. Kan anges med lämpligt kodsystem.
+
+(Regel:2)","TKB-fält: `../../../typeOfAssessment` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment","","","",1,1,"","","","string {[]} {[]}
+","assessment","Den textuella PADL-bedömning som gjorts i kategorin av bedömningar som beskrivs i typeOfAssessment.","TKB-fält: `../../../assessment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability","","","",0,1,"","","","Base {[]} {[]}
+","DisabilityType","Beskriver gjord funktionsnedsättningsbedömning.
+
+Får endast anges om assessmentCategory = fun-fun.","TKB-fält: `../../disability` (`DisabilityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability",0,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","disabilityAssessment","Angivelse av kod för den funktion som bedömts nedsatt.
+
+Om funktionen anges strukturerat ska kod från ICF [R13] användas. Koden ska anges utan bedömningsfaktor och detta ska tolkas som att det är den funktion som ICF-koden representerar som är nedsatt från normal funktion. I attributet kommentar kan nedsättningen vid behov textuellt graderas och specificeras ytterligare.
+
+Om ICF-kod inte kan anges kan den nedsatta funktionen anges i attributet originalText
+
+Kontraktet har i denna version inte stöd för ICFs numeriska bedömningsfaktor.","TKB-fält: `../../../disabilityAssessment` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment",1,1,"",""
+"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Kommentar.
+
+Text som innehåller ytterligare information om funktionsnedsättningen. Exempelvis: ”uttalssvårigheter och tillfälligt bortfall av röststyrka”.","TKB-fält: `../../../comment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment",0,1,"",""
+"getfunctionalstatus.result","getfunctionalstatus.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result",1,1,"",""
+"getfunctionalstatus.result.resultCode","getfunctionalstatus.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.resultCode",1,1,"",""
+"getfunctionalstatus.result.errorCode","getfunctionalstatus.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.errorCode",0,1,"",""
+"getfunctionalstatus.result.logId","getfunctionalstatus.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.logId",1,1,"",""
+"getfunctionalstatus.result.subCode","getfunctionalstatus.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.subCode",0,1,"",""
+"getfunctionalstatus.result.message","getfunctionalstatus.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.message",0,1,"",""

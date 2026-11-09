@@ -1,0 +1,625 @@
+# GetRheumatoidArthritisData — Response - clinicalprocess: healthcond: rheuma — Reumatismdata v1.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetRheumatoidArthritisData — Response**
+
+## Logical Model: GetRheumatoidArthritisData — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata | *Version*:1.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetRheumatoidArthritisData |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetRheumatoidArthritisData (RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataResponseType). Varje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-rheuma|current/StructureDefinition/StructureDefinition-getrheumatoidarthritisdata.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getrheumatoidarthritisdata.csv), [Excel](StructureDefinition-getrheumatoidarthritisdata.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getrheumatoidarthritisdata",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata",
+  "version" : "1.0",
+  "name" : "GetRheumatoidArthritisData",
+  "title" : "GetRheumatoidArthritisData — Response",
+  "status" : "draft",
+  "date" : "2026-11-09T03:23:21+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetRheumatoidArthritisData\n(RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataResponseType).\nVarje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getrheumatoidarthritisdata",
+      "path" : "getrheumatoidarthritisdata",
+      "short" : "GetRheumatoidArthritisData — Response",
+      "definition" : "Logisk modell för svaret i GetRheumatoidArthritisData\n(RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataResponseType).\nVarje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system."
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData",
+      "short" : "RheumatoidArthritisDataType",
+      "definition" : "rheumatoidArthritisData",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader",
+      "short" : "PatientSummaryHeaderType",
+      "definition" : "rheumatoidArthritisDataHeader",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "getrheumatoidarthritisdata-nullified-reason",
+        "severity" : "error",
+        "human" : "nullifiedReason får bara anges när nullified är true",
+        "expression" : "nullifiedReason.exists() implies nullified = true",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentId",
+      "short" : "documentId",
+      "definition" : "documentId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.sourceSystemHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.sourceSystemHSAId",
+      "short" : "sourceSystemHSAId",
+      "definition" : "sourceSystemHSAId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTitle",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "documentTitle",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTime",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "documentTime",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.patientId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.patientId",
+      "short" : "patientId",
+      "definition" : "patientId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "accountableHealthcareProfessional",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator",
+      "short" : "LegalAuthenticatorType",
+      "definition" : "legalAuthenticator",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.signatureTime",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.signatureTime",
+      "short" : "signatureTime",
+      "definition" : "signatureTime",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "legalAuthenticatorHSAId",
+      "definition" : "legalAuthenticatorHSAId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "legalAuthenticatorName",
+      "definition" : "legalAuthenticatorName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.approvedForPatient",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "approvedForPatient",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.careContactId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.careContactId",
+      "short" : "careContactId",
+      "definition" : "careContactId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullified",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullified",
+      "short" : "nullified",
+      "definition" : "nullified",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullifiedReason",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "nullifiedReason",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody",
+      "short" : "RheumatoidArthritisBodyType",
+      "definition" : "rheumatoidArthritisDataBody",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables",
+      "short" : "PatientVariablesType",
+      "definition" : "patientVariables",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.workability",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.workability",
+      "short" : "workability",
+      "definition" : "workability",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.globalHealth",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.globalHealth",
+      "short" : "globalHealth",
+      "definition" : "globalHealth",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.pain",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.pain",
+      "short" : "pain",
+      "definition" : "pain",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.eq5dIndexValue",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.eq5dIndexValue",
+      "short" : "eq5dIndexValue",
+      "definition" : "eq5dIndexValue",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.healthAssessmentQuestionnaireScore",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.healthAssessmentQuestionnaireScore",
+      "short" : "healthAssessmentQuestionnaireScore",
+      "definition" : "healthAssessmentQuestionnaireScore",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.tenderJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.tenderJoints28",
+      "short" : "tenderJoints28",
+      "definition" : "tenderJoints28",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.swollenJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.swollenJoints28",
+      "short" : "swollenJoints28",
+      "definition" : "swollenJoints28",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables",
+      "short" : "PhysiciansVariablesType",
+      "definition" : "physiciansVariables",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.physiciansGlobal",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.physiciansGlobal",
+      "short" : "physiciansGlobal",
+      "definition" : "physiciansGlobal",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.tenderJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.tenderJoints28",
+      "short" : "tenderJoints28",
+      "definition" : "tenderJoints28",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.swollenJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.swollenJoints28",
+      "short" : "swollenJoints28",
+      "definition" : "swollenJoints28",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28",
+      "short" : "diseaseActivityScore28",
+      "definition" : "diseaseActivityScore28",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28CRP",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28CRP",
+      "short" : "diseaseActivityScore28CRP",
+      "definition" : "diseaseActivityScore28CRP",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables",
+      "short" : "LabVariablesType",
+      "definition" : "labVariables",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate",
+      "short" : "PQType",
+      "definition" : "sedimentationRate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate.value",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate.unit",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate.unit",
+      "short" : "unit",
+      "definition" : "unit",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein",
+      "short" : "PQType",
+      "definition" : "cReactiveProtein",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein.value",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein.unit",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein.unit",
+      "short" : "unit",
+      "definition" : "unit",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug",
+      "short" : "DrugType",
+      "definition" : "drug",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.nplId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.nplId",
+      "short" : "nplId",
+      "definition" : "nplId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.actCode",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.actCode",
+      "short" : "actCode",
+      "definition" : "actCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.name",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.name",
+      "short" : "name",
+      "definition" : "name",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.typeOfDrug",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.typeOfDrug",
+      "short" : "typeOfDrug",
+      "definition" : "typeOfDrug",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose",
+      "short" : "PQType",
+      "definition" : "dose",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose.value",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose.unit",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose.unit",
+      "short" : "unit",
+      "definition" : "unit",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.datePeriod",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.datePeriod",
+      "short" : "datePeriod",
+      "definition" : "datePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/DatePeriodType"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.endCause",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.endCause",
+      "short" : "endCause",
+      "definition" : "endCause",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.interval",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.interval",
+      "short" : "interval",
+      "definition" : "interval",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

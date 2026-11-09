@@ -1,0 +1,207 @@
+# CreateFormRequest - infrastructure: supportservices: forminteraction v2.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **CreateFormRequest**
+
+## Logical Model: CreateFormRequest 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/createformrequest | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:CreateFormRequestResponse |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svar (response) i tjänstekontraktet CreateFormRequest (RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateFormRequest:2). Bekräftar att formulärbegäran har registrerats. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-supportservices-forminteraction|current/StructureDefinition/StructureDefinition-createformrequest.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-createformrequest.csv), [Excel](StructureDefinition-createformrequest.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "createformrequest",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/createformrequest",
+  "version" : "2.0",
+  "name" : "CreateFormRequestResponse",
+  "title" : "CreateFormRequest",
+  "status" : "draft",
+  "date" : "2026-11-09T03:41:01+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svar (response) i tjänstekontraktet CreateFormRequest\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateFormRequest:2).\nBekräftar att formulärbegäran har registrerats.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/createformrequest",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "createformrequest",
+      "path" : "createformrequest",
+      "short" : "CreateFormRequest",
+      "definition" : "Logisk modell för svar (response) i tjänstekontraktet CreateFormRequest\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateFormRequest:2).\nBekräftar att formulärbegäran har registrerats."
+    },
+    {
+      "id" : "createformrequest.formRequest",
+      "path" : "createformrequest.formRequest",
+      "short" : "FormRequestType",
+      "definition" : "formRequest",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.clinicalProcessInterestId",
+      "path" : "createformrequest.formRequest.clinicalProcessInterestId",
+      "short" : "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID.",
+      "definition" : "HSA-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.expireDate",
+      "path" : "createformrequest.formRequest.expireDate",
+      "short" : "expireDate",
+      "definition" : "expireDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.formText",
+      "path" : "createformrequest.formRequest.formText",
+      "short" : "formText",
+      "definition" : "Unik text för Formulär. Används t.ex. \"CreateFormRequest\" för att bifoga en unik text för formuläret. T.ex. \"Hälsoundersökning inför besök X\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.healthcare-CareGiver",
+      "path" : "createformrequest.formRequest.healthcare_CareGiver",
+      "short" : "Ansvarig vårdgivare (huvudman). T.ex. Landsting.",
+      "definition" : "Ansvarig vårdgivare (huvudman). T.ex. Landsting.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.healthcare-facility-CareUnit",
+      "path" : "createformrequest.formRequest.healthcare_facility_CareUnit",
+      "short" : "healthcare_facility_CareUnit",
+      "definition" : "Vårdenheten som erbjuder/tillhandahåller formuläret. Fysisk mottagning. T.ex. Den avdelning som formuläret: se2321000016-1hz3",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.healthcare-MedUnit",
+      "path" : "createformrequest.formRequest.healthcare_MedUnit",
+      "short" : "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik",
+      "definition" : "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.healthcare-systemID",
+      "path" : "createformrequest.formRequest.healthcare_systemID",
+      "short" : "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem",
+      "definition" : "Id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.keepUntil",
+      "path" : "createformrequest.formRequest.keepUntil",
+      "short" : "keepUntil",
+      "definition" : "keepUntil",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.subjectOfCare",
+      "path" : "createformrequest.formRequest.subjectOfCare",
+      "short" : "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
+      "definition" : "FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.templateId",
+      "path" : "createformrequest.formRequest.templateId",
+      "short" : "Typ av formulär. Kodverk för standardiserade id för formulärtyper.",
+      "definition" : "Typ av formulär. Kodverk för standardiserade id för formulärtyper.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "createformrequest.formRequest.templateVersion",
+      "path" : "createformrequest.formRequest.templateVersion",
+      "short" : "templateVersion",
+      "definition" : "templateVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    }]
+  }
+}
+
+```

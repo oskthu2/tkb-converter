@@ -1,0 +1,36 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getehrextract-request","getehrextract-request","","","",0,*,"","","","null {[]} {[]}
+","GetEhrExtract — Request","Logisk modell för begäran i GetEhrExtract
+(urn:riv:ehr:patientsummary:GetEhrExtractResponder:1, GetEhrExtractType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getehrextract-request.subject-of-care-id","getehrextract-request.subject_of_care_id","","","",1,1,"","","","string {[]} {[]}
+","subject_of_care_id","subject_of_care_id","TKB-fält: `subject_of_care_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.subject_of_care_id",1,1,"",""
+"getehrextract-request.purpose","getehrextract-request.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","Anger anledningen till anropet. Innehållet i detta fält kan användas/defineras per tjänstekonsument beroende på användningsområde. Vid användning av detta fält måste det finnas en överrenskommelse mellan tjästekonsumenten och tjänsteproducenten.","TKB-fält: `purpose` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.purpose",0,1,"",""
+"getehrextract-request.rc-ids","getehrextract-request.rc_ids","","","",0,*,"","","","string {[]} {[]}
+","rc_ids","rc_ids","TKB-fält: `rc_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract-request.rc_ids",0,*,"",""
+"getehrextract-request.time-period","getehrextract-request.time_period","","","",0,1,"","","","string {[]} {[]}
+","time_period","Begränsning av sökningen i tid, baserat på kliniskt relevanta datum. Händelser anses ligga inom intervallet, om de till någon del ligger inom intervallet. (Start- och slutpunkt inkluderas i intervallet.) Formatet för start- respektive slutdatum är ÅÅÅÅMMDD. (Exempel på när tidsintervall används är om NPÖs frågetjänst blir anropad med tidsintervall - då propageras intervallet ner till källsystemen.)","TKB-fält: `time_period` (`IVL_TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.time_period",0,1,"",""
+"getehrextract-request.max-sensitivity","getehrextract-request.max_sensitivity","","","",0,1,"","","","string {[]} {[]}
+","max_sensitivity","max_sensitivity","TKB-fält: `max_sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.max_sensitivity",0,1,"",""
+"getehrextract-request.all-versions","getehrextract-request.all_versions","","","",0,1,"","","","string {[]} {[]}
+","all_versions","all_versions","TKB-fält: `all_versions` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.all_versions",0,1,"",""
+"getehrextract-request.multimedia-included","getehrextract-request.multimedia_included","","","",0,1,"","","","string {[]} {[]}
+","multimedia_included","multimedia_included","TKB-fält: `multimedia_included` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.multimedia_included",0,1,"",""
+"getehrextract-request.archetype-ids","getehrextract-request.archetype_ids","","","",0,*,"","","","string {[]} {[]}
+","archetype_ids","archetype_ids","TKB-fält: `archetype_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract-request.archetype_ids",0,*,"",""
+"getehrextract-request.meanings","getehrextract-request.meanings","","","",0,*,"","","","string {[]} {[]}
+","meanings","En av NPÖ definerad huvudinformationstyp.","TKB-fält: `meanings` (`CD`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getehrextract-request.meanings",0,*,"",""
+"getehrextract-request.max-records","getehrextract-request.max_records","","","",0,1,"","","","string {[]} {[]}
+","max_records","max_records","TKB-fält: `max_records` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.max_records",0,1,"",""
+"getehrextract-request.parameters","getehrextract-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters",0,*,"",""
+"getehrextract-request.parameters.code","getehrextract-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters.code",0,1,"",""
+"getehrextract-request.parameters.name","getehrextract-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters.name",1,1,"",""
+"getehrextract-request.parameters.value","getehrextract-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters.value",1,1,"",""

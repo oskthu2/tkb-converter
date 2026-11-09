@@ -1,0 +1,11 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processcareencounter-request","processcareencounter-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessCareEncounter — Request","Logisk modell för requestparametrar i tjänstekontraktet ProcessCareEncounter
+(RIV-TA urn:riv:followup:processdevelopment:infections:ProcessCareEncounter:1).
+Skriver vårdkontaktsdata till Infektionsverktyget. En vårdkontakt kan uppdateras
+genom att ett nytt meddelande med samma vårdkontaktsid skickas in.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processcareencounter-request.careEncounterType","processcareencounter-request.careEncounterType","","","",1,1,"","","","string {[]} {[]}
+","careEncounterType","Anger vilken typ av vårdkontakt det gäller.","TKB-fält: `CareEncounterType.type` (`CVType`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"processcareencounter-request.careEncounterType",1,1,"","processcareencounter-request-location-when-performer:När performerRole.performerRoleId anges (vårdpersonal) ska minst location.name anges (TKB Övriga regler, Fält 2). {performerRole.performerRoleId.exists() implies location.name.exists()}
+"

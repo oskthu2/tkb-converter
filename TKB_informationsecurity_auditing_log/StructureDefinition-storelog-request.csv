@@ -1,0 +1,74 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"storelog-request","storelog-request","","","",0,*,"","","","null {[]} {[]}
+","StoreLog — Request","Logisk modell för begäran i StoreLog
+(urn:riv:informationsecurity:auditing:log:StoreLogResponder:2, StoreLogType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"storelog-request.log","storelog-request.log","","","",1,*,"","","","Base {[]} {[]}
+","LogType","En kollektion av loggposter som ska lagras i loggtjänsten.","TKB-fält: `Log*` (`urn:riv:informationsecurity:auditing:log:2:LogType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"storelog-request.log",1,*,"",""
+"storelog-request.log.logId","storelog-request.log.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","logId","TKB-fält: `../logId` (`Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.logId",1,1,"",""
+"storelog-request.log.system","storelog-request.log.system","","","",1,1,"","","","Base {[]} {[]}
+","SystemType","Datatyp som representerar ett system i loggposten. Det system som skapar loggposten.","TKB-fält: `../system` (`SystemType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.system",1,1,"",""
+"storelog-request.log.system.systemId","storelog-request.log.system.systemId","","","",1,1,"","","","string {[]} {[]}
+","systemId","systemId","TKB-fält: `../../systemId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.system.systemId",1,1,"",""
+"storelog-request.log.system.systemName","storelog-request.log.system.systemName","","","",0,1,"","","","string {[]} {[]}
+","systemName","systemName","TKB-fält: `../../systemName` (`SystemName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.system.systemName",0,1,"",""
+"storelog-request.log.activity","storelog-request.log.activity","","","",1,1,"","","","Base {[]} {[]}
+","ActivityType","Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå, tidpunkt samt syftet med aktiviteten.","TKB-fält: `../activity` (`ActivityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.activity",1,1,"",""
+"storelog-request.log.activity.activityType","storelog-request.log.activity.activityType","","","",1,1,"","","","string {[]} {[]}
+","activityType","activityType","TKB-fält: `../../activityType` (`ActivityTypeValue`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.activityType",1,1,"",""
+"storelog-request.log.activity.activityLevel","storelog-request.log.activity.activityLevel","","","",0,1,"","","","string {[]} {[]}
+","activityLevel","activityLevel","TKB-fält: `../../activityLevel` (`ActivityLevel`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.activityLevel",0,1,"",""
+"storelog-request.log.activity.activityArgs","storelog-request.log.activity.activityArgs","","","",0,1,"","","","string {[]} {[]}
+","activityArgs","activityArgs","TKB-fält: `../../activityArgs` (`ActivityArgs`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.activityArgs",0,1,"",""
+"storelog-request.log.activity.startDate","storelog-request.log.activity.startDate","","","",1,1,"","","","dateTime {[]} {[]}
+","startDate","startDate","TKB-fält: `../../startDate` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.startDate",1,1,"",""
+"storelog-request.log.activity.purpose","storelog-request.log.activity.purpose","","","",1,1,"","","","string {[]} {[]}
+","purpose","purpose","TKB-fält: `../../purpose` (`PurposeDescription`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.purpose",1,1,"",""
+"storelog-request.log.user","storelog-request.log.user","","","",1,1,"","","","Base {[]} {[]}
+","UserType","Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost.","TKB-fält: `../user` (`UserType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user",1,1,"",""
+"storelog-request.log.user.userId","storelog-request.log.user.userId","","","",1,1,"","","","string {[]} {[]}
+","userId","userId","TKB-fält: `../../userId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.userId",1,1,"",""
+"storelog-request.log.user.name","storelog-request.log.user.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`UserName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.name",0,1,"",""
+"storelog-request.log.user.personId","storelog-request.log.user.personId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","En universellt unik identifierare.","TKB-fält: `../../personId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.personId",0,1,"",""
+"storelog-request.log.user.assignment","storelog-request.log.user.assignment","","","",0,1,"","","","string {[]} {[]}
+","assignment","assignment","TKB-fält: `../../assignment` (`Assignment`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.assignment",0,1,"",""
+"storelog-request.log.user.title","storelog-request.log.user.title","","","",0,1,"","","","string {[]} {[]}
+","title","title","TKB-fält: `../../title` (`UserTitle`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.title",0,1,"",""
+"storelog-request.log.user.careProvider","storelog-request.log.user.careProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","Datatyp som representerar en vårdgivare.","TKB-fält: `../../careProvider` (`CareProviderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careProvider",1,1,"",""
+"storelog-request.log.user.careProvider.careProviderId","storelog-request.log.user.careProvider.careProviderId","","","",1,1,"","","","string {[]} {[]}
+","careProviderId","careProviderId","TKB-fält: `../../../careProviderId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careProvider.careProviderId",1,1,"",""
+"storelog-request.log.user.careProvider.careProviderName","storelog-request.log.user.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","careProviderName","careProviderName","TKB-fält: `../../../careProviderName` (`CareProviderName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careProvider.careProviderName",0,1,"",""
+"storelog-request.log.user.careUnit","storelog-request.log.user.careUnit","","","",1,1,"","","","Base {[]} {[]}
+","CareUnitType","Datatyp som representerar en vårdenhet.","TKB-fält: `../../careUnit` (`CareUnitType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careUnit",1,1,"",""
+"storelog-request.log.user.careUnit.careUnitId","storelog-request.log.user.careUnit.careUnitId","","","",1,1,"","","","string {[]} {[]}
+","careUnitId","careUnitId","TKB-fält: `../../../careUnitId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careUnit.careUnitId",1,1,"",""
+"storelog-request.log.user.careUnit.careUnitName","storelog-request.log.user.careUnit.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","careUnitName","TKB-fält: `../../../careUnitName` (`CareUnitName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careUnit.careUnitName",0,1,"",""
+"storelog-request.log.resources","storelog-request.log.resources","","","",1,1,"","","","Base {[]} {[]}
+","ResourcesType","Information om aktuella resurser. En loggpost kan hålla en eller flera resurser.","TKB-fält: `../resources` (`ResourcesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources",1,1,"",""
+"storelog-request.log.resources.resource","storelog-request.log.resources.resource","","","",1,*,"","","","Base {[]} {[]}
+","ResourceType","Datatyp som representerar en resurs i loggposten.","TKB-fält: `../../resource` (`ResourceType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource",1,*,"",""
+"storelog-request.log.resources.resource.resourceType","storelog-request.log.resources.resource.resourceType","","","",1,1,"","","","string {[]} {[]}
+","resourceType","resourceType","TKB-fält: `../../../resourceType` (`ResourceTypeValue`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.resourceType",1,1,"",""
+"storelog-request.log.resources.resource.patient","storelog-request.log.resources.resource.patient","","","",0,1,"","","","Base {[]} {[]}
+","PatientType","Datatyp som representerar en patient i en resurs.","TKB-fält: `../../../patient` (`PatientType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.patient",0,1,"",""
+"storelog-request.log.resources.resource.patient.patientId","storelog-request.log.resources.resource.patient.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","En universellt unik identifierare.","TKB-fält: `../../../../patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.patient.patientId",1,1,"",""
+"storelog-request.log.resources.resource.patient.patientName","storelog-request.log.resources.resource.patient.patientName","","","",0,1,"","","","string {[]} {[]}
+","patientName","patientName","TKB-fält: `../../../../patientName` (`PatientName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.patient.patientName",0,1,"",""
+"storelog-request.log.resources.resource.careProvider","storelog-request.log.resources.resource.careProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","Datatyp som representerar en vårdgivare.","TKB-fält: `../../../careProvider` (`CareProviderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careProvider",1,1,"",""
+"storelog-request.log.resources.resource.careProvider.careProviderId","storelog-request.log.resources.resource.careProvider.careProviderId","","","",1,1,"","","","string {[]} {[]}
+","careProviderId","careProviderId","TKB-fält: `../../../../careProviderId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careProvider.careProviderId",1,1,"",""
+"storelog-request.log.resources.resource.careProvider.careProviderName","storelog-request.log.resources.resource.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","careProviderName","careProviderName","TKB-fält: `../../../../careProviderName` (`CareProviderName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careProvider.careProviderName",0,1,"",""
+"storelog-request.log.resources.resource.careUnit","storelog-request.log.resources.resource.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","Datatyp som representerar en vårdenhet.","TKB-fält: `../../../careUnit` (`CareUnitType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careUnit",0,1,"",""
+"storelog-request.log.resources.resource.careUnit.careUnitId","storelog-request.log.resources.resource.careUnit.careUnitId","","","",1,1,"","","","string {[]} {[]}
+","careUnitId","careUnitId","TKB-fält: `../../../../careUnitId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careUnit.careUnitId",1,1,"",""
+"storelog-request.log.resources.resource.careUnit.careUnitName","storelog-request.log.resources.resource.careUnit.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","careUnitName","TKB-fält: `../../../../careUnitName` (`CareUnitName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careUnit.careUnitName",0,1,"",""

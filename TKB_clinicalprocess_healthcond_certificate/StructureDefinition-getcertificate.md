@@ -1,0 +1,1345 @@
+# GetCertificate - clinicalprocess: healthcond: certificate v4.1.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCertificate**
+
+## Logical Model: GetCertificate 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate | *Version*:2.1 |
+| Draft as of 2026-11-09 | *Computable Name*:GetCertificate |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetCertificate (RIV-TA urn:riv:clinicalprocess:healthcond:certificate:GetCertificate:2). Representerar responsens informationsstruktur — ett intyg med tillhörande metadata. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-certificate|current/StructureDefinition/StructureDefinition-getcertificate.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcertificate.csv), [Excel](StructureDefinition-getcertificate.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcertificate",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate",
+  "version" : "2.1",
+  "name" : "GetCertificate",
+  "title" : "GetCertificate",
+  "status" : "draft",
+  "date" : "2026-11-09T03:21:30+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:GetCertificate:2).\nRepresenterar responsens informationsstruktur — ett intyg med tillhörande metadata.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcertificate",
+      "path" : "getcertificate",
+      "short" : "GetCertificate",
+      "definition" : "Logisk modell för tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:GetCertificate:2).\nRepresenterar responsens informationsstruktur — ett intyg med tillhörande metadata."
+    },
+    {
+      "id" : "getcertificate.intyg",
+      "path" : "getcertificate.intyg",
+      "short" : "Intyg",
+      "definition" : "Ett intyg.",
+      "comment" : "TKB-fält: `intyg` (`Intyg (se 7.1.5)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.intygs-id",
+      "path" : "getcertificate.intyg.intygs-id",
+      "short" : "IntygId",
+      "definition" : "intygs-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.mottagare",
+      "path" : "getcertificate.intyg.mottagare",
+      "short" : "Part",
+      "definition" : "mottagare",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.typ",
+      "path" : "getcertificate.intyg.typ",
+      "short" : "TypAvIntyg",
+      "definition" : "typ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.version",
+      "path" : "getcertificate.intyg.version",
+      "short" : "version",
+      "definition" : "version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.signeringstidpunkt",
+      "path" : "getcertificate.intyg.signeringstidpunkt",
+      "short" : "signeringstidpunkt",
+      "definition" : "signeringstidpunkt",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skickatTidpunkt",
+      "path" : "getcertificate.intyg.skickatTidpunkt",
+      "short" : "skickatTidpunkt",
+      "definition" : "skickatTidpunkt",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient",
+      "path" : "getcertificate.intyg.patient",
+      "short" : "Patient",
+      "definition" : "patient",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.person-id",
+      "path" : "getcertificate.intyg.patient.person-id",
+      "short" : "PersonId",
+      "definition" : "person-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.fornamn",
+      "path" : "getcertificate.intyg.patient.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.efternamn",
+      "path" : "getcertificate.intyg.patient.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.mellannamn",
+      "path" : "getcertificate.intyg.patient.mellannamn",
+      "short" : "mellannamn",
+      "definition" : "mellannamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.postadress",
+      "path" : "getcertificate.intyg.patient.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.postnummer",
+      "path" : "getcertificate.intyg.patient.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.postort",
+      "path" : "getcertificate.intyg.patient.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.patient.kallaAdressuppgifter",
+      "path" : "getcertificate.intyg.patient.kallaAdressuppgifter",
+      "short" : "KallaAdressuppgifterType",
+      "definition" : "kallaAdressuppgifter",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv",
+      "path" : "getcertificate.intyg.skapadAv",
+      "short" : "HosPersonal",
+      "definition" : "skapadAv",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.personal-id",
+      "path" : "getcertificate.intyg.skapadAv.personal-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.fullstandigtNamn",
+      "path" : "getcertificate.intyg.skapadAv.fullstandigtNamn",
+      "short" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "definition" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.forskrivarkod",
+      "path" : "getcertificate.intyg.skapadAv.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.befattning",
+      "path" : "getcertificate.intyg.skapadAv.befattning",
+      "short" : "Befattning",
+      "definition" : "befattning",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet",
+      "path" : "getcertificate.intyg.skapadAv.enhet",
+      "short" : "Enhet",
+      "definition" : "enhet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.enhets-id",
+      "path" : "getcertificate.intyg.skapadAv.enhet.enhets-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.arbetsplatskod",
+      "path" : "getcertificate.intyg.skapadAv.enhet.arbetsplatskod",
+      "short" : "ArbetsplatsKod",
+      "definition" : "o.i.d för arbetsplatskod är 1.2.752.29.4.71",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.enhetsnamn",
+      "path" : "getcertificate.intyg.skapadAv.enhet.enhetsnamn",
+      "short" : "enhetsnamn",
+      "definition" : "enhetsnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.postadress",
+      "path" : "getcertificate.intyg.skapadAv.enhet.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.postnummer",
+      "path" : "getcertificate.intyg.skapadAv.enhet.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.postort",
+      "path" : "getcertificate.intyg.skapadAv.enhet.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.telefonnummer",
+      "path" : "getcertificate.intyg.skapadAv.enhet.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "telefonnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.epost",
+      "path" : "getcertificate.intyg.skapadAv.enhet.epost",
+      "short" : "epost",
+      "definition" : "epost",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.vardgivare",
+      "path" : "getcertificate.intyg.skapadAv.enhet.vardgivare",
+      "short" : "Vardgivare",
+      "definition" : "vardgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.vardgivare.vardgivare-id",
+      "path" : "getcertificate.intyg.skapadAv.enhet.vardgivare.vardgivare-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.enhet.vardgivare.vardgivarnamn",
+      "path" : "getcertificate.intyg.skapadAv.enhet.vardgivare.vardgivarnamn",
+      "short" : "vardgivarnamn",
+      "definition" : "vardgivarnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.specialistkompetens",
+      "path" : "getcertificate.intyg.skapadAv.specialistkompetens",
+      "short" : "Specialistkompetens",
+      "definition" : "specialistkompetens",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.specialistkompetens.code",
+      "path" : "getcertificate.intyg.skapadAv.specialistkompetens.code",
+      "short" : "code",
+      "definition" : "code",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.specialistkompetens.displayName",
+      "path" : "getcertificate.intyg.skapadAv.specialistkompetens.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.skapadAv.legitimeratYrke",
+      "path" : "getcertificate.intyg.skapadAv.legitimeratYrke",
+      "short" : "LegitimeratYrkeType",
+      "definition" : "legitimeratYrke",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.relation",
+      "path" : "getcertificate.intyg.relation",
+      "short" : "Relation",
+      "definition" : "relation",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.relation.typ",
+      "path" : "getcertificate.intyg.relation.typ",
+      "short" : "TypAvRelation",
+      "definition" : "typ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.relation.intygs-id",
+      "path" : "getcertificate.intyg.relation.intygs-id",
+      "short" : "IntygId",
+      "definition" : "intygs-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.status",
+      "path" : "getcertificate.intyg.status",
+      "short" : "IntygsStatus",
+      "definition" : "status",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.status.part",
+      "path" : "getcertificate.intyg.status.part",
+      "short" : "Part",
+      "definition" : "part",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.status.status",
+      "path" : "getcertificate.intyg.status.status",
+      "short" : "Statuskod",
+      "definition" : "status",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.status.tidpunkt",
+      "path" : "getcertificate.intyg.status.tidpunkt",
+      "short" : "tidpunkt",
+      "definition" : "tidpunkt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.svar",
+      "path" : "getcertificate.intyg.svar",
+      "short" : "Svar",
+      "definition" : "svar",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.svar.instans",
+      "path" : "getcertificate.intyg.svar.instans",
+      "short" : "instans",
+      "definition" : "instans",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.svar.delsvar",
+      "path" : "getcertificate.intyg.svar.delsvar",
+      "short" : "(anonym typ)",
+      "definition" : "delsvar",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.svar.delsvar.id",
+      "path" : "getcertificate.intyg.svar.delsvar.id",
+      "short" : "id",
+      "definition" : "id (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DelfrageIdType"]
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.svar.id",
+      "path" : "getcertificate.intyg.svar.id",
+      "short" : "id",
+      "definition" : "id (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/FrageIdType"]
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift",
+      "path" : "getcertificate.intyg.underskrift",
+      "short" : "UnderskriftType",
+      "definition" : "underskrift",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature",
+      "path" : "getcertificate.intyg.underskrift.Signature",
+      "short" : "SignatureType",
+      "definition" : "Signature",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo",
+      "short" : "SignedInfoType",
+      "definition" : "SignedInfo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod",
+      "short" : "CanonicalizationMethodType",
+      "definition" : "CanonicalizationMethod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod.Algorithm",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod.Algorithm",
+      "short" : "Algorithm",
+      "definition" : "Algorithm (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.SignatureMethod",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.SignatureMethod",
+      "short" : "SignatureMethodType",
+      "definition" : "SignatureMethod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.SignatureMethod.HMACOutputLength",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.SignatureMethod.HMACOutputLength",
+      "short" : "HMACOutputLength",
+      "definition" : "HMACOutputLength",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.SignatureMethod.Algorithm",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.SignatureMethod.Algorithm",
+      "short" : "Algorithm",
+      "definition" : "Algorithm (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference",
+      "short" : "ReferenceType",
+      "definition" : "Reference",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms",
+      "short" : "TransformsType",
+      "definition" : "Transforms",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform",
+      "short" : "TransformType",
+      "definition" : "Transform",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.XPath",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.XPath",
+      "short" : "XPath",
+      "definition" : "XPath",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.Algorithm",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.Algorithm",
+      "short" : "Algorithm",
+      "definition" : "Algorithm (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod",
+      "short" : "DigestMethodType",
+      "definition" : "DigestMethod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod.Algorithm",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod.Algorithm",
+      "short" : "Algorithm",
+      "definition" : "Algorithm (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.DigestValue",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.DigestValue",
+      "short" : "DigestValue",
+      "definition" : "DigestValue",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Id",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Id",
+      "short" : "Id",
+      "definition" : "Id (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.URI",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.URI",
+      "short" : "URI",
+      "definition" : "URI (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Type",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Reference.Type",
+      "short" : "Type",
+      "definition" : "Type (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Id",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignedInfo.Id",
+      "short" : "Id",
+      "definition" : "Id (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignatureValue",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignatureValue",
+      "short" : "SignatureValueType",
+      "definition" : "SignatureValue",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignatureValue.value",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignatureValue.value",
+      "short" : "Textinnehåll",
+      "definition" : "Elementets textinnehåll i XML (simpleContent).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.SignatureValue.Id",
+      "path" : "getcertificate.intyg.underskrift.Signature.SignatureValue.Id",
+      "short" : "Id",
+      "definition" : "Id (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo",
+      "short" : "KeyInfoType",
+      "definition" : "KeyInfo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyName",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyName",
+      "short" : "KeyName",
+      "definition" : "KeyName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue",
+      "short" : "KeyValueType",
+      "definition" : "KeyValue",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "getcertificate-choice-1",
+        "severity" : "error",
+        "human" : "Exakt ett av DSAKeyValue, RSAKeyValue ska anges (xs:choice i schemat).",
+        "expression" : "DSAKeyValue.exists() xor RSAKeyValue.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue",
+      "short" : "DSAKeyValueType",
+      "definition" : "DSAKeyValue",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.P",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.P",
+      "short" : "P",
+      "definition" : "P",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Q",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Q",
+      "short" : "Q",
+      "definition" : "Q",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.G",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.G",
+      "short" : "G",
+      "definition" : "G",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Y",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Y",
+      "short" : "Y",
+      "definition" : "Y",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.J",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.J",
+      "short" : "J",
+      "definition" : "J",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Seed",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Seed",
+      "short" : "Seed",
+      "definition" : "Seed",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.PgenCounter",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.PgenCounter",
+      "short" : "PgenCounter",
+      "definition" : "PgenCounter",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue",
+      "short" : "RSAKeyValueType",
+      "definition" : "RSAKeyValue",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Modulus",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Modulus",
+      "short" : "Modulus",
+      "definition" : "Modulus",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Exponent",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Exponent",
+      "short" : "Exponent",
+      "definition" : "Exponent",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod",
+      "short" : "RetrievalMethodType",
+      "definition" : "RetrievalMethod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms",
+      "short" : "TransformsType",
+      "definition" : "Transforms",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform",
+      "short" : "TransformType",
+      "definition" : "Transform",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.XPath",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.XPath",
+      "short" : "XPath",
+      "definition" : "XPath",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.Algorithm",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.Algorithm",
+      "short" : "Algorithm",
+      "definition" : "Algorithm (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.URI",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.URI",
+      "short" : "URI",
+      "definition" : "URI (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Type",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Type",
+      "short" : "Type",
+      "definition" : "Type (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data",
+      "short" : "X509DataType",
+      "definition" : "X509Data",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "getcertificate-choice-6",
+        "severity" : "error",
+        "human" : "Exakt ett av X509IssuerSerial, X509SKI, X509SubjectName, X509Certificate, X509CRL ska anges (xs:choice i schemat).",
+        "expression" : "iif(X509IssuerSerial.exists(), 1, 0) + iif(X509SKI.exists(), 1, 0) + iif(X509SubjectName.exists(), 1, 0) + iif(X509Certificate.exists(), 1, 0) + iif(X509CRL.exists(), 1, 0) = 1",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial",
+      "short" : "X509IssuerSerialType",
+      "definition" : "X509IssuerSerial",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509IssuerName",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509IssuerName",
+      "short" : "X509IssuerName",
+      "definition" : "X509IssuerName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509SerialNumber",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509SerialNumber",
+      "short" : "X509SerialNumber",
+      "definition" : "X509SerialNumber",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509SKI",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509SKI",
+      "short" : "X509SKI",
+      "definition" : "X509SKI",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509SubjectName",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509SubjectName",
+      "short" : "X509SubjectName",
+      "definition" : "X509SubjectName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509Certificate",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509Certificate",
+      "short" : "X509Certificate",
+      "definition" : "X509Certificate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509CRL",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.X509Data.X509CRL",
+      "short" : "X509CRL",
+      "definition" : "X509CRL",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.PGPData",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.PGPData",
+      "short" : "PGPDataType",
+      "definition" : "PGPData",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "getcertificate-choice-11",
+        "severity" : "error",
+        "human" : "Exakt ett av PGPKeyID, PGPKeyPacket ska anges (xs:choice i schemat).",
+        "expression" : "PGPKeyID.exists() xor PGPKeyPacket.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyID",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyID",
+      "short" : "PGPKeyID",
+      "definition" : "PGPKeyID",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyPacket",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyPacket",
+      "short" : "PGPKeyPacket",
+      "definition" : "PGPKeyPacket",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.SPKIData",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.SPKIData",
+      "short" : "SPKIDataType",
+      "definition" : "SPKIData",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.SPKIData.SPKISexp",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.SPKIData.SPKISexp",
+      "short" : "SPKISexp",
+      "definition" : "SPKISexp",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.MgmtData",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.MgmtData",
+      "short" : "MgmtData",
+      "definition" : "MgmtData",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.KeyInfo.Id",
+      "path" : "getcertificate.intyg.underskrift.Signature.KeyInfo.Id",
+      "short" : "Id",
+      "definition" : "Id (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.Object",
+      "path" : "getcertificate.intyg.underskrift.Signature.Object",
+      "short" : "ObjectType",
+      "definition" : "Object",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.Object.Id",
+      "path" : "getcertificate.intyg.underskrift.Signature.Object.Id",
+      "short" : "Id",
+      "definition" : "Id (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.Object.MimeType",
+      "path" : "getcertificate.intyg.underskrift.Signature.Object.MimeType",
+      "short" : "MimeType",
+      "definition" : "MimeType (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.Object.Encoding",
+      "path" : "getcertificate.intyg.underskrift.Signature.Object.Encoding",
+      "short" : "Encoding",
+      "definition" : "Encoding (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcertificate.intyg.underskrift.Signature.Id",
+      "path" : "getcertificate.intyg.underskrift.Signature.Id",
+      "short" : "Id",
+      "definition" : "Id (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

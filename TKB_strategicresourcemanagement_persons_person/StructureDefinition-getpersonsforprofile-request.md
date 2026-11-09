@@ -1,0 +1,115 @@
+# GetPersonsForProfile — Request - strategicresourcemanagement: persons: person v5.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetPersonsForProfile — Request**
+
+## Logical Model: GetPersonsForProfile — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/getpersonsforprofile-request | *Version*:5.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetPersonsForProfileRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i GetPersonsForProfile (urn:riv:strategicresourcemanagement:persons:person:GetPersonsForProfileResponder:5, GetPersonsForProfileType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-person|current/StructureDefinition/StructureDefinition-getpersonsforprofile-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getpersonsforprofile-request.csv), [Excel](StructureDefinition-getpersonsforprofile-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getpersonsforprofile-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/getpersonsforprofile-request",
+  "version" : "5.0",
+  "name" : "GetPersonsForProfileRequest",
+  "title" : "GetPersonsForProfile — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:51:23+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i GetPersonsForProfile\n(urn:riv:strategicresourcemanagement:persons:person:GetPersonsForProfileResponder:5, GetPersonsForProfileType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/getpersonsforprofile-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getpersonsforprofile-request",
+      "path" : "getpersonsforprofile-request",
+      "short" : "GetPersonsForProfile — Request",
+      "definition" : "Logisk modell för begäran i GetPersonsForProfile\n(urn:riv:strategicresourcemanagement:persons:person:GetPersonsForProfileResponder:5, GetPersonsForProfileType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "getpersonsforprofile-request.personId",
+      "path" : "getpersonsforprofile-request.personId",
+      "short" : "personId",
+      "definition" : "Array med personidentiteter som efterfrågas. Maxantal 500",
+      "comment" : "TKB-fält: `personId` (`urn:riv:strategicresourcemanagement:persons:person:5:IIType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getpersonsforprofile-request.profile",
+      "path" : "getpersonsforprofile-request.profile",
+      "short" : "profile",
+      "definition" : "Profil för urval av returnerat data.",
+      "comment" : "TKB-fält: `profile` (`urn:riv:strategicresourcemanagement:persons:person:5:LookupProfileType`, kardinalitet 1..1).\n\n**Modellanteckning:** profile Tillåtna värden: P1, P2, P3, P4, P5, P6, P7, P8, P9, P10.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-lookupprofile-vs"
+      }
+    },
+    {
+      "id" : "getpersonsforprofile-request.ignoreReferredIdentity",
+      "path" : "getpersonsforprofile-request.ignoreReferredIdentity",
+      "short" : "ignoreReferredIdentity",
+      "definition" : "Om satt till true, ska producenten ignorera att följa och returnera eventuellt hänvisad huvudidentitet. Producenten ska returnera endast personposter på det sökta id:et",
+      "comment" : "TKB-fält: `ignoreReferredIdentity` (`xs:Boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

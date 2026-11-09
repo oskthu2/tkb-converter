@@ -1,0 +1,133 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"gethosppersonforivo","gethosppersonforivo","","","",0,*,"","","","null {[]} {[]}
+","GetHospPersonForIVO","Logisk modell för tjänstekontraktet GetHospPersonForIVO
+(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2).
+Representerar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation.
+Tjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register
+över hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gethosppersonforivo.hospPerson","gethosppersonforivo.hospPerson","","","",0,*,"","","","Base {[]} {[]}
+","HospPersonType","hospPerson","TKB-fält: `hospPerson*` (`HospPersonType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson",0,*,"",""
+"gethosppersonforivo.hospPerson.hospId","gethosppersonforivo.hospPerson.hospId","","","",1,1,"","","","Base {[]} {[]}
+","HospIdType","Unikt ID för en person i HOSP","TKB-fält: `..hospId` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.hospId",1,1,"",""
+"gethosppersonforivo.hospPerson.hospId.extension","gethosppersonforivo.hospPerson.hospId.extension","","","",1,1,"","","","integer {[]} {[]}
+","extension","Identitet.","TKB-fält: `../../extension` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.hospId.extension",1,1,"",""
+"gethosppersonforivo.hospPerson.hospId.root","gethosppersonforivo.hospPerson.hospId.root","","","",1,1,"","","","string {[]} {[]}
+","root","OID= ""1.2.752.116.3.1.1"".","TKB-fält: `../../root` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.hospId.root",1,1,"",""
+"gethosppersonforivo.hospPerson.personId","gethosppersonforivo.hospPerson.personId","","","",0,1,"","","","Base {[]} {[]}
+","PersonIdType","Ett personnummer eller samordningsnummer för en person.","TKB-fält: `../personId` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.personId",0,1,"",""
+"gethosppersonforivo.hospPerson.personId.extension","gethosppersonforivo.hospPerson.personId.extension","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet]]} {[]}
+","extension","Identitet i form av ÅÅÅÅMMDDXXXX.","TKB-fält: `../../ extension` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.personId.extension",1,1,"",""
+"gethosppersonforivo.hospPerson.personId.root","gethosppersonforivo.hospPerson.personId.root","","","",0,1,"","","","code {[]} {[]}
+","root","Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: ""1.2.752.129.2.1.3.1""
+
+Samordningsnummer: ""1.2.752.129.2.1.3.3""","TKB-fält: `../../ root` (`String`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.
+
+**Modellanteckning:** root Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.personId.root",0,1,"",""
+"gethosppersonforivo.hospPerson.tidigarePersonId","gethosppersonforivo.hospPerson.tidigarePersonId","","","",0,1,"","","","Base {[]} {[]}
+","PersonIdType","Ett personnummer eller samordningsnummer för en person om de bytt personId.","TKB-fält: `../tidigarePersonId` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.tidigarePersonId",0,1,"",""
+"gethosppersonforivo.hospPerson.tidigarePersonId.extension","gethosppersonforivo.hospPerson.tidigarePersonId.extension","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet]]} {[]}
+","extension","Identitet i form av ÅÅÅÅMMDDXXXX.","TKB-fält: `../../ extension` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.tidigarePersonId.extension",1,1,"",""
+"gethosppersonforivo.hospPerson.tidigarePersonId.root","gethosppersonforivo.hospPerson.tidigarePersonId.root","","","",0,1,"","","","code {[]} {[]}
+","root","Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: ""1.2.752.129.2.1.3.1""
+
+Samordningsnummer: ""1.2.752.129.2.1.3.3""","TKB-fält: `../../ root` (`String`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.
+
+**Modellanteckning:** root Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.tidigarePersonId.root",0,1,"",""
+"gethosppersonforivo.hospPerson.efternamn","gethosppersonforivo.hospPerson.efternamn","","","",1,1,"","","","string {[]} {[]}
+","efternamn","En persons efternamn","TKB-fält: `../efternamn` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.efternamn",1,1,"",""
+"gethosppersonforivo.hospPerson.mellannamn","gethosppersonforivo.hospPerson.mellannamn","","","",0,1,"","","","string {[]} {[]}
+","mellannamn","En persons mellannamn.","TKB-fält: `../mellannamn` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.mellannamn",0,1,"",""
+"gethosppersonforivo.hospPerson.samtligaFornamn","gethosppersonforivo.hospPerson.samtligaFornamn","","","",1,*,"","","","string {[]} {[]}
+","samtligaFornamn","En persons samtliga förnamn","TKB-fält: `../samtligaFornamn` (`String`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.samtligaFornamn",1,*,"",""
+"gethosppersonforivo.hospPerson.tilltalsnamn","gethosppersonforivo.hospPerson.tilltalsnamn","","","",0,1,"","","","string {[]} {[]}
+","tilltalsnamn","Markering för tilltalsnamn","TKB-fält: `../tilltalsnamn` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.tilltalsnamn",0,1,"",""
+"gethosppersonforivo.hospPerson.fodelsedatum","gethosppersonforivo.hospPerson.fodelsedatum","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","fodelsedatum","Datum för en persons födelse, anges enligt ÅÅÅÅMMDD","TKB-fält: `../fodelsedatum` (`date`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.fodelsedatum",1,1,"",""
+"gethosppersonforivo.hospPerson.kon","gethosppersonforivo.hospPerson.kon","","","",0,1,"","","","Base {[]} {[]}
+","KonType","Personens kön. OID=""1.2.752.116.3.1.3""","TKB-fält: `../kon` (`CV`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.kon",0,1,"",""
+"gethosppersonforivo.hospPerson.lan","gethosppersonforivo.hospPerson.lan","","","",0,1,"","","","Base {[]} {[]}
+","LanType","Personens länstillhörighet. OID=""1.2.752.129.2.2.1.18""","TKB-fält: `../lan` (`CV`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.lan",0,1,"",""
+"gethosppersonforivo.hospPerson.kommun","gethosppersonforivo.hospPerson.kommun","","","",0,1,"","","","Base {[]} {[]}
+","KommunType","Personens kommuntillhörighet. OID=""1.2.752.129.2.2.1.17""","TKB-fält: `../kommun` (`CV`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.kommun",0,1,"",""
+"gethosppersonforivo.hospPerson.folkbokforingsort","gethosppersonforivo.hospPerson.folkbokforingsort","","","",0,1,"","","","string {[]} {[]}
+","folkbokforingsort","Personens folkbokföringsort","TKB-fält: `../folkbokforingsort` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.folkbokforingsort",0,1,"",""
+"gethosppersonforivo.hospPerson.skyddadIdentitet","gethosppersonforivo.hospPerson.skyddadIdentitet","","","",0,1,"","","","boolean {[]} {[]}
+","skyddadIdentitet","Sant om personen har en sekretessmarkering","TKB-fält: `../skyddadIdentitet*` (`Boolean`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.skyddadIdentitet",0,1,"",""
+"gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning","gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning","","","",0,1,"","","","string {[]} {[]}
+","skyddadIdentitetUpplysning","Upplysning gällande en person med skyddad identitet","TKB-fält: `../skyddadIdentitetUpplysning*` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning",0,1,"",""
+"gethosppersonforivo.hospPerson.avliden","gethosppersonforivo.hospPerson.avliden","","","",0,1,"","","","boolean {[]} {[]}
+","avliden","Sant om en person är avliden","TKB-fält: `../avliden` (`Boolean`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.avliden",0,1,"",""
+"gethosppersonforivo.hospPerson.avlidenDatum","gethosppersonforivo.hospPerson.avlidenDatum","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","avlidenDatum","Datum för en avliden person. Anges som ÅÅÅÅMMDD","TKB-fält: `../avlidenDatum` (`Datum`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.avlidenDatum",0,1,"",""
+"gethosppersonforivo.hospPerson.utvandrad","gethosppersonforivo.hospPerson.utvandrad","","","",0,1,"","","","boolean {[]} {[]}
+","utvandrad","Sant om personen har utvandrat","TKB-fält: `../utvandrad` (`Boolean`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.utvandrad",0,1,"",""
+"gethosppersonforivo.hospPerson.forskrivarkod","gethosppersonforivo.hospPerson.forskrivarkod","","","",0,1,"","","","Base {[]} {[]}
+","ForskrivarkodType","En persons förskrivarkod","TKB-fält: `../forskrivarkod` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.forskrivarkod",0,1,"",""
+"gethosppersonforivo.hospPerson.forskrivarkod.extension","gethosppersonforivo.hospPerson.forskrivarkod.extension","","","",1,1,"","","","integer {[]} {[]}
+","extension","Förskrivarkod","TKB-fält: `../../ extension` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.forskrivarkod.extension",1,1,"",""
+"gethosppersonforivo.hospPerson.forskrivarkod.root","gethosppersonforivo.hospPerson.forskrivarkod.root","","","",1,1,"","","","string {[]} {[]}
+","root","OID = "" 1.2.752.116.3.1.2""","TKB-fält: `../../ root` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.forskrivarkod.root",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation","gethosppersonforivo.hospPerson.legitimation","","","",0,*,"","","","Base {[]} {[]}
+","LegitimationType","Legitimation innehåller en beskrivning av en persons legitimation","TKB-fält: `../legitimation` (`LegitimationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation",0,*,"",""
+"gethosppersonforivo.hospPerson.legitimation.legitimeratYrke","gethosppersonforivo.hospPerson.legitimation.legitimeratYrke","","","",1,1,"","","","Base {[]} {[]}
+","LegitimeratYrkeTyp","Anger vilket legitimerat yrke som avses","TKB-fält: `../../ legitimeratYrke` (`CV`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.legitimeratYrke",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.giltigLegitimation","gethosppersonforivo.hospPerson.legitimation.giltigLegitimation","","","",1,1,"","","","boolean {[]} {[]}
+","giltigLegitimation","Anger om legitimationen är giltig","TKB-fält: `../../giltigLegitimation` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.giltigLegitimation",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.utbildning","gethosppersonforivo.hospPerson.legitimation.utbildning","","","",0,1,"","","","Base {[]} {[]}
+","UtbildningType","Anger en persons utbildning för denna legitimation. OID= ""1.2.752.116.3.1.4""","TKB-fält: `../../utbildning` (`CV`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.utbildning",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.utbildningsland","gethosppersonforivo.hospPerson.legitimation.utbildningsland","","","",0,1,"","","","string {[]} {[]}
+","utbildningsland","Land där utbildning skedde om ej svensk utbildning","TKB-fält: `../../utbildningsland` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.utbildningsland",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse","gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse","","","",0,1,"","","","string {[]} {[]}
+","internationellOverrenskommelse","Internationell överrenskommelse anges för personer som har primär legitimation inom annat EU/EES-land","TKB-fält: `../../internationellOverrenskommelse` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.legitimationsDatum","gethosppersonforivo.hospPerson.legitimation.legitimationsDatum","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","legitimationsDatum","Datum från vilket legitimationen är giltig. Anges som ÅÅÅÅMMDD","TKB-fält: `../../legitimationsDatum` (`Datum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.legitimationsDatum",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut","gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","beslutsdatumFysioterapeut","Anger datum då en person övergått från legitimerat yrke SG till FT","TKB-fält: `../../beslutsdatumFysioterapeut` (`Datum`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.examensdatum","gethosppersonforivo.hospPerson.legitimation.examensdatum","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","examensdatum","Datum för examen","TKB-fält: `../../examensdatum` (`Datum`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.examensdatum",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.larosate","gethosppersonforivo.hospPerson.legitimation.larosate","","","",0,1,"","","","string {[]} {[]}
+","larosate","Lärosäte för examen","TKB-fält: `../../lärosäte` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.larosate",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.grundyrke","gethosppersonforivo.hospPerson.legitimation.grundyrke","","","",0,1,"","","","string {[]} {[]}
+","grundyrke","Grundyrke för examen","TKB-fält: `../../grundyrke` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.grundyrke",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.forskrivningsratt","gethosppersonforivo.hospPerson.legitimation.forskrivningsratt","","","",0,1,"","","","boolean {[]} {[]}
+","forskrivningsratt","forskrivningsratt","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.forskrivningsratt",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum","gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","forskrivningsrattDatum","forskrivningsrattDatum","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.specialistbevis","gethosppersonforivo.hospPerson.legitimation.specialistbevis","","","",0,*,"","","","Base {[]} {[]}
+","SpecialistbevisType","specialistbevis","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.specialistbevis",0,*,"",""
+"gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning","gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning","","","",1,1,"","","","Base {[]} {[]}
+","SpecialistinriktningType","Anger vilken specialistinriktning som avses, OIDer se informationsspecifikationen","TKB-fält: `../../../specialistinriktning` (`CV`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland","gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland","","","",0,1,"","","","string {[]} {[]}
+","utbildningsland","Land där utbildning skedde om ej svensk utbildning","TKB-fält: `../../../utbildningsland` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse","gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse","","","",0,1,"","","","string {[]} {[]}
+","internationellOverrenskommelse","Internationell överrenskommelse anges för personer som har primär legitimation inom annat EU/EES-land","TKB-fält: `../../../internationellOverrenskommelse` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum","gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","specialistbevisDatum","Datum från vilket specialistbeviset är giltigt. Anges som ÅÅÅÅMMDD","TKB-fält: `../../../ specialistbevisDatum` (`Datum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning","gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning","","","",0,*,"","","","Base {[]} {[]}
+","BehorighetsbegransningType","behorighetsbegransning","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning",0,*,"",""
+"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning","gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning","","","",1,1,"","","","Base {[]} {[]}
+","TypAvBehorighetsbegransning","Anger typ av behörighetsbegränsning för en viss legitimation","TKB-fält: `../../../typAvBehorighetsbegransning` (`CV`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum","gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","fromDatum","fromDatum","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum","gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","tomDatum","tomDatum","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.begransadForskrivningsrattText","gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.begransadForskrivningsrattText","","","",0,1,"","","","string {[]} {[]}
+","begransadForskrivningsrattText","begransadForskrivningsrattText","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.begransadForskrivningsrattText",0,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet","gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet","","","",0,*,"","","","Base {[]} {[]}
+","OvrigBehorighetType","ovrigBehorighet","","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet",0,*,"",""
+"gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet","gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet","","","",1,1,"","","","Base {[]} {[]}
+","UtbildningType","Anger vilken specialistinriktning som avses, OIDer se informationsspecifikationen","TKB-fält: `../../../behorighet` (`CV`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet",1,1,"",""
+"gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum","gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PartielltDatum]]} {[]}
+","behorighetsDatum","Datum från vilket behorigheten är giltigt. Anges som ÅÅÅÅMMDD","TKB-fält: `../../../ behorighetsDatum` (`Datum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum",1,1,"",""

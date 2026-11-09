@@ -1,0 +1,14 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getlistingcounty","getlistingcounty","","","",0,*,"","","","null {[]} {[]}
+","GetListingCounty — Response","Logisk modell för svaret i GetListingCounty
+(urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2, GetListingCountyResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlistingcounty.listingCounties","getlistingcounty.listingCounties","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","listingCounties","Lista med regioner som invånare har aktiv listning på. Det är folkbokföringsregionens ansvar att hålla reda på i vilken/vilka regioner som invånare har aktiv(a) listningar hos.","TKB-fält: `listingCounties` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlistingcounty.listingCounties",0,*,"",""
+"getlistingcounty.resultCode","getlistingcounty.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getlistingcounty.resultCode",1,1,"",""
+"getlistingcounty.resultText","getlistingcounty.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlistingcounty.resultText",0,1,"",""

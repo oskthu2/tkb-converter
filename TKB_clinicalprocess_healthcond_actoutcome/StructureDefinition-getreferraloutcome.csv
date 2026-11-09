@@ -1,0 +1,133 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getreferraloutcome","getreferraloutcome","","","",0,*,"","","","null {[]} {[]}
+","GetReferralOutcome","Logisk modell för tjänstekontraktet GetReferralOutcome
+(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcome:3).
+Representerar responsens informationsstruktur — svar på konsultationsremiss
+och begäran om övertagande av vårdansvar. Meddelandeformatet är kompatibelt
+med HL7v3 CDA v.2.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getreferraloutcome.referralOutcome","getreferraloutcome.referralOutcome","","","",0,*,"","","","Base {[]} {[]}
+","ReferralOutcomeType","Returnerar en patients konsultationsremissvar.","TKB-fält: `referralOutcome` (`ReferralOutcomeType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome",0,*,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader","getreferraloutcome.referralOutcome.referralOutcomeHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../referralOutcomeHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId","getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Dokumentets identitet som är unik inom källsystemet
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId","getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSAid för det system som dokumentet är skapat i.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle","getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","Titel som beskriver den information som sänds i dokumentet.","TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime","getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","Tidpunkten då remissvaret inkom till remittentens vårdinformationssystem.","TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId","getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Identifierare för patient.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional","getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare. Vid uppdatering av tidigare skapade dokument avses den hälso- och sjukvårdsperson som senast uppdaterade informationen","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator","getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/LegalAuthenticatorType {[]} {[]}
+","legalAuthenticator","Information om vem som signerat informationen i dokumentet. Signering = signering av remissvar. Information om vidimering sker i attributet attested i bodyn.","TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient","getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId","getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Identitetet för hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.","TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.nullified","getreferraloutcome.referralOutcome.referralOutcomeHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","Ska ej anges.","TKB-fält: `../../nullified` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.nullified",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeHeader.nullifiedReason","getreferraloutcome.referralOutcome.referralOutcomeHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","Ska ej anges.","TKB-fält: `../../nullifiedReason` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeHeader.nullifiedReason",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody","getreferraloutcome.referralOutcome.referralOutcomeBody","","","",1,1,"","","","Base {[]} {[]}
+","ReferralOutcomeBodyType","referralOutcomeBody","TKB-fält: `../referralOutcomeBody` (`ReferralOutcomeBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode","getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode","","","",1,1,"","","","code {[]} {[]}
+","referralOutcomeTypeCode","Anger typ av svar.
+
+Giltiga koder:
+
+SR, svar på remissfråga
+
+SS, slutsvar på remissfråga","TKB-fält: `../../referralOutcomeTypeCode` (`referralOutcomeTypeCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** referralOutcomeTypeCode Tillåtna värden: SS, SR.","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/referraloutcometypecode-vs","",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle","getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle","","","",0,1,"","","","string {[]} {[]}
+","referralOutcomeTitle","Text som beskriver vilken specialitet som utlåtandet gäller. Typen av specialitet som anlitats anges i text.
+
+Exempel:
+
+Patologi
+
+Klinisk fysik
+
+Logopedi","TKB-fält: `../../referralOutcomeTitle` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText","getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText","","","",1,1,"","","","string {[]} {[]}
+","referralOutcomeText","Text som beskriver det sammanfattande utlåtandet kring undersökningsresultatet.","TKB-fält: `../../referralOutcomeText` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation","getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation","","","",0,*,"","","","Base {[]} {[]}
+","ClinicalInformationType","Klinisk information för remissvaret. Dessa kliniska data är direkt kopplat till svaret.","TKB-fält: `../../clinicalInformation` (`ClinicalInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation",0,*,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode","getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode","","","",1,1,"","","","Base {[]} {[]}
+","ClinicalInformationCodeType","Kod för åtgärd.
+
+Koden anges i code.
+
+Kodverkets OID i codeSystem.","TKB-fält: `../../../clinicalInformationCode` (`ClinicalInformationCodeType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.code","getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod.","TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.code",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.codeSystem","getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.codeSystem","","","",1,1,"","","","code {[]} {[]}
+","codeSystem","Kod kan komma från kodverket ICD-10 (1.2.752.116.1.1.1.1.3) men andra kodverk kan förekomma.","TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** codeSystem Tillåtna värden: 1.2.752.116.1.1.1.1.3.","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode.codeSystem",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText","getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText","","","",1,1,"","","","string {[]} {[]}
+","clinicalInformationText","Beskrivning av klinisk information","TKB-fält: `../../../clinicalInformationText` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act","getreferraloutcome.referralOutcome.referralOutcomeBody.act","","","",0,*,"","","","Base {[]} {[]}
+","ActType","Utförd åtgärd","TKB-fält: `../../act` (`ActType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act",0,*,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId","","","",0,1,"","","","string {[]} {[]}
+","actId","Åtgärdens identitet som är unik inom det lokala avsändande systemet","TKB-fält: `../../../actId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode","","","",0,1,"","","","Base {[]} {[]}
+","ActCodeType","Kod för åtgärd.
+
+Koden anges i code.
+
+Kodverkets OID anges i codeSystem.","TKB-fält: `../../../actCode` (`ActCodeType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode.code","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode.code","","","",1,1,"","","","string {[]} {[]}
+","code","Nullvärde är tillåtet om kod ej är tillgänglig, och åtgärdskodstext ska då skrivas i `<actText>`.","TKB-fält: `../../../../code` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode.code",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode.codeSystem","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Lämpliga kodverk kan vara: KVÅ (1.2.752.116.1.3.2.1.4) men andra kodverk kan förekomma.","TKB-fält: `../../../../codeSystem` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode.codeSystem",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText","","","",1,1,"","","","string {[]} {[]}
+","actText","Text som anger namnet på den kod som anges i attributet åtgärdskod. Beskrivning av åtgärd anges här om ingen kod har angetts i attributet åtgärdskod.","TKB-fält: `../../../actText` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","actTime","Tidpunkt då åtgärd genomfördes","TKB-fält: `../../../actTime` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult","getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/MultimediaType {[]} {[]}
+","actResult","Resultat av åtgärd. Data i form av bifogade bilder eller liknande.","TKB-fält: `../../../actResult` (`MultimediaType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult",0,*,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referral","getreferraloutcome.referralOutcome.referralOutcomeBody.referral","","","",1,1,"","","","Base {[]} {[]}
+","ReferralType","Information om den remissen som ligger till grund för svaret","TKB-fält: `../../referral` (`ReferralType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referral",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId","getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId","","","",1,1,"","","","string {[]} {[]}
+","referralId","Remissens identitet som är unik inom det lokala avsändade systemet","TKB-fält: `../../../referralId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason","getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason","","","",1,1,"","","","string {[]} {[]}
+","referralReason","Text som anger aktuell frågeställning.","TKB-fält: `../../../referralReason` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime","getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","referralTime","Tid då remissen framställdes.","TKB-fält: `../../../referralTime` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor","getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","referralAuthor","Information om den hälso- och sjukvårdsperson som framställt remissen som ligger till grund för svaret, nedan kallas författare.","TKB-fält: `../../../referralAuthor` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId","getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Identitet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. Detta ID kan användas för att genom tjänstekontaktet GetCareContacts (annan tjänstedomän) hämta kompletterandekontaktinformation.","TKB-fält: `../../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.attested","getreferraloutcome.referralOutcome.referralOutcomeBody.attested","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","Information om vidimering av enskild utförd åtgärd med tillhörande resultat. Finns attester är åtgärden vidimerad. Med vidimerat menas att information om åtgärden har lästs och den som läst har tagit ansvar.","TKB-fält: `../../attested` (`AttestedType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.attested",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime","getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","attestedTime","Tidpunkten för vidimering","TKB-fält: `../../../attestedTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime",1,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId","getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","attesterHSAId","HSA-id för person som vidimerat","TKB-fält: `../../../attesterHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId",0,1,"",""
+"getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName","getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName","","","",0,1,"","","","string {[]} {[]}
+","attesterName","Namn på person som vidimerat","TKB-fält: `../../../attesterName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName",0,1,"",""
+"getreferraloutcome.result","getreferraloutcome.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.result",1,1,"",""
+"getreferraloutcome.result.resultCode","getreferraloutcome.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.result.resultCode",1,1,"",""
+"getreferraloutcome.result.errorCode","getreferraloutcome.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getreferraloutcome.result.errorCode",0,1,"",""
+"getreferraloutcome.result.logId","getreferraloutcome.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.result.logId",1,1,"",""
+"getreferraloutcome.result.subCode","getreferraloutcome.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.result.subCode",0,1,"",""
+"getreferraloutcome.result.message","getreferraloutcome.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getreferraloutcome.result.message",0,1,"",""

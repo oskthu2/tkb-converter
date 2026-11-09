@@ -1,0 +1,46 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processactivity-request","processactivity-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessActivity — Request","Logisk modell för requestparametrar i ProcessActivity. Registrerar en eller
+flera aktiviteter som utförts på en patient på en viss enhet. En befintlig
+aktivitet kan uppdateras genom att ett nytt meddelande med samma
+aktivitetsid skickas in.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processactivity-request.logicalAddress","processactivity-request.logicalAddress","","","",1,1,"","","","Identifier {[]} {[]}
+","Logisk adress","Logisk adress till tjänsteimplementationen. HSA-id för organisationspost
+motsvarande vårdgivare i HSA-trädet.","","","","","","","","","",,,,,"",,,,"processactivity-request.logicalAddress",1,1,"",""
+"processactivity-request.activityMomentTime","processactivity-request.activityMomentTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Aktivitetsmomenttid","RIV-specifikation: Aktivitetsmoment.aktivitetsmomenttid. Då detta anges i
+elementet start_time och meddelandet omfattar flera aktiviteter ska den
+första (i tid mätt) aktivitetens tid anges.","","","","","","","","","",,,,,"",,,,"processactivity-request.activityMomentTime",1,1,"",""
+"processactivity-request.careProviderId","processactivity-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare","HSA-id för aktuell vårdgivare.","","","","","","","","","",,,,,"",,,,"processactivity-request.careProviderId",1,1,"",""
+"processactivity-request.registeringUnitId","processactivity-request.registeringUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Registrerande enhet","RIV-specifikation: Aktivitetsmoment.utförs vid.Enhet.enhets-id.","","","","","","","","","",,,,,"",,,,"processactivity-request.registeringUnitId",1,1,"",""
+"processactivity-request.activityId","processactivity-request.activityId","","","",1,1,"","","","string {[]} {[]}
+","Aktivitets-id","RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id (HSA-id
+för den enhet inom vilket aktuellt aktivitets-id är unikt anges före
+det lokala id:t).","","","","","","","","","",,,,,"",,,,"processactivity-request.activityId",1,1,"",""
+"processactivity-request.terminologyId","processactivity-request.terminologyId","","","",1,1,"","","","uri {[]} {[]}
+","Kodverksidentifierare","Identifierare som anger vilket kodverk aktuell kod tillhör. Möjliga
+värden är OID för Snomed CT och OID för KVÅ.","","","","","","","","","",,,,,"",,,,"processactivity-request.terminologyId",1,1,"",""
+"processactivity-request.activityCode","processactivity-request.activityCode","","","",1,1,"","","","code {[]} {[]}
+","Aktivitetskod","RIV-specifikation: Aktivitetsmoment.aktivitetskod.","","","","","","","","","",,,,,"",,,,"processactivity-request.activityCode",1,1,"",""
+"processactivity-request.unitActivityId","processactivity-request.unitActivityId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet för aktivitets-id","HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt.","","","","","","","","","",,,,,"",,,,"processactivity-request.unitActivityId",1,1,"",""
+"processactivity-request.personIdIssuer","processactivity-request.personIdIssuer","","","",1,1,"","","","string {[]} {[]}
+","Utfärdare av person-id","För personnummer och samordningsnummer: ""Skatteverket"". För lokalt
+reservnummer: ""CeHis"".","","","","","","","","","",,,,,"",,,,"processactivity-request.personIdIssuer",1,1,"",""
+"processactivity-request.personIdAssigner","processactivity-request.personIdAssigner","","","",1,1,"","","","string {[]} {[]}
+","Tilldelare av person-id","För personnummer och samordningsnummer: ""Folkbokföringen"". För lokalt
+reservnummer: HSA-id för den enhet inom vilket aktuellt reservnummer är
+unikt.","","","","","","","","","",,,,,"",,,,"processactivity-request.personIdAssigner",1,1,"",""
+"processactivity-request.patientId","processactivity-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens person-id","RIV-specifikation: Patient.person-id. system = OID för personnummer,
+nationellt reservnummer eller samordningsnummer (se personIdOid),
+value = själva numret.","","","","","","","","","",,,,,"",,,,"processactivity-request.patientId",1,1,"",""
+"processactivity-request.personIdOid","processactivity-request.personIdOid","","","",1,1,"","","","uri {[]} {[]}
+","OID för person-id","OID för personnummer, nationellt reservnummer eller samordningsnummer.","","","","","","","","","",,,,,"",,,,"processactivity-request.personIdOid",1,1,"",""
+"processactivity-request.patientBirthTime","processactivity-request.patientBirthTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Patientens födelsetidpunkt","RIV-specifikation: Patient.födelsetidpunkt.","","","","","","","","","",,,,,"",,,,"processactivity-request.patientBirthTime",1,1,"",""
+"processactivity-request.patientGender","processactivity-request.patientGender","","","",1,1,"","","","code {[]} {[]}
+","Patientens kön","RIV-specifikation: Patient.kön. Kodverk anges externt i
+RIV-specifikation Infektionsverktyget.pdf — inte återgivet i TKB-texten.","","","","","","","","","",,,,,"",,,,"processactivity-request.patientGender",1,1,"",""

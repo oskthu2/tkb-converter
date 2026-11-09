@@ -1,0 +1,986 @@
+# LookupResidentForFullProfile - population: residentmaster v1.2.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **LookupResidentForFullProfile**
+
+## Logical Model: LookupResidentForFullProfile 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/lookupresidentforfullprofile | *Version*:1.2 |
+| Active as of 2026-11-09 | *Computable Name*:LookupResidentForFullProfile |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret från tjänstekontraktet LookupResidentForFullProfile (RIV-TA urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1). Representerar en post (ResidentType, fullständig profil "Full") i svarets lista av träffar. Svaret som helhet innehåller 0..* sådana poster, en per efterfrågat och matchat personnummer (se avsnitt 7). Fält som inte ingår i den aktuella profilen utelämnas normalt inte i denna modell (den täcker hela ResidentType-bruttolistan), men kan i ett faktiskt svar sakna värde eftersom endast Full-profilens fält (se avsnitt 6.1) faktiskt populeras av producenten. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.population-residentmaster|current/StructureDefinition/StructureDefinition-lookupresidentforfullprofile.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-lookupresidentforfullprofile.csv), [Excel](StructureDefinition-lookupresidentforfullprofile.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "lookupresidentforfullprofile",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/lookupresidentforfullprofile",
+  "version" : "1.2",
+  "name" : "LookupResidentForFullProfile",
+  "title" : "LookupResidentForFullProfile",
+  "status" : "active",
+  "date" : "2026-11-09T03:46:03+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret från tjänstekontraktet LookupResidentForFullProfile\n(RIV-TA urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1).\nRepresenterar en post (ResidentType, fullständig profil \"Full\") i svarets lista av\nträffar. Svaret som helhet innehåller 0..* sådana poster, en per efterfrågat och\nmatchat personnummer (se avsnitt 7). Fält som inte ingår i den aktuella profilen\nutelämnas normalt inte i denna modell (den täcker hela ResidentType-bruttolistan),\nmen kan i ett faktiskt svar sakna värde eftersom endast Full-profilens fält (se\navsnitt 6.1) faktiskt populeras av producenten.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/lookupresidentforfullprofile",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "lookupresidentforfullprofile",
+      "path" : "lookupresidentforfullprofile",
+      "short" : "LookupResidentForFullProfile",
+      "definition" : "Logisk modell för svaret från tjänstekontraktet LookupResidentForFullProfile\n(RIV-TA urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1).\nRepresenterar en post (ResidentType, fullständig profil \"Full\") i svarets lista av\nträffar. Svaret som helhet innehåller 0..* sådana poster, en per efterfrågat och\nmatchat personnummer (se avsnitt 7). Fält som inte ingår i den aktuella profilen\nutelämnas normalt inte i denna modell (den täcker hela ResidentType-bruttolistan),\nmen kan i ett faktiskt svar sakna värde eftersom endast Full-profilens fält (se\navsnitt 6.1) faktiskt populeras av producenten."
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident",
+      "path" : "lookupresidentforfullprofile.resident",
+      "short" : "ResidentType",
+      "definition" : "resident",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Sekretessmarkering",
+      "path" : "lookupresidentforfullprofile.resident.Sekretessmarkering",
+      "short" : "Sekretessmarkering",
+      "definition" : "Sekretessmarkering Tillåtna värden: J, N.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.SenasteAndringFolkbokforing",
+      "path" : "lookupresidentforfullprofile.resident.SenasteAndringFolkbokforing",
+      "short" : "SenasteAndringFolkbokforing",
+      "definition" : "SenasteAndringFolkbokforing",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/DT"]
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost",
+      "path" : "lookupresidentforfullprofile.resident.Personpost",
+      "short" : "PersonpostTYPE",
+      "definition" : "Personpost",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.PersonId",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.PersonId",
+      "short" : "PersonId",
+      "definition" : "PersonId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Kon",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Kon",
+      "short" : "Kon",
+      "definition" : "Kon Tillåtna värden: K, M.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelsetid",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelsetid",
+      "short" : "Fodelsetid",
+      "definition" : "Fodelsetid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/DT"]
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering",
+      "short" : "AvregistreringTYPE",
+      "definition" : "Avregistrering",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKod",
+      "short" : "AvregistreringsorsakKod",
+      "definition" : "AvregistreringsorsakKod Tillåtna värden: AV, GN, OO.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering.Avregistreringsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering.Avregistreringsdatum",
+      "short" : "Avregistreringsdatum",
+      "definition" : "Avregistreringsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKodKomplett",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKodKomplett",
+      "short" : "AvregistreringsorsakKodKomplett",
+      "definition" : "AvregistreringsorsakKodKomplett Tillåtna värden: AV, UV, GN, AN, AS, GS, OB, TA.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Namn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Namn",
+      "short" : "NamnTYPE",
+      "definition" : "Namn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Namn.Tilltalsnamnsmarkering",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Namn.Tilltalsnamnsmarkering",
+      "short" : "Tilltalsnamnsmarkering",
+      "definition" : "Tilltalsnamnsmarkering",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Namn.Fornamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Namn.Fornamn",
+      "short" : "Fornamn",
+      "definition" : "Fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Namn.Mellannamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Namn.Mellannamn",
+      "short" : "Mellannamn",
+      "definition" : "Mellannamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Namn.Efternamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Namn.Efternamn",
+      "short" : "Efternamn",
+      "definition" : "Efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Namn.Aviseringsnamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Namn.Aviseringsnamn",
+      "short" : "Aviseringsnamn",
+      "definition" : "Aviseringsnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress",
+      "short" : "SvenskAdressTYPE",
+      "definition" : "Folkbokforingsadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.LanKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.LanKod",
+      "short" : "LanKod",
+      "definition" : "LanKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.KommunKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.KommunKod",
+      "short" : "KommunKod",
+      "definition" : "KommunKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.ForsamlingKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.ForsamlingKod",
+      "short" : "ForsamlingKod",
+      "definition" : "ForsamlingKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Fastighetsbeteckning",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Fastighetsbeteckning",
+      "short" : "Fastighetsbeteckning",
+      "definition" : "Fastighetsbeteckning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.CareOf",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.CareOf",
+      "short" : "CareOf",
+      "definition" : "CareOf",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress1",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress1",
+      "short" : "Utdelningsadress1",
+      "definition" : "Utdelningsadress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress2",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress2",
+      "short" : "Utdelningsadress2",
+      "definition" : "Utdelningsadress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.PostNr",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.PostNr",
+      "short" : "PostNr",
+      "definition" : "PostNr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Postort",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Postort",
+      "short" : "Postort",
+      "definition" : "Postort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Folkbokforingsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Folkbokforingsdatum",
+      "short" : "Folkbokforingsdatum",
+      "definition" : "Folkbokforingsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.SCB-Nyckelkod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.SCB_Nyckelkod",
+      "short" : "SCB_Nyckelkod",
+      "definition" : "SCB_Nyckelkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress",
+      "short" : "SvenskAdressTYPE",
+      "definition" : "SarskildPostadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.LanKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.LanKod",
+      "short" : "LanKod",
+      "definition" : "LanKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.KommunKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.KommunKod",
+      "short" : "KommunKod",
+      "definition" : "KommunKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.ForsamlingKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.ForsamlingKod",
+      "short" : "ForsamlingKod",
+      "definition" : "ForsamlingKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Fastighetsbeteckning",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Fastighetsbeteckning",
+      "short" : "Fastighetsbeteckning",
+      "definition" : "Fastighetsbeteckning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.CareOf",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.CareOf",
+      "short" : "CareOf",
+      "definition" : "CareOf",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress1",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress1",
+      "short" : "Utdelningsadress1",
+      "definition" : "Utdelningsadress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress2",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress2",
+      "short" : "Utdelningsadress2",
+      "definition" : "Utdelningsadress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.PostNr",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.PostNr",
+      "short" : "PostNr",
+      "definition" : "PostNr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Postort",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Postort",
+      "short" : "Postort",
+      "definition" : "Postort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Folkbokforingsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Folkbokforingsdatum",
+      "short" : "Folkbokforingsdatum",
+      "definition" : "Folkbokforingsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.SCB-Nyckelkod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.SCB_Nyckelkod",
+      "short" : "SCB_Nyckelkod",
+      "definition" : "SCB_Nyckelkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.HanvisningsPersonNr",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.HanvisningsPersonNr",
+      "short" : "HanvisningsPersonNr",
+      "definition" : "HanvisningsPersonNr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress",
+      "short" : "UtlandsadressTYPE",
+      "definition" : "Utlandsadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress1",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress1",
+      "short" : "Utdelningsadress1",
+      "definition" : "Utdelningsadress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress2",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress2",
+      "short" : "Utdelningsadress2",
+      "definition" : "Utdelningsadress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress3",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress3",
+      "short" : "Utdelningsadress3",
+      "definition" : "Utdelningsadress3",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Land",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Land",
+      "short" : "Land",
+      "definition" : "Land",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utlandsadressdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utlandsadressdatum",
+      "short" : "Utlandsadressdatum",
+      "definition" : "Utlandsadressdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Rostrattsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Rostrattsdatum",
+      "short" : "Rostrattsdatum",
+      "definition" : "Rostrattsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Civilstand",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Civilstand",
+      "short" : "CivilstandTYPE",
+      "definition" : "Civilstand",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Civilstand.CivilstandKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Civilstand.CivilstandKod",
+      "short" : "CivilstandKod",
+      "definition" : "CivilstandKod Tillåtna värden: OG, G, A, S, RP, SP, EP.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Civilstand.Civilstandsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Civilstand.Civilstandsdatum",
+      "short" : "Civilstandsdatum",
+      "definition" : "Civilstandsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse",
+      "short" : "FodelseTYPE",
+      "definition" : "Fodelse",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige",
+      "short" : "HemortSverigeTYPE",
+      "definition" : "HemortSverige",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.FodelselanKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.FodelselanKod",
+      "short" : "FodelselanKod",
+      "definition" : "FodelselanKod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.Fodelseforsamling",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.Fodelseforsamling",
+      "short" : "Fodelseforsamling",
+      "definition" : "Fodelseforsamling",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet",
+      "short" : "OrtUtlandetTYPE",
+      "definition" : "OrtUtlandet",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.FodelseortUtland",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.FodelseortUtland",
+      "short" : "FodelseortUtland",
+      "definition" : "FodelseortUtland",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Styrkt",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Styrkt",
+      "short" : "Styrkt",
+      "definition" : "Styrkt Tillåtna värden: J, N.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Fodelseland",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Fodelseland",
+      "short" : "Fodelseland",
+      "definition" : "Fodelseland",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Invandring",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Invandring",
+      "short" : "InvandringTYPE",
+      "definition" : "Invandring",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Invandring.Invandringsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Invandring.Invandringsdatum",
+      "short" : "Invandringsdatum",
+      "definition" : "Invandringsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer",
+      "short" : "RelationerTYPE",
+      "definition" : "Relationer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation",
+      "short" : "(anonym typ)",
+      "definition" : "Relation",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId",
+      "short" : "RelationPersonIdTYPE",
+      "definition" : "RelationId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "lookupresidentforfullprofile-relation-id-xor",
+        "severity" : "error",
+        "human" : "Exakt ett av relationPersonNr och relationFodelsetidNr ska anges för en relation (enligt kommentar i källschemat: 'ett av värdena måste vara satta, men inte båda').",
+        "expression" : "PersonNr.exists() xor FodelsetidNr.exists()",
+        "source" : "https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/lookupresidentforfullprofile"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.PersonNr",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.PersonNr",
+      "short" : "PersonNr",
+      "definition" : "PersonNr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.FodelsetidNr",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.FodelsetidNr",
+      "short" : "FodelsetidNr",
+      "definition" : "FodelsetidNr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Relationstyp",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Relationstyp",
+      "short" : "Relationstyp",
+      "definition" : "Relationstyp Tillåtna värden: B, MO, FA, F, V, VF, M, P.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationFromdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationFromdatum",
+      "short" : "RelationFromdatum",
+      "definition" : "RelationFromdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationTomdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationTomdatum",
+      "short" : "RelationTomdatum",
+      "definition" : "RelationTomdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn",
+      "short" : "NamnTYPE",
+      "definition" : "Namn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Tilltalsnamnsmarkering",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Tilltalsnamnsmarkering",
+      "short" : "Tilltalsnamnsmarkering",
+      "definition" : "Tilltalsnamnsmarkering",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Fornamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Fornamn",
+      "short" : "Fornamn",
+      "definition" : "Fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Mellannamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Mellannamn",
+      "short" : "Mellannamn",
+      "definition" : "Mellannamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Efternamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Efternamn",
+      "short" : "Efternamn",
+      "definition" : "Efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Aviseringsnamn",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Aviseringsnamn",
+      "short" : "Aviseringsnamn",
+      "definition" : "Aviseringsnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering",
+      "short" : "AvregistreringTYPE",
+      "definition" : "Avregistrering",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKod",
+      "short" : "AvregistreringsorsakKod",
+      "definition" : "AvregistreringsorsakKod Tillåtna värden: AV, GN, OO.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.Avregistreringsdatum",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.Avregistreringsdatum",
+      "short" : "Avregistreringsdatum",
+      "definition" : "Avregistreringsdatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKodKomplett",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKodKomplett",
+      "short" : "AvregistreringsorsakKodKomplett",
+      "definition" : "AvregistreringsorsakKodKomplett Tillåtna värden: AV, UV, GN, AN, AS, GS, OB, TA.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Status",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Status",
+      "short" : "Status",
+      "definition" : "Status Tillåtna värden: NY, PB, RD, AS, AV, IV, AN.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "lookupresidentforfullprofile.resident.Personpost.Distriktskod",
+      "path" : "lookupresidentforfullprofile.resident.Personpost.Distriktskod",
+      "short" : "Distriktskod",
+      "definition" : "Distriktskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,224 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processrequestconfirmation","processrequestconfirmation","","","",0,*,"","","","null {[]} {[]}
+","ProcessRequestConfirmation — Remissbekräftelse (begäran)","Logisk modell för begäran i ProcessRequestConfirmation (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestConfirmationResponder:2, element requestConfirmation av typen RequestConfirmationType). Remissmottagaren skickar bekräftelse, besked om vidareskickning, kompletteringsbegäran, avbrott eller avvisning till remittenten. Svaret är enbart ett resultat, se ProcessResult.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","processrequestconfirmation-forwarding-vid:forwardingRecipient ska anges om och endast om typeOfRequestConfirmation = VID {requestConfirmation.forwardingRecipient.exists() = (requestConfirmation.typeOfRequestConfirmation.code = 'VID')}
+"
+"processrequestconfirmation.requestConfirmation","processrequestconfirmation.requestConfirmation","","","",1,1,"","","","Base {[]} {[]}
+","RequestConfirmationType","Remissbekräftelse","TKB-fält: `requestConfirmation` (`RequestConfirmationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestId","processrequestconfirmation.requestConfirmation.requestId","","","",1,1,"","","","Base {[]} {[]}
+","RequestIdType","Remiss id
+
+Den ursprungliga remissens remiss-id","TKB-fält: `requestConfirmation.requestId` (`RequestIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)
+
+Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestId.extension","processrequestconfirmation.requestConfirmation.requestId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestConfirmationId","processrequestconfirmation.requestConfirmation.requestConfirmationId","","","",1,1,"","","","Base {[]} {[]}
+","RequestIdType","Remissbekräftelse id
+
+Unik identifierare för remissbekräftelsen.
+
+Källsystem-Id(HSA-ID)#lokalt-id
+
+Exempel: SE2321000012-0001#456","TKB-fält: `requestConfirmation.requestConfirmationId` (`RequestIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)
+
+Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestConfirmationId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestConfirmationId.extension","processrequestconfirmation.requestConfirmation.requestConfirmationId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestConfirmationId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation","processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation","","","",1,1,"","","","Base {[]} {[]}
+","codeRequestConfirmationType","Typ av remissbekräftelse
+
+Anger typ av svar.
+
+Giltiga värden är:
+
+BEK = Bekräftelse
+
+VID = Besked om vidareskickning
+
+KOM = Kompletterings-begäran
+
+AVB = Avbruten remiss
+
+AVV = Avvisad remiss","TKB-fält: `requestConfirmation.typeOfRequestConfirmation` (`CodeRequestConfirmationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation",1,1,"",""
+"processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation.code","processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation.code","","","",1,1,"","","","code {[]} {[]}
+","code","code (XML-attribut) Tillåtna värden: KOM, BEK, VID, AVB, AVV.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/requestconfirmationtype-vs","",,,,"processrequestconfirmation.requestConfirmation.typeOfRequestConfirmation.code",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestVersionNumber","processrequestconfirmation.requestConfirmation.requestVersionNumber","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType]]} {[]}
+","requestVersionNumber","Remissversionsnummer
+
+Remissens versionsnummer.
+
+Version startar alltid på 1 och räknas sekventiellt upp för varje ny version.
+
+Denna räknas upp vid:
+
+- Ändrad remiss
+
+- Vidareskickad remiss
+
+- Ändrat betalningsansvar","TKB-fält: `requestConfirmation.requestVersionNumber` (`VersionNumberType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (0*[1-9]+|[1-9])\d*","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestVersionNumber",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestConfirmationTime","processrequestconfirmation.requestConfirmation.requestConfirmationTime","","","",1,1,"","","","Base {[]} {[]}
+","TimeStampType","Remissbekräftelse-tidpunkt
+
+Tidpunkt då remissbekräftelsen skapades.","TKB-fält: `requestConfirmation.requestConfirmationTime` (`TimeStampType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestConfirmationTime",1,1,"",""
+"processrequestconfirmation.requestConfirmation.requestConfirmationTime.value","processrequestconfirmation.requestConfirmation.requestConfirmationTime.value","","","",1,1,"","","","string {[]} {[]}
+","value","value (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.requestConfirmationTime.value",1,1,"",""
+"processrequestconfirmation.requestConfirmation.patient","processrequestconfirmation.requestConfirmation.patient","","","",1,1,"","","","Base {[]} {[]}
+","SimplePatientType","Patient","TKB-fält: `requestConfirmation.patient` (`SimplePatientType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.patient",1,1,"",""
+"processrequestconfirmation.requestConfirmation.patient.personId","processrequestconfirmation.requestConfirmation.patient.personId","","","",1,1,"","","","Base {[]} {[]}
+","PersonIdType","Person id
+
+Patientens identitet","TKB-fält: `requestConfirmation.patient.personId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.patient.personId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.patient.personId.extension","processrequestconfirmation.requestConfirmation.patient.personId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","Personidentifierare för patienten.
+
+Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken.","TKB-fält: `requestConfirmation.patient.personId.extension` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** extension (XML-attribut)","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.patient.personId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.patient.personId.root","processrequestconfirmation.requestConfirmation.patient.personId.root","","","",1,1,"","","","string {[]} {[]}
+","root","OID för typ av personidentifierare.
+
+För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.
+
+För andra typer av personidentifierare sätts root till aktuell OID.","TKB-fält: `requestConfirmation.patient.personId.root` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** root (XML-attribut)","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.patient.personId.root",1,1,"",""
+"processrequestconfirmation.requestConfirmation.patient.name","processrequestconfirmation.requestConfirmation.patient.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn
+
+Alla personnamn skrivs sammanslaget enligt formatet "" Mellannamn Efternamn, Förnamn"". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.
+
+Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet.","TKB-fält: `requestConfirmation.patient.name` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 216 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.patient.name",0,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation","processrequestconfirmation.requestConfirmation.confirmingOrganisation","","","",1,1,"","","","Base {[]} {[]}
+","FullOrganisationType","Organisatorisk enhet
+
+Den faktiska enhet som skickar bekräftelsemeddelandet. Detta kan skilja sig från den ansvariga vårdenheten enligt PDL.","TKB-fält: `requestConfirmation.confirmingOrganisation` (`FullOrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation",1,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för enhet.","TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId.extension","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitName","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","Enhet namn
+
+Namn på enhet.","TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitName` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitName",0,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitTelephone","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitTelephone","","","",0,1,"","","","string {[]} {[]}
+","careUnitTelephone","Enhet telefon
+
+Telefon till enhet.","TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitTelephone` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitTelephone",0,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitEmail","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitEmail","","","",0,1,"","","","string {[]} {[]}
+","careUnitEmail","Enhet epost
+
+E-post till enhet.","TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitEmail` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitEmail",0,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitAddress","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitAddress","","","",0,1,"","","","string {[]} {[]}
+","careUnitAddress","Enhet adress
+
+Adress till enhet.","TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitAddress` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitAddress",0,1,"",""
+"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitLocation","processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitLocation","","","",0,1,"","","","string {[]} {[]}
+","careUnitLocation","Enhet plats
+
+Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.","TKB-fält: `requestConfirmation.confirmingOrganisation.careUnitLocation` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.confirmingOrganisation.careUnitLocation",0,1,"",""
+"processrequestconfirmation.requestConfirmation.author","processrequestconfirmation.requestConfirmation.author","","","",1,1,"","","","Base {[]} {[]}
+","AuthorType","Remissbesvarare
+
+Remissbekräftande person och organisation","TKB-fält: `requestConfirmation.author` (`AuthorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author",1,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessional","processrequestconfirmation.requestConfirmation.author.healthcareProfessional","","","",1,1,"","","","Base {[]} {[]}
+","HealthcareProfessionalType","Hälso- och sjukvårdspersonal","TKB-fält: `requestConfirmation.author.healthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessional",1,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id","processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id","","","",0,1,"","","","Base {[]} {[]}
+","HsaIdType","Personal id
+
+HSA-id för remissbekräftande personal","TKB-fält: `requestConfirmation.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id",0,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id.extension","processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessional.id.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessional.name","processrequestconfirmation.requestConfirmation.author.healthcareProfessional.name","","","",1,1,"","","","string {[]} {[]}
+","name","Personalnamn","TKB-fält: `requestConfirmation.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessional.name",1,1,"",""
+"processrequestconfirmation.requestConfirmation.author.typeOfHealthcareProfessional","processrequestconfirmation.requestConfirmation.author.typeOfHealthcareProfessional","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","typeOfHealthcareProfessional","Typ av hälso- och sjukvårdspersonal
+
+Kod för yrkestitel från Snomed CT enligt urvalen nedan:
+
+code: se urval_legitimerade_yrken
+
+codeSystem: OID 1.2.752.129.5.1.70
+
+eller
+
+code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade
+
+codeSystem: 1.2.752.129.7.1.5
+
+Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `requestConfirmation.author.typeOfHealthcareProfessional` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.typeOfHealthcareProfessional",0,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation","processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Organisatorisk enhet
+
+remissbekräftande","TKB-fält: `requestConfirmation.author.healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation",1,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId","processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för verksamhet som ansvarar för remissbekräftelsen.","TKB-fält: `requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId.extension","processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.recipient","processrequestconfirmation.requestConfirmation.recipient","","","",1,1,"","","","Base {[]} {[]}
+","RecipientType","Mottagare","TKB-fält: `requestConfirmation.recipient` (`RecipientType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.recipient",1,1,"",""
+"processrequestconfirmation.requestConfirmation.recipient.organisation","processrequestconfirmation.requestConfirmation.recipient.organisation","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Organisatorisk enhet
+
+mottagare","TKB-fält: `requestConfirmation.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.recipient.organisation",1,1,"",""
+"processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId","processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för remitterande enhet, till vilken remissbekräftelsen adresseras.","TKB-fält: `requestConfirmation.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId.extension","processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.recipient.organisation.careUnitId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.forwardingRecipient","processrequestconfirmation.requestConfirmation.forwardingRecipient","","","",0,1,"","","","Base {[]} {[]}
+","RecipientType","Mottagare vidarebefordran
+
+Obligatorisk att ange när typen på requestConfirmation.typeOfRequestConfirmation är VID (Besked om vidareskickning).
+
+Ska inte anges om typen på requestConfirmation.typeOfRequestConfirmation är annan än VID (Besked om vidareskickning).","TKB-fält: `requestConfirmation.forwardingRecipient` (`RecipientType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.forwardingRecipient",0,1,"",""
+"processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation","processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Organisatorisk enhet
+
+ny mottagare","TKB-fält: `requestConfirmation.forwardingRecipient.organisation` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation",1,1,"",""
+"processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId","processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för remissmottagande enhet av den vidareskickade remissen.","TKB-fält: `requestConfirmation.forwardingRecipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId",1,1,"",""
+"processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId.extension","processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.forwardingRecipient.organisation.careUnitId.extension",1,1,"",""
+"processrequestconfirmation.requestConfirmation.outcome","processrequestconfirmation.requestConfirmation.outcome","","","",1,1,"","","","Base {[]} {[]}
+","RequestReceivedConfirmationOutcomeType","Bekräftelsemeddelande","TKB-fält: `requestConfirmation.outcome` (`RequestReceivedConfirmationOutcomeType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.outcome",1,1,"",""
+"processrequestconfirmation.requestConfirmation.outcome.outcomeText","processrequestconfirmation.requestConfirmation.outcome.outcomeText","","","",1,1,"","","","string {[]} {[]}
+","outcomeText","Svarstext
+
+Meddelande till remissens avsändare.","TKB-fält: `requestConfirmation.outcome.outcomeText` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequestconfirmation.requestConfirmation.outcome.outcomeText",1,1,"",""

@@ -1,0 +1,671 @@
+# GetExtendedConsentsForPatient - ehr: patientconsent — Samtyckeshantering v1.0.1-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetExtendedConsentsForPatient**
+
+## Logical Model: GetExtendedConsentsForPatient 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getextendedconsentsforpatient | *Version*:1.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetExtendedConsentsForPatient |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetExtendedConsentsForPatient (RIV-TA urn:riv:ehr:patientconsent:administration:GetExtendedConsentsForPatientResponder:1). Representerar responsens informationsstruktur. 
+Tjänst som läser registrerade samtyckesintyg för en viss patient med utökad information. Returnerar ExtendedPDLAssertion som innehåller registrerings-, återkallnings- och makuleringsinformation. Det är valbart om ogiltiga (makulerade, återkallade och utgångna) samtyckesintyg skall returneras. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-patientconsent|current/StructureDefinition/StructureDefinition-getextendedconsentsforpatient.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getextendedconsentsforpatient.csv), [Excel](StructureDefinition-getextendedconsentsforpatient.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getextendedconsentsforpatient",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getextendedconsentsforpatient",
+  "version" : "1.0",
+  "name" : "GetExtendedConsentsForPatient",
+  "title" : "GetExtendedConsentsForPatient",
+  "status" : "draft",
+  "date" : "2026-11-09T03:30:01+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetExtendedConsentsForPatient\n(RIV-TA urn:riv:ehr:patientconsent:administration:GetExtendedConsentsForPatientResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser registrerade samtyckesintyg för en viss patient med utökad information.\nReturnerar ExtendedPDLAssertion som innehåller registrerings-, återkallnings- och makuleringsinformation.\nDet är valbart om ogiltiga (makulerade, återkallade och utgångna) samtyckesintyg skall returneras.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getextendedconsentsforpatient",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getextendedconsentsforpatient",
+      "path" : "getextendedconsentsforpatient",
+      "short" : "GetExtendedConsentsForPatient",
+      "definition" : "Logisk modell för tjänstekontraktet GetExtendedConsentsForPatient\n(RIV-TA urn:riv:ehr:patientconsent:administration:GetExtendedConsentsForPatientResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser registrerade samtyckesintyg för en viss patient med utökad information.\nReturnerar ExtendedPDLAssertion som innehåller registrerings-, återkallnings- och makuleringsinformation.\nDet är valbart om ogiltiga (makulerade, återkallade och utgångna) samtyckesintyg skall returneras."
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType",
+      "short" : "GetExtendedConsentsResultType",
+      "definition" : "GetExtendedConsentsResultType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result",
+      "short" : "ResultType",
+      "definition" : "Result",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultCode",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultCode",
+      "short" : "ResultCode",
+      "definition" : "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultText",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.Result.ResultText",
+      "short" : "ResultText",
+      "definition" : "ResultText",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions",
+      "short" : "ExtendedPDLAssertionType",
+      "definition" : "PdlAssertions",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion",
+      "short" : "PDLAssertionType",
+      "definition" : "PDLAssertion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionId",
+      "short" : "AssertionId",
+      "definition" : "AssertionId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionType",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.AssertionType",
+      "short" : "AssertionType",
+      "definition" : "AssertionType Tillåtna värden: Consent, Emergency.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/assertiontype-vs"
+      }
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.Scope",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.Scope",
+      "short" : "Scope",
+      "definition" : "Scope Tillåtna värden: NationalLevel.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/scope-vs"
+      }
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.PatientId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.PatientId",
+      "short" : "PatientId",
+      "definition" : "PatientId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareProviderId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareProviderId",
+      "short" : "CareProviderId",
+      "definition" : "CareProviderId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareUnitId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.CareUnitId",
+      "short" : "CareUnitId",
+      "definition" : "CareUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.StartDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.StartDate",
+      "short" : "StartDate",
+      "definition" : "StartDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EndDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.EndDate",
+      "short" : "EndDate",
+      "definition" : "EndDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.OwnerId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.PDLAssertion.OwnerId",
+      "short" : "OwnerId",
+      "definition" : "OwnerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RepresentedBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RepresentedBy",
+      "short" : "RepresentedBy",
+      "definition" : "RepresentedBy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo",
+      "short" : "ActionType",
+      "definition" : "RegistrationInfo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestDate",
+      "short" : "RequestDate",
+      "definition" : "RequestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy",
+      "short" : "ActorType",
+      "definition" : "RequestedBy",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentId",
+      "short" : "AssignmentId",
+      "definition" : "AssignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentName",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RequestedBy.AssignmentName",
+      "short" : "AssignmentName",
+      "definition" : "AssignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegistrationDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegistrationDate",
+      "short" : "RegistrationDate",
+      "definition" : "RegistrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy",
+      "short" : "ActorType",
+      "definition" : "RegisteredBy",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentId",
+      "short" : "AssignmentId",
+      "definition" : "AssignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentName",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.RegisteredBy.AssignmentName",
+      "short" : "AssignmentName",
+      "definition" : "AssignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.ReasonText",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.RegistrationInfo.ReasonText",
+      "short" : "ReasonText",
+      "definition" : "ReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo",
+      "short" : "ActionType",
+      "definition" : "CancellationInfo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestDate",
+      "short" : "RequestDate",
+      "definition" : "RequestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy",
+      "short" : "ActorType",
+      "definition" : "RequestedBy",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentId",
+      "short" : "AssignmentId",
+      "definition" : "AssignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentName",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RequestedBy.AssignmentName",
+      "short" : "AssignmentName",
+      "definition" : "AssignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegistrationDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegistrationDate",
+      "short" : "RegistrationDate",
+      "definition" : "RegistrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy",
+      "short" : "ActorType",
+      "definition" : "RegisteredBy",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentId",
+      "short" : "AssignmentId",
+      "definition" : "AssignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentName",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.RegisteredBy.AssignmentName",
+      "short" : "AssignmentName",
+      "definition" : "AssignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.ReasonText",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.CancellationInfo.ReasonText",
+      "short" : "ReasonText",
+      "definition" : "ReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo",
+      "short" : "ActionType",
+      "definition" : "DeletionInfo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestDate",
+      "short" : "RequestDate",
+      "definition" : "RequestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy",
+      "short" : "ActorType",
+      "definition" : "RequestedBy",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentId",
+      "short" : "AssignmentId",
+      "definition" : "AssignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentName",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RequestedBy.AssignmentName",
+      "short" : "AssignmentName",
+      "definition" : "AssignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegistrationDate",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegistrationDate",
+      "short" : "RegistrationDate",
+      "definition" : "RegistrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy",
+      "short" : "ActorType",
+      "definition" : "RegisteredBy",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.EmployeeId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.EmployeeId",
+      "short" : "EmployeeId",
+      "definition" : "EmployeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentId",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentId",
+      "short" : "AssignmentId",
+      "definition" : "AssignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentName",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.RegisteredBy.AssignmentName",
+      "short" : "AssignmentName",
+      "definition" : "AssignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.ReasonText",
+      "path" : "getextendedconsentsforpatient.GetExtendedConsentsResultType.PdlAssertions.DeletionInfo.ReasonText",
+      "short" : "ReasonText",
+      "definition" : "ReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

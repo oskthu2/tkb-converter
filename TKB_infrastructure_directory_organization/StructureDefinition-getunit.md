@@ -1,0 +1,1531 @@
+# GetUnit - infrastructure: directory: organization v5.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetUnit**
+
+## Logical Model: GetUnit 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/getunit | *Version*:5.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetUnit |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5). Representerar responsens informationsstruktur — detaljerad information om en organisatorisk enhet (organisation, vårdenhet eller funktion) från HSA-katalogen. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-directory-organization|current/StructureDefinition/StructureDefinition-getunit.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getunit.csv), [Excel](StructureDefinition-getunit.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getunit",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/getunit",
+  "version" : "5.0",
+  "name" : "GetUnit",
+  "title" : "GetUnit",
+  "status" : "active",
+  "date" : "2026-11-09T03:37:41+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetUnit\n(RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5).\nRepresenterar responsens informationsstruktur — detaljerad information om en organisatorisk enhet\n(organisation, vårdenhet eller funktion) från HSA-katalogen.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/getunit",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getunit",
+      "path" : "getunit",
+      "short" : "GetUnit",
+      "definition" : "Logisk modell för tjänstekontraktet GetUnit\n(RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5).\nRepresenterar responsens informationsstruktur — detaljerad information om en organisatorisk enhet\n(organisation, vårdenhet eller funktion) från HSA-katalogen."
+    },
+    {
+      "id" : "getunit.unit",
+      "path" : "getunit.unit",
+      "short" : "unitType",
+      "definition" : "Information om den angivna organisatoriska enheten",
+      "comment" : "TKB-fält: `Unit` (`unitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.alternateName",
+      "path" : "getunit.unit.alternateName",
+      "short" : "alternateName",
+      "definition" : "Alternativt namn på enheten. Ref. alternativt namn (ouShort) [R5]",
+      "comment" : "TKB-fält: `..alternateName *b)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.alternateText",
+      "path" : "getunit.unit.alternateText",
+      "short" : "alternateText",
+      "definition" : "Beskrivande text till bild på enhet. Ref. [R5]",
+      "comment" : "TKB-fält: `..alternateText *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.alternateTextLogotype",
+      "path" : "getunit.unit.alternateTextLogotype",
+      "short" : "alternateTextLogotype",
+      "definition" : "Beskrivande text till logotype för enheten. Ref. [R5]",
+      "comment" : "TKB-fält: `..alternateTextLogotype *a)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.businessClassification",
+      "path" : "getunit.unit.businessClassification",
+      "short" : "BusinessClassificationType",
+      "definition" : "Verksamhetskod",
+      "comment" : "TKB-fält: `..businessClassification *e)` (`BusinessClassificationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.businessClassification.businessClassificationName",
+      "path" : "getunit.unit.businessClassification.businessClassificationName",
+      "short" : "businessClassificationName",
+      "definition" : "Verksamhetskod(-er) i klartext. Ref. verksamhet (businessClassificationName) [R5]",
+      "comment" : "TKB-fält: `.. ..businessClassificationName` (`String`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.businessClassification.businessClassificationCode",
+      "path" : "getunit.unit.businessClassification.businessClassificationCode",
+      "short" : "businessClassificationCode",
+      "definition" : "Verksamhetskod(-er) kod. Ref. verksamhetskod (businessClassificationCode) [R5]",
+      "comment" : "TKB-fält: `.. ..businessClassificationCode` (`String`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.businessType",
+      "path" : "getunit.unit.businessType",
+      "short" : "businessType",
+      "definition" : "Klassificering av enhet (t.ex. sjukhus). Ref. enhetstyp (hsaBusinessType) [R5]",
+      "comment" : "TKB-fält: `..businessType *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.careType",
+      "path" : "getunit.unit.careType",
+      "short" : "careType",
+      "definition" : "Vårdform. Ref. vård- och omsorgsform (careType) [R5]",
+      "comment" : "TKB-fält: `..careType *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.countyName",
+      "path" : "getunit.unit.countyName",
+      "short" : "countyName",
+      "definition" : "Namn på län. Ref. länsnamn (countyName) [R5]",
+      "comment" : "TKB-fält: `..countyName *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.countyCode",
+      "path" : "getunit.unit.countyCode",
+      "short" : "countyCode",
+      "definition" : "Kod för län. Ref. länskod (countyCode) [R5]",
+      "comment" : "TKB-fält: `..countyCode *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.description",
+      "path" : "getunit.unit.description",
+      "short" : "description",
+      "definition" : "Allmän beskrivning för enheten. Ref. beskrivning (description) [R5]",
+      "comment" : "TKB-fält: `..description *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.directoryContact",
+      "path" : "getunit.unit.directoryContact",
+      "short" : "directoryContact",
+      "definition" : "Mailadress till ansvarig för informationen om enheten. Ref. innehållsansvarigs e-postadress (hsaDirectoryContact) [R5]",
+      "comment" : "TKB-fält: `..directoryContact *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.displayOption",
+      "path" : "getunit.unit.displayOption",
+      "short" : "displayOption",
+      "definition" : "Används för att beräkna enhetens publika namn (publicName). Ref. alternativ namnvisning (displayOption) [R5]",
+      "comment" : "TKB-fält: `..displayOption *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour",
+      "path" : "getunit.unit.dropInHour",
+      "short" : "TimeSpanType",
+      "definition" : "Tider för dropin-besök (utan tidbokning). Ref. tid för dropin-besök utan tidsbokning (dropInHours) [R5]",
+      "comment" : "TKB-fält: `..dropInHour *e)` (`TimeSpan`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.fromDay",
+      "path" : "getunit.unit.dropInHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "Från dag. Måndag (1) – Söndag (7).",
+      "comment" : "TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.fromTime",
+      "path" : "getunit.unit.dropInHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "Från tid. Format enligt ISO-8601.",
+      "comment" : "TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.toDay",
+      "path" : "getunit.unit.dropInHour.toDay",
+      "short" : "toDay",
+      "definition" : "Till dag. Måndag (1) – Söndag (7).",
+      "comment" : "TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.toTime",
+      "path" : "getunit.unit.dropInHour.toTime",
+      "short" : "toTime",
+      "definition" : "Till tid. Format enligt ISO-8601.",
+      "comment" : "TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.comment",
+      "path" : "getunit.unit.dropInHour.comment",
+      "short" : "comment",
+      "definition" : "Information om aktuellt tidsintervall.",
+      "comment" : "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.fromDate",
+      "path" : "getunit.unit.dropInHour.fromDate",
+      "short" : "fromDate",
+      "definition" : "Tiden gäller från och med detta datum",
+      "comment" : "TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.dropInHour.toDate",
+      "path" : "getunit.unit.dropInHour.toDate",
+      "short" : "toDate",
+      "definition" : "Tider gäller till och med detta datum",
+      "comment" : "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.mail",
+      "path" : "getunit.unit.mail",
+      "short" : "mail",
+      "definition" : "Mailadress till enheten. Ref. e-postadress (mail) [R5]",
+      "comment" : "TKB-fält: `..mail *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.facsimileTelephoneNumber",
+      "path" : "getunit.unit.facsimileTelephoneNumber",
+      "short" : "facsimileTelephoneNumber",
+      "definition" : "Faxnummer till enheten. Ref. fax (facsimileTelephoneNumber) [R5]",
+      "comment" : "TKB-fält: `..facsimileTelephoneNumber *b)` (`Telefon`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesRt90",
+      "path" : "getunit.unit.geographicalCoordinatesRt90",
+      "short" : "GeoCoordRt90Type",
+      "definition" : "Geografiska koordinater RT90. Ref. geografiska koordinater RT90 (geographicalCoordinates) [R5]",
+      "comment" : "TKB-fält: `..geographicalCoordinatesRt90 *e)` (`GeoCoordRt90Type`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesRt90.xCoordinate",
+      "path" : "getunit.unit.geographicalCoordinatesRt90.xCoordinate",
+      "short" : "xCoordinate",
+      "definition" : "X-koordinat.",
+      "comment" : "TKB-fält: `.. ..xCoordinate` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesRt90.yCoordinate",
+      "path" : "getunit.unit.geographicalCoordinatesRt90.yCoordinate",
+      "short" : "yCoordinate",
+      "definition" : "Y-koordinat.",
+      "comment" : "TKB-fält: `.. ..yCoordinate` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesSWEREF99",
+      "path" : "getunit.unit.geographicalCoordinatesSWEREF99",
+      "short" : "GeoCoordSWEREF99Type",
+      "definition" : "Geografiska koordinater SWEREF99. Ref. geografiska koordinater SWEREF 99 TM (geographicalCoordinatesSweref99TM) [R5]",
+      "comment" : "TKB-fält: `..geographicalCoordinatesSWEREF99 (används ej)` (`GeoCoordSWEREF99Type`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesSWEREF99.nCoordinate",
+      "path" : "getunit.unit.geographicalCoordinatesSWEREF99.nCoordinate",
+      "short" : "nCoordinate",
+      "definition" : "N-koordinat.",
+      "comment" : "TKB-fält: `.. ..nCoordinate` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesSWEREF99.eCoordinate",
+      "path" : "getunit.unit.geographicalCoordinatesSWEREF99.eCoordinate",
+      "short" : "eCoordinate",
+      "definition" : "E-koordinat.",
+      "comment" : "TKB-fält: `.. ..eCoordinate` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.destinationIndicator",
+      "path" : "getunit.unit.destinationIndicator",
+      "short" : "destinationIndicator",
+      "definition" : "Anger vilka parter som får ta del av enhetens information. Ref. visas för (hsaDestinationIndicator) [R5]",
+      "comment" : "TKB-fält: `..destinationIndicator *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitHsaId",
+      "path" : "getunit.unit.unitHsaId",
+      "short" : "unitHsaId",
+      "definition" : "Enhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `..unitHsaId *b)` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.jpegPhoto",
+      "path" : "getunit.unit.jpegPhoto",
+      "short" : "jpegPhoto",
+      "definition" : "Bild för enheten. Base-64-format. Ref. bild (jpegPhoto) [R5]",
+      "comment" : "TKB-fält: `..jpegPhoto *a)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.jpegLogotype",
+      "path" : "getunit.unit.jpegLogotype",
+      "short" : "jpegLogotype",
+      "definition" : "Logotype för enheten. Base-64-format. Ref. logotyp (hsaJpegLogotype) [R5]",
+      "comment" : "TKB-fält: `..jpegLogotype *a)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.labeledUri",
+      "path" : "getunit.unit.labeledUri",
+      "short" : "labeledUri",
+      "definition" : "Fullständig webbadress. Ref. webbadress (labeledURI) [R5]",
+      "comment" : "TKB-fält: `..labeledUri *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.location",
+      "path" : "getunit.unit.location",
+      "short" : "location",
+      "definition" : "Namn på geografiskt område. Ref. geografisk plats (l, localityName) [R5]",
+      "comment" : "TKB-fält: `..location *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.webPage1177",
+      "path" : "getunit.unit.webPage1177",
+      "short" : "webPage1177",
+      "definition" : "Länk till Enhetens sida på 1177.se. Ref. 1177-kontaktkortslänk (hsaVpwWebPage) [R5]",
+      "comment" : "TKB-fält: `..webPage1177 *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.management",
+      "path" : "getunit.unit.management",
+      "short" : "management",
+      "definition" : "Ägarform i klartext. Ref. ägarform (management) [R5]",
+      "comment" : "TKB-fält: `..management *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.municipalityName",
+      "path" : "getunit.unit.municipalityName",
+      "short" : "municipalityName",
+      "definition" : "Namn på kommun. Ref. kommunnamn (municipalityName) [R5]",
+      "comment" : "TKB-fält: `..municipalityName *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.municipalityCode",
+      "path" : "getunit.unit.municipalityCode",
+      "short" : "municipalityCode",
+      "definition" : "Kod för kommun. Ref. kommunkod (municipalityCode) [R5]",
+      "comment" : "TKB-fält: `..municipalityCode *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.nonPublicTelephoneNumber",
+      "path" : "getunit.unit.nonPublicTelephoneNumber",
+      "short" : "nonPublicTelephoneNumber",
+      "definition" : "Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]",
+      "comment" : "TKB-fält: `..nonPublicTelephoneNumber *f)` (`Telefon`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitName",
+      "path" : "getunit.unit.unitName",
+      "short" : "unitName",
+      "definition" : "Namnet på enheten. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]",
+      "comment" : "TKB-fält: `..unitName *b)` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.patientInformation",
+      "path" : "getunit.unit.patientInformation",
+      "short" : "patientInformation",
+      "definition" : "Informationstext till patienter. Ref. [R5]",
+      "comment" : "TKB-fält: `..patientInformation *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.postalAddress",
+      "path" : "getunit.unit.postalAddress",
+      "short" : "AddressType",
+      "definition" : "Postadress i ostrukturerat format. Ref. [R5]",
+      "comment" : "TKB-fält: `..postalAddress *b)` (`Address`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.postalAddress.addressLine",
+      "path" : "getunit.unit.postalAddress.addressLine",
+      "short" : "addressLine",
+      "definition" : "Adressrad.",
+      "comment" : "TKB-fält: `.. ..addressLine` (`String`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.postalCode",
+      "path" : "getunit.unit.postalCode",
+      "short" : "postalCode",
+      "definition" : "Postnummer där verksamheten bedrivs. Ref. [R5]",
+      "comment" : "TKB-fält: `..postalCode *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.publicName",
+      "path" : "getunit.unit.publicName",
+      "short" : "publicName",
+      "definition" : "Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]",
+      "comment" : "TKB-fält: `..publicName *b)` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.relatedUnitHsaId",
+      "path" : "getunit.unit.relatedUnitHsaId",
+      "short" : "relatedUnitHsaId",
+      "definition" : "HSA-identitet på en relaterad enhet. Ref. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `..relatedUnitHsaId *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.route",
+      "path" : "getunit.unit.route",
+      "short" : "route",
+      "definition" : "Vägbeskrivning. Ref. färdväg (route) [R5]",
+      "comment" : "TKB-fält: `..route *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.street",
+      "path" : "getunit.unit.street",
+      "short" : "street",
+      "definition" : "Besöksadress i ostrukturerat format. Ref. besöksadress (street) [R5]",
+      "comment" : "TKB-fält: `..street *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour",
+      "path" : "getunit.unit.surgeryHour",
+      "short" : "TimeSpanType",
+      "definition" : "Öppettider. Ref. öppettider (surgeryHours) [R5]",
+      "comment" : "TKB-fält: `..surgeryHour *e)` (`TimeSpan`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.fromDay",
+      "path" : "getunit.unit.surgeryHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "Från dag.",
+      "comment" : "TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.fromTime",
+      "path" : "getunit.unit.surgeryHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "Från tid.",
+      "comment" : "TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.toDay",
+      "path" : "getunit.unit.surgeryHour.toDay",
+      "short" : "toDay",
+      "definition" : "Till dag.",
+      "comment" : "TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.toTime",
+      "path" : "getunit.unit.surgeryHour.toTime",
+      "short" : "toTime",
+      "definition" : "Till tid.",
+      "comment" : "TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.comment",
+      "path" : "getunit.unit.surgeryHour.comment",
+      "short" : "comment",
+      "definition" : "Information om aktuellt tidsintervall.",
+      "comment" : "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.fromDate",
+      "path" : "getunit.unit.surgeryHour.fromDate",
+      "short" : "fromDate",
+      "definition" : "Från datum.",
+      "comment" : "TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.surgeryHour.toDate",
+      "path" : "getunit.unit.surgeryHour.toDate",
+      "short" : "toDate",
+      "definition" : "Till datum.",
+      "comment" : "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.switchboardNumber",
+      "path" : "getunit.unit.switchboardNumber",
+      "short" : "switchboardNumber",
+      "definition" : "Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5]",
+      "comment" : "TKB-fält: `..switchboardNumber *b)` (`Telefon`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour",
+      "path" : "getunit.unit.telephoneHour",
+      "short" : "TimeSpanType",
+      "definition" : "Telefontider. Ref. telefontid (telephoneHours) [R5]",
+      "comment" : "TKB-fält: `..telephoneHour *b)` (`TimeSpan`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.fromDay",
+      "path" : "getunit.unit.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "Från dag.",
+      "comment" : "TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.fromTime",
+      "path" : "getunit.unit.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "Från tid.",
+      "comment" : "TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.toDay",
+      "path" : "getunit.unit.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "Till dag.",
+      "comment" : "TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.toTime",
+      "path" : "getunit.unit.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "Till tid.",
+      "comment" : "TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.comment",
+      "path" : "getunit.unit.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "Information om aktuellt tidsintervall.",
+      "comment" : "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.fromDate",
+      "path" : "getunit.unit.telephoneHour.fromDate",
+      "short" : "fromDate",
+      "definition" : "Från datum.",
+      "comment" : "TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneHour.toDate",
+      "path" : "getunit.unit.telephoneHour.toDate",
+      "short" : "toDate",
+      "definition" : "Till datum.",
+      "comment" : "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.telephoneNumber",
+      "path" : "getunit.unit.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]",
+      "comment" : "TKB-fält: `..telephoneNumber *b)` (`Telefon`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "getunit.unit.textTelephoneNumber",
+      "path" : "getunit.unit.textTelephoneNumber",
+      "short" : "textTelephoneNumber",
+      "definition" : "Adress till texttelefon. Ref. texttelefon (hsaTextTelephoneNumber) [R5]",
+      "comment" : "TKB-fält: `..textTelephoneNumber *b)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitExtraInformation",
+      "path" : "getunit.unit.unitExtraInformation",
+      "short" : "unitExtraInformation",
+      "definition" : "Kompletterande information om enheten. Ref. mer om (hsaVpwInformation1) [R5]",
+      "comment" : "TKB-fält: `..unitExtraInformation *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction",
+      "path" : "getunit.unit.unitFunction",
+      "short" : "UnitFunctionType",
+      "definition" : "Information från direkta funktionsobjekt med reserverat funktionsnamn.",
+      "comment" : "TKB-fält: `..unitFunction *a)` (`UnitFunctionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.name",
+      "path" : "getunit.unit.unitFunction.name",
+      "short" : "name",
+      "definition" : "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn.",
+      "comment" : "TKB-fält: `.. ..name` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour",
+      "path" : "getunit.unit.unitFunction.telephoneHour",
+      "short" : "TimeSpanType",
+      "definition" : "Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5]",
+      "comment" : "TKB-fält: `.. ..telephoneHour` (`TimeSpan`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.fromDay",
+      "path" : "getunit.unit.unitFunction.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "Från dag.",
+      "comment" : "TKB-fält: `.. .. ..fromDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.fromTime",
+      "path" : "getunit.unit.unitFunction.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "Från tid.",
+      "comment" : "TKB-fält: `.. .. ..fromTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.toDay",
+      "path" : "getunit.unit.unitFunction.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "Till dag.",
+      "comment" : "TKB-fält: `.. .. ..toDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.toTime",
+      "path" : "getunit.unit.unitFunction.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "Till tid.",
+      "comment" : "TKB-fält: `.. .. ..toTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.comment",
+      "path" : "getunit.unit.unitFunction.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "Information om aktuellt tidsintervall.",
+      "comment" : "TKB-fält: `.. .. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.fromDate",
+      "path" : "getunit.unit.unitFunction.telephoneHour.fromDate",
+      "short" : "fromDate",
+      "definition" : "Från datum.",
+      "comment" : "TKB-fält: `.. .. ..fromDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneHour.toDate",
+      "path" : "getunit.unit.unitFunction.telephoneHour.toDate",
+      "short" : "toDate",
+      "definition" : "Till datum.",
+      "comment" : "TKB-fält: `.. .. ..toDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitFunction.telephoneNumber",
+      "path" : "getunit.unit.unitFunction.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "Publikt direkttelefonnummer för funktionen. Ref. direkttelefon (telephoneNumber) [R5]",
+      "comment" : "TKB-fält: `.. ..telephoneNumber` (`Telefon`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitTemporaryInformation",
+      "path" : "getunit.unit.unitTemporaryInformation",
+      "short" : "DateSpanType",
+      "definition" : "Tillfällig information om enheten. Ref. tillfällig information (hsaVpwInformation2) [R5]",
+      "comment" : "TKB-fält: `..unitTemporaryInformation *e)` (`DateSpan`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitTemporaryInformation.fromDate",
+      "path" : "getunit.unit.unitTemporaryInformation.fromDate",
+      "short" : "fromDate",
+      "definition" : "Från datum.",
+      "comment" : "TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).\n\nObs: modellen anger 1..1 där TKB:n anger 0..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitTemporaryInformation.toDate",
+      "path" : "getunit.unit.unitTemporaryInformation.toDate",
+      "short" : "toDate",
+      "definition" : "Till datum.",
+      "comment" : "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).\n\nObs: modellen anger 1..1 där TKB:n anger 0..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitTemporaryInformation.temporaryInformation",
+      "path" : "getunit.unit.unitTemporaryInformation.temporaryInformation",
+      "short" : "temporaryInformation",
+      "definition" : "Tillfällig information",
+      "comment" : "TKB-fält: `.. ..temporaryInformation` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.videoPhone",
+      "path" : "getunit.unit.videoPhone",
+      "short" : "videoPhone",
+      "definition" : "Adress för kommunikation via bildtelefon. Ref. bildtelefon (hsaVideoPhone) [R5]",
+      "comment" : "TKB-fält: `..videoPhone *b)` (`String`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour",
+      "path" : "getunit.unit.visitingHour",
+      "short" : "TimeSpanType",
+      "definition" : "Besökstider för anhöriga. Ref. besökstider för anhöriga (visitingHours) [R5]",
+      "comment" : "TKB-fält: `..visitingHour *e)` (`TimeSpan`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.fromDay",
+      "path" : "getunit.unit.visitingHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "Från dag.",
+      "comment" : "TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.fromTime",
+      "path" : "getunit.unit.visitingHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "Från tid.",
+      "comment" : "TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.toDay",
+      "path" : "getunit.unit.visitingHour.toDay",
+      "short" : "toDay",
+      "definition" : "Till dag.",
+      "comment" : "TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.toTime",
+      "path" : "getunit.unit.visitingHour.toTime",
+      "short" : "toTime",
+      "definition" : "Till tid.",
+      "comment" : "TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.comment",
+      "path" : "getunit.unit.visitingHour.comment",
+      "short" : "comment",
+      "definition" : "Information om aktuellt tidsintervall.",
+      "comment" : "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.fromDate",
+      "path" : "getunit.unit.visitingHour.fromDate",
+      "short" : "fromDate",
+      "definition" : "Från datum.",
+      "comment" : "TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingHour.toDate",
+      "path" : "getunit.unit.visitingHour.toDate",
+      "short" : "toDate",
+      "definition" : "Till datum.",
+      "comment" : "TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingRuleAge",
+      "path" : "getunit.unit.visitingRuleAge",
+      "short" : "AgeSpanType",
+      "definition" : "Åldersintervall på patienter som tas emot. Ref. åldersregler för vårdkontakt (hsaVisitingRuleAge) [R5]",
+      "comment" : "TKB-fält: `..visitingRuleAge *e)` (`AgeSpan`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingRuleAge.fromAge",
+      "path" : "getunit.unit.visitingRuleAge.fromAge",
+      "short" : "fromAge",
+      "definition" : "Från ålder. 00 för nyfödd.",
+      "comment" : "TKB-fält: `.. ..fromAge` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingRuleAge.toAge",
+      "path" : "getunit.unit.visitingRuleAge.toAge",
+      "short" : "toAge",
+      "definition" : "Till ålder. 99 för ingen övre åldersgräns.",
+      "comment" : "TKB-fält: `.. ..toAge` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingRuleAge.comment",
+      "path" : "getunit.unit.visitingRuleAge.comment",
+      "short" : "comment",
+      "definition" : "Kommentar till åldersintervallet",
+      "comment" : "TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.referralRules",
+      "path" : "getunit.unit.referralRules",
+      "short" : "referralRules",
+      "definition" : "Beskrivning av remisskrav. Ref. remisskrav (hsaVisitingRuleReferral) [R5]",
+      "comment" : "TKB-fält: `..referralRules *b)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.visitingRules",
+      "path" : "getunit.unit.visitingRules",
+      "short" : "visitingRules",
+      "definition" : "Besöksregler. Ref. besöksregler för anhöriga (hsaVisitingRules) [R5]",
+      "comment" : "TKB-fält: `..visitingRules *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitStartDate",
+      "path" : "getunit.unit.unitStartDate",
+      "short" : "unitStartDate",
+      "definition" : "Startdatum för enhetens verksamhet. Ref. startdatum (startDate) [R5]",
+      "comment" : "TKB-fält: `..unitStartDate *b)` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getunit.unit.unitEndDate",
+      "path" : "getunit.unit.unitEndDate",
+      "short" : "unitEndDate",
+      "definition" : "Slutdatum för enhetens verksamhet. Ref. slutdatum (endDate) [R5]",
+      "comment" : "TKB-fält: `..unitEndDate *b)` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getunit.unit.feignedUnit",
+      "path" : "getunit.unit.feignedUnit",
+      "short" : "feignedUnit",
+      "definition" : "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]",
+      "comment" : "TKB-fält: `..feignedUnit *b)` (`Boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getunit.unit.financingOrganization",
+      "path" : "getunit.unit.financingOrganization",
+      "short" : "financingOrganization",
+      "definition" : "Organisationsnummer för finansierande landsting/kommuner. Ref. (financingOrganization) [R5]",
+      "comment" : "TKB-fält: `..financingOrganization *b)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.indoorRouteDescription",
+      "path" : "getunit.unit.indoorRouteDescription",
+      "short" : "indoorRouteDescription",
+      "definition" : "Vägbeskrivning inomhus. Ref. inre vägbeskrivning (indoorRouteDescription) [R5]",
+      "comment" : "TKB-fält: `..indoorRouteDescription *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesSWEREF99Latitude",
+      "path" : "getunit.unit.geographicalCoordinatesSWEREF99Latitude",
+      "short" : "geographicalCoordinatesSWEREF99Latitude",
+      "definition" : "X-koordinat (N) SWEREF99. Ref. (hsaSweref99Latitude) [R5]",
+      "comment" : "TKB-fält: `..geographicalCoordinatesSWEREF99Latitude *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.geographicalCoordinatesSWEREF99Longitude",
+      "path" : "getunit.unit.geographicalCoordinatesSWEREF99Longitude",
+      "short" : "geographicalCoordinatesSWEREF99Longitude",
+      "definition" : "Y-koordinat (E) SWEREF99. Ref. (hsaSweref99Longitude) [R5]",
+      "comment" : "TKB-fält: `..geographicalCoordinatesSWEREF99Longitude *e)` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.administrativeCareLevel",
+      "path" : "getunit.unit.administrativeCareLevel",
+      "short" : "administrativeCareLevel",
+      "definition" : "Kod för nivå av specialisering i hälso- och sjukvård. Ref. (hsaAdministrativeCareLevel) [R5]",
+      "comment" : "TKB-fält: `..administrativeCareLevel *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.schoolType",
+      "path" : "getunit.unit.schoolType",
+      "short" : "schoolType",
+      "definition" : "Kod för typ av skolform. Ref. skolform (hsaSchoolType) [R5]",
+      "comment" : "TKB-fält: `..schoolType *e)` (`String`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress",
+      "path" : "getunit.unit.structuredPostalAddress",
+      "short" : "StructuredPostalAddressType",
+      "definition" : "Postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]",
+      "comment" : "TKB-fält: `..structuredPostalAddress *b)` (`structuredPostalAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress.addressee",
+      "path" : "getunit.unit.structuredPostalAddress.addressee",
+      "short" : "addressee",
+      "definition" : "Adressat",
+      "comment" : "TKB-fält: `.. ..addressee` (`String`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress.street",
+      "path" : "getunit.unit.structuredPostalAddress.street",
+      "short" : "street",
+      "definition" : "Gata",
+      "comment" : "TKB-fält: `.. ..street` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress.premisesNumber",
+      "path" : "getunit.unit.structuredPostalAddress.premisesNumber",
+      "short" : "premisesNumber",
+      "definition" : "Adressplatsnummer",
+      "comment" : "TKB-fält: `.. ..premisesNumber` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress.premisesLetter",
+      "path" : "getunit.unit.structuredPostalAddress.premisesLetter",
+      "short" : "premisesLetter",
+      "definition" : "Adressplatslittera",
+      "comment" : "TKB-fält: `.. ..premisesLetter` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress.postCode",
+      "path" : "getunit.unit.structuredPostalAddress.postCode",
+      "short" : "postCode",
+      "definition" : "Postnummer",
+      "comment" : "TKB-fält: `.. ..postCode` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredPostalAddress.town",
+      "path" : "getunit.unit.structuredPostalAddress.town",
+      "short" : "town",
+      "definition" : "Postort",
+      "comment" : "TKB-fält: `.. ..town` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredVisitingAddress",
+      "path" : "getunit.unit.structuredVisitingAddress",
+      "short" : "StructuredVisitingAddressType",
+      "definition" : "Besöksadress i strukturerat format. Ref. Strukturerad besöksadress (hsaVisitingAddress) [R5]",
+      "comment" : "TKB-fält: `..structuredVisitingAddress *e)` (`structuredVisitingAddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredVisitingAddress.street",
+      "path" : "getunit.unit.structuredVisitingAddress.street",
+      "short" : "street",
+      "definition" : "Gata",
+      "comment" : "TKB-fält: `.. ..street` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredVisitingAddress.premisesNumber",
+      "path" : "getunit.unit.structuredVisitingAddress.premisesNumber",
+      "short" : "premisesNumber",
+      "definition" : "Adressplatsnummer",
+      "comment" : "TKB-fält: `.. ..premisesNumber` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredVisitingAddress.premisesLetter",
+      "path" : "getunit.unit.structuredVisitingAddress.premisesLetter",
+      "short" : "premisesLetter",
+      "definition" : "Adressplatslittera",
+      "comment" : "TKB-fält: `.. ..premisesLetter` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getunit.unit.structuredVisitingAddress.town",
+      "path" : "getunit.unit.structuredVisitingAddress.town",
+      "short" : "town",
+      "definition" : "Ortnamn",
+      "comment" : "TKB-fält: `.. ..town` (`String`, kardinalitet 0..1).\n\nObs: modellen anger 1..1 där TKB:n anger 0..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

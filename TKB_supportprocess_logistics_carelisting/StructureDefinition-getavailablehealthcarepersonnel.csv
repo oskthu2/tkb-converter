@@ -1,0 +1,20 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableHealthcarePersonnel — Response","Logisk modell för svaret i GetAvailableHealthcarePersonnel
+(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcarePersonnelResponder:2, GetAvailableHealthcarePersonnelResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailablehealthcarepersonnel.healthcarePersonnel","getavailablehealthcarepersonnel.healthcarePersonnel","","","",0,*,"","","","Base {[]} {[]}
+","HealthcarePersonnelType","Lista med vårdpersonal som kan väljas för listningen för den valda mottagningen i begäran.","TKB-fält: `healthcarePersonnel` (`HealthcarePersonnelType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel",0,*,"",""
+"getavailablehealthcarepersonnel.healthcarePersonnel.id","getavailablehealthcarepersonnel.healthcarePersonnel.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","id","HsaId för vårdpersonal","TKB-fält: `healthcarePersonnel.id` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel.id",1,1,"",""
+"getavailablehealthcarepersonnel.healthcarePersonnel.name","getavailablehealthcarepersonnel.healthcarePersonnel.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn (för- och efternamn) för vårdpersonal","TKB-fält: `healthcarePersonnel.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel.name",1,1,"",""
+"getavailablehealthcarepersonnel.healthcarePersonnel.title","getavailablehealthcarepersonnel.healthcarePersonnel.title","","","",0,1,"","","","string {[]} {[]}
+","title","Vårdpersonals titel","TKB-fält: `healthcarePersonnel.title` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel.title",0,1,"",""
+"getavailablehealthcarepersonnel.resultCode","getavailablehealthcarepersonnel.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getavailablehealthcarepersonnel.resultCode",1,1,"",""
+"getavailablehealthcarepersonnel.resultText","getavailablehealthcarepersonnel.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.resultText",0,1,"",""

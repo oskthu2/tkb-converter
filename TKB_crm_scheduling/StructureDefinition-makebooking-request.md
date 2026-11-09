@@ -1,0 +1,446 @@
+# MakeBooking — Request - crm: scheduling v1.1.6
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **MakeBooking — Request**
+
+## Logical Model: MakeBooking — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/makebooking-request | *Version*:1.1 |
+| Active as of 2026-11-09 | *Computable Name*:MakeBookingRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i MakeBooking. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.crm-scheduling|current/StructureDefinition/StructureDefinition-makebooking-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-makebooking-request.csv), [Excel](StructureDefinition-makebooking-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "makebooking-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/makebooking-request",
+  "version" : "1.1",
+  "name" : "MakeBookingRequest",
+  "title" : "MakeBooking — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:26:43+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i MakeBooking.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/makebooking-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "makebooking-request",
+      "path" : "makebooking-request",
+      "short" : "MakeBooking — Request",
+      "definition" : "Logisk modell för requestparametrar i MakeBooking."
+    },
+    {
+      "id" : "makebooking-request.healthcare-facility-med",
+      "path" : "makebooking-request.healthcare_facility_med",
+      "short" : "healthcare_facility_med",
+      "definition" : "healthcare_facility_med",
+      "comment" : "TKB-fält: `healthcare_facility_med` (`HsaIdType (string)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot",
+      "path" : "makebooking-request.requestedTimeslot",
+      "short" : "TimeslotType",
+      "definition" : "Information för aktuell bokning.",
+      "comment" : "TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.startTimeInclusive",
+      "path" : "makebooking-request.requestedTimeslot.startTimeInclusive",
+      "short" : "startTimeInclusive",
+      "definition" : "Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.",
+      "comment" : "TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.endTimeExclusive",
+      "path" : "makebooking-request.requestedTimeslot.endTimeExclusive",
+      "short" : "endTimeExclusive",
+      "definition" : "Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.",
+      "comment" : "TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.healthcare-facility",
+      "path" : "makebooking-request.requestedTimeslot.healthcare_facility",
+      "short" : "healthcare_facility",
+      "definition" : "HSA-id för mottagning/vårdenhet.",
+      "comment" : "TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.performer",
+      "path" : "makebooking-request.requestedTimeslot.performer",
+      "short" : "performer",
+      "definition" : "HSA-id för Hos-person som besöket är bokat hos.",
+      "comment" : "TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.bookingId",
+      "path" : "makebooking-request.requestedTimeslot.bookingId",
+      "short" : "bookingId",
+      "definition" : "Bokningsidentitet för det bokade besöket.",
+      "comment" : "TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.subject-of-care",
+      "path" : "makebooking-request.requestedTimeslot.subject_of_care",
+      "short" : "subject_of_care",
+      "definition" : "Personnummer enl. yyyymmddxxxx.",
+      "comment" : "TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType"]
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.purpose",
+      "path" : "makebooking-request.requestedTimeslot.purpose",
+      "short" : "purpose",
+      "definition" : "Beskrivning av besöksorsak angiven av vårdenhet.",
+      "comment" : "TKB-fält: `purpose` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.reason",
+      "path" : "makebooking-request.requestedTimeslot.reason",
+      "short" : "reason",
+      "definition" : "Kontaktorsak som invånare uppger vid bokning.",
+      "comment" : "TKB-fält: `reason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.resourceName",
+      "path" : "makebooking-request.requestedTimeslot.resourceName",
+      "short" : "resourceName",
+      "definition" : "Namn på resurs.",
+      "comment" : "TKB-fält: `resourceName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.healthcare-facility-name",
+      "path" : "makebooking-request.requestedTimeslot.healthcare_facility_name",
+      "short" : "healthcare_facility_name",
+      "definition" : "Namn på bokad mottagning/vårdenhet.",
+      "comment" : "TKB-fält: `healthcare_facility_name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.performerName",
+      "path" : "makebooking-request.requestedTimeslot.performerName",
+      "short" : "performerName",
+      "definition" : "Namn på HoS-person som besöket är bokat hos. Ska innehålla en blank-tecken-separerad sammanslagning av yrkestitel, förnamn, mellannamn, efternamn.",
+      "comment" : "TKB-fält: `performerName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.resourceID",
+      "path" : "makebooking-request.requestedTimeslot.resourceID",
+      "short" : "resourceID",
+      "definition" : "Identitet för resurs.",
+      "comment" : "TKB-fält: `resourceID` (`ResourceIDType (string)`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.timeTypeName",
+      "path" : "makebooking-request.requestedTimeslot.timeTypeName",
+      "short" : "timeTypeName",
+      "definition" : "Tidstyp för det bokade besöket.",
+      "comment" : "TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.timeTypeID",
+      "path" : "makebooking-request.requestedTimeslot.timeTypeID",
+      "short" : "timeTypeID",
+      "definition" : "Identitet för tidstyp.",
+      "comment" : "TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.careTypeName",
+      "path" : "makebooking-request.requestedTimeslot.careTypeName",
+      "short" : "careTypeName",
+      "definition" : "Klartext för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
+      "comment" : "TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.careTypeID",
+      "path" : "makebooking-request.requestedTimeslot.careTypeID",
+      "short" : "careTypeID",
+      "definition" : "Identitet för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.",
+      "comment" : "TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.cancel-booking-allowed",
+      "path" : "makebooking-request.requestedTimeslot.cancel_booking_allowed",
+      "short" : "cancel_booking_allowed",
+      "definition" : "cancel_booking_allowed",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.rebooking-allowed",
+      "path" : "makebooking-request.requestedTimeslot.rebooking_allowed",
+      "short" : "rebooking_allowed",
+      "definition" : "rebooking_allowed",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.message-allowed",
+      "path" : "makebooking-request.requestedTimeslot.message_allowed",
+      "short" : "message_allowed",
+      "definition" : "message_allowed",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "makebooking-request.requestedTimeslot.isInvitation",
+      "path" : "makebooking-request.requestedTimeslot.isInvitation",
+      "short" : "isInvitation",
+      "definition" : "isInvitation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info",
+      "path" : "makebooking-request.subject_of_care_info",
+      "short" : "SubjectOfCareType",
+      "definition" : "subject_of_care_info.firstName and subject_of_care_info.lastName are mandatory in this request and must be in sync with the master at Riksskatteverket with no more delay than 5 days.",
+      "comment" : "TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 1..1).\n\n**Modellanteckning:** subject_of_care_info.firstName and subject_of_care_info.lastName are mandatory in this request and must be in sync with the master at Riksskatteverket with no more delay than 5 days.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.phone",
+      "path" : "makebooking-request.subject_of_care_info.phone",
+      "short" : "phone",
+      "definition" : "Telefonnummer.",
+      "comment" : "TKB-fält: `phone` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.email",
+      "path" : "makebooking-request.subject_of_care_info.email",
+      "short" : "email",
+      "definition" : "Email-adress.",
+      "comment" : "TKB-fält: `email` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.address",
+      "path" : "makebooking-request.subject_of_care_info.address",
+      "short" : "address",
+      "definition" : "Adress.",
+      "comment" : "TKB-fält: `address` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.coaddress",
+      "path" : "makebooking-request.subject_of_care_info.coaddress",
+      "short" : "coaddress",
+      "definition" : "Co-adress.",
+      "comment" : "TKB-fält: `coaddress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.firstName",
+      "path" : "makebooking-request.subject_of_care_info.firstName",
+      "short" : "firstName",
+      "definition" : "Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).",
+      "comment" : "TKB-fält: `firstName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.middleName",
+      "path" : "makebooking-request.subject_of_care_info.middleName",
+      "short" : "middleName",
+      "definition" : "Invånarens mellannamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).",
+      "comment" : "TKB-fält: `middleName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.subject-of-care-info.lastName",
+      "path" : "makebooking-request.subject_of_care_info.lastName",
+      "short" : "lastName",
+      "definition" : "Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).",
+      "comment" : "TKB-fält: `lastName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "makebooking-request.notification",
+      "path" : "makebooking-request.notification",
+      "short" : "notification",
+      "definition" : "Notifiering till producent",
+      "comment" : "TKB-fält: `notification` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

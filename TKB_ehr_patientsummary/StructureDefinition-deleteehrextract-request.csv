@@ -1,0 +1,32 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"deleteehrextract-request","deleteehrextract-request","","","",0,*,"","","","null {[]} {[]}
+","DeleteEhrExtract — Request","Logisk modell för begäran i DeleteEhrExtract
+(urn:riv:ehr:patientsummary:DeleteEhrExtractResponder:1, DeleteEhrExtractType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"deleteehrextract-request.ehr-system","deleteehrextract-request.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","Det värde som skickades för patientinformationen då anrop till tjänsten ReceiveEhrExtract gjordes.","TKB-fält: `ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.ehr_system",1,1,"",""
+"deleteehrextract-request.subject-of-care","deleteehrextract-request.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","subject_of_care","Id för patienten. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes.","TKB-fält: `subject_of_care` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.subject_of_care",1,1,"",""
+"deleteehrextract-request.deletion","deleteehrextract-request.deletion","","","",1,*,"","","","Base {[]} {[]}
+","DeletionType","Innehåller par av rcId och meaning.
+
+rcId:
+
+Globalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.)
+
+meaning:
+
+Den huvudinformationstyp som posten (som ska tas bort) gäller för.","TKB-fält: `deletion` (`DeletionType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.deletion",1,*,"",""
+"deleteehrextract-request.deletion.rc-id","deleteehrextract-request.deletion.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.deletion.rc_id",1,1,"",""
+"deleteehrextract-request.deletion.meaning","deleteehrextract-request.deletion.meaning","","","",1,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../meaning` (`CD`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.deletion.meaning",1,1,"",""
+"deleteehrextract-request.parameters","deleteehrextract-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten DeleteEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters",0,*,"",""
+"deleteehrextract-request.parameters.code","deleteehrextract-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters.code",0,1,"",""
+"deleteehrextract-request.parameters.name","deleteehrextract-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters.name",1,1,"",""
+"deleteehrextract-request.parameters.value","deleteehrextract-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters.value",1,1,"",""

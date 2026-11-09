@@ -1,0 +1,211 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"birthregistration-request","birthregistration-request","birthregistration-request","","","",0,*,"","","","null {[]} {[]}
+","BirthRegistration — Request","Logisk modell för begäran i BirthRegistration
+(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"birthregistration-request","birthregistration-request.FodelseanmalanId","birthregistration-request.FodelseanmalanId","","","",1,1,"","","","string {[]} {[]}
+","FodelseanmalanId","Unikt id","TKB-fält: `FodelseanmalanId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.FodelseanmalanId",1,1,"",""
+"birthregistration-request","birthregistration-request.Dokumentuppgifter","birthregistration-request.Dokumentuppgifter","","","",1,1,"","","","Base {[]} {[]}
+","DokumentuppgifterTYPE","Dokumentuppgifter","TKB-fält: `Dokumentuppgifter` (`DokumentuppgifterTYPE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Dokumentuppgifter",1,1,"",""
+"birthregistration-request","birthregistration-request.Dokumentuppgifter.Ingivarnamn","birthregistration-request.Dokumentuppgifter.Ingivarnamn","","","",1,1,"","","","string {[]} {[]}
+","Ingivarnamn","Namnet på sjukhus, klinik eller motsvarande samt namnet på barnmorska eller motsvarande. Max 100 tecken.","TKB-fält: `Ingivarnamn` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Dokumentuppgifter.Ingivarnamn",1,1,"",""
+"birthregistration-request","birthregistration-request.Dokumentuppgifter.AnmalningsTyp","birthregistration-request.Dokumentuppgifter.AnmalningsTyp","","","",1,1,"","","","string {[]} {[]}
+","AnmalningsTyp","Får endast ha värde:
+
+""NYANMALD""
+
+""RATTAD""
+
+""MAKULERAD ""","TKB-fält: `AnmalningsTyp` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Dokumentuppgifter.AnmalningsTyp",1,1,"",""
+"birthregistration-request","birthregistration-request.Dokumentuppgifter.AnmalningsId","birthregistration-request.Dokumentuppgifter.AnmalningsId","","","",1,1,"","","","string {[]} {[]}
+","AnmalningsId","Riksunikt id som sätts av vården själva. Vården bestämmer formatet. Max 80 tecken,","TKB-fält: `AnmalningsId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Dokumentuppgifter.AnmalningsId",1,1,"",""
+"birthregistration-request","birthregistration-request.Dokumentuppgifter.Ingivartelefon","birthregistration-request.Dokumentuppgifter.Ingivartelefon","","","",0,1,"","","","string {[]} {[]}
+","Ingivartelefon","Telefonnummer till den barnmorska/klinik som är ingivare av anmälan. Max 15 tecken","TKB-fält: `Ingivartelefon` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Dokumentuppgifter.Ingivartelefon",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter","birthregistration-request.Arendeuppgifter","","","",1,1,"","","","Base {[]} {[]}
+","ArendeuppgifterTYPE","Arendeuppgifter","TKB-fält: `Arendeuppgifter` (`ArendeuppgifterTYPE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder","birthregistration-request.Arendeuppgifter.Moder","","","",1,1,"","","","Base {[]} {[]}
+","PersonTYPE","Moder","TKB-fält: `/BirthRegistration/Arendeuppgifter/Moder/` (kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder",1,1,"","birthregistrationrequest-choice-1:Exakt ett av Fodelsedatum, PersonNummer ska anges (xs:choice i schemat). {Fodelsedatum.exists() xor PersonNummer.exists()}
+birthregistration-request-moder-id-choice:Exakt ett av Fodelsedatum och PersonNummer ska anges för modern (xs:choice i schemat). {Fodelsedatum.exists() xor PersonNummer.exists()}"
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Namn","birthregistration-request.Arendeuppgifter.Moder.Namn","","","",0,1,"","","","Base {[]} {[]}
+","NamnTYPE","Namn","TKB-fält: `/BirthRegistration/Arendeuppgifter/Moder/Namn` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Namn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn","birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn","","","",0,1,"","","","string {[]} {[]}
+","Fornamn","Fornamn","TKB-fält: `../../../Fornamn` (`string100TYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn","birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn","","","",0,1,"","","","string {[]} {[]}
+","Mellannamn","Mellannamn","TKB-fält: `../../../Mellannamn` (`string100TYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn","birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn","","","",0,1,"","","","string {[]} {[]}
+","Efternamn","Efternamn","TKB-fält: `../../../Efternamn` (`string100TYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum","","","",0,1,"","","","Base {[]} {[]}
+","DatumTYPE","Uppgift om födelsedatum ska lämnas i de fall modern saknar fullständigt personnummer","TKB-fält: `/BirthRegistration/Arendeuppgifter/Moder/Fodelsedatum` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr","","","",1,1,"","","","string {[]} {[]}
+","FodelseAr","FodelseAr","TKB-fält: `../../../FodelseAr` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad","","","",1,1,"","","","string {[]} {[]}
+","FodelseManad","FodelseManad","TKB-fält: `../../../FodelseManad` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag","birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag","","","",1,1,"","","","string {[]} {[]}
+","FodelseDag","FodelseDag","TKB-fält: `../../../FodelseDag` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Moder.PersonNummer","birthregistration-request.Arendeuppgifter.Moder.PersonNummer","","","",0,1,"","","","string {[]} {[]}
+","PersonNummer","PersonNummer","TKB-fält: `../../PersonNummer` (`PersonNummerTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Moder.PersonNummer",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake","birthregistration-request.Arendeuppgifter.ModersMake","","","",0,1,"","","","Base {[]} {[]}
+","PersonTYPE","ModersMake","TKB-fält: `/BirthRegistration/Arendeuppgifter/ModersMake/` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake",0,1,"","birthregistrationrequest-choice-6:Exakt ett av Fodelsedatum, PersonNummer ska anges (xs:choice i schemat). {Fodelsedatum.exists() xor PersonNummer.exists()}
+birthregistration-request-modersmake-id-choice:Exakt ett av Fodelsedatum och PersonNummer ska anges för moderns make (xs:choice i schemat). {Fodelsedatum.exists() xor PersonNummer.exists()}"
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Namn","birthregistration-request.Arendeuppgifter.ModersMake.Namn","","","",0,1,"","","","Base {[]} {[]}
+","NamnTYPE","Namn","TKB-fält: `/BirthRegistration/Arendeuppgifter/ModersMake/Namn` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Namn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn","birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn","","","",0,1,"","","","string {[]} {[]}
+","Fornamn","Fornamn","TKB-fält: `../../../Fornamn` (`string100TYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn","birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn","","","",0,1,"","","","string {[]} {[]}
+","Mellannamn","Mellannamn","TKB-fält: `../../../Mellannamn` (`string100TYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn","birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn","","","",0,1,"","","","string {[]} {[]}
+","Efternamn","Efternamn","TKB-fält: `../../../Efternamn` (`string100TYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum","","","",0,1,"","","","Base {[]} {[]}
+","DatumTYPE","Uppgift om födelsedatum ska lämnas i de fall moderns make saknar fullständigt personnummer","TKB-fält: `/BirthRegistration/Arendeuppgifter/ModersMake/Fodelsedatum` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr","","","",1,1,"","","","string {[]} {[]}
+","FodelseAr","FodelseAr","TKB-fält: `../../../FodelseAr` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad","","","",1,1,"","","","string {[]} {[]}
+","FodelseManad","FodelseManad","TKB-fält: `../../../FodelseManad` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag","birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag","","","",1,1,"","","","string {[]} {[]}
+","FodelseDag","FodelseDag","TKB-fält: `../../../FodelseDag` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer","birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer","","","",0,1,"","","","string {[]} {[]}
+","PersonNummer","PersonNummer","TKB-fält: `../../PersonNummer` (`PersonNummerTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn","birthregistration-request.Arendeuppgifter.Barn","","","",1,1,"","","","Base {[]} {[]}
+","BarnTYPE","Barn","TKB-fält: `/BirthRegistration/Arendeuppgifter/Barn` (kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn",1,1,"","birthregistration-request-barn-ordningsnr:OrdningsNr och AntalBarn ska vara 1–9, och OrdningsNr får inte vara större än AntalBarn (TKB Fältregler, avsnitt 7.1.4 i IG:n). {OrdningsNr >= 1 and OrdningsNr <= 9 and AntalBarn >= 1 and AntalBarn <= 9 and OrdningsNr <= AntalBarn}
+"
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn.DatumFodelse","birthregistration-request.Arendeuppgifter.Barn.DatumFodelse","","","",1,1,"","","","date {[]} {[]}
+","DatumFodelse","Barnets födelsedatum. Får ej vara senare än dagens datum. Sekel inluderat. 10 tecken.
+
+ÅÅÅÅ-MM-DD","TKB-fält: `DatumFodelse` (`datum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn.DatumFodelse",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn.Kon","birthregistration-request.Arendeuppgifter.Barn.Kon","","","",0,1,"","","","string {[]} {[]}
+","Kon","Barnets kön. Då uppgift saknas lämnas elementet tomt.
+
+Max 6 tecken. Får endast ha värde
+
+""FLICKA""
+
+""POJKE""","TKB-fält: `Kon` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn.Kon",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn.OrdningsNr","birthregistration-request.Arendeuppgifter.Barn.OrdningsNr","","","",1,1,"","","","string {[]} {[]}
+","OrdningsNr","Födelseordningsnummer för barnet i förhållande till övriga syskon som fötts vid samma förlossningstillfä lle.
+
+Det har ingen betydelse om barnen (syskonen) var levande eller döda vid förlossningen. OrdningsNr ska beskriva i vilken ordning det aktuella barnet föddes fram.
+
+Ex 1: Om modern fött trillingar och detta är det andra barnet av de tre anges värdet ""2"" som OrdningsNr för det aktuella barnet.
+
+Ex 2: Om födelsen avser en singel födelse anges värdet ""1"" som OrdningsNr. *(Figur saknas: bilden i originalets tabellcell kan inte extraheras ur .doc-filen.)*
+
+1 tecken. Värdet ska finnas i intervallet 1-9.","TKB-fält: `OrdningsNr` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn.OrdningsNr",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn.AntalBarn","birthregistration-request.Arendeuppgifter.Barn.AntalBarn","","","",1,1,"","","","string {[]} {[]}
+","AntalBarn","Totalt antal födda barn av samma moder vid förlossningen. Det har ingen betydelse om barnen var levande eller döda vid förlossningen. Samtliga barn ska ingå.
+
+Ex 1: Om modern fött trillingar anges värdet ""3"" för elementet AntalBarn.
+
+Ex 2: Om det är en singel födelse anges värdet ""1"".
+
+OBS: förhållandet mellan de värden som levereras i elementen OrdningsNr och AntalBarn måste vara rimligt. Det kan t ex aldrig förekomma OrdningsNr ""3"" tillsammans med AntalBarn ""2"".
+
+OrdningsNr kan bara vara mindre eller lika med AntalBarn.
+
+1 tecken. Värdet ska finnas i intervallet 1-9.","TKB-fält: `AntalBarn` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn.AntalBarn",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn.FodelseKommun","birthregistration-request.Arendeuppgifter.Barn.FodelseKommun","","","",1,1,"","","","string {[]} {[]}
+","FodelseKommun","Namnet på den kommun där barnet förlöstes I klartext.
+
+T.ex kommun där födelsekliniken är belägen eller den kommun där taxin befann sig då förlossningen skedde i en taxi.
+
+Max 30 tecken","TKB-fält: `FodelseKommun` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn.FodelseKommun",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Barn.Levande","birthregistration-request.Arendeuppgifter.Barn.Levande","","","",1,1,"","","","string {[]} {[]}
+","Levande","Då barnet var levande vid födelsen anges värdet ""JA"" annars anges värdet ""NEJ"".
+
+Endast ett värde får anges:
+
+Får endast ha värde
+
+""JA""
+
+""NEJ""","TKB-fält: `Levande` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Barn.Levande",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Vistelseadress","birthregistration-request.Arendeuppgifter.Vistelseadress","","","",0,1,"","","","Base {[]} {[]}
+","AdressTYPE","Om uppgift om Vistelseadress lämnas är AdressRad1 obligatorisk","TKB-fält: `/BirthRegistration/Arendeuppgifter/Vistelseadress` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Vistelseadress",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1","","","",1,1,"","","","string {[]} {[]}
+","AdressRad1","AdressRad1","TKB-fält: `../../AdressRad1` (`AdressRadTYPE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2","","","",0,1,"","","","string {[]} {[]}
+","AdressRad2","AdressRad2","TKB-fält: `../../AdressRad2` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3","","","",0,1,"","","","string {[]} {[]}
+","AdressRad3","AdressRad3","TKB-fält: `../../AdressRad3` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4","","","",0,1,"","","","string {[]} {[]}
+","AdressRad4","AdressRad4","TKB-fält: `../../AdressRad4` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5","birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5","","","",0,1,"","","","string {[]} {[]}
+","AdressRad5","AdressRad5","TKB-fält: `../../AdressRad5` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Bostadsadress","birthregistration-request.Arendeuppgifter.Bostadsadress","","","",0,1,"","","","Base {[]} {[]}
+","AdressTYPE","Bostadsadress","TKB-fält: `/BirthRegistration/Arendeuppgifter/Bostadsadress` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Bostadsadress",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1","","","",1,1,"","","","string {[]} {[]}
+","AdressRad1","AdressRad1","TKB-fält: `../../AdressRad1` (`AdressRadTYPE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1",1,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2","","","",0,1,"","","","string {[]} {[]}
+","AdressRad2","AdressRad2","TKB-fält: `../../AdressRad2` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3","","","",0,1,"","","","string {[]} {[]}
+","AdressRad3","AdressRad3","TKB-fält: `../../AdressRad3` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4","","","",0,1,"","","","string {[]} {[]}
+","AdressRad4","AdressRad4","TKB-fält: `../../AdressRad4` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5","birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5","","","",0,1,"","","","string {[]} {[]}
+","AdressRad5","AdressRad5","TKB-fält: `../../AdressRad5` (`AdressRadTYPE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.KontaktTelefon","birthregistration-request.Arendeuppgifter.KontaktTelefon","","","",0,1,"","","","string {[]} {[]}
+","KontaktTelefon","Max 20 tecken.
+
+Telefonnummer till moder.
+
+Uppgiften används för att kunna nå en moder som inte är permanent bosatt I Sverige.","TKB-fält: `KontaktTelefon` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.KontaktTelefon",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.KontaktTelefon2","birthregistration-request.Arendeuppgifter.KontaktTelefon2","","","",0,1,"","","","string {[]} {[]}
+","KontaktTelefon2","Max 20 tecken","TKB-fält: `KontaktTelefon2` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.KontaktTelefon2",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.KontaktTelefon3","birthregistration-request.Arendeuppgifter.KontaktTelefon3","","","",0,1,"","","","string {[]} {[]}
+","KontaktTelefon3","Max 20 tecken","TKB-fält: `KontaktTelefon3` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.KontaktTelefon3",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.KontaktTelefon4","birthregistration-request.Arendeuppgifter.KontaktTelefon4","","","",0,1,"","","","string {[]} {[]}
+","KontaktTelefon4","Max 20 tecken","TKB-fält: `KontaktTelefon4` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.KontaktTelefon4",0,1,"",""
+"birthregistration-request","birthregistration-request.Arendeuppgifter.KontaktTelefon5","birthregistration-request.Arendeuppgifter.KontaktTelefon5","","","",0,1,"","","","string {[]} {[]}
+","KontaktTelefon5","Max 20 tecken","TKB-fält: `KontaktTelefon5` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration-request.Arendeuppgifter.KontaktTelefon5",0,1,"",""
+"birthregistration","birthregistration","birthregistration","","","",0,*,"","","","null {[]} {[]}
+","BirthRegistration — Response","Logisk modell för svaret i BirthRegistration
+(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationResponseTYPE).","","","","","","","","","",,,,,"",,,,"Base",0,*,"","birthregistration-choice-1:Exakt ett av PersonNummer, Meddelande ska anges (xs:choice i schemat). {PersonNummer.exists() xor Meddelande.exists()}
+birthregistration-personnummer-or-meddelande:Exakt ett av PersonNummer och Meddelande ska anges i svaret (xs:choice i schemat). {PersonNummer.exists() xor Meddelande.exists()}"
+"birthregistration","birthregistration.FodelsesvarId","birthregistration.FodelsesvarId","","","",1,1,"","","","string {[]} {[]}
+","FodelsesvarId","Unikt id. Unikt id som sätts av tjänsteproducent","TKB-fält: `FodelsesvarId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration.FodelsesvarId",1,1,"",""
+"birthregistration","birthregistration.AnmalningsId","birthregistration.AnmalningsId","","","",1,1,"","","","string {[]} {[]}
+","AnmalningsId","Det anmälnings-id som vården angett som identitet för den aktuella födelseanmälan. Max 80 tecken.","TKB-fält: `AnmalningsId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration.AnmalningsId",1,1,"",""
+"birthregistration","birthregistration.PersonNummer","birthregistration.PersonNummer","","","",0,1,"","","","string {[]} {[]}
+","Tilldelat personnummer","Barnets fullständiga personnummer som Skatteverket tilldelat det nyfödda barnet..
+
+Sekel inkluderat. 12 tecken.
+
+ÅÅÅÅMMDDXXXX.","TKB-fält: `PersonNummer` (`long`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"birthregistration.PersonNummer",0,1,"",""
+"birthregistration","birthregistration.Meddelande","birthregistration.Meddelande","","","",0,1,"","","","Base {[]} {[]}
+","MeddelandeTYPE","I de fall ett personnummer inte kunde tilldelas barnet levererar Skatteverket ett orsaksmeddelande istället.","TKB-fält: `/BirthRegistrationResponse/Meddelande` (kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.
+
+**Modellanteckning:** Indikerar orsaken till att personnummer ej tilldelats.","","","","","","","","",,,,,"",,,,"birthregistration.Meddelande",0,1,"",""
+"birthregistration","birthregistration.Meddelande.AnmalanMottagen","birthregistration.Meddelande.AnmalanMottagen","","","",1,1,"","","","string {[]} {[]}
+","Anger om anmälan är mottagen av Skatteverket eller ej. En mottagen anmälan SKALL EJ sändas in igen.","""JA"" anger att anmälan är mottagen av Skatteverket och ""NEJ"" att anmälan inte har mottagits.
+
+En mottagen anmälan ska INTE sändas in igen. En anmälan som Skatteverket inte kunnat ta emot får sändas om.
+
+Får endast ha värde
+
+""JA""
+
+""NEJ""","TKB-fält: `AnmalanMottagen` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration.Meddelande.AnmalanMottagen",1,1,"",""
+"birthregistration","birthregistration.Meddelande.MeddelandeKod","birthregistration.Meddelande.MeddelandeKod","","","",1,1,"","","","integer {[]} {[]}
+","Kod som indikerar orsaken till att personnummer ej returneras. datatyp = number","MeddelandeKod indikerar orsaken till att ett personnummer inte returnerats.
+
+Förteckning över förekommande koder och beskrivning, se rubrik ""Lista över meddelandekoder"".
+
+Värde inom intervallet givet av tabell med meddlandekoder.","TKB-fält: `MeddelandeKod` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration.Meddelande.MeddelandeKod",1,1,"",""
+"birthregistration","birthregistration.Meddelande.MeddelandeText","birthregistration.Meddelande.MeddelandeText","","","",1,1,"","","","string {[]} {[]}
+","Text som ger ytterligare information om ev. felorsak. Endast avsedd att nyttjas vid utveckling/felsökning","Text som ger ytterligare information utöver MeddelandeKod om felorsak. Endast avsedd att nyttjas vid utveckling/felsökning.","TKB-fält: `MeddelandeText` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"birthregistration.Meddelande.MeddelandeText",1,1,"",""
+"birthregistration","birthregistration.result","birthregistration.result","","","",0,1,"","","","Base {[]} {[]}
+","ResultOfCallType","Holds information about the success of the call. If INFO is set the field infoText should contain more information. If ERROR is set the fields errorId and errorText will contain information about the error.","TKB-fält: `result` (`ResultOfCallType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration.result",0,1,"",""
+"birthregistration","birthregistration.result.resultCode","birthregistration.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","resultCode Tillåtna värden: OK, ERROR, INFO.","TKB-fält: `../resultCode` (`ResultCodeEnumType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,"required","","https://fhir.inera.se/ig/healthcertificate-lifeline/ValueSet/lifeline-resultcodeenum-vs","",,,,"birthregistration.result.resultCode",1,1,"",""
+"birthregistration","birthregistration.result.infoText","birthregistration.result.infoText","","","",0,1,"","","","string {[]} {[]}
+","infoText","infoText","TKB-fält: `../infoText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration.result.infoText",0,1,"",""
+"birthregistration","birthregistration.result.errorId","birthregistration.result.errorId","","","",0,1,"","","","code {[]} {[]}
+","errorId","errorId Tillåtna värden: VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR.","TKB-fält: `../errorId` (`ErrorIdEnumType`, kardinalitet 0..1).
+
+**Modellanteckning:** errorId Tillåtna värden: VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR.","","","","","","","","",,"required","","https://fhir.inera.se/ig/healthcertificate-lifeline/ValueSet/lifeline-erroridenum-vs","",,,,"birthregistration.result.errorId",0,1,"",""
+"birthregistration","birthregistration.result.errorText","birthregistration.result.errorText","","","",0,1,"","","","string {[]} {[]}
+","errorText","errorText","TKB-fält: `../errorText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"birthregistration.result.errorText",0,1,"",""

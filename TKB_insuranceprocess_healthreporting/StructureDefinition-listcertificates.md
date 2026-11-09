@@ -1,0 +1,291 @@
+# ListCertificates - insuranceprocess: healthreporting v3.1.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ListCertificates**
+
+## Logical Model: ListCertificates 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/listcertificates | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:ListCertificates |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för responsens informationsstruktur i tjänstekontraktet ListCertificates (RIV-TA urn:riv:insuranceprocess:healthreporting:ListCertificates:1). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.insuranceprocess-healthreporting|current/StructureDefinition/StructureDefinition-listcertificates.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-listcertificates.csv), [Excel](StructureDefinition-listcertificates.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "listcertificates",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/listcertificates",
+  "version" : "1.0",
+  "name" : "ListCertificates",
+  "title" : "ListCertificates",
+  "status" : "active",
+  "date" : "2026-11-09T03:41:48+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för responsens informationsstruktur i tjänstekontraktet ListCertificates\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ListCertificates:1).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/listcertificates",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "listcertificates",
+      "path" : "listcertificates",
+      "short" : "ListCertificates",
+      "definition" : "Logisk modell för responsens informationsstruktur i tjänstekontraktet ListCertificates\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ListCertificates:1)."
+    },
+    {
+      "id" : "listcertificates.meta",
+      "path" : "listcertificates.meta",
+      "short" : "CertificateMetaType",
+      "definition" : "Metadata information",
+      "comment" : "TKB-fält: `meta` (kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.certificateId",
+      "path" : "listcertificates.meta.certificateId",
+      "short" : "certificateId",
+      "definition" : "Identitet på intyget. Är en GUID.",
+      "comment" : "TKB-fält: `meta.certificateId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.certificateType",
+      "path" : "listcertificates.meta.certificateType",
+      "short" : "certificateType",
+      "definition" : "Typ av intyg. Om inget anges returneras alla typer.",
+      "comment" : "TKB-fält: `meta.certificateType` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.validFrom",
+      "path" : "listcertificates.meta.validFrom",
+      "short" : "validFrom",
+      "definition" : "Startdatum för sjukskrivningsperioden.",
+      "comment" : "TKB-fält: `meta.validFrom` (`datum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.validTo",
+      "path" : "listcertificates.meta.validTo",
+      "short" : "validTo",
+      "definition" : "Slutdatum för sjukskrivningsperioden.",
+      "comment" : "TKB-fält: `meta.validTo` (`datum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.issuerName",
+      "path" : "listcertificates.meta.issuerName",
+      "short" : "issuerName",
+      "definition" : "Namn för Hos-person som utfärdat intyget",
+      "comment" : "TKB-fält: `meta.issuerName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.facilityName",
+      "path" : "listcertificates.meta.facilityName",
+      "short" : "facilityName",
+      "definition" : "Namn på Hos-vårdenhet där intyget utfärdats",
+      "comment" : "TKB-fält: `meta.facilityName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.signDate",
+      "path" : "listcertificates.meta.signDate",
+      "short" : "signDate",
+      "definition" : "Datum när intyget signerades",
+      "comment" : "TKB-fält: `meta.signDate` (`date`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.available",
+      "path" : "listcertificates.meta.available",
+      "short" : "available",
+      "definition" : "Anger om intyget är tillgängligt och kan användas.",
+      "comment" : "TKB-fält: `meta.available` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.status",
+      "path" : "listcertificates.meta.status",
+      "short" : "CertificateStatusType",
+      "definition" : "En lista över statustyper för olika mottagare",
+      "comment" : "TKB-fält: `meta.status` (kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.status.target",
+      "path" : "listcertificates.meta.status.target",
+      "short" : "target",
+      "definition" : "Mottagare för en status. Ex FK",
+      "comment" : "TKB-fält: `..status.target` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.status.type",
+      "path" : "listcertificates.meta.status.type",
+      "short" : "type",
+      "definition" : "Typ av statusändring för intyget.",
+      "comment" : "TKB-fält: `..status.type` (`string`, kardinalitet 1..1).\n\n**Modellanteckning:** type Tillåtna värden: UNHANDLED, DELETED, RESTORED, CANCELLED, SENT, RECEIVED, IN_PROGRESS, PROCESSED.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "listcertificates.meta.status.timestamp",
+      "path" : "listcertificates.meta.status.timestamp",
+      "short" : "timestamp",
+      "definition" : "När statusen sattes för intyget",
+      "comment" : "TKB-fält: `..status.timestamp` (`datetime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "listcertificates.result",
+      "path" : "listcertificates.result",
+      "short" : "ResultOfCall",
+      "definition" : "result",
+      "comment" : "TKB-fält: `result` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "listcertificates.result.resultCode",
+      "path" : "listcertificates.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "Information om anropet gick bra(OK, ERROR, INFO)",
+      "comment" : "TKB-fält: `result.resultCode` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "listcertificates.result.infoText",
+      "path" : "listcertificates.result.infoText",
+      "short" : "infoText",
+      "definition" : "Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.",
+      "comment" : "TKB-fält: `result.infoText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "listcertificates.result.errorId",
+      "path" : "listcertificates.result.errorId",
+      "short" : "errorId",
+      "definition" : "Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)",
+      "comment" : "TKB-fält: `result.errorId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "listcertificates.result.errorText",
+      "path" : "listcertificates.result.errorText",
+      "short" : "errorText",
+      "definition" : "Text som ytterliggare beskriver felet",
+      "comment" : "TKB-fält: `result.errorText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

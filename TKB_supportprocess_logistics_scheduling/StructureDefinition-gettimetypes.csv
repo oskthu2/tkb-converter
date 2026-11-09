@@ -1,0 +1,84 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"gettimetypes","gettimetypes","","","",0,*,"","","","null {[]} {[]}
+","GetTimeTypes — Response","Logisk modell för svaret i GetTimeTypes
+(urn:riv:supportprocess:logistics:scheduling:GetTimeTypesResponder:2, GetTimeTypesResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gettimetypes.timeType","gettimetypes.timeType","","","",0,*,"","","","Base {[]} {[]}
+","TimeTypeType","Lista med tidstyper.","TKB-fält: `timeType` (`TimeTypeType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType",0,*,"",""
+"gettimetypes.timeType.code","gettimetypes.timeType.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för tidstypen","TKB-fält: `timeType.code` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.code",1,1,"",""
+"gettimetypes.timeType.hidden","gettimetypes.timeType.hidden","","","",0,1,"","","","boolean {[]} {[]}
+","hidden","Visar huruvida tidstypen är märkt som skyddad av verksamheten – hidden=TRUE.
+
+En skyddad tidstyp ska inte vara valbar för invånare från en lista med tidstyper som vårdcentralen erbjuder, t ex vid ett nybokningsflöde. Skyddade tidstyper ska bara kunna bokas av invånare om verksamheten tilldelat tidstypen till invånaren, t ex genom en digital kallelse eller om invånare blivit triagerad i ett försteg och resultatet därifrån resulterat i tidstypen.
+
+Om attributet utelämnas ska tidstypen anses vara ”ej skyddad”.","TKB-fält: `timeType.hidden` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.hidden",0,1,"",""
+"gettimetypes.timeType.careContactCode","gettimetypes.timeType.careContactCode","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType {[]} {[]}
+","careContactCode","Anger vilken typ av vårdkontakt som bokningen avser. Se Kv kontakttyp för vidare information (https://inera.atlassian.net/wiki/download/attachments/2648506471/kv_kontakttyp.xlsx?api=v2).","TKB-fält: `timeType.careContactCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.careContactCode",0,1,"",""
+"gettimetypes.timeType.healthcareService","gettimetypes.timeType.healthcareService","","","",0,*,"","","","Base {[]} {[]}
+","HealthcareServiceType","Anger vilken typ av vårdtjänst","TKB-fält: `timeType.healthcareService` (`boolean`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService",0,*,"",""
+"gettimetypes.timeType.healthcareService.code","gettimetypes.timeType.healthcareService.code","","","",1,1,"","","","Base {[]} {[]}
+","SnomedCtType","code","TKB-fält: `../../code` (`SnomedCtType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.code",1,1,"",""
+"gettimetypes.timeType.healthcareService.information","gettimetypes.timeType.healthcareService.information","","","",0,*,"","","","Base {[]} {[]}
+","InformationType","information","TKB-fält: `../../information` (`InformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.information",0,*,"",""
+"gettimetypes.timeType.healthcareService.information.header","gettimetypes.timeType.healthcareService.information.header","","","",1,1,"","","","string {[]} {[]}
+","header","header","TKB-fält: `../../../header` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.information.header",1,1,"",""
+"gettimetypes.timeType.healthcareService.information.description","gettimetypes.timeType.healthcareService.information.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","TKB-fält: `../../../description` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.information.description",0,1,"",""
+"gettimetypes.timeType.healthcareService.information.link","gettimetypes.timeType.healthcareService.information.link","","","",0,1,"","","","uri {[]} {[]}
+","link","link","TKB-fält: `../../../link` (`anyURI`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.information.link",0,1,"",""
+"gettimetypes.timeType.healthcareService.conditionsToConfirm","gettimetypes.timeType.healthcareService.conditionsToConfirm","","","",0,*,"","","","Base {[]} {[]}
+","InformationType","conditionsToConfirm","TKB-fält: `../../conditionsToConfirm` (`InformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.conditionsToConfirm",0,*,"",""
+"gettimetypes.timeType.healthcareService.conditionsToConfirm.header","gettimetypes.timeType.healthcareService.conditionsToConfirm.header","","","",1,1,"","","","string {[]} {[]}
+","header","header","TKB-fält: `../../../header` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.conditionsToConfirm.header",1,1,"",""
+"gettimetypes.timeType.healthcareService.conditionsToConfirm.description","gettimetypes.timeType.healthcareService.conditionsToConfirm.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","TKB-fält: `../../../description` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.conditionsToConfirm.description",0,1,"",""
+"gettimetypes.timeType.healthcareService.conditionsToConfirm.link","gettimetypes.timeType.healthcareService.conditionsToConfirm.link","","","",0,1,"","","","uri {[]} {[]}
+","link","link","TKB-fält: `../../../link` (`anyURI`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareService.conditionsToConfirm.link",0,1,"",""
+"gettimetypes.timeType.healthcareTeam","gettimetypes.timeType.healthcareTeam","","","",0,1,"","","","boolean {[]} {[]}
+","healthcareTeam","Anger huruvida patienten möter ett team av personal vid besöket. Om attributet utelämnas anses besöket ej vara av typen teambokning.","TKB-fält: `timeType.healthcareTeam` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.healthcareTeam",0,1,"",""
+"gettimetypes.timeType.patientGroup","gettimetypes.timeType.patientGroup","","","",0,1,"","","","boolean {[]} {[]}
+","patientGroup","Bokning av tid där flera personer/patienter i grupp möter vården för samma typ av vårdtjänst. Om attributet utelämnas anses besöket ej vara av typen gruppbokning.","TKB-fält: `timeType.patientGroup` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.patientGroup",0,1,"",""
+"gettimetypes.timeType.cancelAppointmentAllowed","gettimetypes.timeType.cancelAppointmentAllowed","","","",1,1,"","","","boolean {[]} {[]}
+","cancelAppointmentAllowed","Anger huruvida invånaren tillåts att avboka bokningen via e-tjänst","TKB-fält: `timeType.cancelAppointmentAllowed` (`boolean`).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.cancelAppointmentAllowed",1,1,"",""
+"gettimetypes.timeType.updateAppointmentAllowed","gettimetypes.timeType.updateAppointmentAllowed","","","",1,1,"","","","boolean {[]} {[]}
+","updateAppointmentAllowed","Anger huruvida invånaren tillåts att omboka bokningen via e-tjänst","TKB-fält: `timeType.updateAppointmentAllowed` (`boolean`).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.updateAppointmentAllowed",1,1,"",""
+"gettimetypes.timeType.appointmentRule","gettimetypes.timeType.appointmentRule","","","",0,3,"","","","Base {[]} {[]}
+","TimeTypeRulesType","appointmentRule","TKB-fält: `../appointmentRule` (`TimeTypeRulesType`, kardinalitet 0..3).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule",0,3,"",""
+"gettimetypes.timeType.appointmentRule.type","gettimetypes.timeType.appointmentRule.type","","","",1,1,"","","","code {[]} {[]}
+","type","type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING.","TKB-fält: `../../type` (`ProcessEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** type Tillåtna värden: NYBOKNING, AVBOKNING, OMBOKNING.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-process-vs","",,,,"gettimetypes.timeType.appointmentRule.type",1,1,"",""
+"gettimetypes.timeType.appointmentRule.reasonTextRequired","gettimetypes.timeType.appointmentRule.reasonTextRequired","","","",1,1,"","","","code {[]} {[]}
+","reasonTextRequired","reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.","TKB-fält: `../../reasonTextRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** reasonTextRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-reasonrequired-vs","",,,,"gettimetypes.timeType.appointmentRule.reasonTextRequired",1,1,"",""
+"gettimetypes.timeType.appointmentRule.reasonCodeRequired","gettimetypes.timeType.appointmentRule.reasonCodeRequired","","","",1,1,"","","","code {[]} {[]}
+","reasonCodeRequired","reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.","TKB-fält: `../../reasonCodeRequired` (`ReasonRequiredEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** reasonCodeRequired Tillåtna värden: Mandatory, Optional, ReasonNotSupported.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-reasonrequired-vs","",,,,"gettimetypes.timeType.appointmentRule.reasonCodeRequired",1,1,"",""
+"gettimetypes.timeType.appointmentRule.reasonCodes","gettimetypes.timeType.appointmentRule.reasonCodes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/CVType {[]} {[]}
+","reasonCodes","reasonCodes","TKB-fält: `../../reasonCodes` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.reasonCodes",0,*,"",""
+"gettimetypes.timeType.appointmentRule.information","gettimetypes.timeType.appointmentRule.information","","","",0,*,"","","","Base {[]} {[]}
+","InformationType","information","TKB-fält: `../../information` (`InformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.information",0,*,"",""
+"gettimetypes.timeType.appointmentRule.information.header","gettimetypes.timeType.appointmentRule.information.header","","","",1,1,"","","","string {[]} {[]}
+","header","header","TKB-fält: `../../../header` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.information.header",1,1,"",""
+"gettimetypes.timeType.appointmentRule.information.description","gettimetypes.timeType.appointmentRule.information.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","TKB-fält: `../../../description` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.information.description",0,1,"",""
+"gettimetypes.timeType.appointmentRule.information.link","gettimetypes.timeType.appointmentRule.information.link","","","",0,1,"","","","uri {[]} {[]}
+","link","link","TKB-fält: `../../../link` (`anyURI`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.information.link",0,1,"",""
+"gettimetypes.timeType.appointmentRule.conditionToConfirm","gettimetypes.timeType.appointmentRule.conditionToConfirm","","","",0,*,"","","","Base {[]} {[]}
+","InformationType","conditionToConfirm","TKB-fält: `../../conditionToConfirm` (`InformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.conditionToConfirm",0,*,"",""
+"gettimetypes.timeType.appointmentRule.conditionToConfirm.header","gettimetypes.timeType.appointmentRule.conditionToConfirm.header","","","",1,1,"","","","string {[]} {[]}
+","header","header","TKB-fält: `../../../header` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.conditionToConfirm.header",1,1,"",""
+"gettimetypes.timeType.appointmentRule.conditionToConfirm.description","gettimetypes.timeType.appointmentRule.conditionToConfirm.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","TKB-fält: `../../../description` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.conditionToConfirm.description",0,1,"",""
+"gettimetypes.timeType.appointmentRule.conditionToConfirm.link","gettimetypes.timeType.appointmentRule.conditionToConfirm.link","","","",0,1,"","","","uri {[]} {[]}
+","link","link","TKB-fält: `../../../link` (`anyURI`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.timeType.appointmentRule.conditionToConfirm.link",0,1,"",""
+"gettimetypes.resultCode","gettimetypes.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_MAKE_APPOINTMENT, USER_IS_ALREADY_OCCUPIED, APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_UPDATE_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, USER_IS_ALREADY_OCCUPIED, UPDATE_APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, TOO_LATE_TO_CANCEL_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CANCEL_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CONFIRMED, TOO_LATE_TO_CONFIRM_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CONFIRM_IS_NOT_ALLOWED.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-resultcode-vs","",,,,"gettimetypes.resultCode",1,1,"",""
+"gettimetypes.resultText","gettimetypes.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gettimetypes.resultText",0,1,"",""

@@ -1,0 +1,16 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getpatientids","getpatientids","","","",0,*,"","","","null {[]} {[]}
+","GetPatientIds — Response","Logisk modell för svaret i GetPatientIds
+(urn:riv:informationsecurity:authorization:blocking:GetPatientIdsResponder:4, GetPatientIdsResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getpatientids.getPatientIdResult","getpatientids.getPatientIdResult","","","",1,1,"","","","Base {[]} {[]}
+","GetPatientIdResultType","Lista över unika patienter som har aktiva spärrar.","TKB-fält: `getPatientIdResult` (`urn:riv:informationsecurity:authorization:blocking:4:GetPatientIdResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpatientids.getPatientIdResult",1,1,"",""
+"getpatientids.getPatientIdResult.result","getpatientids.getPatientIdResult.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.","TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpatientids.getPatientIdResult.result",1,1,"",""
+"getpatientids.getPatientIdResult.result.resultCode","getpatientids.getPatientIdResult.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.","TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.","","","","","","","","",,"required","","https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-resultcode-vs","",,,,"getpatientids.getPatientIdResult.result.resultCode",1,1,"",""
+"getpatientids.getPatientIdResult.result.resultText","getpatientids.getPatientIdResult.result.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","resultText","TKB-fält: `../../resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getpatientids.getPatientIdResult.result.resultText",0,1,"",""
+"getpatientids.getPatientIdResult.patientIds","getpatientids.getPatientIdResult.patientIds","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientIds","En universellt unik identifierare.","TKB-fält: `../patientIds` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpatientids.getPatientIdResult.patientIds",0,*,"",""

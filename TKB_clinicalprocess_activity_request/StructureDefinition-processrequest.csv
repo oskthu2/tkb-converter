@@ -1,0 +1,605 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processrequest","processrequest","","","",0,*,"","","","null {[]} {[]}
+","ProcessRequest — Remiss (begäran)","Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","processrequest-vr-intermediary:Om versionsorsak är VR (vidareskickad remiss) måste intermediaryParticipant anges (schematron Verify intermediaryParticipant) {request.reasonForVersion.typeOfReason.code = 'VR' implies request.intermediaryParticipant.exists()}
+"
+"processrequest.request","processrequest.request","","","",1,1,"","","","Base {[]} {[]}
+","RequestType","Remiss","TKB-fält: `Request` (`RequestType`).","","","","","","","","",,,,,"",,,,"processrequest.request",1,1,"",""
+"processrequest.request.requestId","processrequest.request.requestId","","","",1,1,"","","","Base {[]} {[]}
+","RequestIdType","Remiss id
+
+Remissens identitet. Format: Källsystem-Id(HSA-ID)#lokalt-id
+
+Exempel: SE2321000012-0001#987","TKB-fält: `request.requestId` (`RequestIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)
+
+Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.requestId",1,1,"",""
+"processrequest.request.requestId.extension","processrequest.request.requestId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.requestId.extension",1,1,"",""
+"processrequest.request.typeOfRequest","processrequest.request.typeOfRequest","","","",1,1,"","","","Base {[]} {[]}
+","codeForRequestType","Remisstyp
+
+Anger typ av remiss.
+
+I denna version är den giltiga koden ”4” – allmänremiss","TKB-fält: `request.typeOfRequest` (`CodeForRequestType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** codes:codeRequestOutcomeType","","","","","","","","",,,,,"",,,,"processrequest.request.typeOfRequest",1,1,"",""
+"processrequest.request.typeOfRequest.code","processrequest.request.typeOfRequest.code","","","",1,1,"","","","code {[]} {[]}
+","code","code (XML-attribut) Tillåtna värden: 4.","","","","","","","","","",,,,,"",,,,"processrequest.request.typeOfRequest.code",1,1,"",""
+"processrequest.request.versionTimeStamp","processrequest.request.versionTimeStamp","","","",1,1,"","","","Base {[]} {[]}
+","TimeStampType","Versionstidpunkt
+
+Tidpunkt då versionen skapades.
+
+Denna tidpunkt kan skilja sig från tidpunkten då remissen skickas.","TKB-fält: `request.versionTimeStamp` (`TimeStampType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss","","","","","","","","",,,,,"",,,,"processrequest.request.versionTimeStamp",1,1,"",""
+"processrequest.request.versionTimeStamp.value","processrequest.request.versionTimeStamp.value","","","",1,1,"","","","string {[]} {[]}
+","value","value (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.versionTimeStamp.value",1,1,"",""
+"processrequest.request.versionNumber","processrequest.request.versionNumber","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType]]} {[]}
+","versionNumber","Versionsnummer
+
+Remissens versionsnummer.
+
+Version startar alltid på 1 och räknas sekventiellt upp för varje ny version.
+
+Denna räknas upp vid:
+
+Ändrad remiss
+
+Vidareskickad remiss
+
+Ändrat betalnings-ansvar","TKB-fält: `request.versionNumber` (`VersionNumberType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (0*[1-9]+|[1-9])\d*","","","","","","","","",,,,,"",,,,"processrequest.request.versionNumber",1,1,"",""
+"processrequest.request.reasonForVersion","processrequest.request.reasonForVersion","","","",1,1,"","","","Base {[]} {[]}
+","ReasonForVersionType","Versionsorsak","TKB-fält: `request.reasonForVersion` (`ReasonForVersionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.reasonForVersion",1,1,"",""
+"processrequest.request.reasonForVersion.typeOfReason","processrequest.request.reasonForVersion.typeOfReason","","","",1,1,"","","","Base {[]} {[]}
+","codeVersionReason","typeOfReason","TKB-fält: `request.reasonForVersion.typeOfReason` (`CodeVersionReason`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.reasonForVersion.typeOfReason",1,1,"",""
+"processrequest.request.reasonForVersion.typeOfReason.code","processrequest.request.reasonForVersion.typeOfReason.code","","","",1,1,"","","","code {[]} {[]}
+","code","Anger varför en ny version skapats.
+
+Värden enligt Kv e-remiss versionsorsak, se [R5]. Giltiga värden är:
+
+NR = Ny remiss
+
+AR = Ändrad remiss
+
+VR = Vidareskickad remiss
+
+AB = Ändrat betalningsansvar","TKB-fält: `request.reasonForVersion.typeOfReason.code` (`CodeVersionReason_values`, kardinalitet 1..1).
+
+**Modellanteckning:** code (XML-attribut) Tillåtna värden: NR, AR, VR, AB.","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/versionreason-vs","",,,,"processrequest.request.reasonForVersion.typeOfReason.code",1,1,"",""
+"processrequest.request.careResponsibilityRemains","processrequest.request.careResponsibilityRemains","","","",1,1,"","","","boolean {[]} {[]}
+","careResponsibilityRemains","Vårdansvar kvarstår
+
+Anger om remittent vill att vårdansvar ska kvarstå hos remitterande enhet eller om man vill att vårdansvar överförs till remissmottagande enhet.
+
+Två alternativ:
+
+True = Vårdansvar kvarstår
+
+False = Begäran om övertagande av vårdansvar","TKB-fält: `request.careResponsibilityRemains` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.careResponsibilityRemains",1,1,"",""
+"processrequest.request.patient","processrequest.request.patient","","","",1,1,"","","","Base {[]} {[]}
+","PatientType","Patient","TKB-fält: `request.patient` (`PatientType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.patient",1,1,"",""
+"processrequest.request.patient.personId","processrequest.request.patient.personId","","","",1,1,"","","","Base {[]} {[]}
+","PersonIdType","Person id
+
+Patientens identitet","TKB-fält: `request.patient.personId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.patient.personId",1,1,"",""
+"processrequest.request.patient.personId.extension","processrequest.request.patient.personId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","Personidentifierare för patienten.
+
+Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken.","TKB-fält: `request.patient.personId.extension` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** extension (XML-attribut)","","","","","","","","",,,,,"",,,,"processrequest.request.patient.personId.extension",1,1,"",""
+"processrequest.request.patient.personId.root","processrequest.request.patient.personId.root","","","",1,1,"","","","string {[]} {[]}
+","root","OID för typ av personidentifierare.
+
+För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.
+
+För andra typer av personidentifierare sätts root till aktuell OID.","TKB-fält: `request.patient.personId.root` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** root (XML-attribut)","","","","","","","","",,,,,"",,,,"processrequest.request.patient.personId.root",1,1,"",""
+"processrequest.request.patient.address","processrequest.request.patient.address","","","",0,1,"","","","Base {[]} {[]}
+","AddressType","Tillfällig adress
+
+Observera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.
+
+Adressen är avsedd att användas vid kallelse. Formatet är baserat på Skatteverkets distributionslösning Navet.","TKB-fält: `request.patient.address` (`AddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address",0,1,"",""
+"processrequest.request.patient.address.careOf","processrequest.request.patient.address.careOf","","","",0,1,"","","","string {[]} {[]}
+","careOf","”Care of”","TKB-fält: `request.patient.address.careOf` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address.careOf",0,1,"",""
+"processrequest.request.patient.address.streetName1","processrequest.request.patient.address.streetName1","","","",1,1,"","","","string {[]} {[]}
+","streetName1","Utdelningsadress1","TKB-fält: `request.patient.address.streetName1` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address.streetName1",1,1,"",""
+"processrequest.request.patient.address.streetName2","processrequest.request.patient.address.streetName2","","","",0,1,"","","","string {[]} {[]}
+","streetName2","Utdelningsadress2","TKB-fält: `request.patient.address.streetName2` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address.streetName2",0,1,"",""
+"processrequest.request.patient.address.postalCode","processrequest.request.patient.address.postalCode","","","",1,1,"","","","string {[]} {[]}
+","postalCode","Postnummer i formatet ”12345”, dvs fem siffror inga blanksteg.","TKB-fält: `request.patient.address.postalCode` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 5 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address.postalCode",1,1,"",""
+"processrequest.request.patient.address.postalCity","processrequest.request.patient.address.postalCity","","","",1,1,"","","","string {[]} {[]}
+","postalCity","Postort","TKB-fält: `request.patient.address.postalCity` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 27 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address.postalCity",1,1,"",""
+"processrequest.request.patient.address.postBox","processrequest.request.patient.address.postBox","","","",0,1,"","","","string {[]} {[]}
+","postBox","Postbox","TKB-fält: `request.patient.address.postBox` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 9 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.address.postBox",0,1,"",""
+"processrequest.request.patient.telecom","processrequest.request.patient.telecom","","","",0,2,"","","","Base {[]} {[]}
+","TelecomType","Telefon","TKB-fält: `request.patient.telecom` (`TelecomType`, kardinalitet 0..2).","","","","","","","","",,,,,"",,,,"processrequest.request.patient.telecom",0,2,"",""
+"processrequest.request.patient.telecom.typeOfTelecom","processrequest.request.patient.telecom.typeOfTelecom","","","",1,1,"","","","Base {[]} {[]}
+","codeForTelecomType","Telefon typ
+
+För att särskilja olika typer av telekomadresser används 2 olika koder ’MC’=Mobil, ’H’=Hemtelefon","TKB-fält: `request.patient.telecom.typeOfTelecom` (`CodeForTelecomType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** codes:codeForTelecomType","","","","","","","","",,,,,"",,,,"processrequest.request.patient.telecom.typeOfTelecom",1,1,"",""
+"processrequest.request.patient.telecom.typeOfTelecom.code","processrequest.request.patient.telecom.typeOfTelecom.code","","","",1,1,"","","","code {[]} {[]}
+","code","code (XML-attribut) Tillåtna värden: H, MC.","","","","","","","","","",,,,,"",,,,"processrequest.request.patient.telecom.typeOfTelecom.code",1,1,"",""
+"processrequest.request.patient.telecom.number","processrequest.request.patient.telecom.number","","","",1,1,"","","","string {[]} {[]}
+","number","Telefonnummer","TKB-fält: `request.patient.telecom.number` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.telecom.number",1,1,"",""
+"processrequest.request.patient.name","processrequest.request.patient.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn
+
+Personnamn sammanslaget enligt formatet "" Mellannamn Efternamn, Förnamn"". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.
+
+Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet.","TKB-fält: `request.patient.name` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 216 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.patient.name",0,1,"",""
+"processrequest.request.patient.gender","processrequest.request.patient.gender","","","",0,1,"","","","Base {[]} {[]}
+","codeForGenderType","Kön
+
+Anger administrativt kön, dvs. det kön patienten har registrerat hos Skatteverket.
+
+OID för kodsystem: 1.2.752.129.2.2.1.1
+
+Giltiga värden är:
+
+0 = okänt
+
+1 = man
+
+2 = kvinna
+
+9 = ej tillämpligt","TKB-fält: `request.patient.gender` (`CodeForGenderType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** codes:codeForGenderType","","","","","","","","",,,,,"",,,,"processrequest.request.patient.gender",0,1,"",""
+"processrequest.request.patient.gender.code","processrequest.request.patient.gender.code","","","",1,1,"","","","code {[]} {[]}
+","code","code (XML-attribut) Tillåtna värden: 0, 1, 2, 9.","","","","","","","","","",,,,,"",,,,"processrequest.request.patient.gender.code",1,1,"",""
+"processrequest.request.patient.dateOfBirth","processrequest.request.patient.dateOfBirth","","","",0,1,"","","","Base {[]} {[]}
+","DateType","Födelsetidpunkt
+
+Anges då patientens identitetstyp är av annan typ än personnummer.","TKB-fält: `request.patient.dateOfBirth` (`DateType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDD","","","","","","","","",,,,,"",,,,"processrequest.request.patient.dateOfBirth",0,1,"",""
+"processrequest.request.patient.dateOfBirth.value","processrequest.request.patient.dateOfBirth.value","","","",1,1,"","","","string {[]} {[]}
+","value","value (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.patient.dateOfBirth.value",1,1,"",""
+"processrequest.request.requestOrganisation","processrequest.request.requestOrganisation","","","",1,1,"","","","Base {[]} {[]}
+","FullOrganisationType","Organisatorisk enhet
+
+Information om ursprunglig remitterande organisatorisk enhet. Kan skilja sig från PDL ansvarig enhet vid behov. Det är denna enhet som svaret adresseras till i logisk adress.","TKB-fält: `request.requestOrganisation` (`FullOrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation",1,1,"",""
+"processrequest.request.requestOrganisation.careUnitId","processrequest.request.requestOrganisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för remitterande enhet. Detta används av remissbesvarare som logisk adress för att adressera svarsmottagare.","TKB-fält: `request.requestOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitId",1,1,"",""
+"processrequest.request.requestOrganisation.careUnitId.extension","processrequest.request.requestOrganisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitId.extension",1,1,"",""
+"processrequest.request.requestOrganisation.careUnitName","processrequest.request.requestOrganisation.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","Enhet namn
+
+Namn på enhet.","TKB-fält: `request.requestOrganisation.careUnitName` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitName",0,1,"",""
+"processrequest.request.requestOrganisation.careUnitTelephone","processrequest.request.requestOrganisation.careUnitTelephone","","","",0,1,"","","","string {[]} {[]}
+","careUnitTelephone","Enhet telefon
+
+Telefon till enhet.","TKB-fält: `request.requestOrganisation.careUnitTelephone` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitTelephone",0,1,"",""
+"processrequest.request.requestOrganisation.careUnitEmail","processrequest.request.requestOrganisation.careUnitEmail","","","",0,1,"","","","string {[]} {[]}
+","careUnitEmail","Enhet epost
+
+E-post till enhet.","TKB-fält: `request.requestOrganisation.careUnitEmail` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitEmail",0,1,"",""
+"processrequest.request.requestOrganisation.careUnitAddress","processrequest.request.requestOrganisation.careUnitAddress","","","",0,1,"","","","string {[]} {[]}
+","careUnitAddress","Adress till enhet.","TKB-fält: `request.requestOrganisation.careUnitAddress` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitAddress",0,1,"",""
+"processrequest.request.requestOrganisation.careUnitLocation","processrequest.request.requestOrganisation.careUnitLocation","","","",0,1,"","","","string {[]} {[]}
+","careUnitLocation","Enhet plats
+
+Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.","TKB-fält: `request.requestOrganisation.careUnitLocation` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.requestOrganisation.careUnitLocation",0,1,"",""
+"processrequest.request.author","processrequest.request.author","","","",1,1,"","","","Base {[]} {[]}
+","RequestAuthorType","Remittent
+
+Information avseende den remitterande personen samt den organisation som personen är uppdragstagare på.","TKB-fält: `request.author` (`RequestAuthorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.author",1,1,"",""
+"processrequest.request.author.date","processrequest.request.author.date","","","",1,1,"","","","Base {[]} {[]}
+","DateType","Remissdatum
+
+Remissdatum när remiss skapades måste anges. Format som ska användas är ÅÅÅÅMMDD","TKB-fält: `request.author.date` (`DateType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDD","","","","","","","","",,,,,"",,,,"processrequest.request.author.date",1,1,"",""
+"processrequest.request.author.date.value","processrequest.request.author.date.value","","","",1,1,"","","","string {[]} {[]}
+","value","value (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.author.date.value",1,1,"",""
+"processrequest.request.author.healthcareProfessional","processrequest.request.author.healthcareProfessional","","","",1,1,"","","","Base {[]} {[]}
+","HealthcareProfessionalType","Hälso- och sjukvårdspersonal","TKB-fält: `request.author.healthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessional",1,1,"",""
+"processrequest.request.author.healthcareProfessional.id","processrequest.request.author.healthcareProfessional.id","","","",0,1,"","","","Base {[]} {[]}
+","HsaIdType","Personal Id
+
+HSA-id för remitterande hälso- och sjukvårdspersonal.","TKB-fält: `request.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessional.id",0,1,"",""
+"processrequest.request.author.healthcareProfessional.id.extension","processrequest.request.author.healthcareProfessional.id.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessional.id.extension",1,1,"",""
+"processrequest.request.author.healthcareProfessional.name","processrequest.request.author.healthcareProfessional.name","","","",1,1,"","","","string {[]} {[]}
+","name","Personal namn
+
+Namn på remitterande hälso- och sjukvårdspersonal.
+
+Valfri formatering.","TKB-fält: `request.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessional.name",1,1,"",""
+"processrequest.request.author.typeOfHealthcareProfessional","processrequest.request.author.typeOfHealthcareProfessional","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","typeOfHealthcareProfessional","Typ av hälso- och sjukvårdspersonal
+
+Kod för yrkestitel från Snomed CT enligt urvalen nedan:
+
+code: se urval_legitimerade_yrken
+
+codeSystem: OID 1.2.752.129.5.1.70
+
+eller
+
+code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade
+
+codeSystem: 1.2.752.129.7.1.5
+
+Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.author.typeOfHealthcareProfessional` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.author.typeOfHealthcareProfessional",0,1,"",""
+"processrequest.request.author.healthcareProfessionalOrganisation","processrequest.request.author.healthcareProfessionalOrganisation","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Organisatorisk enhet
+
+remittent","TKB-fält: `request.author.healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessionalOrganisation",1,1,"",""
+"processrequest.request.author.healthcareProfessionalOrganisation.careUnitId","processrequest.request.author.healthcareProfessionalOrganisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för vårdenhet (jmf. PDL) som ansvarar för remissen.","TKB-fält: `request.author.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessionalOrganisation.careUnitId",1,1,"",""
+"processrequest.request.author.healthcareProfessionalOrganisation.careUnitId.extension","processrequest.request.author.healthcareProfessionalOrganisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.author.healthcareProfessionalOrganisation.careUnitId.extension",1,1,"",""
+"processrequest.request.recipient","processrequest.request.recipient","","","",1,1,"","","","Base {[]} {[]}
+","RecipientType","Mottagare
+
+Information avseende den remissmottagande organisationen","TKB-fält: `request.recipient` (`RecipientType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.recipient",1,1,"",""
+"processrequest.request.recipient.organisation","processrequest.request.recipient.organisation","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Organisatorisk enhet
+
+mottagare","TKB-fält: `request.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.recipient.organisation",1,1,"",""
+"processrequest.request.recipient.organisation.careUnitId","processrequest.request.recipient.organisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id för remissmottagande enhet, till vilken remissen adresseras.
+
+Med remissmottagande enhet avses det som i SOSFS 2004:11 benämns som mottagande enhet.","TKB-fält: `request.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.recipient.organisation.careUnitId",1,1,"",""
+"processrequest.request.recipient.organisation.careUnitId.extension","processrequest.request.recipient.organisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.recipient.organisation.careUnitId.extension",1,1,"",""
+"processrequest.request.intermediaryParticipant","processrequest.request.intermediaryParticipant","","","",0,*,"","","","Base {[]} {[]}
+","IntermediaryType","Vidareskickare
+
+Beskriver Hälso-och sjukvårdspersonalen som vidareskickar remissen","TKB-fält: `request.intermediaryParticipant` (`IntermediaryType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processrequest.request.intermediaryParticipant",0,*,"",""
+"processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation","processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Organisatorisk enhet
+
+vidareskickare","TKB-fält: `request.intermediaryParticipant. healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation",1,1,"",""
+"processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId","processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId","","","",1,1,"","","","Base {[]} {[]}
+","HsaIdType","Enhet id
+
+HSA-id på den remissmottagande enhet som vidareskickat remissen.","TKB-fält: `request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",1,1,"",""
+"processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId.extension","processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId.extension",1,1,"",""
+"processrequest.request.intermediaryParticipant.time","processrequest.request.intermediaryParticipant.time","","","",1,1,"","","","Base {[]} {[]}
+","TimeStampType","Tidpunkt
+
+Tidpunkt då versionen skapades för vidareskickning.
+
+Denna tidpunkt kan skilja sig från tidpunkten då remissen faktiskt skickas beroende på hur detta implementeras i en lokal remissmodul.","TKB-fält: `request.intermediaryParticipant.time` (`TimeStampType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss","","","","","","","","",,,,,"",,,,"processrequest.request.intermediaryParticipant.time",1,1,"",""
+"processrequest.request.intermediaryParticipant.time.value","processrequest.request.intermediaryParticipant.time.value","","","",1,1,"","","","string {[]} {[]}
+","value","value (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.intermediaryParticipant.time.value",1,1,"",""
+"processrequest.request.additionalInformation","processrequest.request.additionalInformation","","","",0,1,"","","","Base {[]} {[]}
+","AdditionalInformationType","Tilläggsinformation","TKB-fält: `request.additionalInformation` (`AdditionalInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.additionalInformation",0,1,"",""
+"processrequest.request.additionalInformation.desiredRequestRecipient","processrequest.request.additionalInformation.desiredRequestRecipient","","","",0,1,"","","","string {[]} {[]}
+","desiredRequestRecipient","Önskemål om remissmottagare Önskad remissmottagare: enhet, person, yrkesroll, fritext","TKB-fält: `request.additionalInformation.desiredRequestRecipient` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.additionalInformation.desiredRequestRecipient",0,1,"",""
+"processrequest.request.additionalInformation.administrativeInformation","processrequest.request.additionalInformation.administrativeInformation","","","",0,1,"","","","string {[]} {[]}
+","administrativeInformation","Kompletterande administrativ information
+
+Här anges kompletterande administrativ information. Exempelvis kan denna innehålla information om detta är ett akutärende, om patienten är bortrest under en viss tid inom kallelsetiden eller annan information som kan påverka den administrativa processen kring remissen. Här läggs även information om SVF-patient (standardiserade vårdförlopp), datum för välgrundad misstanke samt aktuellt SVF-förlopp.","TKB-fält: `request.additionalInformation.administrativeInformation` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.additionalInformation.administrativeInformation",0,1,"",""
+"processrequest.request.additionalInformation.interpreterRequirement","processrequest.request.additionalInformation.interpreterRequirement","","","",0,1,"","","","string {[]} {[]}
+","interpreterRequirement","Kommentar tolkbehov Här beskrivs eventuellt tolkbehov.","TKB-fält: `request.additionalInformation.interpreterRequirement` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.additionalInformation.interpreterRequirement",0,1,"",""
+"processrequest.request.awarenessInformation","processrequest.request.awarenessInformation","","","",0,1,"","","","Base {[]} {[]}
+","AwarenessInformationType","Uppmärksamhetsinformation
+
+Uppmärksamhetsinformation om patient","TKB-fält: `request.awarenessInformation` (`AwarenessInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.awarenessInformation",0,1,"",""
+"processrequest.request.awarenessInformation.text","processrequest.request.awarenessInformation.text","","","",1,1,"","","","string {[]} {[]}
+","text","Uppmärksamhetstext Uppmärksamhetsinformation av betydelse för denna remiss. Mottagande system bör inte med automatik föra in denna i den egna hanteringen för uppmärksamhetsinformation kring patienten utan endast lagra den i samband med remissen.","TKB-fält: `request.awarenessInformation.text` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.awarenessInformation.text",1,1,"",""
+"processrequest.request.questionFormulation","processrequest.request.questionFormulation","","","",1,1,"","","","Base {[]} {[]}
+","QuestionFormulationType","Frågeställning","TKB-fält: `request.questionFormulation` (`QuestionFormulationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation",1,1,"",""
+"processrequest.request.questionFormulation.text","processrequest.request.questionFormulation.text","","","",1,1,"","","","string {[]} {[]}
+","text","Frågeställning text
+
+Här anges remissens frågeställning.","TKB-fält: `request.questionFormulation.text` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.text",1,1,"",""
+"processrequest.request.questionFormulation.clinicalInformation","processrequest.request.questionFormulation.clinicalInformation","","","",0,1,"","","","Base {[]} {[]}
+","ClinicalInformationType","Anamnes
+
+Här anges underbyggande klinisk information (anamnes) för remissfrågeställningen. Dessa underbyggande kliniska data är direkt kopplat till frågeställningen","TKB-fält: `request.questionFormulation.clinicalInformation` (`ClinicalInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.clinicalInformation",0,1,"",""
+"processrequest.request.questionFormulation.clinicalInformation.text","processrequest.request.questionFormulation.clinicalInformation.text","","","",0,1,"","","","string {[]} {[]}
+","text","Beskrivning
+
+Här anges klinisk informationsbeskrivning","TKB-fält: `request.questionFormulation.clinicalInformation.text` (`String`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.clinicalInformation.text",0,1,"",""
+"processrequest.request.questionFormulation.condition","processrequest.request.questionFormulation.condition","","","",0,*,"","","","Base {[]} {[]}
+","ConditionType","Kliniskt tillstånd
+
+Anger kliniska tillstånd som använts i uppslag mot stödtjänster.
+
+Används som stöd för att remittent och remissmottagare ska kunna avgöra om remissuppgifterna är kompletta.","TKB-fält: `request.questionFormulation.condition` (`ConditionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.condition",0,*,"","activity-request-condition-code-or-text:Kliniskt tillstånd: ange antingen text eller kod, inte båda (schematron Verify condition) {(text.exists() and code.exists()).not()}
+"
+"processrequest.request.questionFormulation.condition.text","processrequest.request.questionFormulation.condition.text","","","",0,1,"","","","string {[]} {[]}
+","text","Kliniskt tillstånd beskrivning
+
+Här kan diagnosbeskrivning skrivas in.
+
+Observera att den får endast förekomma om questionFormulation.condition.code inte används.","TKB-fält: `request.questionFormulation.condition.text` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.condition.text",0,1,"",""
+"processrequest.request.questionFormulation.condition.code","processrequest.request.questionFormulation.condition.code","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","code","Kliniskt tillståndskod Anger kliniska tillståndskoder.
+
+code:  se ICD-10-SE
+
+codeSystem: 1.2.752.116.1.1.1
+
+Observera att kod får endast förekomma om questionFormulation.condition.text inte används.
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.questionFormulation.condition.code` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.condition.code",0,1,"",""
+"processrequest.request.questionFormulation.desiredActivity","processrequest.request.questionFormulation.desiredActivity","","","",0,*,"","","","Base {[]} {[]}
+","ActivityType","Åtgärd
+
+Här anges önskade åtgärder. Dessa åtgärder ska vara direkt kopplade till frågeställningen.","TKB-fält: `request.questionFormulation.desiredActivity` (`ActivityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity",0,*,"","activity-request-activity-code-or-text:Åtgärd: ange antingen text eller kod, inte båda (schematron Verify desiredActivity) {(text.exists() and code.exists()).not()}
+"
+"processrequest.request.questionFormulation.desiredActivity.id","processrequest.request.questionFormulation.desiredActivity.id","","","",0,1,"","","","Base {[]} {[]}
+","ActivityIdType","Åtgärd id
+
+Unikt id i form av löpnummer för den önskade åtgärden","TKB-fält: `request.questionFormulation. desiredActivity.id` (`ActivityIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity.id",0,1,"",""
+"processrequest.request.questionFormulation.desiredActivity.id.extension","processrequest.request.questionFormulation.desiredActivity.id.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity.id.extension",1,1,"",""
+"processrequest.request.questionFormulation.desiredActivity.text","processrequest.request.questionFormulation.desiredActivity.text","","","",0,1,"","","","string {[]} {[]}
+","text","Åtgärd beskrivning
+
+Observera att text får endast förekomma om questionFormulation.desiredActivity.code inte används.","TKB-fält: `request.questionFormulation.desiredActivity.text` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity.text",0,1,"",""
+"processrequest.request.questionFormulation.desiredActivity.code","processrequest.request.questionFormulation.desiredActivity.code","","","",0,1,"","","","Base {[]} {[]}
+","ActivityCodeType","Åtgärd typ
+
+Åtgärd enligt kodsystem.
+
+Observera att code får endast förekomma om questionFormulation.desiredActivity.text inte används.","TKB-fält: `request.questionFormulation.desiredActivity.code` (`ActivityCodeType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity.code",0,1,"",""
+"processrequest.request.questionFormulation.desiredActivity.code.code","processrequest.request.questionFormulation.desiredActivity.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod enligt det angivna kodsystemet i codeSystem – KVÅ eller Snomed CT","TKB-fält: `request.questionFormulation.desiredActivity.code.code` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** code (XML-attribut)","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity.code.code",1,1,"",""
+"processrequest.request.questionFormulation.desiredActivity.code.codeSystem","processrequest.request.questionFormulation.desiredActivity.code.codeSystem","","","",1,1,"","","","code {[]} {[]}
+","codeSystem","Kodsystem för tolkning av angiven kod.
+
+Obligatoriskt att hantera 1.2.752.116.1.3.2.1.4 = KVÅ
+
+Om remittent använder kodverk som remissmottagande system inte hanterar skall detta resultera i ett fel av typen APPLICATION_ERROR.","TKB-fält: `request.questionFormulation.desiredActivity.code.codeSystem` (`String`, kardinalitet 1..1).
+
+**Modellanteckning:** codeSystem (XML-attribut) Tillåtna värden: 1.2.752.116.1.3.2.1.4, 1.2.752.116.2.1.1.","","","","","","","","",,,,,"",,,,"processrequest.request.questionFormulation.desiredActivity.code.codeSystem",1,1,"",""
+"processrequest.request.paymentCommitment","processrequest.request.paymentCommitment","","","",0,1,"","","","Base {[]} {[]}
+","PaymentCommitmentType","Betalningsförbindelse Betalningsförbindelse beskriver hur remissmottagande vårdgivare ersätts för de begärda tjänsterna av remitterande vårdgivare.
+
+Aktuellt vid ett regionsöverskridande remissflöde. För detaljer i användningen se även SKRs Riksavtal.","TKB-fält: `request.paymentCommitment` (`PaymentCommitmentType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment",0,1,"","activity-request-commitmenttype-chapter:commitmentTypeChapter är obligatoriskt då commitmentType = 1 (schematron Verify paymentCommitment) {commitmentType.code = '1' implies commitmentTypeChapter.exists()}
+"
+"processrequest.request.paymentCommitment.paymentCommitmentId","processrequest.request.paymentCommitment.paymentCommitmentId","","","",0,1,"","","","Base {[]} {[]}
+","PaymentCommitmentIdType","Betalningsförbindelse id Unik identitet på betalningsförbindelsen, requestId#betfor#löpnummer
+
+Exempel: SE2321000012-0001#987#betfor#1","TKB-fält: `request.paymentCommitment.paymentCommitmentId` (`PaymentCommitmentIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.paymentCommitmentId",0,1,"",""
+"processrequest.request.paymentCommitment.paymentCommitmentId.extension","processrequest.request.paymentCommitment.paymentCommitmentId.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.paymentCommitmentId.extension",1,1,"",""
+"processrequest.request.paymentCommitment.commitmentType","processrequest.request.paymentCommitment.commitmentType","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","commitmentType","Betalningsförbindelse-typ avtal
+
+Anger den avtalstyp som finns att välja för betalningsförbindelse
+
+code: se kv_betalningsförbindelse- typ avtal
+
+codeSystem: 1.2.752.129.2.2.2.44
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.commitmentType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.commitmentType",1,1,"",""
+"processrequest.request.paymentCommitment.commitmentTypeChapter","processrequest.request.paymentCommitment.commitmentTypeChapter","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","commitmentTypeChapter","Betalningsförbindelse-typ kapitel
+
+Anger kod utifrån riksavtalets kapitel som reglerar betalning.
+
+Obligatoriskt då paymentCommitment.commitmentType = 1
+
+code: kv_ betalningsförbindelsetyp kapitel
+
+codeSystem: 1.2.752.129.5.1.37
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.commitmentTypeChapter` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.commitmentTypeChapter",0,1,"",""
+"processrequest.request.paymentCommitment.validity","processrequest.request.paymentCommitment.validity","","","",1,1,"","","","Base {[]} {[]}
+","TimeIntervalType","Giltighetstid
+
+Anges enligt ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas med","TKB-fält: `request.paymentCommitment.validity` (`TimeIntervalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.validity",1,1,"",""
+"processrequest.request.paymentCommitment.validity.low","processrequest.request.paymentCommitment.validity.low","","","",0,1,"","","","string {[]} {[]}
+","low","low (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.validity.low",0,1,"",""
+"processrequest.request.paymentCommitment.validity.high","processrequest.request.paymentCommitment.validity.high","","","",0,1,"","","","string {[]} {[]}
+","high","high (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.validity.high",0,1,"",""
+"processrequest.request.paymentCommitment.clinicalResponsibilityDescription","processrequest.request.paymentCommitment.clinicalResponsibilityDescription","","","",0,1,"","","","string {[]} {[]}
+","clinicalResponsibilityDescription","Klinisk ansvarsbeskrivning","TKB-fält: `request.paymentCommitment.clinicalResponsibilityDescription` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.clinicalResponsibilityDescription",0,1,"",""
+"processrequest.request.paymentCommitment.administrativeResponsibilityDescription","processrequest.request.paymentCommitment.administrativeResponsibilityDescription","","","",0,1,"","","","string {[]} {[]}
+","administrativeResponsibilityDescription","Administrativ ansvarsbeskrivning","TKB-fält: `request.paymentCommitment.administrativeResponsibilityDescription` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.administrativeResponsibilityDescription",0,1,"",""
+"processrequest.request.paymentCommitment.validOnlyForOutpatientCare","processrequest.request.paymentCommitment.validOnlyForOutpatientCare","","","",1,1,"","","","boolean {[]} {[]}
+","validOnlyForOutpatientCare","Gäller endast öppenvård Sätts till ”true” om betalningsförbindelsen enbart gäller öppenvård. Annars sätts den till ”false”","TKB-fält: `request.paymentCommitment.validOnlyForOutpatientCare` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.validOnlyForOutpatientCare",1,1,"",""
+"processrequest.request.paymentCommitment.liableCountyCouncil","processrequest.request.paymentCommitment.liableCountyCouncil","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","liableCountyCouncil","Betalningsansvarig region
+
+Region som ansvarar för betalningen.
+
+Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).
+
+code: se kv_län
+
+codeSystem: 1.2.752.129.2.2.1.18
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.liableCountyCouncil` (`CVType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Inera kodverk kv_län","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.liableCountyCouncil",1,1,"",""
+"processrequest.request.paymentCommitment.dateOfApproval","processrequest.request.paymentCommitment.dateOfApproval","","","",0,1,"","","","Base {[]} {[]}
+","TimeStampType","Datum för godkännande
+
+Tidpunkt för godkännande av denna betalningsförbindelse hos remittenten.
+
+Anges enligt ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD","TKB-fält: `request.paymentCommitment.dateOfApproval` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.dateOfApproval",0,1,"",""
+"processrequest.request.paymentCommitment.dateOfApproval.value","processrequest.request.paymentCommitment.dateOfApproval.value","","","",1,1,"","","","string {[]} {[]}
+","value","value (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.dateOfApproval.value",1,1,"",""
+"processrequest.request.paymentCommitment.issuedInConsultationWith","processrequest.request.paymentCommitment.issuedInConsultationWith","","","",0,1,"","","","string {[]} {[]}
+","issuedInConsultationWith","Utfärdad i samråd med
+
+Om betalningsförbindelsen utfärdas i samråd med ekonomisk beslutsfattare antecknas namnet här. Valfri formatering.","TKB-fält: `request.paymentCommitment.issuedInConsultationWith` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.issuedInConsultationWith",0,1,"",""
+"processrequest.request.paymentCommitment.costCenter","processrequest.request.paymentCommitment.costCenter","","","",0,1,"","","","string {[]} {[]}
+","costCenter","Kostnadsställe
+
+Remittentens kostnadsställe","TKB-fält: `request.paymentCommitment.costCenter` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.costCenter",0,1,"",""
+"processrequest.request.paymentCommitment.reimbursementInformation","processrequest.request.paymentCommitment.reimbursementInformation","","","",0,1,"","","","Base {[]} {[]}
+","ReimbursementInformationType","Ersättningsinformation
+
+Obligatorisk vid remiss till privat vårdgivare","TKB-fält: `request.paymentCommitment.reimbursementInformation` (`ReimbursementInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.reimbursementInformation",0,1,"",""
+"processrequest.request.paymentCommitment.reimbursementInformation.reimbursementType","processrequest.request.paymentCommitment.reimbursementInformation.reimbursementType","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","reimbursementType","Ersättningstyp
+
+Anger källa till ersättning.
+
+code: se kv_betalningsförbindelse ersättningstyp
+
+codeSystem: 1.2.752.129.5.1.36
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.reimbursementInformation.reimbursementType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.reimbursementInformation.reimbursementType",1,1,"",""
+"processrequest.request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract","processrequest.request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","ownerOfInvokedContract","Ägare av åberopat kontrakt
+
+Ägare (region) av åberopat kontrakt.
+
+Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).
+
+code: se kv_län
+
+codeSystem: 1.2.752.129.2.2.1.18
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract` (`CVType`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Inera kodverk kv_län","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",1,1,"",""
+"processrequest.request.paymentCommitment.approvedBy","processrequest.request.paymentCommitment.approvedBy","","","",0,1,"","","","Base {[]} {[]}
+","HealthcareProfessionalType","Godkänns av
+
+Den person hos remittenten som har godkänt betalningsförbindelsen","TKB-fält: `request.paymentCommitment.approvedBy` (`HealthcareProfessionalType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.approvedBy",0,1,"",""
+"processrequest.request.paymentCommitment.approvedBy.id","processrequest.request.paymentCommitment.approvedBy.id","","","",0,1,"","","","Base {[]} {[]}
+","HsaIdType","Personal id
+
+HSA-id för person","TKB-fält: `request.paymentCommitment.approvedBy.id` (`HsaIdType`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.approvedBy.id",0,1,"",""
+"processrequest.request.paymentCommitment.approvedBy.id.extension","processrequest.request.paymentCommitment.approvedBy.id.extension","","","",1,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.approvedBy.id.extension",1,1,"",""
+"processrequest.request.paymentCommitment.approvedBy.name","processrequest.request.paymentCommitment.approvedBy.name","","","",1,1,"","","","string {[]} {[]}
+","name","Personal namn","TKB-fält: `request.paymentCommitment.approvedBy.name` (`String`, kardinalitet 1..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.paymentCommitment.approvedBy.name",1,1,"",""
+"processrequest.request.attachment","processrequest.request.attachment","","","",0,*,"","","","Base {[]} {[]}
+","MultimediaType","Bilaga
+
+Möjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten","TKB-fält: `request.attachment` (`MultimediaType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processrequest.request.attachment",0,*,"",""
+"processrequest.request.attachment.id","processrequest.request.attachment.id","","","",0,1,"","","","string {[]} {[]}
+","id","Bilaga id
+
+Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion.
+
+Format bilaga remiss: requestId#löpnummer = Källsystem-Id(HSA-ID)#lokalt-id#löpnummer
+
+Obligatoriskt för inbäddade bilagor","TKB-fält: `request.attachment.id` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)#(.*)
+
+Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.attachment.id",0,1,"",""
+"processrequest.request.attachment.mediaType","processrequest.request.attachment.mediaType","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType {[]} {[]}
+","mediaType","Multimediatyp
+
+Typ av multimedia, se urval med tillåtna format.
+
+code: se urval_mediatyper_elektronisk_remiss
+
+codeSystem: (1.2.752.129.5.1.59, se nedan)
+
+Under codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör.
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `request.attachment.mediaType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processrequest.request.attachment.mediaType",1,1,"",""
+"processrequest.request.attachment.value","processrequest.request.attachment.value","","","",0,1,"","","","base64Binary {[]} {[]}
+","value","Binärdata
+
+Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format.
+
+Obligatoriskt när referens inte används.","TKB-fält: `request.attachment.value` (`Base64Binary`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Ett meddelande med bilagor får inte vara större än 10MB","","","","","","","","",,,,,"",,,,"processrequest.request.attachment.value",0,1,"",""
+"processrequest.request.attachment.reference","processrequest.request.attachment.reference","","","",0,1,"","","","uri {[]} {[]}
+","reference","Referens
+
+Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas.
+
+OBS! Används inte i denna version.","TKB-fält: `request.attachment.reference` (`AnyURI`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processrequest.request.attachment.reference",0,1,"",""
+"processrequest.request.attachment.description","processrequest.request.attachment.description","","","",0,1,"","","","string {[]} {[]}
+","description","Beskrivning
+
+Beskrivning av bilaga, t ex innehåll","TKB-fält: `request.attachment.description` (`String`, kardinalitet 0..1).
+
+**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 256 tecken","","","","","","","","",,,,,"",,,,"processrequest.request.attachment.description",0,1,"",""
+"processrequest.request.careProcessId","processrequest.request.careProcessId","","","",0,1,"","","","string {[]} {[]}
+","careProcessId","Vårdprocess id
+
+Identifierare som unikt identifierar den individanpassade vårdprocess som denna remiss är en del av. Används för att kunna hålla samman information över aktörsgränser och koppling till patientens hälsoärende. Producentsystemet bör registrera all information som registreras kring patienten kopplat till detta id.","TKB-fält: `request.careProcessId` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processrequest.request.careProcessId",0,1,"",""

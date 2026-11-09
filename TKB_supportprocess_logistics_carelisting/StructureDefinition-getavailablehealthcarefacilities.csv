@@ -1,0 +1,56 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableHealthcareFacilities — Response","Logisk modell för svaret i GetAvailableHealthcareFacilities
+(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2, GetAvailableHealthcareFacilitiesResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailablehealthcarefacilities.healthcareFacilities","getavailablehealthcarefacilities.healthcareFacilities","","","",0,*,"","","","Base {[]} {[]}
+","HealthcareFacilityType","Lista med de listningsbara mottagningarna, baserat på filtervärden i begäran.","TKB-fält: `healthcareFacilities` (`HealthcareFacilityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities",0,*,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.id","getavailablehealthcarefacilities.healthcareFacilities.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","id","HSAId för mottagningen
+
+En tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener.
+
+Exempelvis är:
+
+”se12345-xyz” = ”SE12345-XYZ”","TKB-fält: `healthcareFacilities.id` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.id",1,1,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.name","getavailablehealthcarefacilities.healthcareFacilities.name","","","",1,1,"","","","string {[]} {[]}
+","Namn på vårdenheten.","Namn på vårdenheten","TKB-fält: `healthcareFacilities.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.name",1,1,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.hasQueue","getavailablehealthcarefacilities.healthcareFacilities.hasQueue","","","",1,1,"","","","boolean {[]} {[]}
+","hasQueue","Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts.
+
+Skall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således:
+
+TRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds
+
+FALSE = För övrigt","TKB-fält: `healthcareFacilities.hasQueue` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.hasQueue",1,1,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.supportedListingTypes","getavailablehealthcarefacilities.healthcareFacilities.supportedListingTypes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","supportedListingTypes","Lista med olika listningstyper som mottagningen erbjuder.
+
+Om attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.","TKB-fält: `healthcareFacilities.supportedListingTypes` (`CVType`, kardinalitet 0..1).
+
+Obs: modellen anger 0..* där TKB:n anger 0..1.
+
+**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.supportedListingTypes",0,*,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.supportsHealthcarePersonnel","getavailablehealthcarefacilities.healthcareFacilities.supportsHealthcarePersonnel","","","",1,1,"","","","boolean {[]} {[]}
+","supportsHealthcarePersonnel","Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt"".
+
+Det är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent.
+
+TRUE = mottagningen erbjuder fast läkarkontakt.
+
+Utelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.","TKB-fält: `healthcareFacilities.supportsHealthcarePersonnel` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.supportsHealthcarePersonnel",1,1,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.queueLength","getavailablehealthcarefacilities.healthcareFacilities.queueLength","","","",0,1,"","","","integer {[]} {[]}
+","queueLength","Nytt attribut fr o m version 2.1.
+
+Om mottagningens maxtak på antalet listade invånare har uppnåtts kan mottagningen meddela hur lång kön är just nu.","TKB-fält: `healthcareFacilities.queueLength` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.queueLength",0,1,"",""
+"getavailablehealthcarefacilities.healthcareFacilities.estimatedWaitInQueue","getavailablehealthcarefacilities.healthcareFacilities.estimatedWaitInQueue","","","",0,1,"","","","integer {[]} {[]}
+","estimatedWaitInQueue","Nytt attribut fr o m version 2.1.
+
+Om mottagningens maxtak på antalet listade invånare har uppnåtts kan mottagningen meddela hur lång den uppskattade väntetiden är tills invånare kan få en listningsplats. Uppskattad väntetid anges i antal dagar och sätts frivilligt av listningssystemet endast då mpttagningens maxtak har uppnåtts och att mottagningen erbjuder kö.","TKB-fält: `healthcareFacilities.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.estimatedWaitInQueue",0,1,"",""
+"getavailablehealthcarefacilities.resultCode","getavailablehealthcarefacilities.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kod för listningstypen som mottagningen stödjer.","TKB-fält: `healthcareFacilities.supportedListingTypes.code` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getavailablehealthcarefacilities.resultCode",1,1,"",""
+"getavailablehealthcarefacilities.resultText","getavailablehealthcarefacilities.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.resultText",0,1,"",""

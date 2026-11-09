@@ -1,0 +1,130 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"findallquestions","findallquestions","","","",0,*,"","","","null {[]} {[]}
+","FindAllQuestions","Logisk modell för responsens informationsstruktur i tjänstekontraktet FindAllQuestions
+(RIV-TA urn:riv:insuranceprocess:healthreporting:FindAllQuestions:1).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findallquestions.result","findallquestions.result","","","",0,1,"","","","Base {[]} {[]}
+","ResultOfCall","result","TKB-fält: `result` (kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"findallquestions.result",0,1,"",""
+"findallquestions.result.resultCode","findallquestions.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Information om anropet gick bra(OK, ERROR, INFO)","TKB-fält: `result.resultCode` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findallquestions.result.resultCode",1,1,"",""
+"findallquestions.result.infoText","findallquestions.result.infoText","","","",0,1,"","","","string {[]} {[]}
+","infoText","Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.","TKB-fält: `result.infoText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findallquestions.result.infoText",0,1,"",""
+"findallquestions.result.errorId","findallquestions.result.errorId","","","",0,1,"","","","code {[]} {[]}
+","errorId","Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)","TKB-fält: `result.errorId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findallquestions.result.errorId",0,1,"",""
+"findallquestions.result.errorText","findallquestions.result.errorText","","","",0,1,"","","","string {[]} {[]}
+","errorText","Text som ytterliggare beskriver felet","TKB-fält: `result.errorText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findallquestions.result.errorText",0,1,"",""
+"findallquestions.questionsLeft","findallquestions.questionsLeft","","","",1,1,"","","","string {[]} {[]}
+","questionsLeft","Antal kvarvarande frågor för denna vårdenhet","TKB-fält: `questionsLeft` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findallquestions.questionsLeft",1,1,"",""
+"findallquestions.questions","findallquestions.questions","","","",0,1,"","","","Base {[]} {[]}
+","QuestionsType","Fråga","TKB-fält: `questions` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findallquestions.questions",0,1,"",""
+"findallquestions.questions.question","findallquestions.questions.question","","","",0,*,"","","","Base {[]} {[]}
+","QuestionType","Lista av frågor","TKB-fält: `questions.question` (kardinalitet 0..n).","","","","","","","","",,,,,"",,,,"findallquestions.questions.question",0,*,"",""
+"findallquestions.questions.question.Question","findallquestions.questions.question.Question","","","",1,1,"","","","Base {[]} {[]}
+","QuestionFromFkType","Själva frågan, se ReceiveMedicalCertificateQuestion","TKB-fält: `..question.question` (kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question",1,1,"",""
+"findallquestions.questions.question.Question.fkReferens-id","findallquestions.questions.question.Question.fkReferens-id","","","",1,1,"","","","string {[]} {[]}
+","fkReferens-id","fkReferens-id","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkReferens-id",1,1,"",""
+"findallquestions.questions.question.Question.amne","findallquestions.questions.question.Question.amne","","","",1,1,"","","","code {[]} {[]}
+","amne","amne Tillåtna värden: Komplettering_av_lakarintyg, Makulering_av_lakarintyg, Avstamningsmote, Kontakt, Arbetstidsforlaggning, Paminnelse, Ovrigt.","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.amne",1,1,"",""
+"findallquestions.questions.question.Question.fraga","findallquestions.questions.question.Question.fraga","","","",1,1,"","","","Base {[]} {[]}
+","innehallType","fraga","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fraga",1,1,"",""
+"findallquestions.questions.question.Question.fraga.meddelandeText","findallquestions.questions.question.Question.fraga.meddelandeText","","","",1,1,"","","","string {[]} {[]}
+","meddelandeText","meddelandeText","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fraga.meddelandeText",1,1,"",""
+"findallquestions.questions.question.Question.fraga.signeringsTidpunkt","findallquestions.questions.question.Question.fraga.signeringsTidpunkt","","","",1,1,"","","","dateTime {[]} {[]}
+","signeringsTidpunkt","signeringsTidpunkt","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fraga.signeringsTidpunkt",1,1,"",""
+"findallquestions.questions.question.Question.avsantTidpunkt","findallquestions.questions.question.Question.avsantTidpunkt","","","",1,1,"","","","dateTime {[]} {[]}
+","avsantTidpunkt","avsantTidpunkt","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.avsantTidpunkt",1,1,"",""
+"findallquestions.questions.question.Question.fkKontaktInfo","findallquestions.questions.question.Question.fkKontaktInfo","","","",0,*,"","","","Base {[]} {[]}
+","fkKontaktType","fkKontaktInfo","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkKontaktInfo",0,*,"",""
+"findallquestions.questions.question.Question.fkKontaktInfo.kontakt","findallquestions.questions.question.Question.fkKontaktInfo.kontakt","","","",1,1,"","","","string {[]} {[]}
+","kontakt","kontakt","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkKontaktInfo.kontakt",1,1,"",""
+"findallquestions.questions.question.Question.adressVard","findallquestions.questions.question.Question.adressVard","","","",1,1,"","","","Base {[]} {[]}
+","vardAdresseringsType","adressVard","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal","findallquestions.questions.question.Question.adressVard.hosPersonal","","","",1,1,"","","","Base {[]} {[]}
+","hosPersonalType","hosPersonal","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id","findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id","","","",1,1,"","","","Base {[]} {[]}
+","II","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.root","findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.root","","","",0,1,"","","","string {[]} {[]}
+","root","root (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.root",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.extension","findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.extension","","","",0,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.extension",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.identifierName","findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.identifierName","","","",0,1,"","","","string {[]} {[]}
+","identifierName","identifierName (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.personal-id.identifierName",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.fullstandigtNamn","findallquestions.questions.question.Question.adressVard.hosPersonal.fullstandigtNamn","","","",0,1,"","","","string {[]} {[]}
+","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.fullstandigtNamn",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.forskrivarkod","findallquestions.questions.question.Question.adressVard.hosPersonal.forskrivarkod","","","",0,1,"","","","string {[]} {[]}
+","forskrivarkod","forskrivarkod","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.forskrivarkod",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet","","","",1,1,"","","","Base {[]} {[]}
+","enhetType","enhet","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id","","","",1,1,"","","","Base {[]} {[]}
+","II","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.root","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.root","","","",0,1,"","","","string {[]} {[]}
+","root","root (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.root",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.extension","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.extension","","","",0,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.extension",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.identifierName","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.identifierName","","","",0,1,"","","","string {[]} {[]}
+","identifierName","identifierName (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhets-id.identifierName",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod","","","",0,1,"","","","Base {[]} {[]}
+","II","o.i.d för arbetsplatskod är 1.2.752.29.4.71","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.root","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.root","","","",0,1,"","","","string {[]} {[]}
+","root","root (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.root",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.extension","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.extension","","","",0,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.extension",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.identifierName","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.identifierName","","","",0,1,"","","","string {[]} {[]}
+","identifierName","identifierName (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.arbetsplatskod.identifierName",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhetsnamn","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhetsnamn","","","",1,1,"","","","string {[]} {[]}
+","enhetsnamn","enhetsnamn","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.enhetsnamn",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postadress","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postadress","","","",0,1,"","","","string {[]} {[]}
+","postadress","postadress","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postadress",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postnummer","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postnummer","","","",0,1,"","","","string {[]} {[]}
+","postnummer","postnummer","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postnummer",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postort","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postort","","","",0,1,"","","","string {[]} {[]}
+","postort","postort","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.postort",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.telefonnummer","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.telefonnummer","","","",0,1,"","","","string {[]} {[]}
+","telefonnummer","telefonnummer","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.telefonnummer",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.epost","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.epost","","","",0,1,"","","","string {[]} {[]}
+","epost","epost","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.epost",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare","","","",0,1,"","","","Base {[]} {[]}
+","vardgivareType","vardgivare","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id","","","",1,1,"","","","Base {[]} {[]}
+","II","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id",1,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.root","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.root","","","",0,1,"","","","string {[]} {[]}
+","root","root (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.root",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.extension","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.extension","","","",0,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.extension",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.identifierName","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.identifierName","","","",0,1,"","","","string {[]} {[]}
+","identifierName","identifierName (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.identifierName",0,1,"",""
+"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivarnamn","findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivarnamn","","","",1,1,"","","","string {[]} {[]}
+","vardgivarnamn","vardgivarnamn","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.adressVard.hosPersonal.enhet.vardgivare.vardgivarnamn",1,1,"",""
+"findallquestions.questions.question.Question.fkMeddelanderubrik","findallquestions.questions.question.Question.fkMeddelanderubrik","","","",0,1,"","","","string {[]} {[]}
+","fkMeddelanderubrik","fkMeddelanderubrik","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkMeddelanderubrik",0,1,"",""
+"findallquestions.questions.question.Question.fkKomplettering","findallquestions.questions.question.Question.fkKomplettering","","","",0,*,"","","","Base {[]} {[]}
+","kompletteringType","fkKomplettering","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkKomplettering",0,*,"",""
+"findallquestions.questions.question.Question.fkKomplettering.falt","findallquestions.questions.question.Question.fkKomplettering.falt","","","",1,1,"","","","string {[]} {[]}
+","falt","falt","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkKomplettering.falt",1,1,"",""
+"findallquestions.questions.question.Question.fkKomplettering.text","findallquestions.questions.question.Question.fkKomplettering.text","","","",1,1,"","","","string {[]} {[]}
+","text","text","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkKomplettering.text",1,1,"",""
+"findallquestions.questions.question.Question.fkSistaDatumForSvar","findallquestions.questions.question.Question.fkSistaDatumForSvar","","","",0,1,"","","","date {[]} {[]}
+","fkSistaDatumForSvar","fkSistaDatumForSvar","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.fkSistaDatumForSvar",0,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande","findallquestions.questions.question.Question.lakarutlatande","","","",1,1,"","","","Base {[]} {[]}
+","lakarutlatandeEnkelType","lakarutlatande","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande",1,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.lakarutlatande-id","findallquestions.questions.question.Question.lakarutlatande.lakarutlatande-id","","","",1,1,"","","","string {[]} {[]}
+","lakarutlatande-id","lakarutlatande-id","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.lakarutlatande-id",1,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.signeringsTidpunkt","findallquestions.questions.question.Question.lakarutlatande.signeringsTidpunkt","","","",1,1,"","","","dateTime {[]} {[]}
+","signeringsTidpunkt","signeringsTidpunkt","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.signeringsTidpunkt",1,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.patient","findallquestions.questions.question.Question.lakarutlatande.patient","","","",1,1,"","","","Base {[]} {[]}
+","patientType","patient","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.patient",1,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.patient.person-id","findallquestions.questions.question.Question.lakarutlatande.patient.person-id","","","",1,1,"","","","Base {[]} {[]}
+","II","Personnummer eller samordningsnummer. o.i.d för personnummer är 1.2.752.129.2.1.3.1. o.i.d för samordningsnummer är 1.2.752.129.2.1.3.3","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.patient.person-id",1,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.patient.person-id.root","findallquestions.questions.question.Question.lakarutlatande.patient.person-id.root","","","",0,1,"","","","string {[]} {[]}
+","root","root (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.patient.person-id.root",0,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.patient.person-id.extension","findallquestions.questions.question.Question.lakarutlatande.patient.person-id.extension","","","",0,1,"","","","string {[]} {[]}
+","extension","extension (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.patient.person-id.extension",0,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.patient.person-id.identifierName","findallquestions.questions.question.Question.lakarutlatande.patient.person-id.identifierName","","","",0,1,"","","","string {[]} {[]}
+","identifierName","identifierName (XML-attribut)","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.patient.person-id.identifierName",0,1,"",""
+"findallquestions.questions.question.Question.lakarutlatande.patient.fullstandigtNamn","findallquestions.questions.question.Question.lakarutlatande.patient.fullstandigtNamn","","","",0,1,"","","","string {[]} {[]}
+","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.Question.lakarutlatande.patient.fullstandigtNamn",0,1,"",""
+"findallquestions.questions.question.id","findallquestions.questions.question.id","","","",1,1,"","","","string {[]} {[]}
+","id","Ärendelådans identitet på den returnerade frågan. Används när man senare vill ta bort frågan från ärendelådan","TKB-fält: `..question.id` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.id",1,1,"",""
+"findallquestions.questions.question.receivedDate","findallquestions.questions.question.receivedDate","","","",1,1,"","","","dateTime {[]} {[]}
+","receivedDate","Datum då frågan inkom","TKB-fält: `..question.receivedDate` (`datum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findallquestions.questions.question.receivedDate",1,1,"",""

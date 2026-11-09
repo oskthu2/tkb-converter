@@ -1,0 +1,8067 @@
+# RegisterMedicationPrescription - clinicalprocess: activityprescription: prescribe v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **RegisterMedicationPrescription**
+
+## Logical Model: RegisterMedicationPrescription 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:RegisterMedicationPrescription |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet RegisterMedicationPrescription (RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationPrescription:2). Representerar responsens informationsstruktur. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-prescribe|current/StructureDefinition/StructureDefinition-registermedicationprescription.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-registermedicationprescription.csv), [Excel](StructureDefinition-registermedicationprescription.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "registermedicationprescription",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription",
+  "version" : "2.0",
+  "name" : "RegisterMedicationPrescription",
+  "title" : "RegisterMedicationPrescription",
+  "status" : "draft",
+  "date" : "2026-11-09T03:17:25+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet RegisterMedicationPrescription\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationPrescription:2).\nRepresenterar responsens informationsstruktur.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "registermedicationprescription",
+      "path" : "registermedicationprescription",
+      "short" : "RegisterMedicationPrescription",
+      "definition" : "Logisk modell för tjänstekontraktet RegisterMedicationPrescription\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationPrescription:2).\nRepresenterar responsens informationsstruktur."
+    },
+    {
+      "id" : "registermedicationprescription.medicationListVersion",
+      "path" : "registermedicationprescription.medicationListVersion",
+      "short" : "medicationListVersion",
+      "definition" : "Version på patientens samlade läkemedelslista.",
+      "comment" : "TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList",
+      "path" : "registermedicationprescription.medicationPrescriptionList",
+      "short" : "MedicationPrescriptionListType",
+      "definition" : "Övergripande objekt som håller ihop",
+      "comment" : "TKB-fält: `medicationPrescriptionList` (`MedicationPrescriptionListType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription",
+      "short" : "MedicationPrescription",
+      "definition" : "medicationPrescription",
+      "comment" : "TKB-fält: `medicationPrescription` (`MedicationPrescription`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData",
+      "short" : "RegistrationData",
+      "definition" : "id, registrerad av och registreringstidpunkt.",
+      "comment" : "TKB-fält: `../registrationData` (`RegistrationData`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.id",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.id",
+      "short" : "Unikt id för det omgivande objektet.",
+      "definition" : "Unikt id för det omgivande objektet.",
+      "comment" : "TKB-fält: `../../id` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Den person som registrerat det omgivande objektet. Denna måste vara starkt autentiserad och det är informationen från autentiseringen som används. Det är vårdgivare och vårdenhet för registrerad av som utgör vårdgivare och vårdenhet för det omgivande objektet som helhet.\n\nVärdet sätts av NOD baserat på den Autentiseringsinformation som bifogas vid anrop av NOD:s tjänster.",
+      "comment" : "TKB-fält: `../../registeredBy` (`HealthcareProfessionalType`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personen.",
+      "definition" : "HSA-id för personen.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.givenName",
+      "short" : "Personens förnamn",
+      "definition" : "Personens förnamn",
+      "comment" : "TKB-fält: `../../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.familyName",
+      "short" : "Personens efternamn",
+      "definition" : "Personens efternamn",
+      "comment" : "TKB-fält: `../../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalRoleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalRoleCode",
+      "short" : "healthcareProfessionalRoleCode",
+      "definition" : "befattningskod, även kallat paTitleCode i HSA.\n\nSe: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registrationTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.registrationData.registrationTime",
+      "short" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "definition" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "comment" : "TKB-fält: `../../registrationTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.patientId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.patientId",
+      "short" : "patientId",
+      "definition" : "Identifiering av patienten.\n\nFör att registrera läkemedelsordinationer i NOD krävs svenskt personnummer eller samordningsnummer. På sikt kommer även andra typer av identitet att kunna användas, i första hand reservnummer och katastrofnummer.\n\nUndantag: Person med enbart samordningsnummer kan inte registreras för Dos och följaktligen inte heller ordineras Dos.\n\nAttributet system i datatypen Identifier (från FHIR) anger vilken typ av identifiering som används, dvs. om det t.ex. är personnummer eller samordningsnummer.",
+      "comment" : "TKB-fält: `../patientId` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Ordinatör är den som är ansvarig för det medicinska beslutet för just den här den Läkemedelsordinationen och som (verksamhetsmässigt) signerat den.\n\nOrdinatören kan i undantagsfall sakna hsa-id och behöva anges med för- och efternamn i klartext.\n\nSe not 1.",
+      "comment" : "TKB-fält: `../prescriber` (`HealthcareProfessionalType`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personen.",
+      "definition" : "HSA-id för personen.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.givenName",
+      "short" : "Personens förnamn",
+      "definition" : "Personens förnamn",
+      "comment" : "TKB-fält: `../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.familyName",
+      "short" : "Personens efternamn",
+      "definition" : "Personens efternamn",
+      "comment" : "TKB-fält: `../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalRoleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalRoleCode",
+      "short" : "healthcareProfessionalRoleCode",
+      "definition" : "befattningskod, även kallat paTitleCode i HSA.\n\nSe: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf",
+      "comment" : "TKB-fält: `../../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalCareUnitHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalCareGiverHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.prescriber.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Vid ordination enligt generellt direktiv anges den person som är ansvarig för detta generella direktiv.",
+      "comment" : "TKB-fält: `../responsiblePrescriber` (`HealthcareProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personen.",
+      "definition" : "HSA-id för personen.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.givenName",
+      "short" : "Personens förnamn",
+      "definition" : "Personens förnamn",
+      "comment" : "TKB-fält: `../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.familyName",
+      "short" : "Personens efternamn",
+      "definition" : "Personens efternamn",
+      "comment" : "TKB-fält: `../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalRoleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalRoleCode",
+      "short" : "healthcareProfessionalRoleCode",
+      "definition" : "befattningskod, även kallat paTitleCode i HSA.\n\nSe: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf",
+      "comment" : "TKB-fält: `../../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalCareUnitHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalCareGiverHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.responsiblePrescriber.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.writeTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.writeTime",
+      "short" : "writeTime",
+      "definition" : "Tidpunkt då det medicinska beslutet fattades.\n\nNormalfallet bör vara att Läkemedelsordinationen registreras i NOD i samband med att beslutet fattas varvid ordinationstidpunkt och registreringstidpunkt kommer att vara lika (sånär som på den tid det tar att genomföra tjänsteanropet).\n\nI vissa fall kommer de dock att skilja sig åt, t.ex. då en ordination som finns i ett vårdsystem och efterregistreras i NOD, eller då en ordination återskapas baserat på information från ett NEF-recept. I dessa fall skall ordinationstidpunkt, så gott det går, sättas till den tidpunkt då ordinationen ursprungligen skapades.",
+      "comment" : "TKB-fält: `../writeTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treatmentStartTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treatmentStartTime",
+      "short" : "treatmentStartTime",
+      "definition" : "Tidpunkt från vilken patienten ska ta sitt läkemedel.\n\ninsättningstidpunkt utgör startpunkt för angiven dosering.\n\nVid utsättning ska insättningstidpunkt sättas till samma som utsättningstidpunkt.",
+      "comment" : "TKB-fält: `../treatmentStartTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treatmentEndTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treatmentEndTime",
+      "short" : "treatmentEndTime",
+      "definition" : "Planerad tidpunkt vid vilken patienten ska upphöra att ta sitt läkemedel.\n\nDet är utsättningstidpunkten i den gällande Läkemedelsordinationen som är styrande för om läkemedelsbehandlingen är avlutad.\n\nOm attributet inte anges innebär det att läkemedelsbehandlingen ska pågå tills vidare.\n\nTidpunkten får, om den anges, inte vara före insättningstidpunkt.",
+      "comment" : "TKB-fält: `../treatmentEndTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluationTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluationTime",
+      "short" : "evaluationTime",
+      "definition" : "Tidpunkt då läkemedelsbehandlingen senast bör utvärderas.\n\nTidpunkten får, om den anges, inte vara före insättningstidpunkt.\n\nSyftet är t.ex. att vårdsystemen ska kunna uppmärksamma ansvarig ordinatör när utvärderingstidpunkten närmar sig.",
+      "comment" : "TKB-fält: `../evaluationTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Den aktör, dvs. ordinatör eller vårdenhet och vårdgivare, som i förekommande fall ska genomföra utvärdering.\n\nOm ingen aktör anges så anses aktuell ordinatör vara ansvarig för utvärderingen.\n\nOm endast vårdenhet och vårdgivare är kända kan information om personen utlämnas.",
+      "comment" : "TKB-fält: `../evaluatedBy` (`HealthcareProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personen.",
+      "definition" : "HSA-id för personen.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.givenName",
+      "short" : "Personens förnamn",
+      "definition" : "Personens förnamn",
+      "comment" : "TKB-fält: `../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.familyName",
+      "short" : "Personens efternamn",
+      "definition" : "Personens efternamn",
+      "comment" : "TKB-fält: `../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalRoleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalRoleCode",
+      "short" : "healthcareProfessionalRoleCode",
+      "definition" : "befattningskod, även kallat paTitleCode i HSA.\n\nSe: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf",
+      "comment" : "TKB-fält: `../../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalCareUnitHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalCareGiverHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.evaluatedBy.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.reason",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.reason",
+      "short" : "Reason",
+      "definition" : "Orsaken till beslutet.\n\nSyftet är att ordinatören ska kunna ange orsak till en ändring av en läkemedelsbehandling, t.ex. ändring av doseringen, byte av läkemedelsfabrikat eller utsättning av andra skäl än planerad utsättning. Fältet ska inte förväxlas med ordinationsorsak som avser den orsaken till behandlingen som helhet. Tillsammans med ordinationsorsak kommer samtliga beslutsorsaker att utgöra en slags läkemedelsjournal för läkemedelsbehandlingen.\n\nFältet ingår inte i Expedieringsunderlag och kan t.ex. inte skrivas ut på etiketten vid expediering.\n\nVid makulering av expedieringsunderlag härleds dock expedieringsunderlagets makuleringsorsak (1-4) från beslutsorsak.",
+      "comment" : "TKB-fält: `../reason` (`Reason`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.reason.code",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.reason.code",
+      "short" : "code",
+      "definition" : "Vid användning som ordinationsorsak ska Snomed CT-koden för vald ordinationsorsak anges.\n\nAnges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO).",
+      "comment" : "TKB-fält: `../../code` (`code`, kardinalitet 1).\n\n**Modellanteckning:** Vid användning som ordinationsorsak ska Snomed CT-koden för vald ordinationsorsak anges. Anges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO). Om ordinationsorsak anges till Annan orsak är det obligatorisk att ange orsaken som fritext (i fältet CodeableConcept.text) i annat fall ska fritext inte anges.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.reason.primaryReason",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.reason.primaryReason",
+      "short" : "Uppgift om huruvida orsaken är ”huvudorsak”, dvs. viktigare än andra angivna orsaker",
+      "definition" : "Uppgift om huruvida orsaken är \"huvudorsak\", dvs. viktigare än andra angivna orsaker",
+      "comment" : "TKB-fält: `../../primaryReason` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.annotation",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.annotation",
+      "short" : "annotation",
+      "definition" : "Ordinatörens kommentarer i fritext kopplade till en specifik ordination.\n\nSyftet är t.ex. att ordinatören i fritext ska kunna ange sådant som inte framgår av beslutsorsak eller ordinationsorsak och som är av intresse för annan vård- och omsorgspersonal.\n\nFältet är avsett att beskriva nuläget för läkemedelsbehandlingen utan att användaren ska behöva ta del av notatfältet i tidigare läkemedelsordinationer.\n\nFältet ingår inte i Expedieringsunderlag och kan t.ex. inte skrivas ut på etiketten vid expediering.",
+      "comment" : "TKB-fält: `../annotation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.use",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.use",
+      "short" : "use",
+      "definition" : "Anvisningar i fri text som för patienten beskriver hur läkemedlet skall användas eller administreras t.ex. \"sväljes hela\", \"påstrykes i armvecket\". Fältet kan även rymma andra anvisningar, t.ex. sic[1] (eller obs).\n\nEtt förslag till text är tänkt att i vårdsystemet hämtas från SIL baserat på det läkemedel som valts, men kan behöva kompletteras manuellt.\n\nIngår i Expedieringsunderlag som en del av doseringstext 1.",
+      "comment" : "TKB-fält: `../use` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.purpose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.purpose",
+      "short" : "Behandlingsändamål i klartext.Ingår i Expedieringsunderlag som Ändamål klartext",
+      "definition" : "Behandlingsändamål i klartext.\n\nIngår i Expedieringsunderlag som Ändamål klartext",
+      "comment" : "TKB-fält: `../purpose` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication",
+      "short" : "Medication_virtual",
+      "definition" : "Det läkemedel (eller handelsvara) som Läkemedelsordinationen avser.\n\nDet finns i modellen ingen begränsning för vilka läkemedel som kan anges eller vilka byten som får ske inom en Läkemedelsbehandling. Det är dock rimligt att anta att någon form av begränsning är på sin plats (t.ex. att byte bara får ske inom samma ATC-kod), men en sådan begränsning är en verksamhetsregel som kan realiseras som en del av tjänsterna NOD eller i vårdsystemet.\n\nVid utsättning anges det läkemedel som sätts ut, dvs. det som angavs i den föregående Läkemedelsordinationen.",
+      "comment" : "TKB-fält: `../medication` (`Medication_virtual`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug_attr",
+      "short" : "DistributedDrug",
+      "definition" : "DistributedDrug_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug-attr.NPLid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug_attr.NPLid",
+      "short" : "NPLid",
+      "definition" : "id som identifierar läkemedelsprodukt.Hämtas från SIL.Ex. Alvedon tablett 500 mg.Obligatorisk parameter om Varunr saknas (dvs. om ordinationen ej gäller handelsvara).NPL = Nationellt Produktregister för Läkemedel, registrerade på Läkemedelsverket.Obs att ingen interaktionskontroll i Sfinx kan göras utan NPL-id.Är obligatorisk även vid ordination i NOD 1.0 (annars funkar inte interaktionskoll i SIL/Sfinx)Ingår i Expedieringsunderlag.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug-attr.tradeName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug_attr.tradeName",
+      "short" : "tradeName",
+      "definition" : "Namn vid det tillfälle då ordinationen upprättades. Hämtas från SIL och sparas i NOD för att spårbarheten ska behållas även om benämningen ändras över tid.Möjlighet att utnyttja detta fält för ”fritextordination” måste testas (t.ex. för studieläkemedel eller ”okänt läkemedel”).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug-attr.notInterchangable",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DistributedDrug_attr.notInterchangable",
+      "short" : "notInterchangable",
+      "definition" : "Markering att ordinerad vara ej får bytas ut vid expedieringFalskt = Får bytas utSant = Får ej bytas utNotera att beslutet att produkten inte får bytas ut normalt sker av medicinska skäl och att det därför inte enbart kan finnas på Expedieringsunderlaget.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr",
+      "short" : "DrugArticle",
+      "definition" : "DrugArticle_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr.NPLPackid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr.NPLPackid",
+      "short" : "NPLPackid",
+      "definition" : "Id som identifierar läkemedelsartikel. Hämtas från SIL.Anger läkemedel på nivån : Alvedon tablett 500 mg, 16 st blister.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr.distributedTradeName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr.distributedTradeName",
+      "short" : "distributedTradeName",
+      "definition" : "Produktnamn + förpackningNamn vid det tillfälle då ordinationen upprättades. Hämtas från SIL och sparas i NOD för att spårbarheten ska behållas även om benämningen ändras över tid.Kallas artikel hos apoteksaktörerna",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr.distributedDrug",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr.distributedDrug",
+      "short" : "DistributedDrug",
+      "definition" : "Den Läkemedelsprodukt som Läkemedelsartikeln baseras på.(se not 1)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr.distributedDrug.NPLid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr.distributedDrug.NPLid",
+      "short" : "NPLid",
+      "definition" : "id som identifierar läkemedelsprodukt.Hämtas från SIL.Ex. Alvedon tablett 500 mg.Obligatorisk parameter om Varunr saknas (dvs. om ordinationen ej gäller handelsvara).NPL = Nationellt Produktregister för Läkemedel, registrerade på Läkemedelsverket.Obs att ingen interaktionskontroll i Sfinx kan göras utan NPL-id.Är obligatorisk även vid ordination i NOD 1.0 (annars funkar inte interaktionskoll i SIL/Sfinx)Ingår i Expedieringsunderlag.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr.distributedDrug.tradeName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr.distributedDrug.tradeName",
+      "short" : "tradeName",
+      "definition" : "Namn vid det tillfälle då ordinationen upprättades. Hämtas från SIL och sparas i NOD för att spårbarheten ska behållas även om benämningen ändras över tid.Möjlighet att utnyttja detta fält för ”fritextordination” måste testas (t.ex. för studieläkemedel eller ”okänt läkemedel”).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle-attr.distributedDrug.notInterchangable",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.DrugArticle_attr.distributedDrug.notInterchangable",
+      "short" : "notInterchangable",
+      "definition" : "Markering att ordinerad vara ej får bytas ut vid expedieringFalskt = Får bytas utSant = Får ej bytas utNotera att beslutet att produkten inte får bytas ut normalt sker av medicinska skäl och att det därför inte enbart kan finnas på Expedieringsunderlaget.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.ExTempore-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.ExTempore_attr",
+      "short" : "ExTempore",
+      "definition" : "ExTempore_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.ExTempore-attr.description",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.ExTempore_attr.description",
+      "short" : "Beskriver komposition mm. Mappas vid förskrivning till doseringstext 2 i Expedieringsunderlaget.",
+      "definition" : "Beskriver komposition mm. Mappas vid förskrivning till doseringstext 2 i Expedieringsunderlaget.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug_attr",
+      "short" : "LicensedDrug",
+      "definition" : "LicensedDrug_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug-attr.productName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug_attr.productName",
+      "short" : "Namn på läkemedlet i fri text.Ingår i Expedieringsunderlag.doseringstext 2.",
+      "definition" : "Namn på läkemedlet i fri text.Ingår i Expedieringsunderlag.doseringstext 2.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug-attr.strength",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug_attr.strength",
+      "short" : "Ingår i Expedieringsunderlag.doseringstext 2.",
+      "definition" : "Ingår i Expedieringsunderlag.doseringstext 2.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug-attr.drugForm",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug_attr.drugForm",
+      "short" : "Ingår i Expedieringsunderlag.doseringstext 2.",
+      "definition" : "Ingår i Expedieringsunderlag.doseringstext 2.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug-attr.licenseInformation",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.LicensedDrug_attr.licenseInformation",
+      "short" : "t.ex. vilket apotek som har den beviljade licensenIngår i Expedieringsunderlag.doseringstext 2.",
+      "definition" : "t.ex. vilket apotek som har den beviljade licensenIngår i Expedieringsunderlag.doseringstext 2.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.NonDrugArticle-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.NonDrugArticle_attr",
+      "short" : "NonDrugArticle",
+      "definition" : "NonDrugArticle_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.NonDrugArticle-attr.articleId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.NonDrugArticle_attr.articleId",
+      "short" : "articleId",
+      "definition" : "Identitet på ordinerad handelsvara. Obligatorisk parameter för handelsvaror som ska hämtas ut på apotek. Får ej anges för läkemedel.Ingår i Expedieringsunderlag.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.FreeTextMedication-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.FreeTextMedication_attr",
+      "short" : "FreeTextMedication",
+      "definition" : "FreeTextMedication_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.FreeTextMedication-attr.description",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.FreeTextMedication_attr.description",
+      "short" : "description",
+      "definition" : "beskrivning av läkemedlet.Fritextval används t.ex. då patienten själv anger sina läkemedel (egenmedicinering) samt vid studieläkemedel, dvs. när patienten deltar i en forskningsstudie och inte själv vet om aktiv substans används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.FreeTextMedication-attr.atcCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.medication.FreeTextMedication_attr.atcCode",
+      "short" : "ATC-kodOm angivet kan kontroller utföras (interaktion, amning mm). Se not 1.",
+      "definition" : "ATC-kodOm angivet kan kontroller utföras (interaktion, amning mm). Se not 1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage",
+      "short" : "Dosage",
+      "definition" : "Dosering enligt vårdens doseringsmodell.\n\nDoseringen ska anges i relation till insättningstidpunkt.\n\nVid utsättning anges den tidigare doseringen. Det är med andra ord utsättningstidpunkten som anger att behandlingen avslutas - inte doseringen.\n\nI vissa fall (t.ex. vid ordination av handelsvaror) är dosering irrelevant och kan utelämnas.",
+      "comment" : "TKB-fält: `../dosage` (`Dosage`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps",
+      "short" : "DosageStep",
+      "definition" : "Ett eller flera doseringssteg.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration",
+      "short" : "Period",
+      "definition" : "den tid under vilket läkemedlet ska användas enligt ordination, t.ex. 4 veckor, 5–6 veckor",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.duration.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.isMaxDuration",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.isMaxDuration",
+      "short" : "isMaxDuration",
+      "definition" : "flagga som anger om attributet behandlingstid avser den maximala tid som läkemedlet får användas.Flaggan är satt till FALSE som förvalt värde, dvs. den anger att behandlingstiden inte är en maxtid.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.doseUnit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.doseUnit",
+      "short" : "den enhet som doseringen avser, t.ex. tablett, ml eller droppe",
+      "definition" : "den enhet som doseringen avser, t.ex. tablett, ml eller droppe",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage",
+      "short" : "DosageType_virtual",
+      "definition" : "dosering där ordinatören har bestämt mängd och periodicitet, t.ex. 2 tabletter 3 gånger dagligen",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr",
+      "short" : "DosageByFrequency",
+      "definition" : "DosageByFrequency_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose",
+      "short" : "Interval",
+      "definition" : "Den mängd läkemedel som ska intas eller appliceras vid varje tillfälle, t.ex. 2 tabletter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency",
+      "short" : "Frequency",
+      "definition" : "Periodicitet för intaget eller appliceringen uttryck som antal gånger per tidsenhet, t.ex. 3 gånger dagligen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency-attr.frequency.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByFrequency_attr.frequency.unit",
+      "short" : "unit",
+      "definition" : "unit Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr",
+      "short" : "DosageByPeriod",
+      "definition" : "DosageByPeriod_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose",
+      "short" : "Interval",
+      "definition" : "Den mängd läkemedel som ska intas eller appliceras vid varje tillfälle, t.ex. 2 tabletter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period",
+      "short" : "Period",
+      "definition" : "Periodicitet för intaget eller appliceringen uttryck som förfluten tid mellan varje intag eller applicering, t.ex. var 6:e timme",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod-attr.period.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByPeriod_attr.period.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr",
+      "short" : "DosageByOccasion",
+      "definition" : "DosageByOccasion_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions",
+      "short" : "Occasion",
+      "definition" : "det eller de Doseringstillfällen som anger mängd och tidpunkt inom perioden",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.occasions.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.occasions.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.periodDuration",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.periodDuration",
+      "short" : "periodDuration",
+      "definition" : "Periodtid för intagen i dagar.Vid regelbunden (daglig) dosering är periodlängd = 1, vid intag varannan dag är periodlängd = 2 osv. Valideras att angivet värde är >0 och <= 28",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion-attr.periodTrigger",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByOccasion_attr.periodTrigger",
+      "short" : "periodTrigger",
+      "definition" : "Anger vilken händelse som utgör start för perioden. Endast relevant då annan periodlängd än 1 anges. Vid t.ex. veckoschema är nödvändigt att ange om dag i period för ett Doseringstillfälle ska beräknas utifrån första dagen i veckan eller från insättningstiden. Genom att utgår från första dagen i veckan underlättas kan doseringen förbli oförändrad vid förlängning av pågående läkemedelsbehandlingar oavsett när i i perioden förlängningen sker.{ Treatment, Week}Insättningstid: perioden startar vid insättningstidpunkten.Vecka: perioden startar vid veckans första dag = måndag. För en behandling med insättning på en onsdag (dag 3) innebär det att doseringstillfällena för denna första dag i behandlingen dag är de med dagIPeriod=3. (ny 2015) Tillåtna värden: Treatment, Week.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr",
+      "short" : "DosageByRamp",
+      "definition" : "DosageByRamp_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.dosageStartLevel",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.dosageStartLevel",
+      "short" : "DosageType_virtual",
+      "definition" : "den dosering som gäller vid Doseringsstegets start Rekursiv: samma struktur som registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.",
+      "min" : 1,
+      "max" : "1",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription#registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage"
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.dosageEndLevel",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.dosageEndLevel",
+      "short" : "DosageType_virtual",
+      "definition" : "den dosering som gäller vid Doseringsstegets slut Rekursiv: samma struktur som registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.",
+      "min" : 1,
+      "max" : "1",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription#registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage"
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement",
+      "short" : "Interval",
+      "definition" : "den mängd som dosen ska ökas eller minskas med vid varje tidssteg",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.doseIncrement.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.doseIncrement.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement",
+      "short" : "Period",
+      "definition" : "den tid som ska förflyta mellan varje ändring av dosen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp-attr.timeIncrement.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByRamp_attr.timeIncrement.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr",
+      "short" : "DosageBySingleOccasion",
+      "definition" : "DosageBySingleOccasion_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion",
+      "short" : "Occasion",
+      "definition" : "Det Doseringstillfälle som anger mängd och tidpunkt. (ändrat 2015)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion-attr.occasion.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageBySingleOccasion_attr.occasion.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByText-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByText_attr",
+      "short" : "DosageByText",
+      "definition" : "DosageByText_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByText-attr.text",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.regularDosage.DosageByText_attr.text",
+      "short" : "Dosering angiven i klartext.",
+      "definition" : "Dosering angiven i klartext.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage",
+      "short" : "DosageType_virtual",
+      "definition" : "dosering som anger den högsta tillåtna mängden under en viss period, t.ex. högst 5 tabletter per vecka",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr",
+      "short" : "DosageByFrequency",
+      "definition" : "DosageByFrequency_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose",
+      "short" : "Interval",
+      "definition" : "Den mängd läkemedel som ska intas eller appliceras vid varje tillfälle, t.ex. 2 tabletter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency",
+      "short" : "Frequency",
+      "definition" : "Periodicitet för intaget eller appliceringen uttryck som antal gånger per tidsenhet, t.ex. 3 gånger dagligen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency-attr.frequency.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByFrequency_attr.frequency.unit",
+      "short" : "unit",
+      "definition" : "unit Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr",
+      "short" : "DosageByPeriod",
+      "definition" : "DosageByPeriod_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose",
+      "short" : "Interval",
+      "definition" : "Den mängd läkemedel som ska intas eller appliceras vid varje tillfälle, t.ex. 2 tabletter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period",
+      "short" : "Period",
+      "definition" : "Periodicitet för intaget eller appliceringen uttryck som förfluten tid mellan varje intag eller applicering, t.ex. var 6:e timme",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod-attr.period.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByPeriod_attr.period.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr",
+      "short" : "DosageByOccasion",
+      "definition" : "DosageByOccasion_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions",
+      "short" : "Occasion",
+      "definition" : "det eller de Doseringstillfällen som anger mängd och tidpunkt inom perioden",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.occasions.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.occasions.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.periodDuration",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.periodDuration",
+      "short" : "periodDuration",
+      "definition" : "Periodtid för intagen i dagar.Vid regelbunden (daglig) dosering är periodlängd = 1, vid intag varannan dag är periodlängd = 2 osv. Valideras att angivet värde är >0 och <= 28",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion-attr.periodTrigger",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByOccasion_attr.periodTrigger",
+      "short" : "periodTrigger",
+      "definition" : "Anger vilken händelse som utgör start för perioden. Endast relevant då annan periodlängd än 1 anges. Vid t.ex. veckoschema är nödvändigt att ange om dag i period för ett Doseringstillfälle ska beräknas utifrån första dagen i veckan eller från insättningstiden. Genom att utgår från första dagen i veckan underlättas kan doseringen förbli oförändrad vid förlängning av pågående läkemedelsbehandlingar oavsett när i i perioden förlängningen sker.{ Treatment, Week}Insättningstid: perioden startar vid insättningstidpunkten.Vecka: perioden startar vid veckans första dag = måndag. För en behandling med insättning på en onsdag (dag 3) innebär det att doseringstillfällena för denna första dag i behandlingen dag är de med dagIPeriod=3. (ny 2015) Tillåtna värden: Treatment, Week.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr",
+      "short" : "DosageByRamp",
+      "definition" : "DosageByRamp_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.dosageStartLevel",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.dosageStartLevel",
+      "short" : "DosageType_virtual",
+      "definition" : "den dosering som gäller vid Doseringsstegets start Rekursiv: samma struktur som registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.",
+      "min" : 1,
+      "max" : "1",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription#registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage"
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.dosageEndLevel",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.dosageEndLevel",
+      "short" : "DosageType_virtual",
+      "definition" : "den dosering som gäller vid Doseringsstegets slut Rekursiv: samma struktur som registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.",
+      "min" : 1,
+      "max" : "1",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription#registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage"
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement",
+      "short" : "Interval",
+      "definition" : "den mängd som dosen ska ökas eller minskas med vid varje tidssteg",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.doseIncrement.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.doseIncrement.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement",
+      "short" : "Period",
+      "definition" : "den tid som ska förflyta mellan varje ändring av dosen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp-attr.timeIncrement.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByRamp_attr.timeIncrement.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr",
+      "short" : "DosageBySingleOccasion",
+      "definition" : "DosageBySingleOccasion_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion",
+      "short" : "Occasion",
+      "definition" : "Det Doseringstillfälle som anger mängd och tidpunkt. (ändrat 2015)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion-attr.occasion.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageBySingleOccasion_attr.occasion.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByText-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByText_attr",
+      "short" : "DosageByText",
+      "definition" : "DosageByText_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByText-attr.text",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.maxDosage.DosageByText_attr.text",
+      "short" : "Dosering angiven i klartext.",
+      "definition" : "Dosering angiven i klartext.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage",
+      "short" : "DosageType_virtual",
+      "definition" : "ordinerad mängd och periodicitet som gäller om ett visst villkor är uppfyllt, t.ex. 1-2 tabletter till natten",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr",
+      "short" : "DosageByFrequency",
+      "definition" : "DosageByFrequency_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose",
+      "short" : "Interval",
+      "definition" : "Den mängd läkemedel som ska intas eller appliceras vid varje tillfälle, t.ex. 2 tabletter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency",
+      "short" : "Frequency",
+      "definition" : "Periodicitet för intaget eller appliceringen uttryck som antal gånger per tidsenhet, t.ex. 3 gånger dagligen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency-attr.frequency.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByFrequency_attr.frequency.unit",
+      "short" : "unit",
+      "definition" : "unit Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr",
+      "short" : "DosageByPeriod",
+      "definition" : "DosageByPeriod_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose",
+      "short" : "Interval",
+      "definition" : "Den mängd läkemedel som ska intas eller appliceras vid varje tillfälle, t.ex. 2 tabletter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period",
+      "short" : "Period",
+      "definition" : "Periodicitet för intaget eller appliceringen uttryck som förfluten tid mellan varje intag eller applicering, t.ex. var 6:e timme",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod-attr.period.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByPeriod_attr.period.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr",
+      "short" : "DosageByOccasion",
+      "definition" : "DosageByOccasion_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions",
+      "short" : "Occasion",
+      "definition" : "det eller de Doseringstillfällen som anger mängd och tidpunkt inom perioden",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.occasions.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.occasions.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.periodDuration",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.periodDuration",
+      "short" : "periodDuration",
+      "definition" : "Periodtid för intagen i dagar.Vid regelbunden (daglig) dosering är periodlängd = 1, vid intag varannan dag är periodlängd = 2 osv. Valideras att angivet värde är >0 och <= 28",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion-attr.periodTrigger",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByOccasion_attr.periodTrigger",
+      "short" : "periodTrigger",
+      "definition" : "Anger vilken händelse som utgör start för perioden. Endast relevant då annan periodlängd än 1 anges. Vid t.ex. veckoschema är nödvändigt att ange om dag i period för ett Doseringstillfälle ska beräknas utifrån första dagen i veckan eller från insättningstiden. Genom att utgår från första dagen i veckan underlättas kan doseringen förbli oförändrad vid förlängning av pågående läkemedelsbehandlingar oavsett när i i perioden förlängningen sker.{ Treatment, Week}Insättningstid: perioden startar vid insättningstidpunkten.Vecka: perioden startar vid veckans första dag = måndag. För en behandling med insättning på en onsdag (dag 3) innebär det att doseringstillfällena för denna första dag i behandlingen dag är de med dagIPeriod=3. (ny 2015) Tillåtna värden: Treatment, Week.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr",
+      "short" : "DosageByRamp",
+      "definition" : "DosageByRamp_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.dosageStartLevel",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.dosageStartLevel",
+      "short" : "DosageType_virtual",
+      "definition" : "den dosering som gäller vid Doseringsstegets start Rekursiv: samma struktur som registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.",
+      "min" : 1,
+      "max" : "1",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription#registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage"
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.dosageEndLevel",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.dosageEndLevel",
+      "short" : "DosageType_virtual",
+      "definition" : "den dosering som gäller vid Doseringsstegets slut Rekursiv: samma struktur som registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.",
+      "min" : 1,
+      "max" : "1",
+      "contentReference" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription#registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage"
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement",
+      "short" : "Interval",
+      "definition" : "den mängd som dosen ska ökas eller minskas med vid varje tidssteg",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.doseIncrement.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.doseIncrement.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement",
+      "short" : "Period",
+      "definition" : "den tid som ska förflyta mellan varje ändring av dosen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value",
+      "short" : "Interval",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.value.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.value.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp-attr.timeIncrement.unit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByRamp_attr.timeIncrement.unit",
+      "short" : "{Minute, Hour, Day, Week, Month, Year}",
+      "definition" : "{Minute, Hour, Day, Week, Month, Year} Tillåtna värden: Minute, Hour, Day, Week, Month, Year.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr",
+      "short" : "DosageBySingleOccasion",
+      "definition" : "DosageBySingleOccasion_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion",
+      "short" : "Occasion",
+      "definition" : "Det Doseringstillfälle som anger mängd och tidpunkt. (ändrat 2015)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion-attr.occasion.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageBySingleOccasion_attr.occasion.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByText-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByText_attr",
+      "short" : "DosageByText",
+      "definition" : "DosageByText_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByText-attr.text",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.conditionalDosage.DosageByText_attr.text",
+      "short" : "Dosering angiven i klartext.",
+      "definition" : "Dosering angiven i klartext.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.condition",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.condition",
+      "short" : "condition",
+      "definition" : "text som anger villkor kopplat till en villkorsdosering, t.ex. \"vid behov\".Anges endast om attributet villkorsdosering förekommer.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.shortNotation",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.dosage.dosageSteps.shortNotation",
+      "short" : "angiven kortnotation som beskriver doseringen",
+      "definition" : "angiven kortnotation som beskriver doseringen",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treamentReason",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treamentReason",
+      "short" : "Reason",
+      "definition" : "Ordinationsorsak enligt separat struktur.\n\nDet bör påpekas att ordinationsorsak (i förekommande fall) ska anges av vårdsystemet för ny instans av Läkemedelsordination inom samma läkemedelsbehandling.\n\nPrincipen att det senast beslutet ska innehålla en komplett beskrivning av den pågående läkemedelsbehandlingen gäller även här. Även vid utsättning ska följaktligen ordinationsorsak anges.\n\nÄven om det är ovanligt att ordinationsorsaken ändras inom en läkemedelsbehandling så finns det inget hinder (i modellen) för detta.\n\nOm ordinationsorsak anges ska minst en, eventuellt flera, anges som huvudorsak.\n\nSe även not 4.",
+      "comment" : "TKB-fält: `../treamentReason` (`Reason`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treamentReason.code",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treamentReason.code",
+      "short" : "code",
+      "definition" : "Vid användning som ordinationsorsak ska Snomed CT-koden för vald ordinationsorsak anges.\n\nAnges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO).",
+      "comment" : "TKB-fält: `../../code` (`code`, kardinalitet 1).\n\n**Modellanteckning:** Vid användning som ordinationsorsak ska Snomed CT-koden för vald ordinationsorsak anges. Anges enligt Socialstyrelsens kodsystem för ordinationsorsaker (NKOO). Om ordinationsorsak anges till Annan orsak är det obligatorisk att ange orsaken som fritext (i fältet CodeableConcept.text) i annat fall ska fritext inte anges.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treamentReason.primaryReason",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.treamentReason.primaryReason",
+      "short" : "Uppgift om huruvida orsaken är ”huvudorsak”, dvs. viktigare än andra angivna orsaker",
+      "definition" : "Uppgift om huruvida orsaken är \"huvudorsak\", dvs. viktigare än andra angivna orsaker",
+      "comment" : "TKB-fält: `../../primaryReason` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.site",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.site",
+      "short" : "site",
+      "definition" : "Den plats på kroppen genom vilket läkemedlet intas eller appliceras.\n\nEn SNOMED-kod under SCTID:91723000 \"anatomical structure\"",
+      "comment" : "TKB-fält: `../site` (`CodeableConcept`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.route",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.route",
+      "short" : "Den väg som läkemedlet tar sig in i kroppen.En SNOMED-kod under SCTID: 284009009 \"route of administration value\"",
+      "definition" : "Den väg som läkemedlet tar sig in i kroppen.\n\nEn SNOMED-kod under SCTID: 284009009 \"route of administration value\"",
+      "comment" : "TKB-fält: `../route` (`CodeableConcept`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.method",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationPrescription.method",
+      "short" : "Den teknik med vilken läkemedlet administreras.En SNOMED-kod under SCTID: 107733003 \"introduction (procedure)\"",
+      "definition" : "Den teknik med vilken läkemedlet administreras.\n\nEn SNOMED-kod under SCTID: 107733003 \"introduction (procedure)\"",
+      "comment" : "TKB-fält: `../method` (`CodeableConcept`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization",
+      "short" : "MedicationDispenseAuthorization_virtual",
+      "definition" : "medicationDispenseAuthorization",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr",
+      "short" : "MedicationDispenseAuthorizationForDoseDispensing",
+      "definition" : "MedicationDispenseAuthorizationForDoseDispensing_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData",
+      "short" : "RegistrationData",
+      "definition" : "id, registrerad av och registreringstidpunkt.\n\nSaknas initialt om ändringar gjorts på apotekssidan.",
+      "comment" : "TKB-fält: `../../registrationData` (`RegistrationData`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.id",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.id",
+      "short" : "Unikt id för det omgivande objektet.",
+      "definition" : "Unikt id för det omgivande objektet.",
+      "comment" : "TKB-fält: `../../../id` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Den person som registrerat det omgivande objektet. Denna måste vara starkt autentiserad och det är informationen från autentiseringen som används. Det är vårdgivare och vårdenhet för registrerad av som utgör vårdgivare och vårdenhet för det omgivande objektet som helhet.\n\nVärdet sätts av NOD baserat på den Autentiseringsinformation som bifogas vid anrop av NOD:s tjänster.",
+      "comment" : "TKB-fält: `../../../registeredBy` (`HealthcareProfessionalType`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy.healthcareProfessionalHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personen.",
+      "definition" : "HSA-id för personen.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy.givenName",
+      "short" : "Personens förnamn",
+      "definition" : "Personens förnamn",
+      "comment" : "TKB-fält: `../../../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy.familyName",
+      "short" : "Personens efternamn",
+      "definition" : "Personens efternamn",
+      "comment" : "TKB-fält: `../../../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy.healthcareProfessionalRoleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy.healthcareProfessionalRoleCode",
+      "short" : "healthcareProfessionalRoleCode",
+      "definition" : "befattningskod, även kallat paTitleCode i HSA.\n\nSe: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.registrationData.registrationTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.registrationData.registrationTime",
+      "short" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "definition" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "comment" : "TKB-fält: `../../../registrationTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.id",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.id",
+      "short" : "Id på expedieringsunderlaget. Skapas av NOD-tjänsten (eller underliggande tjänster såsom av RR)",
+      "definition" : "Id på expedieringsunderlaget. Skapas av NOD-tjänsten (eller underliggande tjänster såsom av RR)",
+      "comment" : "TKB-fält: `../../id` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.medicationPrescriptionId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.medicationPrescriptionId",
+      "short" : "medicationPrescriptionId",
+      "definition" : "Id på ursprunglig läkemedelsordination oavsett om läkemedelsordinationen ursprungligen skapats i NOD eller i ett vårdsystem och skickats som e-recept till OR/RR. Expedieringsunderlag som återskapas på information från OR/RR kan sakna ordinationsid.\n\nOm expedieringsunderlaget skapas av vårdsystemet \"löst\", dvs. utan referens till en Läkemedelsordination i NOD, ska vårdsystemet ange ordinationsid (som separat argument) för spårbarhet och för att kunna upptäcka dubbletter.\n\nOm Läkemedelsordination finns i NOD skapas ordinationsid av NOD-tjänsten.",
+      "comment" : "TKB-fält: `../../medicationPrescriptionId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber",
+      "short" : "MedicalPrescriber",
+      "definition" : "Sätts av NOD-tjänsten till inloggad användare (samma som registrerad av) för att säkerställa att förskrivaren är starkt autentiserad.",
+      "comment" : "TKB-fält: `../../prescriber` (`MedicalPrescriber`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.personalPrescriptionCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.personalPrescriptionCode",
+      "short" : "personalPrescriptionCode",
+      "definition" : "Förskrivarens individuella förskrivarkod (7 tecken), legitimationskod (6 tecken) eller förskrivarens gruppförskrivarkod då individuell kod saknas.\n\nObligatorisk parameter om teknisk sprit eller läkemedel förskrivs.\n\nGruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men via sin roll har erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av EHM.\n\nFör användare som har gruppförskrivarkod gäller:\n\nbefattningskod är obligatorisk\n\nFör läkare (LK) - yrkeskod (dvs LK) är obligatorisk.\n\nVid övriga yrken - yrkeskod och giltig legitimationskod är obligatoriska\n\nValideras i AFF\n\nHSA: förskrivarkod, även kallat personalPrescriptionCode\n\nRR: förskrivarkod",
+      "comment" : "TKB-fält: `../../../personalPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.legitimationCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.legitimationCode",
+      "short" : "legitimationCode",
+      "definition" : "Förskrivarens 7-ställiga förskrivarkod alternativt 6-ställiga legitimationskod. Legitimationskod för förskrivare är annars de 6 första siffrorna i förskrivarkoden.\n\nSe gruppförskrivarkod för villkor.\n\nHSA: Legitimationskod för leg.vårdpersonal (sjuksköterskor) saknas i HSA. Det finns grupplegitimationskoder som kan användas.\n\nyrkeskod\tGruppkod\tyrkeskod klartext\n\nSJ\t971000\tSjuksköterska\n\nAP\t972000\tApotekare\n\nRC\t973000\tReceptarie\n\nRR: legitimationskod",
+      "comment" : "TKB-fält: `../../../legitimationCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.hsaTitleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.hsaTitleCode",
+      "short" : "hsaTitleCode",
+      "definition" : "Yrkeskod som definierar vilken typ av legitimation som användaren innehar.\n\nSe gruppförskrivarkod för villkor.\n\nKontrolleras i receptregistret att personen har angiven yrkeskod.\n\nValideras i AFF\n\nHSA:Legitimerad yrkesgrupp, även kallad hsaTitle innehåller yrkeskoden i klartext. Detta fält (yrkeskod) avser dock motsvarande tvåställiga kod. Se:\"HSA Innehåll Legitimerad Yrkesgrupp\" på se www.inera.se/hsa.\n\nNotera också att samma användare kan inneha flera yrkesgrupper, t.ex. både Läkare och Sjuksköterska.\n\nRR: yrkeskod",
+      "comment" : "TKB-fält: `../../../hsaTitleCode` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.hsaTitle",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.hsaTitle",
+      "short" : "Förskrivarens yrke i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "definition" : "Förskrivarens yrke i klartext.\n\nFylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "comment" : "TKB-fält: `../../../hsaTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.speciallityCodes",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.speciallityCodes",
+      "short" : "Förskrivarens specialiteter i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "definition" : "Förskrivarens specialiteter i klartext.\n\nFylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "comment" : "TKB-fält: `../../../speciallityCodes` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.paTitleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "Förskrivarens befattningskod.\n\nSe gruppförskrivarkod för villkor.\n\nHSA: befattningskod, även kallat paTitleCode.\n\nNotera också att samma användare kan inneha flera befattningskoder.\n\nRR: befattningskod",
+      "comment" : "TKB-fält: `../../../paTitleCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.givenName",
+      "short" : "Förskrivarens tilltalsnamn.HSA: tilltalsnamn (givenName)RR: förnamn",
+      "definition" : "Förskrivarens tilltalsnamn.\n\nHSA: tilltalsnamn (givenName)\n\nRR: förnamn",
+      "comment" : "TKB-fält: `../../../givenName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.familyName",
+      "short" : "Förskrivarens efternamn.Valideras i AFF HSA: efternamnRR: efternamn",
+      "definition" : "Förskrivarens efternamn.\n\nValideras i AFF\n\nHSA: efternamn\n\nRR: efternamn",
+      "comment" : "TKB-fält: `../../../familyName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork",
+      "short" : "PlaceOfWork",
+      "definition" : "arbetsplats",
+      "comment" : "TKB-fält: `../../../placeOfWork` (`PlaceOfWork`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.unitPrescriptionCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.unitPrescriptionCode",
+      "short" : "unitPrescriptionCode",
+      "definition" : "Förskrivarens arbetsplatskod eller grupparbetsplatskod\n\nUnik kod för identifiering av ordinatörens arbetsplats vid förskrivningstillfället.\n\nArbetsplatskoden anges, hos vissa vårdgivare, för att styra ekonomiska transaktioner vid ordinationer inom förmånen. Det är vårdgivarna som själva hanterar arbetsplatskoderna genom att registrera dem i EHM:s ARKO.\n\nSaknar ordinatören ordinarie arbetsplats anges en grupparbetsplatskod.\n\nObligatorisk parameter om förmån angivits.\n\nValideras i AFF\n\nHSA: arbetsplatskod, även kallat unitPrescriptionCode.\n\nRR: arbetsplatskod",
+      "comment" : "TKB-fält: `../../../../unitPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.careUnitName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.careUnitName",
+      "short" : "careUnitName",
+      "definition" : "Förskrivarens lokalitet (adress 1). Ej gatunummer. Exempelvis: Vårdcentralen Humlan eller Privat, Kirurgi/ortopedi\n\nHSA: enhetsnamn (careUnitName )\n\nRR: arbetsplatsnamn",
+      "comment" : "TKB-fält: `../../../../careUnitName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.city",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.city",
+      "short" : "Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFREDRR: arbetsplatsort",
+      "definition" : "Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFRED\n\nRR: arbetsplatsort",
+      "comment" : "TKB-fält: `../../../../city` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.phoneNumber1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.phoneNumber1",
+      "short" : "Förskrivarens eller vårdcentralens telefonnummer.HSA: direkttelefon RR: telefonnummer1",
+      "definition" : "Förskrivarens eller vårdcentralens telefonnummer.\n\nHSA: direkttelefon\n\nRR: telefonnummer1",
+      "comment" : "TKB-fält: `../../../../phoneNumber1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.phoneNumber2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.phoneNumber2",
+      "short" : "Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.HSA: RR: telefonnummer2",
+      "definition" : "Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.\n\nHSA:\n\nRR: telefonnummer2",
+      "comment" : "TKB-fält: `../../../../phoneNumber2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.postalAdress",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.postalAdress",
+      "short" : "postalAdress",
+      "definition" : "Förskrivarens eller vårdcentralens gatuadress. Exempelvis: Storgatan 14B.\n\nHSA: postadress (postalAddress). Består av flera adressrader, som lämpligen konkateneras med komma som skiljetecken.\n\nRR: postadress",
+      "comment" : "TKB-fält: `../../../../postalAdress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriber.placeOfWork.postalCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriber.placeOfWork.postalCode",
+      "short" : "Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45HSA: postnummer (postalCode)RR: postnummer",
+      "definition" : "Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45\n\nHSA: postnummer (postalCode)\n\nRR: postnummer",
+      "comment" : "TKB-fält: `../../../../postalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation",
+      "short" : "PatientInformation",
+      "definition" : "I första hand ska svenskt personnummer användas.\n\nVid Expedieringsunderlag för helförpackning gäller dessutom:\n\nOm samordningsnummer finns kan detta användas tillsammans med födelsetid.\n\nExpedieringsunderlag kan skapas även om både personnummer och samordningsnummer saknas, men då krävs att  födelsetid och kön anges.",
+      "comment" : "TKB-fält: `../../patientInformation` (`PatientInformation`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.patientId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.patientId",
+      "short" : "patientId",
+      "definition" : "Patientens personnummer eller samordningsnummer (fylls i från argument i tjänsteanropet)\n\nEndast om det är känt.\n\nPU: personid\n\nRR: personnummer",
+      "comment" : "TKB-fält: `../../../patientId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.givenName",
+      "short" : "givenName",
+      "definition" : "Patientens förnamn.\n\nPU: förnamn. Alla förnamn med mellanslag emellan. Tilltalsnamnsmarkering anger vilket som används som tilltalsnamn.\n\nRR: förnamn",
+      "comment" : "TKB-fält: `../../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.familyName",
+      "short" : "Patientens efternamn.PU: efternamn RR: efternamn",
+      "definition" : "Patientens efternamn.\n\nPU: efternamn\n\nRR: efternamn",
+      "comment" : "TKB-fält: `../../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.dateOfBirth",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Födelsedatum (8 siffror).\n\nAnges för patient som saknar giltigt personnummer.\n\nObligatoriskt att ange antingen personnummer eller födelsedatum på expedieringsunderlag.\n\nPU: födelsetid\n\nRR: födelsedatum",
+      "comment" : "TKB-fält: `../../../dateOfBirth` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.gender",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.gender",
+      "short" : "Patientens kön.Obligatorisk parameter om Personnummer saknas. {Male, Female, Unspecified}PU: könRR: kön",
+      "definition" : "Patientens kön.\n\nObligatorisk parameter om Personnummer saknas.\n\n{Male, Female, Unspecified}\n\nPU: kön\n\nRR: kön",
+      "comment" : "TKB-fält: `../../../gender` (`GenderEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.deliveryAdress1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.deliveryAdress1",
+      "short" : "Patientens gatuadress 1.PU: utdelningsadress1RR: adress1",
+      "definition" : "Patientens gatuadress 1.\n\nPU: utdelningsadress1\n\nRR: adress1",
+      "comment" : "TKB-fält: `../../../deliveryAdress1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.deliveryAdress2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.deliveryAdress2",
+      "short" : "Patientens adress 2.PU: utdelningsadress2RR: adress2",
+      "definition" : "Patientens adress 2.\n\nPU: utdelningsadress2\n\nRR: adress2",
+      "comment" : "TKB-fält: `../../../deliveryAdress2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.postalCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.postalCode",
+      "short" : "Patientens postnummer.PU: postnrRR: postnummer",
+      "definition" : "Patientens postnummer.\n\nPU: postnr\n\nRR: postnummer",
+      "comment" : "TKB-fält: `../../../postalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.city",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.city",
+      "short" : "Patientens postort.PU: postortRR: postort",
+      "definition" : "Patientens postort.\n\nPU: postort\n\nRR: postort",
+      "comment" : "TKB-fält: `../../../city` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.phoneNumber1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.phoneNumber1",
+      "short" : "Patientens telefonnummer 1.PU: saknasRR: telefonnummer1",
+      "definition" : "Patientens telefonnummer 1.\n\nPU: saknas\n\nRR: telefonnummer1",
+      "comment" : "TKB-fält: `../../../phoneNumber1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.patientInformation.phoneNumber2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.patientInformation.phoneNumber2",
+      "short" : "Patientens telefonnummer 2.PU: saknasRR: telefonnummer2",
+      "definition" : "Patientens telefonnummer 2.\n\nPU: saknas\n\nRR: telefonnummer2",
+      "comment" : "TKB-fält: `../../../phoneNumber2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriptionWriteTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriptionWriteTime",
+      "short" : "prescriptionWriteTime",
+      "definition" : "(f.d. Ordinationstidpunkt)\n\nTidpunkt då Expedieringsunderlaget skapas (vårdsystemets tid).\n\nNär ett Expedieringsunderlag återskapas baserat på en befintlig förskrivning ska den ursprungliga tiden för förskrivning anges (i möjligaste mån).",
+      "comment" : "TKB-fält: `../../prescriptionWriteTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.prescriberComment",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.prescriberComment",
+      "short" : "prescriberComment",
+      "definition" : "Förskrivarens kommentar till farmaceut.\n\nKommentaren skrivs ut på receptblanketten om e-receptet omvandlas till ett pappersrecept (dvs. skrivs ut på en receptblankett på apoteket)",
+      "comment" : "TKB-fält: `../../prescriberComment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.receivingPharmacy",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.receivingPharmacy",
+      "short" : "receivingPharmacy",
+      "definition" : "Apoteks-id (s.k. GLN-kod) om förskrivningen är direktadresserad.\n\nMottagande apotek ska anges vid förskrivning av läkemedel typ 3 (narkotika osv). F.o.m. 2015-03-01 är detta dock inte nödvändigt vid iteration.\n\nValideras i AFF",
+      "comment" : "TKB-fält: `../../receivingPharmacy` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.deliveryMessage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.deliveryMessage",
+      "short" : "Leveransinformation om ordinationen skickas till ett ombud",
+      "definition" : "Leveransinformation om ordinationen skickas till ett ombud",
+      "comment" : "TKB-fält: `../../deliveryMessage` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.treatmentEndTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.treatmentEndTime",
+      "short" : "treatmentEndTime",
+      "definition" : "Datum och tid när patienten skall avsluta intag.\n\nFältet är endast relevant för dospatienter. Efter detta datum så får expedieringsunderlaget status UTSATT och går inte längre att expediera (helförpackning) eller produceras inte i påse (dosdispenserat).\n\nMappas från Läkemedelsordination.utsättningstidpunkt",
+      "comment" : "TKB-fält: `../../treatmentEndTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.NPLPackid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.NPLPackid",
+      "short" : "NPLPackid",
+      "definition" : "NPL Pack-id alternativt SB Pack-id som identifierar läkemedelsartikel.\n\nObligatorisk parameter om Varunr saknas. Om artikeln är ett läkemedel måste NPL Pack-id anges.\n\nValideras i AFF.\n\nOm en Läkemedelsartikel angivits i Läkemedelsordination.ordinerat läkemedel måste attributvärdet överensstämma med dess NPL Pack.id.\n\nMappas (vid Läkemedelsartikel) från Läkemedelsordination.ordinerat läkemedel.NPL Pack.id",
+      "comment" : "TKB-fält: `../../NPLPackid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.NPLid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.NPLid",
+      "short" : "NPLid",
+      "definition" : "NPL-id alternativt SB-id som identifierar produkt.\n\nObligatorisk parameter om Varunr saknas. Om artikeln är ett läkemedel måste NPL-id.\n\nValideras i AFF.\n\nOm en Läkemedelsprodukt angivits i Läkemedelsordination.ordinerat läkemedel måste attributvärdet överensstämma dess NPL-id.\n\nMappas (vid Läkemedelsprodukt) från Läkemedelsordination.ordinerat läkemedel.NPL-id",
+      "comment" : "TKB-fält: `../../NPLid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.articleId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.articleId",
+      "short" : "articleId",
+      "definition" : "Identitet på förskrivet livsmedel eller handelsvara.\n\nObligatorisk parameter om NPL-id och NPL pack-id saknas.\n\nOm artikeln är ett läkemedel får inte varunr anges. Valideras i AFF.\n\nMappas (vid Handelsvara) från Läkemedelsordination.ordinerat läkemedel.varunr",
+      "comment" : "TKB-fält: `../../articleId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosageText1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosageText1",
+      "short" : "dosageText1",
+      "definition" : "Instruktion till patienten. Skrivs ut på Mina sparade recept, doseringsetikett och vid utskrift av elektroniskt recept.\n\nMappas från a) text som genereras baserat på Läkemedelsordination.dosering +b)  Läkemedelsordination.användning.",
+      "comment" : "TKB-fält: `../../dosageText1` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosageText2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosageText2",
+      "short" : "dosageText2",
+      "definition" : "Kompletterande doseringstext till patienten\n\nMappas från endera av\n\nLicensläkemedel.produktnamn/styrka/läkemedelsform/licensinformation\n\neller\n\nEx tempore. beskrivning",
+      "comment" : "TKB-fält: `../../dosageText2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.languageCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.languageCode",
+      "short" : "Främmande språk för doseringstext enligt ISO-639-1",
+      "definition" : "Främmande språk för doseringstext enligt ISO-639-1",
+      "comment" : "TKB-fält: `../../languageCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.pupose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.pupose",
+      "short" : "(Ändamål klartext)Mappas från Läkemedelsordination.behandlingsändamål",
+      "definition" : "(Ändamål klartext)\n\nMappas från Läkemedelsordination.behandlingsändamål",
+      "comment" : "TKB-fält: `../../pupose` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.reimbursed",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.reimbursed",
+      "short" : "Förskrivaren uppgift om ordinationen ska innefattas i förmånen.Falskt = Utan förmånSant =Med förmånValideras i AFF",
+      "definition" : "Förskrivaren uppgift om ordinationen ska innefattas i förmånen.\n\nFalskt = Utan förmån\n\nSant =Med förmån\n\nValideras i AFF",
+      "comment" : "TKB-fält: `../../reimbursed` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.validUntil",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.validUntil",
+      "short" : "validUntil",
+      "definition" : "Expedieringsunderlagets sista giltighetsdag. Detta får inte överskrida förskrivningstidpunkt + 1 år och en dag.\n\nPatienten med en läkemedelsordination med utsättningstid bortom sista giltighetsdag kommer då att behöva ett nytt expedieringsunderlag för att hämta ut medicinen.\n\nValideras i AFF",
+      "comment" : "TKB-fält: `../../validUntil` (`date`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.acute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.acute",
+      "short" : "acute",
+      "definition" : "Markering om dispenserad ordination är gjord akut. Flaggan sätts vid anrop av tjänsten och påverkar då alla expedieringsunderlag som skapas vid samma tillfälle.",
+      "comment" : "TKB-fält: `../../acute` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.substitutionNotAllowedByPatient",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.substitutionNotAllowedByPatient",
+      "short" : "Anger att patienten angett att förskriven artikel ej får bytas ut.",
+      "definition" : "Anger att patienten angett att förskriven artikel ej får bytas ut.",
+      "comment" : "TKB-fält: `../../substitutionNotAllowedByPatient` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.substitutionNotAllowedByPrescriber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.substitutionNotAllowedByPrescriber",
+      "short" : "Anger att förskrivare angett att förskriven artikel ej får bytas ut .",
+      "definition" : "Anger att förskrivare angett att förskriven artikel ej får bytas ut .",
+      "comment" : "TKB-fält: `../../substitutionNotAllowedByPrescriber` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage",
+      "short" : "DosageByOccasion",
+      "definition" : "Angivande av intagstillfällen, intagsmängd, dag i period och periodlängd.\n\nFylls i av NOD baserat på dosering i Ordinationen.",
+      "comment" : "TKB-fält: `../../dosage` (`DosageByOccasion`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions",
+      "short" : "Occasion",
+      "definition" : "det eller de Doseringstillfällen som anger mängd och tidpunkt inom perioden",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose",
+      "short" : "Interval",
+      "definition" : "den mängd läkemedel som ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min",
+      "short" : "NumericValue",
+      "definition" : "Intervallets min-värde",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.min.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.min.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max",
+      "short" : "NumericValue",
+      "definition" : "Intervallets max-värde.Om utelämnat tolkas som att max=min, dvs. en skalär.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max.decimalNumber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max.decimalNumber",
+      "short" : "DecimalNumber",
+      "definition" : "decimalNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max.decimalNumber.value",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max.decimalNumber.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max.decimalNumber.decimals",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max.decimalNumber.decimals",
+      "short" : "decimals",
+      "definition" : "decimals",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max.fraction",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max.fraction",
+      "short" : "Fraktion",
+      "definition" : "fraction",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max.fraction.numerator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max.fraction.numerator",
+      "short" : "numerator",
+      "definition" : "numerator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dose.max.fraction.denominator",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dose.max.fraction.denominator",
+      "short" : "denominator",
+      "definition" : "denominator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.time",
+      "short" : "TimeWithinDay",
+      "definition" : "den tid eller det tillfälle under dygnet när läkemedlet ska intas eller appliceras",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.time.event",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.time.event",
+      "short" : "event",
+      "definition" : "{ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx}ff = före frukost (morgonmål)tf = till frukostmo = på morgonenfl = före lunch (måltid mitt på dagen)tl= till lunchfm = före middagentm = till middagen (måltid på kvällen)kv = på kvällentn = till nattenun = under nattenxx= ospecificerad Tillåtna värden: ff, tf, mo, fl, tl, fm, tm, kv, tn, un, xx.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.time.time",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.time.time",
+      "short" : "Time",
+      "definition" : "time",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.time.time.hour",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.time.time.hour",
+      "short" : "Timme inom dygnet (0..23)",
+      "definition" : "Timme inom dygnet (0..23)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.time.time.minute",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.time.time.minute",
+      "short" : "minute",
+      "definition" : "Minuter inom timmen (0..59)Om minutdelen kan utelämnas anger det att precisionen är på timme (vilket inte är detsamma som att minuterna är 0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.occasions.dayInPeriod",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.occasions.dayInPeriod",
+      "short" : "dayInPeriod",
+      "definition" : "Dag i perioden när intag skall ske. Exempel: Intag ska ske varje måndag och onsdag och startdatum är på en måndag. Måndag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 1 Onsdag Insättningsdatum = 2010-01-01 Periodlängd = 7 Dag i period = 3 dag i period <= Tillfällesdosering.periodlängd",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.periodDuration",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.periodDuration",
+      "short" : "periodDuration",
+      "definition" : "Periodtid för intagen i dagar.Vid regelbunden (daglig) dosering är periodlängd = 1, vid intag varannan dag är periodlängd = 2 osv. Valideras att angivet värde är >0 och <= 28",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.dosage.periodTrigger",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.dosage.periodTrigger",
+      "short" : "periodTrigger",
+      "definition" : "Anger vilken händelse som utgör start för perioden. Endast relevant då annan periodlängd än 1 anges. Vid t.ex. veckoschema är nödvändigt att ange om dag i period för ett Doseringstillfälle ska beräknas utifrån första dagen i veckan eller från insättningstiden. Genom att utgår från första dagen i veckan underlättas kan doseringen förbli oförändrad vid förlängning av pågående läkemedelsbehandlingar oavsett när i i perioden förlängningen sker.{ Treatment, Week}Insättningstid: perioden startar vid insättningstidpunkten.Vecka: perioden startar vid veckans första dag = måndag. För en behandling med insättning på en onsdag (dag 3) innebär det att doseringstillfällena för denna första dag i behandlingen dag är de med dagIPeriod=3. (ny 2015) Tillåtna värden: Treatment, Week.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.treatmentStartTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.treatmentStartTime",
+      "short" : "Anger när doseringsschemat ska börja gälla.Fylls i av NOD baserat på Läkemedelsordination.insättningstidpunkt",
+      "definition" : "Anger när doseringsschemat ska börja gälla.\n\nFylls i av NOD baserat på Läkemedelsordination.insättningstidpunkt",
+      "comment" : "TKB-fält: `../../treatmentStartTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing-attr.endComment",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForDoseDispensing_attr.endComment",
+      "short" : "Kommentar varför ordinationen blev utsatt Fylls i av NOD baserat på Läkemedelsordination.utsättningsorsak text",
+      "definition" : "Kommentar varför ordinationen blev utsatt\n\nFylls i av NOD baserat på Läkemedelsordination.utsättningsorsak text",
+      "comment" : "TKB-fält: `../../endComment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr",
+      "short" : "MedicationDispenseAuthorizationForPackage",
+      "definition" : "MedicationDispenseAuthorizationForPackage_attr",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData",
+      "short" : "RegistrationData",
+      "definition" : "id, registrerad av och registreringstidpunkt.\n\nSaknas initialt om ändringar gjorts på apotekssidan.",
+      "comment" : "TKB-fält: `../../registrationData` (`RegistrationData`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.id",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.id",
+      "short" : "Unikt id för det omgivande objektet.",
+      "definition" : "Unikt id för det omgivande objektet.",
+      "comment" : "TKB-fält: `../../../id` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Den person som registrerat det omgivande objektet. Denna måste vara starkt autentiserad och det är informationen från autentiseringen som används. Det är vårdgivare och vårdenhet för registrerad av som utgör vårdgivare och vårdenhet för det omgivande objektet som helhet.\n\nVärdet sätts av NOD baserat på den Autentiseringsinformation som bifogas vid anrop av NOD:s tjänster.",
+      "comment" : "TKB-fält: `../../../registeredBy` (`HealthcareProfessionalType`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy.healthcareProfessionalHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy.healthcareProfessionalHSAId",
+      "short" : "HSA-id för personen.",
+      "definition" : "HSA-id för personen.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy.givenName",
+      "short" : "Personens förnamn",
+      "definition" : "Personens förnamn",
+      "comment" : "TKB-fält: `../../../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy.familyName",
+      "short" : "Personens efternamn",
+      "definition" : "Personens efternamn",
+      "comment" : "TKB-fält: `../../../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy.healthcareProfessionalRoleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy.healthcareProfessionalRoleCode",
+      "short" : "healthcareProfessionalRoleCode",
+      "definition" : "befattningskod, även kallat paTitleCode i HSA.\n\nSe: http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalRoleCode` (`code`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdenhet (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalCareUnitHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registeredBy.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "definition" : "HSA-id för den vårdgivare (enligt PDL) som personen är uppdragstagare för.",
+      "comment" : "TKB-fält: `../../../../healthcareProfessionalCareGiverHSAId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.registrationData.registrationTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.registrationData.registrationTime",
+      "short" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "definition" : "Tidpunkt då det omgivande objektet registrerats i NOD. Värdet sätts av NOD enligt NOD:s systemklocka.",
+      "comment" : "TKB-fält: `../../../registrationTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.id",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.id",
+      "short" : "Id på expedieringsunderlaget. Skapas av NOD-tjänsten (eller underliggande tjänster såsom av RR)",
+      "definition" : "Id på expedieringsunderlaget. Skapas av NOD-tjänsten (eller underliggande tjänster såsom av RR)",
+      "comment" : "TKB-fält: `../../id` (`Identifier`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.medicationPrescriptionId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.medicationPrescriptionId",
+      "short" : "medicationPrescriptionId",
+      "definition" : "Id på ursprunglig läkemedelsordination oavsett om läkemedelsordinationen ursprungligen skapats i NOD eller i ett vårdsystem och skickats som e-recept till OR/RR. Expedieringsunderlag som återskapas på information från OR/RR kan sakna ordinationsid.\n\nOm expedieringsunderlaget skapas av vårdsystemet \"löst\", dvs. utan referens till en Läkemedelsordination i NOD, ska vårdsystemet ange ordinationsid (som separat argument) för spårbarhet och för att kunna upptäcka dubbletter.\n\nOm Läkemedelsordination finns i NOD skapas ordinationsid av NOD-tjänsten.",
+      "comment" : "TKB-fält: `../../medicationPrescriptionId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber",
+      "short" : "MedicalPrescriber",
+      "definition" : "Sätts av NOD-tjänsten till inloggad användare (samma som registrerad av) för att säkerställa att förskrivaren är starkt autentiserad.",
+      "comment" : "TKB-fält: `../../prescriber` (`MedicalPrescriber`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.personalPrescriptionCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.personalPrescriptionCode",
+      "short" : "personalPrescriptionCode",
+      "definition" : "Förskrivarens individuella förskrivarkod (7 tecken), legitimationskod (6 tecken) eller förskrivarens gruppförskrivarkod då individuell kod saknas.\n\nObligatorisk parameter om teknisk sprit eller läkemedel förskrivs.\n\nGruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men via sin roll har erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av EHM.\n\nFör användare som har gruppförskrivarkod gäller:\n\nbefattningskod är obligatorisk\n\nFör läkare (LK) - yrkeskod (dvs LK) är obligatorisk.\n\nVid övriga yrken - yrkeskod och giltig legitimationskod är obligatoriska\n\nValideras i AFF\n\nHSA: förskrivarkod, även kallat personalPrescriptionCode\n\nRR: förskrivarkod",
+      "comment" : "TKB-fält: `../../../personalPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.legitimationCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.legitimationCode",
+      "short" : "legitimationCode",
+      "definition" : "Förskrivarens 7-ställiga förskrivarkod alternativt 6-ställiga legitimationskod. Legitimationskod för förskrivare är annars de 6 första siffrorna i förskrivarkoden.\n\nSe gruppförskrivarkod för villkor.\n\nHSA: Legitimationskod för leg.vårdpersonal (sjuksköterskor) saknas i HSA. Det finns grupplegitimationskoder som kan användas.\n\nyrkeskod\tGruppkod\tyrkeskod klartext\n\nSJ\t971000\tSjuksköterska\n\nAP\t972000\tApotekare\n\nRC\t973000\tReceptarie\n\nRR: legitimationskod",
+      "comment" : "TKB-fält: `../../../legitimationCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.hsaTitleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.hsaTitleCode",
+      "short" : "hsaTitleCode",
+      "definition" : "Yrkeskod som definierar vilken typ av legitimation som användaren innehar.\n\nSe gruppförskrivarkod för villkor.\n\nKontrolleras i receptregistret att personen har angiven yrkeskod.\n\nValideras i AFF\n\nHSA:Legitimerad yrkesgrupp, även kallad hsaTitle innehåller yrkeskoden i klartext. Detta fält (yrkeskod) avser dock motsvarande tvåställiga kod. Se:\"HSA Innehåll Legitimerad Yrkesgrupp\" på se www.inera.se/hsa.\n\nNotera också att samma användare kan inneha flera yrkesgrupper, t.ex. både Läkare och Sjuksköterska.\n\nRR: yrkeskod",
+      "comment" : "TKB-fält: `../../../hsaTitleCode` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.hsaTitle",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.hsaTitle",
+      "short" : "Förskrivarens yrke i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "definition" : "Förskrivarens yrke i klartext.\n\nFylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "comment" : "TKB-fält: `../../../hsaTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.speciallityCodes",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.speciallityCodes",
+      "short" : "Förskrivarens specialiteter i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "definition" : "Förskrivarens specialiteter i klartext.\n\nFylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "comment" : "TKB-fält: `../../../speciallityCodes` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.paTitleCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "Förskrivarens befattningskod.\n\nSe gruppförskrivarkod för villkor.\n\nHSA: befattningskod, även kallat paTitleCode.\n\nNotera också att samma användare kan inneha flera befattningskoder.\n\nRR: befattningskod",
+      "comment" : "TKB-fält: `../../../paTitleCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.givenName",
+      "short" : "Förskrivarens tilltalsnamn.HSA: tilltalsnamn (givenName)RR: förnamn",
+      "definition" : "Förskrivarens tilltalsnamn.\n\nHSA: tilltalsnamn (givenName)\n\nRR: förnamn",
+      "comment" : "TKB-fält: `../../../givenName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.familyName",
+      "short" : "Förskrivarens efternamn.Valideras i AFF HSA: efternamnRR: efternamn",
+      "definition" : "Förskrivarens efternamn.\n\nValideras i AFF\n\nHSA: efternamn\n\nRR: efternamn",
+      "comment" : "TKB-fält: `../../../familyName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork",
+      "short" : "PlaceOfWork",
+      "definition" : "arbetsplats",
+      "comment" : "TKB-fält: `../../../placeOfWork` (`PlaceOfWork`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.unitPrescriptionCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.unitPrescriptionCode",
+      "short" : "unitPrescriptionCode",
+      "definition" : "Förskrivarens arbetsplatskod eller grupparbetsplatskod\n\nUnik kod för identifiering av ordinatörens arbetsplats vid förskrivningstillfället.\n\nArbetsplatskoden anges, hos vissa vårdgivare, för att styra ekonomiska transaktioner vid ordinationer inom förmånen. Det är vårdgivarna som själva hanterar arbetsplatskoderna genom att registrera dem i EHM:s ARKO.\n\nSaknar ordinatören ordinarie arbetsplats anges en grupparbetsplatskod.\n\nObligatorisk parameter om förmån angivits.\n\nValideras i AFF\n\nHSA: arbetsplatskod, även kallat unitPrescriptionCode.\n\nRR: arbetsplatskod",
+      "comment" : "TKB-fält: `../../../../unitPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.careUnitName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.careUnitName",
+      "short" : "careUnitName",
+      "definition" : "Förskrivarens lokalitet (adress 1). Ej gatunummer. Exempelvis: Vårdcentralen Humlan eller Privat, Kirurgi/ortopedi\n\nHSA: enhetsnamn (careUnitName )\n\nRR: arbetsplatsnamn",
+      "comment" : "TKB-fält: `../../../../careUnitName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.city",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.city",
+      "short" : "Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFREDRR: arbetsplatsort",
+      "definition" : "Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFRED\n\nRR: arbetsplatsort",
+      "comment" : "TKB-fält: `../../../../city` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.phoneNumber1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.phoneNumber1",
+      "short" : "Förskrivarens eller vårdcentralens telefonnummer.HSA: direkttelefon RR: telefonnummer1",
+      "definition" : "Förskrivarens eller vårdcentralens telefonnummer.\n\nHSA: direkttelefon\n\nRR: telefonnummer1",
+      "comment" : "TKB-fält: `../../../../phoneNumber1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.phoneNumber2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.phoneNumber2",
+      "short" : "Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.HSA: RR: telefonnummer2",
+      "definition" : "Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.\n\nHSA:\n\nRR: telefonnummer2",
+      "comment" : "TKB-fält: `../../../../phoneNumber2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.postalAdress",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.postalAdress",
+      "short" : "postalAdress",
+      "definition" : "Förskrivarens eller vårdcentralens gatuadress. Exempelvis: Storgatan 14B.\n\nHSA: postadress (postalAddress). Består av flera adressrader, som lämpligen konkateneras med komma som skiljetecken.\n\nRR: postadress",
+      "comment" : "TKB-fält: `../../../../postalAdress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriber.placeOfWork.postalCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriber.placeOfWork.postalCode",
+      "short" : "Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45HSA: postnummer (postalCode)RR: postnummer",
+      "definition" : "Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45\n\nHSA: postnummer (postalCode)\n\nRR: postnummer",
+      "comment" : "TKB-fält: `../../../../postalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation",
+      "short" : "PatientInformation",
+      "definition" : "I första hand ska svenskt personnummer användas.\n\nVid Expedieringsunderlag för helförpackning gäller dessutom:\n\nOm samordningsnummer finns kan detta användas tillsammans med födelsetid.\n\nExpedieringsunderlag kan skapas även om både personnummer och samordningsnummer saknas, men då krävs att  födelsetid och kön anges.",
+      "comment" : "TKB-fält: `../../patientInformation` (`PatientInformation`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.patientId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.patientId",
+      "short" : "patientId",
+      "definition" : "Patientens personnummer eller samordningsnummer (fylls i från argument i tjänsteanropet)\n\nEndast om det är känt.\n\nPU: personid\n\nRR: personnummer",
+      "comment" : "TKB-fält: `../../../patientId` (`Identifier`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.givenName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.givenName",
+      "short" : "givenName",
+      "definition" : "Patientens förnamn.\n\nPU: förnamn. Alla förnamn med mellanslag emellan. Tilltalsnamnsmarkering anger vilket som används som tilltalsnamn.\n\nRR: förnamn",
+      "comment" : "TKB-fält: `../../../givenName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.familyName",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.familyName",
+      "short" : "Patientens efternamn.PU: efternamn RR: efternamn",
+      "definition" : "Patientens efternamn.\n\nPU: efternamn\n\nRR: efternamn",
+      "comment" : "TKB-fält: `../../../familyName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.dateOfBirth",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Födelsedatum (8 siffror).\n\nAnges för patient som saknar giltigt personnummer.\n\nObligatoriskt att ange antingen personnummer eller födelsedatum på expedieringsunderlag.\n\nPU: födelsetid\n\nRR: födelsedatum",
+      "comment" : "TKB-fält: `../../../dateOfBirth` (`date`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.gender",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.gender",
+      "short" : "Patientens kön.Obligatorisk parameter om Personnummer saknas. {Male, Female, Unspecified}PU: könRR: kön",
+      "definition" : "Patientens kön.\n\nObligatorisk parameter om Personnummer saknas.\n\n{Male, Female, Unspecified}\n\nPU: kön\n\nRR: kön",
+      "comment" : "TKB-fält: `../../../gender` (`GenderEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.deliveryAdress1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.deliveryAdress1",
+      "short" : "Patientens gatuadress 1.PU: utdelningsadress1RR: adress1",
+      "definition" : "Patientens gatuadress 1.\n\nPU: utdelningsadress1\n\nRR: adress1",
+      "comment" : "TKB-fält: `../../../deliveryAdress1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.deliveryAdress2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.deliveryAdress2",
+      "short" : "Patientens adress 2.PU: utdelningsadress2RR: adress2",
+      "definition" : "Patientens adress 2.\n\nPU: utdelningsadress2\n\nRR: adress2",
+      "comment" : "TKB-fält: `../../../deliveryAdress2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.postalCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.postalCode",
+      "short" : "Patientens postnummer.PU: postnrRR: postnummer",
+      "definition" : "Patientens postnummer.\n\nPU: postnr\n\nRR: postnummer",
+      "comment" : "TKB-fält: `../../../postalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.city",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.city",
+      "short" : "Patientens postort.PU: postortRR: postort",
+      "definition" : "Patientens postort.\n\nPU: postort\n\nRR: postort",
+      "comment" : "TKB-fält: `../../../city` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.phoneNumber1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.phoneNumber1",
+      "short" : "Patientens telefonnummer 1.PU: saknasRR: telefonnummer1",
+      "definition" : "Patientens telefonnummer 1.\n\nPU: saknas\n\nRR: telefonnummer1",
+      "comment" : "TKB-fält: `../../../phoneNumber1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.patientInformation.phoneNumber2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.patientInformation.phoneNumber2",
+      "short" : "Patientens telefonnummer 2.PU: saknasRR: telefonnummer2",
+      "definition" : "Patientens telefonnummer 2.\n\nPU: saknas\n\nRR: telefonnummer2",
+      "comment" : "TKB-fält: `../../../phoneNumber2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriptionWriteTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriptionWriteTime",
+      "short" : "prescriptionWriteTime",
+      "definition" : "(f.d. Ordinationstidpunkt)\n\nTidpunkt då Expedieringsunderlaget skapas (vårdsystemets tid).\n\nNär ett Expedieringsunderlag återskapas baserat på en befintlig förskrivning ska den ursprungliga tiden för förskrivning anges (i möjligaste mån).",
+      "comment" : "TKB-fält: `../../prescriptionWriteTime` (`dateTime`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.prescriberComment",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.prescriberComment",
+      "short" : "prescriberComment",
+      "definition" : "Förskrivarens kommentar till farmaceut.\n\nKommentaren skrivs ut på receptblanketten om e-receptet omvandlas till ett pappersrecept (dvs. skrivs ut på en receptblankett på apoteket)",
+      "comment" : "TKB-fält: `../../prescriberComment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.receivingPharmacy",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.receivingPharmacy",
+      "short" : "receivingPharmacy",
+      "definition" : "Apoteks-id (s.k. GLN-kod) om förskrivningen är direktadresserad.\n\nMottagande apotek ska anges vid förskrivning av läkemedel typ 3 (narkotika osv). F.o.m. 2015-03-01 är detta dock inte nödvändigt vid iteration.\n\nValideras i AFF",
+      "comment" : "TKB-fält: `../../receivingPharmacy` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.deliveryMessage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.deliveryMessage",
+      "short" : "Leveransinformation om ordinationen skickas till ett ombud",
+      "definition" : "Leveransinformation om ordinationen skickas till ett ombud",
+      "comment" : "TKB-fält: `../../deliveryMessage` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.treatmentEndTime",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.treatmentEndTime",
+      "short" : "treatmentEndTime",
+      "definition" : "Datum och tid när patienten skall avsluta intag.\n\nFältet är endast relevant för dospatienter. Efter detta datum så får expedieringsunderlaget status UTSATT och går inte längre att expediera (helförpackning) eller produceras inte i påse (dosdispenserat).\n\nMappas från Läkemedelsordination.utsättningstidpunkt",
+      "comment" : "TKB-fält: `../../treatmentEndTime` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.NPLPackid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.NPLPackid",
+      "short" : "NPLPackid",
+      "definition" : "NPL Pack-id alternativt SB Pack-id som identifierar läkemedelsartikel.\n\nObligatorisk parameter om Varunr saknas. Om artikeln är ett läkemedel måste NPL Pack-id anges.\n\nValideras i AFF.\n\nOm en Läkemedelsartikel angivits i Läkemedelsordination.ordinerat läkemedel måste attributvärdet överensstämma med dess NPL Pack.id.\n\nMappas (vid Läkemedelsartikel) från Läkemedelsordination.ordinerat läkemedel.NPL Pack.id",
+      "comment" : "TKB-fält: `../../NPLPackid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.NPLid",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.NPLid",
+      "short" : "NPLid",
+      "definition" : "NPL-id alternativt SB-id som identifierar produkt.\n\nObligatorisk parameter om Varunr saknas. Om artikeln är ett läkemedel måste NPL-id.\n\nValideras i AFF.\n\nOm en Läkemedelsprodukt angivits i Läkemedelsordination.ordinerat läkemedel måste attributvärdet överensstämma dess NPL-id.\n\nMappas (vid Läkemedelsprodukt) från Läkemedelsordination.ordinerat läkemedel.NPL-id",
+      "comment" : "TKB-fält: `../../NPLid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.articleId",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.articleId",
+      "short" : "articleId",
+      "definition" : "Identitet på förskrivet livsmedel eller handelsvara.\n\nObligatorisk parameter om NPL-id och NPL pack-id saknas.\n\nOm artikeln är ett läkemedel får inte varunr anges. Valideras i AFF.\n\nMappas (vid Handelsvara) från Läkemedelsordination.ordinerat läkemedel.varunr",
+      "comment" : "TKB-fält: `../../articleId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.dosageText1",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.dosageText1",
+      "short" : "dosageText1",
+      "definition" : "Instruktion till patienten. Skrivs ut på Mina sparade recept, doseringsetikett och vid utskrift av elektroniskt recept.\n\nMappas från a) text som genereras baserat på Läkemedelsordination.dosering +b)  Läkemedelsordination.användning.",
+      "comment" : "TKB-fält: `../../dosageText1` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.dosageText2",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.dosageText2",
+      "short" : "dosageText2",
+      "definition" : "Kompletterande doseringstext till patienten\n\nMappas från endera av\n\nLicensläkemedel.produktnamn/styrka/läkemedelsform/licensinformation\n\neller\n\nEx tempore. beskrivning",
+      "comment" : "TKB-fält: `../../dosageText2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.languageCode",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.languageCode",
+      "short" : "Främmande språk för doseringstext enligt ISO-639-1",
+      "definition" : "Främmande språk för doseringstext enligt ISO-639-1",
+      "comment" : "TKB-fält: `../../languageCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.pupose",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.pupose",
+      "short" : "(Ändamål klartext)Mappas från Läkemedelsordination.behandlingsändamål",
+      "definition" : "(Ändamål klartext)\n\nMappas från Läkemedelsordination.behandlingsändamål",
+      "comment" : "TKB-fält: `../../pupose` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.reimbursed",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.reimbursed",
+      "short" : "Förskrivaren uppgift om ordinationen ska innefattas i förmånen.Falskt = Utan förmånSant =Med förmånValideras i AFF",
+      "definition" : "Förskrivaren uppgift om ordinationen ska innefattas i förmånen.\n\nFalskt = Utan förmån\n\nSant =Med förmån\n\nValideras i AFF",
+      "comment" : "TKB-fält: `../../reimbursed` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.validUntil",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.validUntil",
+      "short" : "validUntil",
+      "definition" : "Expedieringsunderlagets sista giltighetsdag. Detta får inte överskrida förskrivningstidpunkt + 1 år och en dag.\n\nPatienten med en läkemedelsordination med utsättningstid bortom sista giltighetsdag kommer då att behöva ett nytt expedieringsunderlag för att hämta ut medicinen.\n\nValideras i AFF",
+      "comment" : "TKB-fält: `../../validUntil` (`date`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.substitutionNotAllowed",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.substitutionNotAllowed",
+      "short" : "substitutionNotAllowed",
+      "definition" : "Markering om ordinerad vara ej får bytas ut vid expediering\n\nEndast tillämpligt vid ordination av Läkemedelsartikel.\n\nFalskt = Får ersättas\n\nSant = Får ej ersättas\n\nSätts av förskrivare.\n\nFylls i av NOD baserat på Läkemedelsartikel.ej tillåten substitution",
+      "comment" : "TKB-fält: `../../substitutionNotAllowed` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.startPackage",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.startPackage",
+      "short" : "Markering om startförpackning ska expedieras vid första uttag",
+      "definition" : "Markering om startförpackning ska expedieras vid första uttag",
+      "comment" : "TKB-fält: `../../startPackage` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.firstDispenseBefore",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.firstDispenseBefore",
+      "short" : "Datum inom vilken första uttag av läkemedel måste göras.",
+      "definition" : "Datum inom vilken första uttag av läkemedel måste göras.",
+      "comment" : "TKB-fält: `../../firstDispenseBefore` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.dispenseInterval",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.dispenseInterval",
+      "short" : "dispenseInterval",
+      "definition" : "Absolut expedieringsintervall. Av förskrivaren angiven kortaste tid mellan två expedieringar.\n\nEndast dagar används då expedieringsintervall sätts via NOD.",
+      "comment" : "TKB-fält: `../../dispenseInterval` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.intervalUnit",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.intervalUnit",
+      "short" : "intervalUnit",
+      "definition" : "Enhet för det absoluta expedieringsintervallet. Kan anges i dagar, veckor eller månader.\n\nSätts till dagar då expedieringsintervall sätts via NOD.",
+      "comment" : "TKB-fält: `../../intervalUnit` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.numberOfDispenses",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.numberOfDispenses",
+      "short" : "Förskrivet antal uttagValideras i RR att värde är > 0",
+      "definition" : "Förskrivet antal uttag\n\nValideras i RR att värde är > 0",
+      "comment" : "TKB-fält: `../../numberOfDispenses` (`int`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.numberOfPackages",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.numberOfPackages",
+      "short" : "Antal förpackningar som ska expedieras per uttag Valideras i RR att värde är > 0",
+      "definition" : "Antal förpackningar som ska expedieras per uttag\n\nValideras i RR att värde är > 0",
+      "comment" : "TKB-fält: `../../numberOfPackages` (`int`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage-attr.EPrescription",
+      "path" : "registermedicationprescription.medicationPrescriptionList.medicationDispenseAuthorization.MedicationDispenseAuthorizationForPackage_attr.EPrescription",
+      "short" : "Anger om expedieringsunderlaget ska hanteras elektroniskt (till skillnad från skrivas ut på papper)",
+      "definition" : "Anger om expedieringsunderlaget ska hanteras elektroniskt (till skillnad från skrivas ut på papper)",
+      "comment" : "TKB-fält: `../../EPrescription` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.result",
+      "path" : "registermedicationprescription.result",
+      "short" : "ResultType",
+      "definition" : "Innehåller information om begäran gick bra eller ej.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.result.resultCode",
+      "path" : "registermedicationprescription.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.result.errorCode",
+      "path" : "registermedicationprescription.result.errorCode",
+      "short" : "errorCode",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.result.subcode",
+      "path" : "registermedicationprescription.result.subcode",
+      "short" : "subcode",
+      "definition" : "Inga subkoder är specificerade.",
+      "comment" : "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.result.logId",
+      "path" : "registermedicationprescription.result.logId",
+      "short" : "logId",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registermedicationprescription.result.message",
+      "path" : "registermedicationprescription.result.message",
+      "short" : "message",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

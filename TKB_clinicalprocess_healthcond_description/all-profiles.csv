@@ -1,0 +1,715 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"DatePeriodType","DatePeriodType","DatePeriodType","","","",0,*,"","","","null {[]} {[]}
+","DatePeriodType","DatePeriodType enligt domänens schema: den gemensamma RIV-TA-typen DatePeriodType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"DatePeriodType","DatePeriodType.start","DatePeriodType.start","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","start","Startdatum (ÅÅÅÅMMDD). Typ i schemat: DateType.","","","","","","","","","",,,,,"",,,,"DatePeriodType.start",0,1,"",""
+"DatePeriodType","DatePeriodType.end","DatePeriodType.end","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","end","Slutdatum (ÅÅÅÅMMDD). Typ i schemat: DateType.","","","","","","","","","",,,,,"",,,,"DatePeriodType.end",0,1,"",""
+"getalertinformation-request","getalertinformation-request","getalertinformation-request","","","",0,*,"","","","null {[]} {[]}
+","GetAlertInformation — Request","Logisk modell för requestparametrar i GetAlertInformation
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetAlertInformationResponder:2).
+Söker uppmärksamhetsinformation för en patient med valfri filtrering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getalertinformation-request","getalertinformation-request.careUnitHSAId","getalertinformation-request.careUnitHSAId","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","careUnitHSAId","Filtrering på vårdenhet vilket motsvarar careUnitHSAId i HealthcareProfessionalType.","TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalertinformation-request.careUnitHSAId",0,*,"",""
+"getalertinformation-request","getalertinformation-request.patientId","getalertinformation-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
+
+Fältet type sätts till OID för typ av identifierare.
+
+1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas, [R14].
+
+2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas, [R14].
+
+3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].
+
+OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.
+
+En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent.","TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation-request.patientId",1,1,"",""
+"getalertinformation-request","getalertinformation-request.timePeriod","getalertinformation-request.timePeriod","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/DatePeriodType {[]} {[]}
+","timePeriod","Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som startar vid validityTimePeriod.start och slutar vid obsoleteTime eller validityTimePeriod.end om någon av dessa är satta, annars tills vidare, helt eller delvis överlappar med det angivna sökintervallet, dvs.
+
+det bildade intervallets startdatum ligger inom sökintervallets start- och slutdatum
+
+det bildade intervallets slutdatum ligger inom sökintervallets start- och slutdatum
+
+det bildade intervallets startdatum ligger före sökintervallets startdatum och slutdatum ligger efter sökintervallets slutdatum
+
+Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.","TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation-request.timePeriod",0,1,"",""
+"getalertinformation-request","getalertinformation-request.sourceSystemHSAId","getalertinformation-request.sourceSystemHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.
+
+Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
+
+Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.
+
+Ska anges om careContactId angivits.
+
+Ska anges vid begäran på reservnummer.
+
+Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
+
+Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST.","TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation-request.sourceSystemHSAId",0,1,"",""
+"getalertinformation-request","getalertinformation-request.careContactId","getalertinformation-request.careContactId","","","",0,*,"","","","string {[]} {[]}
+","careContactId","Begränsar sökningen till den uppmärksamhetsinformation som dokumenterades vid hälso- och sjukvårds kontakt.","TKB-fält: `careContactId` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalertinformation-request.careContactId",0,*,"",""
+"getalertinformation","getalertinformation","getalertinformation","","","",0,*,"","","","null {[]} {[]}
+","GetAlertInformation","Logisk modell för tjänstekontraktet GetAlertInformation
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetAlertInformationResponder:2).
+Representerar responsens informationsstruktur: uppmärksamhetsinformation för en patient,
+exempelvis överkänslighet mot läkemedel, allvarlig sjukdom eller vårdbegränsningar.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getalertinformation","getalertinformation.alertInformation","getalertinformation.alertInformation","","","",0,*,"","","","Base {[]} {[]}
+","AlertInformationType","Den uppmärksamhetsinformation som matchar begäran.","TKB-fält: `alertInformation` (`AlertInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation",0,*,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader","getalertinformation.alertInformation.alertInformationHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../alertInformationHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.documentId","getalertinformation.alertInformation.alertInformationHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Dokumentets identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.documentId",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.sourceSystemHSAId","getalertinformation.alertInformation.alertInformationHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSA-id för det system tillgängliggör informationen.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.sourceSystemHSAId",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.documentTitle","getalertinformation.alertInformation.alertInformationHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","N/A","TKB-fält: `../../documentTitle` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.documentTitle",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.documentTime","getalertinformation.alertInformation.alertInformationHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","N/A","TKB-fält: `../../documentTime` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.documentTime",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.patientId","getalertinformation.alertInformation.alertInformationHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Identifierare för patient.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.patientId",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional","getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Information om den hälso- och sjukvårdsperson som verifierat informationen i dokumentet.","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional",1,1,"","getalertinformation-pdl-careunit-caregiver:Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring. {healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()}
+"
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Information om vem som signerat informationen i dokumentet.","TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.signatureTime","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.signatureTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","signatureTime","Tidpunkt för signering.","TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.signatureTime",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorHSAId","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","legalAuthenticatorHSAId","HSA-id för person som signerat dokumentet","TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorName","getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","legalAuthenticatorName","Namnen i klartext för signerande person.","TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.approvedForPatient","getalertinformation.alertInformation.alertInformationHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.approvedForPatient",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.careContactId","getalertinformation.alertInformation.alertInformationHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Identitetet för den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet","TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.careContactId",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.nullified","getalertinformation.alertInformation.alertInformationHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","N/A","TKB-fält: `../../nullified` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.nullified",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationHeader.nullifiedReason","getalertinformation.alertInformation.alertInformationHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","N/A","TKB-fält: `../../nullifiedReason` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationHeader.nullifiedReason",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody","getalertinformation.alertInformation.alertInformationBody","","","",1,1,"","","","Base {[]} {[]}
+","AlertInformationBodyType","alertInformationBody","TKB-fält: `../alertInformationBody` (`AlertInformation / BodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.typeOfAlertInformation","getalertinformation.alertInformation.alertInformationBody.typeOfAlertInformation","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","typeOfAlertInformation","Kod som anger vilken typ av uppmärksamhetssignal som avses.
+
+Använd t.ex.  KV Uppmärksamhetstyp eller KV Informationstyp.
+
+Se regel 2","TKB-fält: `../../typeOfAlertInformation` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.typeOfAlertInformation",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.ascertainedDate","getalertinformation.alertInformation.alertInformationBody.ascertainedDate","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","ascertainedDate","Datum då förhållandet som föranledde uppmärksamhetssignalen konstaterades. Om inget specifikt datum för detta finns i källsystemet används
+
+samma tid som starttiden i attributet giltighetstid.","TKB-fält: `../../ascertainedDate` (`DateType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.ascertainedDate",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.verifiedTime","getalertinformation.alertInformation.alertInformationBody.verifiedTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","verifiedTime","Den tidpunkt då uppmärksamhetssignalen verifierades i det lokala systemet","TKB-fält: `../../verifiedTime` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.verifiedTime",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.validityTimePeriod","getalertinformation.alertInformation.alertInformationBody.validityTimePeriod","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","validityTimePeriod","Tidsintervallet inom vilket uppmärksamhetssignalen är giltig. Sluttidpunkt kan vara aktuellt att ange då man i förväg bedömer att uppmärksamhetssignalen har en sluttidpunkt (t.ex. för behandlingar).","TKB-fält: `../../validityTimePeriod` (`TimePeriodType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.validityTimePeriod",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.alertInformationComment","getalertinformation.alertInformation.alertInformationBody.alertInformationComment","","","",0,1,"","","","string {[]} {[]}
+","alertInformationComment","Text som innehåller en kommentar av den ansvarige hälso- och sjukvårdspersonalen angående uppmärksamhetssignalen. Vid läkemedelsöverkänslighet kan kommentaren avse en anamnes,
+
+en beskrivning av den observerade reaktionen, en beskrivning av möjliga agens, föreliggande undersökningsresultat.","TKB-fält: `../../alertInformationComment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.alertInformationComment",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.obsoleteTime","getalertinformation.alertInformation.alertInformationBody.obsoleteTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","obsoleteTime","Tidpunkt då uppmärksamhetssignalen registrerades som inaktuell i det lokala systemet. Används exempelvis om det uppmärksammade förhållandet bedöms som inte längre aktuellt trots att tidigare angiven gilitighetstid ej gått ut.","TKB-fält: `../../obsoleteTime` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.obsoleteTime",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.obsoleteComment","getalertinformation.alertInformation.alertInformationBody.obsoleteComment","","","",0,1,"","","","string {[]} {[]}
+","obsoleteComment","Text som innehåller information om varför uppmärksamhetssignalen gjorts inaktuell.","TKB-fält: `../../obsoleteComment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.obsoleteComment",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity","getalertinformation.alertInformation.alertInformationBody.hypersensitivity","","","",0,1,"","","","Base {[]} {[]}
+","HyperSensitivityType","En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges.","TKB-fält: `../../hypersensitivity` (`HyperSensitivityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.typeOfHypersensitivity","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.typeOfHypersensitivity","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","typeOfHypersensitivity","Kod som anger en precisering av vilken typ av överkänslighet som uppmärksamhetssignalen avser. Koden bör hämtas ur ICD10/SNOMED, [R13].
+
+Exempel:
+
+Läkemedelsöverkänslighet
+
+Överkänslighet avs. födoämne
+
+Överkänslighet avs. djur
+
+Överkänslighet avs. växt
+
+Överkänslighet av kemikalie","TKB-fält: `../../../typeOfHypersensitivity` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.typeOfHypersensitivity",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.degreeOfSeverity","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.degreeOfSeverity","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","degreeOfSeverity","Kod som anger bedömning av överkänslighetens allvarlighet.
+
+KV Allvarlighetsgrad (1.2.752.129.2.2.3.3), [R13]","TKB-fält: `../../../degreeOfSeverity` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.degreeOfSeverity",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.degreeOfCertainty","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.degreeOfCertainty","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","degreeOfCertainty","Kod som innehåller en uppgift om med vilken visshet överkänsligheten är precis så som den har angivits.
+
+KV Visshetsgrad (1.2.752.129.2.2.3.11)","TKB-fält: `../../../degreeOfCertainty` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.degreeOfCertainty",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity","","","",0,1,"","","","Base {[]} {[]}
+","PharmaceuticalHypersensitivityType","Mer detaljerad information om läkemedelsöverkänslighet.","TKB-fält: `../../../pharmaceuticalHypersensitivity` (`PharmaceuticalHypersensitivityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.atcSubstance","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.atcSubstance","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","atcSubstance","Kod och klartext som anger den substans, eller grupp av substanser, som kan förorsaka en överkänslighetsreaktion. ATC-kod på minst treställig nivå ska anges för en läkemedelsöverkänslighet med en allvarlighetsgrad livshotande eller skadande, [R13].
+
+Om en ATC-kod ej kan anges ska attributen nonAtcSubstance
+
+och nonATCSubstanceComment
+
+användas.","TKB-fält: `../../../../atcSubstance` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.atcSubstance",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.nonATCSubstance","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.nonATCSubstance","","","",0,1,"","","","string {[]} {[]}
+","nonATCSubstance","Text som anger benämning på aktiv substans som kan förorsaka en överkänslighetsreaktion.
+
+Ska anges om attributet atcSubstance saknas.","TKB-fält: `../../../../nonATCSubstance` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.nonATCSubstance",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.nonATCSubstanceComment","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.nonATCSubstanceComment","","","",0,1,"","","","string {[]} {[]}
+","nonATCSubstanceComment","Text som innehåller en förklaring till varför ej ATC-kod används.
+
+Ska anges om attributet atcSubstance saknas.","TKB-fält: `../../../../nonATCSubstanceComment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.nonATCSubstanceComment",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.pharmaceuticalProductId","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.pharmaceuticalProductId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","pharmaceuticalProductId","Identifierare för aktuell läkemedelsprodukt som kan orsaka överkänslighet.
+
+NPL-id (1.2.752.129.2.1.5.1).","TKB-fält: `../../../../pharmaceuticalProductId` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.pharmaceuticalHypersensitivity.pharmaceuticalProductId",0,*,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity","","","",0,1,"","","","Base {[]} {[]}
+","OtherHypersensitivityType","Mer detaljerad information om överkänsligheten. Kan användas för annan överkänslighet än läkemedelsöverkänslighet.","TKB-fält: `../../../otherHypersensitivity` (`OtherHypersensitivityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity.hypersensitivityAgent","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity.hypersensitivityAgent","","","",0,1,"","","","string {[]} {[]}
+","hypersensitivityAgent","Text som beskriver det agens som bedöms kunna orsaka en överkänslighetsreaktion.
+
+Bör anges.","TKB-fält: `../../../../hypersensitivityAgent` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity.hypersensitivityAgent",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity.hypersensitivityAgentCode","getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity.hypersensitivityAgentCode","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","hypersensitivityAgentCode","Text som anger den kod som beskriver det agens som bedöms kunna orsaka en överkänslighetsreaktion. Exempelvis kan LMK-kod för överkänslighet födoämne eller CAS-kod för överkänslighet kemikalie användas. Kan användas för annan överkänslighet än läkemedelsöverkänslighet.","TKB-fält: `../../../../hypersensitivityAgentCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.hypersensitivity.otherHypersensitivity.hypersensitivityAgentCode",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.seriousDisease","getalertinformation.alertInformation.alertInformationBody.seriousDisease","","","",0,1,"","","","Base {[]} {[]}
+","SeriousDiseaseType","En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges.","TKB-fält: `../../seriousDisease` (`SeriousDiseaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.seriousDisease",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.seriousDisease.disease","getalertinformation.alertInformation.alertInformationBody.seriousDisease.disease","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","disease","Kod som beskriver en allvarlig sjukdom som hälso- och sjukvårdstagaren har och som en hälso- och sjukvårdspersonen vill göra andra uppmärksammade på (avsaknad av kunskap om att hälso- och sjukvårdstagaren har denna sjukdom skulle kunna innebära ett allvarligt hot för liv eller hälsa för hälso- och sjukvårdstagaren). Bör anges enligt ICD10/SNOMED, [R13].","TKB-fält: `../../../disease` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.seriousDisease.disease",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.treatment","getalertinformation.alertInformation.alertInformationBody.treatment","","","",0,1,"","","","Base {[]} {[]}
+","TreatmentType","En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges (den som motsvarar uppmärksamhetstyp (typeOfAlertInformation)).","TKB-fält: `../../treatment` (`TreatmentType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.treatment",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.treatment.treatmentDescription","getalertinformation.alertInformation.alertInformationBody.treatment.treatmentDescription","","","",1,1,"","","","string {[]} {[]}
+","treatmentDescription","Text som beskriver en allvarlig behandling som hälso- och sjukvårdstagaren genomgår och som en hälso- och sjukvårdspersonal vill göra andra uppmärksammade på (avsaknad av kunskap om att hälso- och sjukvårdstagaren har denna behandling skulle kunna innebära ett allvarligt hot för liv eller hälsa för hälso- och sjukvårdstagaren).","TKB-fält: `../../../treatmentDescription` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.treatment.treatmentDescription",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.treatment.treatmentCode","getalertinformation.alertInformation.alertInformationBody.treatment.treatmentCode","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","treatmentCode","En preciserad uppgift om behandlingen. Bör anges med KVÅ-kod (1.2.752.116.1.3.2.1.4)","TKB-fält: `../../../treatmentCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.treatment.treatmentCode",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.treatment.pharmaceuticalTreatment","getalertinformation.alertInformation.alertInformationBody.treatment.pharmaceuticalTreatment","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","pharmaceuticalTreatment","Kod och klartext som anger uppgift om den eller de läkemedel som används vid en uppmärksammad behandling.
+
+ATC-kod (1.2.752.129.2.2.3.1.1), [R13].","TKB-fält: `../../../pharmaceuticalTreatment` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.treatment.pharmaceuticalTreatment",0,*,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.communicableDisease","getalertinformation.alertInformation.alertInformationBody.communicableDisease","","","",0,1,"","","","Base {[]} {[]}
+","CommunicableDiseaseType","En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges (den som motsvarar uppmärksamhetstyp (typeOfAlertInformation)).","TKB-fält: `../../communicableDisease` (`CommunicableDiseaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.communicableDisease",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.communicableDisease.communicableDiseaseCode","getalertinformation.alertInformation.alertInformationBody.communicableDisease.communicableDiseaseCode","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","communicableDiseaseCode","Kod. Om code anges måste också codeSystem och displayName också anges.","TKB-fält: `../../../../code` (`string`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.communicableDisease.communicableDiseaseCode",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.communicableDisease.routeOfTransmission","getalertinformation.alertInformation.alertInformationBody.communicableDisease.routeOfTransmission","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","routeOfTransmission","Kod som anger hur den uppmärksammade sjukdomen smittar. Obligatorisk uppgift om det styrs av författning. KV Smittväg.","TKB-fält: `../../../routeOfTransmission` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.communicableDisease.routeOfTransmission",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.restrictionOfCare","getalertinformation.alertInformation.alertInformationBody.restrictionOfCare","","","",0,1,"","","","Base {[]} {[]}
+","RestrictionOfCareType","En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges (den som motsvarar uppmärksamhetstyp (typeOfAlertInformation)). Denna klass skiljer sig sig något från motsvarigheten i Varning2-infospec.","TKB-fält: `../../restrictionOfCare` (`RestrictionOfCareType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.restrictionOfCare",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.restrictionOfCare.restrictionOfCareComment","getalertinformation.alertInformation.alertInformationBody.restrictionOfCare.restrictionOfCareComment","","","",1,1,"","","","string {[]} {[]}
+","restrictionOfCareComment","Text som innehåller information om ett uppmärskammat förhållande som inte avser överkänslighet, annat medicinskt tillstånd, behandling eller arbetsmiljörisk.","TKB-fält: `../../../restrictionOfCareComment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.restrictionOfCare.restrictionOfCareComment",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation","getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation","","","",0,1,"","","","Base {[]} {[]}
+","UnstructuredAlertInformationType","En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges (den som motsvarar uppmärksamhetstyp (typeOfAlertInformation)).","TKB-fält: `../../unstructuredAlertInformation` (`UnstructuredAlertInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation.unstructuredAlertInformationHeading","getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation.unstructuredAlertInformationHeading","","","",1,1,"","","","string {[]} {[]}
+","unstructuredAlertInformationHeading","Text som innehåller en beskrivande rubrik för en tidigare utfärdad varning. Ska anges om typ av uppmärksamhetssignal = historisk varning. Avser tidigare varningsinformation i systemet vilken inte har preciserats enligt NPÖ-strukturen.","TKB-fält: `../../../unstructuredAlertInformationHeading` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation.unstructuredAlertInformationHeading",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation.unstructuredAlertInformationContent","getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation.unstructuredAlertInformationContent","","","",1,1,"","","","string {[]} {[]}
+","unstructuredAlertInformationContent","Text som beskriver vad varningen gäller, samt viss administrativ information. Ska anges om typ av uppmärksamhetssignal = historisk varning. Avser tidigare varningsinformation i systemet vilken inte har preciserats enligt NPÖ-strukturen.","TKB-fält: `../../../unstructuredAlertInformationContent` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.unstructuredAlertInformation.unstructuredAlertInformationContent",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation","","","",0,*,"","","","Base {[]} {[]}
+","RelatedAlertInformationType","Information om samband uppmärksamhetssignal","TKB-fält: `../../relatedAlertInformation` (`RelatedAlertInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation",0,*,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.typeOfAlertInformationRelationship","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.typeOfAlertInformationRelationship","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","typeOfAlertInformationRelationship","Text som anger vilken typ av samband som avses. KV Samband (1.2.752.129.2.2.2.4), [R13].","TKB-fält: `../../../typeOfAlertInformationRelationship` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.typeOfAlertInformationRelationship",1,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.relationComment","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.relationComment","","","",0,1,"","","","string {[]} {[]}
+","relationComment","Text som innehåller en kommentar till det aktuella sambandet","TKB-fält: `../../../relationComment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.relationComment",0,1,"",""
+"getalertinformation","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.documentId","getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.documentId","","","",1,*,"","","","string {[]} {[]}
+","documentId","Lokalt unik identitet för relaterad uppmärksamhetssignal","TKB-fält: `../../../documentId` (`string`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getalertinformation.alertInformation.alertInformationBody.relatedAlertInformation.documentId",1,*,"",""
+"getalertinformation","getalertinformation.result","getalertinformation.result","","","",0,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getalertinformation.result",0,1,"",""
+"getalertinformation","getalertinformation.result.resultCode","getalertinformation.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.result.resultCode",1,1,"",""
+"getalertinformation","getalertinformation.result.errorCode","getalertinformation.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getalertinformation.result.errorCode",0,1,"",""
+"getalertinformation","getalertinformation.result.logId","getalertinformation.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalertinformation.result.logId",1,1,"",""
+"getalertinformation","getalertinformation.result.subCode","getalertinformation.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.result.subCode",0,1,"",""
+"getalertinformation","getalertinformation.result.message","getalertinformation.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getalertinformation.result.message",0,1,"",""
+"getcaredocumentation-request","getcaredocumentation-request","getcaredocumentation-request","","","",0,*,"","","","null {[]} {[]}
+","GetCareDocumentation — Request","Logisk modell för requestparametrar i GetCareDocumentation
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).
+Söker journalanteckningar för en patient med valfri filtrering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcaredocumentation-request","getcaredocumentation-request.careUnit","getcaredocumentation-request.careUnit","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careUnit","Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret.
+
+root sätts till OID(1.2.752.129.2.1.4.1) för HSA
+
+extension sätts till HSA-id på vårdenhet.","TKB-fält: `careUnit` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.careUnit",0,*,"",""
+"getcaredocumentation-request","getcaredocumentation-request.healthcareProvider","getcaredocumentation-request.healthcareProvider","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","healthcareProvider","Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider i svaret.
+
+root sätts till OID (1.2.752.129.2.1.4.1) för HSA
+
+extension sätts till HSA-id på vårdgivare.","TKB-fält: `healthcareProvider` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.healthcareProvider",0,*,"",""
+"getcaredocumentation-request","getcaredocumentation-request.patientId","getcaredocumentation-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare.
+
+Tjänsteproducenten ska i svaret leverera all information om patienten på en begäran riktad mot någon av patientens identitetsbeteckningar, dvs. även information som har registrerats på andra till patienten kopplade identitetsbeteckningar (personnummer, samordningsnummer eller lokala reservnummer).
+
+Fältet root sätts till OID för typ av identifierare.
+
+1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+3) Tjänsteproducenter ska även stödja sökning på lokal reservidentitet med hjälp av att ange lokalt definierade OID:ar för lokal reservidentitet, exempelvis SLL:s lokal reservidentitet (1.2.752.97.3.1.3).
+
+OBS lokal reservidentitet kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för lokal reservidentitet.
+
+En tjänstekonsument som vill begära mha. lokal reservidentitet måste därmed använda sig av systemadressering och ha vetskap om vilken OID för den specifika lokala reservidentitet som gäller vid anrop mot en specifik tjänsteproducent.","TKB-fält: `patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.patientId",1,1,"",""
+"getcaredocumentation-request","getcaredocumentation-request.datePeriod","getcaredocumentation-request.datePeriod","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/DatePeriodType {[]} {[]}
+","datePeriod","Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna record.timestamp, author.timestamp, signature.timestamp i headern eller dissentingOpinion.authorTime i svaret ligger inom sökintervallets start- och slutdatum.
+
+Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.","TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.datePeriod",0,1,"",""
+"getcaredocumentation-request","getcaredocumentation-request.sourceSystemId","getcaredocumentation-request.sourceSystemId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","sourceSystemId","Begränsar sökningen till anteckningar som är skapade i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
+
+Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id.
+
+Se även regel sourceSystemId.","TKB-fält: `sourceSystemId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.sourceSystemId",0,1,"",""
+"getcaredocumentation-request","getcaredocumentation-request.hasMoreReference","getcaredocumentation-request.hasMoreReference","","","",0,1,"","","","string {[]} {[]}
+","hasMoreReference","Kan anges av tjänstekonsument när man tidigare fått ett hasMore-svar från tjänsteproducent att det finns ytterligare information att hämta.
+
+Se även regel hasMoreReference.","TKB-fält: `hasMoreReference` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.hasMoreReference",0,1,"",""
+"getcaredocumentation","getcaredocumentation","getcaredocumentation","","","",0,*,"","","","null {[]} {[]}
+","GetCareDocumentation","Logisk modell för tjänstekontraktet GetCareDocumentation
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).
+Representerar responsens informationsstruktur: journalanteckningar för en patient.
+Anteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning,
+slutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.
+Meddelandeformatet är kompatibelt med HL7 v3 CDA v2.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation","getcaredocumentation.careDocumentation","","","",0,*,"","","","Base {[]} {[]}
+","CareDocumentationType","De anteckningar som matchar begäran.","TKB-fält: `careDocumentation` (`CareDocumentationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation",0,*,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header","getcaredocumentation.careDocumentation.header","","","",1,1,"","","","Base {[]} {[]}
+","HeaderType","JoL-header.
+
+Innehåller metainformation som är gemensam för patientjournalinformation, exempelvis uppgift om vilken hälso- och sjukvårdspersonal
+
+som är angiven som författare av informationen och information om signering.","TKB-fält: `../header` (`HeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader","getcaredocumentation.careDocumentation.header.accessControlHeader","","","",1,1,"","","","Base {[]} {[]}
+","AccessControlHeaderType","Information för kontroll av åtkomst.
+
+Syftet med denna del av headern är att den ska innehålla den information som behövs för konsumentens filtrering av informationen innan den visas upp för slutanvändaren eller på annat vis behandlas vidare, exempelvis för kontroll av spärrar (avseende vårdpersonals åtkomst till information; PDL) eller om informationen får visas för patienten eller inte (verksamhetens rätt till rådrum och menprövning).
+
+En konsument (en konsumerande tjänst/applikation) har inte rätt att ta del av något annat än innehållet i accessControlHeader innan de för ändamålet nödvändiga säkerhetskontrollerna har utförts.","TKB-fält: `../../accessControlHeader` (`AccessControlHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider","getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","accountableHealthcareProvider","Id för informationsägande vårdgivare.
+
+I första hand HSAid alternativt i andra hand organisationsnummer.
+
+Om HSA-id används sätts fältet root till oid för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.
+
+Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret.
+
+Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.
+
+Se även regel Spärrhantering.","TKB-fält: `../../../accountableHealthcareProvider` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit","getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","accountableCareUnit","Id för informationsägande vårdenhet angivet med HSA-id.
+
+Fältet root sätts OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.
+
+Fältet används för spärrkontroll och är obligatorisk om uppgiften i patientjournal ska kunna ses via sammanhållen journalföring.
+
+Se även regel Spärrhantering.","TKB-fält: `../../../accountableCareUnit` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader.patientId","getcaredocumentation.careDocumentation.header.accessControlHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","Patientens identitetsbeteckning. Den identitetsbeteckning som denna uppgift lagrades under när uppgiften skapades ska om möjligt anges. Exempel på en situation då detta förekommer är exempelvis då patienten tidigare erhållit vård dokumenterat under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.
+
+Fältet root sätts till OID för kodverket för identifieraren:
+
+1) För personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+2) För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+Fältet extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.","TKB-fält: `../../../patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.patientId",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId","getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careProcessId","Id för den individanpassad vårdprocess som informationen journalförts inom ramen för. Består av ett lokalt genererat UUID.
+
+UUID anges i root och extension lämnas tomt.","TKB-fält: `../../../careProcessId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime","getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","blockComparisonTime","Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring för kontroll av patientens (ev.) spärrade information, såväl yttre (mellan vårdgivare) som inre (mellan vårdenheter) spärr.
+
+Tidpunkten ska i så hög grad som möjligt överensstämma med den tidpunkt som ur patientens synvinkel är den mest naturliga. Detta är vanligtvis tidpunkten för patientens vårdkontakt som låg till grund för dokumentationen.","TKB-fält: `../../../blockComparisonTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient","getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Ansvarig vårdpersonals beslut, alternativt baserat på verksamhetens policy och regler (men-/sekretessprövning), huruvida informationen får delas till patient för ändamålet Patients åtkomst (Individens direktåtkomst).
+
+Om information beslutas delas sätts värdet i sådant fall till true, i annat fall till false. False innebär att informationen inte får delas till patient.
+
+Notera att flaggans värde kan, för samma information, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient.
+
+I sådana fall skall källsystemet uppdatera engagemangsindex för att konsumenter skall kunna bli notifierade därom.","TKB-fält: `../../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.sourceSystemId","getcaredocumentation.careDocumentation.header.sourceSystemId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","sourceSystemId","Det källsystem som informationen lagras i.
+
+Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id.","TKB-fält: `../../sourceSystemId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.sourceSystemId",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.record","getcaredocumentation.careDocumentation.header.record","","","",1,1,"","","","Base {[]} {[]}
+","RecordType","Uppgift i patientjournal
+
+Metainformation avseende den dokumenterade informationen.","TKB-fält: `../../record` (`RecordType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.record",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.record.id","getcaredocumentation.careDocumentation.header.record.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Unik och beständig identifierare för uppgift i patientjournal.
+
+För att vara konsistent och beständig med tidigare majorversioner ska tjänsteproducenter av tidigare majorversioner av GetCareDocumentation endast ange root på samma sätt som documentId i tidigare majorversioner.
+
+Extension utelämnas. Denna hantering krävs för att tjänstekonsumenten ska kunna filtrera bort dubbletter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.
+
+Se även regel Verify unique recordId.","TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.record.id",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.record.timestamp","getcaredocumentation.careDocumentation.header.record.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.record.timestamp",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.author","getcaredocumentation.careDocumentation.header.author","","","",0,1,"","","","Base {[]} {[]}
+","AuthorType","Hälso- och sjukvårdspersonal som ansvarar för information i patientjournal. Notera att den som registrerar informationen från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte är författare.","TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.author.id","getcaredocumentation.careDocumentation.header.author.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","HSA-id för hälso- och sjukvårdspersonal.
+
+Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.id",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.author.name","getcaredocumentation.careDocumentation.header.author.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn på hälso- och sjukvårdspersonal.","TKB-fält: `../../../name` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.name",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.author.timestamp","getcaredocumentation.careDocumentation.header.author.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem eller annan remittents journalsystem) är det tidpunkten då journalinformationen ursprungligen skapades som ska anges.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.timestamp",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.author.byRole","getcaredocumentation.careDocumentation.header.author.byRole","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","byRole","Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall kod från kodverket KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten. Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.","TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.byRole",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.author.orgUnit","getcaredocumentation.careDocumentation.header.author.orgUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType {[]} {[]}
+","orgUnit","Den organisation som författaren är uppdragstagare på.","TKB-fält: `../../../orgUnit` (`OrgUnitType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.author.orgUnit",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.signature","getcaredocumentation.careDocumentation.header.signature","","","",0,1,"","","","Base {[]} {[]}
+","SignatureType","Signeringsinformation","TKB-fält: `../../signature` (`SignatureType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.signature.id","getcaredocumentation.careDocumentation.header.signature.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","HSA-id för hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.
+
+Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.id",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.signature.name","getcaredocumentation.careDocumentation.header.signature.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn på hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.","TKB-fält: `../../../name` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.name",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.signature.timestamp","getcaredocumentation.careDocumentation.header.signature.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Anger tidpunkten för signering av uppgift i patientjournal.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.timestamp",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.header.signature.byRole","getcaredocumentation.careDocumentation.header.signature.byRole","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","byRole","Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten.  Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText.","TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.header.signature.byRole",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body","getcaredocumentation.careDocumentation.body","","","",1,1,"","","","Base {[]} {[]}
+","CareDocumentationBodyType","Journalanteckning","TKB-fält: `../body` (`CareDocumentationBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body",1,1,"","getcaredocumentation-body-xor:Antingen clinicalDocumentNoteText eller multimediaEntry ska anges, ej båda {clinicalDocumentNoteText.exists() xor multimediaEntry.exists()}
+"
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","clinicalDocumentNoteCode","Typ av anteckning. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `../../clinicalDocumentNoteCode` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle","","","",0,1,"","","","string {[]} {[]}
+","clinicalDocumentNoteTitle","Titel på anteckningen.","TKB-fält: `../../clinicalDocumentNoteTitle` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText","getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText","","","",0,1,"","","","string {[]} {[]}
+","clinicalDocumentNoteText","Journalanteckningens innehåll i text.
+
+Texten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3.
+
+Se även regel careDocumentationBody.","TKB-fält: `../../clinicalDocumentNoteText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.multimediaEntry","getcaredocumentation.careDocumentation.body.multimediaEntry","","","",0,1,"","","","Base {[]} {[]}
+","MultimediaType","Journalanteckningens innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet.
+
+Vid användning av multimediaEntry kompletteras reglerna i tjänstekontraktsbeskrivningen med en Interaktionsöverenskommelse som ytterligare beskriver integrationen.
+
+Se även regel careDocumentationBody samt regel Binära bilagor.","TKB-fält: `../../multimediaEntry` (`MultimediaType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry",0,1,"","getcaredocumentation-multimedia-xor:Antingen value eller reference ska anges i multimediaEntry, ej båda {value.exists() xor reference.exists()}
+"
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType","getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType","","","",1,1,"","","","string {[]} {[]}
+","mediaType","Typ av multimedia.
+
+Se interaktionsöverenskommelse för beskrivning av typer som hanteras.","TKB-fält: `../../../mediaType` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.multimediaEntry.value","getcaredocumentation.careDocumentation.body.multimediaEntry.value","","","",0,1,"","","","base64Binary {[]} {[]}
+","value","Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges.
+
+Se även regel multimediaEntry.","TKB-fält: `../../../value` (`base64Binary`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry.value",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.multimediaEntry.reference","getcaredocumentation.careDocumentation.body.multimediaEntry.reference","","","",0,1,"","","","uri {[]} {[]}
+","reference","Referens till extern binär fil i form av en URL om interaktionsöverenskommelsen tillåter detta. Ett och endast ett av attributen value och reference ska anges.
+
+Se interaktionsöverenskommelse för ytterligare beskrivning.
+
+Se även regel multimediaEntry.","TKB-fält: `../../../reference` (`anyURI`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.multimediaEntry.reference",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.dissentingOpinion","getcaredocumentation.careDocumentation.body.dissentingOpinion","","","",0,*,"","","","Base {[]} {[]}
+","DissentingOpinionType","Om patienten eller någon för denna ansvarig person (exempelvis vårdnadshavare) har lämnat en avvikande mening till journalanteckningen.","TKB-fält: `../../dissentingOpinion` (`DissentingOpinionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion",0,*,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId","getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","opinionId","En universellt unik identifierare för den avvikande meningen. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat.","TKB-fält: `../../../opinionId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId",0,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime","getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","authorTime","Tidpunkten då den avvikande meningen författades.","TKB-fält: `../../../authorTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion","getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion","","","",1,1,"","","","string {[]} {[]}
+","opinion","Text som innehåller den avvikande meningen.","TKB-fält: `../../../opinion` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.dissentingOpinion.personId","getcaredocumentation.careDocumentation.body.dissentingOpinion.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Id för författaren av den avvikande meningen.","TKB-fält: `../../../personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.personId",1,1,"",""
+"getcaredocumentation","getcaredocumentation.careDocumentation.body.dissentingOpinion.personName","getcaredocumentation.careDocumentation.body.dissentingOpinion.personName","","","",1,1,"","","","string {[]} {[]}
+","personName","Namnet på författaren av den avvikande meningen.","TKB-fält: `../../../personName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.careDocumentation.body.dissentingOpinion.personName",1,1,"",""
+"getcaredocumentation","getcaredocumentation.hasMore","getcaredocumentation.hasMore","","","",0,*,"","","","Base {[]} {[]}
+","HasMoreType","Anges av tjänsteproducent när det finns ytterligare information att hämta.
+
+Not: Vid svar från tjänsteproducent är kardinaliteten 0..1.
+
+Se även regel Partiell datahämtning.","TKB-fält: `hasMore` (`HasMoreType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcaredocumentation.hasMore",0,*,"",""
+"getcaredocumentation","getcaredocumentation.hasMore.logicalAddress","getcaredocumentation.hasMore.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Den logiska adressen till tjänsteproducenten som genererar svaret och har mer information.","TKB-fält: `../logicalAddress` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.hasMore.logicalAddress",1,1,"",""
+"getcaredocumentation","getcaredocumentation.hasMore.reference","getcaredocumentation.hasMore.reference","","","",1,1,"","","","string {[]} {[]}
+","reference","En unik identifierare som tjänstekonsumenten anger i nästa anrop för att hämta mer data. Om det då finns ytterligare mer information hos tjänsteproducenten ska en ny, unik identifierare levereras.
+
+Tjänsteproducenten avgör hur referensen byggs upp.
+
+Exempel: Base64({ ”queryHash” : ”7114efbb6a761fb1a2d6dae55b5612e1"", ”lastReturnedId” : 7685824}) = eyDigJ1xdWVyeUhhc2jigJ0gOiDigJ03MTE0ZWZiYjZhNzYxZmIxYTJkNmRhZTU1YjU2MTJlMSIsIOKAnWxhc3RSZXR1cm5lZElk4oCdIDogNzY4NTgyNH0=
+
+Re även regel Referensens giltighetstid.","TKB-fält: `../reference` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.hasMore.reference",1,1,"",""
+"getcaredocumentation","getcaredocumentation.result","getcaredocumentation.result","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/ResultType {[]} {[]}
+","result","Innehåller information om det gick bra eller ej att besvara förfrågan.
+
+Se avsnitt 7.1.7 för beskrivning av hantering vid logiska fel.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaredocumentation.result",1,1,"",""
+"getdiagnosis-request","getdiagnosis-request","getdiagnosis-request","","","",0,*,"","","","null {[]} {[]}
+","GetDiagnosis — Request","Logisk modell för requestparametrar i GetDiagnosis
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).
+Söker diagnoser för en patient med valfri filtrering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdiagnosis-request","getdiagnosis-request.careUnitHSAId","getdiagnosis-request.careUnitHSAId","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","careUnitHSAId","Filtrering på vårdenhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.","TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosis-request.careUnitHSAId",0,*,"",""
+"getdiagnosis-request","getdiagnosis-request.patientId","getdiagnosis-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
+
+Fältet type sätts till OID för typ av identifierare.
+
+1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas), [R14].
+
+2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas), [R14].
+
+3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].
+
+OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.
+
+En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent.","TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis-request.patientId",1,1,"",""
+"getdiagnosis-request","getdiagnosis-request.timePeriod","getdiagnosis-request.timePeriod","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/DatePeriodType {[]} {[]}
+","timePeriod","Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna authorTime, signatureTime eller diagnosisTime i svaret ligger inom sökintervallets start- och slutdatum.
+
+Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.","TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis-request.timePeriod",0,1,"",""
+"getdiagnosis-request","getdiagnosis-request.sourceSystemHSAId","getdiagnosis-request.sourceSystemHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","Begränsar sökningen till diagnoser som tillgängliggörs av angivet källsystem.
+
+Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
+
+Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.
+
+Ska anges om careContactId angivits.
+
+Ska anges vid begäran på reservnummer.
+
+Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
+
+Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST.","TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis-request.sourceSystemHSAId",0,1,"",""
+"getdiagnosis-request","getdiagnosis-request.careContactId","getdiagnosis-request.careContactId","","","",0,*,"","","","string {[]} {[]}
+","careContactId","Begränsar sökningen till de diagnoser som dokumenterades vid hälso- och sjukvårdskontakt.","TKB-fält: `careContactId` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosis-request.careContactId",0,*,"",""
+"getdiagnosis","getdiagnosis","getdiagnosis","","","",0,*,"","","","null {[]} {[]}
+","GetDiagnosis","Logisk modell för tjänstekontraktet GetDiagnosis
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).
+Representerar responsens informationsstruktur: registrerade diagnoser för en patient
+inklusive diagnoskod per ursprungligt diagnosticeringstillfälle.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdiagnosis","getdiagnosis.diagnosis","getdiagnosis.diagnosis","","","",0,*,"","","","Base {[]} {[]}
+","DiagnosisType","De diagnoser som matchar begäran.","TKB-fält: `diagnosis` (`DiagnosisType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis",0,*,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader","getdiagnosis.diagnosis.diagnosisHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../diagnosisHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.documentId","getdiagnosis.diagnosis.diagnosisHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Dokumentets identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.documentId",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId","getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSA-id för det system tillgängliggör informationen.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.documentTitle","getdiagnosis.diagnosis.diagnosisHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","N/A","TKB-fält: `../../documentTitle` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.documentTitle",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.documentTime","getdiagnosis.diagnosis.diagnosisHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","N/A","TKB-fält: `../../documentTime` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.documentTime",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.patientId","getdiagnosis.diagnosis.diagnosisHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Identifierare för patient.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.patientId",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional","getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare.","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional",1,1,"","getdiagnosis-pdl-careunit-caregiver:Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring. {healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()}
+"
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Information om vem som signerat informationen i dokumentet.","TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","signatureTime","Tidpunkt för signering.","TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","legalAuthenticatorHSAId","HSA-id för person som signerat dokumentet","TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","legalAuthenticatorName","Namnen i klartext för signerande person.","TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient","getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.careContactId","getdiagnosis.diagnosis.diagnosisHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet","TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.careContactId",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.nullified","getdiagnosis.diagnosis.diagnosisHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","N/A","TKB-fält: `../../nullified` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.nullified",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason","getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","N/A","TKB-fält: `../../nullifiedReason` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody","getdiagnosis.diagnosis.diagnosisBody","","","",1,1,"","","","Base {[]} {[]}
+","DiagnosisBodyType","diagnosisBody","TKB-fält: `../diagnosisBody` (`DiagnosisBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis","getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis","","","",1,1,"","","","code {[]} {[]}
+","typeOfDiagnosis","Anges som ""Huvuddiagnos"" eller ""Bidiagnos"".","TKB-fält: `../../typeOfDiagnosis` (`TypeOfDiagnosisEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs","",,,,"getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis",1,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis","getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis","","","",0,1,"","","","boolean {[]} {[]}
+","chronicDiagnosis","Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt.","TKB-fält: `../../chronicDiagnosis` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody.diagnosisTime","getdiagnosis.diagnosis.diagnosisBody.diagnosisTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","diagnosisTime","Tidpunkt då bedömningen gjordes.","TKB-fält: `../../diagnosisTime` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.diagnosisTime",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody.diagnosisCode","getdiagnosis.diagnosis.diagnosisBody.diagnosisCode","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","diagnosisCode","Diagnoskod.","TKB-fält: `../../diagnosisCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.diagnosisCode",0,1,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis","getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis","","","",0,*,"","","","Base {[]} {[]}
+","RelatedDiagnosisType","Relaterad diagnos.
+
+Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos.","TKB-fält: `../../relatedDiagnosis` (`RelatedDiagnosisType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis",0,*,"",""
+"getdiagnosis","getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId","getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Unik identitet för diagnosen.","TKB-fält: `../../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId",1,1,"",""
+"getdiagnosis","getdiagnosis.result","getdiagnosis.result","","","",0,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getdiagnosis.result",0,1,"",""
+"getdiagnosis","getdiagnosis.result.resultCode","getdiagnosis.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.resultCode",1,1,"",""
+"getdiagnosis","getdiagnosis.result.errorCode","getdiagnosis.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getdiagnosis.result.errorCode",0,1,"",""
+"getdiagnosis","getdiagnosis.result.logId","getdiagnosis.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.logId",1,1,"",""
+"getdiagnosis","getdiagnosis.result.subCode","getdiagnosis.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.subCode",0,1,"",""
+"getdiagnosis","getdiagnosis.result.message","getdiagnosis.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.message",0,1,"",""
+"getfunctionalstatus-request","getfunctionalstatus-request","getfunctionalstatus-request","","","",0,*,"","","","null {[]} {[]}
+","GetFunctionalStatus — Request","Logisk modell för requestparametrar i GetFunctionalStatus
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2).
+Söker funktionsstatusbedömningar för en patient med valfri filtrering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getfunctionalstatus-request","getfunctionalstatus-request.careUnitHSAId","getfunctionalstatus-request.careUnitHSAId","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","careUnitHSAId","Filtrering på vårdenhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.","TKB-fält: `careUnitHSAId` (`HSAIdType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfunctionalstatus-request.careUnitHSAId",0,*,"",""
+"getfunctionalstatus-request","getfunctionalstatus-request.patientId","getfunctionalstatus-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
+
+Fältet type sätts till OID för typ av identifierare.
+
+1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas, [R14].
+
+2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas, [R14].
+
+3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].
+
+OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.
+
+En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent.","TKB-fält: `patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus-request.patientId",1,1,"",""
+"getfunctionalstatus-request","getfunctionalstatus-request.datePeriod","getfunctionalstatus-request.datePeriod","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/DatePeriodType {[]} {[]}
+","datePeriod","Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där documentTime i svaret ligger inom sökintervallets start- och slutdatumet.
+
+Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.","TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus-request.datePeriod",0,1,"",""
+"getfunctionalstatus-request","getfunctionalstatus-request.sourceSystemHSAId","getfunctionalstatus-request.sourceSystemHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","Begränsar sökningen till information om funktionsstatus som tillgängliggörs av angivet källsystem.
+
+Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
+
+Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.
+
+Ska anges om careContactId angivits.
+
+Ska anges vid begäran på reservnummer.
+
+Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
+
+Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST.","TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus-request.sourceSystemHSAId",0,1,"",""
+"getfunctionalstatus-request","getfunctionalstatus-request.careContactId","getfunctionalstatus-request.careContactId","","","",0,*,"","","","string {[]} {[]}
+","careContactId","Begränsar sökningen till de funktionsstatusobjekt som dokumenterades vid angiven hälso- och sjukvårdskontakt.","TKB-fält: `careContactId` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfunctionalstatus-request.careContactId",0,*,"",""
+"getfunctionalstatus","getfunctionalstatus","getfunctionalstatus","","","",0,*,"","","","null {[]} {[]}
+","GetFunctionalStatus","Logisk modell för tjänstekontraktet GetFunctionalStatus
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2).
+Representerar responsens informationsstruktur: dokumenterade bedömningar av
+funktionsnedsättningar och/eller aktivitetsförmåga (PADL) för en patient.
+Bedömningskategori styrs av assessmentCategory: 'pad-pad' (PADL) eller 'fun-fun' (funktionsnedsättning).
+En tjänsteproducent måste använda samma värde för categorization i engagemangsindex som
+för assessmentCategory i svaret.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment","getfunctionalstatus.functionalStatusAssessment","","","",0,*,"","","","Base {[]} {[]}
+","FunctionalStatusAssessmentType","De funktionsstatusbedömningar som matchar begäran.","TKB-fält: `functionalStatusAssessment` (`FunctionalStatusAssessmentTime`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment",0,*,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../functionalStatusAssessmentHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Funktionsbedömningens identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSA-id för det system tillgängliggör informationen.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","N/A","TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","Bedömningstidpunkt/händelsetidpunkt.","TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Identifierare för patient.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Information om den hälso- och sjukvårdsperson som ansvarar för funktionsstatusbedömninge, nedan kallas författare.","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional",1,1,"","getfunctionalstatus-pdl-careunit-caregiver:Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring. {healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()}
+"
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Information om vem som signerat informationen i dokumentet.","TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","signatureTime","Signaturtidpunkt.
+
+Tid vid vilken funktionsstatusbedömningen signeras.","TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","legalAuthenticatorHSAId","HSA-id för person som signerat dokumentet","TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","legalAuthenticatorName","Namnen i klartext för signerande person.","TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Vårdkontakts-id.
+
+Id för den vårdkontakt vid vilken funktionsstatusbedömningen gjorts.","TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","N/A","TKB-fält: `../../nullified` (`boolean`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","N/A","TKB-fält: `../../nullifiedReason` (`string`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody","","","",1,1,"","","","Base {[]} {[]}
+","FunctionalStatusAssessmentBodyType","functionalStatusAssessmentBody","TKB-fält: `../functionalStatusAssessmentBody` (`FunctionalStatusAssessmentBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory","","","",1,1,"","","","code {[]} {[]}
+","assessmentCategory","Bedömningskategori.
+
+Beskriver vilken kategori av bedömning som är gjord. Tillåtna värden är ""pad-pad"" (för PADL-bedömning) och ""fun-fun"" (för funktionsnedsättningsbedömningar).
+
+Värdet här ska stämma överens med elementet categorization i den Update som tjänsteproducent skickar till EI.","TKB-fält: `../../assessmentCategory` (`AssessmentCategoryEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/assessmentcategory-vs","",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Kommentar.
+
+Text som innehåller kommentar till totaliten av bedömningarna. Får endast användas om assessmentCategory = pad-pad.","TKB-fält: `../../comment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl","","","",0,*,"","","","Base {[]} {[]}
+","PADLType","Beskriver gjorda PADL-bedömningar.
+
+Får enbart anges samtidigt som assessmentCategory = pad-pad.","TKB-fält: `../../padl` (`PADLType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl",0,*,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","typeOfAssessment","Typ av PADL-bedömning. Kan anges med lämpligt kodsystem.
+
+(Regel:2)","TKB-fält: `../../../typeOfAssessment` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment","","","",1,1,"","","","string {[]} {[]}
+","assessment","Den textuella PADL-bedömning som gjorts i kategorin av bedömningar som beskrivs i typeOfAssessment.","TKB-fält: `../../../assessment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability","","","",0,1,"","","","Base {[]} {[]}
+","DisabilityType","Beskriver gjord funktionsnedsättningsbedömning.
+
+Får endast anges om assessmentCategory = fun-fun.","TKB-fält: `../../disability` (`DisabilityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","disabilityAssessment","Angivelse av kod för den funktion som bedömts nedsatt.
+
+Om funktionen anges strukturerat ska kod från ICF [R13] användas. Koden ska anges utan bedömningsfaktor och detta ska tolkas som att det är den funktion som ICF-koden representerar som är nedsatt från normal funktion. I attributet kommentar kan nedsättningen vid behov textuellt graderas och specificeras ytterligare.
+
+Om ICF-kod inte kan anges kan den nedsatta funktionen anges i attributet originalText
+
+Kontraktet har i denna version inte stöd för ICFs numeriska bedömningsfaktor.","TKB-fält: `../../../disabilityAssessment` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment","getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Kommentar.
+
+Text som innehåller ytterligare information om funktionsnedsättningen. Exempelvis: ”uttalssvårigheter och tillfälligt bortfall av röststyrka”.","TKB-fält: `../../../comment` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.result","getfunctionalstatus.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.result.resultCode","getfunctionalstatus.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.resultCode",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.result.errorCode","getfunctionalstatus.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.errorCode",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.result.logId","getfunctionalstatus.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.logId",1,1,"",""
+"getfunctionalstatus","getfunctionalstatus.result.subCode","getfunctionalstatus.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.subCode",0,1,"",""
+"getfunctionalstatus","getfunctionalstatus.result.message","getfunctionalstatus.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfunctionalstatus.result.message",0,1,"",""

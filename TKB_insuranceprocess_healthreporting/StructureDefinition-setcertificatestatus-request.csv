@@ -1,0 +1,19 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"setcertificatestatus-request","setcertificatestatus-request","","","",0,*,"","","","null {[]} {[]}
+","SetCertificateStatus — Request","Logisk modell för requestparametrar i tjänstekontraktet SetCertificateStatus
+(RIV-TA urn:riv:insuranceprocess:healthreporting:SetCertificateStatus:1).
+Sätter status för ett registrerat läkarintyg i intygstjänsten.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"setcertificatestatus-request.certificateId","setcertificatestatus-request.certificateId","","","",1,1,"","","","string {[]} {[]}
+","Identitet på intyget (GUID)","Patientens personnummer eller samordningsnummer","TKB-fält: `certificateId` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** ASSUME: Tabellrubriken är förväxlad med nationalIdentityNumber i källdokumentet.
+Tolkat som att certificateId = intygets GUID-identitet.
+Se QUESTIONS.md BLOCK-HR-002.","","","","","","","","",,,,,"",,,,"setcertificatestatus-request.certificateId",1,1,"",""
+"setcertificatestatus-request.nationalIdentityNumber","setcertificatestatus-request.nationalIdentityNumber","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens personnummer eller samordningsnummer","Tidpunkt då meddelandet skickades från vården","TKB-fält: `nationalIdentityNumber` (`datumtid`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"setcertificatestatus-request.nationalIdentityNumber",1,1,"",""
+"setcertificatestatus-request.target","setcertificatestatus-request.target","","","",1,1,"","","","string {[]} {[]}
+","Mottagare för statusändringen (t.ex. FK)","Mottagare för en status. Ex FK","TKB-fält: `target` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"setcertificatestatus-request.target",1,1,"",""
+"setcertificatestatus-request.certificateStatus","setcertificatestatus-request.certificateStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Typ av statusändring för intyget","Typ av statusändring för intyget.","TKB-fält: `status` (`string`, kardinalitet 1..1).","","","","","","","","",,"extensible","","https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/status-vs","",,,,"setcertificatestatus-request.certificateStatus",1,1,"",""
+"setcertificatestatus-request.timestamp","setcertificatestatus-request.timestamp","","","",0,1,"","","","dateTime {[]} {[]}
+","När anropet sattes för intyget","När anropet sattes för intyget","TKB-fält: `timestamp` (`datetime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"setcertificatestatus-request.timestamp",0,1,"",""

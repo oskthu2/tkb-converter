@@ -1,0 +1,135 @@
+# GetCareManagers — Request - coreprocess: residentparticipation: residentparticipation v1.0.0-rc2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCareManagers — Request**
+
+## Logical Model: GetCareManagers — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/coreprocess-residentparticipation-residentparticipation/StructureDefinition/getcaremanagers-request | *Version*:1.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetCareManagersRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i GetCareManagers (urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.coreprocess-residentparticipation-residentparticipation|current/StructureDefinition/StructureDefinition-getcaremanagers-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcaremanagers-request.csv), [Excel](StructureDefinition-getcaremanagers-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcaremanagers-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/coreprocess-residentparticipation-residentparticipation/StructureDefinition/getcaremanagers-request",
+  "version" : "1.0",
+  "name" : "GetCareManagersRequest",
+  "title" : "GetCareManagers — Request",
+  "status" : "draft",
+  "date" : "2026-11-09T03:25:04+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i GetCareManagers\n(urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/coreprocess-residentparticipation-residentparticipation/StructureDefinition/getcaremanagers-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcaremanagers-request",
+      "path" : "getcaremanagers-request",
+      "short" : "GetCareManagers — Request",
+      "definition" : "Logisk modell för begäran i GetCareManagers\n(urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "getcaremanagers-request.patientId",
+      "path" : "getcaremanagers-request.patientId",
+      "short" : "patientId",
+      "definition" : "PatientId för patient vars fasta kontakter ska hämtas",
+      "comment" : "TKB-fält: `patientId` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getcaremanagers-request.careGiverId",
+      "path" : "getcaremanagers-request.careGiverId",
+      "short" : "careGiverId",
+      "definition" : "Frivilligt fält för filtrering av svar baserat på given vårdgivare. Sätts till HSAId för vårdgivaren.",
+      "comment" : "TKB-fält: `careGiverId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getcaremanagers-request.careUnitId",
+      "path" : "getcaremanagers-request.careUnitId",
+      "short" : "careUnitId",
+      "definition" : "Frivilligt fält för filtrering av svar baserat på given vårdenhet. Sätts till HSAId för vårdenheten.",
+      "comment" : "TKB-fält: `careUnitId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getcaremanagers-request.careManagerType",
+      "path" : "getcaremanagers-request.careManagerType",
+      "short" : "careManagerType",
+      "definition" : "Kod för att filtrera svaret, baserat på typ av fast kontakt. Se referens R7 – kodverk för Fasta kontakter. Konsument begär filtrering genom att ange vilken typ av fast kontakt i fältet careManagerType.code samt anger careManagerType.codeSystem = ” 1.2.752.129.5.1.69”. Övriga fält i careManagerType kan utelämnas.",
+      "comment" : "TKB-fält: `careManagerType` (`CVType`, kardinalitet 0..1).\n\nObs: modellen anger 0..* där TKB:n anger 0..1.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getcaremanagers-request.careProcessId",
+      "path" : "getcaremanagers-request.careProcessId",
+      "short" : "careProcessId",
+      "definition" : "Unik identifierare för filtrering av svaret baserat på specifikt hälsoärende",
+      "comment" : "TKB-fält: `careProcessId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    }]
+  }
+}
+
+```

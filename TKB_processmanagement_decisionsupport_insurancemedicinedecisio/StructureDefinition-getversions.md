@@ -1,0 +1,137 @@
+# GetVersions - processmanagement: decisionsupport: insurancemedicinedecisionsupport v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetVersions**
+
+## Logical Model: GetVersions 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getversions | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetVersions |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetVersions (RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1). Returnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades, respektive senast ändrades. Begäran har inga inparametrar. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.processmanagement-decisionsupport-insurancemedicinedecisio|current/StructureDefinition/StructureDefinition-getversions.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getversions.csv), [Excel](StructureDefinition-getversions.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getversions",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getversions",
+  "version" : "1.0",
+  "name" : "GetVersions",
+  "title" : "GetVersions",
+  "status" : "active",
+  "date" : "2026-11-09T03:46:58+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetVersions\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1).\nReturnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades,\nrespektive senast ändrades. Begäran har inga inparametrar.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getversions",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getversions",
+      "path" : "getversions",
+      "short" : "GetVersions",
+      "definition" : "Logisk modell för tjänstekontraktet GetVersions\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1).\nReturnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades,\nrespektive senast ändrades. Begäran har inga inparametrar."
+    },
+    {
+      "id" : "getversions.versioner",
+      "path" : "getversions.versioner",
+      "short" : "VersionerType",
+      "definition" : "versioner",
+      "comment" : "TKB-fält: `versioner` (kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getversions.versioner.fmbSenasteVersionsuppdatering",
+      "path" : "getversions.versioner.fmbSenasteVersionsuppdatering",
+      "short" : "fmbSenasteVersionsuppdatering",
+      "definition" : "Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla producentens beslutsunderlag, dvs det kan vara ett underlag som ej returnerats i svaret som föranlett ett nytt datum.",
+      "comment" : "TKB-fält: `../fmbSenasteVersionsuppdatering` (`DateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType"]
+      }]
+    },
+    {
+      "id" : "getversions.versioner.fmbSenateAndring",
+      "path" : "getversions.versioner.fmbSenateAndring",
+      "short" : "fmbSenateAndring",
+      "definition" : "fmbSenateAndring",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType"]
+      }]
+    },
+    {
+      "id" : "getversions.versioner.diagnosInformationSenasteVersionsuppdatering",
+      "path" : "getversions.versioner.diagnosInformationSenasteVersionsuppdatering",
+      "short" : "diagnosInformationSenasteVersionsuppdatering",
+      "definition" : "Anger när diagnosinformation senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla diagnosinformation, dvs det kan vara diagnosinformation som ej returnerats i svaret som föranlett ett nytt datum.",
+      "comment" : "TKB-fält: `../diagnosInformationSenasteVersionsuppdatering` (`DateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType"]
+      }]
+    },
+    {
+      "id" : "getversions.versioner.diagnosInformationSenateAndring",
+      "path" : "getversions.versioner.diagnosInformationSenateAndring",
+      "short" : "diagnosInformationSenateAndring",
+      "definition" : "diagnosInformationSenateAndring",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType"]
+      }]
+    }]
+  }
+}
+
+```

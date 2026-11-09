@@ -1,0 +1,468 @@
+# HamtaPatientInfo — Response - se.apotekensservice: axs — Hämta patientinformation v7.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **HamtaPatientInfo — Response**
+
+## Logical Model: HamtaPatientInfo — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo | *Version*:6.0 |
+| Active as of 2026-11-09 | *Computable Name*:HamtaPatientInfo |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i HamtaPatientInfo (urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType). Svaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO), dosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.se-apotekensservice-axs|current/StructureDefinition/StructureDefinition-hamtapatientinfo.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-hamtapatientinfo.csv), [Excel](StructureDefinition-hamtapatientinfo.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "hamtapatientinfo",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo",
+  "version" : "6.0",
+  "name" : "HamtaPatientInfo",
+  "title" : "HamtaPatientInfo — Response",
+  "status" : "active",
+  "date" : "2026-11-09T03:47:22+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i HamtaPatientInfo\n(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).\nSvaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),\ndosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "hamtapatientinfo",
+      "path" : "hamtapatientinfo",
+      "short" : "HamtaPatientInfo — Response",
+      "definition" : "Logisk modell för svaret i HamtaPatientInfo\n(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).\nSvaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),\ndosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK)."
+    },
+    {
+      "id" : "hamtapatientinfo.apotek",
+      "path" : "hamtapatientinfo.apotek",
+      "short" : "ApoteksinformationResponse",
+      "definition" : "Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#apoteksinformationresponse).",
+      "comment" : "TKB-fält: `apotek` (`ApoteksinformationResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "hamtapatientinfo-apotek-oregistrerat",
+        "severity" : "warning",
+        "human" : "Om apoteket inte finns registrerat i EXPO (registrerad = false) saknar alla fält utom glnKod värden",
+        "expression" : "registrerad = false implies (aktorsnamn.empty() and aktorsorgnr.empty() and allmantelefon.empty() and besoksadress.empty() and fax.empty() and huvudtypkod.empty() and namn.empty() and ort.empty() and slutdatum.empty() and startdatum.empty())",
+        "source" : "https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.aktorsnamn",
+      "path" : "hamtapatientinfo.apotek.aktorsnamn",
+      "short" : "Aktörsnamn",
+      "definition" : "Aktörsnamn",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `aktorsnamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.aktorsorgnr",
+      "path" : "hamtapatientinfo.apotek.aktorsorgnr",
+      "short" : "Aktörens organisationsnummer.",
+      "definition" : "Aktörens organisationsnummer.",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `aktorsorgnr` (`long`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.allmantelefon",
+      "path" : "hamtapatientinfo.apotek.allmantelefon",
+      "short" : "allmäntelefon",
+      "definition" : "allmäntelefon",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `allmantelefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.besoksadress",
+      "path" : "hamtapatientinfo.apotek.besoksadress",
+      "short" : "Expeditionsställets besöksadress",
+      "definition" : "Expeditionsställets besöksadress",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `besoksadress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.eReceptDjur",
+      "path" : "hamtapatientinfo.apotek.eReceptDjur",
+      "short" : "Anger om apoteket finns expedierar erecept för djur",
+      "definition" : "Anger om apoteket finns expedierar erecept för djur",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `eReceptDjur` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.fax",
+      "path" : "hamtapatientinfo.apotek.fax",
+      "short" : "fax",
+      "definition" : "fax",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `fax` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.glnKod",
+      "path" : "hamtapatientinfo.apotek.glnKod",
+      "short" : "GLN-kod",
+      "definition" : "GLN-kod",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `glnKod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.huvudtypkod",
+      "path" : "hamtapatientinfo.apotek.huvudtypkod",
+      "short" : "Kod som beskriver huvudverksamheten för expeditionsstället",
+      "definition" : "Kod som beskriver huvudverksamheten för expeditionsstället",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `huvudtypkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.namn",
+      "path" : "hamtapatientinfo.apotek.namn",
+      "short" : "Apotekets Namn",
+      "definition" : "Apotekets Namn",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `namn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.ort",
+      "path" : "hamtapatientinfo.apotek.ort",
+      "short" : "Expeditionsställets besöksort",
+      "definition" : "Expeditionsställets besöksort",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `ort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.registrerad",
+      "path" : "hamtapatientinfo.apotek.registrerad",
+      "short" : "Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden.",
+      "definition" : "Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden.",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `registrerad` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.slutdatum",
+      "path" : "hamtapatientinfo.apotek.slutdatum",
+      "short" : "Datum för stängning av verksamhet",
+      "definition" : "Datum för stängning av verksamhet",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `slutdatum` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.apotek.startdatum",
+      "path" : "hamtapatientinfo.apotek.startdatum",
+      "short" : "Datum för start av verksamhet",
+      "definition" : "Datum för start av verksamhet",
+      "comment" : "TKB-fält i ApoteksinformationResponse: `startdatum` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.dosproducent",
+      "path" : "hamtapatientinfo.dosproducent",
+      "short" : "GLN-kod för eventuell dosproducent.",
+      "definition" : "GLN-kod för eventuell dosproducent.",
+      "comment" : "TKB-fält: `dosproducent` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.dosunderlagStatus",
+      "path" : "hamtapatientinfo.dosunderlagStatus",
+      "short" : "Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat.",
+      "definition" : "Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat.",
+      "comment" : "TKB-fält: `dosunderlagStatus` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.finnsOrdination",
+      "path" : "hamtapatientinfo.finnsOrdination",
+      "short" : "Markering som anger om det finns aktuella recept för patienten i RDH.",
+      "definition" : "Markering som anger om det finns aktuella recept för patienten i RDH.",
+      "comment" : "TKB-fält: `finnsOrdination` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation",
+      "path" : "hamtapatientinfo.patientInformation",
+      "short" : "PatientInformationResponse",
+      "definition" : "Patientinformation från FOLK. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#patientinformationresponse).",
+      "comment" : "TKB-fält: `patientInformation` (`PatientInformationResponse`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.lkKod",
+      "path" : "hamtapatientinfo.patientInformation.lkKod",
+      "short" : "Län och kommun där personen är folkbokförd. Har formatet LLKK LL - Län, 2 tecken KK - Kommun, 2 tecken",
+      "definition" : "Län och kommun där personen är folkbokförd. Har formatet LLKK. LL - Län, 2 tecken. KK - Kommun, 2 tecken",
+      "comment" : "TKB-fält i PatientInformationResponse: `lkKod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.omradeskod",
+      "path" : "hamtapatientinfo.patientInformation.omradeskod",
+      "short" : "Det område där personen är folkbokförd",
+      "definition" : "Det område där personen är folkbokförd",
+      "comment" : "TKB-fält i PatientInformationResponse: `omradeskod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.redNamn",
+      "path" : "hamtapatientinfo.patientInformation.redNamn",
+      "short" : "Redigerat namn",
+      "definition" : "Redigerat namn",
+      "comment" : "TKB-fält i PatientInformationResponse: `redNamn` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke",
+      "path" : "hamtapatientinfo.patientInformation.samtycke",
+      "short" : "SamtyckeResponse",
+      "definition" : "samtycke",
+      "comment" : "TKB-fält i PatientInformationResponse: `samtycke` (`SamtyckeResponse`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.dosSamtycke",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.dosSamtycke",
+      "short" : "dosSamtycke",
+      "definition" : "false - Kunden (privatpersonen) samtycker inte till att spara recept på sitt personnummer för dosapotek. true - Kunden (privatpersonen) samtycker till att spara recept på sitt personnummer för dosapotek. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum",
+      "short" : "Datum för senaste ändring av dos-samtycke",
+      "definition" : "Datum för senaste ändring av dos-samtycke",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.ees",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.ees",
+      "short" : "ees",
+      "definition" : "Flagga för registrerat eessamtycke. False - Om kunden sagt nej till att vara med i EES. True - Kunden har samtyckt till att vara med i EES. Null - kunden har inte tillfrågats/tagit ställning.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum",
+      "short" : "Datum för senaste ändring av EES-samtycke",
+      "definition" : "Datum för senaste ändring av EES-samtycke",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.hkdb",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.hkdb",
+      "short" : "hkdb",
+      "definition" : "Flagga för registrerat samtycke. I indata är det endast möjligt att ange false och endast om inget värde finns registrerat. Samtycke uppdateras genom att skapa eller ta bort konto i HKDB. False - Om kunden sagt nej till att vara med i HKDB. True - Kunden har samtyckt till att vara med i HKDB. Null - kunden har inte tillfrågats/tagit ställning.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum",
+      "short" : "Datum för senaste ändring av HKDB-samtycke",
+      "definition" : "Datum för senaste ändring av HKDB-samtycke",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.rr",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.rr",
+      "short" : "rr",
+      "definition" : "false - Om kunden inte lämnat samtycke till att spara sina recept i RR. true - Kunden har samtyckt till att vara med i RR. Null - kunden har inte tillfrågats/tagit ställning. Detta är enbart vid utdata.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum",
+      "short" : "Datum för senaste ändring av RR-samtycke",
+      "definition" : "Datum för senaste ändring av RR-samtycke",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.rrd",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.rrd",
+      "short" : "rrd",
+      "definition" : "false - Kunden (privatpersonen) samtycker inte till att spara djurrecept på sitt personnummer i RR för djur. true - Kunden (privatpersonen) samtycker till att spara djurrecept på sitt personnummer i RR för djur. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum",
+      "path" : "hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum",
+      "short" : "Datum för senaste ändring av RRD-samtycke",
+      "definition" : "Datum för senaste ändring av RRD-samtycke",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtapatientinfo.patientInformation.statusKod",
+      "path" : "hamtapatientinfo.patientInformation.statusKod",
+      "short" : "statusKod",
+      "definition" : "StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se [kodverket](#statuskod). Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret.",
+      "comment" : "TKB-fält i PatientInformationResponse: `statusKod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,71 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getdiagnosis","getdiagnosis","","","",0,*,"","","","null {[]} {[]}
+","GetDiagnosis","Logisk modell för svaret i tjänstekontraktet GetDiagnosis version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: diagnoser för en patient samt resultat.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdiagnosis.diagnosis","getdiagnosis.diagnosis","","","",0,*,"","","","Base {[]} {[]}
+","DiagnosisType","De diagnoser som matchar begäran.","TKB-fält: `diagnosis` (`DiagnosisType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis",0,*,"",""
+"getdiagnosis.diagnosis.diagnosisHeader","getdiagnosis.diagnosis.diagnosisHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../diagnosisHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.documentId","getdiagnosis.diagnosis.diagnosisHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Dokumentets identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.documentId",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId","getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSA-id för det system som dokumentet är skapat i.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.documentTitle","getdiagnosis.diagnosis.diagnosisHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","N/A","TKB-fält: `../../documentTitle` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.documentTitle",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.documentTime","getdiagnosis.diagnosis.diagnosisHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","N/A","TKB-fält: `../../documentTime` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.documentTime",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.patientId","getdiagnosis.diagnosis.diagnosisHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Identifierare för patient.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.patientId",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional","getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare.","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Information om vem som signerat informationen i dokumentet.","TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","signatureTime","Tidpunkt för signering.","TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","legalAuthenticatorHSAId","HSA-id för person som signerat dokumentet","TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName","getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","legalAuthenticatorName","Namnen i klartext för signerande person.","TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient","getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.careContactId","getdiagnosis.diagnosis.diagnosisHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet","TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.careContactId",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.nullified","getdiagnosis.diagnosis.diagnosisHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","N/A","TKB-fält: `../../nullified` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.nullified",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason","getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","N/A","TKB-fält: `../../nullifiedReason` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisBody","getdiagnosis.diagnosis.diagnosisBody","","","",1,1,"","","","Base {[]} {[]}
+","DiagnosisBodyType","diagnosisBody","TKB-fält: `../diagnosisBody` (`DiagnosisBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis","getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis","","","",1,1,"","","","code {[]} {[]}
+","typeOfDiagnosis","Anges som ""Huvuddiagnos"" eller ""Bidiagnos"".","TKB-fält: `../../typeOfDiagnosis` (`TypeOfDiagnosisEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs","",,,,"getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis",1,1,"",""
+"getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis","getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis","","","",0,1,"","","","boolean {[]} {[]}
+","chronicDiagnosis","Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt.","TKB-fält: `../../chronicDiagnosis` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisBody.diagnosisTime","getdiagnosis.diagnosis.diagnosisBody.diagnosisTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","diagnosisTime","Tidpunkt då bedömningen gjordes.","TKB-fält: `../../diagnosisTime` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.diagnosisTime",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisBody.diagnosisCode","getdiagnosis.diagnosis.diagnosisBody.diagnosisCode","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","diagnosisCode","Diagnoskod.","TKB-fält: `../../diagnosisCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.diagnosisCode",0,1,"",""
+"getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis","getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis","","","",0,*,"","","","Base {[]} {[]}
+","RelatedDiagnosisType","Relaterad diagnos.
+
+Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos.","TKB-fält: `../../relatedDiagnosis` (`RelatedDiagnosisType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis",0,*,"",""
+"getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId","getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Unik identitet för diagnosen.","TKB-fält: `../../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId",1,1,"",""
+"getdiagnosis.result","getdiagnosis.result","","","",0,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getdiagnosis.result",0,1,"",""
+"getdiagnosis.result.resultCode","getdiagnosis.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.resultCode",1,1,"",""
+"getdiagnosis.result.errorCode","getdiagnosis.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getdiagnosis.result.errorCode",0,1,"",""
+"getdiagnosis.result.logId","getdiagnosis.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.logId",1,1,"",""
+"getdiagnosis.result.subCode","getdiagnosis.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.subCode",0,1,"",""
+"getdiagnosis.result.message","getdiagnosis.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosis.result.message",0,1,"",""

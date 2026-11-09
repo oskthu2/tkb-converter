@@ -1,0 +1,1861 @@
+# GetForm - infrastructure: supportservices: forminteraction v2.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetForm**
+
+## Logical Model: GetForm 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getform | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetForm |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svar (response) i tjänstekontraktet GetForm (RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2). Returnerar ett specifikt formulär med aktuell sida och frågor. COMPLETED = Läsläge (komplett formulär returneras). ONGOING = Senaste/aktuella sida returneras. PENDING_COMPLETION = Senaste sida returneras. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-supportservices-forminteraction|current/StructureDefinition/StructureDefinition-getform.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getform.csv), [Excel](StructureDefinition-getform.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getform",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getform",
+  "version" : "2.0",
+  "name" : "GetForm",
+  "title" : "GetForm",
+  "status" : "draft",
+  "date" : "2026-11-09T03:41:01+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svar (response) i tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2).\nReturnerar ett specifikt formulär med aktuell sida och frågor.\nCOMPLETED = Läsläge (komplett formulär returneras).\nONGOING = Senaste/aktuella sida returneras.\nPENDING_COMPLETION = Senaste sida returneras.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getform",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getform",
+      "path" : "getform",
+      "short" : "GetForm",
+      "definition" : "Logisk modell för svar (response) i tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2).\nReturnerar ett specifikt formulär med aktuell sida och frågor.\nCOMPLETED = Läsläge (komplett formulär returneras).\nONGOING = Senaste/aktuella sida returneras.\nPENDING_COMPLETION = Senaste sida returneras."
+    },
+    {
+      "id" : "getform.form",
+      "path" : "getform.form",
+      "short" : "FormType",
+      "definition" : "form",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.createdDateTime",
+      "path" : "getform.form.createdDateTime",
+      "short" : "createdDateTime",
+      "definition" : "createdDateTime",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.clinicalProcessInterestId",
+      "path" : "getform.form.clinicalProcessInterestId",
+      "short" : "clinicalProcessInterestId",
+      "definition" : "Hsa-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID. Hälsoärende är ett begrepp för det som håller samman information i en kärnprocess för en vård- och omsorgstagare, tvärs över organisatoriska enhetsgränser.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.expireDate",
+      "path" : "getform.form.expireDate",
+      "short" : "expireDate",
+      "definition" : "expireDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formId",
+      "path" : "getform.form.formId",
+      "short" : "formId",
+      "definition" : "Formulärets unika ID (källsystemets unika id/GUID). T.ex. MHV1 har FormID = 3B2DF0C0-BC22-11DE-823D-00155D316606 Måste genereras slumpmässigt för att vara unikt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formStatus",
+      "path" : "getform.form.formStatus",
+      "short" : "formStatus",
+      "definition" : "formStatus Tillåtna värden: COMPLETED, PENDING_COMPLETION, ONGOING.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
+      }
+    },
+    {
+      "id" : "getform.form.formTemplate",
+      "path" : "getform.form.formTemplate",
+      "short" : "FormTemplateInfoType",
+      "definition" : "formTemplate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.anonymousForm",
+      "path" : "getform.form.formTemplate.anonymousForm",
+      "short" : "anonymousForm",
+      "definition" : "Attributet styr huruvida formulärmotorn stöder anonym användning av formuläret. Värden True = Tillåter anonym användning. \"SubjectOfCare\" får inte användas. False = Tillåter inte anonym användning. \"SubjectOfCare\" är obligatorisk attribut.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.category",
+      "path" : "getform.form.formTemplate.category",
+      "short" : "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration",
+      "definition" : "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.code",
+      "path" : "getform.form.formTemplate.code",
+      "short" : "CodeType",
+      "definition" : "code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.code.codeValue",
+      "path" : "getform.form.formTemplate.code.codeValue",
+      "short" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "definition" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.code.codeSystem",
+      "path" : "getform.form.formTemplate.code.codeSystem",
+      "short" : "Identifierar vilket kodverk som används.",
+      "definition" : "Identifierar vilket kodverk som används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.description",
+      "path" : "getform.form.formTemplate.description",
+      "short" : "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.",
+      "definition" : "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.formCompleteText",
+      "path" : "getform.form.formTemplate.formCompleteText",
+      "short" : "formCompleteText",
+      "definition" : "formCompleteText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.formName",
+      "path" : "getform.form.formTemplate.formName",
+      "short" : "Mallens namn. T.ex. Hälsodeklaration Mödravård",
+      "definition" : "Mallens namn. T.ex. Hälsodeklaration Mödravård",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.formTitle",
+      "path" : "getform.form.formTemplate.formTitle",
+      "short" : "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+      "definition" : "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.language",
+      "path" : "getform.form.formTemplate.language",
+      "short" : "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.",
+      "definition" : "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.media",
+      "path" : "getform.form.formTemplate.media",
+      "short" : "MediaType",
+      "definition" : "media",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.media.mediaURL",
+      "path" : "getform.form.formTemplate.media.mediaURL",
+      "short" : "URL eller adress till media.",
+      "definition" : "URL eller adress till media.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.media.mediaType",
+      "path" : "getform.form.formTemplate.media.mediaType",
+      "short" : "Giltiga MIME typer.",
+      "definition" : "Giltiga MIME typer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.maxNumberOfQuestion",
+      "path" : "getform.form.formTemplate.maxNumberOfQuestion",
+      "short" : "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10",
+      "definition" : "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.minNumberOfQuestion",
+      "path" : "getform.form.formTemplate.minNumberOfQuestion",
+      "short" : "minNumberOfQuestion",
+      "definition" : "minNumberOfQuestion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.maxNumberOfPages",
+      "path" : "getform.form.formTemplate.maxNumberOfPages",
+      "short" : "maxNumberOfPages",
+      "definition" : "maxNumberOfPages",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.minNumberOfPages",
+      "path" : "getform.form.formTemplate.minNumberOfPages",
+      "short" : "minNumberOfPages",
+      "definition" : "minNumberOfPages",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.mandatory",
+      "path" : "getform.form.formTemplate.mandatory",
+      "short" : "mandatory",
+      "definition" : "Indikerar om formuläret är obligatoriskt att fylla i av användaren. T.ex. Ett obligatoriskt formulär kan indikerar att formuläret är en del av en vårdprocess. True = obligatoriskt False = Frivilligt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.publishStatus",
+      "path" : "getform.form.formTemplate.publishStatus",
+      "short" : "publishStatus",
+      "definition" : "publishStatus",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.templateVersion",
+      "path" : "getform.form.formTemplate.templateVersion",
+      "short" : "templateVersion",
+      "definition" : "templateVersion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.templateId",
+      "path" : "getform.form.formTemplate.templateId",
+      "short" : "Typ av formulär. Kodverk för standardiserade id för formulärtyper. T.ex. Mödrahälsovårdsjournal 1 - MHV1. Kodverk!",
+      "definition" : "Typ av formulär. Kodverk för standardiserade id för formulärtyper. T.ex. Mödrahälsovårdsjournal 1 - MHV1. Kodverk!",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formTemplate.term",
+      "path" : "getform.form.formTemplate.term",
+      "short" : "term",
+      "definition" : "Villkor kopplade till formuläret. T.ex. Villkorstext som användaren/patienten måste godkänna innan formuläret kan besvaras.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.formText",
+      "path" : "getform.form.formText",
+      "short" : "formText",
+      "definition" : "Unik text för Formulär. Används t.ex. \"CreateFormRequest\" för att bifoga en unik text för formuläret. T.ex. \"Hälsoundersökning inför besök X\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.healthcare-CareGiver",
+      "path" : "getform.form.healthcare_CareGiver",
+      "short" : "Ansvarig vårdgivare (huvudman). T.ex. Landsting",
+      "definition" : "Ansvarig vårdgivare (huvudman). T.ex. Landsting",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.healthcare-MedUnit",
+      "path" : "getform.form.healthcare_MedUnit",
+      "short" : "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik",
+      "definition" : "Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.healthcare-facility-CareUnit",
+      "path" : "getform.form.healthcare_facility_CareUnit",
+      "short" : "healthcare_facility_CareUnit",
+      "definition" : "Vårdenheten som erbjuder/tillhandahåller formuläret. Fysisk mottagning. T.ex. Den avdelning som formuläret: se2321000016-1hz3",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.healthcare-facility-CareUnitName",
+      "path" : "getform.form.healthcare_facility_CareUnitName",
+      "short" : "Vårdenhetens namn. T.ex. Testvårdcentral A, Medicinmottagningen USÖ",
+      "definition" : "Vårdenhetens namn. T.ex. Testvårdcentral A, Medicinmottagningen USÖ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.healthcare-systemID",
+      "path" : "getform.form.healthcare_systemID",
+      "short" : "Hsa-id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem",
+      "definition" : "Hsa-id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.keepUntil",
+      "path" : "getform.form.keepUntil",
+      "short" : "keepUntil",
+      "definition" : "keepUntil",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage",
+      "path" : "getform.form.currentPage",
+      "short" : "PageType",
+      "definition" : "currentPage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks",
+      "path" : "getform.form.currentPage.questionBlocks",
+      "short" : "QuestionBlockType",
+      "definition" : "questionBlocks",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.blockNumber",
+      "path" : "getform.form.currentPage.questionBlocks.blockNumber",
+      "short" : "blockNumber",
+      "definition" : "Grupperingsbegrepp av frågor. Frågans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.description",
+      "path" : "getform.form.currentPage.questionBlocks.description",
+      "short" : "description",
+      "definition" : "Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet!! T.ex här skall du lämna information kring din medicinering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.gridConfig",
+      "path" : "getform.form.currentPage.questionBlocks.gridConfig",
+      "short" : "GridConfigType",
+      "definition" : "gridConfig",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.gridConfig.cols",
+      "path" : "getform.form.currentPage.questionBlocks.gridConfig.cols",
+      "short" : "cols",
+      "definition" : "cols",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.gridConfig.rows",
+      "path" : "getform.form.currentPage.questionBlocks.gridConfig.rows",
+      "short" : "rows",
+      "definition" : "rows",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.informationURL",
+      "path" : "getform.form.currentPage.questionBlocks.informationURL",
+      "short" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "definition" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.numberOfQuestions",
+      "path" : "getform.form.currentPage.questionBlocks.numberOfQuestions",
+      "short" : "Antal frågor tillhörande blocket. T.ex. 10",
+      "definition" : "Antal frågor tillhörande blocket. T.ex. 10",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question",
+      "path" : "getform.form.currentPage.questionBlocks.question",
+      "short" : "QuestionType",
+      "definition" : "question",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answer",
+      "path" : "getform.form.currentPage.questionBlocks.question.answer",
+      "short" : "AnswerType",
+      "definition" : "answer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answer.answerAlternativeNumber",
+      "path" : "getform.form.currentPage.questionBlocks.question.answer.answerAlternativeNumber",
+      "short" : "Svarsalternativets id/nummer.",
+      "definition" : "Svarsalternativets id/nummer.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answer.answerStatus",
+      "path" : "getform.form.currentPage.questionBlocks.question.answer.answerStatus",
+      "short" : "AnswerStatusType",
+      "definition" : "answerStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answer.answerStatus.resultCode",
+      "path" : "getform.form.currentPage.questionBlocks.question.answer.answerStatus.resultCode",
+      "short" : "resultCode",
+      "definition" : "Signalerar om frågan är ifylld på ett felaktigt sätt. Felkod. OK - Transaktion utförd INFO - Transaktion utförd med kommentar. ERROR - Transaktion ej genomförd Tillåtna värden: OK, ERROR, INFO.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answer.answerStatus.resultCodeText",
+      "path" : "getform.form.currentPage.questionBlocks.question.answer.answerStatus.resultCodeText",
+      "short" : "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+      "definition" : "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answer.value",
+      "path" : "getform.form.currentPage.questionBlocks.question.answer.value",
+      "short" : "Patientens/användarens svar.",
+      "definition" : "Patientens/användarens svar.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative",
+      "short" : "AnswerAlternativeType",
+      "definition" : "answerAlternative",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.alternativeValue",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.alternativeValue",
+      "short" : "Valbart svarsalternativ.",
+      "definition" : "Valbart svarsalternativ.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.answerAlternativeNumber",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.answerAlternativeNumber",
+      "short" : "Svarsalternativets id.",
+      "definition" : "Svarsalternativets id.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.answerHelp",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.answerHelp",
+      "short" : "Hjälptext till svarsalternativet. (placeholder)",
+      "definition" : "Hjälptext till svarsalternativet. (placeholder)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.code",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.code",
+      "short" : "CodeType",
+      "definition" : "Objekt för att definiera kodverk kopplat till fråga.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.code.codeValue",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.code.codeValue",
+      "short" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "definition" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.code.codeSystem",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.code.codeSystem",
+      "short" : "Identifierar vilket kodverk som används.",
+      "definition" : "Identifierar vilket kodverk som används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.media",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.media",
+      "short" : "MediaType",
+      "definition" : "Svarsalternativ i bildform.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.media.mediaURL",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.media.mediaURL",
+      "short" : "URL eller adress till media.",
+      "definition" : "URL eller adress till media.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerAlternative.media.mediaType",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerAlternative.media.mediaType",
+      "short" : "Giltiga MIME typer.",
+      "definition" : "Giltiga MIME typer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerMax",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerMax",
+      "short" : "answerMax",
+      "definition" : "Specificerar maxvärde för inmatning. (Gäller typ: number, date) T.ex: Ett värde får inte överskrida 10. Blodtryck, rimlighetsparameter.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerMin",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerMin",
+      "short" : "Specificerar minvärde för inmatning. (Gäller typ: number, date)",
+      "definition" : "Specificerar minvärde för inmatning. (Gäller typ: number, date)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerMaxLength",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerMaxLength",
+      "short" : "answerMaxLength",
+      "definition" : "Specificerar maxvärdelängd för inmatning. (Gäller typ: number) T.ex: En inmatning (text) får inte vara större än 100 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerPattern",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerPattern",
+      "short" : "Inmatningsvalidering (Regular expresson). T.ex: pattern=\"[A-z]{3}\" tillåter endast 3 teckan A-z.",
+      "definition" : "Inmatningsvalidering (Regular expresson). T.ex: pattern=\"[A-z]{3}\" tillåter endast 3 teckan A-z.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.answerStep",
+      "path" : "getform.form.currentPage.questionBlocks.question.answerStep",
+      "short" : "answerStep",
+      "definition" : "Specificerar giltiga intervall för inmatning. (Gäller typ: number, range, date, datetime, datetime-local, month, time och week) T.ex: Skalningsfaktor för en ”slide” kontroll. Ange värde för temperatur 35-40.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.code",
+      "path" : "getform.form.currentPage.questionBlocks.question.code",
+      "short" : "CodeType",
+      "definition" : "code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.code.codeValue",
+      "path" : "getform.form.currentPage.questionBlocks.question.code.codeValue",
+      "short" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "definition" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.code.codeSystem",
+      "path" : "getform.form.currentPage.questionBlocks.question.code.codeSystem",
+      "short" : "Identifierar vilket kodverk som används.",
+      "definition" : "Identifierar vilket kodverk som används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.description",
+      "path" : "getform.form.currentPage.questionBlocks.question.description",
+      "short" : "Frågans beskrivande text eller instruktion till användaren/patient.",
+      "definition" : "Frågans beskrivande text eller instruktion till användaren/patient.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.gridValue",
+      "path" : "getform.form.currentPage.questionBlocks.question.gridValue",
+      "short" : "GridValueType",
+      "definition" : "gridValue",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.gridValue.col",
+      "path" : "getform.form.currentPage.questionBlocks.question.gridValue.col",
+      "short" : "col",
+      "definition" : "col",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.gridValue.row",
+      "path" : "getform.form.currentPage.questionBlocks.question.gridValue.row",
+      "short" : "row",
+      "definition" : "row",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.input",
+      "path" : "getform.form.currentPage.questionBlocks.question.input",
+      "short" : "input",
+      "definition" : "Beskriver frågans inmatningstyp. Kodverk inmatningstyp. Text textarea Checkbox Radio Select SelectMultiple Number URL Date and time Date Month Week Time Local date and time Range Image",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.inputUnit",
+      "path" : "getform.form.currentPage.questionBlocks.question.inputUnit",
+      "short" : "inputUnit",
+      "definition" : "Typ av enhet. Grundenheter samt härledda SI-enheter beskrivs med dess beteckning. T.ex. km, m, cm, kg, mm Hg etc Måttenheter enligt SI-systemet. SWEDAC (STAFS 2009:26)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.media",
+      "path" : "getform.form.currentPage.questionBlocks.question.media",
+      "short" : "MediaType",
+      "definition" : "URL till bild. Bilden kan används för att illustrera en fråga. (QuestionType Image)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.media.mediaURL",
+      "path" : "getform.form.currentPage.questionBlocks.question.media.mediaURL",
+      "short" : "URL eller adress till media.",
+      "definition" : "URL eller adress till media.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.media.mediaType",
+      "path" : "getform.form.currentPage.questionBlocks.question.media.mediaType",
+      "short" : "Giltiga MIME typer.",
+      "definition" : "Giltiga MIME typer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.informationURL",
+      "path" : "getform.form.currentPage.questionBlocks.question.informationURL",
+      "short" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "definition" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.mandatory",
+      "path" : "getform.form.currentPage.questionBlocks.question.mandatory",
+      "short" : "Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga",
+      "definition" : "Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.maxNumberOfChoices",
+      "path" : "getform.form.currentPage.questionBlocks.question.maxNumberOfChoices",
+      "short" : "Indikerar max antal värden som användaren får välja vid checkbox/multivärde.",
+      "definition" : "Indikerar max antal värden som användaren får välja vid checkbox/multivärde.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.minNumberOfChoices",
+      "path" : "getform.form.currentPage.questionBlocks.question.minNumberOfChoices",
+      "short" : "Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.",
+      "definition" : "Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.questionNumber",
+      "path" : "getform.form.currentPage.questionBlocks.question.questionNumber",
+      "short" : "questionNumber",
+      "definition" : "Frågans nummer i nummer serie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.subject",
+      "path" : "getform.form.currentPage.questionBlocks.question.subject",
+      "short" : "Frågans rubrik. T.ex Ange din blodgrupp.",
+      "definition" : "Frågans rubrik. T.ex Ange din blodgrupp.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.questionSuperior",
+      "path" : "getform.form.currentPage.questionBlocks.question.questionSuperior",
+      "short" : "QuestionSuperiorType",
+      "definition" : "questionSuperior",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.questionSuperior.superiorAnswerAlternativeNumber",
+      "path" : "getform.form.currentPage.questionBlocks.question.questionSuperior.superiorAnswerAlternativeNumber",
+      "short" : "superiorAnswerAlternativeNumber",
+      "definition" : "superiorAnswerAlternativeNumber",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.questionSuperior.superiorQuestionNumber",
+      "path" : "getform.form.currentPage.questionBlocks.question.questionSuperior.superiorQuestionNumber",
+      "short" : "superiorQuestionNumber",
+      "definition" : "superiorQuestionNumber",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.validationEvent",
+      "path" : "getform.form.currentPage.questionBlocks.question.validationEvent",
+      "short" : "ValidationEventType",
+      "definition" : "validationEvent",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.validationEvent.event",
+      "path" : "getform.form.currentPage.questionBlocks.question.validationEvent.event",
+      "short" : "event",
+      "definition" : "Följande events är giltiga: mandatory answerMax answerMin answerMaxLength answerPattern maxNumberOfChoises minNumberOfChoises answerSuperior",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.validationEvent.text",
+      "path" : "getform.form.currentPage.questionBlocks.question.validationEvent.text",
+      "short" : "Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.",
+      "definition" : "Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.question.questionAlign",
+      "path" : "getform.form.currentPage.questionBlocks.question.questionAlign",
+      "short" : "questionAlign",
+      "definition" : "questionAlign",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.questionBlocks.subject",
+      "path" : "getform.form.currentPage.questionBlocks.subject",
+      "short" : "Blockets rubrik. T.ex Medicin.",
+      "definition" : "Blockets rubrik. T.ex Medicin.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.description",
+      "path" : "getform.form.currentPage.description",
+      "short" : "Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).",
+      "definition" : "Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.informationURL",
+      "path" : "getform.form.currentPage.informationURL",
+      "short" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "definition" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.lastPage",
+      "path" : "getform.form.currentPage.lastPage",
+      "short" : "lastPage",
+      "definition" : "Indikerar om ytterligare frågeblock/page finns. Detta ger indikation för konsumerande system att presentera en knapp för att ”Avsluta och skicka” formuläret. True = Indikerar att detta är det sistea frågeblocket/page. False = Indikerar att ytterligare frågeblock/page .",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.subject",
+      "path" : "getform.form.currentPage.subject",
+      "short" : "Sidans rubrik. Information till invånaren/användaren.",
+      "definition" : "Sidans rubrik. Information till invånaren/användaren.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.currentPage.pageNumber",
+      "path" : "getform.form.currentPage.pageNumber",
+      "short" : "pageNumber",
+      "definition" : "Grupperingsbegrepp av sida (page). Sidans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Sida nummer 1 (av 10).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage",
+      "path" : "getform.form.answeredPage",
+      "short" : "PageType",
+      "definition" : "answeredPage",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks",
+      "path" : "getform.form.answeredPage.questionBlocks",
+      "short" : "QuestionBlockType",
+      "definition" : "questionBlocks",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.blockNumber",
+      "path" : "getform.form.answeredPage.questionBlocks.blockNumber",
+      "short" : "blockNumber",
+      "definition" : "Grupperingsbegrepp av frågor. Frågans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.description",
+      "path" : "getform.form.answeredPage.questionBlocks.description",
+      "short" : "description",
+      "definition" : "Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet!! T.ex här skall du lämna information kring din medicinering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.gridConfig",
+      "path" : "getform.form.answeredPage.questionBlocks.gridConfig",
+      "short" : "GridConfigType",
+      "definition" : "gridConfig",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.gridConfig.cols",
+      "path" : "getform.form.answeredPage.questionBlocks.gridConfig.cols",
+      "short" : "cols",
+      "definition" : "cols",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.gridConfig.rows",
+      "path" : "getform.form.answeredPage.questionBlocks.gridConfig.rows",
+      "short" : "rows",
+      "definition" : "rows",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.informationURL",
+      "path" : "getform.form.answeredPage.questionBlocks.informationURL",
+      "short" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "definition" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.numberOfQuestions",
+      "path" : "getform.form.answeredPage.questionBlocks.numberOfQuestions",
+      "short" : "Antal frågor tillhörande blocket. T.ex. 10",
+      "definition" : "Antal frågor tillhörande blocket. T.ex. 10",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question",
+      "path" : "getform.form.answeredPage.questionBlocks.question",
+      "short" : "QuestionType",
+      "definition" : "question",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answer",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answer",
+      "short" : "AnswerType",
+      "definition" : "answer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answer.answerAlternativeNumber",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answer.answerAlternativeNumber",
+      "short" : "Svarsalternativets id/nummer.",
+      "definition" : "Svarsalternativets id/nummer.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answer.answerStatus",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answer.answerStatus",
+      "short" : "AnswerStatusType",
+      "definition" : "answerStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answer.answerStatus.resultCode",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answer.answerStatus.resultCode",
+      "short" : "resultCode",
+      "definition" : "Signalerar om frågan är ifylld på ett felaktigt sätt. Felkod. OK - Transaktion utförd INFO - Transaktion utförd med kommentar. ERROR - Transaktion ej genomförd Tillåtna värden: OK, ERROR, INFO.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answer.answerStatus.resultCodeText",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answer.answerStatus.resultCodeText",
+      "short" : "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+      "definition" : "Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answer.value",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answer.value",
+      "short" : "Patientens/användarens svar.",
+      "definition" : "Patientens/användarens svar.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative",
+      "short" : "AnswerAlternativeType",
+      "definition" : "answerAlternative",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.alternativeValue",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.alternativeValue",
+      "short" : "Valbart svarsalternativ.",
+      "definition" : "Valbart svarsalternativ.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.answerAlternativeNumber",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.answerAlternativeNumber",
+      "short" : "Svarsalternativets id.",
+      "definition" : "Svarsalternativets id.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.answerHelp",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.answerHelp",
+      "short" : "Hjälptext till svarsalternativet. (placeholder)",
+      "definition" : "Hjälptext till svarsalternativet. (placeholder)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.code",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.code",
+      "short" : "CodeType",
+      "definition" : "Objekt för att definiera kodverk kopplat till fråga.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.code.codeValue",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.code.codeValue",
+      "short" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "definition" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.code.codeSystem",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.code.codeSystem",
+      "short" : "Identifierar vilket kodverk som används.",
+      "definition" : "Identifierar vilket kodverk som används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.media",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.media",
+      "short" : "MediaType",
+      "definition" : "Svarsalternativ i bildform.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.media.mediaURL",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.media.mediaURL",
+      "short" : "URL eller adress till media.",
+      "definition" : "URL eller adress till media.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.media.mediaType",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerAlternative.media.mediaType",
+      "short" : "Giltiga MIME typer.",
+      "definition" : "Giltiga MIME typer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerMax",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerMax",
+      "short" : "answerMax",
+      "definition" : "Specificerar maxvärde för inmatning. (Gäller typ: number, date) T.ex: Ett värde får inte överskrida 10. Blodtryck, rimlighetsparameter.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerMin",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerMin",
+      "short" : "Specificerar minvärde för inmatning. (Gäller typ: number, date)",
+      "definition" : "Specificerar minvärde för inmatning. (Gäller typ: number, date)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerMaxLength",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerMaxLength",
+      "short" : "answerMaxLength",
+      "definition" : "Specificerar maxvärdelängd för inmatning. (Gäller typ: number) T.ex: En inmatning (text) får inte vara större än 100 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerPattern",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerPattern",
+      "short" : "Inmatningsvalidering (Regular expresson). T.ex: pattern=\"[A-z]{3}\" tillåter endast 3 teckan A-z.",
+      "definition" : "Inmatningsvalidering (Regular expresson). T.ex: pattern=\"[A-z]{3}\" tillåter endast 3 teckan A-z.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.answerStep",
+      "path" : "getform.form.answeredPage.questionBlocks.question.answerStep",
+      "short" : "answerStep",
+      "definition" : "Specificerar giltiga intervall för inmatning. (Gäller typ: number, range, date, datetime, datetime-local, month, time och week) T.ex: Skalningsfaktor för en ”slide” kontroll. Ange värde för temperatur 35-40.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.code",
+      "path" : "getform.form.answeredPage.questionBlocks.question.code",
+      "short" : "CodeType",
+      "definition" : "code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.code.codeValue",
+      "path" : "getform.form.answeredPage.questionBlocks.question.code.codeValue",
+      "short" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "definition" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.code.codeSystem",
+      "path" : "getform.form.answeredPage.questionBlocks.question.code.codeSystem",
+      "short" : "Identifierar vilket kodverk som används.",
+      "definition" : "Identifierar vilket kodverk som används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.description",
+      "path" : "getform.form.answeredPage.questionBlocks.question.description",
+      "short" : "Frågans beskrivande text eller instruktion till användaren/patient.",
+      "definition" : "Frågans beskrivande text eller instruktion till användaren/patient.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.gridValue",
+      "path" : "getform.form.answeredPage.questionBlocks.question.gridValue",
+      "short" : "GridValueType",
+      "definition" : "gridValue",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.gridValue.col",
+      "path" : "getform.form.answeredPage.questionBlocks.question.gridValue.col",
+      "short" : "col",
+      "definition" : "col",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.gridValue.row",
+      "path" : "getform.form.answeredPage.questionBlocks.question.gridValue.row",
+      "short" : "row",
+      "definition" : "row",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.input",
+      "path" : "getform.form.answeredPage.questionBlocks.question.input",
+      "short" : "input",
+      "definition" : "Beskriver frågans inmatningstyp. Kodverk inmatningstyp. Text textarea Checkbox Radio Select SelectMultiple Number URL Date and time Date Month Week Time Local date and time Range Image",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.inputUnit",
+      "path" : "getform.form.answeredPage.questionBlocks.question.inputUnit",
+      "short" : "inputUnit",
+      "definition" : "Typ av enhet. Grundenheter samt härledda SI-enheter beskrivs med dess beteckning. T.ex. km, m, cm, kg, mm Hg etc Måttenheter enligt SI-systemet. SWEDAC (STAFS 2009:26)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.media",
+      "path" : "getform.form.answeredPage.questionBlocks.question.media",
+      "short" : "MediaType",
+      "definition" : "URL till bild. Bilden kan används för att illustrera en fråga. (QuestionType Image)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.media.mediaURL",
+      "path" : "getform.form.answeredPage.questionBlocks.question.media.mediaURL",
+      "short" : "URL eller adress till media.",
+      "definition" : "URL eller adress till media.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.media.mediaType",
+      "path" : "getform.form.answeredPage.questionBlocks.question.media.mediaType",
+      "short" : "Giltiga MIME typer.",
+      "definition" : "Giltiga MIME typer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.informationURL",
+      "path" : "getform.form.answeredPage.questionBlocks.question.informationURL",
+      "short" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "definition" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.mandatory",
+      "path" : "getform.form.answeredPage.questionBlocks.question.mandatory",
+      "short" : "Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga",
+      "definition" : "Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.maxNumberOfChoices",
+      "path" : "getform.form.answeredPage.questionBlocks.question.maxNumberOfChoices",
+      "short" : "Indikerar max antal värden som användaren får välja vid checkbox/multivärde.",
+      "definition" : "Indikerar max antal värden som användaren får välja vid checkbox/multivärde.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.minNumberOfChoices",
+      "path" : "getform.form.answeredPage.questionBlocks.question.minNumberOfChoices",
+      "short" : "Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.",
+      "definition" : "Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.questionNumber",
+      "path" : "getform.form.answeredPage.questionBlocks.question.questionNumber",
+      "short" : "questionNumber",
+      "definition" : "Frågans nummer i nummer serie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.subject",
+      "path" : "getform.form.answeredPage.questionBlocks.question.subject",
+      "short" : "Frågans rubrik. T.ex Ange din blodgrupp.",
+      "definition" : "Frågans rubrik. T.ex Ange din blodgrupp.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.questionSuperior",
+      "path" : "getform.form.answeredPage.questionBlocks.question.questionSuperior",
+      "short" : "QuestionSuperiorType",
+      "definition" : "questionSuperior",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.questionSuperior.superiorAnswerAlternativeNumber",
+      "path" : "getform.form.answeredPage.questionBlocks.question.questionSuperior.superiorAnswerAlternativeNumber",
+      "short" : "superiorAnswerAlternativeNumber",
+      "definition" : "superiorAnswerAlternativeNumber",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.questionSuperior.superiorQuestionNumber",
+      "path" : "getform.form.answeredPage.questionBlocks.question.questionSuperior.superiorQuestionNumber",
+      "short" : "superiorQuestionNumber",
+      "definition" : "superiorQuestionNumber",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.validationEvent",
+      "path" : "getform.form.answeredPage.questionBlocks.question.validationEvent",
+      "short" : "ValidationEventType",
+      "definition" : "validationEvent",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.validationEvent.event",
+      "path" : "getform.form.answeredPage.questionBlocks.question.validationEvent.event",
+      "short" : "event",
+      "definition" : "Följande events är giltiga: mandatory answerMax answerMin answerMaxLength answerPattern maxNumberOfChoises minNumberOfChoises answerSuperior",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.validationEvent.text",
+      "path" : "getform.form.answeredPage.questionBlocks.question.validationEvent.text",
+      "short" : "Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.",
+      "definition" : "Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.question.questionAlign",
+      "path" : "getform.form.answeredPage.questionBlocks.question.questionAlign",
+      "short" : "questionAlign",
+      "definition" : "questionAlign",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.questionBlocks.subject",
+      "path" : "getform.form.answeredPage.questionBlocks.subject",
+      "short" : "Blockets rubrik. T.ex Medicin.",
+      "definition" : "Blockets rubrik. T.ex Medicin.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.description",
+      "path" : "getform.form.answeredPage.description",
+      "short" : "Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).",
+      "definition" : "Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.informationURL",
+      "path" : "getform.form.answeredPage.informationURL",
+      "short" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "definition" : "URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.lastPage",
+      "path" : "getform.form.answeredPage.lastPage",
+      "short" : "lastPage",
+      "definition" : "Indikerar om ytterligare frågeblock/page finns. Detta ger indikation för konsumerande system att presentera en knapp för att ”Avsluta och skicka” formuläret. True = Indikerar att detta är det sistea frågeblocket/page. False = Indikerar att ytterligare frågeblock/page .",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.subject",
+      "path" : "getform.form.answeredPage.subject",
+      "short" : "Sidans rubrik. Information till invånaren/användaren.",
+      "definition" : "Sidans rubrik. Information till invånaren/användaren.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.answeredPage.pageNumber",
+      "path" : "getform.form.answeredPage.pageNumber",
+      "short" : "pageNumber",
+      "definition" : "Grupperingsbegrepp av sida (page). Sidans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Sida nummer 1 (av 10).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getform.form.lastSavedDate",
+      "path" : "getform.form.lastSavedDate",
+      "short" : "lastSavedDate",
+      "definition" : "lastSavedDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getform.form.subjectOfCare",
+      "path" : "getform.form.subjectOfCare",
+      "short" : "subjectOfCare",
+      "definition" : "Patienten formuläret avser. Personnummer format yyyymmddnnnn. T.ex. 191212121212. FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

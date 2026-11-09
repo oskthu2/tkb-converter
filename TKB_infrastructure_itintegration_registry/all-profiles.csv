@@ -1,0 +1,36 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract","","","",0,*,"","","","null {[]} {[]}
+","GetLogicalAddresseesByServiceContract","Logisk modell för tjänstekontraktet GetLogicalAddresseesByServiceContract
+(RIV-TA urn:riv:infrastructure:itintegration:registry:GetLogicalAddresseesByServiceContract:2).
+Representerar responsens informationsstruktur: en lista över logiska
+adressater som har en tjänsteproducent för angivet tjänstekontrakt och
+anropsbehörighet för angiven tjänstekonsument.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract.logicalAddressRecord","getlogicaladdresseesbyservicecontract.logicalAddressRecord","","","",0,*,"","","","Base {[]} {[]}
+","LogicalAddresseeRecordType","logicalAddressRecord","TKB-fält: `logicalAddressRecord` (`LogicalAddresseeRecordType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlogicaladdresseesbyservicecontract.logicalAddressRecord",0,*,"","getlogicaladdresseesbyservicecontract-filter-authorization:R2 (TKB avsnitt 7.1, ""Övriga regler""): behörighetsfiltrering är en
+flerstegsregel över listan av filter-poster (saknas filter-poster ska
+anropet tillåtas; annars måste meddelandets serviceDomain matcha en
+filter-post, och om den matchande posten har categorization måste
+meddelandets categorization matcha en av dessa). Detta kräver iteration
+över en lista med kombinerad AND/OR-logik mellan filter-poster och kan
+inte uttryckas fullständigt som en enkel FHIRPath-invariant på fältnivå.
+Se QUESTIONS.md för domänexpert-verifiering av en ev. förenklad
+FHIRPath-representation. {null}
+"
+"getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract.logicalAddressRecord.logicalAddress","getlogicaladdresseesbyservicecontract.logicalAddressRecord.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Tjänstekontrakt som stöds av angiven tjänstekonsument vid tidpunkten för anropet av GetLogicalAddresseesByServiceContract.","TKB-fält: `logicalAddressRecord. logicalAddress` (`Text`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogicaladdresseesbyservicecontract.logicalAddressRecord.logicalAddress",1,1,"",""
+"getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter","getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter","","","",0,*,"","","","Base {[]} {[]}
+","FilterType","filter","TKB-fält: `logicalAddressRecord.filter` (`FilterType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter",0,*,"",""
+"getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.serviceDomain","getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","serviceDomain","serviceDomain","","","","","","","","","",,,,,"",,,,"getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.serviceDomain",1,1,"",""
+"getlogicaladdresseesbyservicecontract","getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.categorization","getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.categorization","","","",0,*,"","","","string {[]} {[]}
+","categorization","categorization","","","","","","","","","",,,,,"",,,,"getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.categorization",0,*,"",""
+"getsupportedservicecontracts","getsupportedservicecontracts","getsupportedservicecontracts","","","",0,*,"","","","null {[]} {[]}
+","GetSupportedServiceContracts","Logisk modell för tjänstekontraktet GetSupportedServiceContracts
+(RIV-TA urn:riv:infrastructure:itintegration:registry:GetSupportedServiceContracts:2).
+Representerar responsens informationsstruktur: en lista över
+tjänstekontrakt (namnrymder) som stöds av en specifik logisk adressat.
+Varje huvudversion uppträder som ett eget tjänstekontrakt (namnrymd).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getsupportedservicecontracts","getsupportedservicecontracts.serviceContractNamespace","getsupportedservicecontracts.serviceContractNamespace","","","",0,*,"","","","Base {[]} {[]}
+","ServiceContractNamespaceType","Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för anropet av GetSupportedServiceContracts.","TKB-fält: `serviceContractNamespace` (`urn`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getsupportedservicecontracts.serviceContractNamespace",0,*,"",""
+"getsupportedservicecontracts","getsupportedservicecontracts.serviceContractNamespace.ServiceContractNamespace","getsupportedservicecontracts.serviceContractNamespace.ServiceContractNamespace","","","",1,1,"","","","uri {[]} {[]}
+","ServiceContractNamespace","ServiceContractNamespace","","","","","","","","","",,,,,"",,,,"getsupportedservicecontracts.serviceContractNamespace.ServiceContractNamespace",1,1,"",""

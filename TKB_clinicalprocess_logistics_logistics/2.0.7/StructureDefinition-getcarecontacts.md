@@ -1,0 +1,264 @@
+# GetCareContacts - clinicalprocess: logistics: logistics 2.0.7 v2.0.7
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCareContacts**
+
+## Logical Model: GetCareContacts 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetCareContacts |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetCareContacts 2.0 (RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2). Representerar svarets informationsstruktur (GetCareContactsResponseType): noll eller flera vårdkontakter, var och en med ett huvud (careContactHeader) och en kropp (careContactBody). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-logistics-logistics|current/StructureDefinition/StructureDefinition-getcarecontacts.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcarecontacts.csv), [Excel](StructureDefinition-getcarecontacts.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcarecontacts",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts",
+  "version" : "2.0",
+  "name" : "GetCareContacts",
+  "title" : "GetCareContacts",
+  "status" : "active",
+  "date" : "2026-11-09T03:24:40+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetCareContacts 2.0\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2).\nRepresenterar svarets informationsstruktur (GetCareContactsResponseType):\nnoll eller flera vårdkontakter, var och en med ett huvud (careContactHeader) och en kropp (careContactBody).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcarecontacts",
+      "path" : "getcarecontacts",
+      "short" : "GetCareContacts",
+      "definition" : "Logisk modell för tjänstekontraktet GetCareContacts 2.0\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2).\nRepresenterar svarets informationsstruktur (GetCareContactsResponseType):\nnoll eller flera vårdkontakter, var och en med ett huvud (careContactHeader) och en kropp (careContactBody)."
+    },
+    {
+      "id" : "getcarecontacts.careContact",
+      "path" : "getcarecontacts.careContact",
+      "short" : "CareContactType",
+      "definition" : "De hälso- och sjukvårdskontakter som matchar begäran.",
+      "comment" : "TKB-fält: `careContact` (`CareContactType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader",
+      "path" : "getcarecontacts.careContact.careContactHeader",
+      "short" : "PatientSummaryHeaderType",
+      "definition" : "Innehåller basinformation om dokumentet",
+      "comment" : "TKB-fält: `.careContactHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.documentId",
+      "path" : "getcarecontacts.careContact.careContactHeader.documentId",
+      "short" : "documentId",
+      "definition" : "Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+      "comment" : "TKB-fält: `..documentId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.sourceSystemHSAId",
+      "path" : "getcarecontacts.careContact.careContactHeader.sourceSystemHSAId",
+      "short" : "sourceSystemHSAId",
+      "definition" : "HSA-id för det system som dokumentet är skapat i.",
+      "comment" : "TKB-fält: `..sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.patientId",
+      "path" : "getcarecontacts.careContact.careContactHeader.patientId",
+      "short" : "patientId",
+      "definition" : "Identifierare för patient.",
+      "comment" : "TKB-fält: `..patientId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional",
+      "path" : "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "Hälso- och sjukvårdsperson som ansvarar för vårdkontakten. Ska anges om tillgänglig.",
+      "comment" : "TKB-fält: `..accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.approvedForPatient",
+      "path" : "getcarecontacts.careContact.careContactHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+      "comment" : "TKB-fält i PatientSummaryHeaderType: `approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.nullified",
+      "path" : "getcarecontacts.careContact.careContactHeader.nullified",
+      "short" : "nullified",
+      "definition" : "Anger om dokumentet makulerats i källsystemet. Sätts i så fall till true annars false. Används bl.a. i statistik-/rapportuttag med hjälp av tjänstekontrakten.",
+      "comment" : "TKB-fält i PatientSummaryHeaderType: `nullified` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactHeader.nullifiedReason",
+      "path" : "getcarecontacts.careContact.careContactHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "Anger orsak till makulering.",
+      "comment" : "TKB-fält i PatientSummaryHeaderType: `nullifiedReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactBody",
+      "path" : "getcarecontacts.careContact.careContactBody",
+      "short" : "CareContactBodyType",
+      "definition" : "careContactBody",
+      "comment" : "TKB-fält: `.careContactBody` (`CareContactBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactBody.careContactCode",
+      "path" : "getcarecontacts.careContact.careContactBody.careContactCode",
+      "short" : "careContactCode",
+      "definition" : "Typ av hälso- och sjukvårdsdokumentation. Tillåtna värden är:\n\n1 = Besök\n\n2 = Telefon\n\n3 = Vårdtillfälle\n\n4 = Dagsjukvård\n\n5 = Annan\n\nUtelämnat värde betyder att värdet är okänt.",
+      "comment" : "TKB-fält: `..careContactCode` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/carecontactcode-vs"
+      }
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactBody.careContactReason",
+      "path" : "getcarecontacts.careContact.careContactBody.careContactReason",
+      "short" : "careContactReason",
+      "definition" : "Text som beskriver orsaken till hälso- och sjukvårdskontakt som hälso- och sjukvårdstagaren själv eller dess företrädare anger.",
+      "comment" : "TKB-fält: `..careContactReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactBody.careContactOrgUnit",
+      "path" : "getcarecontacts.careContact.careContactBody.careContactOrgUnit",
+      "short" : "careContactOrgUnit",
+      "definition" : "Den enhet som kontakten utfördes vid",
+      "comment" : "TKB-fält: `..careContactOrgUnit` (`OrgUnitType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/OrgUnitType"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactBody.careContactTimePeriod",
+      "path" : "getcarecontacts.careContact.careContactBody.careContactTimePeriod",
+      "short" : "careContactTimePeriod",
+      "definition" : "För besök sätts sluttidpunken till samma tid som anges som starttidpunkt.\n\nFör planerade kontakter sätts ingen sluttidpunkt.\n\nPågående vårdtillfälle ska anges på samma sätt som en planerad vårdkontakt, dvs med angivet startdatum, men utan slutdatum.",
+      "comment" : "TKB-fält: `..careContactTimePeriod` (`TimePeriodType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/TimePeriodType"
+      }]
+    },
+    {
+      "id" : "getcarecontacts.careContact.careContactBody.careContactStatus",
+      "path" : "getcarecontacts.careContact.careContactBody.careContactStatus",
+      "short" : "careContactStatus",
+      "definition" : "Tillåtna värden är:\n\n1 = Ej påbörjad\n\n2 = Inställd\n\n3 = Pågående\n\n4 = Avbruten\n\n5 = Avslutad",
+      "comment" : "TKB-fält: `..careContactStatus` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/carecontactstatus-vs"
+      }
+    }]
+  }
+}
+
+```

@@ -1,0 +1,244 @@
+# GetListing - crm: carelisting v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetListing**
+
+## Logical Model: GetListing 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/getlisting | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetListing |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetListing (Visa tjänsteval) (RIV-TA urn:riv:crm:carelisting:GetListingResponder:1). Representerar responsens informationsstruktur. Hämtar information om en persons aktiva listning (tjänsteval). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.crm-carelisting|current/StructureDefinition/StructureDefinition-getlisting.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getlisting.csv), [Excel](StructureDefinition-getlisting.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getlisting",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/getlisting",
+  "version" : "1.0",
+  "name" : "GetListing",
+  "title" : "GetListing",
+  "status" : "active",
+  "date" : "2026-11-09T03:25:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetListing (Visa tjänsteval)\n(RIV-TA urn:riv:crm:carelisting:GetListingResponder:1).\nRepresenterar responsens informationsstruktur.\nHämtar information om en persons aktiva listning (tjänsteval).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/getlisting",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getlisting",
+      "path" : "getlisting",
+      "short" : "GetListing",
+      "definition" : "Logisk modell för tjänstekontraktet GetListing (Visa tjänsteval)\n(RIV-TA urn:riv:crm:carelisting:GetListingResponder:1).\nRepresenterar responsens informationsstruktur.\nHämtar information om en persons aktiva listning (tjänsteval)."
+    },
+    {
+      "id" : "getlisting.subjectOfCare",
+      "path" : "getlisting.subjectOfCare",
+      "short" : "SubjectOfCare",
+      "definition" : "En persons listningar.",
+      "comment" : "TKB-fält: `subjectOfCare` (`SubjectOfCare`, kardinalitet 1..1).\n\n**Modellanteckning:** En persons listningar. PostCondition: tillgängliga listningstyper för en listnings vårdenhet är utelämnad.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.personId",
+      "path" : "getlisting.subjectOfCare.personId",
+      "short" : "personId",
+      "definition" : "Identitetsbeteckning för vård- och omsorgstagaren.",
+      "comment" : "TKB-fält: `subjectOfCare.personId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/SubjectOfCareIdType"]
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing",
+      "path" : "getlisting.subjectOfCare.listing",
+      "short" : "Listing",
+      "definition" : "En listning för personen. PostCondition: tillgängliga listningstyper för listningens vårdenhet är utelämnad.",
+      "comment" : "TKB-fält: `subjectOfCare.listing` (`Listing`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.validFromDate",
+      "path" : "getlisting.subjectOfCare.listing.validFromDate",
+      "short" : "Anger datum för när listningen började gälla.",
+      "definition" : "Datum för när listningen började gälla.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.validFromDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.validToDate",
+      "path" : "getlisting.subjectOfCare.listing.validToDate",
+      "short" : "Anger datum när listningen slutade gälla, om datum saknas så blir det implicit obestämt in i framtiden.",
+      "definition" : "Datum när listningen slutade gälla. Om datum saknas är det implicit obestämt in i framtiden.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.validToDate` (`dateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.listingType",
+      "path" : "getlisting.subjectOfCare.listing.listingType",
+      "short" : "listingType",
+      "definition" : "Typ av listning, t.ex. BVC, HLM, FL.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.listingType` (`string (ListingType)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.healthcare-facility",
+      "path" : "getlisting.subjectOfCare.listing.healthcare_facility",
+      "short" : "Facility",
+      "definition" : "Vårdinrättning/vårdenhet som ansvarar för personen.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.healthcare_facility` (`Facility`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.healthcare-facility.facilityId",
+      "path" : "getlisting.subjectOfCare.listing.healthcare_facility.facilityId",
+      "short" : "facilityId",
+      "definition" : "HSA-ID för vårdenheten.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.healthcare_facility.facilityId` (`string (HsaIdType)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.healthcare-facility.hasQueue",
+      "path" : "getlisting.subjectOfCare.listing.healthcare_facility.hasQueue",
+      "short" : "Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten.",
+      "definition" : "Indikerar om vårdenheten har kö vid listningar.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.healthcare_facility.hasQueue` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.healthcare-facility.supportedListingTypes",
+      "path" : "getlisting.subjectOfCare.listing.healthcare_facility.supportedListingTypes",
+      "short" : "supportedListingTypes",
+      "definition" : "Lista med listningstyper som vårdenheten stödjer. Utelämnas i GetListing-svaret (per postcondition).",
+      "comment" : "TKB-fält: `subjectOfCare.listing.healthcare_facility.supportedListingTypes` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.healthcare-facility.facilityName",
+      "path" : "getlisting.subjectOfCare.listing.healthcare_facility.facilityName",
+      "short" : "Namn på vårdenheten.",
+      "definition" : "Namn på vårdenheten.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.healthcare_facility.facilityName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.resource",
+      "path" : "getlisting.subjectOfCare.listing.resource",
+      "short" : "Resource",
+      "definition" : "Specifik resurs som utför listningstjänsten, t.ex. en läkare eller husläkarteam.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.resource` (`Resource`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.resource.resourceId",
+      "path" : "getlisting.subjectOfCare.listing.resource.resourceId",
+      "short" : "resourceId",
+      "definition" : "HSA-ID för resursen.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.resource.resourceId` (`string (HsaIdType)`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getlisting.subjectOfCare.listing.resource.resourceName",
+      "path" : "getlisting.subjectOfCare.listing.resource.resourceName",
+      "short" : "Namn på vårdgivaren",
+      "definition" : "Namn på vårdgivaren.",
+      "comment" : "TKB-fält: `subjectOfCare.listing.resource.resourceName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

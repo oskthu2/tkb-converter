@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="getdiagnosis"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureDefinition getdiagnosis</b></p><table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance">Card.</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis" title="Logisk modell för tjänstekontraktet GetDiagnosis
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).
+Representerar responsens informationsstruktur: registrerade diagnoser för en patient
+inklusive diagnoskod per ursprungligt diagnosticeringstillfälle.">getdiagnosis</a><a name="getdiagnosis"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">*</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://build.fhir.org/types.html#Base">Base</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">GetDiagnosis<br/><span style="font-weight:bold">Instances of this type can be the target of a Reference</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis" title="De diagnoser som matchar begäran.">diagnosis</a><a name="getdiagnosis.diagnosis"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">DiagnosisType<br/></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck111.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader" title="Innehåller basinformation om dokumentet">diagnosisHeader</a><a name="getdiagnosis.diagnosis.diagnosisHeader"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">PatientSummaryHeaderType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.documentId" title="Dokumentets identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.">documentId</a><a name="getdiagnosis.diagnosis.diagnosisHeader.documentId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId" title="HSA-id för det system tillgängliggör informationen.">sourceSystemHSAId</a><a name="getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-HSAIdType.html" title="string">HSAIdType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">sourceSystemHSAId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.documentTitle" title="N/A">documentTitle</a><a name="getdiagnosis.diagnosis.diagnosisHeader.documentTitle"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentTitle</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.documentTime" title="N/A">documentTime</a><a name="getdiagnosis.diagnosis.diagnosisHeader.documentTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimeStampType.html" title="string">TimeStampType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentTime</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.patientId" title="Identifierare för patient.">patientId</a><a name="getdiagnosis.diagnosis.diagnosisHeader.patientId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-PersonIdType.html">PersonIdType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">patientId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional" title="Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare.">accountableHealthcareProfessional</a><a name="getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdf4f4;; padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdf4f4;" href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( getdiagnosis-pdl-careunit-caregiver )">C</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-HealthcareProfessionalType.html">HealthcareProfessionalType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">accountableHealthcareProfessional<br class="constraint"/><span title="null" class="constraint">Constraints: </span><span style="font-weight:bold" title="Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring." class="constraint">getdiagnosis-pdl-careunit-caregiver</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1111.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator" title="Information om vem som signerat informationen i dokumentet.">legalAuthenticator</a><a name="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">LegalAuthenticatorType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime" title="Tidpunkt för signering.">signatureTime</a><a name="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimeStampType.html" title="string">TimeStampType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">signatureTime</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId" title="HSA-id för person som signerat dokumentet">legalAuthenticatorHSAId</a><a name="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-HSAIdType.html" title="string">HSAIdType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">legalAuthenticatorHSAId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName" title="Namnen i klartext för signerande person.">legalAuthenticatorName</a><a name="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">legalAuthenticatorName</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient" title="Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.">approvedForPatient</a><a name="getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">approvedForPatient</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.careContactId" title="Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet">careContactId</a><a name="getdiagnosis.diagnosis.diagnosisHeader.careContactId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.nullified" title="N/A">nullified</a><a name="getdiagnosis.diagnosis.diagnosisHeader.nullified"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">nullified</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason" title="N/A">nullifiedReason</a><a name="getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">nullifiedReason</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck101.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody" title="diagnosisBody">diagnosisBody</a><a name="getdiagnosis.diagnosis.diagnosisBody"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">DiagnosisBodyType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis" title="Anges som &quot;Huvuddiagnos&quot; eller &quot;Bidiagnos&quot;.">typeOfDiagnosis</a><a name="getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">typeOfDiagnosis<br class="binding"/><span style="font-weight:bold" title="null" class="binding">Binding: </span><a href="ValueSet-diagnosistype-vs.html" title="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs" class="binding">DiagnosisType — ValueSet</a><span title="null" class="binding"> (</span><a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set." class="binding">required</a><span title="null" class="binding">)</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis" title="Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt.">chronicDiagnosis</a><a name="getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">chronicDiagnosis</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody.diagnosisTime" title="Tidpunkt då bedömningen gjordes.">diagnosisTime</a><a name="getdiagnosis.diagnosis.diagnosisBody.diagnosisTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimeStampType.html" title="string">TimeStampType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">diagnosisTime</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody.diagnosisCode" title="Diagnoskod.">diagnosisCode</a><a name="getdiagnosis.diagnosis.diagnosisBody.diagnosisCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-CVType.html">CVType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">diagnosisCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1001.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis" title="Relaterad diagnos.
+
+Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos.">relatedDiagnosis</a><a name="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">RelatedDiagnosisType<br/></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId" title="Unik identitet för diagnosen.">documentId</a><a name="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.result" title="Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.">result</a><a name="getdiagnosis.result"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">ResultType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.result.resultCode" title="Kan endast vara OK, INFO eller ERROR">resultCode</a><a name="getdiagnosis.result.resultCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">resultCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.result.errorCode" title="Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.">errorCode</a><a name="getdiagnosis.result.errorCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">errorCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.result.logId" title="En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.">logId</a><a name="getdiagnosis.result.logId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">logId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.result.subCode" title="Inga subkoder är specificerade.">subCode</a><a name="getdiagnosis.result.subCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">subCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getdiagnosis-definitions.html#getdiagnosis.result.message" title="En beskrivande text som kan visas för användaren.">message</a><a name="getdiagnosis.result.message"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">message</td></tr>
+<tr><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics">
+    <valueCode value="can-be-target"/>
+  </extension>
+  <url value="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis"/>
+  <version value="2.0"/>
+  <name value="GetDiagnosis"/>
+  <title value="GetDiagnosis"/>
+  <status value="active"/>
+  <date value="2026-11-09T03:22:17+00:00"/>
+  <contact>
+    <name value="Inera Arkitektur"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Logisk modell för tjänstekontraktet GetDiagnosis&#xA;(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).&#xA;Representerar responsens informationsstruktur: registrerade diagnoser för en patient&#xA;inklusive diagnoskod per ursprungligt diagnosticeringstillfälle."/>
+  <copyright value="Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."/>
+  <fhirVersion value="4.0.1"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Base"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version">
+      <valueString value="4.0.1"/>
+    </extension>
+    <element id="getdiagnosis">
+      <path value="getdiagnosis"/>
+      <short value="GetDiagnosis"/>
+      <definition value="Logisk modell för tjänstekontraktet GetDiagnosis&#xA;(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).&#xA;Representerar responsens informationsstruktur: registrerade diagnoser för en patient&#xA;inklusive diagnoskod per ursprungligt diagnosticeringstillfälle."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Base"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+    <element id="getdiagnosis.diagnosis">
+      <path value="getdiagnosis.diagnosis"/>
+      <short value="DiagnosisType"/>
+      <definition value="De diagnoser som matchar begäran."/>
+      <comment value="TKB-fält: `diagnosis` (`DiagnosisType`, kardinalitet 0..*)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="getdiagnosis.diagnosis"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader"/>
+      <short value="PatientSummaryHeaderType"/>
+      <definition value="Innehåller basinformation om dokumentet"/>
+      <comment value="TKB-fält: `../diagnosisHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.documentId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.documentId"/>
+      <short value="documentId"/>
+      <definition value="Dokumentets identitet som är unik inom källsystemet.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen."/>
+      <comment value="TKB-fält: `../../documentId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.documentId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId"/>
+      <short value="sourceSystemHSAId"/>
+      <definition value="HSA-id för det system tillgängliggör informationen."/>
+      <comment value="TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.documentTitle">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.documentTitle"/>
+      <short value="documentTitle"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../documentTitle` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.documentTitle"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.documentTime">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.documentTime"/>
+      <short value="documentTime"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../documentTime` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.documentTime"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.patientId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.patientId"/>
+      <short value="patientId"/>
+      <definition value="Identifierare för patient."/>
+      <comment value="TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.patientId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional"/>
+      <short value="accountableHealthcareProfessional"/>
+      <definition value="Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare."/>
+      <comment value="TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"/>
+      </type>
+      <constraint>
+        <key value="getdiagnosis-pdl-careunit-caregiver"/>
+        <severity value="warning"/>
+        <human value="Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring."/>
+        <expression value="healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()"/>
+        <source value="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis"/>
+      </constraint>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator"/>
+      <short value="LegalAuthenticatorType"/>
+      <definition value="Information om vem som signerat informationen i dokumentet."/>
+      <comment value="TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime"/>
+      <short value="signatureTime"/>
+      <definition value="Tidpunkt för signering."/>
+      <comment value="TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId"/>
+      <short value="legalAuthenticatorHSAId"/>
+      <definition value="HSA-id för person som signerat dokumentet"/>
+      <comment value="TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName"/>
+      <short value="legalAuthenticatorName"/>
+      <definition value="Namnen i klartext för signerande person."/>
+      <comment value="TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient"/>
+      <short value="approvedForPatient"/>
+      <definition value="Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false."/>
+      <comment value="TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.careContactId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.careContactId"/>
+      <short value="careContactId"/>
+      <definition value="Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet"/>
+      <comment value="TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.careContactId"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.nullified">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.nullified"/>
+      <short value="nullified"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../nullified` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.nullified"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason"/>
+      <short value="nullifiedReason"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../nullifiedReason` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody">
+      <path value="getdiagnosis.diagnosis.diagnosisBody"/>
+      <short value="DiagnosisBodyType"/>
+      <definition value="diagnosisBody"/>
+      <comment value="TKB-fält: `../diagnosisBody` (`DiagnosisBodyType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis"/>
+      <short value="typeOfDiagnosis"/>
+      <definition value="Anges som &quot;Huvuddiagnos&quot; eller &quot;Bidiagnos&quot;."/>
+      <comment value="TKB-fält: `../../typeOfDiagnosis` (`TypeOfDiagnosisEnum`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs"/>
+      </binding>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis"/>
+      <short value="chronicDiagnosis"/>
+      <definition value="Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt."/>
+      <comment value="TKB-fält: `../../chronicDiagnosis` (`boolean`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.diagnosisTime">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.diagnosisTime"/>
+      <short value="diagnosisTime"/>
+      <definition value="Tidpunkt då bedömningen gjordes."/>
+      <comment value="TKB-fält: `../../diagnosisTime` (`TimeStampType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody.diagnosisTime"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.diagnosisCode">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.diagnosisCode"/>
+      <short value="diagnosisCode"/>
+      <definition value="Diagnoskod."/>
+      <comment value="TKB-fält: `../../diagnosisCode` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody.diagnosisCode"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis"/>
+      <short value="RelatedDiagnosisType"/>
+      <definition value="Relaterad diagnos.&#xA;&#xA;Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos."/>
+      <comment value="TKB-fält: `../../relatedDiagnosis` (`RelatedDiagnosisType`, kardinalitet 0..*)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId"/>
+      <short value="documentId"/>
+      <definition value="Unik identitet för diagnosen."/>
+      <comment value="TKB-fält: `../../../documentId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result">
+      <path value="getdiagnosis.result"/>
+      <short value="ResultType"/>
+      <definition value="Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl."/>
+      <comment value="TKB-fält: `result` (`ResultType`, kardinalitet 1..1).&#xA;&#xA;Obs: modellen anger 0..1 där TKB:n anger 1..1."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.result"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.resultCode">
+      <path value="getdiagnosis.result.resultCode"/>
+      <short value="resultCode"/>
+      <definition value="Kan endast vara OK, INFO eller ERROR"/>
+      <comment value="TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.result.resultCode"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.errorCode">
+      <path value="getdiagnosis.result.errorCode"/>
+      <short value="errorCode"/>
+      <definition value="Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information."/>
+      <comment value="TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).&#xA;&#xA;**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.result.errorCode"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.logId">
+      <path value="getdiagnosis.result.logId"/>
+      <short value="logId"/>
+      <definition value="En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."/>
+      <comment value="TKB-fält: `../logId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.result.logId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.subCode">
+      <path value="getdiagnosis.result.subCode"/>
+      <short value="subCode"/>
+      <definition value="Inga subkoder är specificerade."/>
+      <comment value="TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.result.subCode"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.message">
+      <path value="getdiagnosis.result.message"/>
+      <short value="message"/>
+      <definition value="En beskrivande text som kan visas för användaren."/>
+      <comment value="TKB-fält: `../message` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getdiagnosis.result.message"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="getdiagnosis">
+      <path value="getdiagnosis"/>
+      <short value="GetDiagnosis"/>
+      <definition value="Logisk modell för tjänstekontraktet GetDiagnosis&#xA;(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).&#xA;Representerar responsens informationsstruktur: registrerade diagnoser för en patient&#xA;inklusive diagnoskod per ursprungligt diagnosticeringstillfälle."/>
+    </element>
+    <element id="getdiagnosis.diagnosis">
+      <path value="getdiagnosis.diagnosis"/>
+      <short value="DiagnosisType"/>
+      <definition value="De diagnoser som matchar begäran."/>
+      <comment value="TKB-fält: `diagnosis` (`DiagnosisType`, kardinalitet 0..*)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader"/>
+      <short value="PatientSummaryHeaderType"/>
+      <definition value="Innehåller basinformation om dokumentet"/>
+      <comment value="TKB-fält: `../diagnosisHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.documentId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.documentId"/>
+      <short value="documentId"/>
+      <definition value="Dokumentets identitet som är unik inom källsystemet.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen."/>
+      <comment value="TKB-fält: `../../documentId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId"/>
+      <short value="sourceSystemHSAId"/>
+      <definition value="HSA-id för det system tillgängliggör informationen."/>
+      <comment value="TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.documentTitle">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.documentTitle"/>
+      <short value="documentTitle"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../documentTitle` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.documentTime">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.documentTime"/>
+      <short value="documentTime"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../documentTime` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.patientId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.patientId"/>
+      <short value="patientId"/>
+      <definition value="Identifierare för patient."/>
+      <comment value="TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional"/>
+      <short value="accountableHealthcareProfessional"/>
+      <definition value="Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare."/>
+      <comment value="TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"/>
+      </type>
+      <constraint>
+        <key value="getdiagnosis-pdl-careunit-caregiver"/>
+        <severity value="warning"/>
+        <human value="Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring."/>
+        <expression value="healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()"/>
+        <source value="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis"/>
+      </constraint>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator"/>
+      <short value="LegalAuthenticatorType"/>
+      <definition value="Information om vem som signerat informationen i dokumentet."/>
+      <comment value="TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime"/>
+      <short value="signatureTime"/>
+      <definition value="Tidpunkt för signering."/>
+      <comment value="TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId"/>
+      <short value="legalAuthenticatorHSAId"/>
+      <definition value="HSA-id för person som signerat dokumentet"/>
+      <comment value="TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName"/>
+      <short value="legalAuthenticatorName"/>
+      <definition value="Namnen i klartext för signerande person."/>
+      <comment value="TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient"/>
+      <short value="approvedForPatient"/>
+      <definition value="Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false."/>
+      <comment value="TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.careContactId">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.careContactId"/>
+      <short value="careContactId"/>
+      <definition value="Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet"/>
+      <comment value="TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.nullified">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.nullified"/>
+      <short value="nullified"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../nullified` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason">
+      <path value="getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason"/>
+      <short value="nullifiedReason"/>
+      <definition value="N/A"/>
+      <comment value="TKB-fält: `../../nullifiedReason` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody">
+      <path value="getdiagnosis.diagnosis.diagnosisBody"/>
+      <short value="DiagnosisBodyType"/>
+      <definition value="diagnosisBody"/>
+      <comment value="TKB-fält: `../diagnosisBody` (`DiagnosisBodyType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis"/>
+      <short value="typeOfDiagnosis"/>
+      <definition value="Anges som &quot;Huvuddiagnos&quot; eller &quot;Bidiagnos&quot;."/>
+      <comment value="TKB-fält: `../../typeOfDiagnosis` (`TypeOfDiagnosisEnum`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs"/>
+      </binding>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis"/>
+      <short value="chronicDiagnosis"/>
+      <definition value="Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt."/>
+      <comment value="TKB-fält: `../../chronicDiagnosis` (`boolean`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.diagnosisTime">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.diagnosisTime"/>
+      <short value="diagnosisTime"/>
+      <definition value="Tidpunkt då bedömningen gjordes."/>
+      <comment value="TKB-fält: `../../diagnosisTime` (`TimeStampType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.diagnosisCode">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.diagnosisCode"/>
+      <short value="diagnosisCode"/>
+      <definition value="Diagnoskod."/>
+      <comment value="TKB-fält: `../../diagnosisCode` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis"/>
+      <short value="RelatedDiagnosisType"/>
+      <definition value="Relaterad diagnos.&#xA;&#xA;Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos."/>
+      <comment value="TKB-fält: `../../relatedDiagnosis` (`RelatedDiagnosisType`, kardinalitet 0..*)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId">
+      <path value="getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId"/>
+      <short value="documentId"/>
+      <definition value="Unik identitet för diagnosen."/>
+      <comment value="TKB-fält: `../../../documentId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result">
+      <path value="getdiagnosis.result"/>
+      <short value="ResultType"/>
+      <definition value="Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl."/>
+      <comment value="TKB-fält: `result` (`ResultType`, kardinalitet 1..1).&#xA;&#xA;Obs: modellen anger 0..1 där TKB:n anger 1..1."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.resultCode">
+      <path value="getdiagnosis.result.resultCode"/>
+      <short value="resultCode"/>
+      <definition value="Kan endast vara OK, INFO eller ERROR"/>
+      <comment value="TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.errorCode">
+      <path value="getdiagnosis.result.errorCode"/>
+      <short value="errorCode"/>
+      <definition value="Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information."/>
+      <comment value="TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).&#xA;&#xA;**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.logId">
+      <path value="getdiagnosis.result.logId"/>
+      <short value="logId"/>
+      <definition value="En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."/>
+      <comment value="TKB-fält: `../logId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.subCode">
+      <path value="getdiagnosis.result.subCode"/>
+      <short value="subCode"/>
+      <definition value="Inga subkoder är specificerade."/>
+      <comment value="TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getdiagnosis.result.message">
+      <path value="getdiagnosis.result.message"/>
+      <short value="message"/>
+      <definition value="En beskrivande text som kan visas för användaren."/>
+      <comment value="TKB-fält: `../message` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

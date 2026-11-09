@@ -1,0 +1,247 @@
+# GetHealthcareFacility — Response - supportprocess: logistics: scheduling v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHealthcareFacility — Response**
+
+## Logical Model: GetHealthcareFacility — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/gethealthcarefacility | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetHealthcareFacility |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetHealthcareFacility (urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilityResponder:2, GetHealthcareFacilityResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-scheduling|current/StructureDefinition/StructureDefinition-gethealthcarefacility.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethealthcarefacility.csv), [Excel](StructureDefinition-gethealthcarefacility.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethealthcarefacility",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/gethealthcarefacility",
+  "version" : "2.0",
+  "name" : "GetHealthcareFacility",
+  "title" : "GetHealthcareFacility — Response",
+  "status" : "draft",
+  "date" : "2026-11-09T03:52:57+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetHealthcareFacility\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilityResponder:2, GetHealthcareFacilityResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/gethealthcarefacility",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethealthcarefacility",
+      "path" : "gethealthcarefacility",
+      "short" : "GetHealthcareFacility — Response",
+      "definition" : "Logisk modell för svaret i GetHealthcareFacility\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilityResponder:2, GetHealthcareFacilityResponseType)."
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility",
+      "path" : "gethealthcarefacility.healthcareFacility",
+      "short" : "OrgUnitType",
+      "definition" : "Detaljer om vårdenheten.",
+      "comment" : "TKB-fält: `healthcareFacility` (`OrgUnitType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.HSAId",
+      "path" : "gethealthcarefacility.healthcareFacility.HSAId",
+      "short" : "HSAIdType",
+      "definition" : "HSAId",
+      "comment" : "TKB-fält: `../HSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.name",
+      "path" : "gethealthcarefacility.healthcareFacility.name",
+      "short" : "name",
+      "definition" : "name",
+      "comment" : "TKB-fält: `../name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.alternativeLocation",
+      "path" : "gethealthcarefacility.healthcareFacility.alternativeLocation",
+      "short" : "alternativeLocation",
+      "definition" : "alternativeLocation",
+      "comment" : "TKB-fält: `../alternativeLocation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.information",
+      "path" : "gethealthcarefacility.healthcareFacility.information",
+      "short" : "InformationType",
+      "definition" : "information",
+      "comment" : "TKB-fält: `../information` (`InformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.information.header",
+      "path" : "gethealthcarefacility.healthcareFacility.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.information.description",
+      "path" : "gethealthcarefacility.healthcareFacility.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.information.link",
+      "path" : "gethealthcarefacility.healthcareFacility.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.conditionToConfirm",
+      "path" : "gethealthcarefacility.healthcareFacility.conditionToConfirm",
+      "short" : "InformationType",
+      "definition" : "conditionToConfirm",
+      "comment" : "TKB-fält: `../conditionToConfirm` (`InformationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.conditionToConfirm.header",
+      "path" : "gethealthcarefacility.healthcareFacility.conditionToConfirm.header",
+      "short" : "header",
+      "definition" : "header",
+      "comment" : "TKB-fält: `../../header` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.conditionToConfirm.description",
+      "path" : "gethealthcarefacility.healthcareFacility.conditionToConfirm.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `../../description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.healthcareFacility.conditionToConfirm.link",
+      "path" : "gethealthcarefacility.healthcareFacility.conditionToConfirm.link",
+      "short" : "link",
+      "definition" : "link",
+      "comment" : "TKB-fält: `../../link` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "gethealthcarefacility.resultCode",
+      "path" : "gethealthcarefacility.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR.",
+      "comment" : "TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_MAKE_APPOINTMENT, USER_IS_ALREADY_OCCUPIED, APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, REQUESTED_TIME_IS_ALREADY_RESERVED, REQUESTED_TIME_HAS_ALREADY_PASSED, REQUESTED_TIME_IS_NO_LONGER_AVAILABLE, TOO_LATE_TO_UPDATE_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, USER_IS_ALREADY_OCCUPIED, UPDATE_APPOINTMENT_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, APPOINTMENT_IS_ALREADY_CANCELED, APPOINTMENT_IS_ALREADY_UPDATED, TOO_LATE_TO_CANCEL_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CANCEL_IS_NOT_ALLOWED, APPOINTMENT_IS_ALREADY_CONFIRMED, TOO_LATE_TO_CONFIRM_APPOINTMENT, APPOINTMENT_DOES_NOT_EXIST, CONFIRM_IS_NOT_ALLOWED.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-resultcode-vs"
+      }
+    },
+    {
+      "id" : "gethealthcarefacility.resultText",
+      "path" : "gethealthcarefacility.resultText",
+      "short" : "resultText",
+      "definition" : "Kan utelämnas om resultCode = OK.\n\nProducent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR",
+      "comment" : "TKB-fält: `resultText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

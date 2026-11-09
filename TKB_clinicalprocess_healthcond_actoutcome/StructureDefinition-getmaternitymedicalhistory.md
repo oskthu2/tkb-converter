@@ -1,0 +1,1419 @@
+# GetMaternityMedicalHistory - clinicalprocess: healthcond: actoutcome v4.2.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetMaternityMedicalHistory**
+
+## Logical Model: GetMaternityMedicalHistory 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getmaternitymedicalhistory | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetMaternityMedicalHistory |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetMaternityMedicalHistory (RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistory:2). Representerar responsens informationsstruktur — mödravårdsjournal för en patient. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-actoutcome|current/StructureDefinition/StructureDefinition-getmaternitymedicalhistory.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getmaternitymedicalhistory.csv), [Excel](StructureDefinition-getmaternitymedicalhistory.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getmaternitymedicalhistory",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getmaternitymedicalhistory",
+  "version" : "2.0",
+  "name" : "GetMaternityMedicalHistory",
+  "title" : "GetMaternityMedicalHistory",
+  "status" : "active",
+  "date" : "2026-11-09T03:19:47+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetMaternityMedicalHistory\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistory:2).\nRepresenterar responsens informationsstruktur — mödravårdsjournal för en patient.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getmaternitymedicalhistory",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getmaternitymedicalhistory",
+      "path" : "getmaternitymedicalhistory",
+      "short" : "GetMaternityMedicalHistory",
+      "definition" : "Logisk modell för tjänstekontraktet GetMaternityMedicalHistory\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistory:2).\nRepresenterar responsens informationsstruktur — mödravårdsjournal för en patient."
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord",
+      "short" : "MaternityMedicalRecordType",
+      "definition" : "En moders mödravårdsjournal.",
+      "comment" : "TKB-fält: `maternityMedicalRecord` (`MaternityMedicalRecordType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader",
+      "short" : "PatientSummaryHeaderType",
+      "definition" : "Innehåller basinformation om dokumentet.",
+      "comment" : "TKB-fält: `../maternityMedicalRecordHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentId",
+      "short" : "documentId",
+      "definition" : "Dokumentets identitet som är unik inom källsystemet.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+      "comment" : "TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.sourceSystemHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.sourceSystemHSAId",
+      "short" : "sourceSystemHSAId",
+      "definition" : "HSAid för det system som dokumentet är skapat i.",
+      "comment" : "TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTitle",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "Titel som beskriver den information som sänds i dokumentet.",
+      "comment" : "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTime",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.",
+      "comment" : "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.patientId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.patientId",
+      "short" : "patientId",
+      "definition" : "Id för modern.\n\nid sätts till patientens identifierare, anges med 12 siffror utan avskiljare.\n\nType sätts till OID för typ av identifierare.\n\nFör personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).\n\nFör samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).\n\nFör reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)",
+      "comment" : "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "accountableHealthcareProfessional",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator",
+      "short" : "LegalAuthenticatorType",
+      "definition" : "legalAuthenticator",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "short" : "signatureTime",
+      "definition" : "Tidpunkt för signering.",
+      "comment" : "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "legalAuthenticatorHSAId",
+      "definition" : "HSA-id för person som signerat dokumentet.",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIDType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.approvedForPatient",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "approvedForPatient",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullified",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullified",
+      "short" : "nullified",
+      "definition" : "nullified",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullifiedReason",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "nullifiedReason",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.careContactId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.careContactId",
+      "short" : "careContactId",
+      "definition" : "careContactId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody",
+      "short" : "MaternityMedicalRecordBodyType",
+      "definition" : "Kan bestå av antingen en registrationRecord, en pregnancyCheckupRecord eller en postDeliveryRecord.",
+      "comment" : "TKB-fält: `../maternityMedicalRecordBody` (`MaternityMedicalRecordBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord",
+      "short" : "RegistrationRecordType",
+      "definition" : "Information som registreras vid inskrivningsbesöket.",
+      "comment" : "TKB-fält: `../../registrationRecord` (`RegistrationRecordType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.lastMenstrualPeriod",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.lastMenstrualPeriod",
+      "short" : "lastMenstrualPeriod",
+      "definition" : "Datum för senaste menstruation",
+      "comment" : "TKB-fält: `../../../lastMenstrualPeriod` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.indicationPregnancy",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.indicationPregnancy",
+      "short" : "indicationPregnancy",
+      "definition" : "Datum för graviditetsindikation",
+      "comment" : "TKB-fält: `../../../indicationPregnancy` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.contraceptiveDiscontinued",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.contraceptiveDiscontinued",
+      "short" : "contraceptiveDiscontinued",
+      "definition" : "Datum för när moder upphört med preventivtablett",
+      "comment" : "TKB-fält: `../../../contraceptiveDiscontinued` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromLastMenstrualPeriod",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromLastMenstrualPeriod",
+      "short" : "expectedDayOfDeliveryFromLastMenstrualPeriod",
+      "definition" : "Beräknad förlossning enligt sista menstruation",
+      "comment" : "TKB-fält: `../../../expectedDayOfDeliveryFromLastMenstrualPeriod` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromUltrasoundScan",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromUltrasoundScan",
+      "short" : "expectedDayOfDeliveryFromUltrasoundScan",
+      "definition" : "Beräknad förlossning enligt ultraljud",
+      "comment" : "TKB-fält: `../../../expectedDayOfDeliveryFromUltrasoundScan` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromEmbryonicTransfer",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromEmbryonicTransfer",
+      "short" : "expectedDayOfDeliveryFromEmbryonicTransfer",
+      "definition" : "Beräknad förlossning enligt embryonik transfer",
+      "comment" : "TKB-fält: `../../../expectedDayOfDeliveryFromEmbryonicTransfer` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length",
+      "short" : "PQType",
+      "definition" : "Längd vid inskrivning",
+      "comment" : "TKB-fält: `../../../length` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight",
+      "short" : "PQType",
+      "definition" : "Vikt vid inskrivning [massa]",
+      "comment" : "TKB-fält: `../../../weight` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex",
+      "short" : "PQType",
+      "definition" : "BMI vid inskrivning [massa/yta]",
+      "comment" : "TKB-fält: `../../../bodyMassIndex` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.infertility",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.infertility",
+      "short" : "infertility",
+      "definition" : "Antal år med ofrivillig barnlöshet (decimaltal)",
+      "comment" : "TKB-fält: `../../../infertility` (`decimal`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity",
+      "short" : "PreviousGravidityAndParityType",
+      "definition" : "Tidigare graviditeter och förlossningar",
+      "comment" : "TKB-fält: `../../../previousGravidityAndParity` (`PreviousGravidityAndParityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.year",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.year",
+      "short" : "year",
+      "definition" : "År för tidigare graviditet eller förlossning",
+      "comment" : "TKB-fält: `../../../../year` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.month",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.month",
+      "short" : "month",
+      "definition" : "Månad för tidigare graviditet eller förlossning",
+      "comment" : "TKB-fält: `../../../../month` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery",
+      "short" : "delivery",
+      "definition" : "Graviditet förlossning enligt kodverk:",
+      "comment" : "TKB-fält: `../../../../delivery` (`DeliveryCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** delivery Tillåtna värden: 0, 1, 2, 4, 5.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/deliverycode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.healthcareFacility",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.healthcareFacility",
+      "short" : "healthcareFacility",
+      "definition" : "Sjukhus",
+      "comment" : "TKB-fält: `../../../../healthcareFacility` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.progress",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.progress",
+      "short" : "progress",
+      "definition" : "Förlopp",
+      "comment" : "TKB-fält: `../../../../progress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.sex",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.sex",
+      "short" : "sex",
+      "definition" : "Kön, giltiga värden 0,1,2 och 9 enligt kodverk med OID 1.2.752.129.2.2.1.1:\n\n0 = okänt,\n\n1 = man,\n\n2 = kvinna,\n\n9 = ej tillämpligt",
+      "comment" : "TKB-fält: `../../../../sex` (`SexCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** sex Tillåtna värden: 0, 1, 2, 9.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/sexcode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild",
+      "short" : "PQType",
+      "definition" : "Barnets vikt [massa]",
+      "comment" : "TKB-fält: `../../../../weightOfChild` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.gestation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.gestation",
+      "short" : "gestation",
+      "definition" : "Graviditetsvecka.",
+      "comment" : "TKB-fält: `../../../../gestation` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesThrombosis",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesThrombosis",
+      "short" : "diseasesThrombosis",
+      "definition" : "Trombos (true/false)",
+      "comment" : "TKB-fält: `../../../diseasesThrombosis` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesEndocineDiseases",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesEndocineDiseases",
+      "short" : "diseasesEndocineDiseases",
+      "definition" : "Endokrina sjukdomar (true/false)",
+      "comment" : "TKB-fält: `../../../diseasesEndocineDiseases` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesRecurrentUrinaryTractInfections",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesRecurrentUrinaryTractInfections",
+      "short" : "diseasesRecurrentUrinaryTractInfections",
+      "definition" : "Upprepade urinvägsinfektioner (true/false)",
+      "comment" : "TKB-fält: `../../../diseasesRecurrentUrinaryTractInfections` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesDiabetesMellitus",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesDiabetesMellitus",
+      "short" : "diseasesDiabetesMellitus",
+      "definition" : "Diabetes mellitus (true/false)",
+      "comment" : "TKB-fält: `../../../diseasesDiabetesMellitus` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy",
+      "short" : "MedicationType",
+      "definition" : "Före inskrivning under graviditet: medicinering",
+      "comment" : "TKB-fält: `../../../medicationDuringPregnacy` (`MedicationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.medicament",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.medicament",
+      "short" : "medicament",
+      "definition" : "Preparat",
+      "comment" : "TKB-fält: `../../../../medicament` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.dosage",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.dosage",
+      "short" : "dosage",
+      "definition" : "Dosering i beskrivande text",
+      "comment" : "TKB-fält: `../../../../dosage` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.assessmentAtFirstContactStandardCare",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.assessmentAtFirstContactStandardCare",
+      "short" : "assessmentAtFirstContactStandardCare",
+      "definition" : "Bedömning vid 1:a besök: basprogram (true/false)",
+      "comment" : "TKB-fält: `../../../assessmentAtFirstContactStandardCare` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord",
+      "short" : "PregnancyCheckupRecordType",
+      "definition" : "Graviditetskontroll",
+      "comment" : "TKB-fält: `../../pregnancyCheckupRecord` (`PregnancyCheckupRecordType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.completeWeeksOfGestation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.completeWeeksOfGestation",
+      "short" : "completeWeeksOfGestation",
+      "definition" : "Fullgångna graviditetsveckor",
+      "comment" : "TKB-fält: `../../../completeWeeksOfGestation` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight",
+      "short" : "PQType",
+      "definition" : "Moderns vikt [massa]",
+      "comment" : "TKB-fält: `../../../weight` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight",
+      "short" : "PQType",
+      "definition" : "Symfys-fundus mått [längd]",
+      "comment" : "TKB-fält: `../../../symphysisFundalHeight` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin",
+      "short" : "PQType",
+      "definition" : "Hb (Hemoglobin) [massa\n\nvolym]",
+      "comment" : "TKB-fält: `../../../haemoglobin` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic",
+      "short" : "PQType",
+      "definition" : "Systoliskt blodtryck [tryck]",
+      "comment" : "TKB-fält: `../../../bloodPressureSystolic` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic",
+      "short" : "PQType",
+      "definition" : "Diastoliskt blodtryck [tryck]",
+      "comment" : "TKB-fält: `../../../bloodPressureDiastolic` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria",
+      "short" : "PQType",
+      "definition" : "Proteinuri - Protein i urinet [massa\n\nvolym]\n\nMängden protein ska alltså anges i g/l eller motsvarande. Använd INTE mätstickans kodning (0, 1+, 2+…)",
+      "comment" : "TKB-fält: `../../../proteinuria` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria",
+      "short" : "PQType",
+      "definition" : "Glucosuri - Glucos i urinet [antal\n\nvolym]\n\nFörväntad enhet är mmol/l. Använd INTE mätstickans kodning (0, 1+, 2+…)\n\nOBS! U på svenska men y på engelska (ICD10).",
+      "comment" : "TKB-fält: `../../../glycosuria` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition",
+      "short" : "fetalPosition",
+      "definition" : "Fosterläge enligt kodverk:\n\n0 = head (huvud )\n\n1 = breech (säte)\n\n2 = oblique (snedläge)\n\n3 = transverse (tvärläge)",
+      "comment" : "TKB-fält: `../../../fetalPosition` (`FetalPositionCodeEnum`, kardinalitet 0..*).\n\n**Modellanteckning:** fetalPosition Tillåtna värden: 0, 1, 2, 3.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation",
+      "short" : "fetalPresentation",
+      "definition" : "Föregående fosterdel enligt kodverk:\n\n0= mobile (rörligt),\n\n1 = movable (ruckbart),\n\n2 = fixed (fix)",
+      "comment" : "TKB-fält: `../../../fetalPresentation` (`FetalPresentationCodeEnum`, kardinalitet 0..*).\n\n**Modellanteckning:** fetalPresentation Tillåtna värden: 0, 1, 2, 3.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate",
+      "short" : "PQType",
+      "definition" : "Fosterljud, hjärtslag, ex. bpm [frekvens]",
+      "comment" : "TKB-fält: `../../../fetalHeartRate` (`PQType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave",
+      "short" : "typeOfLeave",
+      "definition" : "Typ av ledighet enligt kodverk\n\n0 = Sjukskrivning,\n\n1 = Havandekapsledighet,\n\n2 = Föräldrarledighet",
+      "comment" : "TKB-fält: `../../../typeOfLeave` (`TypeOfLeaveCodeEnum`, kardinalitet 0..*).\n\n**Modellanteckning:** typeOfLeave Tillåtna värden: 0, 1, 2.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration",
+      "short" : "MedicationType",
+      "definition" : "Läkemedel (även kostpreparat) som administrerats sedan registreringen\n\nföregående ”checkup”.",
+      "comment" : "TKB-fält: `../../../medicationSinceRegistration` (`MedicationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.medicament",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.medicament",
+      "short" : "medicament",
+      "definition" : "Preparat",
+      "comment" : "TKB-fält: `../../../../medicament` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.dosage",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.dosage",
+      "short" : "dosage",
+      "definition" : "Dosering i beskrivande text",
+      "comment" : "TKB-fält: `../../../../dosage` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord",
+      "short" : "PostDeliveryRecordType",
+      "definition" : "Efterskötning",
+      "comment" : "TKB-fält: `../../postDeliveryRecord` (`PostDeliveryRecordType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord",
+      "short" : "MotherPostDeliveryRecordType",
+      "definition" : "Efterskötningsjournal, moder",
+      "comment" : "TKB-fält: `../../../motherPostDeliveryRecord` (`MotherPostDeliveryRecordType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic",
+      "short" : "PQType",
+      "definition" : "Systoliskt blodtryck [tryck]",
+      "comment" : "TKB-fält: `../../../../bloodPressureSystolic` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic",
+      "short" : "PQType",
+      "definition" : "Diastoliskt blodtryck [tryck]",
+      "comment" : "TKB-fält: `../../../../bloodPressureDiastolic` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin",
+      "short" : "PQType",
+      "definition" : "Haemoglobin, t.ex. g/L [massa\n\nvolym]",
+      "comment" : "TKB-fält: `../../../../haemoglobin` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bodyTemperature",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bodyTemperature",
+      "short" : "bodyTemperature",
+      "definition" : "Kroppstemperatur",
+      "comment" : "TKB-fält: `../../../../bodyTemperature` (`decimal`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.scarsOK",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.scarsOK",
+      "short" : "scarsOK",
+      "definition" : "Sår/bristningar/klipp utan anmärkning (true/false)",
+      "comment" : "TKB-fält: `../../../../scarsOK` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.sutureRemoved",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.sutureRemoved",
+      "short" : "sutureRemoved",
+      "definition" : "Suturer borttagna (true/false)",
+      "comment" : "TKB-fält: `../../../../sutureRemoved` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.perineumComfortable",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.perineumComfortable",
+      "short" : "perineumComfortable",
+      "definition" : "Bäckenbotten utan anmärkning (true/false)",
+      "comment" : "TKB-fält: `../../../../perineumComfortable` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.vulvaVaginaPortioOK",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.vulvaVaginaPortioOK",
+      "short" : "vulvaVaginaPortioOK",
+      "definition" : "vulvaVaginaPortio utan anmärkning (true/false)",
+      "comment" : "TKB-fält: `../../../../vulvaVaginaPortioOK` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusContracted",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusContracted",
+      "short" : "uterusContracted",
+      "definition" : "Uterus utan anmärkning (true/false)",
+      "comment" : "TKB-fält: `../../../../uterusContracted` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusNote",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusNote",
+      "short" : "uterusNote",
+      "definition" : "Kommentar till uterus med anmärkning. Kan endast anges då uterusContracted = false",
+      "comment" : "TKB-fält: `../../../../uterusNote` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding",
+      "short" : "breastfeeding",
+      "definition" : "Ammar (true/false)",
+      "comment" : "TKB-fält: `../../../../breastfeeding` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord",
+      "short" : "ChildPostDeliveryRecordType",
+      "definition" : "Efterskötningsjournal, för barn ur samma graviditet",
+      "comment" : "TKB-fält: `../../../childPostDeliveryRecord` (`ChildPostDeliveryRecordTypeType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.ordinalNumber",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.ordinalNumber",
+      "short" : "ordinalNumber",
+      "definition" : "Ordningstal för barnet, med start på 1. Ju äldre barn desto lägre siffra.",
+      "comment" : "TKB-fält: `../../../../ordinalNumber` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight",
+      "short" : "PQType",
+      "definition" : "Barnets vikt [massa]",
+      "comment" : "TKB-fält: `../../../../weight` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.value",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.unit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1",
+      "short" : "Apgar (0..10) efter 1 minut",
+      "definition" : "Apgar (0..10) efter 1 minut",
+      "comment" : "TKB-fält: `../../../../apgarScore1` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore5",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore5",
+      "short" : "Apgar (0..10) efter 5 minut",
+      "definition" : "Apgar (0..10) efter 5 minuter",
+      "comment" : "TKB-fält: `../../../../apgarScore5` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore10",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore10",
+      "short" : "Apgar (0..10) efter 10 minut",
+      "definition" : "Apgar (0..10) efter 10 minuter",
+      "comment" : "TKB-fält: `../../../../apgarScore10` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    }]
+  }
+}
+
+```

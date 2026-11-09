@@ -1,0 +1,566 @@
+# GetDispensedDrugs - clinicalprocess: activityprescription: prescribe v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetDispensedDrugs**
+
+## Logical Model: GetDispensedDrugs 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getdispenseddrugs | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetDispensedDrugs |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetDispensedDrugs (RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugs:2). Representerar responsens informationsstruktur — uthämtade läkemedel för patient. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-prescribe|current/StructureDefinition/StructureDefinition-getdispenseddrugs.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getdispenseddrugs.csv), [Excel](StructureDefinition-getdispenseddrugs.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getdispenseddrugs",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getdispenseddrugs",
+  "version" : "2.0",
+  "name" : "GetDispensedDrugs",
+  "title" : "GetDispensedDrugs",
+  "status" : "draft",
+  "date" : "2026-11-09T03:17:25+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugs:2).\nRepresenterar responsens informationsstruktur — uthämtade läkemedel för patient.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getdispenseddrugs",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getdispenseddrugs",
+      "path" : "getdispenseddrugs",
+      "short" : "GetDispensedDrugs",
+      "definition" : "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugs:2).\nRepresenterar responsens informationsstruktur — uthämtade läkemedel för patient."
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs",
+      "path" : "getdispenseddrugs.dispensedDrugs",
+      "short" : "DispensedDrug",
+      "definition" : "Expedieringar.",
+      "comment" : "TKB-fält: `dispensedDrugs` (`DispensedDrug`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.dispenseId",
+      "path" : "getdispenseddrugs.dispensedDrugs.dispenseId",
+      "short" : "dispenseId",
+      "definition" : "Unikt id för expediering.",
+      "comment" : "TKB-fält: `../dispenseId` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.dispenseDate",
+      "path" : "getdispenseddrugs.dispensedDrugs.dispenseDate",
+      "short" : "Datum för expediering på apotek.",
+      "definition" : "Datum för expediering på apotek.",
+      "comment" : "TKB-fält: `../dispenseDate` (`date`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.numberOfPackages",
+      "path" : "getdispenseddrugs.dispensedDrugs.numberOfPackages",
+      "short" : "Antal förpackningar av utlämnad vara.Obligatorisk parameter om posten ej är en dosdispenserad artikel",
+      "definition" : "Antal förpackningar av utlämnad vara.\n\nObligatorisk parameter om posten ej är en dosdispenserad artikel",
+      "comment" : "TKB-fält: `../numberOfPackages` (`int`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.numberOfTablets",
+      "path" : "getdispenseddrugs.dispensedDrugs.numberOfTablets",
+      "short" : "Summa antal avdelade doser inklusive enhet.Angiven om posten är en dosdispenserad artikel.",
+      "definition" : "Summa antal avdelade doser inklusive enhet.\n\nAngiven om posten är en dosdispenserad artikel.",
+      "comment" : "TKB-fält: `../numberOfTablets` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.removed",
+      "path" : "getdispenseddrugs.dispensedDrugs.removed",
+      "short" : "Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.",
+      "definition" : "Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.",
+      "comment" : "TKB-fält: `../removed` (`boolean`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.quantity",
+      "path" : "getdispenseddrugs.dispensedDrugs.quantity",
+      "short" : "Mängd i klartext",
+      "definition" : "Mängd i klartext",
+      "comment" : "TKB-fält: `../quantity` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.dosage",
+      "path" : "getdispenseddrugs.dispensedDrugs.dosage",
+      "short" : "Dosering i klartext så som den returneras från LF (Krav på presentation i handboken)",
+      "definition" : "Dosering i klartext så som den returneras från LF (Krav på presentation i handboken)",
+      "comment" : "TKB-fält: `../dosage` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation",
+      "short" : "ArticleInformation",
+      "definition" : "ArticleInformation",
+      "comment" : "TKB-fält: `../articleInformation` (`ArticleInformation`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.nplPackid",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.nplPackid",
+      "short" : "Identitet på förskrivet läkemedel som har NPLPack-id alternativt SB Pack-id.",
+      "definition" : "Identitet på förskrivet läkemedel som har NPL\n\nPack-id alternativt SB Pack-id.",
+      "comment" : "TKB-fält: `../../nplPackid` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.distributedTradeName",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.distributedTradeName",
+      "short" : "Läkemedelsnamn vid inläsningstillfället.",
+      "definition" : "Läkemedelsnamn vid inläsningstillfället.",
+      "comment" : "TKB-fält: `../../distributedTradeName` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.drugForm",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.drugForm",
+      "short" : "Läkemedelsform vid inläsningstillfället.",
+      "definition" : "Läkemedelsform vid inläsningstillfället.",
+      "comment" : "TKB-fält: `../../drugForm` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.strength",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.strength",
+      "short" : "Styrka i klartext vid inläsningstillfället.",
+      "definition" : "Styrka i klartext vid inläsningstillfället.",
+      "comment" : "TKB-fält: `../../strength` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.atcCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.atcCode",
+      "short" : "ATC-kod vid inläsningstillfället",
+      "definition" : "ATC-kod vid inläsningstillfället",
+      "comment" : "TKB-fält: `../../atcCode` (`code`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.atcText",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.atcText",
+      "short" : "Verksamt ämne vid inläsningstillfället.",
+      "definition" : "Verksamt ämne vid inläsningstillfället.",
+      "comment" : "TKB-fält: `../../atcText` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.packageSize",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.packageSize",
+      "short" : "packageSize",
+      "definition" : "Förpackningsstorlek vid inläsningstillfället, exempelvis '6x5x0,72 milliliter'. Ej angivet för dosdispenserade artiklar.",
+      "comment" : "TKB-fält: `../../packageSize` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.articleInformation.packageType",
+      "path" : "getdispenseddrugs.dispensedDrugs.articleInformation.packageType",
+      "short" : "Beskrivning av artikelns förpackningstyp vid inläsningstillfället.",
+      "definition" : "Beskrivning av artikelns förpackningstyp vid inläsningstillfället.",
+      "comment" : "TKB-fält: `../../packageType` (`string`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber",
+      "short" : "MedicalPrescriber",
+      "definition" : "Förskrivarens namn, yrke, specialiteter och arbetsplats (Krav på presentation i handboken)",
+      "comment" : "TKB-fält: `../presciber` (`MedicalPrescriber`, kardinalitet 1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.personalPrescriptionCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.personalPrescriptionCode",
+      "short" : "personalPrescriptionCode",
+      "definition" : "Förskrivarens individuella förskrivarkod (7 tecken), legitimationskod (6 tecken) eller förskrivarens gruppförskrivarkod då individuell kod saknas.\n\nObligatorisk parameter om teknisk sprit eller läkemedel förskrivs.\n\nGruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men via sin roll har erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av EHM.\n\nFör användare som har gruppförskrivarkod gäller:\n\nbefattningskod är obligatorisk\n\nFör läkare (LK) - yrkeskod (dvs LK) är obligatorisk.\n\nVid övriga yrken - yrkeskod och giltig legitimationskod är obligatoriska\n\nValideras i AFF\n\nHSA: förskrivarkod, även kallat personalPrescriptionCode\n\nRR: förskrivarkod",
+      "comment" : "TKB-fält: `../../personalPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.legitimationCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.legitimationCode",
+      "short" : "legitimationCode",
+      "definition" : "Förskrivarens 7-ställiga förskrivarkod alternativt 6-ställiga legitimationskod. Legitimationskod för förskrivare är annars de 6 första siffrorna i förskrivarkoden.\n\nSe gruppförskrivarkod för villkor.\n\nHSA: Legitimationskod för leg.vårdpersonal (sjuksköterskor) saknas i HSA. Det finns grupplegitimationskoder som kan användas.\n\nyrkeskod\tGruppkod\tyrkeskod klartext\n\nSJ\t971000\tSjuksköterska\n\nAP\t972000\tApotekare\n\nRC\t973000\tReceptarie\n\nRR: legitimationskod",
+      "comment" : "TKB-fält: `../../legitimationCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.hsaTitleCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.hsaTitleCode",
+      "short" : "hsaTitleCode",
+      "definition" : "Yrkeskod som definierar vilken typ av legitimation som användaren innehar.\n\nSe gruppförskrivarkod för villkor.\n\nKontrolleras i receptregistret att personen har angiven yrkeskod.\n\nValideras i AFF\n\nHSA:Legitimerad yrkesgrupp, även kallad hsaTitle innehåller yrkeskoden i klartext. Detta fält (yrkeskod) avser dock motsvarande tvåställiga kod. Se:\"HSA Innehåll Legitimerad Yrkesgrupp\" på se www.inera.se/hsa.\n\nNotera också att samma användare kan inneha flera yrkesgrupper, t.ex. både Läkare och Sjuksköterska.\n\nRR: yrkeskod",
+      "comment" : "TKB-fält: `../../hsaTitleCode` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.hsaTitle",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.hsaTitle",
+      "short" : "Förskrivarens yrke i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "definition" : "Förskrivarens yrke i klartext.\n\nFylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "comment" : "TKB-fält: `../../hsaTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.speciallityCodes",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.speciallityCodes",
+      "short" : "Förskrivarens specialiteter i klartext. Fylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "definition" : "Förskrivarens specialiteter i klartext.\n\nFylls i av NOD vid läsning från LF. Krav vid presentation.",
+      "comment" : "TKB-fält: `../../speciallityCodes` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.paTitleCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.paTitleCode",
+      "short" : "paTitleCode",
+      "definition" : "Förskrivarens befattningskod.\n\nSe gruppförskrivarkod för villkor.\n\nHSA: befattningskod, även kallat paTitleCode.\n\nNotera också att samma användare kan inneha flera befattningskoder.\n\nRR: befattningskod",
+      "comment" : "TKB-fält: `../../paTitleCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.givenName",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.givenName",
+      "short" : "Förskrivarens tilltalsnamn.HSA: tilltalsnamn (givenName)RR: förnamn",
+      "definition" : "Förskrivarens tilltalsnamn.\n\nHSA: tilltalsnamn (givenName)\n\nRR: förnamn",
+      "comment" : "TKB-fält: `../../givenName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.familyName",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.familyName",
+      "short" : "Förskrivarens efternamn.Valideras i AFF HSA: efternamnRR: efternamn",
+      "definition" : "Förskrivarens efternamn.\n\nValideras i AFF\n\nHSA: efternamn\n\nRR: efternamn",
+      "comment" : "TKB-fält: `../../familyName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork",
+      "short" : "PlaceOfWork",
+      "definition" : "Arbetsplats",
+      "comment" : "TKB-fält: `placeOfWork` (`PlaceOfWork`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.unitPrescriptionCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.unitPrescriptionCode",
+      "short" : "unitPrescriptionCode",
+      "definition" : "Förskrivarens arbetsplatskod eller grupparbetsplatskod\n\nUnik kod för identifiering av ordinatörens arbetsplats vid förskrivningstillfället.\n\nArbetsplatskoden anges, hos vissa vårdgivare, för att styra ekonomiska transaktioner vid ordinationer inom förmånen. Det är vårdgivarna som själva hanterar arbetsplatskoderna genom att registrera dem i EHM:s ARKO.\n\nSaknar ordinatören ordinarie arbetsplats anges en grupparbetsplatskod.\n\nObligatorisk parameter om förmån angivits.\n\nValideras i AFF\n\nHSA: arbetsplatskod, även kallat unitPrescriptionCode.\n\nRR: arbetsplatskod",
+      "comment" : "TKB-fält: `../unitPrescriptionCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.careUnitName",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.careUnitName",
+      "short" : "careUnitName",
+      "definition" : "Förskrivarens lokalitet (adress 1). Ej gatunummer. Exempelvis: Vårdcentralen Humlan eller Privat, Kirurgi/ortopedi\n\nHSA: enhetsnamn (careUnitName )\n\nRR: arbetsplatsnamn",
+      "comment" : "TKB-fält: `../careUnitName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.city",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.city",
+      "short" : "Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFREDRR: arbetsplatsort",
+      "definition" : "Förskrivarens eller vårdcentralens postort. Exempelvis: HULTSFRED\n\nRR: arbetsplatsort",
+      "comment" : "TKB-fält: `../city` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.phoneNumber1",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.phoneNumber1",
+      "short" : "Förskrivarens eller vårdcentralens telefonnummer.HSA: direkttelefon RR: telefonnummer1",
+      "definition" : "Förskrivarens eller vårdcentralens telefonnummer.\n\nHSA: direkttelefon\n\nRR: telefonnummer1",
+      "comment" : "TKB-fält: `../phoneNumber1` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.phoneNumber2",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.phoneNumber2",
+      "short" : "Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.HSA: RR: telefonnummer2",
+      "definition" : "Förskrivarens direktnummer Är information till apoteket och ska inte lämnas ut till patient.\n\nHSA:\n\nRR: telefonnummer2",
+      "comment" : "TKB-fält: `../phoneNumber2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.postalAdress",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.postalAdress",
+      "short" : "postalAdress",
+      "definition" : "Förskrivarens eller vårdcentralens gatuadress. Exempelvis: Storgatan 14B.\n\nHSA: postadress (postalAddress). Består av flera adressrader, som lämpligen konkateneras med komma som skiljetecken.\n\nRR: postadress",
+      "comment" : "TKB-fält: `../postalAdress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.postalCode",
+      "path" : "getdispenseddrugs.dispensedDrugs.presciber.placeOfWork.postalCode",
+      "short" : "Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45HSA: postnummer (postalCode)RR: postnummer",
+      "definition" : "Förskrivarens eller vårdcentralens postnummer. Exempelvis: 123 45\n\nHSA: postnummer (postalCode)\n\nRR: postnummer",
+      "comment" : "TKB-fält: `../postalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.multimedia",
+      "path" : "getdispenseddrugs.multimedia",
+      "short" : "multimedia",
+      "definition" : "multimedia",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/MultimediaType"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.result",
+      "path" : "getdispenseddrugs.result",
+      "short" : "ResultType",
+      "definition" : "Innehåller information om begäran gick bra eller ej.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.result.resultCode",
+      "path" : "getdispenseddrugs.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.result.errorCode",
+      "path" : "getdispenseddrugs.result.errorCode",
+      "short" : "errorCode",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.result.subcode",
+      "path" : "getdispenseddrugs.result.subcode",
+      "short" : "subcode",
+      "definition" : "Inga subkoder är specificerade.",
+      "comment" : "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).\n\n**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.result.logId",
+      "path" : "getdispenseddrugs.result.logId",
+      "short" : "logId",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.result.message",
+      "path" : "getdispenseddrugs.result.message",
+      "short" : "message",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

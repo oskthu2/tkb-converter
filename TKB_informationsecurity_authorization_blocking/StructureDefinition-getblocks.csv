@@ -1,0 +1,56 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getblocks","getblocks","","","",0,*,"","","","null {[]} {[]}
+","GetBlocks — Response","Logisk modell för svaret i GetBlocks
+(urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4, GetBlocksResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getblocks.blockHeader","getblocks.blockHeader","","","",1,1,"","","","Base {[]} {[]}
+","BlockHeaderType","Lista över funna spärrar som är aktiva.","TKB-fält: `blockHeader` (`urn:riv:informationsecurity:authorization:blocking:4:BlockHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader",1,1,"",""
+"getblocks.blockHeader.result","getblocks.blockHeader.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.","TKB-fält: `../result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.result",1,1,"",""
+"getblocks.blockHeader.result.resultCode","getblocks.blockHeader.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.","TKB-fält: `../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.","","","","","","","","",,"required","","https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-resultcode-vs","",,,,"getblocks.blockHeader.result.resultCode",1,1,"",""
+"getblocks.blockHeader.result.resultText","getblocks.blockHeader.result.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","resultText","TKB-fält: `../../resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.result.resultText",0,1,"",""
+"getblocks.blockHeader.blocks","getblocks.blockHeader.blocks","","","",0,*,"","","","Base {[]} {[]}
+","BlockType","Datatyp som representerar en existerande spärr med alla dess attribut. Datatypen beskriver grundformatet för en spärr.","TKB-fält: `../blocks` (`BlockType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks",0,*,"",""
+"getblocks.blockHeader.blocks.blockId","getblocks.blockHeader.blocks.blockId","","","",1,1,"","","","string {[]} {[]}
+","blockId","blockId","TKB-fält: `../../blockId` (`Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.blockId",1,1,"",""
+"getblocks.blockHeader.blocks.blockType","getblocks.blockHeader.blocks.blockType","","","",1,1,"","","","code {[]} {[]}
+","blockType","blockType Tillåtna värden: Inner, Outer.","TKB-fält: `../../blockType` (`BlockTypeType`, kardinalitet 1..1).
+
+**Modellanteckning:** blockType Tillåtna värden: Inner, Outer.","","","","","","","","",,"required","","https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-blocktype-vs","",,,,"getblocks.blockHeader.blocks.blockType",1,1,"",""
+"getblocks.blockHeader.blocks.informationStartDate","getblocks.blockHeader.blocks.informationStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","informationStartDate","informationStartDate","TKB-fält: `../../informationStartDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.informationStartDate",0,1,"",""
+"getblocks.blockHeader.blocks.informationEndDate","getblocks.blockHeader.blocks.informationEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","informationEndDate","informationEndDate","TKB-fält: `../../informationEndDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.informationEndDate",0,1,"",""
+"getblocks.blockHeader.blocks.informationCareUnitId","getblocks.blockHeader.blocks.informationCareUnitId","","","",0,1,"","","","string {[]} {[]}
+","informationCareUnitId","informationCareUnitId","TKB-fält: `../../informationCareUnitId` (`HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.informationCareUnitId",0,1,"",""
+"getblocks.blockHeader.blocks.informationCareProviderId","getblocks.blockHeader.blocks.informationCareProviderId","","","",1,1,"","","","string {[]} {[]}
+","informationCareProviderId","informationCareProviderId","TKB-fält: `../../informationCareProviderId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.informationCareProviderId",1,1,"",""
+"getblocks.blockHeader.blocks.patientId","getblocks.blockHeader.blocks.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","En universellt unik identifierare.","TKB-fält: `../../patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.patientId",1,1,"",""
+"getblocks.blockHeader.blocks.excludedInformationTypes","getblocks.blockHeader.blocks.excludedInformationTypes","","","",0,*,"","","","Base {[]} {[]}
+","InformationTypeType","Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation","TKB-fält: `../../excludedInformationTypes` (`InformationTypeType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.excludedInformationTypes",0,*,"",""
+"getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeId","getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeId","","","",1,1,"","","","string {[]} {[]}
+","infoTypeId","infoTypeId","TKB-fält: `../../../infoTypeId` (`InformationTypeIdValue`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeId",1,1,"",""
+"getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeDescription","getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeDescription","","","",1,1,"","","","string {[]} {[]}
+","infoTypeDescription","infoTypeDescription","TKB-fält: `../../../infoTypeDescription` (`InformationTypeDescription`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeDescription",1,1,"",""
+"getblocks.blockHeader.blocks.temporaryRevokes","getblocks.blockHeader.blocks.temporaryRevokes","","","",0,*,"","","","Base {[]} {[]}
+","TemporaryRevokeType","Datatyp som representerar en tillfällig hävning för en spärr med alla dess attribut. En tillfällig hävning tillhör alltid en spärr. Datatypen beskriver grundformatet för en tillfällig hävning.","TKB-fält: `../../temporaryRevokes` (`TemporaryRevokeType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.temporaryRevokes",0,*,"",""
+"getblocks.blockHeader.blocks.temporaryRevokes.temporaryRevokeId","getblocks.blockHeader.blocks.temporaryRevokes.temporaryRevokeId","","","",1,1,"","","","string {[]} {[]}
+","temporaryRevokeId","temporaryRevokeId","TKB-fält: `../../../temporaryRevokeId` (`Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.temporaryRevokes.temporaryRevokeId",1,1,"",""
+"getblocks.blockHeader.blocks.temporaryRevokes.endDate","getblocks.blockHeader.blocks.temporaryRevokes.endDate","","","",1,1,"","","","dateTime {[]} {[]}
+","endDate","endDate","TKB-fält: `../../../endDate` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.temporaryRevokes.endDate",1,1,"",""
+"getblocks.blockHeader.blocks.temporaryRevokes.revokedForCareUnitId","getblocks.blockHeader.blocks.temporaryRevokes.revokedForCareUnitId","","","",1,1,"","","","string {[]} {[]}
+","revokedForCareUnitId","revokedForCareUnitId","TKB-fält: `../../../revokedForCareUnitId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.temporaryRevokes.revokedForCareUnitId",1,1,"",""
+"getblocks.blockHeader.blocks.temporaryRevokes.revokedForEmployeeId","getblocks.blockHeader.blocks.temporaryRevokes.revokedForEmployeeId","","","",0,1,"","","","string {[]} {[]}
+","revokedForEmployeeId","revokedForEmployeeId","TKB-fält: `../../../revokedForEmployeeId` (`HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.temporaryRevokes.revokedForEmployeeId",0,1,"",""
+"getblocks.blockHeader.blocks.temporaryRevokes.ownerId","getblocks.blockHeader.blocks.temporaryRevokes.ownerId","","","",0,1,"","","","string {[]} {[]}
+","ownerId","ownerId","TKB-fält: `../../../ownerId` (`OwnerId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.temporaryRevokes.ownerId",0,1,"",""
+"getblocks.blockHeader.blocks.ownerId","getblocks.blockHeader.blocks.ownerId","","","",0,1,"","","","string {[]} {[]}
+","ownerId","ownerId","TKB-fält: `../../ownerId` (`OwnerId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.blocks.ownerId",0,1,"",""
+"getblocks.blockHeader.nextCreatedOnOrAfter","getblocks.blockHeader.nextCreatedOnOrAfter","","","",1,1,"","","","dateTime {[]} {[]}
+","nextCreatedOnOrAfter","nextCreatedOnOrAfter","TKB-fält: `../nextCreatedOnOrAfter` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.nextCreatedOnOrAfter",1,1,"",""
+"getblocks.blockHeader.latestCancellation","getblocks.blockHeader.latestCancellation","","","",1,1,"","","","dateTime {[]} {[]}
+","latestCancellation","latestCancellation","TKB-fält: `../latestCancellation` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getblocks.blockHeader.latestCancellation",1,1,"",""

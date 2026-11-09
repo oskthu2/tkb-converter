@@ -1,0 +1,1958 @@
+# ProcessRequestOutcome — Remissvar (begäran) - clinicalprocess: activity: request — Remisshantering v2.2.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessRequestOutcome — Remissvar (begäran)**
+
+## Logical Model: ProcessRequestOutcome — Remissvar (begäran) 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestoutcome | *Version*:2.2 |
+| Active as of 2026-11-09 | *Computable Name*:ProcessRequestOutcome |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i ProcessRequestOutcome (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestOutcomeResponder:2, element requestOutcome av typen RequestOutcomeType samt valfri originalRequest). Remissbesvararen skickar delsvar, preliminärt svar eller slutsvar till remittenten. Svaret är enbart ett resultat, se ProcessResult. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activity-request|current/StructureDefinition/StructureDefinition-processrequestoutcome.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processrequestoutcome.csv), [Excel](StructureDefinition-processrequestoutcome.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processrequestoutcome",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestoutcome",
+  "version" : "2.2",
+  "name" : "ProcessRequestOutcome",
+  "title" : "ProcessRequestOutcome — Remissvar (begäran)",
+  "status" : "active",
+  "date" : "2026-11-09T03:14:11+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i ProcessRequestOutcome (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestOutcomeResponder:2, element requestOutcome av typen RequestOutcomeType samt valfri originalRequest). Remissbesvararen skickar delsvar, preliminärt svar eller slutsvar till remittenten. Svaret är enbart ett resultat, se ProcessResult.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestoutcome",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processrequestoutcome",
+      "path" : "processrequestoutcome",
+      "short" : "ProcessRequestOutcome — Remissvar (begäran)",
+      "definition" : "Logisk modell för begäran i ProcessRequestOutcome (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestOutcomeResponder:2, element requestOutcome av typen RequestOutcomeType samt valfri originalRequest). Remissbesvararen skickar delsvar, preliminärt svar eller slutsvar till remittenten. Svaret är enbart ett resultat, se ProcessResult."
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome",
+      "path" : "processrequestoutcome.requestOutcome",
+      "short" : "RequestOutcomeType",
+      "definition" : "Svar\n\nRemissvar",
+      "comment" : "TKB-fält: `requestOutcome` (`RequestOutcomeType`).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestId",
+      "path" : "processrequestoutcome.requestOutcome.requestId",
+      "short" : "RequestIdType",
+      "definition" : "Remiss id\n\nDen ursprungliga remissens remiss-id",
+      "comment" : "TKB-fält: `requestOutcome.requestId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestId.extension",
+      "path" : "processrequestoutcome.requestOutcome.requestId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestOutcomeId",
+      "path" : "processrequestoutcome.requestOutcome.requestOutcomeId",
+      "short" : "RequestIdType",
+      "definition" : "Svar id\n\nId för remissvar, enligt format:\n\nKällsystem-Id(HSA-ID)#lokalt-id\n\nExempel: SE162321000451-0001#456",
+      "comment" : "TKB-fält: `requestOutcome.requestOutcomeId` (`RequestIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)\n\nMaxlängd 256 tecken",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestOutcomeId.extension",
+      "path" : "processrequestoutcome.requestOutcome.requestOutcomeId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.typeOfRequestOutcome",
+      "path" : "processrequestoutcome.requestOutcome.typeOfRequestOutcome",
+      "short" : "codeRequestOutcomeType",
+      "definition" : "Svarstyp\n\nAnger typen av remissvar.\n\nGiltiga värden är:\n\nDSV = Delsvar\n\nPSV = Preliminärt svar\n\nSSV= Slutsvar",
+      "comment" : "TKB-fält: `requestOutcome.typeOfRequestOutcome` (`CodeRequestOutcomeType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** codes:codeRequestOutcomeType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.typeOfRequestOutcome.code",
+      "path" : "processrequestoutcome.requestOutcome.typeOfRequestOutcome.code",
+      "short" : "code",
+      "definition" : "code (XML-attribut) Tillåtna värden: DSV, PSV, SSV.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/requestoutcometype-vs"
+      }
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestVersionNumber",
+      "path" : "processrequestoutcome.requestOutcome.requestVersionNumber",
+      "short" : "requestVersionNumber",
+      "definition" : "Remissversionsnummer\n\nRemissens versionsnummer.\n\nVersion startar alltid på 1 och räknas sekventiellt upp för varje ny version.\n\nDenna räknas upp vid:\n\nÄndrad remiss\n\nVidareskickad remiss\n\nÄndrat betalningsansvar",
+      "comment" : "TKB-fält: `requestOutcome.requestVersionNumber` (`VersionNumberType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (0*[1-9]+|[1-9])\\d*",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType"]
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestOutcomeTime",
+      "path" : "processrequestoutcome.requestOutcome.requestOutcomeTime",
+      "short" : "TimeStampType",
+      "definition" : "Svarstidpunkt\n\nSvarets skapelsetidpunkt.\n\nDen tidpunkt då remissbesvararen skickar svaret.",
+      "comment" : "TKB-fält: `requestOutcome.requestOutcomeTime` (`TimeStampType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.requestOutcomeTime.value",
+      "path" : "processrequestoutcome.requestOutcome.requestOutcomeTime.value",
+      "short" : "value",
+      "definition" : "value (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.patient",
+      "path" : "processrequestoutcome.requestOutcome.patient",
+      "short" : "SimplePatientType",
+      "definition" : "Patient",
+      "comment" : "TKB-fält: `requestOutcome.patient` (`SimplePatientType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.patient.personId",
+      "path" : "processrequestoutcome.requestOutcome.patient.personId",
+      "short" : "PersonIdType",
+      "definition" : "Person id\n\nPatientens identitet",
+      "comment" : "TKB-fält: `requestOutcome.patient.personId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.patient.personId.extension",
+      "path" : "processrequestoutcome.requestOutcome.patient.personId.extension",
+      "short" : "extension",
+      "definition" : "Personidentifierare för patienten.\n\nOm identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken.",
+      "comment" : "TKB-fält: `requestOutcome.patient.personId.extension` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.patient.personId.root",
+      "path" : "processrequestoutcome.requestOutcome.patient.personId.root",
+      "short" : "root",
+      "definition" : "OID för typ av personidentifierare.\n\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.\n\nFör andra typer av personidentifierare sätts root till aktuell OID.",
+      "comment" : "TKB-fält: `requestOutcome.patient.personId.root` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** root (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.patient.name",
+      "path" : "processrequestoutcome.requestOutcome.patient.name",
+      "short" : "name",
+      "definition" : "Namn\n\nAlla personnamn skrivs sammanslaget enligt formatet \" Mellannamn Efternamn, Förnamn\". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.\n\nImplementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet.",
+      "comment" : "TKB-fält: `requestOutcome.patient.name` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 216 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation",
+      "short" : "FullOrganisationType",
+      "definition" : "Organisatorisk enhet\n\nDen enhet som har producerat svaret. Detta kan skilja sig från den enhet som remittenten angav som remissmottagande enhet på grund av tekniska eller organisatoriska anledningar. Exempelvis kan det ske en systemintern ”vidareskickning” till en specifik enhet från en central remissmottagning utan att detta notifieras till remittenten.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation` (`FullOrganisationType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitId",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "Enhet id\n\nHSA-id för remissbesvarande enhet.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitId.extension",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitName",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitName",
+      "short" : "careUnitName",
+      "definition" : "Enhet namn\n\nNamn på enhet.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation.careUnitName` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitTelephone",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitTelephone",
+      "short" : "careUnitTelephone",
+      "definition" : "Enhet telfon\n\nTelefon till enhet.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation.careUnitTelephone` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitEmail",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitEmail",
+      "short" : "careUnitEmail",
+      "definition" : "Enhet epost\n\nE-post till enhet.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation.careUnitEmail` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitAddress",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitAddress",
+      "short" : "careUnitAddress",
+      "definition" : "Enhet adress\n\nAdress till enhet.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation.careUnitAddress` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitLocation",
+      "path" : "processrequestoutcome.requestOutcome.respondingOrganisation.careUnitLocation",
+      "short" : "careUnitLocation",
+      "definition" : "Enhet plats\n\nText som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.",
+      "comment" : "TKB-fält: `requestOutcome.respondingOrganisation.careUnitLocation` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author",
+      "path" : "processrequestoutcome.requestOutcome.author",
+      "short" : "AuthorType",
+      "definition" : "Remissbesvarare\n\nRemissbesvarande person och organisation",
+      "comment" : "TKB-fält: `requestOutcome.author` (`AuthorType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessional",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessional",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "Hälso- och sjukvårdspersonal",
+      "comment" : "TKB-fält: `requestOutcome.author.healthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessional.id",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessional.id",
+      "short" : "HsaIdType",
+      "definition" : "Personal id\n\nHSA-id för remissbesvarare",
+      "comment" : "TKB-fält: `requestOutcome.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessional.id.extension",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessional.id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessional.name",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessional.name",
+      "short" : "name",
+      "definition" : "Personal namn\n\nNamn på remissbesvarare",
+      "comment" : "TKB-fält: `requestOutcome.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.typeOfHealthcareProfessional",
+      "path" : "processrequestoutcome.requestOutcome.author.typeOfHealthcareProfessional",
+      "short" : "typeOfHealthcareProfessional",
+      "definition" : "Typ av hälso- och sjukvårdspersonal\n\nKod för yrkestitel från Snomed CT enligt urvalen nedan:\n\ncode: se urval_legitimerade_yrken\n\ncodeSystem: OID 1.2.752.129.5.1.70\n\neller\n\ncode: se yrken_i_halso-_och_sjukvarden_ej_legitimerade\n\ncodeSystem: 1.2.752.129.7.1.5\n\nUrvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+      "comment" : "TKB-fält: `requestOutcome.author.typeOfHealthcareProfessional` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessionalOrganisation",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessionalOrganisation",
+      "short" : "OrganisationType",
+      "definition" : "healthcareProfessionalOrganisation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessionalOrganisation.careUnitId",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessionalOrganisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "careUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.author.healthcareProfessionalOrganisation.careUnitId.extension",
+      "path" : "processrequestoutcome.requestOutcome.author.healthcareProfessionalOrganisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.recipient",
+      "path" : "processrequestoutcome.requestOutcome.recipient",
+      "short" : "RecipientType",
+      "definition" : "Mottagare",
+      "comment" : "TKB-fält: `requestOutcome.recipient` (`RecipientType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.recipient.organisation",
+      "path" : "processrequestoutcome.requestOutcome.recipient.organisation",
+      "short" : "OrganisationType",
+      "definition" : "Organisatorisk enhet\n\nMottagare",
+      "comment" : "TKB-fält: `requestOutcome.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.recipient.organisation.careUnitId",
+      "path" : "processrequestoutcome.requestOutcome.recipient.organisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "Enhet id\n\nHSA-id för remissvarsmottagande enhet, till vilken remissvaret adresseras.",
+      "comment" : "TKB-fält: `requestOutcome.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.recipient.organisation.careUnitId.extension",
+      "path" : "processrequestoutcome.requestOutcome.recipient.organisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome",
+      "path" : "processrequestoutcome.requestOutcome.outcome",
+      "short" : "OutcomeType",
+      "definition" : "Kliniskt innehåll\n\nRemissvar",
+      "comment" : "TKB-fält: `requestOutcome.outcome` (`OutcomeType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.outcomeText",
+      "path" : "processrequestoutcome.requestOutcome.outcome.outcomeText",
+      "short" : "outcomeText",
+      "definition" : "Klinisk svarstext\n\nRemissvarstexten",
+      "comment" : "TKB-fält: `requestOutcome.outcome.outcomeText` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 65000 tecken",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.condition",
+      "path" : "processrequestoutcome.requestOutcome.outcome.condition",
+      "short" : "ConditionType",
+      "definition" : "Kliniskt tillstånd\n\nDessa kliniska data är direkt kopplat till svaret, t.ex. funna diagnoser.",
+      "comment" : "TKB-fält: `requestOutcome.outcome.condition` (`ConditionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "activity-request-condition-code-or-text",
+        "severity" : "error",
+        "human" : "Kliniskt tillstånd: ange antingen text eller kod, inte båda (schematron Verify condition)",
+        "expression" : "(text.exists() and code.exists()).not()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestoutcome"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.condition.text",
+      "path" : "processrequestoutcome.requestOutcome.outcome.condition.text",
+      "short" : "text",
+      "definition" : "Klinisk tillståndsbeskrivning\n\nBeskrivningen av det kliniska tillståndet i de fall en kod saknas.\n\nTexten ska endast beskriva ett kliniskt tillstånd. Ska fler tillstånd beskrivas hanteras det i olika requestOutcome.outcome.condition.\n\nObservera att antingen måste denna eller outcome.condition.code finnas.",
+      "comment" : "TKB-fält: `requestOutcome.outcome.condition.text` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.condition.code",
+      "path" : "processrequestoutcome.requestOutcome.outcome.condition.code",
+      "short" : "code",
+      "definition" : "Kliniskt tillståndskod Anger kliniska tillståndskoder.\n\ncode:  se ICD-10-SE\n\ncodeSystem: 1.2.752.116.1.1.1\n\nObservera att antingen måste denna eller outcome.condition.text finnas med\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+      "comment" : "TKB-fält: `requestOutcome.outcome.condition.code` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity",
+      "short" : "ActivityType",
+      "definition" : "Åtgärd\n\nSvaret kan redovisa noll till många utförda åtgärder",
+      "comment" : "TKB-fält: `requestOutcome.outcome.accomplishedActivity` (`ActivityType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "activity-request-activity-code-or-text",
+        "severity" : "error",
+        "human" : "Åtgärd: ange antingen text eller kod, inte båda (schematron Verify desiredActivity)",
+        "expression" : "(text.exists() and code.exists()).not()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestoutcome"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.id",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.id",
+      "short" : "ActivityIdType",
+      "definition" : "Åtgärd id\n\nUnikt id som är sammansatt av requestId + accomplishedActivity + löpnummer med # som skiljer respektive del.\n\nExempel.\n\nrequestId = SE2321000012-0001#987\n\nid = SE2321000012-0001#987#accomplishedActivity#0\n\noch nästa id blir\n\naccomplishedActivity.id = SE2321000012-0001#987# accomplishedActivity#1",
+      "comment" : "TKB-fält: `requestOutcome.outcome.accomplishedActivity.id` (`ActivityIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.id.extension",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.text",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.text",
+      "short" : "text",
+      "definition" : "Åtgärd beskrivning\n\nHär ska åtgärdsbeskrivningen in om systemet inte kan använda en kod.\n\nTexten ska endast beskriva en utförd åtgärd. Ska fler åtgärder beskrivas hanteras det i olika requestOutcome.outcome.accomplishedActivity.\n\nObservera att text får endast förekomma om accomplishedActivity.code inte används.",
+      "comment" : "TKB-fält: `requestOutcome.outcome.accomplishedActivity.text` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.code",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.code",
+      "short" : "ActivityCodeType",
+      "definition" : "Åtgärd typ\n\nÅtgärd enligt kodsystem.\n\nObservera att code får endast förekomma om accomplishedActivity.text inte används.",
+      "comment" : "TKB-fält: `requestOutcome.outcome.accomplishedActivity.code` (`ActivityCodeType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.code.code",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.code.code",
+      "short" : "code",
+      "definition" : "Kod enligt det angivet kodsystemet – KVÅ eller Snomed CT",
+      "comment" : "TKB-fält: `requestOutcome.outcome.accomplishedActivity.code.code` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** code (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.code.codeSystem",
+      "path" : "processrequestoutcome.requestOutcome.outcome.accomplishedActivity.code.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "Kodsystem för tolkning av angiven kod.\n\nObligatoriskt att hantera\n\n1.2.752.116.1.3.2.1.4 = KVÅ\n\nOm remittent använder kodverk som remissmottagande system inte hanterar skall detta resultera i ett fel av typen APPLICATION_ERROR.",
+      "comment" : "TKB-fält: `requestOutcome.outcome.accomplishedActivity.code.codeSystem` (`String`, kardinalitet 1..1).\n\n**Modellanteckning:** codeSystem (XML-attribut) Tillåtna värden: 1.2.752.116.1.3.2.1.4, 1.2.752.116.2.1.1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.attachment",
+      "path" : "processrequestoutcome.requestOutcome.attachment",
+      "short" : "MultimediaType",
+      "definition" : "Bilaga\n\nMöjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten",
+      "comment" : "TKB-fält: `requestOutcome.attachment` (`MultimediaType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.attachment.id",
+      "path" : "processrequestoutcome.requestOutcome.attachment.id",
+      "short" : "id",
+      "definition" : "Bilaga id\n\nIdentitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion.\n\nFormat remissvar: requestOutcomeId#löpnummer =Källsystem-Id(HSA-ID)#lokalt-id#löpnummer\n\nObligatoriskt för inbäddade bilagor",
+      "comment" : "TKB-fält: `requestOutcome.attachment.id` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)#(.*)\n\nMaxlängd 256 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.attachment.mediaType",
+      "path" : "processrequestoutcome.requestOutcome.attachment.mediaType",
+      "short" : "mediaType",
+      "definition" : "Multimediatyp\n\nTyp av multimedia, se urval med tillåtna format.\n\ncode: se urval_mediatyper_elektronisk_remiss\n\ncodeSystem: (1.2.752.129.5.1.59, se nedan)\n\nUnder codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör.\n\nUrvalet kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+      "comment" : "TKB-fält: `requestOutcome.attachment.mediaType` (`CVType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** urval_mediatyper_elektronisk_\n\nremiss",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.attachment.value",
+      "path" : "processrequestoutcome.requestOutcome.attachment.value",
+      "short" : "value",
+      "definition" : "Binärdata\n\nAnvänds vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format. Obligatoriskt när referens inte används.",
+      "comment" : "TKB-fält: `requestOutcome.attachment.value` (`Base64Binary`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Ett meddelande med bilagor får inte vara större än 10MB",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.attachment.reference",
+      "path" : "processrequestoutcome.requestOutcome.attachment.reference",
+      "short" : "reference",
+      "definition" : "Referens\n\nAnvänds vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas. OBS! Används inte i denna version.",
+      "comment" : "TKB-fält: `requestOutcome.attachment.reference` (`AnyURI`, kardinalitet 0..0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.requestOutcome.attachment.description",
+      "path" : "processrequestoutcome.requestOutcome.attachment.description",
+      "short" : "description",
+      "definition" : "Beskrivning\n\nBeskrivning av bilaga, t ex innehåll",
+      "comment" : "TKB-fält: `requestOutcome.attachment.description` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 256 tecken",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest",
+      "path" : "processrequestoutcome.originalRequest",
+      "short" : "RequestType",
+      "definition" : "Originalremissen\n\nDetta fält skall endast vara ifyllt i de fall då remissen skickas till annan mottagare än originalremittenten. Detta flöde finns idag inte beskrivet i de nationella specifikationerna. OriginalRequest får endast vara ifylld om den faktiska implementationen kan garantera att strukturen är identisk från det som mottogs från original remittenten.",
+      "comment" : "TKB-fält: `requestOutcome .originalRequest` (`RequestType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestId",
+      "path" : "processrequestoutcome.originalRequest.requestId",
+      "short" : "RequestIdType",
+      "definition" : "requestId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestId.extension",
+      "path" : "processrequestoutcome.originalRequest.requestId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.typeOfRequest",
+      "path" : "processrequestoutcome.originalRequest.typeOfRequest",
+      "short" : "codeForRequestType",
+      "definition" : "typeOfRequest",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.typeOfRequest.code",
+      "path" : "processrequestoutcome.originalRequest.typeOfRequest.code",
+      "short" : "code",
+      "definition" : "code (XML-attribut) Tillåtna värden: 4.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.versionTimeStamp",
+      "path" : "processrequestoutcome.originalRequest.versionTimeStamp",
+      "short" : "TimeStampType",
+      "definition" : "versionTimeStamp",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.versionTimeStamp.value",
+      "path" : "processrequestoutcome.originalRequest.versionTimeStamp.value",
+      "short" : "value",
+      "definition" : "value (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.versionNumber",
+      "path" : "processrequestoutcome.originalRequest.versionNumber",
+      "short" : "versionNumber",
+      "definition" : "versionNumber",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/VersionNumberType"]
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.reasonForVersion",
+      "path" : "processrequestoutcome.originalRequest.reasonForVersion",
+      "short" : "ReasonForVersionType",
+      "definition" : "reasonForVersion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.reasonForVersion.typeOfReason",
+      "path" : "processrequestoutcome.originalRequest.reasonForVersion.typeOfReason",
+      "short" : "codeVersionReason",
+      "definition" : "typeOfReason",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.reasonForVersion.typeOfReason.code",
+      "path" : "processrequestoutcome.originalRequest.reasonForVersion.typeOfReason.code",
+      "short" : "code",
+      "definition" : "code (XML-attribut) Tillåtna värden: NR, AR, VR, AB.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/versionreason-vs"
+      }
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.careResponsibilityRemains",
+      "path" : "processrequestoutcome.originalRequest.careResponsibilityRemains",
+      "short" : "careResponsibilityRemains",
+      "definition" : "careResponsibilityRemains",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient",
+      "path" : "processrequestoutcome.originalRequest.patient",
+      "short" : "PatientType",
+      "definition" : "patient",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.personId",
+      "path" : "processrequestoutcome.originalRequest.patient.personId",
+      "short" : "PersonIdType",
+      "definition" : "personId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.personId.extension",
+      "path" : "processrequestoutcome.originalRequest.patient.personId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.personId.root",
+      "path" : "processrequestoutcome.originalRequest.patient.personId.root",
+      "short" : "root",
+      "definition" : "root (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address",
+      "path" : "processrequestoutcome.originalRequest.patient.address",
+      "short" : "AddressType",
+      "definition" : "address",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address.careOf",
+      "path" : "processrequestoutcome.originalRequest.patient.address.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address.streetName1",
+      "path" : "processrequestoutcome.originalRequest.patient.address.streetName1",
+      "short" : "streetName1",
+      "definition" : "streetName1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address.streetName2",
+      "path" : "processrequestoutcome.originalRequest.patient.address.streetName2",
+      "short" : "streetName2",
+      "definition" : "streetName2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address.postalCode",
+      "path" : "processrequestoutcome.originalRequest.patient.address.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address.postalCity",
+      "path" : "processrequestoutcome.originalRequest.patient.address.postalCity",
+      "short" : "postalCity",
+      "definition" : "postalCity",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.address.postBox",
+      "path" : "processrequestoutcome.originalRequest.patient.address.postBox",
+      "short" : "postBox",
+      "definition" : "postBox",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.telecom",
+      "path" : "processrequestoutcome.originalRequest.patient.telecom",
+      "short" : "TelecomType",
+      "definition" : "telecom",
+      "min" : 0,
+      "max" : "2",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.telecom.typeOfTelecom",
+      "path" : "processrequestoutcome.originalRequest.patient.telecom.typeOfTelecom",
+      "short" : "codeForTelecomType",
+      "definition" : "typeOfTelecom",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.telecom.typeOfTelecom.code",
+      "path" : "processrequestoutcome.originalRequest.patient.telecom.typeOfTelecom.code",
+      "short" : "code",
+      "definition" : "code (XML-attribut) Tillåtna värden: H, MC.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.telecom.number",
+      "path" : "processrequestoutcome.originalRequest.patient.telecom.number",
+      "short" : "number",
+      "definition" : "number",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.name",
+      "path" : "processrequestoutcome.originalRequest.patient.name",
+      "short" : "name",
+      "definition" : "name",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.gender",
+      "path" : "processrequestoutcome.originalRequest.patient.gender",
+      "short" : "codeForGenderType",
+      "definition" : "gender",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.gender.code",
+      "path" : "processrequestoutcome.originalRequest.patient.gender.code",
+      "short" : "code",
+      "definition" : "code (XML-attribut) Tillåtna värden: 0, 1, 2, 9.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.dateOfBirth",
+      "path" : "processrequestoutcome.originalRequest.patient.dateOfBirth",
+      "short" : "DateType",
+      "definition" : "dateOfBirth",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.patient.dateOfBirth.value",
+      "path" : "processrequestoutcome.originalRequest.patient.dateOfBirth.value",
+      "short" : "value",
+      "definition" : "value (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation",
+      "short" : "FullOrganisationType",
+      "definition" : "requestOrganisation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitId",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "careUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitId.extension",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitName",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitName",
+      "short" : "careUnitName",
+      "definition" : "careUnitName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitTelephone",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitTelephone",
+      "short" : "careUnitTelephone",
+      "definition" : "careUnitTelephone",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitEmail",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitEmail",
+      "short" : "careUnitEmail",
+      "definition" : "careUnitEmail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitAddress",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitAddress",
+      "short" : "careUnitAddress",
+      "definition" : "careUnitAddress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitLocation",
+      "path" : "processrequestoutcome.originalRequest.requestOrganisation.careUnitLocation",
+      "short" : "careUnitLocation",
+      "definition" : "careUnitLocation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author",
+      "path" : "processrequestoutcome.originalRequest.author",
+      "short" : "RequestAuthorType",
+      "definition" : "author",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.date",
+      "path" : "processrequestoutcome.originalRequest.author.date",
+      "short" : "DateType",
+      "definition" : "date",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.date.value",
+      "path" : "processrequestoutcome.originalRequest.author.date.value",
+      "short" : "value",
+      "definition" : "value (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessional",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessional",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "healthcareProfessional",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessional.id",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessional.id",
+      "short" : "HsaIdType",
+      "definition" : "id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessional.id.extension",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessional.id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessional.name",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessional.name",
+      "short" : "name",
+      "definition" : "name",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.typeOfHealthcareProfessional",
+      "path" : "processrequestoutcome.originalRequest.author.typeOfHealthcareProfessional",
+      "short" : "typeOfHealthcareProfessional",
+      "definition" : "typeOfHealthcareProfessional",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessionalOrganisation",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessionalOrganisation",
+      "short" : "OrganisationType",
+      "definition" : "healthcareProfessionalOrganisation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessionalOrganisation.careUnitId",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessionalOrganisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "careUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.author.healthcareProfessionalOrganisation.careUnitId.extension",
+      "path" : "processrequestoutcome.originalRequest.author.healthcareProfessionalOrganisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.recipient",
+      "path" : "processrequestoutcome.originalRequest.recipient",
+      "short" : "RecipientType",
+      "definition" : "recipient",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.recipient.organisation",
+      "path" : "processrequestoutcome.originalRequest.recipient.organisation",
+      "short" : "OrganisationType",
+      "definition" : "organisation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.recipient.organisation.careUnitId",
+      "path" : "processrequestoutcome.originalRequest.recipient.organisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "careUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.recipient.organisation.careUnitId.extension",
+      "path" : "processrequestoutcome.originalRequest.recipient.organisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.intermediaryParticipant",
+      "path" : "processrequestoutcome.originalRequest.intermediaryParticipant",
+      "short" : "IntermediaryType",
+      "definition" : "intermediaryParticipant",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.intermediaryParticipant.healthcareProfessionalOrganisation",
+      "path" : "processrequestoutcome.originalRequest.intermediaryParticipant.healthcareProfessionalOrganisation",
+      "short" : "OrganisationType",
+      "definition" : "healthcareProfessionalOrganisation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",
+      "path" : "processrequestoutcome.originalRequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",
+      "short" : "HsaIdType",
+      "definition" : "careUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId.extension",
+      "path" : "processrequestoutcome.originalRequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.intermediaryParticipant.time",
+      "path" : "processrequestoutcome.originalRequest.intermediaryParticipant.time",
+      "short" : "TimeStampType",
+      "definition" : "time",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.intermediaryParticipant.time.value",
+      "path" : "processrequestoutcome.originalRequest.intermediaryParticipant.time.value",
+      "short" : "value",
+      "definition" : "value (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.additionalInformation",
+      "path" : "processrequestoutcome.originalRequest.additionalInformation",
+      "short" : "AdditionalInformationType",
+      "definition" : "additionalInformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.additionalInformation.desiredRequestRecipient",
+      "path" : "processrequestoutcome.originalRequest.additionalInformation.desiredRequestRecipient",
+      "short" : "desiredRequestRecipient",
+      "definition" : "desiredRequestRecipient",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.additionalInformation.administrativeInformation",
+      "path" : "processrequestoutcome.originalRequest.additionalInformation.administrativeInformation",
+      "short" : "administrativeInformation",
+      "definition" : "administrativeInformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.additionalInformation.interpreterRequirement",
+      "path" : "processrequestoutcome.originalRequest.additionalInformation.interpreterRequirement",
+      "short" : "interpreterRequirement",
+      "definition" : "interpreterRequirement",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.awarenessInformation",
+      "path" : "processrequestoutcome.originalRequest.awarenessInformation",
+      "short" : "AwarenessInformationType",
+      "definition" : "awarenessInformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.awarenessInformation.text",
+      "path" : "processrequestoutcome.originalRequest.awarenessInformation.text",
+      "short" : "text",
+      "definition" : "text",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation",
+      "short" : "QuestionFormulationType",
+      "definition" : "questionFormulation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.text",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.text",
+      "short" : "text",
+      "definition" : "text",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.clinicalInformation",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.clinicalInformation",
+      "short" : "ClinicalInformationType",
+      "definition" : "clinicalInformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.clinicalInformation.text",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.clinicalInformation.text",
+      "short" : "text",
+      "definition" : "text",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.condition",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.condition",
+      "short" : "ConditionType",
+      "definition" : "condition",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.condition.text",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.condition.text",
+      "short" : "text",
+      "definition" : "text",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.condition.code",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.condition.code",
+      "short" : "code",
+      "definition" : "code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity",
+      "short" : "ActivityType",
+      "definition" : "desiredActivity",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.id",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.id",
+      "short" : "ActivityIdType",
+      "definition" : "id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.id.extension",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.text",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.text",
+      "short" : "text",
+      "definition" : "text",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.code",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.code",
+      "short" : "ActivityCodeType",
+      "definition" : "code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.code.code",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.code.code",
+      "short" : "code",
+      "definition" : "code (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.code.codeSystem",
+      "path" : "processrequestoutcome.originalRequest.questionFormulation.desiredActivity.code.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem (XML-attribut) Tillåtna värden: 1.2.752.116.1.3.2.1.4, 1.2.752.116.2.1.1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment",
+      "short" : "PaymentCommitmentType",
+      "definition" : "paymentCommitment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.paymentCommitmentId",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.paymentCommitmentId",
+      "short" : "PaymentCommitmentIdType",
+      "definition" : "paymentCommitmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.paymentCommitmentId.extension",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.paymentCommitmentId.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.commitmentType",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.commitmentType",
+      "short" : "commitmentType",
+      "definition" : "commitmentType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.commitmentTypeChapter",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.commitmentTypeChapter",
+      "short" : "commitmentTypeChapter",
+      "definition" : "commitmentTypeChapter",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.validity",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.validity",
+      "short" : "TimeIntervalType",
+      "definition" : "validity",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.validity.low",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.validity.low",
+      "short" : "low",
+      "definition" : "low (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.validity.high",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.validity.high",
+      "short" : "high",
+      "definition" : "high (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.clinicalResponsibilityDescription",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.clinicalResponsibilityDescription",
+      "short" : "clinicalResponsibilityDescription",
+      "definition" : "clinicalResponsibilityDescription",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.administrativeResponsibilityDescription",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.administrativeResponsibilityDescription",
+      "short" : "administrativeResponsibilityDescription",
+      "definition" : "administrativeResponsibilityDescription",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.validOnlyForOutpatientCare",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.validOnlyForOutpatientCare",
+      "short" : "validOnlyForOutpatientCare",
+      "definition" : "validOnlyForOutpatientCare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.liableCountyCouncil",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.liableCountyCouncil",
+      "short" : "liableCountyCouncil",
+      "definition" : "liableCountyCouncil",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.dateOfApproval",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.dateOfApproval",
+      "short" : "TimeStampType",
+      "definition" : "dateOfApproval",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.dateOfApproval.value",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.dateOfApproval.value",
+      "short" : "value",
+      "definition" : "value (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.issuedInConsultationWith",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.issuedInConsultationWith",
+      "short" : "issuedInConsultationWith",
+      "definition" : "issuedInConsultationWith",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.costCenter",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.costCenter",
+      "short" : "costCenter",
+      "definition" : "costCenter",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.reimbursementInformation",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.reimbursementInformation",
+      "short" : "ReimbursementInformationType",
+      "definition" : "reimbursementInformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.reimbursementInformation.reimbursementType",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.reimbursementInformation.reimbursementType",
+      "short" : "reimbursementType",
+      "definition" : "reimbursementType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",
+      "short" : "ownerOfInvokedContract",
+      "definition" : "ownerOfInvokedContract",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy",
+      "short" : "HealthcareProfessionalType",
+      "definition" : "approvedBy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy.id",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy.id",
+      "short" : "HsaIdType",
+      "definition" : "id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy.id.extension",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy.id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy.name",
+      "path" : "processrequestoutcome.originalRequest.paymentCommitment.approvedBy.name",
+      "short" : "name",
+      "definition" : "name",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.attachment",
+      "path" : "processrequestoutcome.originalRequest.attachment",
+      "short" : "MultimediaType",
+      "definition" : "attachment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.attachment.id",
+      "path" : "processrequestoutcome.originalRequest.attachment.id",
+      "short" : "id",
+      "definition" : "id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.attachment.mediaType",
+      "path" : "processrequestoutcome.originalRequest.attachment.mediaType",
+      "short" : "mediaType",
+      "definition" : "mediaType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.attachment.value",
+      "path" : "processrequestoutcome.originalRequest.attachment.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.attachment.reference",
+      "path" : "processrequestoutcome.originalRequest.attachment.reference",
+      "short" : "reference",
+      "definition" : "reference",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.attachment.description",
+      "path" : "processrequestoutcome.originalRequest.attachment.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestoutcome.originalRequest.careProcessId",
+      "path" : "processrequestoutcome.originalRequest.careProcessId",
+      "short" : "careProcessId",
+      "definition" : "careProcessId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

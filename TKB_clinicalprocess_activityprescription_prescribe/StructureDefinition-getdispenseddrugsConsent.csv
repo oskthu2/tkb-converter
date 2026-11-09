@@ -1,0 +1,23 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getdispenseddrugsConsent","getdispenseddrugsConsent","","","",0,*,"","","","null {[]} {[]}
+","GetDispensedDrugsConsent","Logisk modell för tjänstekontraktet GetDispensedDrugsConsent
+(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugsConsent:2).
+Representerar responsens informationsstruktur — hämtar samtycke för åtkomst till uthämtade läkemedel.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdispenseddrugsConsent.hasConsent","getdispenseddrugsConsent.hasConsent","","","",1,1,"","","","boolean {[]} {[]}
+","hasConsent","Indikerar om samtycke finns eller ej.","TKB-fält: `hasConsent` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.hasConsent",1,1,"",""
+"getdispenseddrugsConsent.result","getdispenseddrugsConsent.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `Result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.result",1,1,"",""
+"getdispenseddrugsConsent.result.resultCode","getdispenseddrugsConsent.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.result.resultCode",1,1,"",""
+"getdispenseddrugsConsent.result.errorCode","getdispenseddrugsConsent.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.result.errorCode",0,1,"",""
+"getdispenseddrugsConsent.result.subcode","getdispenseddrugsConsent.result.subcode","","","",0,1,"","","","code {[]} {[]}
+","subcode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.result.subcode",0,1,"",""
+"getdispenseddrugsConsent.result.logId","getdispenseddrugsConsent.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.result.logId",1,1,"",""
+"getdispenseddrugsConsent.result.message","getdispenseddrugsConsent.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugsConsent.result.message",0,1,"",""

@@ -1,0 +1,38 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getlisting","getlisting","","","",0,*,"","","","null {[]} {[]}
+","GetListing","Logisk modell för tjänstekontraktet GetListing (Visa tjänsteval)
+(RIV-TA urn:riv:crm:carelisting:GetListingResponder:1).
+Representerar responsens informationsstruktur.
+Hämtar information om en persons aktiva listning (tjänsteval).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlisting.subjectOfCare","getlisting.subjectOfCare","","","",1,1,"","","","Base {[]} {[]}
+","SubjectOfCare","En persons listningar.","TKB-fält: `subjectOfCare` (`SubjectOfCare`, kardinalitet 1..1).
+
+**Modellanteckning:** En persons listningar. PostCondition: tillgängliga listningstyper för en listnings vårdenhet är utelämnad.","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare",1,1,"",""
+"getlisting.subjectOfCare.personId","getlisting.subjectOfCare.personId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","personId","Identitetsbeteckning för vård- och omsorgstagaren.","TKB-fält: `subjectOfCare.personId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.personId",1,1,"",""
+"getlisting.subjectOfCare.listing","getlisting.subjectOfCare.listing","","","",0,*,"","","","Base {[]} {[]}
+","Listing","En listning för personen. PostCondition: tillgängliga listningstyper för listningens vårdenhet är utelämnad.","TKB-fält: `subjectOfCare.listing` (`Listing`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing",0,*,"",""
+"getlisting.subjectOfCare.listing.validFromDate","getlisting.subjectOfCare.listing.validFromDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Anger datum för när listningen började gälla.","Datum för när listningen började gälla.","TKB-fält: `subjectOfCare.listing.validFromDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.validFromDate",0,1,"",""
+"getlisting.subjectOfCare.listing.validToDate","getlisting.subjectOfCare.listing.validToDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Anger datum när listningen slutade gälla, om datum saknas så blir det implicit obestämt in i framtiden.","Datum när listningen slutade gälla. Om datum saknas är det implicit obestämt in i framtiden.","TKB-fält: `subjectOfCare.listing.validToDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.validToDate",0,1,"",""
+"getlisting.subjectOfCare.listing.listingType","getlisting.subjectOfCare.listing.listingType","","","",1,1,"","","","string {[]} {[]}
+","listingType","Typ av listning, t.ex. BVC, HLM, FL.","TKB-fält: `subjectOfCare.listing.listingType` (`string (ListingType)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.listingType",1,1,"",""
+"getlisting.subjectOfCare.listing.healthcare-facility","getlisting.subjectOfCare.listing.healthcare_facility","","","",1,1,"","","","Base {[]} {[]}
+","Facility","Vårdinrättning/vårdenhet som ansvarar för personen.","TKB-fält: `subjectOfCare.listing.healthcare_facility` (`Facility`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.healthcare_facility",1,1,"",""
+"getlisting.subjectOfCare.listing.healthcare-facility.facilityId","getlisting.subjectOfCare.listing.healthcare_facility.facilityId","","","",1,1,"","","","string {[]} {[]}
+","facilityId","HSA-ID för vårdenheten.","TKB-fält: `subjectOfCare.listing.healthcare_facility.facilityId` (`string (HsaIdType)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.healthcare_facility.facilityId",1,1,"",""
+"getlisting.subjectOfCare.listing.healthcare-facility.hasQueue","getlisting.subjectOfCare.listing.healthcare_facility.hasQueue","","","",0,1,"","","","boolean {[]} {[]}
+","Indikerar om vårdenheten har kö vid listningar. Kan utelämnas om information inte har någon betydelse i kontexten.","Indikerar om vårdenheten har kö vid listningar.","TKB-fält: `subjectOfCare.listing.healthcare_facility.hasQueue` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.healthcare_facility.hasQueue",0,1,"",""
+"getlisting.subjectOfCare.listing.healthcare-facility.supportedListingTypes","getlisting.subjectOfCare.listing.healthcare_facility.supportedListingTypes","","","",0,*,"","","","string {[]} {[]}
+","supportedListingTypes","Lista med listningstyper som vårdenheten stödjer. Utelämnas i GetListing-svaret (per postcondition).","TKB-fält: `subjectOfCare.listing.healthcare_facility.supportedListingTypes` (`string`, kardinalitet 0..*).
+
+**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.healthcare_facility.supportedListingTypes",0,*,"",""
+"getlisting.subjectOfCare.listing.healthcare-facility.facilityName","getlisting.subjectOfCare.listing.healthcare_facility.facilityName","","","",1,1,"","","","string {[]} {[]}
+","Namn på vårdenheten.","Namn på vårdenheten.","TKB-fält: `subjectOfCare.listing.healthcare_facility.facilityName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.healthcare_facility.facilityName",1,1,"",""
+"getlisting.subjectOfCare.listing.resource","getlisting.subjectOfCare.listing.resource","","","",0,1,"","","","Base {[]} {[]}
+","Resource","Specifik resurs som utför listningstjänsten, t.ex. en läkare eller husläkarteam.","TKB-fält: `subjectOfCare.listing.resource` (`Resource`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.resource",0,1,"",""
+"getlisting.subjectOfCare.listing.resource.resourceId","getlisting.subjectOfCare.listing.resource.resourceId","","","",1,1,"","","","string {[]} {[]}
+","resourceId","HSA-ID för resursen.","TKB-fält: `subjectOfCare.listing.resource.resourceId` (`string (HsaIdType)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.resource.resourceId",1,1,"",""
+"getlisting.subjectOfCare.listing.resource.resourceName","getlisting.subjectOfCare.listing.resource.resourceName","","","",1,1,"","","","string {[]} {[]}
+","Namn på vårdgivaren","Namn på vårdgivaren.","TKB-fält: `subjectOfCare.listing.resource.resourceName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.subjectOfCare.listing.resource.resourceName",1,1,"",""

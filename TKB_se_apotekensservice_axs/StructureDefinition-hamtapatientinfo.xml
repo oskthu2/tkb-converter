@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="hamtapatientinfo"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureDefinition hamtapatientinfo</b></p><table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance">Card.</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo" title="Logisk modell för svaret i HamtaPatientInfo
+(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).
+Svaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),
+dosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK).">hamtapatientinfo</a><a name="hamtapatientinfo"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">*</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://build.fhir.org/types.html#Base">Base</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">HamtaPatientInfo — Response<br/><span style="font-weight:bold">Instances of this type can be the target of a Reference</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek" title="Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#apoteksinformationresponse).">apotek</a><a name="hamtapatientinfo.apotek"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdf4f4;; padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdf4f4;" href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( hamtapatientinfo-apotek-oregistrerat )">C</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">ApoteksinformationResponse<br class="constraint"/><span title="null" class="constraint">Constraints: </span><span style="font-weight:bold" title="Om apoteket inte finns registrerat i EXPO (registrerad = false) saknar alla fält utom glnKod värden" class="constraint">hamtapatientinfo-apotek-oregistrerat</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.aktorsnamn" title="Aktörsnamn">aktorsnamn</a><a name="hamtapatientinfo.apotek.aktorsnamn"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Aktörsnamn</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.aktorsorgnr" title="Aktörens organisationsnummer.">aktorsorgnr</a><a name="hamtapatientinfo.apotek.aktorsorgnr"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Aktörens organisationsnummer.</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.allmantelefon" title="allmäntelefon">allmantelefon</a><a name="hamtapatientinfo.apotek.allmantelefon"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">allmäntelefon</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.besoksadress" title="Expeditionsställets besöksadress">besoksadress</a><a name="hamtapatientinfo.apotek.besoksadress"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Expeditionsställets besöksadress</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.eReceptDjur" title="Anger om apoteket finns expedierar erecept för djur">eReceptDjur</a><a name="hamtapatientinfo.apotek.eReceptDjur"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Anger om apoteket finns expedierar erecept för djur</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.fax" title="fax">fax</a><a name="hamtapatientinfo.apotek.fax"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">fax</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.glnKod" title="GLN-kod">glnKod</a><a name="hamtapatientinfo.apotek.glnKod"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">GLN-kod</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.huvudtypkod" title="Kod som beskriver huvudverksamheten för expeditionsstället">huvudtypkod</a><a name="hamtapatientinfo.apotek.huvudtypkod"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kod som beskriver huvudverksamheten för expeditionsstället</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.namn" title="Apotekets Namn">namn</a><a name="hamtapatientinfo.apotek.namn"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Apotekets Namn</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.ort" title="Expeditionsställets besöksort">ort</a><a name="hamtapatientinfo.apotek.ort"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Expeditionsställets besöksort</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.registrerad" title="Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden.">registrerad</a><a name="hamtapatientinfo.apotek.registrerad"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden.</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.slutdatum" title="Datum för stängning av verksamhet">slutdatum</a><a name="hamtapatientinfo.apotek.slutdatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för stängning av verksamhet</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.apotek.startdatum" title="Datum för start av verksamhet">startdatum</a><a name="hamtapatientinfo.apotek.startdatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för start av verksamhet</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.dosproducent" title="GLN-kod för eventuell dosproducent.">dosproducent</a><a name="hamtapatientinfo.dosproducent"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">GLN-kod för eventuell dosproducent.</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.dosunderlagStatus" title="Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat.">dosunderlagStatus</a><a name="hamtapatientinfo.dosunderlagStatus"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#integer">integer</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat.</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.finnsOrdination" title="Markering som anger om det finns aktuella recept för patienten i RDH.">finnsOrdination</a><a name="hamtapatientinfo.finnsOrdination"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Markering som anger om det finns aktuella recept för patienten i RDH.</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation" title="Patientinformation från FOLK. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#patientinformationresponse).">patientInformation</a><a name="hamtapatientinfo.patientInformation"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">PatientInformationResponse</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.lkKod" title="Län och kommun där personen är folkbokförd. Har formatet LLKK. LL - Län, 2 tecken. KK - Kommun, 2 tecken">lkKod</a><a name="hamtapatientinfo.patientInformation.lkKod"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Län och kommun där personen är folkbokförd. Har formatet LLKK LL - Län, 2 tecken KK - Kommun, 2 tecken</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.omradeskod" title="Det område där personen är folkbokförd">omradeskod</a><a name="hamtapatientinfo.patientInformation.omradeskod"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Det område där personen är folkbokförd</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.redNamn" title="Redigerat namn">redNamn</a><a name="hamtapatientinfo.patientInformation.redNamn"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Redigerat namn</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck011.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke" title="samtycke">samtycke</a><a name="hamtapatientinfo.patientInformation.samtycke"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">SamtyckeResponse</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.dosSamtycke" title="false - Kunden (privatpersonen) samtycker inte till att spara recept på sitt personnummer för dosapotek. true - Kunden (privatpersonen) samtycker till att spara recept på sitt personnummer för dosapotek. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata.">dosSamtycke</a><a name="hamtapatientinfo.patientInformation.samtycke.dosSamtycke"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">dosSamtycke</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum" title="Datum för senaste ändring av dos-samtycke">dosSamtyckeDatum</a><a name="hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för senaste ändring av dos-samtycke</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.ees" title="Flagga för registrerat eessamtycke. False - Om kunden sagt nej till att vara med i EES. True - Kunden har samtyckt till att vara med i EES. Null - kunden har inte tillfrågats/tagit ställning.">ees</a><a name="hamtapatientinfo.patientInformation.samtycke.ees"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">ees</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum" title="Datum för senaste ändring av EES-samtycke">eesSamtyckeDatum</a><a name="hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för senaste ändring av EES-samtycke</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.hkdb" title="Flagga för registrerat samtycke. I indata är det endast möjligt att ange false och endast om inget värde finns registrerat. Samtycke uppdateras genom att skapa eller ta bort konto i HKDB. False - Om kunden sagt nej till att vara med i HKDB. True - Kunden har samtyckt till att vara med i HKDB. Null - kunden har inte tillfrågats/tagit ställning.">hkdb</a><a name="hamtapatientinfo.patientInformation.samtycke.hkdb"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">hkdb</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum" title="Datum för senaste ändring av HKDB-samtycke">hkdbSamtyckeDatum</a><a name="hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för senaste ändring av HKDB-samtycke</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.rr" title="false - Om kunden inte lämnat samtycke till att spara sina recept i RR. true - Kunden har samtyckt till att vara med i RR. Null - kunden har inte tillfrågats/tagit ställning. Detta är enbart vid utdata.">rr</a><a name="hamtapatientinfo.patientInformation.samtycke.rr"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">rr</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum" title="Datum för senaste ändring av RR-samtycke">rrSamtyckeDatum</a><a name="hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för senaste ändring av RR-samtycke</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.rrd" title="false - Kunden (privatpersonen) samtycker inte till att spara djurrecept på sitt personnummer i RR för djur. true - Kunden (privatpersonen) samtycker till att spara djurrecept på sitt personnummer i RR för djur. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata.">rrd</a><a name="hamtapatientinfo.patientInformation.samtycke.rrd"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">rrd</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum" title="Datum för senaste ändring av RRD-samtycke">rrdSamtyckeDatum</a><a name="hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Datum för senaste ändring av RRD-samtycke</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-hamtapatientinfo-definitions.html#hamtapatientinfo.patientInformation.statusKod" title="StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se [kodverket](#statuskod). Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret.">statusKod</a><a name="hamtapatientinfo.patientInformation.statusKod"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">statusKod</td></tr>
+<tr><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics">
+    <valueCode value="can-be-target"/>
+  </extension>
+  <url value="https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo"/>
+  <version value="6.0"/>
+  <name value="HamtaPatientInfo"/>
+  <title value="HamtaPatientInfo — Response"/>
+  <status value="active"/>
+  <date value="2026-11-09T03:47:22+00:00"/>
+  <contact>
+    <name value="Inera Arkitektur"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Logisk modell för svaret i HamtaPatientInfo&#xA;(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).&#xA;Svaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),&#xA;dosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK)."/>
+  <copyright value="Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."/>
+  <fhirVersion value="4.0.1"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Base"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version">
+      <valueString value="4.0.1"/>
+    </extension>
+    <element id="hamtapatientinfo">
+      <path value="hamtapatientinfo"/>
+      <short value="HamtaPatientInfo — Response"/>
+      <definition value="Logisk modell för svaret i HamtaPatientInfo&#xA;(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).&#xA;Svaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),&#xA;dosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Base"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+    <element id="hamtapatientinfo.apotek">
+      <path value="hamtapatientinfo.apotek"/>
+      <short value="ApoteksinformationResponse"/>
+      <definition value="Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#apoteksinformationresponse)."/>
+      <comment value="TKB-fält: `apotek` (`ApoteksinformationResponse`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+      <constraint>
+        <key value="hamtapatientinfo-apotek-oregistrerat"/>
+        <severity value="warning"/>
+        <human value="Om apoteket inte finns registrerat i EXPO (registrerad = false) saknar alla fält utom glnKod värden"/>
+        <expression value="registrerad = false implies (aktorsnamn.empty() and aktorsorgnr.empty() and allmantelefon.empty() and besoksadress.empty() and fax.empty() and huvudtypkod.empty() and namn.empty() and ort.empty() and slutdatum.empty() and startdatum.empty())"/>
+        <source value="https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo"/>
+      </constraint>
+    </element>
+    <element id="hamtapatientinfo.apotek.aktorsnamn">
+      <path value="hamtapatientinfo.apotek.aktorsnamn"/>
+      <short value="Aktörsnamn"/>
+      <definition value="Aktörsnamn"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `aktorsnamn` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.aktorsnamn"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.aktorsorgnr">
+      <path value="hamtapatientinfo.apotek.aktorsorgnr"/>
+      <short value="Aktörens organisationsnummer."/>
+      <definition value="Aktörens organisationsnummer."/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `aktorsorgnr` (`long`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.aktorsorgnr"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.allmantelefon">
+      <path value="hamtapatientinfo.apotek.allmantelefon"/>
+      <short value="allmäntelefon"/>
+      <definition value="allmäntelefon"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `allmantelefon` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.allmantelefon"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.besoksadress">
+      <path value="hamtapatientinfo.apotek.besoksadress"/>
+      <short value="Expeditionsställets besöksadress"/>
+      <definition value="Expeditionsställets besöksadress"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `besoksadress` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.besoksadress"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.eReceptDjur">
+      <path value="hamtapatientinfo.apotek.eReceptDjur"/>
+      <short value="Anger om apoteket finns expedierar erecept för djur"/>
+      <definition value="Anger om apoteket finns expedierar erecept för djur"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `eReceptDjur` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.eReceptDjur"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.fax">
+      <path value="hamtapatientinfo.apotek.fax"/>
+      <short value="fax"/>
+      <definition value="fax"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `fax` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.fax"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.glnKod">
+      <path value="hamtapatientinfo.apotek.glnKod"/>
+      <short value="GLN-kod"/>
+      <definition value="GLN-kod"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `glnKod` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.glnKod"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.huvudtypkod">
+      <path value="hamtapatientinfo.apotek.huvudtypkod"/>
+      <short value="Kod som beskriver huvudverksamheten för expeditionsstället"/>
+      <definition value="Kod som beskriver huvudverksamheten för expeditionsstället"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `huvudtypkod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.huvudtypkod"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.namn">
+      <path value="hamtapatientinfo.apotek.namn"/>
+      <short value="Apotekets Namn"/>
+      <definition value="Apotekets Namn"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `namn` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.namn"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.ort">
+      <path value="hamtapatientinfo.apotek.ort"/>
+      <short value="Expeditionsställets besöksort"/>
+      <definition value="Expeditionsställets besöksort"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `ort` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.ort"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.registrerad">
+      <path value="hamtapatientinfo.apotek.registrerad"/>
+      <short value="Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden."/>
+      <definition value="Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden."/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `registrerad` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.registrerad"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.slutdatum">
+      <path value="hamtapatientinfo.apotek.slutdatum"/>
+      <short value="Datum för stängning av verksamhet"/>
+      <definition value="Datum för stängning av verksamhet"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `slutdatum` (`dateTime`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.slutdatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.startdatum">
+      <path value="hamtapatientinfo.apotek.startdatum"/>
+      <short value="Datum för start av verksamhet"/>
+      <definition value="Datum för start av verksamhet"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `startdatum` (`dateTime`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.apotek.startdatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.dosproducent">
+      <path value="hamtapatientinfo.dosproducent"/>
+      <short value="GLN-kod för eventuell dosproducent."/>
+      <definition value="GLN-kod för eventuell dosproducent."/>
+      <comment value="TKB-fält: `dosproducent` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.dosproducent"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.dosunderlagStatus">
+      <path value="hamtapatientinfo.dosunderlagStatus"/>
+      <short value="Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat."/>
+      <definition value="Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat."/>
+      <comment value="TKB-fält: `dosunderlagStatus` (`int`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.dosunderlagStatus"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.finnsOrdination">
+      <path value="hamtapatientinfo.finnsOrdination"/>
+      <short value="Markering som anger om det finns aktuella recept för patienten i RDH."/>
+      <definition value="Markering som anger om det finns aktuella recept för patienten i RDH."/>
+      <comment value="TKB-fält: `finnsOrdination` (`boolean`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.finnsOrdination"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation">
+      <path value="hamtapatientinfo.patientInformation"/>
+      <short value="PatientInformationResponse"/>
+      <definition value="Patientinformation från FOLK. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#patientinformationresponse)."/>
+      <comment value="TKB-fält: `patientInformation` (`PatientInformationResponse`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.lkKod">
+      <path value="hamtapatientinfo.patientInformation.lkKod"/>
+      <short value="Län och kommun där personen är folkbokförd. Har formatet LLKK LL - Län, 2 tecken KK - Kommun, 2 tecken"/>
+      <definition value="Län och kommun där personen är folkbokförd. Har formatet LLKK. LL - Län, 2 tecken. KK - Kommun, 2 tecken"/>
+      <comment value="TKB-fält i PatientInformationResponse: `lkKod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.lkKod"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.omradeskod">
+      <path value="hamtapatientinfo.patientInformation.omradeskod"/>
+      <short value="Det område där personen är folkbokförd"/>
+      <definition value="Det område där personen är folkbokförd"/>
+      <comment value="TKB-fält i PatientInformationResponse: `omradeskod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.omradeskod"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.redNamn">
+      <path value="hamtapatientinfo.patientInformation.redNamn"/>
+      <short value="Redigerat namn"/>
+      <definition value="Redigerat namn"/>
+      <comment value="TKB-fält i PatientInformationResponse: `redNamn` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.redNamn"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke">
+      <path value="hamtapatientinfo.patientInformation.samtycke"/>
+      <short value="SamtyckeResponse"/>
+      <definition value="samtycke"/>
+      <comment value="TKB-fält i PatientInformationResponse: `samtycke` (`SamtyckeResponse`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.dosSamtycke">
+      <path value="hamtapatientinfo.patientInformation.samtycke.dosSamtycke"/>
+      <short value="dosSamtycke"/>
+      <definition value="false - Kunden (privatpersonen) samtycker inte till att spara recept på sitt personnummer för dosapotek. true - Kunden (privatpersonen) samtycker till att spara recept på sitt personnummer för dosapotek. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.dosSamtycke"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av dos-samtycke"/>
+      <definition value="Datum för senaste ändring av dos-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.ees">
+      <path value="hamtapatientinfo.patientInformation.samtycke.ees"/>
+      <short value="ees"/>
+      <definition value="Flagga för registrerat eessamtycke. False - Om kunden sagt nej till att vara med i EES. True - Kunden har samtyckt till att vara med i EES. Null - kunden har inte tillfrågats/tagit ställning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.ees"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av EES-samtycke"/>
+      <definition value="Datum för senaste ändring av EES-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.hkdb">
+      <path value="hamtapatientinfo.patientInformation.samtycke.hkdb"/>
+      <short value="hkdb"/>
+      <definition value="Flagga för registrerat samtycke. I indata är det endast möjligt att ange false och endast om inget värde finns registrerat. Samtycke uppdateras genom att skapa eller ta bort konto i HKDB. False - Om kunden sagt nej till att vara med i HKDB. True - Kunden har samtyckt till att vara med i HKDB. Null - kunden har inte tillfrågats/tagit ställning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.hkdb"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av HKDB-samtycke"/>
+      <definition value="Datum för senaste ändring av HKDB-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rr">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rr"/>
+      <short value="rr"/>
+      <definition value="false - Om kunden inte lämnat samtycke till att spara sina recept i RR. true - Kunden har samtyckt till att vara med i RR. Null - kunden har inte tillfrågats/tagit ställning. Detta är enbart vid utdata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.rr"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av RR-samtycke"/>
+      <definition value="Datum för senaste ändring av RR-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rrd">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rrd"/>
+      <short value="rrd"/>
+      <definition value="false - Kunden (privatpersonen) samtycker inte till att spara djurrecept på sitt personnummer i RR för djur. true - Kunden (privatpersonen) samtycker till att spara djurrecept på sitt personnummer i RR för djur. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.rrd"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av RRD-samtycke"/>
+      <definition value="Datum för senaste ändring av RRD-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.statusKod">
+      <path value="hamtapatientinfo.patientInformation.statusKod"/>
+      <short value="statusKod"/>
+      <definition value="StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se [kodverket](http://build.fhir.org/#statuskod). Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret."/>
+      <comment value="TKB-fält i PatientInformationResponse: `statusKod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="hamtapatientinfo.patientInformation.statusKod"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="hamtapatientinfo">
+      <path value="hamtapatientinfo"/>
+      <short value="HamtaPatientInfo — Response"/>
+      <definition value="Logisk modell för svaret i HamtaPatientInfo&#xA;(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).&#xA;Svaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),&#xA;dosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK)."/>
+    </element>
+    <element id="hamtapatientinfo.apotek">
+      <path value="hamtapatientinfo.apotek"/>
+      <short value="ApoteksinformationResponse"/>
+      <definition value="Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#apoteksinformationresponse)."/>
+      <comment value="TKB-fält: `apotek` (`ApoteksinformationResponse`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+      <constraint>
+        <key value="hamtapatientinfo-apotek-oregistrerat"/>
+        <severity value="warning"/>
+        <human value="Om apoteket inte finns registrerat i EXPO (registrerad = false) saknar alla fält utom glnKod värden"/>
+        <expression value="registrerad = false implies (aktorsnamn.empty() and aktorsorgnr.empty() and allmantelefon.empty() and besoksadress.empty() and fax.empty() and huvudtypkod.empty() and namn.empty() and ort.empty() and slutdatum.empty() and startdatum.empty())"/>
+        <source value="https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo"/>
+      </constraint>
+    </element>
+    <element id="hamtapatientinfo.apotek.aktorsnamn">
+      <path value="hamtapatientinfo.apotek.aktorsnamn"/>
+      <short value="Aktörsnamn"/>
+      <definition value="Aktörsnamn"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `aktorsnamn` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.aktorsorgnr">
+      <path value="hamtapatientinfo.apotek.aktorsorgnr"/>
+      <short value="Aktörens organisationsnummer."/>
+      <definition value="Aktörens organisationsnummer."/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `aktorsorgnr` (`long`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.allmantelefon">
+      <path value="hamtapatientinfo.apotek.allmantelefon"/>
+      <short value="allmäntelefon"/>
+      <definition value="allmäntelefon"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `allmantelefon` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.besoksadress">
+      <path value="hamtapatientinfo.apotek.besoksadress"/>
+      <short value="Expeditionsställets besöksadress"/>
+      <definition value="Expeditionsställets besöksadress"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `besoksadress` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.eReceptDjur">
+      <path value="hamtapatientinfo.apotek.eReceptDjur"/>
+      <short value="Anger om apoteket finns expedierar erecept för djur"/>
+      <definition value="Anger om apoteket finns expedierar erecept för djur"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `eReceptDjur` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.fax">
+      <path value="hamtapatientinfo.apotek.fax"/>
+      <short value="fax"/>
+      <definition value="fax"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `fax` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.glnKod">
+      <path value="hamtapatientinfo.apotek.glnKod"/>
+      <short value="GLN-kod"/>
+      <definition value="GLN-kod"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `glnKod` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.huvudtypkod">
+      <path value="hamtapatientinfo.apotek.huvudtypkod"/>
+      <short value="Kod som beskriver huvudverksamheten för expeditionsstället"/>
+      <definition value="Kod som beskriver huvudverksamheten för expeditionsstället"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `huvudtypkod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.namn">
+      <path value="hamtapatientinfo.apotek.namn"/>
+      <short value="Apotekets Namn"/>
+      <definition value="Apotekets Namn"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `namn` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.ort">
+      <path value="hamtapatientinfo.apotek.ort"/>
+      <short value="Expeditionsställets besöksort"/>
+      <definition value="Expeditionsställets besöksort"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `ort` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.registrerad">
+      <path value="hamtapatientinfo.apotek.registrerad"/>
+      <short value="Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden."/>
+      <definition value="Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden."/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `registrerad` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.slutdatum">
+      <path value="hamtapatientinfo.apotek.slutdatum"/>
+      <short value="Datum för stängning av verksamhet"/>
+      <definition value="Datum för stängning av verksamhet"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `slutdatum` (`dateTime`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.apotek.startdatum">
+      <path value="hamtapatientinfo.apotek.startdatum"/>
+      <short value="Datum för start av verksamhet"/>
+      <definition value="Datum för start av verksamhet"/>
+      <comment value="TKB-fält i ApoteksinformationResponse: `startdatum` (`dateTime`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.dosproducent">
+      <path value="hamtapatientinfo.dosproducent"/>
+      <short value="GLN-kod för eventuell dosproducent."/>
+      <definition value="GLN-kod för eventuell dosproducent."/>
+      <comment value="TKB-fält: `dosproducent` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.dosunderlagStatus">
+      <path value="hamtapatientinfo.dosunderlagStatus"/>
+      <short value="Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat."/>
+      <definition value="Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat."/>
+      <comment value="TKB-fält: `dosunderlagStatus` (`int`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.finnsOrdination">
+      <path value="hamtapatientinfo.finnsOrdination"/>
+      <short value="Markering som anger om det finns aktuella recept för patienten i RDH."/>
+      <definition value="Markering som anger om det finns aktuella recept för patienten i RDH."/>
+      <comment value="TKB-fält: `finnsOrdination` (`boolean`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation">
+      <path value="hamtapatientinfo.patientInformation"/>
+      <short value="PatientInformationResponse"/>
+      <definition value="Patientinformation från FOLK. Se [avsnitt 6](6-gemensamma-informationskomponenter.html#patientinformationresponse)."/>
+      <comment value="TKB-fält: `patientInformation` (`PatientInformationResponse`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.lkKod">
+      <path value="hamtapatientinfo.patientInformation.lkKod"/>
+      <short value="Län och kommun där personen är folkbokförd. Har formatet LLKK LL - Län, 2 tecken KK - Kommun, 2 tecken"/>
+      <definition value="Län och kommun där personen är folkbokförd. Har formatet LLKK. LL - Län, 2 tecken. KK - Kommun, 2 tecken"/>
+      <comment value="TKB-fält i PatientInformationResponse: `lkKod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.omradeskod">
+      <path value="hamtapatientinfo.patientInformation.omradeskod"/>
+      <short value="Det område där personen är folkbokförd"/>
+      <definition value="Det område där personen är folkbokförd"/>
+      <comment value="TKB-fält i PatientInformationResponse: `omradeskod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.redNamn">
+      <path value="hamtapatientinfo.patientInformation.redNamn"/>
+      <short value="Redigerat namn"/>
+      <definition value="Redigerat namn"/>
+      <comment value="TKB-fält i PatientInformationResponse: `redNamn` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke">
+      <path value="hamtapatientinfo.patientInformation.samtycke"/>
+      <short value="SamtyckeResponse"/>
+      <definition value="samtycke"/>
+      <comment value="TKB-fält i PatientInformationResponse: `samtycke` (`SamtyckeResponse`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.dosSamtycke">
+      <path value="hamtapatientinfo.patientInformation.samtycke.dosSamtycke"/>
+      <short value="dosSamtycke"/>
+      <definition value="false - Kunden (privatpersonen) samtycker inte till att spara recept på sitt personnummer för dosapotek. true - Kunden (privatpersonen) samtycker till att spara recept på sitt personnummer för dosapotek. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av dos-samtycke"/>
+      <definition value="Datum för senaste ändring av dos-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.ees">
+      <path value="hamtapatientinfo.patientInformation.samtycke.ees"/>
+      <short value="ees"/>
+      <definition value="Flagga för registrerat eessamtycke. False - Om kunden sagt nej till att vara med i EES. True - Kunden har samtyckt till att vara med i EES. Null - kunden har inte tillfrågats/tagit ställning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av EES-samtycke"/>
+      <definition value="Datum för senaste ändring av EES-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.hkdb">
+      <path value="hamtapatientinfo.patientInformation.samtycke.hkdb"/>
+      <short value="hkdb"/>
+      <definition value="Flagga för registrerat samtycke. I indata är det endast möjligt att ange false och endast om inget värde finns registrerat. Samtycke uppdateras genom att skapa eller ta bort konto i HKDB. False - Om kunden sagt nej till att vara med i HKDB. True - Kunden har samtyckt till att vara med i HKDB. Null - kunden har inte tillfrågats/tagit ställning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av HKDB-samtycke"/>
+      <definition value="Datum för senaste ändring av HKDB-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rr">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rr"/>
+      <short value="rr"/>
+      <definition value="false - Om kunden inte lämnat samtycke till att spara sina recept i RR. true - Kunden har samtyckt till att vara med i RR. Null - kunden har inte tillfrågats/tagit ställning. Detta är enbart vid utdata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av RR-samtycke"/>
+      <definition value="Datum för senaste ändring av RR-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rrd">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rrd"/>
+      <short value="rrd"/>
+      <definition value="false - Kunden (privatpersonen) samtycker inte till att spara djurrecept på sitt personnummer i RR för djur. true - Kunden (privatpersonen) samtycker till att spara djurrecept på sitt personnummer i RR för djur. Null - kunden (privatpersonen) har inte tillfrågats/tagit ställning. Detta är enbart vid utdata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum">
+      <path value="hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum"/>
+      <short value="Datum för senaste ändring av RRD-samtycke"/>
+      <definition value="Datum för senaste ändring av RRD-samtycke"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="hamtapatientinfo.patientInformation.statusKod">
+      <path value="hamtapatientinfo.patientInformation.statusKod"/>
+      <short value="statusKod"/>
+      <definition value="StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se [kodverket](#statuskod). Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret."/>
+      <comment value="TKB-fält i PatientInformationResponse: `statusKod` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

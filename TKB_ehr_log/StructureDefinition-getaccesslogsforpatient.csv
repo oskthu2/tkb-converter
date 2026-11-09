@@ -1,0 +1,50 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getaccesslogsforpatient","getaccesslogsforpatient","","","",0,*,"","","","null {[]} {[]}
+","GetAccessLogsForPatient","Logisk modell för tjänstekontraktet GetAccessLogsForPatient
+(RIV-TA urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1).
+Representerar responsens informationsstruktur (log.querying:AccessLogsResult).
+Returnerar lista för angiven patient med vilka vårdaktörer som har haft åtkomst
+till information, inklusive tidpunkt, syfte och resurstyp.
+Stödjer aggregering — queuedReportId får inte användas vid aggregerande anrop.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getaccesslogsforpatient.AccessLogsResultType","getaccesslogsforpatient.AccessLogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","AccessLogsResultType","Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK.
+
+Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.","TKB-fält: `AccessLogsResultType` (`logquerying:AccessLogsResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result","getaccesslogsforpatient.AccessLogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode","getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result.ResultText","getaccesslogsforpatient.AccessLogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.ResultText",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval","getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval","getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId","getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime","getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs","","","",0,1,"","","","Base {[]} {[]}
+","AccessLogsType","AccesssLogs","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog","","","",0,*,"","","","Base {[]} {[]}
+","AccessLogType","AccessLog","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog",0,*,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate","","","",1,1,"","","","dateTime {[]} {[]}
+","AccessDate","AccessDate","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId","","","",1,1,"","","","string {[]} {[]}
+","UserId","UserId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName","","","",0,1,"","","","string {[]} {[]}
+","UserName","UserName","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle","","","",0,1,"","","","string {[]} {[]}
+","UserTitle","UserTitle","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle",0,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose","","","",1,1,"","","","string {[]} {[]}
+","Purpose","Purpose","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose",1,1,"",""
+"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType","","","",1,1,"","","","string {[]} {[]}
+","ResourceType","ResourceType","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType",1,1,"",""

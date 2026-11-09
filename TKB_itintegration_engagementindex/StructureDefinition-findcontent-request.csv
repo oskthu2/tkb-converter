@@ -1,0 +1,37 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"findcontent-request","findcontent-request","","","",0,*,"","","","null {[]} {[]}
+","FindContent — Request","Logisk modell för requestparametrar i tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Alla angivna attribut används för exakt matchningsfiltrering av sökresultatet.
+Åtkomst till FindContent i nationell EI-instans är begränsad till aggregerande
+tjänster i den nationella aggregeringsplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent-request.registeredResidentIdentification","findcontent-request.registeredResidentIdentification","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType]]} {[]}
+","registeredResidentIdentification","Enligt formatregler i meddelandemodellen","TKB-fält: `registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent-request.registeredResidentIdentification",1,1,"",""
+"findcontent-request.serviceDomain","findcontent-request.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","serviceDomain","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent-request.serviceDomain",1,1,"",""
+"findcontent-request.categorization","findcontent-request.categorization","","","",0,1,"","","","string {[]} {[]}
+","categorization","Kodverk enligt tjänstedomänens dokumentation.","TKB-fält: `categorization` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.categorization",0,1,"",""
+"findcontent-request.logicalAddress","findcontent-request.logicalAddress","","","",0,1,"","","","string {[]} {[]}
+","logicalAddress","Enligt tjänstedomänens dokumentation.","TKB-fält: `logicalAddress` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.logicalAddress",0,1,"",""
+"findcontent-request.businessObjectInstanceIdentifier","findcontent-request.businessObjectInstanceIdentifier","","","",0,1,"","","","string {[]} {[]}
+","businessObjectInstanceIdentifier","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.businessObjectInstanceIdentifier",0,1,"",""
+"findcontent-request.clinicalProcessInterestId","findcontent-request.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","Enligt tjänstedomänens dokumentation","TKB-fält: `clinicalProcessInterestId` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.clinicalProcessInterestId",0,1,"",""
+"findcontent-request.mostRecentContent","findcontent-request.mostRecentContent","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","mostRecentContent","YYYYMMDDhhmmss.","TKB-fält: `mostRecentContent` (`TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.mostRecentContent",0,1,"",""
+"findcontent-request.sourceSystem","findcontent-request.sourceSystem","","","",0,1,"","","","string {[]} {[]}
+","sourceSystem","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `sourceSystem` (`HSA-id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.sourceSystem",0,1,"",""
+"findcontent-request.dataController","findcontent-request.dataController","","","",0,1,"","","","string {[]} {[]}
+","dataController","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.","TKB-fält: `dataController` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.dataController",0,1,"",""
+"findcontent-request.owner","findcontent-request.owner","","","",0,1,"","","","string {[]} {[]}
+","owner","HSA-id för den organisations vars index tog emot uppdateringsbegäran.","TKB-fält: `owner` (`HSA-id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.owner",0,1,"",""

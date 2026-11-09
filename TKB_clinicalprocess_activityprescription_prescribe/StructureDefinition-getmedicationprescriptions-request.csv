@@ -1,0 +1,33 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getmedicationprescriptions-request","getmedicationprescriptions-request","","","",0,*,"","","","null {[]} {[]}
+","GetMedicationPrescriptions — Request","Logisk modell för requestparametrar i GetMedicationPrescriptions.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getmedicationprescriptions-request.patientId","getmedicationprescriptions-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","patientId","Person- eller samordningsnummer enligt skatteverkets definition (12 tecken).
+
+Se kapitel 5.2 för exempel och regler kring format.","TKB-fält: `patientId` (`Identifier`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.patientId",1,1,"",""
+"getmedicationprescriptions-request.medicationPrescriptionSequenceId","getmedicationprescriptions-request.medicationPrescriptionSequenceId","","","",0,*,"","","","Identifier {[]} {[]}
+","medicationPrescriptionSequenceId","Unikt id för Läkemedelsbehandlingen.
+
+Skapas av NOD vid registrering då instansen skapas, dvs. då första Läkemedelsordinationen registreras.
+
+Se kapitel 5.2 för exempel och regler kring format.","TKB-fält: `medicationPrescriptionSequenceId*` (`Identifier`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.medicationPrescriptionSequenceId",0,*,"",""
+"getmedicationprescriptions-request.includeMedicalDispenseAuthorizations","getmedicationprescriptions-request.includeMedicalDispenseAuthorizations","","","",1,1,"","","","boolean {[]} {[]}
+","includeMedicalDispenseAuthorizations","Inkludera expedieringsunderlag eller ej i svaret.","TKB-fält: `includeMedicalDispenseAuthorizations` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.includeMedicalDispenseAuthorizations",1,1,"",""
+"getmedicationprescriptions-request.medicationStatus","getmedicationprescriptions-request.medicationStatus","","","",1,1,"","","","code {[]} {[]}
+","medicationStatus","Inkludera enligt status enligt http://www.hl7.org/FHIR/medication-prescription-status.html","TKB-fält: `medicationStatus` (`code`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.medicationStatus",1,1,"",""
+"getmedicationprescriptions-request.medicationListVersion","getmedicationprescriptions-request.medicationListVersion","","","",0,1,"","","","Identifier {[]} {[]}
+","medicationListVersion","Version på patientens samlade läkemedelslista.
+
+Se kapitel 5.2 för exempel och regler kring format.","TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.medicationListVersion",0,1,"",""
+"getmedicationprescriptions-request.currentVersion","getmedicationprescriptions-request.currentVersion","","","",1,1,"","","","boolean {[]} {[]}
+","currentVersion","Sätts till true om ""senaste version"" skall returneras.
+
+Senaste version av en Läkmedelsbehandling omfattar det senaste hela beslutet dvs läkemedelsordinationen.","TKB-fält: `currentVersion*` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.currentVersion",1,1,"",""
+"getmedicationprescriptions-request.validTimePeriod","getmedicationprescriptions-request.validTimePeriod","","","",0,1,"","","","Base {[]} {[]}
+","DateTimePeriodType","validTimePeriod","TKB-fält: `validTimePeriod*` (`DateTimePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.validTimePeriod",0,1,"",""
+"getmedicationprescriptions-request.validTimePeriod.start","getmedicationprescriptions-request.validTimePeriod.start","","","",0,1,"","","","dateTime {[]} {[]}
+","start","start","","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.validTimePeriod.start",0,1,"",""
+"getmedicationprescriptions-request.validTimePeriod.end","getmedicationprescriptions-request.validTimePeriod.end","","","",0,1,"","","","dateTime {[]} {[]}
+","end","end","","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.validTimePeriod.end",0,1,"",""
+"getmedicationprescriptions-request.registrationTime","getmedicationprescriptions-request.registrationTime","","","",0,1,"","","","dateTime {[]} {[]}
+","registrationTime","Hämtar listan med Medications såsom den såg ut vid angiven registreringstidpunkt.","TKB-fält: `registrationTime*` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmedicationprescriptions-request.registrationTime",0,1,"",""

@@ -1,0 +1,44 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcertificate","getcertificate","","","",0,*,"","","","null {[]} {[]}
+","GetCertificate","Logisk modell för responsens informationsstruktur i tjänstekontraktet GetCertificate
+(RIV-TA urn:riv:insuranceprocess:healthreporting:GetCertificate:1).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcertificate.meta","getcertificate.meta","","","",0,1,"","","","Base {[]} {[]}
+","CertificateMetaType","meta","","","","","","","","","",,,,,"",,,,"getcertificate.meta",0,1,"",""
+"getcertificate.meta.certificateId","getcertificate.meta.certificateId","","","",1,1,"","","","string {[]} {[]}
+","certificateId","Identitet på intyget. Är en GUID.","TKB-fält: `meta.certificateId` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.certificateId",1,1,"",""
+"getcertificate.meta.certificateType","getcertificate.meta.certificateType","","","",1,1,"","","","string {[]} {[]}
+","certificateType","Typ av intyg. Om inget anges returneras alla typer.","TKB-fält: `meta.certificateType` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.certificateType",1,1,"",""
+"getcertificate.meta.validFrom","getcertificate.meta.validFrom","","","",1,1,"","","","date {[]} {[]}
+","validFrom","Startdatum för sjukskrivningsperioden.","TKB-fält: `meta.validFrom` (`datum`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.validFrom",1,1,"",""
+"getcertificate.meta.validTo","getcertificate.meta.validTo","","","",1,1,"","","","date {[]} {[]}
+","validTo","Slutdatum för sjukskrivningsperioden.","TKB-fält: `meta.validTo` (`datum`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.validTo",1,1,"",""
+"getcertificate.meta.issuerName","getcertificate.meta.issuerName","","","",1,1,"","","","string {[]} {[]}
+","issuerName","Namn för Hos-person som utfärdat intyget","TKB-fält: `meta.issuerName` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.issuerName",1,1,"",""
+"getcertificate.meta.facilityName","getcertificate.meta.facilityName","","","",1,1,"","","","string {[]} {[]}
+","facilityName","Namn på Hos-vårdenhet där intyget utfärdats","TKB-fält: `meta.facilityName` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.facilityName",1,1,"",""
+"getcertificate.meta.signDate","getcertificate.meta.signDate","","","",1,1,"","","","date {[]} {[]}
+","signDate","Datum och tid när intyget signerades","TKB-fält: `meta.signDate` (`datetime`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.signDate",1,1,"",""
+"getcertificate.meta.available","getcertificate.meta.available","","","",1,1,"","","","string {[]} {[]}
+","available","Anger om intyget är tillgängligt.","TKB-fält: `meta.available` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.available",1,1,"",""
+"getcertificate.meta.status","getcertificate.meta.status","","","",0,*,"","","","Base {[]} {[]}
+","CertificateStatusType","En lista över statustyper för olika mottagare","TKB-fält: `meta.status`.","","","","","","","","",,,,,"",,,,"getcertificate.meta.status",0,*,"",""
+"getcertificate.meta.status.target","getcertificate.meta.status.target","","","",1,1,"","","","string {[]} {[]}
+","target","Mottagare för en status. Ex FK","TKB-fält: `meta.status.target` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.status.target",1,1,"",""
+"getcertificate.meta.status.type","getcertificate.meta.status.type","","","",1,1,"","","","code {[]} {[]}
+","type","Typ av statusändring för intyget.","TKB-fält: `meta.status.type` (`string`, kardinalitet O).
+
+**Modellanteckning:** type Tillåtna värden: UNHANDLED, DELETED, RESTORED, CANCELLED, SENT, RECEIVED, IN_PROGRESS, PROCESSED.","","","","","","","","",,,,,"",,,,"getcertificate.meta.status.type",1,1,"",""
+"getcertificate.meta.status.timestamp","getcertificate.meta.status.timestamp","","","",1,1,"","","","dateTime {[]} {[]}
+","timestamp","När statusen sattes för intyget","TKB-fält: `meta.status.timestamp` (`datetime`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.meta.status.timestamp",1,1,"",""
+"getcertificate.certificate","getcertificate.certificate","","","",0,1,"","","","Base {[]} {[]}
+","certificateType","Platshållare för intyget som är generisk. Typ av intyg anges i meta.certificateType.","TKB-fält: `certificate` (`<any>`).","","","","","","","","",,,,,"",,,,"getcertificate.certificate",0,1,"",""
+"getcertificate.result","getcertificate.result","","","",0,1,"","","","Base {[]} {[]}
+","ResultOfCall","result","","","","","","","","","",,,,,"",,,,"getcertificate.result",0,1,"",""
+"getcertificate.result.resultCode","getcertificate.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Information om anropet gick bra(OK, ERROR, INFO)","TKB-fält: `result.resultCode` (`string`, kardinalitet O).","","","","","","","","",,,,,"",,,,"getcertificate.result.resultCode",1,1,"",""
+"getcertificate.result.infoText","getcertificate.result.infoText","","","",0,1,"","","","string {[]} {[]}
+","infoText","Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.","TKB-fält: `result.infoText` (`string`, kardinalitet V).","","","","","","","","",,,,,"",,,,"getcertificate.result.infoText",0,1,"",""
+"getcertificate.result.errorId","getcertificate.result.errorId","","","",0,1,"","","","code {[]} {[]}
+","errorId","Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)","TKB-fält: `result.errorId` (`string`, kardinalitet V).","","","","","","","","",,,,,"",,,,"getcertificate.result.errorId",0,1,"",""
+"getcertificate.result.errorText","getcertificate.result.errorText","","","",0,1,"","","","string {[]} {[]}
+","errorText","Text som ytterliggare beskriver felet","TKB-fält: `result.errorText` (`string`, kardinalitet V).","","","","","","","","",,,,,"",,,,"getcertificate.result.errorText",0,1,"",""

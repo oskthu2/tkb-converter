@@ -1,0 +1,212 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"DT","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-dt-pattern:DT ska följa mönstret i schemat: [1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1}) {matches('^(?:(?:[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})))$')}"
+"DT","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"DT","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"DT","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"TS","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-ts-pattern:TS ska följa mönstret i schemat: [1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1} {matches('^(?:(?:[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}))$')}"
+"TS","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"TS","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"TS","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request","lookupresidentforfullprofile-request","","","",0,*,"","","","null {[]} {[]}
+","LookupResidentForFullProfile — Request","Logisk modell för requestparametrar i LookupResidentForFullProfile
+(RIV-TA urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request.personId","lookupresidentforfullprofile-request.personId","","","",1,*,"","","","string {[]} {[]}
+","personId","Personnummer på format ÅÅÅÅMMDDNNNN. Flera personnummer kan anges i samma fråga. `personId` kan även vara reservnummer i det fall tjänstekonsumenten är en regional/lokal instans (format specifikt för aktuellt reservnummerkodverk). Se begränsning på antal `personId` enl. SLA-krav (avsnitt 4.6, max 1000/anrop)","TKB-fält: `personId` (`Text`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile-request.personId",1,*,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request.lookUpSpecification","lookupresidentforfullprofile-request.lookUpSpecification","","","",1,1,"","","","Base {[]} {[]}
+","LookUpSpecificationType","Urvalsbegränsning. Se datatypbeskrivning i avsnitt 5.2. _Obligatoriskt element enligt XSD, även om samtliga dess underfält är valfria — se ASSUME-PRM-001_","TKB-fält: `lookUpSpecification` (`LookUpSpecificationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile-request.lookUpSpecification",1,1,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request.lookUpSpecification.Avregistreringsorsak","lookupresidentforfullprofile-request.lookUpSpecification.Avregistreringsorsak","","","",0,*,"","","","string {[]} {[]}
+","Avregistreringsorsak","Avregistreringsorsak","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile-request.lookUpSpecification.Avregistreringsorsak",0,*,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request.lookUpSpecification.Sekretessmarkering","lookupresidentforfullprofile-request.lookUpSpecification.Sekretessmarkering","","","",0,1,"","","","code {[]} {[]}
+","Sekretessmarkering","Sekretessmarkering Tillåtna värden: J, N.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile-request.lookUpSpecification.Sekretessmarkering",0,1,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request.lookUpSpecification.SenasteAndringFolkbokforing","lookupresidentforfullprofile-request.lookUpSpecification.SenasteAndringFolkbokforing","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/DT]]} {[]}
+","SenasteAndringFolkbokforing","SenasteAndringFolkbokforing","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile-request.lookUpSpecification.SenasteAndringFolkbokforing",0,1,"",""
+"lookupresidentforfullprofile-request","lookupresidentforfullprofile-request.lookUpSpecification.historiskTidpunkt","lookupresidentforfullprofile-request.lookUpSpecification.historiskTidpunkt","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/TS]]} {[]}
+","historiskTidpunkt","historiskTidpunkt","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile-request.lookUpSpecification.historiskTidpunkt",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile","lookupresidentforfullprofile","","","",0,*,"","","","null {[]} {[]}
+","LookupResidentForFullProfile","Logisk modell för svaret från tjänstekontraktet LookupResidentForFullProfile
+(RIV-TA urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1).
+Representerar en post (ResidentType, fullständig profil ""Full"") i svarets lista av
+träffar. Svaret som helhet innehåller 0..* sådana poster, en per efterfrågat och
+matchat personnummer (se avsnitt 7). Fält som inte ingår i den aktuella profilen
+utelämnas normalt inte i denna modell (den täcker hela ResidentType-bruttolistan),
+men kan i ett faktiskt svar sakna värde eftersom endast Full-profilens fält (se
+avsnitt 6.1) faktiskt populeras av producenten.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident","lookupresidentforfullprofile.resident","","","",0,*,"","","","Base {[]} {[]}
+","ResidentType","resident","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident",0,*,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Sekretessmarkering","lookupresidentforfullprofile.resident.Sekretessmarkering","","","",1,1,"","","","code {[]} {[]}
+","Sekretessmarkering","Sekretessmarkering Tillåtna värden: J, N.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Sekretessmarkering",1,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.SenasteAndringFolkbokforing","lookupresidentforfullprofile.resident.SenasteAndringFolkbokforing","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/DT]]} {[]}
+","SenasteAndringFolkbokforing","SenasteAndringFolkbokforing","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.SenasteAndringFolkbokforing",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost","lookupresidentforfullprofile.resident.Personpost","","","",1,1,"","","","Base {[]} {[]}
+","PersonpostTYPE","Personpost","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost",1,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.PersonId","lookupresidentforfullprofile.resident.Personpost.PersonId","","","",1,1,"","","","string {[]} {[]}
+","PersonId","PersonId","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.PersonId",1,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Kon","lookupresidentforfullprofile.resident.Personpost.Kon","","","",0,1,"","","","code {[]} {[]}
+","Kon","Kon Tillåtna värden: K, M.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Kon",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelsetid","lookupresidentforfullprofile.resident.Personpost.Fodelsetid","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/population-residentmaster/StructureDefinition/DT]]} {[]}
+","Fodelsetid","Fodelsetid","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelsetid",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Avregistrering","lookupresidentforfullprofile.resident.Personpost.Avregistrering","","","",0,1,"","","","Base {[]} {[]}
+","AvregistreringTYPE","Avregistrering","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Avregistrering",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKod","lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKod","","","",0,1,"","","","code {[]} {[]}
+","AvregistreringsorsakKod","AvregistreringsorsakKod Tillåtna värden: AV, GN, OO.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Avregistrering.Avregistreringsdatum","lookupresidentforfullprofile.resident.Personpost.Avregistrering.Avregistreringsdatum","","","",0,1,"","","","string {[]} {[]}
+","Avregistreringsdatum","Avregistreringsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Avregistrering.Avregistreringsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKodKomplett","lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKodKomplett","","","",0,1,"","","","code {[]} {[]}
+","AvregistreringsorsakKodKomplett","AvregistreringsorsakKodKomplett Tillåtna värden: AV, UV, GN, AN, AS, GS, OB, TA.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Avregistrering.AvregistreringsorsakKodKomplett",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Namn","lookupresidentforfullprofile.resident.Personpost.Namn","","","",0,1,"","","","Base {[]} {[]}
+","NamnTYPE","Namn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Namn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Namn.Tilltalsnamnsmarkering","lookupresidentforfullprofile.resident.Personpost.Namn.Tilltalsnamnsmarkering","","","",0,1,"","","","string {[]} {[]}
+","Tilltalsnamnsmarkering","Tilltalsnamnsmarkering","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Namn.Tilltalsnamnsmarkering",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Namn.Fornamn","lookupresidentforfullprofile.resident.Personpost.Namn.Fornamn","","","",0,1,"","","","string {[]} {[]}
+","Fornamn","Fornamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Namn.Fornamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Namn.Mellannamn","lookupresidentforfullprofile.resident.Personpost.Namn.Mellannamn","","","",0,1,"","","","string {[]} {[]}
+","Mellannamn","Mellannamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Namn.Mellannamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Namn.Efternamn","lookupresidentforfullprofile.resident.Personpost.Namn.Efternamn","","","",0,1,"","","","string {[]} {[]}
+","Efternamn","Efternamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Namn.Efternamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Namn.Aviseringsnamn","lookupresidentforfullprofile.resident.Personpost.Namn.Aviseringsnamn","","","",0,1,"","","","string {[]} {[]}
+","Aviseringsnamn","Aviseringsnamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Namn.Aviseringsnamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress","","","",0,1,"","","","Base {[]} {[]}
+","SvenskAdressTYPE","Folkbokforingsadress","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.LanKod","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.LanKod","","","",0,1,"","","","string {[]} {[]}
+","LanKod","LanKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.LanKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.KommunKod","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.KommunKod","","","",0,1,"","","","string {[]} {[]}
+","KommunKod","KommunKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.KommunKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.ForsamlingKod","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.ForsamlingKod","","","",0,1,"","","","string {[]} {[]}
+","ForsamlingKod","ForsamlingKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.ForsamlingKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Fastighetsbeteckning","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Fastighetsbeteckning","","","",0,1,"","","","string {[]} {[]}
+","Fastighetsbeteckning","Fastighetsbeteckning","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Fastighetsbeteckning",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.CareOf","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.CareOf","","","",0,1,"","","","string {[]} {[]}
+","CareOf","CareOf","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.CareOf",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress1","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress1","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress1","Utdelningsadress1","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress1",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress2","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress2","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress2","Utdelningsadress2","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Utdelningsadress2",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.PostNr","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.PostNr","","","",0,1,"","","","string {[]} {[]}
+","PostNr","PostNr","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.PostNr",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Postort","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Postort","","","",0,1,"","","","string {[]} {[]}
+","Postort","Postort","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Postort",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Folkbokforingsdatum","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Folkbokforingsdatum","","","",0,1,"","","","string {[]} {[]}
+","Folkbokforingsdatum","Folkbokforingsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.Folkbokforingsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.SCB-Nyckelkod","lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.SCB_Nyckelkod","","","",0,1,"","","","string {[]} {[]}
+","SCB_Nyckelkod","SCB_Nyckelkod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Folkbokforingsadress.SCB_Nyckelkod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress","","","",0,1,"","","","Base {[]} {[]}
+","SvenskAdressTYPE","SarskildPostadress","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.LanKod","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.LanKod","","","",0,1,"","","","string {[]} {[]}
+","LanKod","LanKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.LanKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.KommunKod","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.KommunKod","","","",0,1,"","","","string {[]} {[]}
+","KommunKod","KommunKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.KommunKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.ForsamlingKod","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.ForsamlingKod","","","",0,1,"","","","string {[]} {[]}
+","ForsamlingKod","ForsamlingKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.ForsamlingKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Fastighetsbeteckning","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Fastighetsbeteckning","","","",0,1,"","","","string {[]} {[]}
+","Fastighetsbeteckning","Fastighetsbeteckning","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Fastighetsbeteckning",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.CareOf","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.CareOf","","","",0,1,"","","","string {[]} {[]}
+","CareOf","CareOf","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.CareOf",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress1","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress1","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress1","Utdelningsadress1","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress1",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress2","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress2","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress2","Utdelningsadress2","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Utdelningsadress2",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.PostNr","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.PostNr","","","",0,1,"","","","string {[]} {[]}
+","PostNr","PostNr","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.PostNr",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Postort","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Postort","","","",0,1,"","","","string {[]} {[]}
+","Postort","Postort","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Postort",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Folkbokforingsdatum","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Folkbokforingsdatum","","","",0,1,"","","","string {[]} {[]}
+","Folkbokforingsdatum","Folkbokforingsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.Folkbokforingsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.SCB-Nyckelkod","lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.SCB_Nyckelkod","","","",0,1,"","","","string {[]} {[]}
+","SCB_Nyckelkod","SCB_Nyckelkod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.SarskildPostadress.SCB_Nyckelkod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.HanvisningsPersonNr","lookupresidentforfullprofile.resident.Personpost.HanvisningsPersonNr","","","",0,1,"","","","string {[]} {[]}
+","HanvisningsPersonNr","HanvisningsPersonNr","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.HanvisningsPersonNr",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress","lookupresidentforfullprofile.resident.Personpost.Utlandsadress","","","",0,1,"","","","Base {[]} {[]}
+","UtlandsadressTYPE","Utlandsadress","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress1","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress1","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress1","Utdelningsadress1","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress1",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress2","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress2","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress2","Utdelningsadress2","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress2",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress3","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress3","","","",0,1,"","","","string {[]} {[]}
+","Utdelningsadress3","Utdelningsadress3","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utdelningsadress3",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Land","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Land","","","",0,1,"","","","string {[]} {[]}
+","Land","Land","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Land",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utlandsadressdatum","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utlandsadressdatum","","","",0,1,"","","","string {[]} {[]}
+","Utlandsadressdatum","Utlandsadressdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Utlandsadressdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Rostrattsdatum","lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Rostrattsdatum","","","",0,1,"","","","string {[]} {[]}
+","Rostrattsdatum","Rostrattsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Utlandsadress.Rostrattsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Civilstand","lookupresidentforfullprofile.resident.Personpost.Civilstand","","","",0,1,"","","","Base {[]} {[]}
+","CivilstandTYPE","Civilstand","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Civilstand",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Civilstand.CivilstandKod","lookupresidentforfullprofile.resident.Personpost.Civilstand.CivilstandKod","","","",0,1,"","","","code {[]} {[]}
+","CivilstandKod","CivilstandKod Tillåtna värden: OG, G, A, S, RP, SP, EP.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Civilstand.CivilstandKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Civilstand.Civilstandsdatum","lookupresidentforfullprofile.resident.Personpost.Civilstand.Civilstandsdatum","","","",0,1,"","","","string {[]} {[]}
+","Civilstandsdatum","Civilstandsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Civilstand.Civilstandsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse","lookupresidentforfullprofile.resident.Personpost.Fodelse","","","",0,1,"","","","Base {[]} {[]}
+","FodelseTYPE","Fodelse","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige","lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige","","","",0,1,"","","","Base {[]} {[]}
+","HemortSverigeTYPE","HemortSverige","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.FodelselanKod","lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.FodelselanKod","","","",0,1,"","","","string {[]} {[]}
+","FodelselanKod","FodelselanKod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.FodelselanKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.Fodelseforsamling","lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.Fodelseforsamling","","","",0,1,"","","","string {[]} {[]}
+","Fodelseforsamling","Fodelseforsamling","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.HemortSverige.Fodelseforsamling",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet","","","",0,1,"","","","Base {[]} {[]}
+","OrtUtlandetTYPE","OrtUtlandet","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.FodelseortUtland","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.FodelseortUtland","","","",0,1,"","","","string {[]} {[]}
+","FodelseortUtland","FodelseortUtland","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.FodelseortUtland",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Styrkt","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Styrkt","","","",0,1,"","","","code {[]} {[]}
+","Styrkt","Styrkt Tillåtna värden: J, N.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Styrkt",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Fodelseland","lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Fodelseland","","","",0,1,"","","","string {[]} {[]}
+","Fodelseland","Fodelseland","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Fodelse.OrtUtlandet.Fodelseland",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Invandring","lookupresidentforfullprofile.resident.Personpost.Invandring","","","",0,1,"","","","Base {[]} {[]}
+","InvandringTYPE","Invandring","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Invandring",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Invandring.Invandringsdatum","lookupresidentforfullprofile.resident.Personpost.Invandring.Invandringsdatum","","","",0,1,"","","","string {[]} {[]}
+","Invandringsdatum","Invandringsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Invandring.Invandringsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer","lookupresidentforfullprofile.resident.Personpost.Relationer","","","",1,1,"","","","Base {[]} {[]}
+","RelationerTYPE","Relationer","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer",1,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation","","","",0,*,"","","","Base {[]} {[]}
+","(anonym typ)","Relation","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation",0,*,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId","","","",1,1,"","","","Base {[]} {[]}
+","RelationPersonIdTYPE","RelationId","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId",1,1,"","lookupresidentforfullprofile-relation-id-xor:Exakt ett av relationPersonNr och relationFodelsetidNr ska anges för en relation (enligt kommentar i källschemat: 'ett av värdena måste vara satta, men inte båda'). {PersonNr.exists() xor FodelsetidNr.exists()}
+"
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.PersonNr","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.PersonNr","","","",0,1,"","","","string {[]} {[]}
+","PersonNr","PersonNr","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.PersonNr",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.FodelsetidNr","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.FodelsetidNr","","","",0,1,"","","","string {[]} {[]}
+","FodelsetidNr","FodelsetidNr","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationId.FodelsetidNr",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Relationstyp","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Relationstyp","","","",1,1,"","","","code {[]} {[]}
+","Relationstyp","Relationstyp Tillåtna värden: B, MO, FA, F, V, VF, M, P.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Relationstyp",1,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationFromdatum","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationFromdatum","","","",0,1,"","","","string {[]} {[]}
+","RelationFromdatum","RelationFromdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationFromdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationTomdatum","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationTomdatum","","","",0,1,"","","","string {[]} {[]}
+","RelationTomdatum","RelationTomdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.RelationTomdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn","","","",0,1,"","","","Base {[]} {[]}
+","NamnTYPE","Namn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Tilltalsnamnsmarkering","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Tilltalsnamnsmarkering","","","",0,1,"","","","string {[]} {[]}
+","Tilltalsnamnsmarkering","Tilltalsnamnsmarkering","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Tilltalsnamnsmarkering",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Fornamn","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Fornamn","","","",0,1,"","","","string {[]} {[]}
+","Fornamn","Fornamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Fornamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Mellannamn","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Mellannamn","","","",0,1,"","","","string {[]} {[]}
+","Mellannamn","Mellannamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Mellannamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Efternamn","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Efternamn","","","",0,1,"","","","string {[]} {[]}
+","Efternamn","Efternamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Efternamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Aviseringsnamn","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Aviseringsnamn","","","",0,1,"","","","string {[]} {[]}
+","Aviseringsnamn","Aviseringsnamn","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Namn.Aviseringsnamn",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering","","","",0,1,"","","","Base {[]} {[]}
+","AvregistreringTYPE","Avregistrering","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKod","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKod","","","",0,1,"","","","code {[]} {[]}
+","AvregistreringsorsakKod","AvregistreringsorsakKod Tillåtna värden: AV, GN, OO.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKod",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.Avregistreringsdatum","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.Avregistreringsdatum","","","",0,1,"","","","string {[]} {[]}
+","Avregistreringsdatum","Avregistreringsdatum","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.Avregistreringsdatum",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKodKomplett","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKodKomplett","","","",0,1,"","","","code {[]} {[]}
+","AvregistreringsorsakKodKomplett","AvregistreringsorsakKodKomplett Tillåtna värden: AV, UV, GN, AN, AS, GS, OB, TA.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Avregistrering.AvregistreringsorsakKodKomplett",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Status","lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Status","","","",0,1,"","","","code {[]} {[]}
+","Status","Status Tillåtna värden: NY, PB, RD, AS, AV, IV, AN.","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Relationer.Relation.Status",0,1,"",""
+"lookupresidentforfullprofile","lookupresidentforfullprofile.resident.Personpost.Distriktskod","lookupresidentforfullprofile.resident.Personpost.Distriktskod","","","",0,1,"","","","integer {[]} {[]}
+","Distriktskod","Distriktskod","","","","","","","","","",,,,,"",,,,"lookupresidentforfullprofile.resident.Personpost.Distriktskod",0,1,"",""

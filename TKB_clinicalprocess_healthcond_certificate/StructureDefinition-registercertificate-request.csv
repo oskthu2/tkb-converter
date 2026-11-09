@@ -1,0 +1,242 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"registercertificate-request","registercertificate-request","","","",0,*,"","","","null {[]} {[]}
+","RegisterCertificate — Request","Logisk modell för requestparametrar i RegisterCertificate.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"registercertificate-request.svarPa","registercertificate-request.svarPa","","","",0,1,"","","","Base {[]} {[]}
+","MeddelandeReferens","Om intyget utfärdas som ett svar på en fråga från intygsmottagaren (t.ex. en begäran om komplettering) ska referens till meddelandet skickas.","TKB-fält: `svarPa*` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id","","","","","","","","",,,,,"",,,,"registercertificate-request.svarPa",0,1,"",""
+"registercertificate-request.svarPa.meddelande-id","registercertificate-request.svarPa.meddelande-id","","","",1,1,"","","","string {[]} {[]}
+","meddelande-id","meddelande-id","","","","","","","","","",,,,,"",,,,"registercertificate-request.svarPa.meddelande-id",1,1,"",""
+"registercertificate-request.svarPa.referens-id","registercertificate-request.svarPa.referens-id","","","",0,1,"","","","string {[]} {[]}
+","referens-id","referens-id","","","","","","","","","",,,,,"",,,,"registercertificate-request.svarPa.referens-id",0,1,"",""
+"registercertificate-request.intyg","registercertificate-request.intyg","","","",1,1,"","","","Base {[]} {[]}
+","Intyg","Ett intyg.","TKB-fält: `intyg*` (`Intyg (se 7.1.5)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id, Metadata.signerattidpunkt","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg",1,1,"",""
+"registercertificate-request.intyg.intygs-id","registercertificate-request.intyg.intygs-id","","","",1,1,"","","","Base {[]} {[]}
+","IntygId","intygs-id","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.intygs-id",1,1,"",""
+"registercertificate-request.intyg.mottagare","registercertificate-request.intyg.mottagare","","","",0,*,"","","","Base {[]} {[]}
+","Part","mottagare","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.mottagare",0,*,"",""
+"registercertificate-request.intyg.typ","registercertificate-request.intyg.typ","","","",1,1,"","","","Base {[]} {[]}
+","TypAvIntyg","typ","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.typ",1,1,"",""
+"registercertificate-request.intyg.version","registercertificate-request.intyg.version","","","",1,1,"","","","string {[]} {[]}
+","version","version","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.version",1,1,"",""
+"registercertificate-request.intyg.signeringstidpunkt","registercertificate-request.intyg.signeringstidpunkt","","","",0,1,"","","","dateTime {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType]]} {[]}
+","signeringstidpunkt","signeringstidpunkt","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.signeringstidpunkt",0,1,"",""
+"registercertificate-request.intyg.skickatTidpunkt","registercertificate-request.intyg.skickatTidpunkt","","","",0,1,"","","","dateTime {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType]]} {[]}
+","skickatTidpunkt","skickatTidpunkt","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skickatTidpunkt",0,1,"",""
+"registercertificate-request.intyg.patient","registercertificate-request.intyg.patient","","","",1,1,"","","","Base {[]} {[]}
+","Patient","patient","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient",1,1,"",""
+"registercertificate-request.intyg.patient.person-id","registercertificate-request.intyg.patient.person-id","","","",1,1,"","","","Base {[]} {[]}
+","PersonId","person-id","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.person-id",1,1,"",""
+"registercertificate-request.intyg.patient.fornamn","registercertificate-request.intyg.patient.fornamn","","","",1,1,"","","","string {[]} {[]}
+","fornamn","fornamn","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.fornamn",1,1,"",""
+"registercertificate-request.intyg.patient.efternamn","registercertificate-request.intyg.patient.efternamn","","","",1,1,"","","","string {[]} {[]}
+","efternamn","efternamn","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.efternamn",1,1,"",""
+"registercertificate-request.intyg.patient.mellannamn","registercertificate-request.intyg.patient.mellannamn","","","",0,1,"","","","string {[]} {[]}
+","mellannamn","mellannamn","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.mellannamn",0,1,"",""
+"registercertificate-request.intyg.patient.postadress","registercertificate-request.intyg.patient.postadress","","","",1,1,"","","","string {[]} {[]}
+","postadress","postadress","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.postadress",1,1,"",""
+"registercertificate-request.intyg.patient.postnummer","registercertificate-request.intyg.patient.postnummer","","","",1,1,"","","","string {[]} {[]}
+","postnummer","postnummer","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.postnummer",1,1,"",""
+"registercertificate-request.intyg.patient.postort","registercertificate-request.intyg.patient.postort","","","",1,1,"","","","string {[]} {[]}
+","postort","postort","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.postort",1,1,"",""
+"registercertificate-request.intyg.patient.kallaAdressuppgifter","registercertificate-request.intyg.patient.kallaAdressuppgifter","","","",0,1,"","","","Base {[]} {[]}
+","KallaAdressuppgifterType","kallaAdressuppgifter","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.patient.kallaAdressuppgifter",0,1,"",""
+"registercertificate-request.intyg.skapadAv","registercertificate-request.intyg.skapadAv","","","",1,1,"","","","Base {[]} {[]}
+","HosPersonal","skapadAv","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv",1,1,"",""
+"registercertificate-request.intyg.skapadAv.personal-id","registercertificate-request.intyg.skapadAv.personal-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.personal-id",1,1,"",""
+"registercertificate-request.intyg.skapadAv.fullstandigtNamn","registercertificate-request.intyg.skapadAv.fullstandigtNamn","","","",1,1,"","","","string {[]} {[]}
+","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.fullstandigtNamn",1,1,"",""
+"registercertificate-request.intyg.skapadAv.forskrivarkod","registercertificate-request.intyg.skapadAv.forskrivarkod","","","",0,1,"","","","string {[]} {[]}
+","forskrivarkod","forskrivarkod","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.forskrivarkod",0,1,"",""
+"registercertificate-request.intyg.skapadAv.befattning","registercertificate-request.intyg.skapadAv.befattning","","","",0,*,"","","","Base {[]} {[]}
+","Befattning","befattning","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.befattning",0,*,"",""
+"registercertificate-request.intyg.skapadAv.enhet","registercertificate-request.intyg.skapadAv.enhet","","","",1,1,"","","","Base {[]} {[]}
+","Enhet","enhet","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.enhets-id","registercertificate-request.intyg.skapadAv.enhet.enhets-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.enhets-id",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.arbetsplatskod","registercertificate-request.intyg.skapadAv.enhet.arbetsplatskod","","","",1,1,"","","","Base {[]} {[]}
+","ArbetsplatsKod","o.i.d för arbetsplatskod är 1.2.752.29.4.71","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.arbetsplatskod",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.enhetsnamn","registercertificate-request.intyg.skapadAv.enhet.enhetsnamn","","","",1,1,"","","","string {[]} {[]}
+","enhetsnamn","enhetsnamn","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.enhetsnamn",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.postadress","registercertificate-request.intyg.skapadAv.enhet.postadress","","","",1,1,"","","","string {[]} {[]}
+","postadress","postadress","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.postadress",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.postnummer","registercertificate-request.intyg.skapadAv.enhet.postnummer","","","",1,1,"","","","string {[]} {[]}
+","postnummer","postnummer","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.postnummer",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.postort","registercertificate-request.intyg.skapadAv.enhet.postort","","","",1,1,"","","","string {[]} {[]}
+","postort","postort","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.postort",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.telefonnummer","registercertificate-request.intyg.skapadAv.enhet.telefonnummer","","","",1,1,"","","","string {[]} {[]}
+","telefonnummer","telefonnummer","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.telefonnummer",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.epost","registercertificate-request.intyg.skapadAv.enhet.epost","","","",0,1,"","","","string {[]} {[]}
+","epost","epost","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.epost",0,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.vardgivare","registercertificate-request.intyg.skapadAv.enhet.vardgivare","","","",1,1,"","","","Base {[]} {[]}
+","Vardgivare","vardgivare","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.vardgivare",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivare-id","registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivare-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivare-id",1,1,"",""
+"registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivarnamn","registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivarnamn","","","",1,1,"","","","string {[]} {[]}
+","vardgivarnamn","vardgivarnamn","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivarnamn",1,1,"",""
+"registercertificate-request.intyg.skapadAv.specialistkompetens","registercertificate-request.intyg.skapadAv.specialistkompetens","","","",0,*,"","","","Base {[]} {[]}
+","Specialistkompetens","specialistkompetens","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.specialistkompetens",0,*,"",""
+"registercertificate-request.intyg.skapadAv.specialistkompetens.code","registercertificate-request.intyg.skapadAv.specialistkompetens.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.specialistkompetens.code",1,1,"",""
+"registercertificate-request.intyg.skapadAv.specialistkompetens.displayName","registercertificate-request.intyg.skapadAv.specialistkompetens.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.specialistkompetens.displayName",0,1,"",""
+"registercertificate-request.intyg.skapadAv.legitimeratYrke","registercertificate-request.intyg.skapadAv.legitimeratYrke","","","",0,*,"","","","Base {[]} {[]}
+","LegitimeratYrkeType","legitimeratYrke","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.skapadAv.legitimeratYrke",0,*,"",""
+"registercertificate-request.intyg.relation","registercertificate-request.intyg.relation","","","",0,*,"","","","Base {[]} {[]}
+","Relation","relation","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.relation",0,*,"",""
+"registercertificate-request.intyg.relation.typ","registercertificate-request.intyg.relation.typ","","","",1,1,"","","","Base {[]} {[]}
+","TypAvRelation","typ","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.relation.typ",1,1,"",""
+"registercertificate-request.intyg.relation.intygs-id","registercertificate-request.intyg.relation.intygs-id","","","",1,1,"","","","Base {[]} {[]}
+","IntygId","intygs-id","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.relation.intygs-id",1,1,"",""
+"registercertificate-request.intyg.status","registercertificate-request.intyg.status","","","",0,*,"","","","Base {[]} {[]}
+","IntygsStatus","status","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.status",0,*,"",""
+"registercertificate-request.intyg.status.part","registercertificate-request.intyg.status.part","","","",1,1,"","","","Base {[]} {[]}
+","Part","part","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.status.part",1,1,"",""
+"registercertificate-request.intyg.status.status","registercertificate-request.intyg.status.status","","","",1,1,"","","","Base {[]} {[]}
+","Statuskod","status","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.status.status",1,1,"",""
+"registercertificate-request.intyg.status.tidpunkt","registercertificate-request.intyg.status.tidpunkt","","","",1,1,"","","","dateTime {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType]]} {[]}
+","tidpunkt","tidpunkt","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.status.tidpunkt",1,1,"",""
+"registercertificate-request.intyg.svar","registercertificate-request.intyg.svar","","","",0,*,"","","","Base {[]} {[]}
+","Svar","svar","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.svar",0,*,"",""
+"registercertificate-request.intyg.svar.instans","registercertificate-request.intyg.svar.instans","","","",0,1,"","","","integer {[]} {[]}
+","instans","instans","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.svar.instans",0,1,"",""
+"registercertificate-request.intyg.svar.delsvar","registercertificate-request.intyg.svar.delsvar","","","",1,*,"","","","Base {[]} {[]}
+","(anonym typ)","delsvar","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.svar.delsvar",1,*,"",""
+"registercertificate-request.intyg.svar.delsvar.id","registercertificate-request.intyg.svar.delsvar.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DelfrageIdType]]} {[]}
+","id","id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.svar.delsvar.id",1,1,"",""
+"registercertificate-request.intyg.svar.id","registercertificate-request.intyg.svar.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/FrageIdType]]} {[]}
+","id","id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.svar.id",1,1,"",""
+"registercertificate-request.intyg.underskrift","registercertificate-request.intyg.underskrift","","","",0,1,"","","","Base {[]} {[]}
+","UnderskriftType","underskrift","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature","registercertificate-request.intyg.underskrift.Signature","","","",1,1,"","","","Base {[]} {[]}
+","SignatureType","Signature","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo","registercertificate-request.intyg.underskrift.Signature.SignedInfo","","","",1,1,"","","","Base {[]} {[]}
+","SignedInfoType","SignedInfo","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod","registercertificate-request.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod","","","",1,1,"","","","Base {[]} {[]}
+","CanonicalizationMethodType","CanonicalizationMethod","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod.Algorithm","registercertificate-request.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod.Algorithm","","","",1,1,"","","","uri {[]} {[]}
+","Algorithm","Algorithm (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.CanonicalizationMethod.Algorithm",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod","registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod","","","",1,1,"","","","Base {[]} {[]}
+","SignatureMethodType","SignatureMethod","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod.HMACOutputLength","registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod.HMACOutputLength","","","",0,1,"","","","integer {[]} {[]}
+","HMACOutputLength","HMACOutputLength","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod.HMACOutputLength",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod.Algorithm","registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod.Algorithm","","","",1,1,"","","","uri {[]} {[]}
+","Algorithm","Algorithm (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.SignatureMethod.Algorithm",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference","","","",1,*,"","","","Base {[]} {[]}
+","ReferenceType","Reference","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference",1,*,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms","","","",0,1,"","","","Base {[]} {[]}
+","TransformsType","Transforms","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform","","","",1,*,"","","","Base {[]} {[]}
+","TransformType","Transform","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform",1,*,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.XPath","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.XPath","","","",0,1,"","","","string {[]} {[]}
+","XPath","XPath","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.XPath",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.Algorithm","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.Algorithm","","","",1,1,"","","","uri {[]} {[]}
+","Algorithm","Algorithm (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Transforms.Transform.Algorithm",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod","","","",1,1,"","","","Base {[]} {[]}
+","DigestMethodType","DigestMethod","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod.Algorithm","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod.Algorithm","","","",1,1,"","","","uri {[]} {[]}
+","Algorithm","Algorithm (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestMethod.Algorithm",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestValue","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestValue","","","",1,1,"","","","base64Binary {[]} {[]}
+","DigestValue","DigestValue","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.DigestValue",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Id","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Id","","","",0,1,"","","","string {[]} {[]}
+","Id","Id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Id",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.URI","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.URI","","","",0,1,"","","","uri {[]} {[]}
+","URI","URI (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.URI",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Type","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Type","","","",0,1,"","","","uri {[]} {[]}
+","Type","Type (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Reference.Type",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Id","registercertificate-request.intyg.underskrift.Signature.SignedInfo.Id","","","",0,1,"","","","string {[]} {[]}
+","Id","Id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignedInfo.Id",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignatureValue","registercertificate-request.intyg.underskrift.Signature.SignatureValue","","","",1,1,"","","","Base {[]} {[]}
+","SignatureValueType","SignatureValue","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignatureValue",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignatureValue.value","registercertificate-request.intyg.underskrift.Signature.SignatureValue.value","","","",1,1,"","","","base64Binary {[]} {[]}
+","Textinnehåll","Elementets textinnehåll i XML (simpleContent).","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignatureValue.value",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.SignatureValue.Id","registercertificate-request.intyg.underskrift.Signature.SignatureValue.Id","","","",0,1,"","","","string {[]} {[]}
+","Id","Id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.SignatureValue.Id",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo","registercertificate-request.intyg.underskrift.Signature.KeyInfo","","","",0,1,"","","","Base {[]} {[]}
+","KeyInfoType","KeyInfo","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyName","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyName","","","",0,1,"","","","string {[]} {[]}
+","KeyName","KeyName","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyName",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue","","","",0,1,"","","","Base {[]} {[]}
+","KeyValueType","KeyValue","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue",0,1,"","registercertificaterequest-choice-1:Exakt ett av DSAKeyValue, RSAKeyValue ska anges (xs:choice i schemat). {DSAKeyValue.exists() xor RSAKeyValue.exists()}
+"
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue","","","",0,1,"","","","Base {[]} {[]}
+","DSAKeyValueType","DSAKeyValue","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.P","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.P","","","",0,1,"","","","base64Binary {[]} {[]}
+","P","","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.P",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Q","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Q","","","",0,1,"","","","base64Binary {[]} {[]}
+","Q","","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Q",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.G","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.G","","","",0,1,"","","","base64Binary {[]} {[]}
+","G","","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.G",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Y","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Y","","","",1,1,"","","","base64Binary {[]} {[]}
+","Y","","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Y",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.J","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.J","","","",0,1,"","","","base64Binary {[]} {[]}
+","J","","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.J",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Seed","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Seed","","","",0,1,"","","","base64Binary {[]} {[]}
+","Seed","Seed","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.Seed",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.PgenCounter","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.PgenCounter","","","",0,1,"","","","base64Binary {[]} {[]}
+","PgenCounter","PgenCounter","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.DSAKeyValue.PgenCounter",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue","","","",0,1,"","","","Base {[]} {[]}
+","RSAKeyValueType","RSAKeyValue","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Modulus","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Modulus","","","",1,1,"","","","base64Binary {[]} {[]}
+","Modulus","Modulus","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Modulus",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Exponent","registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Exponent","","","",1,1,"","","","base64Binary {[]} {[]}
+","Exponent","Exponent","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.KeyValue.RSAKeyValue.Exponent",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod","","","",0,1,"","","","Base {[]} {[]}
+","RetrievalMethodType","RetrievalMethod","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms","","","",0,1,"","","","Base {[]} {[]}
+","TransformsType","Transforms","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform","","","",1,*,"","","","Base {[]} {[]}
+","TransformType","Transform","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform",1,*,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.XPath","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.XPath","","","",0,1,"","","","string {[]} {[]}
+","XPath","XPath","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.XPath",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.Algorithm","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.Algorithm","","","",1,1,"","","","uri {[]} {[]}
+","Algorithm","Algorithm (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Transforms.Transform.Algorithm",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.URI","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.URI","","","",0,1,"","","","uri {[]} {[]}
+","URI","URI (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.URI",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Type","registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Type","","","",0,1,"","","","uri {[]} {[]}
+","Type","Type (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.RetrievalMethod.Type",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data","","","",0,1,"","","","Base {[]} {[]}
+","X509DataType","X509Data","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data",0,1,"","registercertificaterequest-choice-6:Exakt ett av X509IssuerSerial, X509SKI, X509SubjectName, X509Certificate, X509CRL ska anges (xs:choice i schemat). {iif(X509IssuerSerial.exists(), 1, 0) + iif(X509SKI.exists(), 1, 0) + iif(X509SubjectName.exists(), 1, 0) + iif(X509Certificate.exists(), 1, 0) + iif(X509CRL.exists(), 1, 0) = 1}
+"
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial","","","",0,1,"","","","Base {[]} {[]}
+","X509IssuerSerialType","X509IssuerSerial","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509IssuerName","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509IssuerName","","","",1,1,"","","","string {[]} {[]}
+","X509IssuerName","X509IssuerName","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509IssuerName",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509SerialNumber","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509SerialNumber","","","",1,1,"","","","integer {[]} {[]}
+","X509SerialNumber","X509SerialNumber","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509IssuerSerial.X509SerialNumber",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509SKI","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509SKI","","","",0,1,"","","","base64Binary {[]} {[]}
+","X509SKI","X509SKI","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509SKI",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509SubjectName","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509SubjectName","","","",0,1,"","","","string {[]} {[]}
+","X509SubjectName","X509SubjectName","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509SubjectName",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509Certificate","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509Certificate","","","",0,1,"","","","base64Binary {[]} {[]}
+","X509Certificate","X509Certificate","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509Certificate",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509CRL","registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509CRL","","","",0,1,"","","","base64Binary {[]} {[]}
+","X509CRL","X509CRL","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.X509Data.X509CRL",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData","registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData","","","",0,1,"","","","Base {[]} {[]}
+","PGPDataType","PGPData","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData",0,1,"","registercertificaterequest-choice-11:Exakt ett av PGPKeyID, PGPKeyPacket ska anges (xs:choice i schemat). {PGPKeyID.exists() xor PGPKeyPacket.exists()}
+"
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyID","registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyID","","","",0,1,"","","","base64Binary {[]} {[]}
+","PGPKeyID","PGPKeyID","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyID",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyPacket","registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyPacket","","","",0,1,"","","","base64Binary {[]} {[]}
+","PGPKeyPacket","PGPKeyPacket","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.PGPData.PGPKeyPacket",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.SPKIData","registercertificate-request.intyg.underskrift.Signature.KeyInfo.SPKIData","","","",0,1,"","","","Base {[]} {[]}
+","SPKIDataType","SPKIData","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.SPKIData",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.SPKIData.SPKISexp","registercertificate-request.intyg.underskrift.Signature.KeyInfo.SPKIData.SPKISexp","","","",1,1,"","","","base64Binary {[]} {[]}
+","SPKISexp","SPKISexp","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.SPKIData.SPKISexp",1,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.MgmtData","registercertificate-request.intyg.underskrift.Signature.KeyInfo.MgmtData","","","",0,1,"","","","string {[]} {[]}
+","MgmtData","MgmtData","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.MgmtData",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.KeyInfo.Id","registercertificate-request.intyg.underskrift.Signature.KeyInfo.Id","","","",0,1,"","","","string {[]} {[]}
+","Id","Id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.KeyInfo.Id",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.Object","registercertificate-request.intyg.underskrift.Signature.Object","","","",0,*,"","","","Base {[]} {[]}
+","ObjectType","Object","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.Object",0,*,"",""
+"registercertificate-request.intyg.underskrift.Signature.Object.Id","registercertificate-request.intyg.underskrift.Signature.Object.Id","","","",0,1,"","","","string {[]} {[]}
+","Id","Id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.Object.Id",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.Object.MimeType","registercertificate-request.intyg.underskrift.Signature.Object.MimeType","","","",0,1,"","","","string {[]} {[]}
+","MimeType","MimeType (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.Object.MimeType",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.Object.Encoding","registercertificate-request.intyg.underskrift.Signature.Object.Encoding","","","",0,1,"","","","uri {[]} {[]}
+","Encoding","Encoding (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.Object.Encoding",0,1,"",""
+"registercertificate-request.intyg.underskrift.Signature.Id","registercertificate-request.intyg.underskrift.Signature.Id","","","",0,1,"","","","string {[]} {[]}
+","Id","Id (XML-attribut)","","","","","","","","","",,,,,"",,,,"registercertificate-request.intyg.underskrift.Signature.Id",0,1,"",""

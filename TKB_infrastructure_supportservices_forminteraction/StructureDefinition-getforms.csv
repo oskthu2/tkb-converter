@@ -1,0 +1,79 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getforms","getforms","","","",0,*,"","","","null {[]} {[]}
+","GetForms","Logisk modell för svar (response) i tjänstekontraktet GetForms
+(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).
+Returnerar lista med formulär (summering, ej komplett formulär med frågor).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getforms.forms","getforms.forms","","","",0,*,"","","","Base {[]} {[]}
+","FormsType","forms","","","","","","","","","",,,,,"",,,,"getforms.forms",0,*,"",""
+"getforms.forms.createdDateTime","getforms.forms.createdDateTime","","","",1,1,"","","","string {[]} {[]}
+","createdDateTime","createdDateTime","","","","","","","","","",,,,,"",,,,"getforms.forms.createdDateTime",1,1,"",""
+"getforms.forms.expireDate","getforms.forms.expireDate","","","",0,1,"","","","string {[]} {[]}
+","expireDate","expireDate","","","","","","","","","",,,,,"",,,,"getforms.forms.expireDate",0,1,"",""
+"getforms.forms.formId","getforms.forms.formId","","","",1,1,"","","","string {[]} {[]}
+","formId","formId","","","","","","","","","",,,,,"",,,,"getforms.forms.formId",1,1,"",""
+"getforms.forms.formStatus","getforms.forms.formStatus","","","",1,1,"","","","code {[]} {[]}
+","formStatus","formStatus Tillåtna värden: COMPLETED, PENDING_COMPLETION, ONGOING.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs","",,,,"getforms.forms.formStatus",1,1,"",""
+"getforms.forms.healthcare-CareGiver","getforms.forms.healthcare_CareGiver","","","",0,1,"","","","string {[]} {[]}
+","healthcare_CareGiver","healthcare_CareGiver","","","","","","","","","",,,,,"",,,,"getforms.forms.healthcare_CareGiver",0,1,"",""
+"getforms.forms.healthcare-MedUnit","getforms.forms.healthcare_MedUnit","","","",0,1,"","","","string {[]} {[]}
+","healthcare_MedUnit","healthcare_MedUnit","","","","","","","","","",,,,,"",,,,"getforms.forms.healthcare_MedUnit",0,1,"",""
+"getforms.forms.healthcare-facility-CareUnit","getforms.forms.healthcare_facility_CareUnit","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility_CareUnit","healthcare_facility_CareUnit","","","","","","","","","",,,,,"",,,,"getforms.forms.healthcare_facility_CareUnit",1,1,"",""
+"getforms.forms.healthcare-facility-CareUnitName","getforms.forms.healthcare_facility_CareUnitName","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility_CareUnitName","healthcare_facility_CareUnitName","","","","","","","","","",,,,,"",,,,"getforms.forms.healthcare_facility_CareUnitName",1,1,"",""
+"getforms.forms.healthcare-systemID","getforms.forms.healthcare_systemID","","","",0,1,"","","","string {[]} {[]}
+","healthcare_systemID","healthcare_systemID","","","","","","","","","",,,,,"",,,,"getforms.forms.healthcare_systemID",0,1,"",""
+"getforms.forms.clinicalProcessInterestId","getforms.forms.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","clinicalProcessInterestId","","","","","","","","","",,,,,"",,,,"getforms.forms.clinicalProcessInterestId",0,1,"",""
+"getforms.forms.keepUntil","getforms.forms.keepUntil","","","",1,1,"","","","string {[]} {[]}
+","keepUntil","keepUntil","","","","","","","","","",,,,,"",,,,"getforms.forms.keepUntil",1,1,"",""
+"getforms.forms.lastSavedDate","getforms.forms.lastSavedDate","","","",0,1,"","","","string {[]} {[]}
+","lastSavedDate","lastSavedDate","","","","","","","","","",,,,,"",,,,"getforms.forms.lastSavedDate",0,1,"",""
+"getforms.forms.subjectOfCare","getforms.forms.subjectOfCare","","","",0,1,"","","","string {[]} {[]}
+","subjectOfCare","subjectOfCare","","","","","","","","","",,,,,"",,,,"getforms.forms.subjectOfCare",0,1,"",""
+"getforms.forms.formTemplate","getforms.forms.formTemplate","","","",1,1,"","","","Base {[]} {[]}
+","FormTemplateInfoType","formTemplate","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate",1,1,"",""
+"getforms.forms.formTemplate.anonymousForm","getforms.forms.formTemplate.anonymousForm","","","",1,1,"","","","boolean {[]} {[]}
+","anonymousForm","Attributet styr huruvida formulärmotorn stöder anonym användning av formuläret. Värden True = Tillåter anonym användning. ""SubjectOfCare"" får inte användas. False = Tillåter inte anonym användning. ""SubjectOfCare"" är obligatorisk attribut.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.anonymousForm",1,1,"",""
+"getforms.forms.formTemplate.category","getforms.forms.formTemplate.category","","","",1,1,"","","","string {[]} {[]}
+","Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration","Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.category",1,1,"",""
+"getforms.forms.formTemplate.code","getforms.forms.formTemplate.code","","","",0,1,"","","","Base {[]} {[]}
+","CodeType","code","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.code",0,1,"",""
+"getforms.forms.formTemplate.code.codeValue","getforms.forms.formTemplate.code.codeValue","","","",1,1,"","","","string {[]} {[]}
+","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.code.codeValue",1,1,"",""
+"getforms.forms.formTemplate.code.codeSystem","getforms.forms.formTemplate.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","Identifierar vilket kodverk som används.","Identifierar vilket kodverk som används.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.code.codeSystem",1,1,"",""
+"getforms.forms.formTemplate.description","getforms.forms.formTemplate.description","","","",0,1,"","","","string {[]} {[]}
+","Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.","Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.description",0,1,"",""
+"getforms.forms.formTemplate.formCompleteText","getforms.forms.formTemplate.formCompleteText","","","",0,1,"","","","string {[]} {[]}
+","formCompleteText","formCompleteText","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.formCompleteText",0,1,"",""
+"getforms.forms.formTemplate.formName","getforms.forms.formTemplate.formName","","","",1,1,"","","","string {[]} {[]}
+","Mallens namn. T.ex. Hälsodeklaration Mödravård","Mallens namn. T.ex. Hälsodeklaration Mödravård","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.formName",1,1,"",""
+"getforms.forms.formTemplate.formTitle","getforms.forms.formTemplate.formTitle","","","",0,1,"","","","string {[]} {[]}
+","Mallens/formulärets rubrik. Används på formulärets introduktionssida.","Mallens/formulärets rubrik. Används på formulärets introduktionssida.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.formTitle",0,1,"",""
+"getforms.forms.formTemplate.language","getforms.forms.formTemplate.language","","","",1,1,"","","","string {[]} {[]}
+","Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.","Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.language",1,1,"",""
+"getforms.forms.formTemplate.media","getforms.forms.formTemplate.media","","","",0,1,"","","","Base {[]} {[]}
+","MediaType","media","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.media",0,1,"",""
+"getforms.forms.formTemplate.media.mediaURL","getforms.forms.formTemplate.media.mediaURL","","","",1,1,"","","","string {[]} {[]}
+","URL eller adress till media.","URL eller adress till media.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.media.mediaURL",1,1,"",""
+"getforms.forms.formTemplate.media.mediaType","getforms.forms.formTemplate.media.mediaType","","","",1,1,"","","","string {[]} {[]}
+","Giltiga MIME typer.","Giltiga MIME typer.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.media.mediaType",1,1,"",""
+"getforms.forms.formTemplate.maxNumberOfQuestion","getforms.forms.formTemplate.maxNumberOfQuestion","","","",1,1,"","","","integer {[]} {[]}
+","Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10","Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.maxNumberOfQuestion",1,1,"",""
+"getforms.forms.formTemplate.minNumberOfQuestion","getforms.forms.formTemplate.minNumberOfQuestion","","","",1,1,"","","","integer {[]} {[]}
+","minNumberOfQuestion","minNumberOfQuestion","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.minNumberOfQuestion",1,1,"",""
+"getforms.forms.formTemplate.maxNumberOfPages","getforms.forms.formTemplate.maxNumberOfPages","","","",1,1,"","","","integer {[]} {[]}
+","maxNumberOfPages","maxNumberOfPages","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.maxNumberOfPages",1,1,"",""
+"getforms.forms.formTemplate.minNumberOfPages","getforms.forms.formTemplate.minNumberOfPages","","","",1,1,"","","","integer {[]} {[]}
+","minNumberOfPages","minNumberOfPages","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.minNumberOfPages",1,1,"",""
+"getforms.forms.formTemplate.mandatory","getforms.forms.formTemplate.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","mandatory","Indikerar om formuläret är obligatoriskt att fylla i av användaren. T.ex. Ett obligatoriskt formulär kan indikerar att formuläret är en del av en vårdprocess. True = obligatoriskt False = Frivilligt","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.mandatory",1,1,"",""
+"getforms.forms.formTemplate.publishStatus","getforms.forms.formTemplate.publishStatus","","","",1,1,"","","","string {[]} {[]}
+","publishStatus","publishStatus","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.publishStatus",1,1,"",""
+"getforms.forms.formTemplate.templateVersion","getforms.forms.formTemplate.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","templateVersion","templateVersion","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.templateVersion",1,1,"",""
+"getforms.forms.formTemplate.templateId","getforms.forms.formTemplate.templateId","","","",1,1,"","","","string {[]} {[]}
+","Typ av formulär. Kodverk för standardiserade id för formulärtyper. T.ex. Mödrahälsovårdsjournal 1 - MHV1. Kodverk!","Typ av formulär. Kodverk för standardiserade id för formulärtyper. T.ex. Mödrahälsovårdsjournal 1 - MHV1. Kodverk!","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.templateId",1,1,"",""
+"getforms.forms.formTemplate.term","getforms.forms.formTemplate.term","","","",1,1,"","","","string {[]} {[]}
+","term","Villkor kopplade till formuläret. T.ex. Villkorstext som användaren/patienten måste godkänna innan formuläret kan besvaras.","","","","","","","","","",,,,,"",,,,"getforms.forms.formTemplate.term",1,1,"",""

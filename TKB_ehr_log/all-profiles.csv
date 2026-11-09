@@ -1,0 +1,716 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getaccesslogsforpatient-request","getaccesslogsforpatient-request","getaccesslogsforpatient-request","","","",0,*,"","","","null {[]} {[]}
+","GetAccessLogsForPatient — Request","Logisk modell för requestparametrar i GetAccessLogsForPatient.
+Obs: queuedReportId ska INTE användas när aggregerande tjänst anropas.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getaccesslogsforpatient-request","getaccesslogsforpatient-request.patientId","getaccesslogsforpatient-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens personnummer, samordningsnummer eller reservnummer","Patientens personnummer, samordningsnummer, alternativt reservnummer som någon vårdgivare haft åtkomst till.","TKB-fält: `PatientId` (`log:PersonId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient-request.patientId",1,1,"",""
+"getaccesslogsforpatient-request","getaccesslogsforpatient-request.fromDate","getaccesslogsforpatient-request.fromDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt startdatum för rapportuttaget","Obligatoriskt startdatum för att begränsa rapportuttaget.","TKB-fält: `FromDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient-request.fromDate",1,1,"",""
+"getaccesslogsforpatient-request","getaccesslogsforpatient-request.toDate","getaccesslogsforpatient-request.toDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt slutdatum för rapportuttaget","Obligatoriskt slutdatum för att begränsa rapportuttaget.","TKB-fält: `ToDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient-request.toDate",1,1,"",""
+"getaccesslogsforpatient-request","getaccesslogsforpatient-request.queuedReportId","getaccesslogsforpatient-request.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","Id på en pågående rapport (UUID) — ej vid aggregerande anrop","Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.
+
+Skall inte användas när aggregerande tjänst anropas.","TKB-fält: `QueuedReportId` (`log:Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient-request.queuedReportId",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient","getaccesslogsforpatient","","","",0,*,"","","","null {[]} {[]}
+","GetAccessLogsForPatient","Logisk modell för tjänstekontraktet GetAccessLogsForPatient
+(RIV-TA urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1).
+Representerar responsens informationsstruktur (log.querying:AccessLogsResult).
+Returnerar lista för angiven patient med vilka vårdaktörer som har haft åtkomst
+till information, inklusive tidpunkt, syfte och resurstyp.
+Stödjer aggregering — queuedReportId får inte användas vid aggregerande anrop.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType","getaccesslogsforpatient.AccessLogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","AccessLogsResultType","Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK.
+
+Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.","TKB-fält: `AccessLogsResultType` (`logquerying:AccessLogsResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result","getaccesslogsforpatient.AccessLogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode","getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.ResultCode",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result.ResultText","getaccesslogsforpatient.AccessLogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.ResultText",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval","getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.StartInterval",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval","getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.EndInterval",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId","getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.QueuedReportId",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime","getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.Result.QueueTime",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs","","","",0,1,"","","","Base {[]} {[]}
+","AccessLogsType","AccesssLogs","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog","","","",0,*,"","","","Base {[]} {[]}
+","AccessLogType","AccessLog","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog",0,*,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderId",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareProviderName",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitId",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.CareUnitName",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate","","","",1,1,"","","","dateTime {[]} {[]}
+","AccessDate","AccessDate","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.AccessDate",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId","","","",1,1,"","","","string {[]} {[]}
+","UserId","UserId","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserId",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName","","","",0,1,"","","","string {[]} {[]}
+","UserName","UserName","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserName",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle","","","",0,1,"","","","string {[]} {[]}
+","UserTitle","UserTitle","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.UserTitle",0,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose","","","",1,1,"","","","string {[]} {[]}
+","Purpose","Purpose","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.Purpose",1,1,"",""
+"getaccesslogsforpatient","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType","getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType","","","",1,1,"","","","string {[]} {[]}
+","ResourceType","ResourceType","","","","","","","","","",,,,,"",,,,"getaccesslogsforpatient.AccessLogsResultType.AccesssLogs.AccessLog.ResourceType",1,1,"",""
+"getinfologsforcareprovider-request","getinfologsforcareprovider-request","getinfologsforcareprovider-request","","","",0,*,"","","","null {[]} {[]}
+","GetInfoLogsForCareProvider — Request","Logisk modell för requestparametrar i GetInfoLogsForCareProvider.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getinfologsforcareprovider-request","getinfologsforcareprovider-request.careProviderId","getinfologsforcareprovider-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare som är informationsägare (HSA-id)","Vårdgivare som är informationsägare av loggpost.","TKB-fält: `careProviderId` (`log:HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider-request.careProviderId",1,1,"",""
+"getinfologsforcareprovider-request","getinfologsforcareprovider-request.fromDate","getinfologsforcareprovider-request.fromDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt startdatum för rapportuttaget","Obligatoriskt startdatum för att begränsa rapportuttaget.","TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider-request.fromDate",1,1,"",""
+"getinfologsforcareprovider-request","getinfologsforcareprovider-request.toDate","getinfologsforcareprovider-request.toDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt slutdatum för rapportuttaget","Obligatoriskt slutdatum för att begränsa rapportuttaget.","TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider-request.toDate",1,1,"",""
+"getinfologsforcareprovider-request","getinfologsforcareprovider-request.queuedReportId","getinfologsforcareprovider-request.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","Id på en pågående rapport (UUID, 36 tecken)","Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.","TKB-fält: `queuedReportId` (`log:Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider-request.queuedReportId",0,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider","getinfologsforcareprovider","","","",0,*,"","","","null {[]} {[]}
+","GetInfoLogsForCareProvider","Logisk modell för tjänstekontraktet GetInfoLogsForCareProvider
+(RIV-TA urn:riv:ehr:log:querying:GetInfoLogsForCareProviderResponder:1).
+Representerar responsens informationsstruktur (log.querying:InfoLogsResult).
+Returnerar lista för angiven informationsägande vårdgivare med vilka externa
+vårdgivare som har haft åtkomst till vårdgivarens information.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType","getinfologsforcareprovider.InfoLogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","InfoLogsResultType","InfoLogsResultType","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType",1,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result","getinfologsforcareprovider.InfoLogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.Result",1,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result.ResultCode","getinfologsforcareprovider.InfoLogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getinfologsforcareprovider.InfoLogsResultType.Result.ResultCode",1,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result.ResultText","getinfologsforcareprovider.InfoLogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.Result.ResultText",1,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result.StartInterval","getinfologsforcareprovider.InfoLogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.Result.StartInterval",0,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result.EndInterval","getinfologsforcareprovider.InfoLogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.Result.EndInterval",0,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result.QueuedReportId","getinfologsforcareprovider.InfoLogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.Result.QueuedReportId",0,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.Result.QueueTime","getinfologsforcareprovider.InfoLogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.Result.QueueTime",0,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.CareProviders","getinfologsforcareprovider.InfoLogsResultType.CareProviders","","","",0,1,"","","","Base {[]} {[]}
+","CareProvidersType","CareProviders","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.CareProviders",0,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider","getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider","","","",0,*,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider",0,*,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider.CareProviderId","getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider.CareProviderId",1,1,"",""
+"getinfologsforcareprovider","getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider.CareProviderName","getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getinfologsforcareprovider.InfoLogsResultType.CareProviders.CareProvider.CareProviderName",0,1,"",""
+"getinfologsforpatient-request","getinfologsforpatient-request","getinfologsforpatient-request","","","",0,*,"","","","null {[]} {[]}
+","GetInfoLogsForPatient — Request","Logisk modell för requestparametrar i GetInfoLogsForPatient.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getinfologsforpatient-request","getinfologsforpatient-request.careProviderId","getinfologsforpatient-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare som är informationsägare (HSA-id)","Vårdgivare som är informationsägare av loggpost.","TKB-fält: `careProviderId` (`log:HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforpatient-request.careProviderId",1,1,"",""
+"getinfologsforpatient-request","getinfologsforpatient-request.patientId","getinfologsforpatient-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens personnummer, samordningsnummer eller reservnummer","Patientens personnummer, samordningsnummer, alternativt reservnummer som annan vårdgivare än informationsägaren haft åtkomst till.","TKB-fält: `patientId` (`log:PersonId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforpatient-request.patientId",1,1,"",""
+"getinfologsforpatient-request","getinfologsforpatient-request.fromDate","getinfologsforpatient-request.fromDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt startdatum för rapportuttaget","Obligatoriskt startdatum för att begränsa rapportuttaget.","TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforpatient-request.fromDate",1,1,"",""
+"getinfologsforpatient-request","getinfologsforpatient-request.toDate","getinfologsforpatient-request.toDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt slutdatum för rapportuttaget","Obligatoriskt slutdatum för att begränsa rapportuttaget.","TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologsforpatient-request.toDate",1,1,"",""
+"getinfologsforpatient-request","getinfologsforpatient-request.queuedReportId","getinfologsforpatient-request.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","Id på en pågående rapport (UUID, 36 tecken)","Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.","TKB-fält: `queuedReportId` (`log:Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologsforpatient-request.queuedReportId",0,1,"",""
+"getinfologsforpatient","getinfologsforpatient","getinfologsforpatient","","","",0,*,"","","","null {[]} {[]}
+","GetInfoLogsForPatient","Logisk modell för tjänstekontraktet GetInfoLogsForPatient
+(RIV-TA urn:riv:ehr:log:querying:GetInfoLogsForPatientResponder:1).
+Representerar responsens informationsstruktur (log.querying:InfoLogsResult).
+Returnerar lista för angiven informationsägande vårdgivare och patient med
+vilka externa vårdgivare som haft åtkomst till information.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType","getinfologsforpatient.InfoLogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","InfoLogsResultType","InfoLogsResultType","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType",1,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result","getinfologsforpatient.InfoLogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.Result",1,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result.ResultCode","getinfologsforpatient.InfoLogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getinfologsforpatient.InfoLogsResultType.Result.ResultCode",1,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result.ResultText","getinfologsforpatient.InfoLogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.Result.ResultText",1,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result.StartInterval","getinfologsforpatient.InfoLogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.Result.StartInterval",0,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result.EndInterval","getinfologsforpatient.InfoLogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.Result.EndInterval",0,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result.QueuedReportId","getinfologsforpatient.InfoLogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.Result.QueuedReportId",0,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.Result.QueueTime","getinfologsforpatient.InfoLogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.Result.QueueTime",0,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.CareProviders","getinfologsforpatient.InfoLogsResultType.CareProviders","","","",0,1,"","","","Base {[]} {[]}
+","CareProvidersType","CareProviders","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.CareProviders",0,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider","getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider","","","",0,*,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider",0,*,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderId","getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderId",1,1,"",""
+"getinfologsforpatient","getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderName","getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getinfologsforpatient.InfoLogsResultType.CareProviders.CareProvider.CareProviderName",0,1,"",""
+"getlogsforcareprovider-request","getlogsforcareprovider-request","getlogsforcareprovider-request","","","",0,*,"","","","null {[]} {[]}
+","GetLogsForCareProvider — Request","Logisk modell för requestparametrar i GetLogsForCareProvider.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogsforcareprovider-request","getlogsforcareprovider-request.careProviderId","getlogsforcareprovider-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare som är ägare till loggposter","Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.","TKB-fält: `careProviderId` (`log:HsaId`, kardinalitet 1..1).
+
+**Modellanteckning:** HSA-id för vårdgivaren vars loggposter ska hämtas. Kardinalitet: Obligatorisk.","","","","","","","","",,,,,"",,,,"getlogsforcareprovider-request.careProviderId",1,1,"",""
+"getlogsforcareprovider-request","getlogsforcareprovider-request.fromDate","getlogsforcareprovider-request.fromDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt startdatum för rapportuttaget","Obligatoriskt startdatum för att begränsa rapportuttaget.","TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforcareprovider-request.fromDate",1,1,"",""
+"getlogsforcareprovider-request","getlogsforcareprovider-request.toDate","getlogsforcareprovider-request.toDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt slutdatum för rapportuttaget","Obligatoriskt slutdatum för att begränsa rapportuttaget.","TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforcareprovider-request.toDate",1,1,"",""
+"getlogsforcareprovider-request","getlogsforcareprovider-request.queuedReportId","getlogsforcareprovider-request.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","Id på en pågående rapport (UUID, 36 tecken)","Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.","TKB-fält: `queuedReportId` (`log:Id`, kardinalitet 0..1).
+
+**Modellanteckning:** Returneras från tidigare anrop med REPORTONQUEUE/REPORTINPROCESS.
+Måste anges vid uppföljande anrop för att undvika att ny rapport skapas.","","","","","","","","",,,,,"",,,,"getlogsforcareprovider-request.queuedReportId",0,1,"",""
+"getlogsforcareprovider-request","getlogsforcareprovider-request.careUnitId","getlogsforcareprovider-request.careUnitId","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för specifik vårdenhet (valfritt filter)","Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.","TKB-fält: `careUnitId` (`log:HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogsforcareprovider-request.careUnitId",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider","getlogsforcareprovider","","","",0,*,"","","","null {[]} {[]}
+","GetLogsForCareProvider","Logisk modell för tjänstekontraktet GetLogsForCareProvider
+(RIV-TA urn:riv:ehr:log:querying:GetLogsForCareProviderResponder:1).
+Representerar responsens informationsstruktur (log.querying:LogsResult).
+Returnerar loggposter för angiven vårdgivare.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType","getlogsforcareprovider.LogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","LogsResultType","LogsResultType","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result","getlogsforcareprovider.LogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Result",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result.ResultCode","getlogsforcareprovider.LogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getlogsforcareprovider.LogsResultType.Result.ResultCode",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result.ResultText","getlogsforcareprovider.LogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Result.ResultText",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result.StartInterval","getlogsforcareprovider.LogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Result.StartInterval",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result.EndInterval","getlogsforcareprovider.LogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Result.EndInterval",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result.QueuedReportId","getlogsforcareprovider.LogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Result.QueuedReportId",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Result.QueueTime","getlogsforcareprovider.LogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Result.QueueTime",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs","getlogsforcareprovider.LogsResultType.Logs","","","",0,1,"","","","Base {[]} {[]}
+","LogsType","Logs","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log","getlogsforcareprovider.LogsResultType.Logs.Log","","","",0,*,"","","","Base {[]} {[]}
+","LogType","Log","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log",0,*,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.LogId","getlogsforcareprovider.LogsResultType.Logs.Log.LogId","","","",1,1,"","","","string {[]} {[]}
+","LogId","LogId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.LogId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.System","getlogsforcareprovider.LogsResultType.Logs.Log.System","","","",1,1,"","","","Base {[]} {[]}
+","SystemType","System","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.System",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemId","getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemId","","","",1,1,"","","","string {[]} {[]}
+","SystemId","SystemId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemName","getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemName","","","",0,1,"","","","string {[]} {[]}
+","SystemName","SystemName","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.System.SystemName",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Activity","getlogsforcareprovider.LogsResultType.Logs.Log.Activity","","","",1,1,"","","","Base {[]} {[]}
+","ActivityType","Activity","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Activity",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityType","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityType","","","",1,1,"","","","string {[]} {[]}
+","ActivityType","ActivityType","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityType",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityLevel","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityLevel","","","",0,1,"","","","string {[]} {[]}
+","ActivityLevel","ActivityLevel","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityLevel",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityArgs","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityArgs","","","",0,1,"","","","string {[]} {[]}
+","ActivityArgs","ActivityArgs","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Activity.ActivityArgs",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.StartDate","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.StartDate","","","",1,1,"","","","dateTime {[]} {[]}
+","StartDate","StartDate","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Activity.StartDate",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.Purpose","getlogsforcareprovider.LogsResultType.Logs.Log.Activity.Purpose","","","",1,1,"","","","string {[]} {[]}
+","Purpose","Purpose","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Activity.Purpose",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User","getlogsforcareprovider.LogsResultType.Logs.Log.User","","","",1,1,"","","","Base {[]} {[]}
+","UserType","User","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.UserId","getlogsforcareprovider.LogsResultType.Logs.Log.User.UserId","","","",1,1,"","","","string {[]} {[]}
+","UserId","UserId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.UserId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.Name","getlogsforcareprovider.LogsResultType.Logs.Log.User.Name","","","",0,1,"","","","string {[]} {[]}
+","Name","Name","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.Name",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.PersonId","getlogsforcareprovider.LogsResultType.Logs.Log.User.PersonId","","","",0,1,"","","","string {[]} {[]}
+","PersonId","PersonId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.PersonId",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.Assignment","getlogsforcareprovider.LogsResultType.Logs.Log.User.Assignment","","","",0,1,"","","","string {[]} {[]}
+","Assignment","Assignment","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.Assignment",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.Title","getlogsforcareprovider.LogsResultType.Logs.Log.User.Title","","","",0,1,"","","","string {[]} {[]}
+","Title","Title","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.Title",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderId","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderName","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.CareProvider.CareProviderName",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit","","","",1,1,"","","","Base {[]} {[]}
+","CareUnitType","CareUnit","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitId","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitName","getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.User.CareUnit.CareUnitName",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources","getlogsforcareprovider.LogsResultType.Logs.Log.Resources","","","",1,1,"","","","Base {[]} {[]}
+","ResourcesType","Resources","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource","","","",1,*,"","","","Base {[]} {[]}
+","ResourceType","Resource","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource",1,*,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.ResourceType","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.ResourceType","","","",1,1,"","","","string {[]} {[]}
+","ResourceType","ResourceType","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.ResourceType",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient","","","",0,1,"","","","Base {[]} {[]}
+","PatientType","Patient","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId","","","",1,1,"","","","string {[]} {[]}
+","PatientId","PatientId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName","","","",0,1,"","","","string {[]} {[]}
+","PatientName","PatientName","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","CareUnit","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit",0,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId",1,1,"",""
+"getlogsforcareprovider","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName","getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getlogsforcareprovider.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName",0,1,"",""
+"getlogsforpatient-request","getlogsforpatient-request","getlogsforpatient-request","","","",0,*,"","","","null {[]} {[]}
+","GetLogsForPatient — Request","Logisk modell för requestparametrar i GetLogsForPatient.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogsforpatient-request","getlogsforpatient-request.careProviderId","getlogsforpatient-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare som är ägare till loggposter","Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.","TKB-fält: `careProviderId` (`log:HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforpatient-request.careProviderId",1,1,"",""
+"getlogsforpatient-request","getlogsforpatient-request.patientId","getlogsforpatient-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens personnummer eller samordningsnummer","Patientens personnummer, samordningsnummer, alternativt reservnummer som vårdgivare haft åtkomst till.","TKB-fält: `patientId` (`log:PersonId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforpatient-request.patientId",1,1,"",""
+"getlogsforpatient-request","getlogsforpatient-request.careUnitId","getlogsforpatient-request.careUnitId","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för specifik vårdenhet (valfritt filter)","Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.","TKB-fält: `careUnitId` (`log:HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogsforpatient-request.careUnitId",0,1,"",""
+"getlogsforpatient-request","getlogsforpatient-request.fromDate","getlogsforpatient-request.fromDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt startdatum för rapportuttaget","Obligatoriskt startdatum för att begränsa rapportuttaget.","TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforpatient-request.fromDate",1,1,"",""
+"getlogsforpatient-request","getlogsforpatient-request.toDate","getlogsforpatient-request.toDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt slutdatum för rapportuttaget","Obligatoriskt slutdatum för att begränsa rapportuttaget.","TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforpatient-request.toDate",1,1,"",""
+"getlogsforpatient-request","getlogsforpatient-request.queuedReportId","getlogsforpatient-request.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","Id på en pågående rapport (UUID, 36 tecken)","Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.","TKB-fält: `queuedReportId` (`log:Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogsforpatient-request.queuedReportId",0,1,"",""
+"getlogsforpatient","getlogsforpatient","getlogsforpatient","","","",0,*,"","","","null {[]} {[]}
+","GetLogsForPatient","Logisk modell för tjänstekontraktet GetLogsForPatient
+(RIV-TA urn:riv:ehr:log:querying:GetLogsForPatientResponder:1).
+Representerar responsens informationsstruktur (log.querying:LogsResult).
+Returnerar loggposter för angiven vårdgivare och patient.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType","getlogsforpatient.LogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","LogsResultType","LogsResultType","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result","getlogsforpatient.LogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Result",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result.ResultCode","getlogsforpatient.LogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getlogsforpatient.LogsResultType.Result.ResultCode",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result.ResultText","getlogsforpatient.LogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Result.ResultText",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result.StartInterval","getlogsforpatient.LogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Result.StartInterval",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result.EndInterval","getlogsforpatient.LogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Result.EndInterval",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result.QueuedReportId","getlogsforpatient.LogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Result.QueuedReportId",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Result.QueueTime","getlogsforpatient.LogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Result.QueueTime",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs","getlogsforpatient.LogsResultType.Logs","","","",0,1,"","","","Base {[]} {[]}
+","LogsType","Logs","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log","getlogsforpatient.LogsResultType.Logs.Log","","","",0,*,"","","","Base {[]} {[]}
+","LogType","Log","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log",0,*,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.LogId","getlogsforpatient.LogsResultType.Logs.Log.LogId","","","",1,1,"","","","string {[]} {[]}
+","LogId","LogId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.LogId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.System","getlogsforpatient.LogsResultType.Logs.Log.System","","","",1,1,"","","","Base {[]} {[]}
+","SystemType","System","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.System",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.System.SystemId","getlogsforpatient.LogsResultType.Logs.Log.System.SystemId","","","",1,1,"","","","string {[]} {[]}
+","SystemId","SystemId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.System.SystemId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.System.SystemName","getlogsforpatient.LogsResultType.Logs.Log.System.SystemName","","","",0,1,"","","","string {[]} {[]}
+","SystemName","SystemName","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.System.SystemName",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Activity","getlogsforpatient.LogsResultType.Logs.Log.Activity","","","",1,1,"","","","Base {[]} {[]}
+","ActivityType","Activity","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Activity",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityType","getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityType","","","",1,1,"","","","string {[]} {[]}
+","ActivityType","ActivityType","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityType",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityLevel","getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityLevel","","","",0,1,"","","","string {[]} {[]}
+","ActivityLevel","ActivityLevel","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityLevel",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityArgs","getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityArgs","","","",0,1,"","","","string {[]} {[]}
+","ActivityArgs","ActivityArgs","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Activity.ActivityArgs",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Activity.StartDate","getlogsforpatient.LogsResultType.Logs.Log.Activity.StartDate","","","",1,1,"","","","dateTime {[]} {[]}
+","StartDate","StartDate","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Activity.StartDate",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Activity.Purpose","getlogsforpatient.LogsResultType.Logs.Log.Activity.Purpose","","","",1,1,"","","","string {[]} {[]}
+","Purpose","Purpose","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Activity.Purpose",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User","getlogsforpatient.LogsResultType.Logs.Log.User","","","",1,1,"","","","Base {[]} {[]}
+","UserType","User","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.UserId","getlogsforpatient.LogsResultType.Logs.Log.User.UserId","","","",1,1,"","","","string {[]} {[]}
+","UserId","UserId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.UserId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.Name","getlogsforpatient.LogsResultType.Logs.Log.User.Name","","","",0,1,"","","","string {[]} {[]}
+","Name","Name","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.Name",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.PersonId","getlogsforpatient.LogsResultType.Logs.Log.User.PersonId","","","",0,1,"","","","string {[]} {[]}
+","PersonId","PersonId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.PersonId",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.Assignment","getlogsforpatient.LogsResultType.Logs.Log.User.Assignment","","","",0,1,"","","","string {[]} {[]}
+","Assignment","Assignment","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.Assignment",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.Title","getlogsforpatient.LogsResultType.Logs.Log.User.Title","","","",0,1,"","","","string {[]} {[]}
+","Title","Title","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.Title",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider","getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider.CareProviderId","getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider.CareProviderId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider.CareProviderName","getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.CareProvider.CareProviderName",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit","getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit","","","",1,1,"","","","Base {[]} {[]}
+","CareUnitType","CareUnit","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit.CareUnitId","getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit.CareUnitId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit.CareUnitName","getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.User.CareUnit.CareUnitName",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources","getlogsforpatient.LogsResultType.Logs.Log.Resources","","","",1,1,"","","","Base {[]} {[]}
+","ResourcesType","Resources","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource","","","",1,*,"","","","Base {[]} {[]}
+","ResourceType","Resource","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource",1,*,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.ResourceType","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.ResourceType","","","",1,1,"","","","string {[]} {[]}
+","ResourceType","ResourceType","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.ResourceType",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient","","","",0,1,"","","","Base {[]} {[]}
+","PatientType","Patient","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId","","","",1,1,"","","","string {[]} {[]}
+","PatientId","PatientId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName","","","",0,1,"","","","string {[]} {[]}
+","PatientName","PatientName","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","CareUnit","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit",0,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId",1,1,"",""
+"getlogsforpatient","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName","getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getlogsforpatient.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName",0,1,"",""
+"getlogsforuser-request","getlogsforuser-request","getlogsforuser-request","","","",0,*,"","","","null {[]} {[]}
+","GetLogsForUser — Request","Logisk modell för requestparametrar i GetLogsForUser.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogsforuser-request","getlogsforuser-request.careProviderId","getlogsforuser-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare som är ägare till loggposter","Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.","TKB-fält: `careProviderId` (`log:HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforuser-request.careProviderId",1,1,"",""
+"getlogsforuser-request","getlogsforuser-request.userId","getlogsforuser-request.userId","","","",1,1,"","","","Identifier {[]} {[]}
+","Medarbetare vars åtkomster ska hämtas (HSA-id)","Medarbetare som haft åtkomst.","TKB-fält: `userId` (`log:HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforuser-request.userId",1,1,"",""
+"getlogsforuser-request","getlogsforuser-request.fromDate","getlogsforuser-request.fromDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt startdatum för rapportuttaget","Obligatoriskt startdatum för att begränsa rapportuttaget.","TKB-fält: `fromDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforuser-request.fromDate",1,1,"",""
+"getlogsforuser-request","getlogsforuser-request.toDate","getlogsforuser-request.toDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Obligatoriskt slutdatum för rapportuttaget","Obligatoriskt slutdatum för att begränsa rapportuttaget.","TKB-fält: `toDate` (`xs:dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogsforuser-request.toDate",1,1,"",""
+"getlogsforuser-request","getlogsforuser-request.queuedReportId","getlogsforuser-request.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","Id på en pågående rapport (UUID, 36 tecken)","Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.","TKB-fält: `queuedReportId` (`log:Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogsforuser-request.queuedReportId",0,1,"",""
+"getlogsforuser-request","getlogsforuser-request.careUnitId","getlogsforuser-request.careUnitId","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för specifik vårdenhet (valfritt filter)","Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.","TKB-fält: `careUnitId` (`log:HsaId`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogsforuser-request.careUnitId",0,1,"",""
+"getlogsforuser","getlogsforuser","getlogsforuser","","","",0,*,"","","","null {[]} {[]}
+","GetLogsForUser","Logisk modell för tjänstekontraktet GetLogsForUser
+(RIV-TA urn:riv:ehr:log:querying:GetLogsForUserResponder:1).
+Representerar responsens informationsstruktur (log.querying:LogsResult).
+Returnerar loggposter för angiven vårdgivare och medarbetare.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogsforuser","getlogsforuser.LogsResultType","getlogsforuser.LogsResultType","","","",1,1,"","","","Base {[]} {[]}
+","LogsResultType","LogsResultType","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result","getlogsforuser.LogsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Result",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result.ResultCode","getlogsforuser.LogsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"getlogsforuser.LogsResultType.Result.ResultCode",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result.ResultText","getlogsforuser.LogsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Result.ResultText",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result.StartInterval","getlogsforuser.LogsResultType.Result.StartInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","StartInterval","StartInterval","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Result.StartInterval",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result.EndInterval","getlogsforuser.LogsResultType.Result.EndInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","EndInterval","EndInterval","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Result.EndInterval",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result.QueuedReportId","getlogsforuser.LogsResultType.Result.QueuedReportId","","","",0,1,"","","","string {[]} {[]}
+","QueuedReportId","QueuedReportId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Result.QueuedReportId",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Result.QueueTime","getlogsforuser.LogsResultType.Result.QueueTime","","","",0,1,"","","","integer {[]} {[]}
+","QueueTime","QueueTime","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Result.QueueTime",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs","getlogsforuser.LogsResultType.Logs","","","",0,1,"","","","Base {[]} {[]}
+","LogsType","Logs","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log","getlogsforuser.LogsResultType.Logs.Log","","","",0,*,"","","","Base {[]} {[]}
+","LogType","Log","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log",0,*,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.LogId","getlogsforuser.LogsResultType.Logs.Log.LogId","","","",1,1,"","","","string {[]} {[]}
+","LogId","LogId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.LogId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.System","getlogsforuser.LogsResultType.Logs.Log.System","","","",1,1,"","","","Base {[]} {[]}
+","SystemType","System","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.System",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.System.SystemId","getlogsforuser.LogsResultType.Logs.Log.System.SystemId","","","",1,1,"","","","string {[]} {[]}
+","SystemId","SystemId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.System.SystemId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.System.SystemName","getlogsforuser.LogsResultType.Logs.Log.System.SystemName","","","",0,1,"","","","string {[]} {[]}
+","SystemName","SystemName","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.System.SystemName",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Activity","getlogsforuser.LogsResultType.Logs.Log.Activity","","","",1,1,"","","","Base {[]} {[]}
+","ActivityType","Activity","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Activity",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityType","getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityType","","","",1,1,"","","","string {[]} {[]}
+","ActivityType","ActivityType","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityType",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityLevel","getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityLevel","","","",0,1,"","","","string {[]} {[]}
+","ActivityLevel","ActivityLevel","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityLevel",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityArgs","getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityArgs","","","",0,1,"","","","string {[]} {[]}
+","ActivityArgs","ActivityArgs","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Activity.ActivityArgs",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Activity.StartDate","getlogsforuser.LogsResultType.Logs.Log.Activity.StartDate","","","",1,1,"","","","dateTime {[]} {[]}
+","StartDate","StartDate","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Activity.StartDate",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Activity.Purpose","getlogsforuser.LogsResultType.Logs.Log.Activity.Purpose","","","",1,1,"","","","string {[]} {[]}
+","Purpose","Purpose","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Activity.Purpose",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User","getlogsforuser.LogsResultType.Logs.Log.User","","","",1,1,"","","","Base {[]} {[]}
+","UserType","User","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.UserId","getlogsforuser.LogsResultType.Logs.Log.User.UserId","","","",1,1,"","","","string {[]} {[]}
+","UserId","UserId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.UserId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.Name","getlogsforuser.LogsResultType.Logs.Log.User.Name","","","",0,1,"","","","string {[]} {[]}
+","Name","Name","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.Name",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.PersonId","getlogsforuser.LogsResultType.Logs.Log.User.PersonId","","","",0,1,"","","","string {[]} {[]}
+","PersonId","PersonId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.PersonId",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.Assignment","getlogsforuser.LogsResultType.Logs.Log.User.Assignment","","","",0,1,"","","","string {[]} {[]}
+","Assignment","Assignment","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.Assignment",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.Title","getlogsforuser.LogsResultType.Logs.Log.User.Title","","","",0,1,"","","","string {[]} {[]}
+","Title","Title","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.Title",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.CareProvider","getlogsforuser.LogsResultType.Logs.Log.User.CareProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.CareProvider",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.CareProvider.CareProviderId","getlogsforuser.LogsResultType.Logs.Log.User.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.CareProvider.CareProviderId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.CareProvider.CareProviderName","getlogsforuser.LogsResultType.Logs.Log.User.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.CareProvider.CareProviderName",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.CareUnit","getlogsforuser.LogsResultType.Logs.Log.User.CareUnit","","","",1,1,"","","","Base {[]} {[]}
+","CareUnitType","CareUnit","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.CareUnit",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.CareUnit.CareUnitId","getlogsforuser.LogsResultType.Logs.Log.User.CareUnit.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.CareUnit.CareUnitId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.User.CareUnit.CareUnitName","getlogsforuser.LogsResultType.Logs.Log.User.CareUnit.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.User.CareUnit.CareUnitName",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources","getlogsforuser.LogsResultType.Logs.Log.Resources","","","",1,1,"","","","Base {[]} {[]}
+","ResourcesType","Resources","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource","","","",1,*,"","","","Base {[]} {[]}
+","ResourceType","Resource","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource",1,*,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.ResourceType","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.ResourceType","","","",1,1,"","","","string {[]} {[]}
+","ResourceType","ResourceType","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.ResourceType",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient","","","",0,1,"","","","Base {[]} {[]}
+","PatientType","Patient","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId","","","",1,1,"","","","string {[]} {[]}
+","PatientId","PatientId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName","","","",0,1,"","","","string {[]} {[]}
+","PatientName","PatientName","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.Patient.PatientName",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","CareProvider","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName","","","",0,1,"","","","string {[]} {[]}
+","CareProviderName","CareProviderName","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareProvider.CareProviderName",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","CareUnit","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit",0,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitId",1,1,"",""
+"getlogsforuser","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName","getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName","","","",0,1,"","","","string {[]} {[]}
+","CareUnitName","CareUnitName","","","","","","","","","",,,,,"",,,,"getlogsforuser.LogsResultType.Logs.Log.Resources.Resource.CareUnit.CareUnitName",0,1,"",""
+"storelog-request","storelog-request","storelog-request","","","",0,*,"","","","null {[]} {[]}
+","StoreLog — Request","Logisk modell för requestparametrar i StoreLog
+(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).
+Innehåller en samling loggposter (log:Log) som ska lagras.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"storelog-request","storelog-request.log","storelog-request.log","","","",1,*,"","","","BackboneElement {[]} {[]}
+","En loggpost att lagra i loggtjänsten","En kollektion av loggposter som ska lagras i loggtjänsten.","TKB-fält: `log` (`log:Log`, kardinalitet 1..*).
+
+**Modellanteckning:** En kollektion av loggposter som ska lagras i loggtjänsten.
+Datatyp: log:Log. Kardinalitet: Obligatorisk, lista (minst ett element).","","","","","","","","",,,,,"",,,,"storelog-request.log",1,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.id","storelog-request.log.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.extension","storelog-request.log.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.modifierExtension","storelog-request.log.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.logId","storelog-request.log.logId","","","",1,1,"","","","string {[]} {[]}
+","Unikt UUID-identifikationsnummer för loggposten","Format: UUID (36 tecken). Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.logId",1,1,"",""
+"storelog-request","storelog-request.log.system","storelog-request.log.system","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Systemet som utförde aktiviteten","Systemet som utförde aktiviteten","","","","","","","","","",,,,,"",,,,"storelog-request.log.system",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.system.id","storelog-request.log.system.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.system.extension","storelog-request.log.system.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.system.modifierExtension","storelog-request.log.system.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.system.systemId","storelog-request.log.system.systemId","","","",1,1,"","","","Identifier {[]} {[]}
+","Systemets HSA-id","Systemets unika HSA-identifierare. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.system.systemId",1,1,"",""
+"storelog-request","storelog-request.log.system.systemName","storelog-request.log.system.systemName","","","",0,1,"","","","string {[]} {[]}
+","Systemets namn","Systemets läsbarare namn. Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.system.systemName",0,1,"",""
+"storelog-request","storelog-request.log.activity","storelog-request.log.activity","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Aktivitetsinformation","Aktivitetsinformation","","","","","","","","","",,,,,"",,,,"storelog-request.log.activity",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.activity.id","storelog-request.log.activity.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.activity.extension","storelog-request.log.activity.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.activity.modifierExtension","storelog-request.log.activity.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.activity.activityType","storelog-request.log.activity.activityType","","","",1,1,"","","","code {[]} {[]}
+","Typ av aktivitet","Anger vilken typ av aktivitet som utförts.
+Tillåtna värden: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera, Nödöppning.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/activitytype-vs","",,,,"storelog-request.log.activity.activityType",1,1,"",""
+"storelog-request","storelog-request.log.activity.activityLevel","storelog-request.log.activity.activityLevel","","","",0,1,"","","","string {[]} {[]}
+","Nivå på aktiviteten","Information om vilken nivå aktiviteten utfördes på. Maxlängd: 50. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.activityLevel",0,1,"",""
+"storelog-request","storelog-request.log.activity.activityArgs","storelog-request.log.activity.activityArgs","","","",0,1,"","","","string {[]} {[]}
+","Övrig information för aktiviteten","T.ex. parametrar för en rapport. Maxlängd: 8192. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.activityArgs",0,1,"",""
+"storelog-request","storelog-request.log.activity.startDate","storelog-request.log.activity.startDate","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för aktiviteten","Tidpunkt då aktiviteten utfördes. Format: YYYY-MM-DDThh:mm:ss.zzz (CET/CEST).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.startDate",1,1,"",""
+"storelog-request","storelog-request.log.activity.purpose","storelog-request.log.activity.purpose","","","",1,1,"","","","string {[]} {[]}
+","Syftet med aktiviteten","Anger syftet med aktiviteten (t.ex. Vård och behandling, Kvalitetssäkring).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.activity.purpose",1,1,"",""
+"storelog-request","storelog-request.log.user","storelog-request.log.user","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Användaren som utförde aktiviteten","Användaren som utförde aktiviteten","","","","","","","","","",,,,,"",,,,"storelog-request.log.user",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.user.id","storelog-request.log.user.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.user.extension","storelog-request.log.user.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.user.modifierExtension","storelog-request.log.user.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.user.userId","storelog-request.log.user.userId","","","",1,1,"","","","Identifier {[]} {[]}
+","Användarens HSA-id","Medarbetarens HSA-identifierare. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.userId",1,1,"",""
+"storelog-request","storelog-request.log.user.employeeName","storelog-request.log.user.employeeName","","","",0,1,"","","","string {[]} {[]}
+","Användarens namn","Medarbetarens namn. Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.employeeName",0,1,"",""
+"storelog-request","storelog-request.log.user.personId","storelog-request.log.user.personId","","","",0,1,"","","","Identifier {[]} {[]}
+","Medarbetarens personnummer","Personnummer eller samordningsnummer för medarbetaren. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.personId",0,1,"",""
+"storelog-request","storelog-request.log.user.assignment","storelog-request.log.user.assignment","","","",0,1,"","","","string {[]} {[]}
+","Medarbetarens uppdragsnamn","Namn på medarbetaren i uppdrag. Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.assignment",0,1,"",""
+"storelog-request","storelog-request.log.user.title","storelog-request.log.user.title","","","",0,1,"","","","string {[]} {[]}
+","Medarbetarens yrkestitel","Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.title",0,1,"",""
+"storelog-request","storelog-request.log.user.careProvider","storelog-request.log.user.careProvider","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Medarbetarens vårdgivare","Medarbetarens vårdgivare","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careProvider",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.user.careProvider.id","storelog-request.log.user.careProvider.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.user.careProvider.extension","storelog-request.log.user.careProvider.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.user.careProvider.modifierExtension","storelog-request.log.user.careProvider.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.user.careProvider.careProviderId","storelog-request.log.user.careProvider.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivarens HSA-id","HSA-id för den vårdgivare medarbetaren arbetar för. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careProvider.careProviderId",1,1,"",""
+"storelog-request","storelog-request.log.user.careProvider.careProviderName","storelog-request.log.user.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","Vårdgivarens namn","Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careProvider.careProviderName",0,1,"",""
+"storelog-request","storelog-request.log.user.careUnit","storelog-request.log.user.careUnit","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Medarbetarens vårdenhet","Medarbetarens vårdenhet","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careUnit",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.user.careUnit.id","storelog-request.log.user.careUnit.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.user.careUnit.extension","storelog-request.log.user.careUnit.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.user.careUnit.modifierExtension","storelog-request.log.user.careUnit.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.user.careUnit.careUnitId","storelog-request.log.user.careUnit.careUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","HSA-id för den vårdenhet medarbetaren arbetar på. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careUnit.careUnitId",1,1,"",""
+"storelog-request","storelog-request.log.user.careUnit.careUnitName","storelog-request.log.user.careUnit.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","Vårdenhetens namn","Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.user.careUnit.careUnitName",0,1,"",""
+"storelog-request","storelog-request.log.resources","storelog-request.log.resources","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Resurser som aktiviteten avsåg","Resurser som aktiviteten avsåg","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.resources.id","storelog-request.log.resources.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.resources.extension","storelog-request.log.resources.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.modifierExtension","storelog-request.log.resources.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource","storelog-request.log.resources.resource","","","",1,*,"","","","BackboneElement {[]} {[]}
+","En resurs (vanligtvis en patient)","En resurs (vanligtvis en patient)","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource",1,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.resources.resource.id","storelog-request.log.resources.resource.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.resources.resource.extension","storelog-request.log.resources.resource.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.modifierExtension","storelog-request.log.resources.resource.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.resourceType","storelog-request.log.resources.resource.resourceType","","","",1,1,"","","","string {[]} {[]}
+","Typ av resurs","Anger vilken typ av resurs aktiviteten avsåg. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.resourceType",1,1,"",""
+"storelog-request","storelog-request.log.resources.resource.patient","storelog-request.log.resources.resource.patient","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Patient som resursen avser","Patient som resursen avser","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.patient",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.resources.resource.patient.id","storelog-request.log.resources.resource.patient.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.resources.resource.patient.extension","storelog-request.log.resources.resource.patient.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.patient.modifierExtension","storelog-request.log.resources.resource.patient.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.patient.patientId","storelog-request.log.resources.resource.patient.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens personnummer/samordningsnummer","Patientens identifierare. Kardinalitet: Obligatorisk om patient finns.","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.patient.patientId",1,1,"",""
+"storelog-request","storelog-request.log.resources.resource.patient.patientName","storelog-request.log.resources.resource.patient.patientName","","","",0,1,"","","","string {[]} {[]}
+","Patientens namn","Maxlängd: 256. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.patient.patientName",0,1,"",""
+"storelog-request","storelog-request.log.resources.resource.careProvider","storelog-request.log.resources.resource.careProvider","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Resursens ägande vårdgivare","Resursens ägande vårdgivare","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careProvider",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.resources.resource.careProvider.id","storelog-request.log.resources.resource.careProvider.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.resources.resource.careProvider.extension","storelog-request.log.resources.resource.careProvider.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.careProvider.modifierExtension","storelog-request.log.resources.resource.careProvider.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.careProvider.careProviderId","storelog-request.log.resources.resource.careProvider.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivarens HSA-id","Vårdgivarens HSA-id","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careProvider.careProviderId",1,1,"",""
+"storelog-request","storelog-request.log.resources.resource.careProvider.careProviderName","storelog-request.log.resources.resource.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","Vårdgivarens namn","Vårdgivarens namn","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careProvider.careProviderName",0,1,"",""
+"storelog-request","storelog-request.log.resources.resource.careUnit","storelog-request.log.resources.resource.careUnit","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Resursens vårdenhet","Resursens vårdenhet","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careUnit",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"storelog-request","storelog-request.log.resources.resource.careUnit.id","storelog-request.log.resources.resource.careUnit.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"storelog-request","storelog-request.log.resources.resource.careUnit.extension","storelog-request.log.resources.resource.careUnit.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.careUnit.modifierExtension","storelog-request.log.resources.resource.careUnit.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"storelog-request","storelog-request.log.resources.resource.careUnit.careUnitId","storelog-request.log.resources.resource.careUnit.careUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Vårdenhetens HSA-id","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careUnit.careUnitId",1,1,"",""
+"storelog-request","storelog-request.log.resources.resource.careUnit.careUnitName","storelog-request.log.resources.resource.careUnit.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","Vårdenhetens namn","Vårdenhetens namn","","","","","","","","","",,,,,"",,,,"storelog-request.log.resources.resource.careUnit.careUnitName",0,1,"",""
+"storelog","storelog","storelog","","","",0,*,"","","","null {[]} {[]}
+","StoreLog","Logisk modell för tjänstekontraktet StoreLog
+(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).
+Representerar responsens informationsstruktur (log.store:Result).
+Tjänsten sparar en eller flera loggposter i loggtjänsten för att möjliggöra
+uppföljning enligt PDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"storelog","storelog.ResultType","storelog.ResultType","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","ResultType","","","","","","","","","",,,,,"",,,,"storelog.ResultType",1,1,"",""
+"storelog","storelog.ResultType.ResultCode","storelog.ResultType.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs","",,,,"storelog.ResultType.ResultCode",1,1,"",""
+"storelog","storelog.ResultType.ResultText","storelog.ResultType.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"storelog.ResultType.ResultText",1,1,"",""

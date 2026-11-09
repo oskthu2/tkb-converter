@@ -1,0 +1,437 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"IIType","IIType","IIType","","","",0,*,"","","","null {[]} {[]}
+","IIType","IIType enligt domänens schema: den gemensamma RIV-TA-typen IIType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"IIType","IIType.root","IIType.root","","","",1,1,"","","","string {[]} {[]}
+","root","Identifierarens namnrymd, oftast ett OID (t.ex. 1.2.752.129.2.1.4.1 för HSA-id) eller ett UUID. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"IIType.root",1,1,"",""
+"IIType","IIType.extension","IIType.extension","","","",1,1,"","","","string {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"",,,,"IIType.extension",0,1,"",""
+"PartialTimeStampValueType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-partialtimestampvaluetype-pattern:PartialTimeStampValueType ska följa mönstret i schemat: -?([1-9][0-9]{3}|0[0-9]{3})((0[1-9]|1[0-2])((0[1-9]|[12][0-9]|3[01]))?(((0[0-9]|1[0-9]|2[0123]))?([0-5])([0-9])([0-5])([0-9]))?)? {matches('^(?:(?:-?([1-9][0-9]{3}|0[0-9]{3})((0[1-9]|1[0-2])((0[1-9]|[12][0-9]|3[01]))?(((0[0-9]|1[0-9]|2[0123]))?([0-5])([0-9])([0-5])([0-9]))?)?))$')}"
+"PartialTimeStampValueType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"PartialTimeStampValueType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"PartialTimeStampValueType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"UUIDType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-uuidtype-pattern:UUIDType ska följa mönstret i schemat: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[8-9a-bA-B][0-9a-fA-F]{3}-[0-9a-fA-F]{12} {matches('^(?:(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[8-9a-bA-B][0-9a-fA-F]{3}-[0-9a-fA-F]{12}))$')}"
+"UUIDType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"UUIDType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"UUIDType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"getobservations-request","getobservations-request","getobservations-request","","","",0,*,"","","","null {[]} {[]}
+","GetObservations — Request","Logisk modell för begäran i tjänstekontraktet GetObservations 1.2
+(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations).
+Den enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1).
+En begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getobservations-request","getobservations-request.patientId","getobservations-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","patientId","Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.
+
+Regel 1.1","TKB-fält: `patientId` (`IIType`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getobservations-request.patientId",1,1,"",""
+"getobservations-request","getobservations-request.time","getobservations-request.time","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","time","Begränsar sökningen till det angivna intervallet. Om tidsattributet Observation.Time i svaret är en tidpunkt innebär begränsningen att endast poster returneras där Observation.Time i svaret ligger inom sökintervallets start- och sluttidpunkt.
+
+Om tidsattributet Observation.Time i svaret är ett intervall innebär begränsningen att endast poster returneras där tidsintervallet som anges i attributet Observation.Time i svaret, överlappar med det angivna sökintervallet, dvs.
+
+det bildade intervallets starttidpunkt ligger inom sökintervallets start- och sluttidpunkt
+
+det bildade intervallets sluttidpunkt ligger inom sökintervallets start- och sluttidpunkt
+
+det bildade intervallets starttidpunkt ligger före sökintervallets starttidpunkt och sluttidpunkt ligger efter sökintervallets sluttidpunkt","TKB-fält: `time` (`TimePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.time",0,1,"",""
+"getobservations-request","getobservations-request.observationType","getobservations-request.observationType","","","",0,*,"","","","Base {[]} {[]}
+","CVType","Begränsning av sökning avseende observationen till en viss typ av värde som man vill titta närmare på, t.ex. kliniskt fynd eller diagnoser.","TKB-fält: `observationType` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType",0,*,"",""
+"getobservations-request","getobservations-request.observationType.code","getobservations-request.observationType.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för observationstyp","TKB-fält: `observationType.code` (`String`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.code",1,1,"",""
+"getobservations-request","getobservations-request.observationType.codeSystem","getobservations-request.observationType.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodsystem för angiven kod för observationstyp.","TKB-fält: `observationType.codeSystem` (`String`, kardinalitet 1).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.codeSystem",1,1,"",""
+"getobservations-request","getobservations-request.observationType.codeSystemName","getobservations-request.observationType.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `observationType.codeSystemName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.codeSystemName",0,1,"",""
+"getobservations-request","getobservations-request.observationType.codeSystemVersion","getobservations-request.observationType.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Ska ignoreras i begäran och ej skickas.","TKB-fält: `observationType.codeSystemVersion` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.codeSystemVersion",0,1,"",""
+"getobservations-request","getobservations-request.observationType.displayName","getobservations-request.observationType.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `observationType.displayName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.observationType.displayName",0,1,"",""
+"getobservations-request","getobservations-request.observationId","getobservations-request.observationId","","","",0,*,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","observationId","Ett unikt värde för själva observationen som också refererar till vilket källsystem informationen kommer ifrån. Motsvarar observation/id i svaret.","TKB-fält: `observationId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations-request.observationId",0,*,"",""
+"getobservations-request","getobservations-request.careGiverId","getobservations-request.careGiverId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","careGiverId","Används när man vill söka hos en specifik vårdgivare.","TKB-fält: `careGiverId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.careGiverId",0,1,"",""
+"getobservations-request","getobservations-request.careUnitId","getobservations-request.careUnitId","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","careUnitId","Begränsning av sökning mha HSAid för (PDL) vårdenhet som har ansvar för dokumentationen av obdervationen/observationerna.","TKB-fält: `careUnitId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.careUnitId",0,1,"",""
+"getobservations-request","getobservations-request.interactionAgreementId","getobservations-request.interactionAgreementId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/UUIDType]]} {[]}
+","interactionAgreementId","Detta attribut används inte. Ange UUID
+
+2866a7c4-9c60-433f-9035-a4d779ffe7a1","TKB-fält: `interactionAgreementId` (`UUIDType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations-request.interactionAgreementId",1,1,"",""
+"getobservations-request","getobservations-request.sourceSystemHSAId","getobservations-request.sourceSystemHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.  Motsvarar observationGroup/sourceSystem i svaret.","TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.sourceSystemHSAId",0,1,"",""
+"getobservations-request","getobservations-request.relation","getobservations-request.relation","","","",0,*,"","","","Base {[]} {[]}
+","RelationFilterType","Endast de poster med relationer som matchar villkoren i denna lista skall returneras. Om listan är tom filtreras inte observationer på deras relationer.","TKB-fält: `relation` (`RelationFilterType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations-request.relation",0,*,"",""
+"getobservations-request","getobservations-request.relation.id","getobservations-request.relation.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","Filtrera poster på den identitet som anges i sambandet/relationen. Detta ger exempelvis möjlighet att söka ut alla observationer som har en relation till en viss aktivitet.","TKB-fält: `relation.id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.id",0,1,"",""
+"getobservations-request","getobservations-request.relation.typeCode","getobservations-request.relation.typeCode","","","",0,1,"","","","Base {[]} {[]}
+","CVType","Filtrera på sambandstyp","TKB-fält: `relation.typeCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode",0,1,"",""
+"getobservations-request","getobservations-request.relation.typeCode.code","getobservations-request.relation.typeCode.code","","","",1,1,"","","","string {[]} {[]}
+","code","Kod för sambandstyp","TKB-fält: `relation.typeCode.code` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.code",1,1,"",""
+"getobservations-request","getobservations-request.relation.typeCode.codeSystem","getobservations-request.relation.typeCode.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodsystem för sambandstyp","TKB-fält: `relation.typeCode.codeSystem` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.codeSystem",1,1,"",""
+"getobservations-request","getobservations-request.relation.typeCode.codeSystemName","getobservations-request.relation.typeCode.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `relation.typeCode.codeSystemName` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.codeSystemName",0,1,"",""
+"getobservations-request","getobservations-request.relation.typeCode.codeSystemVersion","getobservations-request.relation.typeCode.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Versionsnummer för använt kodsystem.","TKB-fält: `relation.typeCode.codeSystemVersion` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.codeSystemVersion",0,1,"",""
+"getobservations-request","getobservations-request.relation.typeCode.displayName","getobservations-request.relation.typeCode.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Ska ignoreras i begäran och ej skickas.","TKB-fält: `relation.typeCode.displayname` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode.displayName",0,1,"",""
+"getobservations-request","getobservations-request.relation.referredInformationType","getobservations-request.relation.referredInformationType","","","",1,1,"","","","string {[]} {[]}
+","referredInformationType","Den typ av uppgift i patientjournal som sambandet pekar ut. Detta är en kod från Categorization i engagemangsindexposten. I denna version av tjänstekontraktet är följande typer möjliga:
+
+chb-o  (observation)
+
+caa-a (aktivitet)","TKB-fält: `relation. referredInformationType` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations-request.relation.referredInformationType",1,1,"",""
+"getobservations","getobservations","getobservations","","","",0,*,"","","","null {[]} {[]}
+","GetObservations","Logisk modell för tjänstekontraktet GetObservations 1.2
+(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservationsResponse).
+Representerar svarets informationsstruktur: grupper av observationer (observationGroup) som delar patient,
+utförare, signerare, ytterligare deltagare och källsystem. Meddelandemodellen V-MIM – Observationer
+(TKB avsnitt 5.1) motsvarar svarsmeddelandet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getobservations","getobservations.observationGroup","getobservations.observationGroup","","","",0,*,"","","","Base {[]} {[]}
+","ObservationGroupType","Grupp av observationer som delar samma patient, utförare (m. tillhörande organisatorisk knytning), signerare, ytterligare deltagare, källsystem, vårdprocess-id, utrustning, samt plats. Denna nivå är framförallt till för att kunna begränsa mängden redundant data i överföringen i de fall då flera observationer gjorts med samma medverkande (exempelvis mätning av systoliskt och diastoliskt blodtryck). Denna klass är en teknisk optimering som inte speglas i NI 2015:1.","TKB-fält: `observationGroup` (`ObservationGroupType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup",0,*,"",""
+"getobservations","getobservations.observationGroup.patient","getobservations.observationGroup.patient","","","",1,1,"","","","Base {[]} {[]}
+","PatientType","Den patient som observationsgruppen avser.","TKB-fält: `patient` (`PatientType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient",1,1,"",""
+"getobservations","getobservations.observationGroup.patient.id","getobservations.observationGroup.patient.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.id",1,1,"",""
+"getobservations","getobservations.observationGroup.patient.name","getobservations.observationGroup.patient.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.name",0,1,"",""
+"getobservations","getobservations.observationGroup.patient.dateOfBirth","getobservations.observationGroup.patient.dateOfBirth","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","dateOfBirth","dateOfBirth","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.dateOfBirth",1,1,"",""
+"getobservations","getobservations.observationGroup.patient.gender","getobservations.observationGroup.patient.gender","","","",0,1,"","","","Base {[]} {[]}
+","CVType","gender","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.gender",0,1,"",""
+"getobservations","getobservations.observationGroup.patient.gender.code","getobservations.observationGroup.patient.gender.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.gender.code",1,1,"",""
+"getobservations","getobservations.observationGroup.patient.gender.codeSystem","getobservations.observationGroup.patient.gender.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.gender.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.patient.gender.codeSystemName","getobservations.observationGroup.patient.gender.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.gender.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.patient.gender.codeSystemVersion","getobservations.observationGroup.patient.gender.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.gender.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.patient.gender.displayName","getobservations.observationGroup.patient.gender.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.patient.gender.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole","getobservations.observationGroup.performerRole","","","",1,1,"","","","Base {[]} {[]}
+","PerformerRoleType","Den som utfört observationerna inom gruppen.","TKB-fält: `performerRole` (`PerformerRoleType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole",1,1,"","getobservations-performer-careunit:Regel 2.1: careUnit ska endast anges då utföraren är hälso- och sjukvårdspersonal (performerRole.id angivet med HSA-id). {careUnit.exists() implies id.exists()}
+"
+"getobservations","getobservations.observationGroup.performerRole.id","getobservations.observationGroup.performerRole.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.id",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.code","getobservations.observationGroup.performerRole.code","","","",1,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.code",1,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.code.code","getobservations.observationGroup.performerRole.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.code.code",1,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.code.codeSystem","getobservations.observationGroup.performerRole.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.code.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.code.codeSystemName","getobservations.observationGroup.performerRole.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.code.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.code.codeSystemVersion","getobservations.observationGroup.performerRole.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.code.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.code.displayName","getobservations.observationGroup.performerRole.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.code.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.person","getobservations.observationGroup.performerRole.person","","","",0,1,"","","","Base {[]} {[]}
+","PersonType","person","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.person",0,1,"","getobservations-person-id-or-name:Om person.id inte anges måste person.name vara angiven (regel 2.1). {id.exists() or name.exists()}
+"
+"getobservations","getobservations.observationGroup.performerRole.person.id","getobservations.observationGroup.performerRole.person.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.person.id",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.person.name","getobservations.observationGroup.performerRole.person.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.person.name",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.careUnit","getobservations.observationGroup.performerRole.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","careUnit","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.careUnit",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.careUnit.id","getobservations.observationGroup.performerRole.careUnit.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.careUnit.id",1,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.careUnit.name","getobservations.observationGroup.performerRole.careUnit.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.careUnit.name",0,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.careUnit.careGiver","getobservations.observationGroup.performerRole.careUnit.careGiver","","","",1,1,"","","","Base {[]} {[]}
+","CareGiverType","careGiver","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.careUnit.careGiver",1,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.careUnit.careGiver.id","getobservations.observationGroup.performerRole.careUnit.careGiver.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.careUnit.careGiver.id",1,1,"",""
+"getobservations","getobservations.observationGroup.performerRole.careUnit.careGiver.name","getobservations.observationGroup.performerRole.careUnit.careGiver.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.performerRole.careUnit.careGiver.name",0,1,"",""
+"getobservations","getobservations.observationGroup.legalAuthenticator","getobservations.observationGroup.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Den som signerat observationerna inom gruppen.","TKB-fält: `legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.legalAuthenticator",0,1,"","getobservations-legalauthenticator-id-or-name:Regel 2.3: Minst ett av attributen LegalAuthenticator.id eller LegalAuthenticator.name ska anges. {id.exists() or name.exists()}
+"
+"getobservations","getobservations.observationGroup.legalAuthenticator.id","getobservations.observationGroup.legalAuthenticator.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.legalAuthenticator.id",0,1,"",""
+"getobservations","getobservations.observationGroup.legalAuthenticator.time","getobservations.observationGroup.legalAuthenticator.time","","","",1,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","time","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.legalAuthenticator.time",1,1,"",""
+"getobservations","getobservations.observationGroup.legalAuthenticator.time.format","getobservations.observationGroup.legalAuthenticator.time.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.legalAuthenticator.time.format",1,1,"",""
+"getobservations","getobservations.observationGroup.legalAuthenticator.time.value","getobservations.observationGroup.legalAuthenticator.time.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.legalAuthenticator.time.value",1,1,"",""
+"getobservations","getobservations.observationGroup.legalAuthenticator.name","getobservations.observationGroup.legalAuthenticator.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.legalAuthenticator.name",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant","getobservations.observationGroup.additionalParticipant","","","",0,*,"","","","Base {[]} {[]}
+","AdditionalParticipantType","Övriga deltagare relaterat till observationerna inom gruppen.","TKB-fält: `additionalParticipant` (`AdditionalParticipantType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant",0,*,"","getobservations-participant-one-kind:Endast en av person, organisation, device och location får anges för en ytterligare deltagare. {(person.count() + organisation.count() + device.count() + location.count()) <= 1}
+"
+"getobservations","getobservations.observationGroup.additionalParticipant.id","getobservations.observationGroup.additionalParticipant.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.id",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.type","getobservations.observationGroup.additionalParticipant.type","","","",1,1,"","","","Base {[]} {[]}
+","CVType","type","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.type",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.type.code","getobservations.observationGroup.additionalParticipant.type.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.type.code",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.type.codeSystem","getobservations.observationGroup.additionalParticipant.type.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.type.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.type.codeSystemName","getobservations.observationGroup.additionalParticipant.type.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.type.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.type.codeSystemVersion","getobservations.observationGroup.additionalParticipant.type.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.type.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.type.displayName","getobservations.observationGroup.additionalParticipant.type.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.type.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.role","getobservations.observationGroup.additionalParticipant.role","","","",1,1,"","","","Base {[]} {[]}
+","CVType","role","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.role",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.role.code","getobservations.observationGroup.additionalParticipant.role.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.role.code",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.role.codeSystem","getobservations.observationGroup.additionalParticipant.role.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.role.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.role.codeSystemName","getobservations.observationGroup.additionalParticipant.role.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.role.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.role.codeSystemVersion","getobservations.observationGroup.additionalParticipant.role.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.role.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.role.displayName","getobservations.observationGroup.additionalParticipant.role.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.role.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.time","getobservations.observationGroup.additionalParticipant.time","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","time","time","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.time",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.person","getobservations.observationGroup.additionalParticipant.person","","","",0,1,"","","","Base {[]} {[]}
+","PersonType","person","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.person",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.person.id","getobservations.observationGroup.additionalParticipant.person.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.person.id",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.person.name","getobservations.observationGroup.additionalParticipant.person.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.person.name",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.organisation","getobservations.observationGroup.additionalParticipant.organisation","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","organisation","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.organisation",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.organisation.id","getobservations.observationGroup.additionalParticipant.organisation.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.organisation.id",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.organisation.name","getobservations.observationGroup.additionalParticipant.organisation.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.organisation.name",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device","getobservations.observationGroup.additionalParticipant.device","","","",0,1,"","","","Base {[]} {[]}
+","DeviceType","device","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.id","getobservations.observationGroup.additionalParticipant.device.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.id",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.type","getobservations.observationGroup.additionalParticipant.device.type","","","",0,1,"","","","Base {[]} {[]}
+","CVType","type","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.type",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.type.code","getobservations.observationGroup.additionalParticipant.device.type.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.type.code",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.type.codeSystem","getobservations.observationGroup.additionalParticipant.device.type.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.type.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.type.codeSystemName","getobservations.observationGroup.additionalParticipant.device.type.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.type.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.type.codeSystemVersion","getobservations.observationGroup.additionalParticipant.device.type.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.type.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.type.displayName","getobservations.observationGroup.additionalParticipant.device.type.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.type.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model","getobservations.observationGroup.additionalParticipant.device.model","","","",0,1,"","","","Base {[]} {[]}
+","SCType","model","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.code","getobservations.observationGroup.additionalParticipant.device.model.code","","","",0,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.code",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.code.code","getobservations.observationGroup.additionalParticipant.device.model.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.code.code",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.code.codeSystem","getobservations.observationGroup.additionalParticipant.device.model.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.code.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.code.codeSystemName","getobservations.observationGroup.additionalParticipant.device.model.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.code.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.code.codeSystemVersion","getobservations.observationGroup.additionalParticipant.device.model.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.code.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.code.displayName","getobservations.observationGroup.additionalParticipant.device.model.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.code.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.device.model.value","getobservations.observationGroup.additionalParticipant.device.model.value","","","",0,1,"","","","string {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.device.model.value",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location","getobservations.observationGroup.additionalParticipant.location","","","",0,1,"","","","Base {[]} {[]}
+","LocationType","location","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.id","getobservations.observationGroup.additionalParticipant.location.id","","","",0,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.id",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.name","getobservations.observationGroup.additionalParticipant.location.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.name",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.address","getobservations.observationGroup.additionalParticipant.location.address","","","",0,*,"","","","Base {[]} {[]}
+","AddressType","address","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.address",0,*,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.address.use","getobservations.observationGroup.additionalParticipant.location.address.use","","","",0,1,"","","","code {[]} {[]}
+","use","use Tillåtna värden: PHYS, H, HV, WP, TMP.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/postaladdressuse-vs","",,,,"getobservations.observationGroup.additionalParticipant.location.address.use",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.address.part","getobservations.observationGroup.additionalParticipant.location.address.part","","","",1,*,"","","","Base {[]} {[]}
+","AddressPartType","part","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.address.part",1,*,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.address.part.value","getobservations.observationGroup.additionalParticipant.location.address.part.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.address.part.value",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.address.part.type","getobservations.observationGroup.additionalParticipant.location.address.part.type","","","",0,1,"","","","code {[]} {[]}
+","type","type Tillåtna värden: SAL, CAR, CEN, CNT, CPA, CTY, POB, ZIP, PRE, STA.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/addressparttype-vs","",,,,"getobservations.observationGroup.additionalParticipant.location.address.part.type",0,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.electronicAddress","getobservations.observationGroup.additionalParticipant.location.electronicAddress","","","",0,*,"","","","Base {[]} {[]}
+","TelType","electronicAddress","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.electronicAddress",0,*,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.electronicAddress.use","getobservations.observationGroup.additionalParticipant.location.electronicAddress.use","","","",1,1,"","","","code {[]} {[]}
+","use","use Tillåtna värden: voice, fax, data, sms.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/teltype-vs","",,,,"getobservations.observationGroup.additionalParticipant.location.electronicAddress.use",1,1,"",""
+"getobservations","getobservations.observationGroup.additionalParticipant.location.electronicAddress.value","getobservations.observationGroup.additionalParticipant.location.electronicAddress.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.additionalParticipant.location.electronicAddress.value",1,1,"",""
+"getobservations","getobservations.observationGroup.sourceSystem","getobservations.observationGroup.sourceSystem","","","",1,1,"","","","Base {[]} {[]}
+","SourceSystemType","Källsystem som observationsgruppen lagras i.","TKB-fält: `sourceSystem` (`SourceSystemType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.sourceSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.sourceSystem.id","getobservations.observationGroup.sourceSystem.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.sourceSystem.id",1,1,"",""
+"getobservations","getobservations.observationGroup.observation","getobservations.observationGroup.observation","","","",1,*,"","","","Base {[]} {[]}
+","ObservationType","De observationer som ligger inom denna grupp av observationer.","TKB-fält: `observation` (`ObservationType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation",1,*,"","getobservations-status-not-used:TKB: status har kardinalitet 0..0 — denna version av specifikationen tillåter endast faktiskt utförda observationer (schemat tillåter 0..1). {status.empty()}
+"
+"getobservations","getobservations.observationGroup.observation.id","getobservations.observationGroup.observation.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.id",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.type","getobservations.observationGroup.observation.type","","","",1,1,"","","","Base {[]} {[]}
+","CVType","type","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.type",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.type.code","getobservations.observationGroup.observation.type.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.type.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.type.codeSystem","getobservations.observationGroup.observation.type.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.type.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.type.codeSystemName","getobservations.observationGroup.observation.type.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.type.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.type.codeSystemVersion","getobservations.observationGroup.observation.type.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.type.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.type.displayName","getobservations.observationGroup.observation.type.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.type.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.status","getobservations.observationGroup.observation.status","","","",0,1,"","","","Base {[]} {[]}
+","CVType","status","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.status",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.status.code","getobservations.observationGroup.observation.status.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.status.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.status.codeSystem","getobservations.observationGroup.observation.status.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.status.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.status.codeSystemName","getobservations.observationGroup.observation.status.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.status.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.status.codeSystemVersion","getobservations.observationGroup.observation.status.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.status.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.status.displayName","getobservations.observationGroup.observation.status.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.status.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.time","getobservations.observationGroup.observation.time","","","",1,1,"","","","Base {[]} {[]}
+","PartialTimePeriodType","time","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.time",1,1,"","getobservations-period-bound:Minst en av start och end måste vara angiven. {start.exists() or end.exists()}
+"
+"getobservations","getobservations.observationGroup.observation.time.start","getobservations.observationGroup.observation.time.start","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","start","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.time.start",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.time.start.format","getobservations.observationGroup.observation.time.start.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.observation.time.start.format",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.time.start.value","getobservations.observationGroup.observation.time.start.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.time.start.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.time.end","getobservations.observationGroup.observation.time.end","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","end","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.time.end",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.time.end.format","getobservations.observationGroup.observation.time.end.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.observation.time.end.format",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.time.end.value","getobservations.observationGroup.observation.time.end.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.time.end.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.method","getobservations.observationGroup.observation.method","","","",0,1,"","","","Base {[]} {[]}
+","CVType","method","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.method",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.method.code","getobservations.observationGroup.observation.method.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.method.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.method.codeSystem","getobservations.observationGroup.observation.method.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.method.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.method.codeSystemName","getobservations.observationGroup.observation.method.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.method.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.method.codeSystemVersion","getobservations.observationGroup.observation.method.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.method.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.method.displayName","getobservations.observationGroup.observation.method.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.method.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value","getobservations.observationGroup.observation.value","","","",1,1,"","","","Base {[]} {[]}
+","ValueANYType","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value",1,1,"","getobservations-value-one-type:En och endast en av huvudtyperna cv, pq, ivl_pq, ts och ivl_ts ska anges i value (ValueANYType). {(cv.count() + pq.count() + ivl_pq.count() + ts.count() + ivl_ts.count()) = 1}
+"
+"getobservations","getobservations.observationGroup.observation.value.pq","getobservations.observationGroup.observation.value.pq","","","",0,1,"","","","Base {[]} {[]}
+","PQType","pq","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.pq",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.pq.value","getobservations.observationGroup.observation.value.pq.value","","","",1,1,"","","","decimal {[]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.pq.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.pq.unit","getobservations.observationGroup.observation.value.pq.unit","","","",1,1,"","","","string {[]} {[]}
+","unit","unit","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.pq.unit",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ts","getobservations.observationGroup.observation.value.ts","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","ts","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ts",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ts.format","getobservations.observationGroup.observation.value.ts.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.observation.value.ts.format",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ts.value","getobservations.observationGroup.observation.value.ts.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ts.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts","getobservations.observationGroup.observation.value.ivl_ts","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimePeriodType","ivl_ts","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_ts",0,1,"","getobservations-period-bound:Minst en av start och end måste vara angiven. {start.exists() or end.exists()}
+"
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts.start","getobservations.observationGroup.observation.value.ivl_ts.start","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","start","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_ts.start",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts.start.format","getobservations.observationGroup.observation.value.ivl_ts.start.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.observation.value.ivl_ts.start.format",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts.start.value","getobservations.observationGroup.observation.value.ivl_ts.start.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_ts.start.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts.end","getobservations.observationGroup.observation.value.ivl_ts.end","","","",0,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","end","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_ts.end",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts.end.format","getobservations.observationGroup.observation.value.ivl_ts.end.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.observation.value.ivl_ts.end.format",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-ts.end.value","getobservations.observationGroup.observation.value.ivl_ts.end.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_ts.end.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.cv","getobservations.observationGroup.observation.value.cv","","","",0,1,"","","","Base {[]} {[]}
+","CVType","cv","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.cv",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.cv.code","getobservations.observationGroup.observation.value.cv.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.cv.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.cv.codeSystem","getobservations.observationGroup.observation.value.cv.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.cv.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.cv.codeSystemName","getobservations.observationGroup.observation.value.cv.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.cv.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.cv.codeSystemVersion","getobservations.observationGroup.observation.value.cv.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.cv.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.cv.displayName","getobservations.observationGroup.observation.value.cv.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.cv.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-pq","getobservations.observationGroup.observation.value.ivl_pq","","","",0,1,"","","","Base {[]} {[]}
+","PQIntervalType","ivl_pq","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_pq",0,1,"","getobservations-ivlpq-bound:Minst ett av fälten low och high måste anges i ivl_pq. {low.exists() or high.exists()}
+"
+"getobservations","getobservations.observationGroup.observation.value.ivl-pq.low","getobservations.observationGroup.observation.value.ivl_pq.low","","","",0,1,"","","","decimal {[]} {[]}
+","low","low","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_pq.low",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-pq.lowClosed","getobservations.observationGroup.observation.value.ivl_pq.lowClosed","","","",0,1,"","","","boolean {[]} {[]}
+","lowClosed","lowClosed","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_pq.lowClosed",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-pq.high","getobservations.observationGroup.observation.value.ivl_pq.high","","","",0,1,"","","","decimal {[]} {[]}
+","high","high","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_pq.high",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-pq.highClosed","getobservations.observationGroup.observation.value.ivl_pq.highClosed","","","",0,1,"","","","boolean {[]} {[]}
+","highClosed","highClosed","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_pq.highClosed",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.value.ivl-pq.unit","getobservations.observationGroup.observation.value.ivl_pq.unit","","","",1,1,"","","","string {[]} {[]}
+","unit","unit","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.value.ivl_pq.unit",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.targetSite","getobservations.observationGroup.observation.targetSite","","","",0,1,"","","","Base {[]} {[]}
+","CVType","targetSite","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.targetSite",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.targetSite.code","getobservations.observationGroup.observation.targetSite.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.targetSite.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.targetSite.codeSystem","getobservations.observationGroup.observation.targetSite.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.targetSite.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.targetSite.codeSystemName","getobservations.observationGroup.observation.targetSite.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.targetSite.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.targetSite.codeSystemVersion","getobservations.observationGroup.observation.targetSite.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.targetSite.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.targetSite.displayName","getobservations.observationGroup.observation.targetSite.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.targetSite.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.valueNegation","getobservations.observationGroup.observation.valueNegation","","","",1,1,"","","","boolean {[]} {[]}
+","valueNegation","valueNegation","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.valueNegation",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.description","getobservations.observationGroup.observation.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.description",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.approvedForPatient","getobservations.observationGroup.observation.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","approvedForPatient","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.approvedForPatient",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.registrationTime","getobservations.observationGroup.observation.registrationTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","registrationTime","registrationTime","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.registrationTime",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation","getobservations.observationGroup.observation.relation","","","",0,*,"","","","Base {[]} {[]}
+","RelationType","relation","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation",0,*,"",""
+"getobservations","getobservations.observationGroup.observation.relation.code","getobservations.observationGroup.observation.relation.code","","","",1,1,"","","","Base {[]} {[]}
+","CVType","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.code.code","getobservations.observationGroup.observation.relation.code.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.code.code",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.code.codeSystem","getobservations.observationGroup.observation.relation.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","codeSystem","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.code.codeSystem",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.code.codeSystemName","getobservations.observationGroup.observation.relation.code.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","codeSystemName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.code.codeSystemName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.code.codeSystemVersion","getobservations.observationGroup.observation.relation.code.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","codeSystemVersion","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.code.codeSystemVersion",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.code.displayName","getobservations.observationGroup.observation.relation.code.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.code.displayName",0,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation","getobservations.observationGroup.observation.relation.referredInformation","","","",1,1,"","","","Base {[]} {[]}
+","ReferredInformationType","referredInformation","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.id","getobservations.observationGroup.observation.relation.referredInformation.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation.id",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.time","getobservations.observationGroup.observation.relation.referredInformation.time","","","",1,1,"","","","Base {[]} {[]}
+","PartialTimeStampType","time","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation.time",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.time.format","getobservations.observationGroup.observation.relation.referredInformation.time.format","","","",1,1,"","","","code {[]} {[]}
+","format","format Tillåtna värden: YYYY, YYYYMM, YYYYMMDD, YYYYMMDDhh, YYYYMMDDhhmm, YYYYMMDDhhmmss.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ValueSet/timestamptypeformat-vs","",,,,"getobservations.observationGroup.observation.relation.referredInformation.time.format",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.time.value","getobservations.observationGroup.observation.relation.referredInformation.time.value","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/PartialTimeStampValueType]]} {[]}
+","value","value","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation.time.value",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.type","getobservations.observationGroup.observation.relation.referredInformation.type","","","",1,1,"","","","string {[]} {[]}
+","type","type","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation.type",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.informationOwner","getobservations.observationGroup.observation.relation.referredInformation.informationOwner","","","",1,1,"","","","Base {[]} {[]}
+","InformationOwnerType","informationOwner","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation.informationOwner",1,1,"",""
+"getobservations","getobservations.observationGroup.observation.relation.referredInformation.informationOwner.id","getobservations.observationGroup.observation.relation.referredInformation.informationOwner.id","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/IIType {[]} {[]}
+","id","id","","","","","","","","","",,,,,"",,,,"getobservations.observationGroup.observation.relation.referredInformation.informationOwner.id",1,1,"",""

@@ -1,0 +1,28 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"listmessages","listmessages","","","",0,*,"","","","null {[]} {[]}
+","ListMessages — Response","Logisk modell för svaret i ListMessages
+(urn:riv:infrastructure:itintegration:messagebox:ListMessagesResponder:1, ListMessagesResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"listmessages.result","listmessages.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Resultat","TKB-fält: `result` (kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listmessages.result",1,1,"",""
+"listmessages.result.code","listmessages.result.code","","","",1,1,"","","","code {[]} {[]}
+","code","Information om anropet gick bra(OK, ERROR, INFO)","TKB-fält: `result.code` (`string`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/ValueSet/messagebox-resultcode-vs","",,,,"listmessages.result.code",1,1,"",""
+"listmessages.result.errorId","listmessages.result.errorId","","","",0,1,"","","","integer {[]} {[]}
+","errorId","Enda möjliga är 1=INTERNAL","TKB-fält: `result.errorId` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"listmessages.result.errorId",0,1,"",""
+"listmessages.result.errorMessage","listmessages.result.errorMessage","","","",0,1,"","","","string {[]} {[]}
+","errorMessage","Text som ytterliggare beskriver felet","TKB-fält: `result.errorMessage` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"listmessages.result.errorMessage",0,1,"",""
+"listmessages.messageMetas","listmessages.messageMetas","","","",0,*,"","","","Base {[]} {[]}
+","MessageMetaType","messageMetas","TKB-fält: `messageMetas` (kardinalitet 0..n).","","","","","","","","",,,,,"",,,,"listmessages.messageMetas",0,*,"",""
+"listmessages.messageMetas.messageId","listmessages.messageMetas.messageId","","","",1,1,"","","","string {[]} {[]}
+","messageId","Meddelandeidentitet","TKB-fält: `messageMetas.messageId` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listmessages.messageMetas.messageId",1,1,"",""
+"listmessages.messageMetas.targetOrganization","listmessages.messageMetas.targetOrganization","","","",1,1,"","","","string {[]} {[]}
+","targetOrganization","Verksamhet","TKB-fält: `messageMetas.targetOrganization` (`logicalAdressType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listmessages.messageMetas.targetOrganization",1,1,"",""
+"listmessages.messageMetas.serviceContractType","listmessages.messageMetas.serviceContractType","","","",1,1,"","","","string {[]} {[]}
+","serviceContractType","Tjänstekontrakt","TKB-fält: `messageMetas.serviceContractType` (`ServiceContractType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listmessages.messageMetas.serviceContractType",1,1,"",""
+"listmessages.messageMetas.messageSize","listmessages.messageMetas.messageSize","","","",1,1,"","","","string {[]} {[]}
+","messageSize","Meddelandestorlek (bytes)","TKB-fält: `messageMetas.messageSize` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listmessages.messageMetas.messageSize",1,1,"",""
+"listmessages.messageMetas.arrivalTime","listmessages.messageMetas.arrivalTime","","","",1,1,"","","","dateTime {[]} {[]}
+","arrivalTime","Ankomsttid för meddelandet","TKB-fält: `messageMetas.arrivalTime` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listmessages.messageMetas.arrivalTime",1,1,"",""
+"listmessages.messageMetas.status","listmessages.messageMetas.status","","","",1,1,"","","","code {[]} {[]}
+","status","Status på meddelandet","TKB-fält: `messageMetas.status` (`MessageStatusType`, kardinalitet 1..1).
+
+**Modellanteckning:** status Tillåtna värden: RECEIVED, RETRIEVED, DELETED.","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/ValueSet/messagebox-messagestatus-vs","",,,,"listmessages.messageMetas.status",1,1,"",""

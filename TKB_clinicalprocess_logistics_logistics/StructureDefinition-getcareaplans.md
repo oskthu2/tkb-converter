@@ -1,0 +1,376 @@
+# GetCarePlans - clinicalprocess: logistics: logistics v3.0.13
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCarePlans**
+
+## Logical Model: GetCarePlans 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetCarePlans |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetCarePlans (RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2). Representerar responsens informationsstruktur (GetCarePlansResponseType). En lista med CarePlanType returneras, var och en med ett header och ett body. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-logistics-logistics|current/StructureDefinition/StructureDefinition-getcareaplans.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcareaplans.csv), [Excel](StructureDefinition-getcareaplans.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcareaplans",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans",
+  "version" : "2.0",
+  "name" : "GetCarePlans",
+  "title" : "GetCarePlans",
+  "status" : "active",
+  "date" : "2026-11-09T03:24:16+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetCarePlans\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).\nRepresenterar responsens informationsstruktur (GetCarePlansResponseType).\nEn lista med CarePlanType returneras, var och en med ett header och ett body.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcareaplans",
+      "path" : "getcareaplans",
+      "short" : "GetCarePlans",
+      "definition" : "Logisk modell för tjänstekontraktet GetCarePlans\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).\nRepresenterar responsens informationsstruktur (GetCarePlansResponseType).\nEn lista med CarePlanType returneras, var och en med ett header och ett body."
+    },
+    {
+      "id" : "getcareaplans.carePlan",
+      "path" : "getcareaplans.carePlan",
+      "short" : "CarePlanType",
+      "definition" : "carePlan",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader",
+      "path" : "getcareaplans.carePlan.carePlanHeader",
+      "short" : "PatientSummaryHeaderType",
+      "definition" : "carePlanHeader",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.documentId",
+      "path" : "getcareaplans.carePlan.carePlanHeader.documentId",
+      "short" : "documentId",
+      "definition" : "documentId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.sourceSystemHSAId",
+      "path" : "getcareaplans.carePlan.carePlanHeader.sourceSystemHSAId",
+      "short" : "sourceSystemHSAId",
+      "definition" : "sourceSystemHSAId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.documentTitle",
+      "path" : "getcareaplans.carePlan.carePlanHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "documentTitle",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.documentTime",
+      "path" : "getcareaplans.carePlan.carePlanHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "documentTime",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.patientId",
+      "path" : "getcareaplans.carePlan.carePlanHeader.patientId",
+      "short" : "patientId",
+      "definition" : "patientId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.accountableHealthcareProfessional",
+      "path" : "getcareaplans.carePlan.carePlanHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "accountableHealthcareProfessional",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator",
+      "path" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator",
+      "short" : "LegalAuthenticatorType",
+      "definition" : "legalAuthenticator",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator.signatureTime",
+      "path" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator.signatureTime",
+      "short" : "signatureTime",
+      "definition" : "signatureTime",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "legalAuthenticatorHSAId",
+      "definition" : "legalAuthenticatorHSAId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getcareaplans.carePlan.carePlanHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "legalAuthenticatorName",
+      "definition" : "legalAuthenticatorName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.approvedForPatient",
+      "path" : "getcareaplans.carePlan.carePlanHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "approvedForPatient",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.nullified",
+      "path" : "getcareaplans.carePlan.carePlanHeader.nullified",
+      "short" : "nullified",
+      "definition" : "nullified",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.nullifiedReason",
+      "path" : "getcareaplans.carePlan.carePlanHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "nullifiedReason",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanHeader.careContactId",
+      "path" : "getcareaplans.carePlan.carePlanHeader.careContactId",
+      "short" : "careContactId",
+      "definition" : "careContactId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanBody",
+      "path" : "getcareaplans.carePlan.carePlanBody",
+      "short" : "CarePlanBodyType",
+      "definition" : "carePlanBody",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanBody.content",
+      "path" : "getcareaplans.carePlan.carePlanBody.content",
+      "short" : "content",
+      "definition" : "content",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/MultimediaType"
+      }],
+      "constraint" : [{
+        "key" : "getcareplans-content-xor",
+        "severity" : "error",
+        "human" : "Antingen value eller reference ska anges i content, inte båda",
+        "expression" : "(value.exists() or reference.exists()) and (value.exists().not() or reference.exists().not())",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanBody.participatingCareUnitHSAId",
+      "path" : "getcareaplans.carePlan.carePlanBody.participatingCareUnitHSAId",
+      "short" : "participatingCareUnitHSAId",
+      "definition" : "participatingCareUnitHSAId",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getcareaplans.carePlan.carePlanBody.typeOfCarePlanEnum",
+      "path" : "getcareaplans.carePlan.carePlanBody.typeOfCarePlanEnum",
+      "short" : "typeOfCarePlanEnum",
+      "definition" : "typeOfCarePlanEnum Tillåtna värden: SIP, SPLPTLRV, SPU, VP, HP, RP, GP, SVP.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/typeofcareplan-vs"
+      }
+    },
+    {
+      "id" : "getcareaplans.result",
+      "path" : "getcareaplans.result",
+      "short" : "ResultType",
+      "definition" : "result",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcareaplans.result.resultCode",
+      "path" : "getcareaplans.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "resultCode Tillåtna värden: OK, ERROR, INFO.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcareaplans.result.errorCode",
+      "path" : "getcareaplans.result.errorCode",
+      "short" : "errorCode",
+      "definition" : "errorCode Tillåtna värden: INVALID_REQUEST.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcareaplans.result.logId",
+      "path" : "getcareaplans.result.logId",
+      "short" : "logId",
+      "definition" : "logId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.result.subCode",
+      "path" : "getcareaplans.result.subCode",
+      "short" : "subCode",
+      "definition" : "subCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareaplans.result.message",
+      "path" : "getcareaplans.result.message",
+      "short" : "message",
+      "definition" : "message",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

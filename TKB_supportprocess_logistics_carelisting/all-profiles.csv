@@ -1,0 +1,413 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"CVType","CVType","CVType","","","",0,*,"","","","null {[]} {[]}
+","CVType","CVType enligt domänens schema: den gemensamma RIV-TA-typen CVType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"CVType","CVType.code","CVType.code","","","",1,1,"","","","string {[]} {[]}
+","code","Koden i kodverket. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.code",0,1,"",""
+"CVType","CVType.codeSystem","CVType.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodverkets OID. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystem",0,1,"",""
+"CVType","CVType.codeSystemName","CVType.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Kodverkets namn i klartext. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystemName",0,1,"",""
+"CVType","CVType.codeSystemVersion","CVType.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Kodverkets version. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystemVersion",0,1,"",""
+"CVType","CVType.displayName","CVType.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Kodens klartext enligt kodverket. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.displayName",0,1,"",""
+"CVType","CVType.originalText","CVType.originalText","","","",0,1,"","","","string {[]} {[]}
+","originalText","Fritext när begreppet inte kan anges som kod (då anges inte code och codeSystem). Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.originalText",0,1,"",""
+"createlisting-request","createlisting-request","createlisting-request","","","",0,*,"","","","null {[]} {[]}
+","CreateListing — Request","Logisk modell för begäran i CreateListing
+(urn:riv:supportprocess:logistics:carelisting:CreateListingResponder:2, CreateListingType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"createlisting-request","createlisting-request.actor","createlisting-request.actor","","","",1,1,"","","","Base {[]} {[]}
+","ActorType","Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren. Inga andra aktörer tillåts nyttja detta tjänstekontakt.","TKB-fält: `actor` (`ActorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"createlisting-request.actor",1,1,"",""
+"createlisting-request","createlisting-request.actor.actorId","createlisting-request.actor.actorId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","actorId","Id för den aktören som utför handlingen.","TKB-fält: `actor.actorId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"createlisting-request.actor.actorId",1,1,"",""
+"createlisting-request","createlisting-request.actor.actorType","createlisting-request.actor.actorType","","","",1,1,"","","","code {[]} {[]}
+","actorType","actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.","TKB-fält: `../actorType` (`ActorTypeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-actortype-vs","",,,,"createlisting-request.actor.actorType",1,1,"",""
+"createlisting-request","createlisting-request.personId","createlisting-request.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer","TKB-fält: `personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"createlisting-request.personId",1,1,"",""
+"createlisting-request","createlisting-request.healthcareFacilityHSAId","createlisting-request.healthcareFacilityHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","healthcareFacilityHSAId","Den valda listningsbara mottagningens HSAId.
+
+En producent bör kunna hantera HSAId:n som uttrycks både med versaler eller gemener.
+
+Exempelvis är:
+
+”se12345-xyz” = ”SE12345-XYZ”","TKB-fält: `healthcareFacilityHSAId` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"createlisting-request.healthcareFacilityHSAId",1,1,"",""
+"createlisting-request","createlisting-request.listingType","createlisting-request.listingType","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingType","Kod för listningstyp. Denna kod har tidigare hämtats från de listningstyper som vald region stödjer, exempelvis via tjänstekontraktet GetListingTypes.","TKB-fält: `listingType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"createlisting-request.listingType",1,1,"",""
+"createlisting-request","createlisting-request.healthcarePersonnel","createlisting-request.healthcarePersonnel","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","healthcarePersonnel","Vald vårdpersonals-/husläkares HSAId.
+
+Det är frivilligt för mottagningen att dessutom erbjuda val av vårdpersonal. Mottagningens valbara vårdpersonal fås genom tjänstekontraktet GetAvailableHealthcarePersonnel.
+
+Observera:
+
+Om invånaren redan är listad på mottagningen sedan tidigare ska detta anrop ses som att invånaren endast vill förändra sitt val av fast läkarkontakt.","TKB-fält: `healthcarePersonnel` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"createlisting-request.healthcarePersonnel",0,1,"",""
+"createlisting-request","createlisting-request.addToQueue","createlisting-request.addToQueue","","","",0,1,"","","","boolean {[]} {[]}
+","addToQueue","Förmedlar om invånare vill ställa sig i kö om den tilltänkta listningsbara mottagningen inte tillåts ta emot mer än ett maximalt antal listade invånare och om mottagningen erbjuder möjlighet att ställa sig i listningskö. Huruvida en mottagning erbjuder listningskö eller inte kan hämtas via tjänstekontraktet GetAvailableHealthcareFacilities.
+
+”TRUE” = Invånare vill ställa sig i listningskö.
+
+”FALSE” eller att attributet är utelämnat = Invånare vill inte ställa sig i listningskö eller vill gå ur kön.
+
+Observera:
+
+Om invånaren redan står i kö på denna mottagning och addToQueue = FALSE ska detta tolkas som att invånaren vill gå ur kön.","TKB-fält: `addToQueue` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"createlisting-request.addToQueue",0,1,"",""
+"createlisting-request","createlisting-request.homeCounty","createlisting-request.homeCounty","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","homeCounty","Invånares folkbokföringsregion.
+
+Kan utelämnas om listningen gäller i hemregionen (folkbokföringsregionen), d v s om
+
+logicalAddress = folkbokföringsregion
+
+och
+
+healthcareFacilityHSAId pekar på en mottagning som har vårdavtal med regionen och är listningsbar där.
+
+Annars är fältet obligatoriskt.","TKB-fält: `homeCounty` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"createlisting-request.homeCounty",0,1,"",""
+"createlisting-request","createlisting-request.newListingCounty","createlisting-request.newListingCounty","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","newListingCounty","Pålistningsregion, d v s den region där vald mottagning har ett vårdavtal och är listningsbar i.
+
+Kan utelämnas om listningen gäller i hemregionen (folkbokföringsregionen)","TKB-fält: `newListingCounty` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"createlisting-request.newListingCounty",0,1,"",""
+"createlisting","createlisting","createlisting","","","",0,*,"","","","null {[]} {[]}
+","CreateListing — Response","Logisk modell för svaret i CreateListing
+(urn:riv:supportprocess:logistics:carelisting:CreateListingResponder:2, CreateListingResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"createlisting","createlisting.resultCode","createlisting.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan vara OK, INFO, ERROR alternativt något av följande specifika koder (se även resultText nedan):
+
+ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED
+
+ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT
+
+ERROR_GUARDIAN_CONSENT_NEEDED
+
+ERROR_AGE_LIMIT","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"createlisting.resultCode",1,1,"",""
+"createlisting","createlisting.resultText","createlisting.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.
+
+OBSERVERA:
+
+Producent ska returnera specifika felkoder för följande situationer:
+
+Invånares maximalt antal tillåtna omlistningar under en 12-månaders-period har uppnåtts
+
+Den valda vårdenheten som invånare vill lista sig på har uppnått det maximala antalet tillåtna invånare (*)
+
+Omlistningen tillåts inte då det saknas fullvärdigt samtycke (t ex att båda vårdnadshavare har samtyckt om omlistningen)
+
+Invånares ålder är utanför tillåtet åldersspann för listningstypen
+
+(*)
+
+Detta kan inträffa då anropet görs med addToQueue = FALSE och maxtaket för antal tillåtna listningar/invånare på mottagningen uppnåtts. I det fall addToQueue = TRUE och invånare kan placeras i kö ska resultCode=OK returneras.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"createlisting.resultText",0,1,"",""
+"getavailablehealthcarefacilities-request","getavailablehealthcarefacilities-request","getavailablehealthcarefacilities-request","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableHealthcareFacilities — Request","Logisk modell för begäran i GetAvailableHealthcareFacilities
+(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2, GetAvailableHealthcareFacilitiesType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailablehealthcarefacilities-request","getavailablehealthcarefacilities-request.healthcareFacilities","getavailablehealthcarefacilities-request.healthcareFacilities","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","healthcareFacilities","En lista med HSAId:n som tjänstekonsument önskar hämta/filtrera på.
+
+En tjänsteproducent ska kunna hantera HSAId:n som uttrycks både med versaler eller gemener.
+
+Exempelvis är:
+
+”se12345-xyz” = ”SE12345-XYZ”","TKB-fält: `healthcareFacilities` (`HSAIdType / (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities-request.healthcareFacilities",0,*,"",""
+"getavailablehealthcarefacilities-request","getavailablehealthcarefacilities-request.listingTypes","getavailablehealthcarefacilities-request.listingTypes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingTypes","Lista med listningstyper som tjänstekonsument önskar filtrera listningsbara mottagningar på. Se listningstyper i referens [R3]","TKB-fält: `listingTypes` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities-request.listingTypes",0,*,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities","getavailablehealthcarefacilities","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableHealthcareFacilities — Response","Logisk modell för svaret i GetAvailableHealthcareFacilities
+(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2, GetAvailableHealthcareFacilitiesResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities","getavailablehealthcarefacilities.healthcareFacilities","","","",0,*,"","","","Base {[]} {[]}
+","HealthcareFacilityType","Lista med de listningsbara mottagningarna, baserat på filtervärden i begäran.","TKB-fält: `healthcareFacilities` (`HealthcareFacilityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities",0,*,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.id","getavailablehealthcarefacilities.healthcareFacilities.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","id","HSAId för mottagningen
+
+En tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener.
+
+Exempelvis är:
+
+”se12345-xyz” = ”SE12345-XYZ”","TKB-fält: `healthcareFacilities.id` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.id",1,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.name","getavailablehealthcarefacilities.healthcareFacilities.name","","","",1,1,"","","","string {[]} {[]}
+","Namn på vårdenheten.","Namn på vårdenheten","TKB-fält: `healthcareFacilities.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.name",1,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.hasQueue","getavailablehealthcarefacilities.healthcareFacilities.hasQueue","","","",1,1,"","","","boolean {[]} {[]}
+","hasQueue","Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts.
+
+Skall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således:
+
+TRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds
+
+FALSE = För övrigt","TKB-fält: `healthcareFacilities.hasQueue` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.hasQueue",1,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.supportedListingTypes","getavailablehealthcarefacilities.healthcareFacilities.supportedListingTypes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","supportedListingTypes","Lista med olika listningstyper som mottagningen erbjuder.
+
+Om attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.","TKB-fält: `healthcareFacilities.supportedListingTypes` (`CVType`, kardinalitet 0..1).
+
+Obs: modellen anger 0..* där TKB:n anger 0..1.
+
+**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.supportedListingTypes",0,*,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.supportsHealthcarePersonnel","getavailablehealthcarefacilities.healthcareFacilities.supportsHealthcarePersonnel","","","",1,1,"","","","boolean {[]} {[]}
+","supportsHealthcarePersonnel","Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt"".
+
+Det är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent.
+
+TRUE = mottagningen erbjuder fast läkarkontakt.
+
+Utelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.","TKB-fält: `healthcareFacilities.supportsHealthcarePersonnel` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.supportsHealthcarePersonnel",1,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.queueLength","getavailablehealthcarefacilities.healthcareFacilities.queueLength","","","",0,1,"","","","integer {[]} {[]}
+","queueLength","Nytt attribut fr o m version 2.1.
+
+Om mottagningens maxtak på antalet listade invånare har uppnåtts kan mottagningen meddela hur lång kön är just nu.","TKB-fält: `healthcareFacilities.queueLength` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.queueLength",0,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.healthcareFacilities.estimatedWaitInQueue","getavailablehealthcarefacilities.healthcareFacilities.estimatedWaitInQueue","","","",0,1,"","","","integer {[]} {[]}
+","estimatedWaitInQueue","Nytt attribut fr o m version 2.1.
+
+Om mottagningens maxtak på antalet listade invånare har uppnåtts kan mottagningen meddela hur lång den uppskattade väntetiden är tills invånare kan få en listningsplats. Uppskattad väntetid anges i antal dagar och sätts frivilligt av listningssystemet endast då mpttagningens maxtak har uppnåtts och att mottagningen erbjuder kö.","TKB-fält: `healthcareFacilities.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.healthcareFacilities.estimatedWaitInQueue",0,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.resultCode","getavailablehealthcarefacilities.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kod för listningstypen som mottagningen stödjer.","TKB-fält: `healthcareFacilities.supportedListingTypes.code` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getavailablehealthcarefacilities.resultCode",1,1,"",""
+"getavailablehealthcarefacilities","getavailablehealthcarefacilities.resultText","getavailablehealthcarefacilities.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarefacilities.resultText",0,1,"",""
+"getavailablehealthcarepersonnel-request","getavailablehealthcarepersonnel-request","getavailablehealthcarepersonnel-request","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableHealthcarePersonnel — Request","Logisk modell för begäran i GetAvailableHealthcarePersonnel
+(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcarePersonnelResponder:2, GetAvailableHealthcarePersonnelType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailablehealthcarepersonnel-request","getavailablehealthcarepersonnel-request.personId","getavailablehealthcarepersonnel-request.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer","TKB-fält: `personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel-request.personId",1,1,"",""
+"getavailablehealthcarepersonnel-request","getavailablehealthcarepersonnel-request.healthcareFacilityHSAId","getavailablehealthcarepersonnel-request.healthcareFacilityHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","healthcareFacilityHSAId","healthcareFacilityHSAId","TKB-fält: `healthcareFacilityHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel-request.healthcareFacilityHSAId",1,1,"",""
+"getavailablehealthcarepersonnel-request","getavailablehealthcarepersonnel-request.listingTypes","getavailablehealthcarepersonnel-request.listingTypes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingTypes","Lista med listningstyper som konsument önskar filtrera på. Se listningstyper i referens [R3]","TKB-fält: `listingTypes` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel-request.listingTypes",0,*,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel","getavailablehealthcarepersonnel","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableHealthcarePersonnel — Response","Logisk modell för svaret i GetAvailableHealthcarePersonnel
+(urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcarePersonnelResponder:2, GetAvailableHealthcarePersonnelResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel.healthcarePersonnel","getavailablehealthcarepersonnel.healthcarePersonnel","","","",0,*,"","","","Base {[]} {[]}
+","HealthcarePersonnelType","Lista med vårdpersonal som kan väljas för listningen för den valda mottagningen i begäran.","TKB-fält: `healthcarePersonnel` (`HealthcarePersonnelType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel",0,*,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel.healthcarePersonnel.id","getavailablehealthcarepersonnel.healthcarePersonnel.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","id","HsaId för vårdpersonal","TKB-fält: `healthcarePersonnel.id` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel.id",1,1,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel.healthcarePersonnel.name","getavailablehealthcarepersonnel.healthcarePersonnel.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn (för- och efternamn) för vårdpersonal","TKB-fält: `healthcarePersonnel.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel.name",1,1,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel.healthcarePersonnel.title","getavailablehealthcarepersonnel.healthcarePersonnel.title","","","",0,1,"","","","string {[]} {[]}
+","title","Vårdpersonals titel","TKB-fält: `healthcarePersonnel.title` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.healthcarePersonnel.title",0,1,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel.resultCode","getavailablehealthcarepersonnel.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getavailablehealthcarepersonnel.resultCode",1,1,"",""
+"getavailablehealthcarepersonnel","getavailablehealthcarepersonnel.resultText","getavailablehealthcarepersonnel.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailablehealthcarepersonnel.resultText",0,1,"",""
+"getlisting-request","getlisting-request","getlisting-request","","","",0,*,"","","","null {[]} {[]}
+","GetListing — Request","Logisk modell för begäran i GetListing
+(urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlisting-request","getlisting-request.actor","getlisting-request.actor","","","",1,1,"","","","Base {[]} {[]}
+","ActorType","Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren.","TKB-fält: `actor` (`ActorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting-request.actor",1,1,"",""
+"getlisting-request","getlisting-request.actor.actorId","getlisting-request.actor.actorId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","actorId","Id för den aktören som utför handlingen.","TKB-fält: `actor.actorId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting-request.actor.actorId",1,1,"",""
+"getlisting-request","getlisting-request.actor.actorType","getlisting-request.actor.actorType","","","",1,1,"","","","code {[]} {[]}
+","actorType","actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.","TKB-fält: `../actorType` (`ActorTypeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-actortype-vs","",,,,"getlisting-request.actor.actorType",1,1,"",""
+"getlisting-request","getlisting-request.personId","getlisting-request.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer","TKB-fält: `personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting-request.personId",1,1,"",""
+"getlisting","getlisting","getlisting","","","",0,*,"","","","null {[]} {[]}
+","GetListing — Response","Logisk modell för svaret i GetListing
+(urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlisting","getlisting.listings","getlisting.listings","","","",0,*,"","","","Base {[]} {[]}
+","ListingHealthcareFacilityType","Lista med listningsdetaljer för mottagningar som invånare är listad på. Om en region erbjuder sina invånare att kunna lista sig på mer än en listningstyp kan denna lista innehålla mer än en instans med listningsdetaljer (kopplade till en mottagning).","TKB-fält: `listings` (`ListingHealthcareFacilityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlisting.listings",0,*,"",""
+"getlisting","getlisting.listings.validFromDate","getlisting.listings.validFromDate","","","",0,1,"","","","dateTime {[]} {[]}
+","validFromDate","Datum från när listningen började gälla","TKB-fält: `listings.validFromDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.validFromDate",0,1,"",""
+"getlisting","getlisting.listings.validToDate","getlisting.listings.validToDate","","","",0,1,"","","","dateTime {[]} {[]}
+","validToDate","Datum till när listningen fortfarande gäller","TKB-fält: `listings.validToDate` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.validToDate",0,1,"",""
+"getlisting","getlisting.listings.listingType","getlisting.listings.listingType","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingType","Listningstyp som listningen gäller.
+
+Se listningstyper i referens [R3]","TKB-fält: `listings.listingType` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.listingType",1,1,"",""
+"getlisting","getlisting.listings.healthcareFacility","getlisting.listings.healthcareFacility","","","",1,1,"","","","Base {[]} {[]}
+","HealthcareFacilityType","Den valda listningsbara mottagningen","TKB-fält: `listings.healthcareFacility` (`HealthcareFacilityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility",1,1,"",""
+"getlisting","getlisting.listings.healthcareFacility.id","getlisting.listings.healthcareFacility.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","id","HSAId för mottagningen
+
+En tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener.
+
+Exempelvis är:
+
+”se12345-xyz” = ”SE12345-XYZ”","TKB-fält: `listings.healthcareFacility.id` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.id",1,1,"",""
+"getlisting","getlisting.listings.healthcareFacility.name","getlisting.listings.healthcareFacility.name","","","",1,1,"","","","string {[]} {[]}
+","Namn på vårdenheten.","Namn på vårdenheten","TKB-fält: `listings.healthcareFacility.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.name",1,1,"",""
+"getlisting","getlisting.listings.healthcareFacility.hasQueue","getlisting.listings.healthcareFacility.hasQueue","","","",1,1,"","","","boolean {[]} {[]}
+","hasQueue","Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts.
+
+Skall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således:
+
+TRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds
+
+FALSE = För övrigt","TKB-fält: `listings.healthcareFacility.hasQueue` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.hasQueue",1,1,"",""
+"getlisting","getlisting.listings.healthcareFacility.supportedListingTypes","getlisting.listings.healthcareFacility.supportedListingTypes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","supportedListingTypes","Lista med olika listningstyper som mottagningen erbjuder.
+
+Om attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.","TKB-fält: `listings.healthcareFacility.supportedListingTypes` (`CVType`, kardinalitet 0..1).
+
+Obs: modellen anger 0..* där TKB:n anger 0..1.
+
+**Modellanteckning:** Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportedListingTypes",0,*,"",""
+"getlisting","getlisting.listings.healthcareFacility.supportsHealthcarePersonnel","getlisting.listings.healthcareFacility.supportsHealthcarePersonnel","","","",1,1,"","","","boolean {[]} {[]}
+","supportsHealthcarePersonnel","Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt"".
+
+Det är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent.
+
+TRUE = mottagningen erbjuder fast läkarkontakt.
+
+Utelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.","TKB-fält: `listings.healthcareFacility.supportsHealthcarePersonnel` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.supportsHealthcarePersonnel",1,1,"",""
+"getlisting","getlisting.listings.healthcareFacility.queueLength","getlisting.listings.healthcareFacility.queueLength","","","",0,1,"","","","integer {[]} {[]}
+","queueLength","Nytt fält fr o m v2.1.
+
+Om mottagningen erbjuder kö kan mottagningen redovisa hur många invånare som för tillfället står i listningskö till mottagningen. Fältet är frivilligt.
+
+Observera:
+
+Detta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.","TKB-fält: `listings.healthcareFacility.queueLength` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.queueLength",0,1,"",""
+"getlisting","getlisting.listings.healthcareFacility.estimatedWaitInQueue","getlisting.listings.healthcareFacility.estimatedWaitInQueue","","","",0,1,"","","","integer {[]} {[]}
+","estimatedWaitInQueue","Nytt fält fr o m v2.1.
+
+Om mottagningen erbjuder kö kan mottagningen redovisa hur lång väntetid som invånare kan förvänta sig. Fältet är frivilligt.
+
+Observera:
+
+Detta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.","TKB-fält: `listings.healthcareFacility.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcareFacility.estimatedWaitInQueue",0,1,"",""
+"getlisting","getlisting.listings.healthcarePersonnel","getlisting.listings.healthcarePersonnel","","","",0,1,"","","","Base {[]} {[]}
+","HealthcarePersonnelType","Vårdpersonal som är kopplade till listningen. Det är frivilligt för mottagning att erbjuda invånare möjlighet att dessutom välja vårdpersonal i samband med listningen. Om regionen erbjuder denna möjlighet ska regionen även vara producent för tjänstekontraktet GetAvailableHealthcarePersonnel. Det är Regionen kan därefter välja att erbjuda denna funktionalitet per mottagning, genom flaggan supportsHealthcarePersonnel (i typen HealthCareFacilityType).
+
+Observera att en producent tillåts förmedla fast läkarkontakt genom att populera detta fält även om producent inte erbjuder invånaren möjlighet att digitalt välja fast läkarkontakt.
+
+En konsument ska visa den förmedlade fasta läkarkontakten till invånaren, även om producent inte stödjer det frivilliga tjänstekontraktet GetAvailableHealthcarePersonnel.","TKB-fält: `listings.healthcarePersonnel` (kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel",0,1,"",""
+"getlisting","getlisting.listings.healthcarePersonnel.id","getlisting.listings.healthcarePersonnel.id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","id","HsaId för vårdpersonal","TKB-fält: `listings.healthcarePersonnel.id` (`HSAIdType / (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel.id",1,1,"",""
+"getlisting","getlisting.listings.healthcarePersonnel.name","getlisting.listings.healthcarePersonnel.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn (för- och efternamn) för vårdpersonal","TKB-fält: `listings.healthcarePersonnel.name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel.name",1,1,"",""
+"getlisting","getlisting.listings.healthcarePersonnel.title","getlisting.listings.healthcarePersonnel.title","","","",0,1,"","","","string {[]} {[]}
+","title","Vårdpersonals titel","TKB-fält: `listings.healthcarePersonnel.title` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.healthcarePersonnel.title",0,1,"",""
+"getlisting","getlisting.listings.isInQueue","getlisting.listings.isInQueue","","","",1,1,"","","","boolean {[]} {[]}
+","isInQueue","Flagga för att visa om invånare står i kö för att lista sig på mottagningen eller om invånare har en aktiv listning.
+
+TRUE = Invånare står i kö
+
+FALSE = Invånare har en aktiv listning på mottagningen","TKB-fält: `listings.isInQueue` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.isInQueue",1,1,"",""
+"getlisting","getlisting.listings.queuePosition","getlisting.listings.queuePosition","","","",0,1,"","","","integer {[]} {[]}
+","queuePosition","Nytt fält fr o m v2.1.
+
+Förmedlar vilken plats i listningskön som invånaren har om invånaren tidigare har valt att ställa sig i kö på mottagningen","TKB-fält: `listings.queuePosition` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.queuePosition",0,1,"",""
+"getlisting","getlisting.listings.estimatedWaitInQueue","getlisting.listings.estimatedWaitInQueue","","","",0,1,"","","","integer {[]} {[]}
+","estimatedWaitInQueue","Nytt fält fr o m v2.1.
+
+Förmedlar hur lång uppskattad återstående väntetid invånaren kan förvänta sig om invånaren tidigare ställt sig i listningskön på mottagningen. Den uppskattade väntetiden ska återge ungefär hur länge till invånare uppskattas behöva vänta innan invånaren blir listad på mottagningen.
+
+Uppskattad väntetid anges i antal dagar.","TKB-fält: `listings.estimatedWaitInQueue` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.estimatedWaitInQueue",0,1,"",""
+"getlisting","getlisting.listings.remainingChanges","getlisting.listings.remainingChanges","","","",0,1,"","","","integer {[]} {[]}
+","remainingChanges","Nytt fält fr o m v2.1.
+
+Förmedlar hur många omlistningar som invånare har kvar att kunna göra.
+
+För listning till primärvård får invånare lista om sig maximalt 3 ggr under en 12-månaders period enligt Socialstyrelsens föreskrifter.","TKB-fält: `listings.remainingChanges` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.listings.remainingChanges",0,1,"",""
+"getlisting","getlisting.resultCode","getlisting.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.","TKB-fält: `listings.listingType.code` (`string`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getlisting.resultCode",1,1,"",""
+"getlisting","getlisting.resultText","getlisting.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlisting.resultText",0,1,"",""
+"getlistingcounty-request","getlistingcounty-request","getlistingcounty-request","","","",0,*,"","","","null {[]} {[]}
+","GetListingCounty — Request","Logisk modell för begäran i GetListingCounty
+(urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2, GetListingCountyType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlistingcounty-request","getlistingcounty-request.actor","getlistingcounty-request.actor","","","",1,1,"","","","Base {[]} {[]}
+","ActorType","Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren.","TKB-fält: `actor` (`ActorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlistingcounty-request.actor",1,1,"",""
+"getlistingcounty-request","getlistingcounty-request.actor.actorId","getlistingcounty-request.actor.actorId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","actorId","Id för den aktören som utför handlingen.","TKB-fält: `actor.actorId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlistingcounty-request.actor.actorId",1,1,"",""
+"getlistingcounty-request","getlistingcounty-request.actor.actorType","getlistingcounty-request.actor.actorType","","","",1,1,"","","","code {[]} {[]}
+","actorType","actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.","TKB-fält: `../actorType` (`ActorTypeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** actorType Tillåtna värden: CITIZEN, GUARDIAN, REGION, PRIVATE_CAREGIVER, SELF_OWNED_CAREGIVER, HEALTHCARE_ADVISER.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-actortype-vs","",,,,"getlistingcounty-request.actor.actorType",1,1,"",""
+"getlistingcounty-request","getlistingcounty-request.personId","getlistingcounty-request.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer","TKB-fält: `personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlistingcounty-request.personId",1,1,"",""
+"getlistingcounty","getlistingcounty","getlistingcounty","","","",0,*,"","","","null {[]} {[]}
+","GetListingCounty — Response","Logisk modell för svaret i GetListingCounty
+(urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2, GetListingCountyResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlistingcounty","getlistingcounty.listingCounties","getlistingcounty.listingCounties","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","listingCounties","Lista med regioner som invånare har aktiv listning på. Det är folkbokföringsregionens ansvar att hålla reda på i vilken/vilka regioner som invånare har aktiv(a) listningar hos.","TKB-fält: `listingCounties` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlistingcounty.listingCounties",0,*,"",""
+"getlistingcounty","getlistingcounty.resultCode","getlistingcounty.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getlistingcounty.resultCode",1,1,"",""
+"getlistingcounty","getlistingcounty.resultText","getlistingcounty.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlistingcounty.resultText",0,1,"",""
+"getlistingtypes-request","getlistingtypes-request","getlistingtypes-request","","","",0,*,"","","","null {[]} {[]}
+","GetListingTypes — Request","Logisk modell för begäran i GetListingTypes
+(urn:riv:supportprocess:logistics:carelisting:GetListingTypesResponder:2, GetListingTypesType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlistingtypes-request","getlistingtypes-request.personId","getlistingtypes-request.personId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer. Tillåts utelämnas om konsument efterfrågar samtliga listningstyper som region (logicalAddress) erbjuder.","TKB-fält: `personId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlistingtypes-request.personId",0,1,"",""
+"getlistingtypes-request","getlistingtypes-request.homeCountyCode","getlistingtypes-request.homeCountyCode","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","homeCountyCode","homeCountyCode","TKB-fält: `homeCountyCode` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlistingtypes-request.homeCountyCode",0,1,"",""
+"getlistingtypes","getlistingtypes","getlistingtypes","","","",0,*,"","","","null {[]} {[]}
+","GetListingTypes — Response","Logisk modell för svaret i GetListingTypes
+(urn:riv:supportprocess:logistics:carelisting:GetListingTypesResponder:2, GetListingTypesResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlistingtypes","getlistingtypes.listingTypes","getlistingtypes.listingTypes","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingTypes","Listningstyper som producent erbjuder.
+
+Se listningstyper i referens [R3]","TKB-fält: `listingTypes` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlistingtypes.listingTypes",0,*,"",""
+"getlistingtypes","getlistingtypes.resultCode","getlistingtypes.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.","TKB-fält: `listingTypes.code`.
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"getlistingtypes.resultCode",1,1,"",""
+"getlistingtypes","getlistingtypes.resultText","getlistingtypes.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlistingtypes.resultText",0,1,"",""
+"updatelisting-request","updatelisting-request","updatelisting-request","","","",0,*,"","","","null {[]} {[]}
+","UpdateListing — Request","Logisk modell för begäran i UpdateListing
+(urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2, UpdateListingType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"updatelisting-request","updatelisting-request.personId","updatelisting-request.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Invånares personnummer","TKB-fält: `personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.personId",1,1,"",""
+"updatelisting-request","updatelisting-request.newListingCounty","updatelisting-request.newListingCounty","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","newListingCounty","Region i vilken invånare valt att utomlänslista sig hos.
+
+Om länskoden är densamma som för den region som tar emot anropet, då ska anropet tolkas som att en tidigare utomlänslistning har upphört och att folkbokföringsregionen åter har ansvaret för invånaren. Folkbokföringsregionen ska då makulera information om att invånaren är utomlänslistad. Detta scenario kan exempelvis inträffa om den vårdenhet som invånaren utomlänslistat sig på upphör med sin verksamhet.","TKB-fält: `newListingCounty` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.newListingCounty",1,1,"",""
+"updatelisting-request","updatelisting-request.homeCounty","updatelisting-request.homeCounty","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","homeCounty","Invånares folkbokföringsregion.","TKB-fält: `homeCounty` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.homeCounty",1,1,"",""
+"updatelisting-request","updatelisting-request.listingType","updatelisting-request.listingType","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/CVType {[]} {[]}
+","listingType","Listningstyp som omlistningen (utomlänslistningen) gäller. Fältet ska endast förmedlas om den nya regionen har ett samverkansavtal med folkbokföringsregionen och behöver förmedla gemensamt överenskomna listningstyper som gäller i de båda regionerna.
+
+Se listningstyper i referens [R3]","TKB-fält: `listingType` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatelisting-request.listingType",0,1,"",""
+"updatelisting","updatelisting","updatelisting","","","",0,*,"","","","null {[]} {[]}
+","UpdateListing — Response","Logisk modell för svaret i UpdateListing
+(urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2, UpdateListingResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"updatelisting","updatelisting.resultCode","updatelisting.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan vara OK, INFO, ERROR alternativt något av följande specifika koder (se även resultText nedan):
+
+ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO, ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED, ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT, ERROR_GUARDIAN_CONSENT_NEEDED, ERROR_AGE_LIMIT.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-logistics-carelisting/ValueSet/carelisting-resultcode-vs","",,,,"updatelisting.resultCode",1,1,"",""
+"updatelisting","updatelisting.resultText","updatelisting.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Kan utelämnas om resultCode = OK.
+
+Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.
+
+OBSERVERA:
+
+Producent ska returnera specifika felkoder för följande situationer:
+
+Invånares maximalt antal tillåtna omlistningar under en 12-månaders-period har uppnåtts
+
+Den valda vårdenheten som invånare vill lista sig på har uppnått det maximala antalet tillåtna invånare (*)
+
+Omlistningen tillåts inte då det saknas fullvärdigt samtycke (t ex att båda vårdnadshavare har samtyckt om omlistningen)
+
+Invånares ålder är utanför tillåtet åldersspann för listningstypen
+
+(*)
+
+Detta kan inträffa då anropet görs med addToQueue = FALSE och maxtaket för antal tillåtna listningar/invånare på mottagningen uppnåtts. I det fall addToQueue = TRUE och invånare kan placeras i kö ska resultCode=OK returneras.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatelisting.resultText",0,1,"",""

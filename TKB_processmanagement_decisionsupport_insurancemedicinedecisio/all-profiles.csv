@@ -1,0 +1,210 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"DatumType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-datumtype-pattern:DatumType ska följa mönstret i schemat: [1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1])) {matches('^(?:(?:[1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))))$')}"
+"DatumType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"DatumType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"DatumType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"IIType","IIType","IIType","","","",0,*,"","","","null {[]} {[]}
+","IIType","IIType enligt domänens schema: den gemensamma RIV-TA-typen IIType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"IIType","IIType.root","IIType.root","","","",1,1,"","","","string {[]} {[]}
+","root","Identifierarens namnrymd, oftast ett OID (t.ex. 1.2.752.129.2.1.4.1 för HSA-id) eller ett UUID. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"IIType.root",1,1,"",""
+"IIType","IIType.extension","IIType.extension","","","",1,1,"","","","string {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"",,,,"IIType.extension",0,1,"",""
+"TidpunktType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-tidpunkttype-pattern:TidpunktType ska följa mönstret i schemat: [1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1])) {matches('^(?:(?:[1-2][0-9]{3,3}((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))))$')}"
+"TidpunktType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"TidpunktType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"TidpunktType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"getdiagnosinformation-request","getdiagnosinformation-request","getdiagnosinformation-request","","","",0,*,"","","","null {[]} {[]}
+","GetDiagnosInformation — Request","Logisk modell för requestparametrar i GetDiagnosInformation.
+(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).
+Anges ej parametern diagnosKod returneras diagnosinformation för alla diagnoskoder.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdiagnosinformation-request","getdiagnosinformation-request.informationsId","getdiagnosinformation-request.informationsId","","","",0,*,"","","","https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/IIType {[]} {[]}
+","informationsId","informationsId","","","","","","","","","",,,,,"",,,,"getdiagnosinformation-request.informationsId",0,*,"",""
+"getdiagnosinformation-request","getdiagnosinformation-request.diagnosKod","getdiagnosinformation-request.diagnosKod","","","",0,*,"","","","Base {[]} {[]}
+","ICD10SEType","Anger om endast diagnosinformation skall hämtas för en eller ett antal diagnoskoder. Anges ej parametern returneras diagnosinformation för alla diagnoskoder.","TKB-fält: `diagnosKod` (`CV`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosinformation-request.diagnosKod",0,*,"",""
+"getdiagnosinformation-request","getdiagnosinformation-request.avenEjAktiva","getdiagnosinformation-request.avenEjAktiva","","","",0,1,"","","","boolean {[]} {[]}
+","avenEjAktiva","Anger om även ej aktiv diagnosinformation skall hämtas. Anges ej villkoret returneras endast aktiva.","TKB-fält: `avenEjAktiva` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation-request.avenEjAktiva",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation","getdiagnosinformation","","","",0,*,"","","","null {[]} {[]}
+","GetDiagnosInformation","Logisk modell för tjänstekontraktet GetDiagnosInformation
+(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).
+Representerar responsens informationsstruktur — generell information om diagnoser.
+Sådan information kan gälla för en eller flera diagnoser samtidigt.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation","getdiagnosinformation.diagnosInformation","","","",0,*,"","","","Base {[]} {[]}
+","DiagnosInformationType","diagnosInformation","TKB-fält: `diagnosInformation` (`diagnosInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation",0,*,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.informationsId","getdiagnosinformation.diagnosInformation.informationsId","","","",1,1,"","","","https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/IIType {[]} {[]}
+","informationsId","Identitet för diagnosinformationen","TKB-fält: `../informationsId` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.informationsId",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.giltighetstid","getdiagnosinformation.diagnosInformation.giltighetstid","","","",1,1,"","","","Base {[]} {[]}
+","IVLType","Tid då diagnosinformationen är giltig. Starttiden i intervallet skall alltid anges. Om sluttid ej anges är diagnosinformationen aktiv. Diagnosinformation som inte är aktiv skall innehålla ett slutdatum, som ligger tidigare än aktuellt datum, eller ett startdatum som ligger senare än aktuellt datum.","TKB-fält: `../giltighetsTid` (`IVL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.giltighetstid",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.giltighetstid.start","getdiagnosinformation.diagnosInformation.giltighetstid.start","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/DatumType]]} {[]}
+","start","Starttid","TKB-fält: `../../start` (`Date`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.giltighetstid.start",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.giltighetstid.slut","getdiagnosinformation.diagnosInformation.giltighetstid.slut","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/DatumType]]} {[]}
+","slut","Sluttid","TKB-fält: `../../slut` (`Date`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.giltighetstid.slut",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.verson","getdiagnosinformation.diagnosInformation.verson","","","",1,1,"","","","integer {[]} {[]}
+","verson","verson","","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.verson",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.rubrik","getdiagnosinformation.diagnosInformation.rubrik","","","",1,1,"","","","string {[]} {[]}
+","rubrik","Rubriken för diagnosinformationen","TKB-fält: `../rubrik` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.rubrik",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.funktionsnedsattningBeskrivning","getdiagnosinformation.diagnosInformation.funktionsnedsattningBeskrivning","","","",0,1,"","","","string {[]} {[]}
+","funktionsnedsattningBeskrivning","funktionsnedsattningBeskrivning","","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.funktionsnedsattningBeskrivning",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.aktivitetsbegransningBeskrivning","getdiagnosinformation.diagnosInformation.aktivitetsbegransningBeskrivning","","","",0,1,"","","","string {[]} {[]}
+","aktivitetsbegransningBeskrivning","En beskrivande text för aktivitetsbegränsningar förknippade med diagnosen.","TKB-fält: `../aktivitetsbegransningBeskrivning` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.aktivitetsbegransningBeskrivning",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.huvuddiagnos","getdiagnosinformation.diagnosInformation.huvuddiagnos","","","",1,*,"","","","Base {[]} {[]}
+","HuvuddiagnosType","huvuddiagnos","TKB-fält: `../huvuddiagnos` (`HuvuddiagnosType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.huvuddiagnos",1,*,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.huvuddiagnos.kod","getdiagnosinformation.diagnosInformation.huvuddiagnos.kod","","","",1,1,"","","","Base {[]} {[]}
+","ICD10SEType","kod","","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.huvuddiagnos.kod",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.funktionsnedsattning","getdiagnosinformation.diagnosInformation.funktionsnedsattning","","","",0,*,"","","","Base {[]} {[]}
+","FunktionsnedsattningType","Innehåller information om en eller flera funktionsnedsättningar som vanligt förekommer för den eller de diagnoser som diagnosgruppen omfattar.","TKB-fält: `../funktionsnedsattning` (`FunktionsnedsattningType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.funktionsnedsattning",0,*,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.funktionsnedsattning.kod","getdiagnosinformation.diagnosInformation.funktionsnedsattning.kod","","","",1,1,"","","","Base {[]} {[]}
+","ICFType","Kod som anger Funktionsnedsättning","TKB-fält: `../../kod` (`CVtype`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.funktionsnedsattning.kod",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.aktivitetsbegransning","getdiagnosinformation.diagnosInformation.aktivitetsbegransning","","","",0,*,"","","","Base {[]} {[]}
+","AktivitetsbegransningType","Innehåller information om en eller flera aktivitetsbegränsning som vanligt förekommer för den eller de diagnoser som diagnosgruppen omfattar.","TKB-fält: `../aktivitetsbegransning` (`AktivitetsbegransningType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.aktivitetsbegransning",0,*,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.aktivitetsbegransning.kod","getdiagnosinformation.diagnosInformation.aktivitetsbegransning.kod","","","",1,1,"","","","Base {[]} {[]}
+","ICFType","Kod som anger Aktivitetsbegränsning","TKB-fält: `../../kod` (`CVtype`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.aktivitetsbegransning.kod",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.ovrigFmbInformation","getdiagnosinformation.diagnosInformation.ovrigFmbInformation","","","",0,1,"","","","Base {[]} {[]}
+","OvrigFmbInformationType","ovrigFmbInformation","TKB-fält: `../ovrigFmbInformation` (`OvrigFmbInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.ovrigFmbInformation",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.ovrigFmbInformation.symtomPrognosBehandling","getdiagnosinformation.diagnosInformation.ovrigFmbInformation.symtomPrognosBehandling","","","",0,1,"","","","string {[]} {[]}
+","symtomPrognosBehandling","Allmän information om symtom, prognos samt behandling.","TKB-fält: `../../symtomPrognosBehandling` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.ovrigFmbInformation.symtomPrognosBehandling",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation.diagnosInformation.ovrigFmbInformation.genrellInformation","getdiagnosinformation.diagnosInformation.ovrigFmbInformation.genrellInformation","","","",0,1,"","","","string {[]} {[]}
+","genrellInformation","genrellInformation","","","","","","","","","",,,,,"",,,,"getdiagnosinformation.diagnosInformation.ovrigFmbInformation.genrellInformation",0,1,"",""
+"getdiagnosinformation","getdiagnosinformation.version","getdiagnosinformation.version","","","",1,1,"","","","Base {[]} {[]}
+","VersionType","Versionsnummer för diagnosinformationen. Versionen räknas upp när diagnosinformationen förändrats i sin innebörd eller ändrar giltighetstid.","TKB-fält: `../version` (`Int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.version",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.version.senasteVersionsuppdatering","getdiagnosinformation.version.senasteVersionsuppdatering","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","senasteVersionsuppdatering","Anger när diagnosinformation senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla diagnosinformation, dvs det kan vara diagnosinformation som ej returnerats i svaret som föranlett ett nytt datum.","TKB-fält: `../senasteVersionsuppdatering` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdiagnosinformation.version.senasteVersionsuppdatering",1,1,"",""
+"getdiagnosinformation","getdiagnosinformation.version.senateAndring","getdiagnosinformation.version.senateAndring","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","senateAndring","senateAndring","","","","","","","","","",,,,,"",,,,"getdiagnosinformation.version.senateAndring",1,1,"",""
+"getfmb-request","getfmb-request","getfmb-request","","","",0,*,"","","","null {[]} {[]}
+","GetFmb — Request","Logisk modell för requestparametrar i GetFmb.
+(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).
+Anges inga parametrar returneras samtliga aktiva underlag.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getfmb-request","getfmb-request.underlagsId","getfmb-request.underlagsId","","","",0,*,"","","","https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/IIType {[]} {[]}
+","underlagsId","Anger om endast ett eller ett antal underlag skall hämtas och i så fall vilka. Anges inget underlagsId returneras alla underlag.","TKB-fält: `underlagsId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb-request.underlagsId",0,*,"",""
+"getfmb-request","getfmb-request.diagnosKod","getfmb-request.diagnosKod","","","",0,*,"","","","Base {[]} {[]}
+","ICD10SEType","Anger om beslutsunderlag endast skall hämtas för en eller ett antal diagnoskoder. Anges med ICD-10-SE kodverket. Anges ingen diagnoskod returneras alla underlag.","TKB-fält: `diagnosKod` (`CV`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb-request.diagnosKod",0,*,"",""
+"getfmb-request","getfmb-request.avenEjAktiva","getfmb-request.avenEjAktiva","","","",0,1,"","","","boolean {[]} {[]}
+","avenEjAktiva","Anger om även ej aktiva beslutsunderlag skall hämtas. Anges ej attributet hämtas endast aktiva.","TKB-fält: `avenEjAktiva` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb-request.avenEjAktiva",0,1,"",""
+"getfmb","getfmb","getfmb","","","",0,*,"","","","null {[]} {[]}
+","GetFmb","Logisk modell för tjänstekontraktet GetFmb
+(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).
+Representerar responsens informationsstruktur — beslutsunderlag från FMB
+(Försäkringsmedicinskt beslutsstöd).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getfmb","getfmb.beslutsunderlag","getfmb.beslutsunderlag","","","",0,*,"","","","Base {[]} {[]}
+","BeslutsunderlagType","Beslutsunderlag innehåller information om beslutsunderlag som kan användas vid bedömning om sjukskrivning. Ett beslutunderlag kan användas som underlag för bedömning när samtliga villkor kopplades till klassen är uppfyllda.","TKB-fält: `beslutsunderlag` (`BeslutsunderlagType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.underlagsId","getfmb.beslutsunderlag.underlagsId","","","",1,1,"","","","https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/IIType {[]} {[]}
+","underlagsId","Globalt unik identifierare för beslutsunderlaget.","TKB-fält: `../underlagsId` (`IItype`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.underlagsId",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.giltighetstid","getfmb.beslutsunderlag.giltighetstid","","","",1,1,"","","","Base {[]} {[]}
+","IVLType","Tid då en rekommendation är giltig. Starttiden i intervallet skall alltid anges. Om sluttid ej anges är beslutsrekommendationen aktiv. Ett beslutsunderlag som inte är aktiv skall innehålla ett slutdatum, som ligger tidigare än aktuellt datum, eller ett startdatum som ligger senare än aktuellt datum.","TKB-fält: `../giltighetstid` (`IVL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.giltighetstid",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.giltighetstid.start","getfmb.beslutsunderlag.giltighetstid.start","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/DatumType]]} {[]}
+","start","Starttid","TKB-fält: `../../start` (`Date`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.giltighetstid.start",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.giltighetstid.slut","getfmb.beslutsunderlag.giltighetstid.slut","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/DatumType]]} {[]}
+","slut","Sluttid","TKB-fält: `../../slut` (`Date`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.giltighetstid.slut",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.version","getfmb.beslutsunderlag.version","","","",1,1,"","","","integer {[]} {[]}
+","version","Versionsnummer för ett beslutsunderlag. Versionen räknas upp när ett beslutsunderlag förändrats i sin innebörd eller ändrar giltighetstid.","TKB-fält: `../version` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.version",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.textuelltUnderlag","getfmb.beslutsunderlag.textuelltUnderlag","","","",0,1,"","","","string {[]} {[]}
+","textuelltUnderlag","Varje beslutsunderlag beskrivs i textuell form, som omfattar alla villkor och rekommendationer som omfattas av beslutsunderlag samt annan information som är relevant i beslutsfattandet även om den informationen inte finns representerad i kodad form.","TKB-fält: `../textuelltUnderlag` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.textuelltUnderlag",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.sjukskrivningstidText","getfmb.beslutsunderlag.sjukskrivningstidText","","","",1,1,"","","","string {[]} {[]}
+","sjukskrivningstidText","sjukskrivningstidText","","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.sjukskrivningstidText",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.sjukskrivningstid","getfmb.beslutsunderlag.sjukskrivningstid","","","",0,1,"","","","Base {[]} {[]}
+","PQType","Totala sjukskrivningstidens längd med början från första intygsdag. Anges ej om sjukskrivningstiden inte kan kvantifieras.","TKB-fält: `../sjukskrivningstid` (`PQType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.sjukskrivningstid",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.sjukskrivningstid.value","getfmb.beslutsunderlag.sjukskrivningstid.value","","","",1,1,"","","","string {[]} {[]}
+","value","Värde för tidsangivelsen","TKB-fält: `../../value` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.sjukskrivningstid.value",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.sjukskrivningstid.unit","getfmb.beslutsunderlag.sjukskrivningstid.unit","","","",1,1,"","","","string {[]} {[]}
+","unit","Enhet för tidsangivelsen enligt UCUM, månad=""mo"", vecka = ""wk"", dag = ""d""","TKB-fält: `../../unit` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.sjukskrivningstid.unit",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.sjukskrivningsgrad","getfmb.beslutsunderlag.sjukskrivningsgrad","","","",1,1,"","","","code {[]} {[]}
+","sjukskrivningsgrad","Anger grad av sjukskrivning. Exempel på värden: Heltid, Deltid","TKB-fält: `../sjukskrivningsgrad` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.sjukskrivningsgrad",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.senastAndrad","getfmb.beslutsunderlag.senastAndrad","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","senastAndrad","Anger när ett beslutsunderlag senast ändrats","TKB-fält: `../senastAndrad` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.senastAndrad",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.rehabiliteringsInformation","getfmb.beslutsunderlag.rehabiliteringsInformation","","","",0,1,"","","","Base {[]} {[]}
+","RehabilieringsinformationTyp","rehabiliteringsInformation","TKB-fält: `../rehabiliteringsInformation` (`RehabiliteringsInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.rehabiliteringsInformation",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning","getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning","","","",1,1,"","","","string {[]} {[]}
+","beskrivning","Text som beskriver en rehabiliteringsåtgärd","TKB-fält: `../../beskrivning` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor","getfmb.beslutsunderlag.villkor","","","",1,1,"","","","Base {[]} {[]}
+","VillkorType","Villkor för att ett beslutsunderlag skall vara uppfyllt.","TKB-fält: `../villkor*` (`VillkorType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalArbetsbelastning","getfmb.beslutsunderlag.villkor.urvalArbetsbelastning","","","",0,1,"","","","Base {[]} {[]}
+","UrvalArbetsbelastningType","Anges om villkoret är beroende av en eller flera koder för arbetsbelastning","TKB-fält: `../../urvalArbetsbelastning` (`UrvalArbetsbelastningType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalArbetsbelastning",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning","getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning","","","",0,*,"","","","Base {[]} {[]}
+","ArbetsbelastningType","Anger koder för arbetsbelastning för vilka minst en måste vara sann.","TKB-fält: `../../../arbetsbelastning` (`ArbetsbelastningType`, kardinalitet 1..*).
+
+Obs: modellen anger 0..* där TKB:n anger 1..*.","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning.kod","getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning.kod","","","",1,1,"","","","Base {[]} {[]}
+","GeneriskCVType","Arbetsbelastning som anges med ett lokalt småkodverk.","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor","getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor","","","",0,*,"","","","Base {[]} {[]}
+","UrvalKomplicerandeFaktorType","Anges om villkoret är beroende av en eller flera koder för komplicerande faktorer","TKB-fält: `../../urvalKomplicerandeFaktor` (`UrvalKomplicerandeFaktorType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor","getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor","","","",1,*,"","","","Base {[]} {[]}
+","KomplicerandeFaktorType","Anger koder för komplicerande faktorer för vilka minst en måste vara sann.","TKB-fält: `../../../komplicerandeFaktor` (`KomplicerandeFaktorType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor.kod","getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor.kod","","","",1,1,"","","","Base {[]} {[]}
+","SnomedCTType","Komplicerandefaktor som anges med en kod. (Kod för den typ av observation som avses.)","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard","getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard","","","",0,*,"","","","Base {[]} {[]}
+","UrvalPlaneradAtgardType","Anges om villkoret är beroende av en eller flera koder för planerade åtgärder","TKB-fält: `../../urvalPlaneradAtgard` (`UrvalPlaneradAtgardType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard","getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard","","","",1,*,"","","","Base {[]} {[]}
+","PlaneradAtgardType","Anger koder för planerade åtgärder för vilka minst en måste vara sann.","TKB-fält: `../../../planeradAtgard` (`PlaneradAtgardType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard.kod","getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard.kod","","","",1,1,"","","","Base {[]} {[]}
+","GeneriskCVType","Åtgärd som anges med en kod","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard","getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard","","","",0,*,"","","","Base {[]} {[]}
+","UrvalPagaendeAtgardType","Anges om villkoret är beroende av en eller flera koder för pågående åtgärder","TKB-fält: `../../urvalPagaendeAtgard` (`UrvalPagaendeAtgardType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard","getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard","","","",1,*,"","","","Base {[]} {[]}
+","PagaendeAtgardType","Anger koder för pågående åtgärder för vilka minst en måste vara sann.","TKB-fält: `../../../pagaendeAtgard` (`PagaendeAtgardType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard.kod","getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard.kod","","","",1,1,"","","","Base {[]} {[]}
+","GeneriskCVType","Åtgärd som anges med en kod","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSamsjuklighet","getfmb.beslutsunderlag.villkor.urvalSamsjuklighet","","","",0,*,"","","","Base {[]} {[]}
+","UrvalSamsjuklighetType","Anges om villkoret är beroende av en eller flera koder för samsjuklighet","TKB-fält: `../../urvalSamsjuklighet` (`UrvalSamsjuklighetType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSamsjuklighet",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet","getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet","","","",1,*,"","","","Base {[]} {[]}
+","SamsjuklighetType","Anger koder för samsjuklighet för vilka minst en måste vara sann.","TKB-fält: `../../../samsjuklighet` (`SamsjuklighetType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet.kod","getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet.kod","","","",1,1,"","","","Base {[]} {[]}
+","ICD10SEType","Diagnos som anges med kod. (Kod för den typ av observation som avses.) Anges med ICD-10-SE kodverket","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp","getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp","","","",0,1,"","","","Base {[]} {[]}
+","UrvalSjukdomsforloppType","Anges om villkoret är beroende av en eller flera koder för sjukdomsforlopp","TKB-fält: `../../UrvalSjukdomsforlopp` (`UrvalSjukdomsforloppType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp","getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp","","","",1,*,"","","","Base {[]} {[]}
+","SjukdomsforloppType","Anger koder för sjukdomsforlopp för vilka minst en måste vara sann.","TKB-fält: `../../../sjukdomsforlopp` (`SjukdomsforloppType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp.kod","getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp.kod","","","",1,1,"","","","Base {[]} {[]}
+","SnomedCTType","kod","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad","getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad","","","",0,1,"","","","Base {[]} {[]}
+","UrvalSvarighetsgradType","Anges om villkoret är beroende av en eller flera koder för svårighetsgrad","TKB-fält: `../../urvalSvarighetsgrad` (`UrvalSvarighetsgradType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad",0,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad","getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad","","","",1,*,"","","","Base {[]} {[]}
+","SvarighetsgradType","Anger koder för svårighetsgrad för vilka minst en måste vara sann.","TKB-fält: `../../../svarighetsgrad` (`SvarighetsgradType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad.kod","getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad.kod","","","",1,1,"","","","Base {[]} {[]}
+","SnomedCTType","Svårighetsgrad som anges med ett lokalt småkodverk. Giltiga värden är Lindrig, Medelsvår eller Svår.","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalUtfordAtgard","getfmb.beslutsunderlag.villkor.urvalUtfordAtgard","","","",0,*,"","","","Base {[]} {[]}
+","UrvalUtfordAtgardType","urvalUtfordAtgard","","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalUtfordAtgard",0,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalUtfordAtgard.utfordAtgard","getfmb.beslutsunderlag.villkor.urvalUtfordAtgard.utfordAtgard","","","",1,*,"","","","Base {[]} {[]}
+","UtfordAtgardType","utfordAtgard","","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalUtfordAtgard.utfordAtgard",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.villkor.urvalUtfordAtgard.utfordAtgard.kod","getfmb.beslutsunderlag.villkor.urvalUtfordAtgard.utfordAtgard.kod","","","",1,1,"","","","Base {[]} {[]}
+","GeneriskCVType","Åtgärd som anges med en kod","TKB-fält: `../../../../kod` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.villkor.urvalUtfordAtgard.utfordAtgard.kod",1,1,"",""
+"getfmb","getfmb.beslutsunderlag.huvuddiagnos","getfmb.beslutsunderlag.huvuddiagnos","","","",1,*,"","","","Base {[]} {[]}
+","HuvuddiagnosType","Den diagnos för vilken beslutsunderlaget gäller.","TKB-fält: `../huvudDiagnos` (`HuvudDiagnosType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.huvuddiagnos",1,*,"",""
+"getfmb","getfmb.beslutsunderlag.huvuddiagnos.kod","getfmb.beslutsunderlag.huvuddiagnos.kod","","","",1,1,"","","","Base {[]} {[]}
+","ICD10SEType","kod","","","","","","","","","",,,,,"",,,,"getfmb.beslutsunderlag.huvuddiagnos.kod",1,1,"",""
+"getfmb","getfmb.version","getfmb.version","","","",1,1,"","","","Base {[]} {[]}
+","VersionType","Versioninformation för hela FMB","TKB-fält: `version` (`versionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.version",1,1,"",""
+"getfmb","getfmb.version.senasteVersionsuppdatering","getfmb.version.senasteVersionsuppdatering","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","senasteVersionsuppdatering","Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla producentens beslutsunderlag, dvs det kan vara ett underlag som ej returnerats i svaret som föranlett ett nytt datum.","TKB-fält: `../senasteVersionsuppdatering` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getfmb.version.senasteVersionsuppdatering",1,1,"",""
+"getfmb","getfmb.version.senateAndring","getfmb.version.senateAndring","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","senateAndring","senateAndring","","","","","","","","","",,,,,"",,,,"getfmb.version.senateAndring",1,1,"",""
+"getversions","getversions","getversions","","","",0,*,"","","","null {[]} {[]}
+","GetVersions","Logisk modell för tjänstekontraktet GetVersions
+(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1).
+Returnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades,
+respektive senast ändrades. Begäran har inga inparametrar.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getversions","getversions.versioner","getversions.versioner","","","",0,1,"","","","Base {[]} {[]}
+","VersionerType","versioner","TKB-fält: `versioner` (kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getversions.versioner",0,1,"",""
+"getversions","getversions.versioner.fmbSenasteVersionsuppdatering","getversions.versioner.fmbSenasteVersionsuppdatering","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","fmbSenasteVersionsuppdatering","Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla producentens beslutsunderlag, dvs det kan vara ett underlag som ej returnerats i svaret som föranlett ett nytt datum.","TKB-fält: `../fmbSenasteVersionsuppdatering` (`DateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getversions.versioner.fmbSenasteVersionsuppdatering",1,1,"",""
+"getversions","getversions.versioner.fmbSenateAndring","getversions.versioner.fmbSenateAndring","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","fmbSenateAndring","fmbSenateAndring","","","","","","","","","",,,,,"",,,,"getversions.versioner.fmbSenateAndring",1,1,"",""
+"getversions","getversions.versioner.diagnosInformationSenasteVersionsuppdatering","getversions.versioner.diagnosInformationSenasteVersionsuppdatering","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","diagnosInformationSenasteVersionsuppdatering","Anger när diagnosinformation senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort) bland alla diagnosinformation, dvs det kan vara diagnosinformation som ej returnerats i svaret som föranlett ett nytt datum.","TKB-fält: `../diagnosInformationSenasteVersionsuppdatering` (`DateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getversions.versioner.diagnosInformationSenasteVersionsuppdatering",1,1,"",""
+"getversions","getversions.versioner.diagnosInformationSenateAndring","getversions.versioner.diagnosInformationSenateAndring","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/TidpunktType]]} {[]}
+","diagnosInformationSenateAndring","diagnosInformationSenateAndring","","","","","","","","","",,,,,"",,,,"getversions.versioner.diagnosInformationSenateAndring",1,1,"",""

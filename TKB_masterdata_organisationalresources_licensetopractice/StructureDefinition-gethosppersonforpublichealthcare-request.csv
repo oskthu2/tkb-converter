@@ -1,0 +1,23 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"gethosppersonforpublichealthcare-request","gethosppersonforpublichealthcare-request","","","",0,*,"","","","null {[]} {[]}
+","GetHospPersonForPublicHealthcare — Request","Logisk modell för requestparametrar i GetHospPersonForPublicHealthcare.
+Antingen anges personId, eller ett eller flera av fälten efternamn, fornamn, fodelsedatum.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","gethosppersonforpublichealthcare-request-search-criteria:Antingen anges personId, eller minst ett av efternamn, fornamn och fodelsedatum. {personId.exists() or efternamn.exists() or fornamn.exists() or fodelsedatum.exists()}
+"
+"gethosppersonforpublichealthcare-request.personId","gethosppersonforpublichealthcare-request.personId","","","",0,1,"","","","Base {[]} {[]}
+","PersonIdType","Ett personnummer eller samordningsnummer för en person","TKB-fält: `personId*` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforpublichealthcare-request.personId",0,1,"",""
+"gethosppersonforpublichealthcare-request.personId.extension","gethosppersonforpublichealthcare-request.personId.extension","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/PersonIdentitet]]} {[]}
+","extension","Identitet i form av ÅÅÅÅMMDDXXXX.","TKB-fält: `../ extension` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethosppersonforpublichealthcare-request.personId.extension",1,1,"",""
+"gethosppersonforpublichealthcare-request.personId.root","gethosppersonforpublichealthcare-request.personId.root","","","",0,1,"","","","code {[]} {[]}
+","root","Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: ""1.2.752.129.2.1.3.1""
+
+Samordningsnummer: ""1.2.752.129.2.1.3.3""","TKB-fält: `../ root` (`String`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.
+
+**Modellanteckning:** root Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.","","","","","","","","",,,,,"",,,,"gethosppersonforpublichealthcare-request.personId.root",0,1,"",""
+"gethosppersonforpublichealthcare-request.efternamn","gethosppersonforpublichealthcare-request.efternamn","","","",0,1,"","","","string {[]} {[]}
+","efternamn","Söker personer efter efternamn","TKB-fält: `efternamn` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforpublichealthcare-request.efternamn",0,1,"",""
+"gethosppersonforpublichealthcare-request.fornamn","gethosppersonforpublichealthcare-request.fornamn","","","",0,*,"","","","string {[]} {[]}
+","fornamn","Söker personer efter förnamn","TKB-fält: `fornamn` (`String`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethosppersonforpublichealthcare-request.fornamn",0,*,"",""
+"gethosppersonforpublichealthcare-request.fodelsedatum","gethosppersonforpublichealthcare-request.fodelsedatum","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","fodelsedatum","Söker personer efter födelsedatum","TKB-fält: `födelseDatum` (`date`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethosppersonforpublichealthcare-request.fodelsedatum",0,1,"",""

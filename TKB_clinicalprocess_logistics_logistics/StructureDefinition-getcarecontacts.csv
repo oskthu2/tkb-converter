@@ -1,0 +1,83 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcarecontacts","getcarecontacts","","","",0,*,"","","","null {[]} {[]}
+","GetCareContacts","Logisk modell för tjänstekontraktet GetCareContacts
+(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).
+Representerar responsens informationsstruktur (GetCareContactsResponseType).
+En lista med CareContactType returneras, var och en med ett header och ett body.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcarecontacts.careContact","getcarecontacts.careContact","","","",0,*,"","","","Base {[]} {[]}
+","CareContactType","De vårdkontakter som matchar begäran.","TKB-fält: `careContact` (`CareContactType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact",0,*,"",""
+"getcarecontacts.careContact.careContactHeader","getcarecontacts.careContact.careContactHeader","","","",1,1,"","","","Base {[]} {[]}
+","PatientSummaryHeaderType","Innehåller basinformation om dokumentet","TKB-fält: `../careContactHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.documentId","getcarecontacts.careContact.careContactHeader.documentId","","","",1,1,"","","","string {[]} {[]}
+","documentId","Vårdkontaktens identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.","TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.documentId",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.sourceSystemHSAId","getcarecontacts.careContact.careContactHeader.sourceSystemHSAId","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","sourceSystemHSAId","HSA-id för det system som dokumentet är skapat i.","TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.sourceSystemHSAId",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.documentTitle","getcarecontacts.careContact.careContactHeader.documentTitle","","","",0,1,"","","","string {[]} {[]}
+","documentTitle","Ska ej anges","TKB-fält: `../../documentTitle` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.documentTitle",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.documentTime","getcarecontacts.careContact.careContactHeader.documentTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","documentTime","Ska ej anges","TKB-fält: `../../documentTime` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.documentTime",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.patientId","getcarecontacts.careContact.careContactHeader.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType {[]} {[]}
+","patientId","Id för patienten.","TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.patientId",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional","getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType {[]} {[]}
+","accountableHealthcareProfessional","Hälso- och sjukvårdspersonalen som ansvarar för vårdkontakten.","TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.legalAuthenticator","getcarecontacts.careContact.careContactHeader.legalAuthenticator","","","",0,1,"","","","Base {[]} {[]}
+","LegalAuthenticatorType","Ska ej anges.","TKB-fält: `../../legalAuthenticator` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.legalAuthenticator",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime","getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","signatureTime","signatureTime","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId","getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType]]} {[]}
+","legalAuthenticatorHSAId","legalAuthenticatorHSAId","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName","getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","legalAuthenticatorName","legalAuthenticatorName","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.approvedForPatient","getcarecontacts.careContact.careContactHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.
+
+Regel: Regel 3","TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.approvedForPatient",1,1,"",""
+"getcarecontacts.careContact.careContactHeader.nullified","getcarecontacts.careContact.careContactHeader.nullified","","","",0,1,"","","","boolean {[]} {[]}
+","nullified","nullified","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.nullified",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.nullifiedReason","getcarecontacts.careContact.careContactHeader.nullifiedReason","","","",0,1,"","","","string {[]} {[]}
+","nullifiedReason","nullifiedReason","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.nullifiedReason",0,1,"",""
+"getcarecontacts.careContact.careContactHeader.careContactId","getcarecontacts.careContact.careContactHeader.careContactId","","","",0,1,"","","","string {[]} {[]}
+","careContactId","Ska ej anges.","TKB-fält: `../../careContactId` (kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactHeader.careContactId",0,1,"",""
+"getcarecontacts.careContact.careContactBody","getcarecontacts.careContact.careContactBody","","","",1,1,"","","","Base {[]} {[]}
+","CareContactBodyType","careContactBody","TKB-fält: `../careContactBody` (`CareContactBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody",1,1,"",""
+"getcarecontacts.careContact.careContactBody.careContactCode","getcarecontacts.careContact.careContactBody.careContactCode","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","careContactCode","Kod som anger på vilket sätt vårdkontakten är planerad att ske, alternativt skedde. KV Vårdkontakttyp (1.2.752.129.2.2.2.25) ska användas. Se referens [R6].
+
+Utelämnat värde betyder att värdet är okänt.","TKB-fält: `../../careContactCode` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.careContactCode",0,1,"",""
+"getcarecontacts.careContact.careContactBody.careContactReason","getcarecontacts.careContact.careContactBody.careContactReason","","","",0,1,"","","","string {[]} {[]}
+","careContactReason","Text som beskriver orsaken till vårdkontakt som patienten själv eller dess företrädare anger.","TKB-fält: `../../careContactReason` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.careContactReason",0,1,"",""
+"getcarecontacts.careContact.careContactBody.careContactOrgUnit","getcarecontacts.careContact.careContactBody.careContactOrgUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType {[]} {[]}
+","careContactOrgUnit","Den enhet som vårdkontakten utfördes vid eller planeras utföras vid.
+
+Regel: Regel 5","TKB-fält: `../../careContactOrgUnit` (`OrgUnitType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.careContactOrgUnit",0,1,"",""
+"getcarecontacts.careContact.careContactBody.careContactTimePeriod","getcarecontacts.careContact.careContactBody.careContactTimePeriod","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType {[]} {[]}
+","careContactTimePeriod","Tidsintervall för vårdkontakt. Vid besök i öppenvård sätts careContactTimePeriod.start och careContactTimePeriod.end till samma tidpunkt (besökets startidpunkt).","TKB-fält: `../../careContactTimePeriod` (`TimePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.careContactTimePeriod",0,1,"","getcarecontacts-timeperiod-start-or-end:Minst ett av start och end ska anges i careContactTimePeriod. {start.exists() or end.exists()}
+"
+"getcarecontacts.careContact.careContactBody.careContactStatus","getcarecontacts.careContact.careContactBody.careContactStatus","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","careContactStatus","Kod som anger aktuell status för vårdkontakten.
+
+Kodverket är definierat i SNOMED CT-SE med SCTID: 53761000052103 (Snomed CT finns tillgängligt via R11 där man kan se de publicerade koderna som är refererade)","TKB-fält: `../../careContactStatus` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.careContactStatus",0,1,"",""
+"getcarecontacts.careContact.careContactBody.additionalPatientInformation","getcarecontacts.careContact.careContactBody.additionalPatientInformation","","","",0,1,"","","","Base {[]} {[]}
+","AdditionalPatientInformationType","Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning.","TKB-fält: `../../additionalPatientInformation` (`AdditionalPatientInformationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.additionalPatientInformation",0,1,"",""
+"getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth","getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PartialDateType {[]} {[]}
+","dateOfBirth","Patientens födelsedatum.","TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth",0,1,"",""
+"getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender","getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","gender","Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas. Se referens [R6].","TKB-fält: `../../../gender` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender",0,1,"",""
+"getcarecontacts.result","getcarecontacts.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.result",1,1,"",""
+"getcarecontacts.result.resultCode","getcarecontacts.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.result.resultCode",1,1,"",""
+"getcarecontacts.result.errorCode","getcarecontacts.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.","","","","","","","","",,,,,"",,,,"getcarecontacts.result.errorCode",0,1,"",""
+"getcarecontacts.result.logId","getcarecontacts.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.result.logId",1,1,"",""
+"getcarecontacts.result.subCode","getcarecontacts.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","subCode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.result.subCode",0,1,"",""
+"getcarecontacts.result.message","getcarecontacts.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcarecontacts.result.message",0,1,"",""

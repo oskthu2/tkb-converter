@@ -1,0 +1,2062 @@
+# ProcessClaimSpecification — Request - financial: billing: claim v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessClaimSpecification — Request**
+
+## Logical Model: ProcessClaimSpecification — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/processclaimspecification-request | *Version*:1.1 |
+| Active as of 2026-11-09 | *Computable Name*:ProcessClaimSpecificationRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i ProcessClaimSpecification (urn:riv:financial:billing:claim:ProcessClaimSpecificationResponder:1, ProcessClaimSpecificationType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.financial-billing-claim|current/StructureDefinition/StructureDefinition-processclaimspecification-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processclaimspecification-request.csv), [Excel](StructureDefinition-processclaimspecification-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processclaimspecification-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/processclaimspecification-request",
+  "version" : "1.1",
+  "name" : "ProcessClaimSpecificationRequest",
+  "title" : "ProcessClaimSpecification — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:31:57+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i ProcessClaimSpecification\n(urn:riv:financial:billing:claim:ProcessClaimSpecificationResponder:1, ProcessClaimSpecificationType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/processclaimspecification-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processclaimspecification-request",
+      "path" : "processclaimspecification-request",
+      "short" : "ProcessClaimSpecification — Request",
+      "definition" : "Logisk modell för begäran i ProcessClaimSpecification\n(urn:riv:financial:billing:claim:ProcessClaimSpecificationResponder:1, ProcessClaimSpecificationType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification",
+      "path" : "processclaimspecification-request.claimSpecification",
+      "short" : "ProcessClaimSpecificationType",
+      "definition" : "claimSpecification",
+      "comment" : "TKB-fält: `claimSpecification` (`ProcessClaimSpecificationType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.id",
+      "path" : "processclaimspecification-request.claimSpecification.id",
+      "short" : "id",
+      "definition" : "id",
+      "comment" : "TKB-fält: `../id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.issueDate",
+      "path" : "processclaimspecification-request.claimSpecification.issueDate",
+      "short" : "issueDate",
+      "definition" : "Fakturaunderlag vård, datum\n\nDatum då fakturaunderlag för vård skapades.\n\nObligatoriskt.",
+      "comment" : "TKB-fält: `issueDate` (`DateType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.issueTime",
+      "path" : "processclaimspecification-request.claimSpecification.issueTime",
+      "short" : "issueTime",
+      "definition" : "Fakturaunderlag vård, tid\n\nTidpunkt då fakturaunderlag för vård skapades.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `issueTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/TimeType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.typeOfInvoice",
+      "path" : "processclaimspecification-request.claimSpecification.typeOfInvoice",
+      "short" : "typeOfInvoice",
+      "definition" : "typeOfInvoice",
+      "comment" : "TKB-fält: `../typeOfInvoice` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.invoiceId",
+      "path" : "processclaimspecification-request.claimSpecification.invoiceId",
+      "short" : "invoiceId",
+      "definition" : "Fakturanummer\n\nVarje ny faktura ska ges en unik identitet. Numret bör vara unikt under hela arkiveringsperioden.\n\nFakturanumret ska vara utan mellanslag och bindestreck.\n\nFör att ge ett dokument en unik identitet kan GDTI användas. GDTI (GS1-dokumentidentitet, Global\n\nDocument Type Identifier) är ett alfanumeriskt fält som innehåller från 14 upp till 30 siffror. Antal positioner enligt standard SFTI E-handel.\n\nEtt unikt nummer som används för att identifiera fakturan.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `invoiceId` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.invoiceDateOfIssue",
+      "path" : "processclaimspecification-request.claimSpecification.invoiceDateOfIssue",
+      "short" : "invoiceDateOfIssue",
+      "definition" : "Fakturadatum\n\nDatum när fakturan utfärdades.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `invoiceDateOfIssue` (`DateType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.referenceToInvoice",
+      "path" : "processclaimspecification-request.claimSpecification.referenceToInvoice",
+      "short" : "referenceToInvoice",
+      "definition" : "Referens till faktura\n\nAnvänds vid kreditering för att referera till den faktura som ska krediteras.\n\nReferensen anges med fakturans unika identitet (fakturanumret).\n\nSka lämnas när fakturan är en kreditfaktura.\n\nSka bli obligatoriskt fält under nämnda förutsättningar senast 20xx-01.",
+      "comment" : "TKB-fält: `referenceToInvoice` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.referenceToProcessClaimSpecificationId",
+      "path" : "processclaimspecification-request.claimSpecification.referenceToProcessClaimSpecificationId",
+      "short" : "referenceToProcessClaimSpecificationId",
+      "definition" : "referenceToProcessClaimSpecificationId",
+      "comment" : "TKB-fält: `../referenceToProcessClaimSpecificationId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.payableAmount",
+      "path" : "processclaimspecification-request.claimSpecification.payableAmount",
+      "short" : "AmountType",
+      "definition" : "payableAmount",
+      "comment" : "TKB-fält: `../payableAmount` (`AmountType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.payableAmount.amount",
+      "path" : "processclaimspecification-request.claimSpecification.payableAmount.amount",
+      "short" : "amount",
+      "definition" : "amount",
+      "comment" : "TKB-fält: `../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.payableAmount.currency",
+      "path" : "processclaimspecification-request.claimSpecification.payableAmount.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.supplierParty",
+      "path" : "processclaimspecification-request.claimSpecification.supplierParty",
+      "short" : "SupplierPartyType",
+      "definition" : "Leverantör\n\nObligatoriskt.",
+      "comment" : "TKB-fält: `supplierParty` (`SupplierPartyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.supplierParty.identification",
+      "path" : "processclaimspecification-request.claimSpecification.supplierParty.identification",
+      "short" : "identification",
+      "definition" : "identification",
+      "comment" : "TKB-fält: `../../identification` (`IIType`, kardinalitet 1..2).",
+      "min" : 1,
+      "max" : "2",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact",
+      "path" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact",
+      "short" : "ContactType",
+      "definition" : "Leverantörens kontaktuppgifter\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../sellerContact` (`ContactType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact.name",
+      "path" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact.name",
+      "short" : "name",
+      "definition" : "Namn på person eller avdelning som avser kontakt för leverantör.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact.telephone",
+      "path" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact.telephone",
+      "short" : "telephone",
+      "definition" : "Leverantörens telefonnummer\n\nTelefonnummer oredigerat.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../telephone` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact.electronicMail",
+      "path" : "processclaimspecification-request.claimSpecification.supplierParty.sellerContact.electronicMail",
+      "short" : "electronicMail",
+      "definition" : "Leverantörens epost\n\nAdress till ett e-postkonto.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../electronicMail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.customerParty",
+      "path" : "processclaimspecification-request.claimSpecification.customerParty",
+      "short" : "CustomerPartyType",
+      "definition" : "Köpare",
+      "comment" : "TKB-fält: `customerParty` (`CustomerPartyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.customerParty.identification",
+      "path" : "processclaimspecification-request.claimSpecification.customerParty.identification",
+      "short" : "identification",
+      "definition" : "identification",
+      "comment" : "TKB-fält: `../../identification` (`IIType`, kardinalitet 1..2).",
+      "min" : 1,
+      "max" : "2",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact",
+      "path" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact",
+      "short" : "ContactType",
+      "definition" : "Köparens kontaktuppgifter\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../buyerContact` (`ContactType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact.name",
+      "path" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact.name",
+      "short" : "name",
+      "definition" : "Namn på person eller avdelning som avser kontakt för köpare.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../name` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact.telephone",
+      "path" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact.telephone",
+      "short" : "telephone",
+      "definition" : "Köparens telefonnummer\n\nTelefonnummer oredigerat.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../telephone` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact.electronicMail",
+      "path" : "processclaimspecification-request.claimSpecification.customerParty.buyerContact.electronicMail",
+      "short" : "electronicMail",
+      "definition" : "Köparens epost\n\nAdress till ett e-postkonto.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../electronicMail` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine",
+      "short" : "HealthcareServicesSpecificationLineType",
+      "definition" : "Fakturaunderlag vård, rad",
+      "comment" : "TKB-fält: `healthcareServicesSpecificationLine` (`HealthcareServicesSpecificationLineType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation",
+      "short" : "PatientInformationType",
+      "definition" : "Patient",
+      "comment" : "TKB-fält: `../patientInformation` (`PatientInformationType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientIdentity",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientIdentity",
+      "short" : "patientIdentity",
+      "definition" : "Patient id\n\nPersonnummer, samordningsnummer eller reservnummer ska anges.\n\nPersonnummer och samordningsnummer enligt den svenska folkbokföringen.\n\nroot\n\npersonnummer=“1.2.752.129.2.1.3.1”\n\nsamordningsnummer=\n\n”1.2.752.129.2.1.3.3”\n\nreservnummer=\n\nlokal reservnummer oid (ex. SLL: 1.2.752.97.3.1.3) alt. organisationsnummer om lokal reservnummer oid ej finns.\n\nextension\n\nPerson- samordnings- eller reservnumret\n\nFormat:\n\nPersonnummer: ÅÅÅÅMMDDNNNN\n\nSamordningsnr.: ÅÅÅÅMMDDNNNN\n\nLokala reservnummer=Olika format för varje region och därmed krav på flexibel hantering.\n\nNationellt reservnummer: XXYYMMDDNNGC\n\nObligatoriskt fält.",
+      "comment" : "TKB-fält: `../../patientIdentity` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation",
+      "short" : "PatientOtherInformationType",
+      "definition" : "Patient, övrig information",
+      "comment" : "TKB-fält: `../../patientOtherInformation` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.county",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.county",
+      "short" : "county",
+      "definition" : "county",
+      "comment" : "TKB-fält: `../../../../county` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.municipality",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.municipality",
+      "short" : "municipality",
+      "definition" : "municipality",
+      "comment" : "TKB-fält: `../../../../municipality` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.listingLocalAuthoritiesNumber",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.listingLocalAuthoritiesNumber",
+      "short" : "listingLocalAuthoritiesNumber",
+      "definition" : "listingLocalAuthoritiesNumber",
+      "comment" : "TKB-fält: `../../../../listingLocalAuthoritiesNumber` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.LMACardNumber",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.LMACardNumber",
+      "short" : "LMACardNumber",
+      "definition" : "LMA kortnummer\n\nIdentitet på LMA-kort som används av asylsökande. Migrationsverkets dossiernummer vilket är unikt för varje individ.\n\nFormat: XXXXXXXX (8 siffror).\n\nSka ifyllas när debitering\n\nsker av asylsökande mellan regioner.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../LMACardNumber` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.gender",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.gender",
+      "short" : "gender",
+      "definition" : "gender",
+      "comment" : "TKB-fält: `../../../../gender` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.EUCardNumber",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.EUCardNumber",
+      "short" : "EUCardNumber",
+      "definition" : "EU-kortets nummer\n\nKort för EU-medborgare som berättigar till vård enligt nationell prislista. (för hantering mot privata vårdgivare)\n\nIdentitet på EU-kort.\n\nFormat (exempel 20 tecken): XXXXXXXXXXXXXXXXXXXX\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../EUCardNumber` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.patientInformation.patientOtherInformation.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed",
+      "short" : "HealthcarePerformedType",
+      "definition" : "Vårdinsats",
+      "comment" : "TKB-fält: `../healthcarePerformed` (`HealthcarePerformedType`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.lineId",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.lineId",
+      "short" : "lineId",
+      "definition" : "Post id vårdinsats\n\nLöpande numrering av vårdinsatser inom en faktura.\n\nRadnummer ska vara ett löpnummer i stigande ordning.\n\nEx 1, 2, 3, 4 osv Alt 10, 20, 30, …\n\nVid kreditering används detta fält som referens eftersom vårdkontaktsid ej är obligatoriskt.\n\nObligatoriskt.",
+      "comment" : "TKB-fält: `../../lineId` (`positiveInteger`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "positiveInt"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.careContactId",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.careContactId",
+      "short" : "careContactId",
+      "definition" : "careContactId",
+      "comment" : "TKB-fält: `../../../careContactId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.referenceToLineId",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.referenceToLineId",
+      "short" : "referenceToLineId",
+      "definition" : "Referens till PostId Vårdinsats\n\nVid kreditering av poster på kreditfaktura ska en referens\n\nanges till det radnummer som finns på vårdkontakterna på originalfakturans fakturaunderlag.\n\nSka lämnas när fakturan är en kreditfaktura.\n\nNågra regioner behöver en omställningstid innan denna uppgift kan ifyllas (Uppföljning sker inom nätverksgruppen).\n\nSka bli obligatorisk under nämnda förutsättningar senast\n\n20xx-01.",
+      "comment" : "TKB-fält: `../../referenceToLineId` (`positiveInteger`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "positiveInt"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.reasonForCredit",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.reasonForCredit",
+      "short" : "reasonForCredit",
+      "definition" : "reasonForCredit",
+      "comment" : "TKB-fält: `../../../reasonForCredit` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment",
+      "short" : "PaymentCommitmentType",
+      "definition" : "Betalningsförbindelse",
+      "comment" : "TKB-fält: `../../paymentCommitment` (`PaymentCommitmentType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.remittanceNumber",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.remittanceNumber",
+      "short" : "remittanceNumber",
+      "definition" : "Remiss-id\n\nRemissens ursprungliga remiss-id.\n\nUppgiften lämnas när en remiss finns.\n\nSka bli obligatoriskt fält under nämnda förutsättningar senast\n\n20xx-01.",
+      "comment" : "TKB-fält: `../../../remittanceNumber` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.paymentCommitmentNumber",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.paymentCommitmentNumber",
+      "short" : "paymentCommitmentNumber",
+      "definition" : "Betalningsförbindelse-id\n\nUrsprunglig identitet för betalningsförbindelse.\n\nUppgiften lämnas när en remiss finns.\n\nSka bli obligatoriskt fält under nämnda förutsättningar senast\n\n20xx-01.",
+      "comment" : "TKB-fält: `../../../paymentCommitmentNumber` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.typeOfAgreement",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.typeOfAgreement",
+      "short" : "typeOfAgreement",
+      "definition" : "typeOfAgreement",
+      "comment" : "TKB-fält: `../../../../typeOfAgreement` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.typeOfChapter",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.typeOfChapter",
+      "short" : "typeOfChapter",
+      "definition" : "typeOfChapter",
+      "comment" : "TKB-fält: `../../../../typeOfChapter` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.agreementInRiksavtalet",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.agreementInRiksavtalet",
+      "short" : "agreementInRiksavtalet",
+      "definition" : "Avtalspost i Riksavtalet\n\nKapitel och punkt som avses i Riksavtalet.\n\nFältet ifylls endast i de fall vården har utförts utan remiss men med stöd av särskilt kapitel och avsnitt i Riksavtalet.\n\nGiltiga värden:\n\n3.1= Kap 3.1 Akut- och förlossningsvård\n\n3.2 = Kap 3.2 Vård av vissa patienter\n\n4.1 = Kapitel 4.1 Öppen vård utan krav på remiss\n\n4.3 = Kapitel 4.3 Hemsjukvård\n\n4.4 = Kapitel 4.4 Abort\n\nSka bli obligatoriskt fält under nämnda förutsättningar senast 20xx-01.",
+      "comment" : "TKB-fält: `../../../agreementInRiksavtalet` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.typeOfReimbursement",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.typeOfReimbursement",
+      "short" : "typeOfReimbursement",
+      "definition" : "typeOfReimbursement",
+      "comment" : "TKB-fält: `../../../../typeOfReimbursement` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.paymentCommitment.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory",
+      "short" : "HealthcareCategoryType",
+      "definition" : "Vårdkategori",
+      "comment" : "TKB-fält: `../../healthcareCategory` (`HealthcareCategoryType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.typeOfCare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.typeOfCare",
+      "short" : "typeOfCare",
+      "definition" : "typeOfCare",
+      "comment" : "TKB-fält: `../../../../typeOfCare` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.publicCare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.publicCare",
+      "short" : "publicCare",
+      "definition" : "Offentlig vård\n\nOffentlig eller privat vård.\n\nOffentlig vård är vård som är offentligt finansierad och bedrivs av region/kommun.\n\nPrivat vård är vård som är offentligt finansierad och bedrivs av privat vårdgivare.\n\ntrue = offentlig vård\n\nfalse = privat vård\n\nSka bli obligatoriskt fält senast 20xx-01.",
+      "comment" : "TKB-fält: `../../../publicCare` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.plannedHealthcare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.plannedHealthcare",
+      "short" : "plannedHealthcare",
+      "definition" : "Planerad vård\n\nKategorisering enligt Socialstyrelsens termbank.\n\nDefinitioner:\n\nOplanerat vårdtillfälle: vårdtillfälle för vilket tid inte har avtalats\n\nOplanerat öppenvårdsbesök: öppenvårdsbesök för vilket tid inte har avtalats\n\nPlanerat vårdtillfälle: vårdtillfälle för vilket tid har avtalats\n\nPlanerat öppenvårdsbesök: öppenvårdsbesök för vilket tid har avtalats\n\ntrue = planerad vård\n\nfalse = ej planerad vård\n\nObligatoriskt.",
+      "comment" : "TKB-fält: `../../../plannedHealthcare` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.typeOfVisit",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.typeOfVisit",
+      "short" : "typeOfVisit",
+      "definition" : "typeOfVisit",
+      "comment" : "TKB-fält: `../../../../typeOfVisit` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareCategory.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan",
+      "short" : "TimespanType",
+      "definition" : "Tidsomfång",
+      "comment" : "TKB-fält: `../../timespan` (`TimespanType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareVisitDateTime",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareVisitDateTime",
+      "short" : "HealthcareVisitDateTimeType",
+      "definition" : "Besökstid",
+      "comment" : "TKB-fält: `../../../healthcareVisitDateTime` (`HealthcareVisitDateTimeType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareVisitDateTime.careVisitDate",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareVisitDateTime.careVisitDate",
+      "short" : "careVisitDate",
+      "definition" : "careVisitDate",
+      "comment" : "TKB-fält: `../../../../../careVisitDate` (`DateType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareVisitDateTime.careVisitTime",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareVisitDateTime.careVisitTime",
+      "short" : "careVisitTime",
+      "definition" : "Inskrivnings- eller besökstid\n\nExakt tid, timme och minut när inskrivning/besöket skedde. För att få tydlighet i en persons vårdkonsumtion\n\npå en dag.\n\nFormat: ÅÅÅÅMMDDttmmss\n\nSka bli obligatoriskt fält senast 20xx-01.",
+      "comment" : "TKB-fält: `../../../../careVisitTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/TimeType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareDischargeDateTime",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareDischargeDateTime",
+      "short" : "HealthcareDischargeDateType",
+      "definition" : "Utskrivningsdatum och tid\n\nPatientens utskrivningsdag och tidpunkt.\n\nObligatoriskt fält vid sluten vård när patienten har blivit utskriven.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../ healthcareDischargeDateTime` (`HealthcareDischargeDateTimeType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareDischargeDateTime.careDischargeDate",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareDischargeDateTime.careDischargeDate",
+      "short" : "careDischargeDate",
+      "definition" : "careDischargeDate",
+      "comment" : "TKB-fält: `../../../../../careDischargeDate` (`DateType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareDischargeDateTime.careDischargeTime",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.healthcareDischargeDateTime.careDischargeTime",
+      "short" : "careDischargeTime",
+      "definition" : "Utskrivningstid\n\nExakt tid, timme och minut när utskrivning skedde. För att få tydlighet i en persons vårdkonsumtion på en dag.\n\nIfylla vid utskrivning från sluten vård.\n\nFormat: ÅÅÅÅMMDDttmmss\n\nSka bli obligatoriskt fält under nämnda förutsättningar senast 20xx-01.",
+      "comment" : "TKB-fält: `../../../../careDischargeTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/TimeType"]
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.invoicePeriod",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.invoicePeriod",
+      "short" : "invoicePeriod",
+      "definition" : "invoicePeriod",
+      "comment" : "TKB-fält: `../../../../invoicePeriod` (`DatePeriodType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.numberOfDays",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.numberOfDays",
+      "short" : "NumberOfDaysType",
+      "definition" : "Antal dagar",
+      "comment" : "TKB-fält: `../../../numberOfDays` (`NumberOfDaysType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.numberOfDays.onLeave",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.numberOfDays.onLeave",
+      "short" : "onLeave",
+      "definition" : "Antalet permissionsdagar\n\nFältet ifylls endast vid sluten vård och avser det antal permissionsdagar som en patient haft under vårdtillfället.\n\nAvser antalet permissionsdagar som ingår i ett vårdtillfälle om patienten haft permission.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../onLeave` (`positiveInteger`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "positiveInt"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.numberOfDays.inCare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.timespan.numberOfDays.inCare",
+      "short" : "inCare",
+      "definition" : "Antal vårddagar\n\nDet antal vårddagar som kostnaden debiteras för.\n\nPermissionsdagar ska vara frånräknade.\n\nNär in- och utskrivning sker samma dag räknas vårdtiden som en dag.\n\nSka alltid ifyllas vid sluten vård.\n\nFältet ifylls även om inte vårddagskostnad debiteras ex vid DRG-debitering.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../inCare` (`positiveInteger`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "positiveInt"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit",
+      "short" : "HealthcareUnitType",
+      "definition" : "Vårdenhet",
+      "comment" : "TKB-fält: `../../healthcareUnit` (`HealthcareUnitType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.careUnitId",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.careUnitId",
+      "short" : "careUnitId",
+      "definition" : "Id\n\nVårdenhetens identitet\n\nIdentitet på den vårdenhet som har utfört, alternativt är medicinskt ansvarig för, den vård som en patient har erhållit. Det är HSA-id för vårdenheten som ska anges. Anges i formatet: SEorganisationsnummer-kod.\n\nroot\n\n“1.2.752.129.2.1.4.1”\n\nextension\n\nExempel SE2321000115-094882.\n\nSka bli obligatoriskt senast 20xx-01.",
+      "comment" : "TKB-fält: `../../../careUnitId` (`II`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/financial-billing-claim/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.careUnitName",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.careUnitName",
+      "short" : "careUnitName",
+      "definition" : "Namn\n\nNamnet på vårdenheten som utfört vården.\n\nEn vårdenhet är en organisatorisk enhet som tillhandahåller hälso- och\n\nsjukvård. Rekommenderas att namnsättning sker enligt\n\nHSA-id. I de fall HSA-id kod anges ska alltid namnsättningen följa koden.\n\nObligatorisk.",
+      "comment" : "TKB-fält: `../../../careUnitName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.professionCodeForHealthcare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.professionCodeForHealthcare",
+      "short" : "professionCodeForHealthcare",
+      "definition" : "professionCodeForHealthcare",
+      "comment" : "TKB-fält: `../../../../professionCodeForHealthcare` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.healthcareUnit.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization",
+      "short" : "CategorizationType",
+      "definition" : "Kategorisering",
+      "comment" : "TKB-fält: `../../categorization` (`CategorizationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.productCategory",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.productCategory",
+      "short" : "productCategory",
+      "definition" : "productCategory",
+      "comment" : "TKB-fält: `../../../../productCategory` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.priceList",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.priceList",
+      "short" : "priceList",
+      "definition" : "priceList",
+      "comment" : "TKB-fält: `../../../../priceList` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost",
+      "short" : "DRGCostType",
+      "definition" : "DRG-kostnad\n\nMinst en av DRG-kostnad eller Patient specifik åtgärd (se nedan) måste anges.",
+      "comment" : "TKB-fält: `../../../DRGCost` (`DRGCostType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGCode",
+      "short" : "DRGCode",
+      "definition" : "DRG produktkod\n\nDebiterad DRG-kod\n\nEnbart kod enligt DRG sätts i elementet originalText. Koden innehåller fyra tecken, ingen förklarande text skickas i elementet.\n\nSka ifyllas när debiteringen avser pris för DRG.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../DRGCode` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGPrice",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGPrice",
+      "short" : "AmountType",
+      "definition" : "DRG pris\n\nDRG-pris enligt prislista.\n\nDet finns olika prislistor beroende på vilket avtal som fakturering sker från.\n\nUppgiften ifylls när vårdinsatsens debitering avser fakturering enligt DRG-priser.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../DRGPrice` (`AmounType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGPrice.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGPrice.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGPrice.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.DRGPrice.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCareTime",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCareTime",
+      "short" : "AmountType",
+      "definition" : "Ytterfallsersättning, vårdtid\n\nYtterfallsersättning för den tid patienten har vårdats.\n\nBelopp för ytterfallsersättning, vårdtid\n\nOm vårdtiden avviker mot prislistans framräknade trimgräns/ytterfallsgräns kan ytterfallsersättning debiteras enligt avtal. När detta ska ske är reglerat i samverkansavtalen.\n\nOfta faktureras detta på egen\n\nfaktura. Det är viktigt att korrekt vårdkontakts-id anges dvs samma id som vid fakturerad vårdkontakt.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../extendedAllowanceCareTime` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCareTime.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCareTime.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCareTime.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCareTime.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCost",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCost",
+      "short" : "AmountType",
+      "definition" : "Ytterfallsersättning, kostnad\n\nYtterfallsersättning för höga kostnader utöver patientens vårdtid. Belopp för ytterfallsersättning, kostnad.\n\nOm kostnaden avviker mot prislistans  framräknade trimgräns/ytterfallsgräns kan ytterfallsersättning debiteras enligt avtal. När detta ska ske är reglerat i samverkansavtalen.\n\nOfta faktureras detta på egen\n\nfaktura. Det är viktigt att korrekt vårdkontakts-id anges dvs samma id som vid fakturerad vårdkontakt.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../extendedAllowanceCost` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCost.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCost.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCost.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.DRGCost.extendedAllowanceCost.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare",
+      "short" : "PatientSpecificCareType",
+      "definition" : "Patient specifik åtgärd\n\nMinst en av Patient specifik åtgärd eller DRG-kostnad (se ovan) måste anges.\n\nPatientspecifika åtgärder enligt särskilda prislistor. Det kan förekomma ett flertal patientspecifika åtgärder\n\nkopplade till ett sjukdomsfall. Dessa uppgifter måste således kunna anges på flera rader kopplade till en vårdkontakt i filbeskrivningen. För varje åtgärd ska ett pris anges.\n\nDebitering av vårddagskostnader, besök, mm ska även framgå här.",
+      "comment" : "TKB-fält: `../../../patientSpecificCare` (`PatientSpecificCareType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareCode",
+      "short" : "patientSpecificCareCode",
+      "definition" : "Typ av patient specifik åtgärd\n\nKod när debiteringen avser patientspecifika åtgärder, besök, vårddagar mm.\n\nUppgiften ifylls när vårdinsatsens debitering inte avser fakturering enligt DRG-priser.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../patientSpecificCareCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareCodeName",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareCodeName",
+      "short" : "patientSpecificCareCodeName",
+      "definition" : "Patientspecifik åtgärd, namn\n\nNamn för patientspecifik åtgärd när kod för patientspecifik åtgärd har registrerats.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../patientSpecificCareCodeName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.numberOfPatientSpecificCare",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.numberOfPatientSpecificCare",
+      "short" : "numberOfPatientSpecificCare",
+      "definition" : "Antal patientspecifik åtgärd\n\nAntalsuppgifter för patientspecifika åtgärder, vårddagar,\n\nbesök mm. Antalet åtgärder, vårddagar mm som debiteringen innehåller.\n\nIfylls alltid i samband med patientspecifik debitering.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../numberOfPatientSpecificCare` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCarePrice",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCarePrice",
+      "short" : "AmountType",
+      "definition" : "Patientspecifik åtgärd, pris\n\nPris för patientspecifika åtgärder enligt särskilda prislistor när inte debiteringen sker utifrån DRG-priser.\n\nDet kan förekomma ett flertal patientspecifika åtgärder kopplade till ett sjukdomsfall. Dessa uppgifter måste således kunna anges på flera rader kopplade till en vårdkontakt i filbeskrivningen. För varje åtgärd ska ett pris anges.\n\nÄven belopp för vårddagskostnad, besök mm anges här.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../patientSpecificCarePrice` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCarePrice.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCarePrice.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCarePrice.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCarePrice.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareTotalAmount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareTotalAmount",
+      "short" : "AmountType",
+      "definition" : "patientSpecificCareTotalAmount",
+      "comment" : "TKB-fält: `../../../../../patientSpecificCareTotalAmount` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareTotalAmount.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareTotalAmount.amount",
+      "short" : "amount",
+      "definition" : "amount",
+      "comment" : "TKB-fält: `../../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareTotalAmount.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.patientSpecificCareTotalAmount.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.categorization.patientSpecificCare.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails",
+      "short" : "InvoicedAmountDetailsType",
+      "definition" : "Fakturerat",
+      "comment" : "TKB-fält: `../../invoicedAmountDetails` (`InvoicedAmountDetailsType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceGrossAmount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceGrossAmount",
+      "short" : "AmountType",
+      "definition" : "patientCareInvoiceGrossAmount",
+      "comment" : "TKB-fält: `../../../../patientCareInvoiceGrossAmount` (`AmountType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceGrossAmount.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceGrossAmount.amount",
+      "short" : "amount",
+      "definition" : "amount",
+      "comment" : "TKB-fält: `../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceGrossAmount.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceGrossAmount.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceNetAmount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceNetAmount",
+      "short" : "AmountType",
+      "definition" : "patientCareInvoiceNetAmount",
+      "comment" : "TKB-fält: `../../../../patientCareInvoiceNetAmount` (`AmountType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceNetAmount.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceNetAmount.amount",
+      "short" : "amount",
+      "definition" : "amount",
+      "comment" : "TKB-fält: `../../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceNetAmount.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareInvoiceNetAmount.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareAllowance",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareAllowance",
+      "short" : "AmountType",
+      "definition" : "Patient vårdkontakt, avdrag 6 % momskompensation\n\nAvdrag (momskompensation) för 6 % moms som säljaren kan söka statsbidrag för vid köp från privat\n\nvårdgivare. Ifylls endast vid privat vård och detta är reglerat i samverkansavtal.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../patientCareAllowance` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareAllowance.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareAllowance.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareAllowance.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareAllowance.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareDiscount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareDiscount",
+      "short" : "AmountType",
+      "definition" : "Patient vårdkontakt, rabatt\n\nI fältet ska anges belopp för rabatt i de fall detta finns. Rabatter regleras i samverkansavtalen.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../patientCareDiscount` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareDiscount.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareDiscount.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareDiscount.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareDiscount.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareCharge",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareCharge",
+      "short" : "AmountType",
+      "definition" : "Patient vårdtillfälle, påslag och avgifter\n\nI fältet ska anges påslag för avgifter mm i det fall detta finns. Påslag/avgifter regleras i samverkansavtalen.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../patientCareCharge` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareCharge.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareCharge.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareCharge.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientCareCharge.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFee",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFee",
+      "short" : "AmountType",
+      "definition" : "Patientavgift öppenvård\n\nPatientavgiften för öppenvård enligt vårdande regions prislista.\n\nInformation om vilken patientavgift som är beslutad för aktuell debitering. Kan anges om beloppet avviker från\n\nPatientavgift erlagd öppenvård.\n\nFältet är frivillig uppgift.",
+      "comment" : "TKB-fält: `../../../outPatientCareFee` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFee.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFee.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFee.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFee.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFeePaid",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFeePaid",
+      "short" : "AmountType",
+      "definition" : "Patientavgift erlagd öppenvård\n\nPatientavgift för öppenvård som erlagts av patienten.\n\nDen del som patienten betalt. Beloppet kan avvika\n\njämfört med fältet ”Patientavgift öppenvård” pga frikort\n\nmm.\n\nSka endast ifyllas när patientavgiften påverkar fakturerat belopp.\n\nNär uppgift ska lämnas styrs av de olika samverkansavtalen.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../outPatientCareFeePaid` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFeePaid.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFeePaid.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFeePaid.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.outPatientCareFeePaid.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientFeeReducedCategory",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientFeeReducedCategory",
+      "short" : "patientFeeReducedCategory",
+      "definition" : "patientFeeReducedCategory",
+      "comment" : "TKB-fält: `../../../../patientFeeReducedCategory` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientFreePassCauseIndicator",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.patientFreePassCauseIndicator",
+      "short" : "patientFreePassCauseIndicator",
+      "definition" : "Patientavgift Frikortsgrundad indikator\n\nFrikortsgrundande patientavgift. Information om debiterad vård är frikortsberättigad i säljande region.\n\nMöjlighet att fånga en erlagd patientavgift för central hantering och bevakning av frikortsbelopp i köpande region.\n\nTrue = är frikortsgrundad\n\nfalse = ej frikortsgrundad\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../patientFreePassCauseIndicator` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.inpatientCareFee",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.inpatientCareFee",
+      "short" : "AmountType",
+      "definition" : "Patientavgift, slutenvård\n\nPatientens patientavgift för behandlingen i sluten vård.\n\nMöjlighet att i framtiden fånga patientavgiften även i sluten vård.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../inpatientCareFee` (`AmountType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.inpatientCareFee.amount",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.inpatientCareFee.amount",
+      "short" : "amount",
+      "definition" : "Belopp",
+      "comment" : "TKB-fält: `../../../../amount` (`decimal`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.inpatientCareFee.currency",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.inpatientCareFee.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "comment" : "TKB-fält: `../../../../../currency` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.invoicedAmountDetails.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity",
+      "short" : "ActivityType",
+      "definition" : "Verksamhet",
+      "comment" : "TKB-fält: `../../activity` (`ActivityType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.medicalFieldCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.medicalFieldCode",
+      "short" : "medicalFieldCode",
+      "definition" : "Medicinskt verksamhetsområde\n\nTreställig kod från Socialstyrelsen\n\nKlinikkod (specialitet), medicinskt ansvarig enligt kodverk från Socialstyrelsen.\n\nObligatoriskt fält.",
+      "comment" : "TKB-fält: `../../../medicalFieldCode` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.businessClassification",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.businessClassification",
+      "short" : "businessClassification",
+      "definition" : "Verksamhetskod\n\nFyrställig kod för den typ av verksamhet som bedrivs enligt HSA:s verksamhetskodverk.\n\nUppgiften kan inhämtas från HSA, men det är viktigt att i så fall även titta på verksamhetskoder för vårdenhetens ingående enheter samt att först därefter välja den verksamhetskod som är aktuell för det specifika vårdtillfället.\n\ncode: Ur HSAs kodverk Verksamhetskod codesystem: 1.2.752.129.2.2.1.3\n\nSka bli obligatoriskt fält senast 20xx-01.",
+      "comment" : "TKB-fält: `../../../businessClassification` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.careLevel",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.careLevel",
+      "short" : "careLevel",
+      "definition" : "careLevel",
+      "comment" : "TKB-fält: `../../../../careLevel` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.activity.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis",
+      "short" : "DiagnosisType",
+      "definition" : "diagnosis",
+      "comment" : "TKB-fält: `../../../diagnosis` (`DiagnosisType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis",
+      "short" : "PatientDiagnosisType",
+      "definition" : "inpatientCareDiagnosis",
+      "comment" : "TKB-fält: `../../../../inpatientCareDiagnosis` (`PatientDiagnosisType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.mainDiagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.mainDiagnosis",
+      "short" : "DiagnosisCodeType",
+      "definition" : "mainDiagnosis",
+      "comment" : "TKB-fält: `../../../../../mainDiagnosis` (`DiagnosisCodeType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.mainDiagnosis.diagnosisCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.mainDiagnosis.diagnosisCode",
+      "short" : "diagnosisCode",
+      "definition" : "diagnosisCode",
+      "comment" : "TKB-fält: `../../../../../../diagnosisCode` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.biDiagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.biDiagnosis",
+      "short" : "DiagnosisCodeType",
+      "definition" : "Bidiagnos\n\nDiagnos 2-x . Det kan förekomma ett flertal bidiagnoser kopplade till ett sjukdomsfall. Dessa uppgifter måste\n\nsåledes kunna anges på flera rader kopplade till en vårdkontakt i filbeskrivningen.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../biDiagnosis` (`DiagnosisCodeType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.biDiagnosis.diagnosisCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.inpatientCareDiagnosis.biDiagnosis.diagnosisCode",
+      "short" : "diagnosisCode",
+      "definition" : "Diagnoskod\n\nKod för diagnos.\n\nDet kodsystem som styr vilken diagnos som angivits.\n\nI sluten vård ska det alltid vara kod enligt ICD10-SE. I öppen vård bör det vara enligt ICD10-SE men även\n\nandra koddiagnoser kan finnas.\n\nCode:\n\ncodesystem: ”1.2.752.116.1.1.1.1.3”\n\nObligatoriskt fält.",
+      "comment" : "TKB-fält: `../../../../../diagnosisCode` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis",
+      "short" : "PatientDiagnosisType",
+      "definition" : "outpatientCareDiagnosis",
+      "comment" : "TKB-fält: `../../../../outpatientCareDiagnosis` (`PatientDiagnosisType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.mainDiagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.mainDiagnosis",
+      "short" : "DiagnosisCodeType",
+      "definition" : "Huvuddiagnos\n\nHuvuddiagnos, Diagnos 1. Ska registreras för somatisk öppenvård när denna uppgift finns. Ska inte lämnas för primärvård och psykiatrisk öppenvård.\n\nHuvuddiagnosen är det tillstånd (sjukdom, skada etc.) vars behandling och utredning varit huvudorsaken till patientens sjukhusvistelse.\n\nObligatoriskt fält om fältet Diagnos öppenvård används.",
+      "comment" : "TKB-fält: `../../../../mainDiagnosis` (`DiagnosisCodeType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.mainDiagnosis.diagnosisCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.mainDiagnosis.diagnosisCode",
+      "short" : "diagnosisCode",
+      "definition" : "Diagnoskod\n\nDet kodsystem som styr vilken diagnos som angivits.\n\nI sluten vård ska det alltid vara kod enligt ICD10-SE. I öppen vård bör det vara enligt ICD10-SE med även andra koddiagnoser kan finnas.\n\nCode:\n\ncodesystem: ”1.2.752.116.1.1.1.1.3”\n\nObligatoriskt fält.",
+      "comment" : "TKB-fält: `../../../../../diagnosisCode` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.biDiagnosis",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.biDiagnosis",
+      "short" : "DiagnosisCodeType",
+      "definition" : "Bidiagnos\n\nDiagnos 2-x .Det kan förekomma ett flertal bidiagnoser\n\nkopplade till ett sjukdomsfall. Dessa uppgifter måste således kunna anges på flera rader kopplade till en vårdkontakt i filbeskrivningen.\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../../biDiagnosis` (`DiagnosisCodeType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.biDiagnosis.diagnosisCode",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.diagnosis.outpatientCareDiagnosis.biDiagnosis.diagnosisCode",
+      "short" : "diagnosisCode",
+      "definition" : "Diagnoskod\n\nKod för diagnos.\n\nDet kodsystem som styr vilken diagnos som angivits.\n\nI sluten vård ska det alltid vara kod enligt ICD10-SE. I öppen vård bör det vara enligt ICD10-SE men även\n\nandra koddiagnoser kan finnas.\n\nCode:\n\ncodesystem: ”1.2.752.116.1.1.1.1.3”\n\nObligatoriskt fält.",
+      "comment" : "TKB-fält: `../../../../../diagnosisCode` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment",
+      "short" : "TreatmentType",
+      "definition" : "Åtgärd",
+      "comment" : "TKB-fält: `../../treatment` (`TreatmentType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.typeOfTreatment",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.typeOfTreatment",
+      "short" : "typeOfTreatment",
+      "definition" : "Åtgärdskod\n\nDet kan förekomma ett flertal åtgärder och därmed åtgärdskoder kopplade till ett sjukdomsfall. Dessa\n\nuppgifter måste således kunna anges på flera rader kopplade till en vårdkontakt i filbeskrivningen. Åtgärder\n\nska inte lämnas för primärvård och psykiatrisk vård.\n\nEnligt socialstyrelsens klassifikation av vårdåtgärder (KVÅ).\n\nCode:\n\ncodesystem:” 1.2.752.116.1.3.2.1.4”\n\nObligatoriskt fält under nämnda förutsättningar.",
+      "comment" : "TKB-fält: `../../../typeOfTreatment` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.ATC",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.ATC",
+      "short" : "ATC",
+      "definition" : "ATC kod\n\nLäkemedel enligt ATC-kod.\n\nBetydande kostnader för läkemedel i en behandling kan specificerat med ATC-koder.\n\nCode:\n\ncodesystem: ”1.2.752.129.2.2.3.1.1”\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../ATC` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.unspecified",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.unspecified",
+      "short" : "UnspecifiedType",
+      "definition" : "Ospecificerat\n\nEtt antal fria tomma fält som kan användas unikt för respektive region i relationer med privata vårdgivare enligt egna vårdavtal mm.\n\nFrivillig uppgift.",
+      "comment" : "TKB-fält: `../../../unspecified` (`UnspecifiedType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.unspecified.text",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.unspecified.text",
+      "short" : "text",
+      "definition" : "text",
+      "comment" : "TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.unspecified.type",
+      "path" : "processclaimspecification-request.claimSpecification.healthCareServicesSpecificationLine.healthcarePerformed.treatment.unspecified.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../../../../type` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

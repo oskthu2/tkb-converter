@@ -1,0 +1,713 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"deleteehrextract-request","deleteehrextract-request","deleteehrextract-request","","","",0,*,"","","","null {[]} {[]}
+","DeleteEhrExtract — Request","Logisk modell för begäran i DeleteEhrExtract
+(urn:riv:ehr:patientsummary:DeleteEhrExtractResponder:1, DeleteEhrExtractType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"deleteehrextract-request","deleteehrextract-request.ehr-system","deleteehrextract-request.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","Det värde som skickades för patientinformationen då anrop till tjänsten ReceiveEhrExtract gjordes.","TKB-fält: `ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.ehr_system",1,1,"",""
+"deleteehrextract-request","deleteehrextract-request.subject-of-care","deleteehrextract-request.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","subject_of_care","Id för patienten. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes.","TKB-fält: `subject_of_care` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.subject_of_care",1,1,"",""
+"deleteehrextract-request","deleteehrextract-request.deletion","deleteehrextract-request.deletion","","","",1,*,"","","","Base {[]} {[]}
+","DeletionType","Innehåller par av rcId och meaning.
+
+rcId:
+
+Globalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.)
+
+meaning:
+
+Den huvudinformationstyp som posten (som ska tas bort) gäller för.","TKB-fält: `deletion` (`DeletionType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.deletion",1,*,"",""
+"deleteehrextract-request","deleteehrextract-request.deletion.rc-id","deleteehrextract-request.deletion.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.deletion.rc_id",1,1,"",""
+"deleteehrextract-request","deleteehrextract-request.deletion.meaning","deleteehrextract-request.deletion.meaning","","","",1,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../meaning` (`CD`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.deletion.meaning",1,1,"",""
+"deleteehrextract-request","deleteehrextract-request.parameters","deleteehrextract-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten DeleteEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters",0,*,"",""
+"deleteehrextract-request","deleteehrextract-request.parameters.code","deleteehrextract-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters.code",0,1,"",""
+"deleteehrextract-request","deleteehrextract-request.parameters.name","deleteehrextract-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters.name",1,1,"",""
+"deleteehrextract-request","deleteehrextract-request.parameters.value","deleteehrextract-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract-request.parameters.value",1,1,"",""
+"deleteehrextract","deleteehrextract","deleteehrextract","","","",0,*,"","","","null {[]} {[]}
+","DeleteEhrExtract — Response","Logisk modell för svaret i DeleteEhrExtract
+(urn:riv:ehr:patientsummary:DeleteEhrExtractResponder:1, DeleteEhrExtractResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"deleteehrextract","deleteehrextract.success","deleteehrextract.success","","","",1,1,"","","","boolean {[]} {[]}
+","success","Anger om mottagaren lyckats ta emot innehållet. (Observera att värdet ”true” inte innebär att mottagaren lyckats behandla innehållet. Resultat av behandlingen meddelas genom tjänsten DeleteEhrExtractStatus.)","TKB-fält: `success` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextract.success",1,1,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request","deleteehrextractstatus-request","","","",0,*,"","","","null {[]} {[]}
+","DeleteEhrExtractStatus — Request","Logisk modell för begäran i DeleteEhrExtractStatus
+(urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.parameters","deleteehrextractstatus-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: detta är samma värde som användes i anropet till tjänsten DeleteEhrExtract. Med hjälp av detta värde går det koppla samman statusanropet med ett tidigare anrop till tjänsten DeleteEhrExtract.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.parameters",0,*,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.parameters.code","deleteehrextractstatus-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.parameters.code",0,1,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.parameters.name","deleteehrextractstatus-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.parameters.name",1,1,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.parameters.value","deleteehrextractstatus-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.parameters.value",1,1,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.response-detail","deleteehrextractstatus-request.response_detail","","","",0,*,"","","","Base {[]} {[]}
+","ResponseDetailType","Fel-, varnings- och/eller informationsmeddelanden.","TKB-fält: `response_detail` (`ResponseDetailType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.response_detail",0,*,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.response-detail.code","deleteehrextractstatus-request.response_detail.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.response_detail.code",0,1,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.response-detail.text","deleteehrextractstatus-request.response_detail.text","","","",1,1,"","","","string {[]} {[]}
+","text","text","TKB-fält: `../text` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus-request.response_detail.text",1,1,"",""
+"deleteehrextractstatus-request","deleteehrextractstatus-request.response-detail.type-code","deleteehrextractstatus-request.response_detail.type_code","","","",0,1,"","","","code {[]} {[]}
+","type_code","(XML-attribut.)","TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).
+
+**Modellanteckning:** type_code (XML-attribut) Tillåtna värden: E, W, I.","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-patientsummary/ValueSet/patientsummary-responsedetailtypecodes-vs","",,,,"deleteehrextractstatus-request.response_detail.type_code",0,1,"",""
+"deleteehrextractstatus","deleteehrextractstatus","deleteehrextractstatus","","","",0,*,"","","","null {[]} {[]}
+","DeleteEhrExtractStatus — Response","Logisk modell för svaret i DeleteEhrExtractStatus
+(urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"deleteehrextractstatus","deleteehrextractstatus.success","deleteehrextractstatus.success","","","",1,1,"","","","boolean {[]} {[]}
+","success","Resultatet av anropet.","TKB-fält: `success` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"deleteehrextractstatus.success",1,1,"",""
+"getehrextract-request","getehrextract-request","getehrextract-request","","","",0,*,"","","","null {[]} {[]}
+","GetEhrExtract — Request","Logisk modell för begäran i GetEhrExtract
+(urn:riv:ehr:patientsummary:GetEhrExtractResponder:1, GetEhrExtractType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getehrextract-request","getehrextract-request.subject-of-care-id","getehrextract-request.subject_of_care_id","","","",1,1,"","","","string {[]} {[]}
+","subject_of_care_id","subject_of_care_id","TKB-fält: `subject_of_care_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.subject_of_care_id",1,1,"",""
+"getehrextract-request","getehrextract-request.purpose","getehrextract-request.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","Anger anledningen till anropet. Innehållet i detta fält kan användas/defineras per tjänstekonsument beroende på användningsområde. Vid användning av detta fält måste det finnas en överrenskommelse mellan tjästekonsumenten och tjänsteproducenten.","TKB-fält: `purpose` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.purpose",0,1,"",""
+"getehrextract-request","getehrextract-request.rc-ids","getehrextract-request.rc_ids","","","",0,*,"","","","string {[]} {[]}
+","rc_ids","rc_ids","TKB-fält: `rc_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract-request.rc_ids",0,*,"",""
+"getehrextract-request","getehrextract-request.time-period","getehrextract-request.time_period","","","",0,1,"","","","string {[]} {[]}
+","time_period","Begränsning av sökningen i tid, baserat på kliniskt relevanta datum. Händelser anses ligga inom intervallet, om de till någon del ligger inom intervallet. (Start- och slutpunkt inkluderas i intervallet.) Formatet för start- respektive slutdatum är ÅÅÅÅMMDD. (Exempel på när tidsintervall används är om NPÖs frågetjänst blir anropad med tidsintervall - då propageras intervallet ner till källsystemen.)","TKB-fält: `time_period` (`IVL_TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.time_period",0,1,"",""
+"getehrextract-request","getehrextract-request.max-sensitivity","getehrextract-request.max_sensitivity","","","",0,1,"","","","string {[]} {[]}
+","max_sensitivity","max_sensitivity","TKB-fält: `max_sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.max_sensitivity",0,1,"",""
+"getehrextract-request","getehrextract-request.all-versions","getehrextract-request.all_versions","","","",0,1,"","","","string {[]} {[]}
+","all_versions","all_versions","TKB-fält: `all_versions` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.all_versions",0,1,"",""
+"getehrextract-request","getehrextract-request.multimedia-included","getehrextract-request.multimedia_included","","","",0,1,"","","","string {[]} {[]}
+","multimedia_included","multimedia_included","TKB-fält: `multimedia_included` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.multimedia_included",0,1,"",""
+"getehrextract-request","getehrextract-request.archetype-ids","getehrextract-request.archetype_ids","","","",0,*,"","","","string {[]} {[]}
+","archetype_ids","archetype_ids","TKB-fält: `archetype_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract-request.archetype_ids",0,*,"",""
+"getehrextract-request","getehrextract-request.meanings","getehrextract-request.meanings","","","",0,*,"","","","string {[]} {[]}
+","meanings","En av NPÖ definerad huvudinformationstyp.","TKB-fält: `meanings` (`CD`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getehrextract-request.meanings",0,*,"",""
+"getehrextract-request","getehrextract-request.max-records","getehrextract-request.max_records","","","",0,1,"","","","string {[]} {[]}
+","max_records","max_records","TKB-fält: `max_records` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.max_records",0,1,"",""
+"getehrextract-request","getehrextract-request.parameters","getehrextract-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters",0,*,"",""
+"getehrextract-request","getehrextract-request.parameters.code","getehrextract-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters.code",0,1,"",""
+"getehrextract-request","getehrextract-request.parameters.name","getehrextract-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters.name",1,1,"",""
+"getehrextract-request","getehrextract-request.parameters.value","getehrextract-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract-request.parameters.value",1,1,"",""
+"getehrextract","getehrextract","getehrextract","","","",0,*,"","","","null {[]} {[]}
+","GetEhrExtract — Response","Logisk modell för svaret i GetEhrExtract
+(urn:riv:ehr:patientsummary:GetEhrExtractResponder:1, GetEhrExtractResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getehrextract","getehrextract.ehr-extract","getehrextract.ehr_extract","","","",0,*,"","","","Base {[]} {[]}
+","EHR_EXTRACT","Detaljerad patientinformation på formatet EN13606.","TKB-fält: `ehr_extract` (`EHR_EXTRACT`, kardinalitet 0..1).
+
+Obs: modellen anger 0..* där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.authorising-party","getehrextract.ehr_extract.authorising_party","","","",0,1,"","","","string {[]} {[]}
+","authorising_party","authorising_party","TKB-fält: `../authorising_party` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.authorising_party",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.ehr-id","getehrextract.ehr_extract.ehr_id","","","",1,1,"","","","string {[]} {[]}
+","ehr_id","ehr_id","TKB-fält: `../ehr_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.ehr_id",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.ehr-system","getehrextract.ehr_extract.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.ehr_system",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.rm-id","getehrextract.ehr_extract.rm_id","","","",1,1,"","","","string {[]} {[]}
+","rm_id","rm_id","","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.rm_id",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.subject-of-care","getehrextract.ehr_extract.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","subject_of_care","subject_of_care","TKB-fält: `../subject_of_care` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.subject_of_care",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.time-created","getehrextract.ehr_extract.time_created","","","",1,1,"","","","string {[]} {[]}
+","time_created","time_created","TKB-fält: `../time_created` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.time_created",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions","getehrextract.ehr_extract.all_compositions","","","",0,*,"","","","Base {[]} {[]}
+","COMPOSITION","Key aggregation class representing the set of Record Components authored and committed during a single clinical encounter. Note the values for territory will indicate the legal framework under which the data was committed. The session_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.","TKB-fält: `../all_compositions` (`COMPOSITION`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.archetype-id","getehrextract.ehr_extract.all_compositions.archetype_id","","","",0,1,"","","","string {[]} {[]}
+","archetype_id","archetype_id","TKB-fält: `../../archetype_id` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.archetype_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.meaning","getehrextract.ehr_extract.all_compositions.meaning","","","",0,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../../meaning` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.meaning",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.name","getehrextract.ehr_extract.all_compositions.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.name",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.orig-parent-ref","getehrextract.ehr_extract.all_compositions.orig_parent_ref","","","",0,1,"","","","string {[]} {[]}
+","orig_parent_ref","orig_parent_ref","TKB-fält: `../../orig_parent_ref` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.orig_parent_ref",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.policy-ids","getehrextract.ehr_extract.all_compositions.policy_ids","","","",0,*,"","","","string {[]} {[]}
+","policy_ids","policy_ids","TKB-fält: `../../policy_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.policy_ids",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.rc-id","getehrextract.ehr_extract.all_compositions.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.rc_id",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.sensitivity","getehrextract.ehr_extract.all_compositions.sensitivity","","","",0,1,"","","","string {[]} {[]}
+","sensitivity","sensitivity","TKB-fält: `../../sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.sensitivity",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.synthesised","getehrextract.ehr_extract.all_compositions.synthesised","","","",1,1,"","","","string {[]} {[]}
+","synthesised","synthesised","TKB-fält: `../../synthesised` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.synthesised",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.links","getehrextract.ehr_extract.all_compositions.links","","","",0,*,"","","","Base {[]} {[]}
+","LINK","Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.","TKB-fält: `../../links` (`LINK`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.links",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.links.follow-link","getehrextract.ehr_extract.all_compositions.links.follow_link","","","",1,1,"","","","string {[]} {[]}
+","follow_link","follow_link","TKB-fält: `../../../follow_link` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.links.follow_link",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.links.nature","getehrextract.ehr_extract.all_compositions.links.nature","","","",1,1,"","","","string {[]} {[]}
+","nature","nature","TKB-fält: `../../../nature` (`CS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.links.nature",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.links.role","getehrextract.ehr_extract.all_compositions.links.role","","","",0,1,"","","","string {[]} {[]}
+","role","role","TKB-fält: `../../../role` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.links.role",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.links.target-type","getehrextract.ehr_extract.all_compositions.links.target_type","","","",0,1,"","","","string {[]} {[]}
+","target_type","target_type","TKB-fält: `../../../target_type` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.links.target_type",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.links.target-id","getehrextract.ehr_extract.all_compositions.links.target_id","","","",1,*,"","","","string {[]} {[]}
+","target_id","target_id","TKB-fält: `../../../target_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.links.target_id",1,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit","getehrextract.ehr_extract.all_compositions.feeder_audit","","","",0,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.committer","getehrextract.ehr_extract.all_compositions.feeder_audit.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.committer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.ehr-system","getehrextract.ehr_extract.all_compositions.feeder_audit.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.ehr_system",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.previous-version","getehrextract.ehr_extract.all_compositions.feeder_audit.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.previous_version",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.reason-for-revision","getehrextract.ehr_extract.all_compositions.feeder_audit.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.reason_for_revision",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.time-committed","getehrextract.ehr_extract.all_compositions.feeder_audit.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.time_committed",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.version-set-id","getehrextract.ehr_extract.all_compositions.feeder_audit.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.version_set_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.feeder-audit.version-status","getehrextract.ehr_extract.all_compositions.feeder_audit.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.feeder_audit.version_status",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.contribution-id","getehrextract.ehr_extract.all_compositions.contribution_id","","","",0,1,"","","","string {[]} {[]}
+","contribution_id","contribution_id","TKB-fält: `../../contribution_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.contribution_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.session-time","getehrextract.ehr_extract.all_compositions.session_time","","","",0,1,"","","","string {[]} {[]}
+","session_time","session_time","TKB-fält: `../../session_time` (`IVL_TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.session_time",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.territory","getehrextract.ehr_extract.all_compositions.territory","","","",0,1,"","","","string {[]} {[]}
+","territory","territory","TKB-fält: `../../territory` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.territory",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations","getehrextract.ehr_extract.all_compositions.attestations","","","",0,*,"","","","Base {[]} {[]}
+","ATTESTATION_INFO","Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.","TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attested-view","getehrextract.ehr_extract.all_compositions.attestations.attested_view","","","",0,1,"","","","string {[]} {[]}
+","attested_view","attested_view","TKB-fält: `../../../attested_view` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attested_view",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.proof","getehrextract.ehr_extract.all_compositions.attestations.proof","","","",0,1,"","","","string {[]} {[]}
+","proof","proof","TKB-fält: `../../../proof` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.proof",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.reason-for-attestation","getehrextract.ehr_extract.all_compositions.attestations.reason_for_attestation","","","",1,1,"","","","string {[]} {[]}
+","reason_for_attestation","reason_for_attestation","TKB-fält: `../../../reason_for_attestation` (`CD`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.reason_for_attestation",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.time","getehrextract.ehr_extract.all_compositions.attestations.time","","","",1,1,"","","","string {[]} {[]}
+","time","time","TKB-fält: `../../../time` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.time",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.target-rc-id","getehrextract.ehr_extract.all_compositions.attestations.target_rc_id","","","",1,*,"","","","string {[]} {[]}
+","target_rc_id","target_rc_id","TKB-fält: `../../../target_rc_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.target_rc_id",1,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attester","getehrextract.ehr_extract.all_compositions.attestations.attester","","","",1,1,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../../attester` (`FUNCTIONAL_ROLE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attester",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attester.function","getehrextract.ehr_extract.all_compositions.attestations.attester.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attester.function",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attester.healthcare-facility","getehrextract.ehr_extract.all_compositions.attestations.attester.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attester.healthcare_facility",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attester.mode","getehrextract.ehr_extract.all_compositions.attestations.attester.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attester.mode",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attester.performer","getehrextract.ehr_extract.all_compositions.attestations.attester.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attester.performer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.attestations.attester.service-setting","getehrextract.ehr_extract.all_compositions.attestations.attester.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.attestations.attester.service_setting",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.other-participations","getehrextract.ehr_extract.all_compositions.other_participations","","","",0,*,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../other_participations` (`FUNCTIONAL_ROLE`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.other_participations",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.other-participations.function","getehrextract.ehr_extract.all_compositions.other_participations.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.other_participations.function",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.other-participations.healthcare-facility","getehrextract.ehr_extract.all_compositions.other_participations.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.other_participations.healthcare_facility",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.other-participations.mode","getehrextract.ehr_extract.all_compositions.other_participations.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.other_participations.mode",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.other-participations.performer","getehrextract.ehr_extract.all_compositions.other_participations.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.other_participations.performer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.other-participations.service-setting","getehrextract.ehr_extract.all_compositions.other_participations.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.other_participations.service_setting",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal","getehrextract.ehr_extract.all_compositions.committal","","","",1,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../committal` (`AUDIT_INFO`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.committer","getehrextract.ehr_extract.all_compositions.committal.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.committer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.ehr-system","getehrextract.ehr_extract.all_compositions.committal.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.ehr_system",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.previous-version","getehrextract.ehr_extract.all_compositions.committal.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.previous_version",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.reason-for-revision","getehrextract.ehr_extract.all_compositions.committal.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.reason_for_revision",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.time-committed","getehrextract.ehr_extract.all_compositions.committal.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.time_committed",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.version-set-id","getehrextract.ehr_extract.all_compositions.committal.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.version_set_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.committal.version-status","getehrextract.ehr_extract.all_compositions.committal.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.committal.version_status",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.composer","getehrextract.ehr_extract.all_compositions.composer","","","",0,1,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../composer` (`FUNCTIONAL_ROLE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.composer",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.composer.function","getehrextract.ehr_extract.all_compositions.composer.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.composer.function",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.composer.healthcare-facility","getehrextract.ehr_extract.all_compositions.composer.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.composer.healthcare_facility",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.composer.mode","getehrextract.ehr_extract.all_compositions.composer.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.composer.mode",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.composer.performer","getehrextract.ehr_extract.all_compositions.composer.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.composer.performer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.composer.service-setting","getehrextract.ehr_extract.all_compositions.composer.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.composer.service_setting",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content","getehrextract.ehr_extract.all_compositions.content","","","",0,*,"","","","Base {[]} {[]}
+","CONTENT","Superclass of Section and Entry that enables the former to include instances of itself. Abstrakt typ; instansen anges med xsi:type som en av SECTION, ENTRY.","TKB-fält: `../../content` (`CONTENT`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.archetype-id","getehrextract.ehr_extract.all_compositions.content.archetype_id","","","",0,1,"","","","string {[]} {[]}
+","archetype_id","archetype_id","TKB-fält: `../../../archetype_id` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.archetype_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.meaning","getehrextract.ehr_extract.all_compositions.content.meaning","","","",0,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../../../meaning` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.meaning",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.name","getehrextract.ehr_extract.all_compositions.content.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.name",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.orig-parent-ref","getehrextract.ehr_extract.all_compositions.content.orig_parent_ref","","","",0,1,"","","","string {[]} {[]}
+","orig_parent_ref","orig_parent_ref","TKB-fält: `../../../orig_parent_ref` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.orig_parent_ref",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.policy-ids","getehrextract.ehr_extract.all_compositions.content.policy_ids","","","",0,*,"","","","string {[]} {[]}
+","policy_ids","policy_ids","TKB-fält: `../../../policy_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.policy_ids",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.rc-id","getehrextract.ehr_extract.all_compositions.content.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../../../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.rc_id",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.sensitivity","getehrextract.ehr_extract.all_compositions.content.sensitivity","","","",0,1,"","","","string {[]} {[]}
+","sensitivity","sensitivity","TKB-fält: `../../../sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.sensitivity",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.synthesised","getehrextract.ehr_extract.all_compositions.content.synthesised","","","",1,1,"","","","string {[]} {[]}
+","synthesised","synthesised","TKB-fält: `../../../synthesised` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.synthesised",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.links","getehrextract.ehr_extract.all_compositions.content.links","","","",0,*,"","","","Base {[]} {[]}
+","LINK","Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.","TKB-fält: `../../../links` (`LINK`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.links",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.links.follow-link","getehrextract.ehr_extract.all_compositions.content.links.follow_link","","","",1,1,"","","","string {[]} {[]}
+","follow_link","follow_link","TKB-fält: `../../../../follow_link` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.links.follow_link",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.links.nature","getehrextract.ehr_extract.all_compositions.content.links.nature","","","",1,1,"","","","string {[]} {[]}
+","nature","nature","TKB-fält: `../../../../nature` (`CS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.links.nature",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.links.role","getehrextract.ehr_extract.all_compositions.content.links.role","","","",0,1,"","","","string {[]} {[]}
+","role","role","TKB-fält: `../../../../role` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.links.role",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.links.target-type","getehrextract.ehr_extract.all_compositions.content.links.target_type","","","",0,1,"","","","string {[]} {[]}
+","target_type","target_type","TKB-fält: `../../../../target_type` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.links.target_type",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.links.target-id","getehrextract.ehr_extract.all_compositions.content.links.target_id","","","",1,*,"","","","string {[]} {[]}
+","target_id","target_id","TKB-fält: `../../../../target_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.links.target_id",1,*,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit","getehrextract.ehr_extract.all_compositions.content.feeder_audit","","","",0,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.committer","getehrextract.ehr_extract.all_compositions.content.feeder_audit.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.committer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.ehr-system","getehrextract.ehr_extract.all_compositions.content.feeder_audit.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.ehr_system",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.previous-version","getehrextract.ehr_extract.all_compositions.content.feeder_audit.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.previous_version",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.reason-for-revision","getehrextract.ehr_extract.all_compositions.content.feeder_audit.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.reason_for_revision",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.time-committed","getehrextract.ehr_extract.all_compositions.content.feeder_audit.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.time_committed",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.version-set-id","getehrextract.ehr_extract.all_compositions.content.feeder_audit.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.version_set_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.all-compositions.content.feeder-audit.version-status","getehrextract.ehr_extract.all_compositions.content.feeder_audit.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.all_compositions.content.feeder_audit.version_status",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.criteria","getehrextract.ehr_extract.criteria","","","",0,*,"","","","Base {[]} {[]}
+","EXTRACT_CRITERIA","Restrictions or filters on the creation of the EHR Extract. The time_period should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.","TKB-fält: `../criteria` (`EXTRACT_CRITERIA`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.criteria.all-versions","getehrextract.ehr_extract.criteria.all_versions","","","",0,1,"","","","string {[]} {[]}
+","all_versions","all_versions","TKB-fält: `../../all_versions` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria.all_versions",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.criteria.archetype-ids","getehrextract.ehr_extract.criteria.archetype_ids","","","",0,*,"","","","string {[]} {[]}
+","archetype_ids","archetype_ids","TKB-fält: `../../archetype_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria.archetype_ids",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.criteria.max-sensitivity","getehrextract.ehr_extract.criteria.max_sensitivity","","","",0,1,"","","","string {[]} {[]}
+","max_sensitivity","max_sensitivity","TKB-fält: `../../max_sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria.max_sensitivity",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.criteria.multimedia-included","getehrextract.ehr_extract.criteria.multimedia_included","","","",0,1,"","","","string {[]} {[]}
+","multimedia_included","multimedia_included","TKB-fält: `../../multimedia_included` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria.multimedia_included",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.criteria.other-constraints","getehrextract.ehr_extract.criteria.other_constraints","","","",0,1,"","","","string {[]} {[]}
+","other_constraints","other_constraints","TKB-fält: `../../other_constraints` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria.other_constraints",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.criteria.time-period","getehrextract.ehr_extract.criteria.time_period","","","",0,1,"","","","string {[]} {[]}
+","time_period","time_period","TKB-fält: `../../time_period` (`IVL_TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.criteria.time_period",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders","getehrextract.ehr_extract.folders","","","",0,*,"","","","Base {[]} {[]}
+","FOLDER","Organises and groups Compositions within an EHR Extract.","TKB-fält: `../folders` (`FOLDER`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.archetype-id","getehrextract.ehr_extract.folders.archetype_id","","","",0,1,"","","","string {[]} {[]}
+","archetype_id","archetype_id","TKB-fält: `../../archetype_id` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.archetype_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.meaning","getehrextract.ehr_extract.folders.meaning","","","",0,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../../meaning` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.meaning",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.name","getehrextract.ehr_extract.folders.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.name",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.orig-parent-ref","getehrextract.ehr_extract.folders.orig_parent_ref","","","",0,1,"","","","string {[]} {[]}
+","orig_parent_ref","orig_parent_ref","TKB-fält: `../../orig_parent_ref` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.orig_parent_ref",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.policy-ids","getehrextract.ehr_extract.folders.policy_ids","","","",0,*,"","","","string {[]} {[]}
+","policy_ids","policy_ids","TKB-fält: `../../policy_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.policy_ids",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.rc-id","getehrextract.ehr_extract.folders.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.rc_id",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.sensitivity","getehrextract.ehr_extract.folders.sensitivity","","","",0,1,"","","","string {[]} {[]}
+","sensitivity","sensitivity","TKB-fält: `../../sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.sensitivity",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.synthesised","getehrextract.ehr_extract.folders.synthesised","","","",1,1,"","","","string {[]} {[]}
+","synthesised","synthesised","TKB-fält: `../../synthesised` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.synthesised",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.links","getehrextract.ehr_extract.folders.links","","","",0,*,"","","","Base {[]} {[]}
+","LINK","Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.","TKB-fält: `../../links` (`LINK`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.links",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.links.follow-link","getehrextract.ehr_extract.folders.links.follow_link","","","",1,1,"","","","string {[]} {[]}
+","follow_link","follow_link","TKB-fält: `../../../follow_link` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.links.follow_link",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.links.nature","getehrextract.ehr_extract.folders.links.nature","","","",1,1,"","","","string {[]} {[]}
+","nature","nature","TKB-fält: `../../../nature` (`CS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.links.nature",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.links.role","getehrextract.ehr_extract.folders.links.role","","","",0,1,"","","","string {[]} {[]}
+","role","role","TKB-fält: `../../../role` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.links.role",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.links.target-type","getehrextract.ehr_extract.folders.links.target_type","","","",0,1,"","","","string {[]} {[]}
+","target_type","target_type","TKB-fält: `../../../target_type` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.links.target_type",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.links.target-id","getehrextract.ehr_extract.folders.links.target_id","","","",1,*,"","","","string {[]} {[]}
+","target_id","target_id","TKB-fält: `../../../target_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.links.target_id",1,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit","getehrextract.ehr_extract.folders.feeder_audit","","","",0,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.committer","getehrextract.ehr_extract.folders.feeder_audit.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.committer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.ehr-system","getehrextract.ehr_extract.folders.feeder_audit.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.ehr_system",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.previous-version","getehrextract.ehr_extract.folders.feeder_audit.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.previous_version",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.reason-for-revision","getehrextract.ehr_extract.folders.feeder_audit.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.reason_for_revision",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.time-committed","getehrextract.ehr_extract.folders.feeder_audit.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.time_committed",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.version-set-id","getehrextract.ehr_extract.folders.feeder_audit.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.version_set_id",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.feeder-audit.version-status","getehrextract.ehr_extract.folders.feeder_audit.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.feeder_audit.version_status",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.sub-folders","getehrextract.ehr_extract.folders.sub_folders","","","",0,*,"","","","null {[]} {[]}
+","FOLDER","(Rekursiv typ, ej utvecklad.)","TKB-fält: `../../sub_folders` (`FOLDER`, kardinalitet 0..*).
+
+**Modellanteckning:** sub_folders Rekursiv: samma struktur som getehrextract.ehr_extract.folders.","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.sub_folders",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations","getehrextract.ehr_extract.folders.attestations","","","",0,*,"","","","Base {[]} {[]}
+","ATTESTATION_INFO","Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.","TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attested-view","getehrextract.ehr_extract.folders.attestations.attested_view","","","",0,1,"","","","string {[]} {[]}
+","attested_view","attested_view","TKB-fält: `../../../attested_view` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attested_view",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.proof","getehrextract.ehr_extract.folders.attestations.proof","","","",0,1,"","","","string {[]} {[]}
+","proof","proof","TKB-fält: `../../../proof` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.proof",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.reason-for-attestation","getehrextract.ehr_extract.folders.attestations.reason_for_attestation","","","",1,1,"","","","string {[]} {[]}
+","reason_for_attestation","reason_for_attestation","TKB-fält: `../../../reason_for_attestation` (`CD`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.reason_for_attestation",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.time","getehrextract.ehr_extract.folders.attestations.time","","","",1,1,"","","","string {[]} {[]}
+","time","time","TKB-fält: `../../../time` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.time",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.target-rc-id","getehrextract.ehr_extract.folders.attestations.target_rc_id","","","",1,*,"","","","string {[]} {[]}
+","target_rc_id","target_rc_id","TKB-fält: `../../../target_rc_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.target_rc_id",1,*,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attester","getehrextract.ehr_extract.folders.attestations.attester","","","",1,1,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../../attester` (`FUNCTIONAL_ROLE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attester",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attester.function","getehrextract.ehr_extract.folders.attestations.attester.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attester.function",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attester.healthcare-facility","getehrextract.ehr_extract.folders.attestations.attester.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attester.healthcare_facility",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attester.mode","getehrextract.ehr_extract.folders.attestations.attester.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attester.mode",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attester.performer","getehrextract.ehr_extract.folders.attestations.attester.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attester.performer",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.attestations.attester.service-setting","getehrextract.ehr_extract.folders.attestations.attester.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.attestations.attester.service_setting",0,1,"",""
+"getehrextract","getehrextract.ehr-extract.folders.composition-rc-ids","getehrextract.ehr_extract.folders.composition_rc_ids","","","",0,*,"","","","string {[]} {[]}
+","composition_rc_ids","composition_rc_ids","TKB-fält: `../../composition_rc_ids` (`ST`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.folders.composition_rc_ids",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.demographic-extract","getehrextract.ehr_extract.demographic_extract","","","",0,*,"","","","Base {[]} {[]}
+","IDENTIFIED_ENTITY","Superclass of all identified parties to the record. Note that the type of id is not given in the printed class description but is included in the class diagram on page 47 of the standard. Abstrakt typ; instansen anges med xsi:type som en av SOFTWARE_OR_DEVICE, ORGANISATION, PERSON.","TKB-fält: `../demographic_extract` (`IDENTIFIED_ENTITY`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.demographic_extract",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.demographic-extract.extract-id","getehrextract.ehr_extract.demographic_extract.extract_id","","","",1,1,"","","","string {[]} {[]}
+","extract_id","extract_id","TKB-fält: `../../extract_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.demographic_extract.extract_id",1,1,"",""
+"getehrextract","getehrextract.ehr-extract.demographic-extract.id","getehrextract.ehr_extract.demographic_extract.id","","","",0,*,"","","","string {[]} {[]}
+","id","id","TKB-fält: `../../id` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.demographic_extract.id",0,*,"",""
+"getehrextract","getehrextract.ehr-extract.demographic-extract.telecom","getehrextract.ehr_extract.demographic_extract.telecom","","","",0,*,"","","","string {[]} {[]}
+","telecom","telecom","TKB-fält: `../../telecom` (`TEL`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.ehr_extract.demographic_extract.telecom",0,*,"",""
+"getehrextract","getehrextract.continuation-token","getehrextract.continuation_token","","","",0,1,"","","","string {[]} {[]}
+","continuation_token","continuation_token","TKB-fält: `continuation_token` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.continuation_token",0,1,"",""
+"getehrextract","getehrextract.response-detail","getehrextract.response_detail","","","",0,*,"","","","Base {[]} {[]}
+","ResponseDetailType","Fel-, varnings- och/eller informationsmeddelanden.","TKB-fält: `response_detail` (`ResponseDetailType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getehrextract.response_detail",0,*,"",""
+"getehrextract","getehrextract.response-detail.code","getehrextract.response_detail.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getehrextract.response_detail.code",0,1,"",""
+"getehrextract","getehrextract.response-detail.text","getehrextract.response_detail.text","","","",1,1,"","","","string {[]} {[]}
+","text","text","TKB-fält: `../text` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getehrextract.response_detail.text",1,1,"",""
+"getehrextract","getehrextract.response-detail.type-code","getehrextract.response_detail.type_code","","","",0,1,"","","","code {[]} {[]}
+","type_code","(XML-attribut.)","TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).
+
+**Modellanteckning:** type_code (XML-attribut) Tillåtna värden: E, W, I.","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-patientsummary/ValueSet/patientsummary-responsedetailtypecodes-vs","",,,,"getehrextract.response_detail.type_code",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request","receiveehrextract-request","","","",0,*,"","","","null {[]} {[]}
+","ReceiveEhrExtract — Request","Logisk modell för begäran i ReceiveEhrExtract
+(urn:riv:ehr:patientsummary:ReceiveEhrExtractResponder:1, ReceiveEhrExtractType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract","receiveehrextract-request.ehr_extract","","","",0,*,"","","","Base {[]} {[]}
+","EHR_EXTRACT","Detaljerad patientinformation på formatet EN13606.","TKB-fält: `ehr_extract` (`EHR_EXTRACT`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.authorising-party","receiveehrextract-request.ehr_extract.authorising_party","","","",0,1,"","","","string {[]} {[]}
+","authorising_party","authorising_party","TKB-fält: `../authorising_party` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.authorising_party",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.ehr-id","receiveehrextract-request.ehr_extract.ehr_id","","","",1,1,"","","","string {[]} {[]}
+","ehr_id","ehr_id","TKB-fält: `../ehr_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.ehr_id",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.ehr-system","receiveehrextract-request.ehr_extract.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.ehr_system",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.rm-id","receiveehrextract-request.ehr_extract.rm_id","","","",1,1,"","","","string {[]} {[]}
+","rm_id","rm_id","","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.rm_id",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.subject-of-care","receiveehrextract-request.ehr_extract.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","subject_of_care","subject_of_care","TKB-fält: `../subject_of_care` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.subject_of_care",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.time-created","receiveehrextract-request.ehr_extract.time_created","","","",1,1,"","","","string {[]} {[]}
+","time_created","time_created","TKB-fält: `../time_created` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.time_created",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions","receiveehrextract-request.ehr_extract.all_compositions","","","",0,*,"","","","Base {[]} {[]}
+","COMPOSITION","Key aggregation class representing the set of Record Components authored and committed during a single clinical encounter. Note the values for territory will indicate the legal framework under which the data was committed. The session_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.","TKB-fält: `../all_compositions` (`COMPOSITION`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.archetype-id","receiveehrextract-request.ehr_extract.all_compositions.archetype_id","","","",0,1,"","","","string {[]} {[]}
+","archetype_id","archetype_id","TKB-fält: `../../archetype_id` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.archetype_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.meaning","receiveehrextract-request.ehr_extract.all_compositions.meaning","","","",0,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../../meaning` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.meaning",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.name","receiveehrextract-request.ehr_extract.all_compositions.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.name",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.orig-parent-ref","receiveehrextract-request.ehr_extract.all_compositions.orig_parent_ref","","","",0,1,"","","","string {[]} {[]}
+","orig_parent_ref","orig_parent_ref","TKB-fält: `../../orig_parent_ref` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.orig_parent_ref",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.policy-ids","receiveehrextract-request.ehr_extract.all_compositions.policy_ids","","","",0,*,"","","","string {[]} {[]}
+","policy_ids","policy_ids","TKB-fält: `../../policy_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.policy_ids",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.rc-id","receiveehrextract-request.ehr_extract.all_compositions.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.rc_id",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.sensitivity","receiveehrextract-request.ehr_extract.all_compositions.sensitivity","","","",0,1,"","","","string {[]} {[]}
+","sensitivity","sensitivity","TKB-fält: `../../sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.sensitivity",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.synthesised","receiveehrextract-request.ehr_extract.all_compositions.synthesised","","","",1,1,"","","","string {[]} {[]}
+","synthesised","synthesised","TKB-fält: `../../synthesised` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.synthesised",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.links","receiveehrextract-request.ehr_extract.all_compositions.links","","","",0,*,"","","","Base {[]} {[]}
+","LINK","Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.","TKB-fält: `../../links` (`LINK`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.links",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.links.follow-link","receiveehrextract-request.ehr_extract.all_compositions.links.follow_link","","","",1,1,"","","","string {[]} {[]}
+","follow_link","follow_link","TKB-fält: `../../../follow_link` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.links.follow_link",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.links.nature","receiveehrextract-request.ehr_extract.all_compositions.links.nature","","","",1,1,"","","","string {[]} {[]}
+","nature","nature","TKB-fält: `../../../nature` (`CS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.links.nature",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.links.role","receiveehrextract-request.ehr_extract.all_compositions.links.role","","","",0,1,"","","","string {[]} {[]}
+","role","role","TKB-fält: `../../../role` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.links.role",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.links.target-type","receiveehrextract-request.ehr_extract.all_compositions.links.target_type","","","",0,1,"","","","string {[]} {[]}
+","target_type","target_type","TKB-fält: `../../../target_type` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.links.target_type",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.links.target-id","receiveehrextract-request.ehr_extract.all_compositions.links.target_id","","","",1,*,"","","","string {[]} {[]}
+","target_id","target_id","TKB-fält: `../../../target_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.links.target_id",1,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit","","","",0,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.committer","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.committer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.ehr-system","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.ehr_system",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.previous-version","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.previous_version",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.reason-for-revision","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.reason_for_revision",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.time-committed","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.time_committed",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.version-set-id","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.version_set_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.feeder-audit.version-status","receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.feeder_audit.version_status",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.contribution-id","receiveehrextract-request.ehr_extract.all_compositions.contribution_id","","","",0,1,"","","","string {[]} {[]}
+","contribution_id","contribution_id","TKB-fält: `../../contribution_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.contribution_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.session-time","receiveehrextract-request.ehr_extract.all_compositions.session_time","","","",0,1,"","","","string {[]} {[]}
+","session_time","session_time","TKB-fält: `../../session_time` (`IVL_TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.session_time",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.territory","receiveehrextract-request.ehr_extract.all_compositions.territory","","","",0,1,"","","","string {[]} {[]}
+","territory","territory","TKB-fält: `../../territory` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.territory",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations","receiveehrextract-request.ehr_extract.all_compositions.attestations","","","",0,*,"","","","Base {[]} {[]}
+","ATTESTATION_INFO","Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.","TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attested-view","receiveehrextract-request.ehr_extract.all_compositions.attestations.attested_view","","","",0,1,"","","","string {[]} {[]}
+","attested_view","attested_view","TKB-fält: `../../../attested_view` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attested_view",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.proof","receiveehrextract-request.ehr_extract.all_compositions.attestations.proof","","","",0,1,"","","","string {[]} {[]}
+","proof","proof","TKB-fält: `../../../proof` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.proof",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.reason-for-attestation","receiveehrextract-request.ehr_extract.all_compositions.attestations.reason_for_attestation","","","",1,1,"","","","string {[]} {[]}
+","reason_for_attestation","reason_for_attestation","TKB-fält: `../../../reason_for_attestation` (`CD`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.reason_for_attestation",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.time","receiveehrextract-request.ehr_extract.all_compositions.attestations.time","","","",1,1,"","","","string {[]} {[]}
+","time","time","TKB-fält: `../../../time` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.time",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.target-rc-id","receiveehrextract-request.ehr_extract.all_compositions.attestations.target_rc_id","","","",1,*,"","","","string {[]} {[]}
+","target_rc_id","target_rc_id","TKB-fält: `../../../target_rc_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.target_rc_id",1,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attester","receiveehrextract-request.ehr_extract.all_compositions.attestations.attester","","","",1,1,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../../attester` (`FUNCTIONAL_ROLE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attester",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attester.function","receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.function",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attester.healthcare-facility","receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.healthcare_facility",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attester.mode","receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.mode",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attester.performer","receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.performer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.attestations.attester.service-setting","receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.attestations.attester.service_setting",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.other-participations","receiveehrextract-request.ehr_extract.all_compositions.other_participations","","","",0,*,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../other_participations` (`FUNCTIONAL_ROLE`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.other_participations",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.other-participations.function","receiveehrextract-request.ehr_extract.all_compositions.other_participations.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.other_participations.function",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.other-participations.healthcare-facility","receiveehrextract-request.ehr_extract.all_compositions.other_participations.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.other_participations.healthcare_facility",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.other-participations.mode","receiveehrextract-request.ehr_extract.all_compositions.other_participations.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.other_participations.mode",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.other-participations.performer","receiveehrextract-request.ehr_extract.all_compositions.other_participations.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.other_participations.performer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.other-participations.service-setting","receiveehrextract-request.ehr_extract.all_compositions.other_participations.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.other_participations.service_setting",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal","receiveehrextract-request.ehr_extract.all_compositions.committal","","","",1,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../committal` (`AUDIT_INFO`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.committer","receiveehrextract-request.ehr_extract.all_compositions.committal.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.committer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.ehr-system","receiveehrextract-request.ehr_extract.all_compositions.committal.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.ehr_system",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.previous-version","receiveehrextract-request.ehr_extract.all_compositions.committal.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.previous_version",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.reason-for-revision","receiveehrextract-request.ehr_extract.all_compositions.committal.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.reason_for_revision",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.time-committed","receiveehrextract-request.ehr_extract.all_compositions.committal.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.time_committed",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.version-set-id","receiveehrextract-request.ehr_extract.all_compositions.committal.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.version_set_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.committal.version-status","receiveehrextract-request.ehr_extract.all_compositions.committal.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.committal.version_status",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.composer","receiveehrextract-request.ehr_extract.all_compositions.composer","","","",0,1,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../composer` (`FUNCTIONAL_ROLE`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.composer",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.composer.function","receiveehrextract-request.ehr_extract.all_compositions.composer.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.composer.function",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.composer.healthcare-facility","receiveehrextract-request.ehr_extract.all_compositions.composer.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.composer.healthcare_facility",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.composer.mode","receiveehrextract-request.ehr_extract.all_compositions.composer.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.composer.mode",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.composer.performer","receiveehrextract-request.ehr_extract.all_compositions.composer.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.composer.performer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.composer.service-setting","receiveehrextract-request.ehr_extract.all_compositions.composer.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.composer.service_setting",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content","receiveehrextract-request.ehr_extract.all_compositions.content","","","",0,*,"","","","Base {[]} {[]}
+","CONTENT","Superclass of Section and Entry that enables the former to include instances of itself. Abstrakt typ; instansen anges med xsi:type som en av SECTION, ENTRY.","TKB-fält: `../../content` (`CONTENT`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.archetype-id","receiveehrextract-request.ehr_extract.all_compositions.content.archetype_id","","","",0,1,"","","","string {[]} {[]}
+","archetype_id","archetype_id","TKB-fält: `../../../archetype_id` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.archetype_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.meaning","receiveehrextract-request.ehr_extract.all_compositions.content.meaning","","","",0,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../../../meaning` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.meaning",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.name","receiveehrextract-request.ehr_extract.all_compositions.content.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.name",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.orig-parent-ref","receiveehrextract-request.ehr_extract.all_compositions.content.orig_parent_ref","","","",0,1,"","","","string {[]} {[]}
+","orig_parent_ref","orig_parent_ref","TKB-fält: `../../../orig_parent_ref` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.orig_parent_ref",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.policy-ids","receiveehrextract-request.ehr_extract.all_compositions.content.policy_ids","","","",0,*,"","","","string {[]} {[]}
+","policy_ids","policy_ids","TKB-fält: `../../../policy_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.policy_ids",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.rc-id","receiveehrextract-request.ehr_extract.all_compositions.content.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../../../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.rc_id",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.sensitivity","receiveehrextract-request.ehr_extract.all_compositions.content.sensitivity","","","",0,1,"","","","string {[]} {[]}
+","sensitivity","sensitivity","TKB-fält: `../../../sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.sensitivity",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.synthesised","receiveehrextract-request.ehr_extract.all_compositions.content.synthesised","","","",1,1,"","","","string {[]} {[]}
+","synthesised","synthesised","TKB-fält: `../../../synthesised` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.synthesised",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.links","receiveehrextract-request.ehr_extract.all_compositions.content.links","","","",0,*,"","","","Base {[]} {[]}
+","LINK","Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.","TKB-fält: `../../../links` (`LINK`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.links",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.links.follow-link","receiveehrextract-request.ehr_extract.all_compositions.content.links.follow_link","","","",1,1,"","","","string {[]} {[]}
+","follow_link","follow_link","TKB-fält: `../../../../follow_link` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.links.follow_link",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.links.nature","receiveehrextract-request.ehr_extract.all_compositions.content.links.nature","","","",1,1,"","","","string {[]} {[]}
+","nature","nature","TKB-fält: `../../../../nature` (`CS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.links.nature",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.links.role","receiveehrextract-request.ehr_extract.all_compositions.content.links.role","","","",0,1,"","","","string {[]} {[]}
+","role","role","TKB-fält: `../../../../role` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.links.role",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.links.target-type","receiveehrextract-request.ehr_extract.all_compositions.content.links.target_type","","","",0,1,"","","","string {[]} {[]}
+","target_type","target_type","TKB-fält: `../../../../target_type` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.links.target_type",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.links.target-id","receiveehrextract-request.ehr_extract.all_compositions.content.links.target_id","","","",1,*,"","","","string {[]} {[]}
+","target_id","target_id","TKB-fält: `../../../../target_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.links.target_id",1,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit","","","",0,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.committer","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.committer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.ehr-system","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.ehr_system",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.previous-version","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.previous_version",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.reason-for-revision","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.reason_for_revision",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.time-committed","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.time_committed",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.version-set-id","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.version_set_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.all-compositions.content.feeder-audit.version-status","receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.all_compositions.content.feeder_audit.version_status",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria","receiveehrextract-request.ehr_extract.criteria","","","",0,*,"","","","Base {[]} {[]}
+","EXTRACT_CRITERIA","Restrictions or filters on the creation of the EHR Extract. The time_period should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.","TKB-fält: `../criteria` (`EXTRACT_CRITERIA`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria.all-versions","receiveehrextract-request.ehr_extract.criteria.all_versions","","","",0,1,"","","","string {[]} {[]}
+","all_versions","all_versions","TKB-fält: `../../all_versions` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria.all_versions",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria.archetype-ids","receiveehrextract-request.ehr_extract.criteria.archetype_ids","","","",0,*,"","","","string {[]} {[]}
+","archetype_ids","archetype_ids","TKB-fält: `../../archetype_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria.archetype_ids",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria.max-sensitivity","receiveehrextract-request.ehr_extract.criteria.max_sensitivity","","","",0,1,"","","","string {[]} {[]}
+","max_sensitivity","max_sensitivity","TKB-fält: `../../max_sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria.max_sensitivity",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria.multimedia-included","receiveehrextract-request.ehr_extract.criteria.multimedia_included","","","",0,1,"","","","string {[]} {[]}
+","multimedia_included","multimedia_included","TKB-fält: `../../multimedia_included` (`BL`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria.multimedia_included",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria.other-constraints","receiveehrextract-request.ehr_extract.criteria.other_constraints","","","",0,1,"","","","string {[]} {[]}
+","other_constraints","other_constraints","TKB-fält: `../../other_constraints` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria.other_constraints",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.criteria.time-period","receiveehrextract-request.ehr_extract.criteria.time_period","","","",0,1,"","","","string {[]} {[]}
+","time_period","time_period","TKB-fält: `../../time_period` (`IVL_TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.criteria.time_period",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders","receiveehrextract-request.ehr_extract.folders","","","",0,*,"","","","Base {[]} {[]}
+","FOLDER","Organises and groups Compositions within an EHR Extract.","TKB-fält: `../folders` (`FOLDER`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.archetype-id","receiveehrextract-request.ehr_extract.folders.archetype_id","","","",0,1,"","","","string {[]} {[]}
+","archetype_id","archetype_id","TKB-fält: `../../archetype_id` (`ST`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.archetype_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.meaning","receiveehrextract-request.ehr_extract.folders.meaning","","","",0,1,"","","","string {[]} {[]}
+","meaning","meaning","TKB-fält: `../../meaning` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.meaning",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.name","receiveehrextract-request.ehr_extract.folders.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.name",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.orig-parent-ref","receiveehrextract-request.ehr_extract.folders.orig_parent_ref","","","",0,1,"","","","string {[]} {[]}
+","orig_parent_ref","orig_parent_ref","TKB-fält: `../../orig_parent_ref` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.orig_parent_ref",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.policy-ids","receiveehrextract-request.ehr_extract.folders.policy_ids","","","",0,*,"","","","string {[]} {[]}
+","policy_ids","policy_ids","TKB-fält: `../../policy_ids` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.policy_ids",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.rc-id","receiveehrextract-request.ehr_extract.folders.rc_id","","","",1,1,"","","","string {[]} {[]}
+","rc_id","rc_id","TKB-fält: `../../rc_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.rc_id",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.sensitivity","receiveehrextract-request.ehr_extract.folders.sensitivity","","","",0,1,"","","","string {[]} {[]}
+","sensitivity","sensitivity","TKB-fält: `../../sensitivity` (`INT`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.sensitivity",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.synthesised","receiveehrextract-request.ehr_extract.folders.synthesised","","","",1,1,"","","","string {[]} {[]}
+","synthesised","synthesised","TKB-fält: `../../synthesised` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.synthesised",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.links","receiveehrextract-request.ehr_extract.folders.links","","","",0,*,"","","","Base {[]} {[]}
+","LINK","Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.","TKB-fält: `../../links` (`LINK`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.links",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.links.follow-link","receiveehrextract-request.ehr_extract.folders.links.follow_link","","","",1,1,"","","","string {[]} {[]}
+","follow_link","follow_link","TKB-fält: `../../../follow_link` (`BL`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.links.follow_link",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.links.nature","receiveehrextract-request.ehr_extract.folders.links.nature","","","",1,1,"","","","string {[]} {[]}
+","nature","nature","TKB-fält: `../../../nature` (`CS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.links.nature",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.links.role","receiveehrextract-request.ehr_extract.folders.links.role","","","",0,1,"","","","string {[]} {[]}
+","role","role","TKB-fält: `../../../role` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.links.role",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.links.target-type","receiveehrextract-request.ehr_extract.folders.links.target_type","","","",0,1,"","","","string {[]} {[]}
+","target_type","target_type","TKB-fält: `../../../target_type` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.links.target_type",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.links.target-id","receiveehrextract-request.ehr_extract.folders.links.target_id","","","",1,*,"","","","string {[]} {[]}
+","target_id","target_id","TKB-fält: `../../../target_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.links.target_id",1,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit","receiveehrextract-request.ehr_extract.folders.feeder_audit","","","",0,1,"","","","Base {[]} {[]}
+","AUDIT_INFO","The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining ""attribute_version_status.coding_scheme_name"" in the printed standard.","TKB-fält: `../../feeder_audit` (`AUDIT_INFO`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.committer","receiveehrextract-request.ehr_extract.folders.feeder_audit.committer","","","",1,1,"","","","string {[]} {[]}
+","committer","committer","TKB-fält: `../../../committer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.committer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.ehr-system","receiveehrextract-request.ehr_extract.folders.feeder_audit.ehr_system","","","",1,1,"","","","string {[]} {[]}
+","ehr_system","ehr_system","TKB-fält: `../../../ehr_system` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.ehr_system",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.previous-version","receiveehrextract-request.ehr_extract.folders.feeder_audit.previous_version","","","",0,1,"","","","string {[]} {[]}
+","previous_version","previous_version","TKB-fält: `../../../previous_version` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.previous_version",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.reason-for-revision","receiveehrextract-request.ehr_extract.folders.feeder_audit.reason_for_revision","","","",0,1,"","","","string {[]} {[]}
+","reason_for_revision","reason_for_revision","TKB-fält: `../../../reason_for_revision` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.reason_for_revision",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.time-committed","receiveehrextract-request.ehr_extract.folders.feeder_audit.time_committed","","","",1,1,"","","","string {[]} {[]}
+","time_committed","time_committed","TKB-fält: `../../../time_committed` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.time_committed",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.version-set-id","receiveehrextract-request.ehr_extract.folders.feeder_audit.version_set_id","","","",0,1,"","","","string {[]} {[]}
+","version_set_id","version_set_id","TKB-fält: `../../../version_set_id` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.version_set_id",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.feeder-audit.version-status","receiveehrextract-request.ehr_extract.folders.feeder_audit.version_status","","","",0,1,"","","","string {[]} {[]}
+","version_status","version_status","TKB-fält: `../../../version_status` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.feeder_audit.version_status",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.sub-folders","receiveehrextract-request.ehr_extract.folders.sub_folders","","","",0,*,"","","","null {[]} {[]}
+","FOLDER","(Rekursiv typ, ej utvecklad.)","TKB-fält: `../../sub_folders` (`FOLDER`, kardinalitet 0..*).
+
+**Modellanteckning:** sub_folders Rekursiv: samma struktur som receiveehrextract-request.ehr_extract.folders.","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.sub_folders",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations","receiveehrextract-request.ehr_extract.folders.attestations","","","",0,*,"","","","Base {[]} {[]}
+","ATTESTATION_INFO","Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.","TKB-fält: `../../attestations` (`ATTESTATION_INFO`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attested-view","receiveehrextract-request.ehr_extract.folders.attestations.attested_view","","","",0,1,"","","","string {[]} {[]}
+","attested_view","attested_view","TKB-fält: `../../../attested_view` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attested_view",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.proof","receiveehrextract-request.ehr_extract.folders.attestations.proof","","","",0,1,"","","","string {[]} {[]}
+","proof","proof","TKB-fält: `../../../proof` (`ED`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.proof",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.reason-for-attestation","receiveehrextract-request.ehr_extract.folders.attestations.reason_for_attestation","","","",1,1,"","","","string {[]} {[]}
+","reason_for_attestation","reason_for_attestation","TKB-fält: `../../../reason_for_attestation` (`CD`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.reason_for_attestation",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.time","receiveehrextract-request.ehr_extract.folders.attestations.time","","","",1,1,"","","","string {[]} {[]}
+","time","time","TKB-fält: `../../../time` (`TS`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.time",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.target-rc-id","receiveehrextract-request.ehr_extract.folders.attestations.target_rc_id","","","",1,*,"","","","string {[]} {[]}
+","target_rc_id","target_rc_id","TKB-fält: `../../../target_rc_id` (`II`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.target_rc_id",1,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attester","receiveehrextract-request.ehr_extract.folders.attestations.attester","","","",1,1,"","","","Base {[]} {[]}
+","FUNCTIONAL_ROLE","The participation of an entity in the EHR.","TKB-fält: `../../../attester` (`FUNCTIONAL_ROLE`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attester",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attester.function","receiveehrextract-request.ehr_extract.folders.attestations.attester.function","","","",0,1,"","","","string {[]} {[]}
+","function","function","TKB-fält: `../../../../function` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attester.function",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attester.healthcare-facility","receiveehrextract-request.ehr_extract.folders.attestations.attester.healthcare_facility","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","TKB-fält: `../../../../healthcare_facility` (`II`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attester.healthcare_facility",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attester.mode","receiveehrextract-request.ehr_extract.folders.attestations.attester.mode","","","",0,1,"","","","string {[]} {[]}
+","mode","mode","TKB-fält: `../../../../mode` (`CS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attester.mode",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attester.performer","receiveehrextract-request.ehr_extract.folders.attestations.attester.performer","","","",1,1,"","","","string {[]} {[]}
+","performer","performer","TKB-fält: `../../../../performer` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attester.performer",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.attestations.attester.service-setting","receiveehrextract-request.ehr_extract.folders.attestations.attester.service_setting","","","",0,1,"","","","string {[]} {[]}
+","service_setting","service_setting","TKB-fält: `../../../../service_setting` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.attestations.attester.service_setting",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.folders.composition-rc-ids","receiveehrextract-request.ehr_extract.folders.composition_rc_ids","","","",0,*,"","","","string {[]} {[]}
+","composition_rc_ids","composition_rc_ids","TKB-fält: `../../composition_rc_ids` (`ST`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.folders.composition_rc_ids",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.demographic-extract","receiveehrextract-request.ehr_extract.demographic_extract","","","",0,*,"","","","Base {[]} {[]}
+","IDENTIFIED_ENTITY","Superclass of all identified parties to the record. Note that the type of id is not given in the printed class description but is included in the class diagram on page 47 of the standard. Abstrakt typ; instansen anges med xsi:type som en av SOFTWARE_OR_DEVICE, ORGANISATION, PERSON.","TKB-fält: `../demographic_extract` (`IDENTIFIED_ENTITY`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.demographic_extract",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.demographic-extract.extract-id","receiveehrextract-request.ehr_extract.demographic_extract.extract_id","","","",1,1,"","","","string {[]} {[]}
+","extract_id","extract_id","TKB-fält: `../../extract_id` (`II`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.demographic_extract.extract_id",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.demographic-extract.id","receiveehrextract-request.ehr_extract.demographic_extract.id","","","",0,*,"","","","string {[]} {[]}
+","id","id","TKB-fält: `../../id` (`II`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.demographic_extract.id",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.ehr-extract.demographic-extract.telecom","receiveehrextract-request.ehr_extract.demographic_extract.telecom","","","",0,*,"","","","string {[]} {[]}
+","telecom","telecom","TKB-fält: `../../telecom` (`TEL`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.ehr_extract.demographic_extract.telecom",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.parameters","receiveehrextract-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten ReceiveEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"receiveehrextract-request.parameters",0,*,"",""
+"receiveehrextract-request","receiveehrextract-request.parameters.code","receiveehrextract-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.parameters.code",0,1,"",""
+"receiveehrextract-request","receiveehrextract-request.parameters.name","receiveehrextract-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.parameters.name",1,1,"",""
+"receiveehrextract-request","receiveehrextract-request.parameters.value","receiveehrextract-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract-request.parameters.value",1,1,"",""
+"receiveehrextract","receiveehrextract","receiveehrextract","","","",0,*,"","","","null {[]} {[]}
+","ReceiveEhrExtract — Response","Logisk modell för svaret i ReceiveEhrExtract
+(urn:riv:ehr:patientsummary:ReceiveEhrExtractResponder:1, ReceiveEhrExtractResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"receiveehrextract","receiveehrextract.success","receiveehrextract.success","","","",1,1,"","","","boolean {[]} {[]}
+","success","Anger om mottagaren lyckats ta emot innehållet. (Observera att värdet ”true” inte innebär att mottagaren lyckats behandla innehållet. Resultat av behandlingen meddelas genom tjänsten ReceiveEhrExtractStatus.)","TKB-fält: `success` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextract.success",1,1,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request","receiveehrextractstatus-request","","","",0,*,"","","","null {[]} {[]}
+","ReceiveEhrExtractStatus — Request","Logisk modell för begäran i ReceiveEhrExtractStatus
+(urn:riv:ehr:patientsummary:ReceiveEhrExtractInitiator:1, ReceiveEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.parameters","receiveehrextractstatus-request.parameters","","","",0,*,"","","","Base {[]} {[]}
+","ParameterType","Transaktions-id: detta är samma värde som användes i anropet till tjänsten ReceiveEhrExtract. Med hjälp av detta värde går det koppla samman statusanropet med ett tidigare anrop till tjänsten ReceiveEhrExtract.","TKB-fält: `parameters` (`ParameterType`, kardinalitet 1..1).
+
+Obs: modellen anger 0..* där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.parameters",0,*,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.parameters.code","receiveehrextractstatus-request.parameters.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.parameters.code",0,1,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.parameters.name","receiveehrextractstatus-request.parameters.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../name` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.parameters.name",1,1,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.parameters.value","receiveehrextractstatus-request.parameters.value","","","",1,1,"","","","string {[]} {[]}
+","value","value","TKB-fält: `../value` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.parameters.value",1,1,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.response-detail","receiveehrextractstatus-request.response_detail","","","",0,*,"","","","Base {[]} {[]}
+","ResponseDetailType","Fel-, varnings- och/eller informationsmeddelanden.","TKB-fält: `response_detail` (`ResponseDetailType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.response_detail",0,*,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.response-detail.code","receiveehrextractstatus-request.response_detail.code","","","",0,1,"","","","string {[]} {[]}
+","code","code","TKB-fält: `../code` (`CD`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.response_detail.code",0,1,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.response-detail.text","receiveehrextractstatus-request.response_detail.text","","","",1,1,"","","","string {[]} {[]}
+","text","text","TKB-fält: `../text` (`ST`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus-request.response_detail.text",1,1,"",""
+"receiveehrextractstatus-request","receiveehrextractstatus-request.response-detail.type-code","receiveehrextractstatus-request.response_detail.type_code","","","",0,1,"","","","code {[]} {[]}
+","type_code","(XML-attribut.)","TKB-fält: `../type_code` (`ResponseDetailTypeCodes`, kardinalitet 0..1).
+
+**Modellanteckning:** type_code (XML-attribut) Tillåtna värden: E, W, I.","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-patientsummary/ValueSet/patientsummary-responsedetailtypecodes-vs","",,,,"receiveehrextractstatus-request.response_detail.type_code",0,1,"",""
+"receiveehrextractstatus","receiveehrextractstatus","receiveehrextractstatus","","","",0,*,"","","","null {[]} {[]}
+","ReceiveEhrExtractStatus — Response","Logisk modell för svaret i ReceiveEhrExtractStatus
+(urn:riv:ehr:patientsummary:ReceiveEhrExtractInitiator:1, ReceiveEhrExtractStatusResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"receiveehrextractstatus","receiveehrextractstatus.success","receiveehrextractstatus.success","","","",1,1,"","","","boolean {[]} {[]}
+","success","Resultatet av anropet.","TKB-fält: `success` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"receiveehrextractstatus.success",1,1,"",""

@@ -1,0 +1,1068 @@
+# GetImagingOutcome - clinicalprocess: healthcond: actoutcome v4.2.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetImagingOutcome**
+
+## Logical Model: GetImagingOutcome 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getimagingoutcome | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetImagingOutcome |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetImagingOutcome (RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcome:1). Representerar responsens informationsstruktur — bilddiagnostiska resultat för en patient. Baseras på NPÖ RIV 2.2.0-specifikation. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-actoutcome|current/StructureDefinition/StructureDefinition-getimagingoutcome.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getimagingoutcome.csv), [Excel](StructureDefinition-getimagingoutcome.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getimagingoutcome",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getimagingoutcome",
+  "version" : "1.0",
+  "name" : "GetImagingOutcome",
+  "title" : "GetImagingOutcome",
+  "status" : "active",
+  "date" : "2026-11-09T03:19:47+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetImagingOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcome:1).\nRepresenterar responsens informationsstruktur — bilddiagnostiska resultat\nför en patient. Baseras på NPÖ RIV 2.2.0-specifikation.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getimagingoutcome",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getimagingoutcome",
+      "path" : "getimagingoutcome",
+      "short" : "GetImagingOutcome",
+      "definition" : "Logisk modell för tjänstekontraktet GetImagingOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcome:1).\nRepresenterar responsens informationsstruktur — bilddiagnostiska resultat\nför en patient. Baseras på NPÖ RIV 2.2.0-specifikation."
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome",
+      "path" : "getimagingoutcome.imagingOutcome",
+      "short" : "ImagingOutcomeType",
+      "definition" : "De Bild-resultat(dokument) som matchar begäran.",
+      "comment" : "TKB-fält: `imagingOutcome` (`ImagingOutcomeType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader",
+      "short" : "PatientSummaryHeaderType",
+      "definition" : "Innehåller basinformation om dokumentet",
+      "comment" : "TKB-fält: `../imagingOutcomeHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentId",
+      "short" : "documentId",
+      "definition" : "Dokumentets identitet som är unik inom källsystemet.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+      "comment" : "TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.sourceSystemHSAId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.sourceSystemHSAId",
+      "short" : "sourceSystemHSAId",
+      "definition" : "HSA-id för det system som dokumentet är skapat i.",
+      "comment" : "TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTitle",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "Titel som beskriver den information som sänds i dokumentet.",
+      "comment" : "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTime",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "Händelsetidpunkt, om sådan finns. Tidpunkten bör vara då undersökningen gjordes inte när bilden skapades (t.ex. skannad bild).",
+      "comment" : "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.patientId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.patientId",
+      "short" : "patientId",
+      "definition" : "Identifierare för patient.",
+      "comment" : "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "Ansvarig hälso- och sjukvårdsperson. Ansvarig för undersökningsresultatet. Avser person som är ansvarig för det samlade dokumentet.",
+      "comment" : "TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator",
+      "short" : "legalAuthenticator",
+      "definition" : "Information om vem som signerat informationen i dokumentet. Det är normalt radiologen som signerar bilddiagnostiska svar. Signering = signering av remissvar. Vidimering anges i attributet attested i bodyn.",
+      "comment" : "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/LegalAuthenticatorType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.approvedForPatient",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+      "comment" : "TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.careContactId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.careContactId",
+      "short" : "careContactId",
+      "definition" : "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+      "comment" : "TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullified",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullified",
+      "short" : "nullified",
+      "definition" : "Anger om dokumentet makulerats i källsystemet. Sätts i så fall till true annars false. Används bl.a. i statistik-/rapportuttag med hjälp av tjänstekontrakten.",
+      "comment" : "TKB-fält: `../../nullified` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullifiedReason",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "Anger orsak till makulering",
+      "comment" : "TKB-fält: `../../nullifiedReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody",
+      "short" : "ImagingBodyType",
+      "definition" : "imagingOutcomeBody",
+      "comment" : "TKB-fält: `../imagingOutcomeBody` (`ImagingOutcomeBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.examinationSpeciality",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.examinationSpeciality",
+      "short" : "examinationSpeciality",
+      "definition" : "Undersökningstyp. Bör anges med kod enligt SNOMED.\n\nText som beskriver vilken specialitet som utlåtandet gäller.Exempel:\n\nTypen av specialitet som anlitats anges i text Exempel: Patologi, Klinisk fysiologi, Logopedi",
+      "comment" : "TKB-fält: `../../examinationSpeciality` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.typeOfResult",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.typeOfResult",
+      "short" : "typeOfResult",
+      "definition" : "Svarstyp.\n\nPREL = Preliminärsvar, denna typ är ny och finns ej i NPÖ:s riv-specifikation.\n\nDEF = Definitivsvar, ett svar som har kommit tillbaka till beställaren från utföraren.\n\nTILL = Tilläggssvar, kan avse två typer av svar:\n\nDet fynd som gjorts enligt beställd undersökning, och som beskrivs i definitivsvaret, var så intressant att ytterligare undersökningar gjorts och svaret således behöver kompletteras.\n\nSlutsvaret behöver av någon anledning korrigeras, och skickas således i ett tilläggssvar.\n\nDEF sätts som förvalt värde. Den senaste statusen är den som ska skickas med.",
+      "comment" : "TKB-fält: `../../typeOfResult` (`TypeOfResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/typeofresultcode-vs"
+      }
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultTime",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultTime",
+      "short" : "resultTime",
+      "definition" : "Svarstidpunkt. Tidpunkt då svar skickas till framställaren av remissen.",
+      "comment" : "TKB-fält: `../../resultTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultReport",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultReport",
+      "short" : "resultReport",
+      "definition" : "Text som beskriver det sammanfattade utlåtandet kring undersökningsresultatet",
+      "comment" : "TKB-fält: `../../resultReport` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultComment",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultComment",
+      "short" : "resultComment",
+      "definition" : "Kommentar till det sammanfattande utlåtandet",
+      "comment" : "TKB-fält: `../../resultComment` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose",
+      "short" : "PQType",
+      "definition" : "Ett dosvärde som härrör till undersökningen.\n\nDosen kan anges på flera olika sätt (t.ex. som effektiv dos i Sv) eller som KAP. Den totala dosen som härrör till underökningen är summan av alla redovisade radiationDose. Enheten ska vara SI-enhet (eller kombination av sådana). (För KAP ska värdet räknas om till Gy*m² istället för Gy*cm².)",
+      "comment" : "TKB-fält: `../../radiationDose` (`PQType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData",
+      "short" : "PatientDataType",
+      "definition" : "Ytterligare information om patienten med relevans för bedömningen. Kan typiskt anges i samband med givande av strukturerad bild-information enligt nedan",
+      "comment" : "TKB-fält: `../../patientData` (`PatientDataType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight",
+      "short" : "PQType",
+      "definition" : "Patientens vikt i kgvid undersökningstillfället.",
+      "comment" : "TKB-fält: `../../../patientWeight` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength",
+      "short" : "PQType",
+      "definition" : "Patientens längd i cm vid undersökningstillfället.",
+      "comment" : "TKB-fält: `../../../patientLength` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording",
+      "short" : "ImageRecordingType",
+      "definition" : "Beskrivning av bild-tagning(ar). Bild(er) tas som en eller flera tagningar (noll tillåts i fall då tillgång till bild saknas, utan endast (remiss och) sammanfattande utlåtande finns).\n\nEn bildtagning kan i sin tur ha flera bilder",
+      "comment" : "TKB-fält: `../../imageRecording` (`ImageRecordingType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.recordingId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.recordingId",
+      "short" : "recordingId",
+      "definition" : "Id för Bild-tagningen som är unikt inom källsystemet.",
+      "comment" : "TKB-fält: `../../../recordingId` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationActivity",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationActivity",
+      "short" : "examinationActivity",
+      "definition" : "Åtgärdskod för utförd typ av Bild. KRÅ91-kod eller i förekommande fall annat kodverk. Om inget gemensamt kodverk används, anges åtgärdsbeskrivning i originalText.",
+      "comment" : "TKB-fält: `../../../examinationActivity` (`CVType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationTimePeriod",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationTimePeriod",
+      "short" : "examinationTimePeriod",
+      "definition" : "Tidpunkt då Bild-insamlingen startar och slutar",
+      "comment" : "TKB-fält: `../../../examinationTimePeriod` (`TimePeriodType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationStatus",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationStatus",
+      "short" : "examinationStatus",
+      "definition" : "Text som anger åtgärdens status. Kommer från KV åtgärdsstatus i V-TIM 1.0. Tillåtna värden är: Initierad, Planerad (bevakad), Tidbokad, Uppskjuten, Annullerad, Pågående, Avvakta, Avbruten, Avklarad, Inaktuell, Makulerad.",
+      "comment" : "TKB-fält: `../../../examinationStatus` (`ExaminationStatusCodeEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/examinationstatuscode-vs"
+      }
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationUnit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationUnit",
+      "short" : "examinationUnit",
+      "definition" : "Text som anger vilken typ av labenhet som undersökningsresultatet härrör från. T ex MR-lab, CT inom bild",
+      "comment" : "TKB-fält: `../../../examinationUnit` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "Hälso- och sjukvårdsperson som är ansvarig för informationen som härstammar från insamlingstillfället. Den person som har den fysiska kontakten med patienten vid insamlandet av data.",
+      "comment" : "TKB-fält: `../../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.numberOfImages",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.numberOfImages",
+      "short" : "numberOfImages",
+      "definition" : "Det totala antalet bilder i bildtagningen",
+      "comment" : "TKB-fält: `../../../numberOfImages` (`int`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData",
+      "short" : "ModalityDataType",
+      "definition" : "Information om bild-utrustningen som använts",
+      "comment" : "TKB-fält: `../../../modalityData` (`ModalityDataType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.typeOfModality",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.typeOfModality",
+      "short" : "typeOfModality",
+      "definition" : "Modalitetstyp för bildfångande utrustning.",
+      "comment" : "TKB-fält: `../../../../typeOfModality` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.manufacturer",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.manufacturer",
+      "short" : "manufacturer",
+      "definition" : "Producerande utrustnings tillverkare.",
+      "comment" : "TKB-fält: `../../../../manufacturer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.modelName",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.modelName",
+      "short" : "modelName",
+      "definition" : "Producerande utrustnings modellnamn.",
+      "comment" : "TKB-fält: `../../../../modelName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.equipmentId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.equipmentId",
+      "short" : "equipmentId",
+      "definition" : "Identifierare för utrustningen. Kan tex vara serienummer eller inventarienummer.",
+      "comment" : "TKB-fält: `../../../../equipmentId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.softwareVersion",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.softwareVersion",
+      "short" : "softwareVersion",
+      "definition" : "Text som anger tillverkarens version av den bildproducerande mjukvaran",
+      "comment" : "TKB-fält: `../../../../softwareVersion` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter",
+      "short" : "PQType",
+      "definition" : "Ska ej anges.",
+      "comment" : "TKB-fält: `../../../../lineFilter` (kardinalitet 0..0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter.unit",
+      "short" : "unit",
+      "definition" : "unit",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData",
+      "short" : "DicomDataType",
+      "definition" : "DICOM-objekt. För att ge renderbar data som kan visas på det sätt som användaren önskar (med hjälp av en viewer/renderare) ges möjligheten att skicka med binärdata eller en URI till ett DICOM-objekt i någon av SOP-klasserna för Bild.\n\nBåde imageDicomData och ImageStaticData kan, och om möjligt bör anges för att underlätta för konsument.",
+      "comment" : "TKB-fält: `../../../imageDicomData` (`DicomDataType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomSOP",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomSOP",
+      "short" : "dicomSOP",
+      "definition" : "SOP UID för DICOM-objektet. Beskriver vilken information som kan förväntas i datan (jmf. mediaType nedan för statisk bild).\n\nT.ex. 1.2.840.10008.5.1.4.1.1.1.1 för digital x-ray for presentation",
+      "comment" : "TKB-fält: `../../../../dicomSOP` (`IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomValue",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomValue",
+      "short" : "dicomValue",
+      "definition" : "Binärdata som representerar objektet. Ett och endast ett av DicomValue och DicomReference ska anges.",
+      "comment" : "TKB-fält: `../../../../dicomValue` (`base64Binary`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomReference",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomReference",
+      "short" : "dicomReference",
+      "definition" : "Referens till externt DICOM-objekt med åtkomst enligt WADO. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient",
+      "comment" : "TKB-fält: `../../../../dicomReference` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData",
+      "short" : "ImageStructuredDataType",
+      "definition" : "Strukturerad mätdata för bild-tagningen med statiskt bildobjekt eller referens till bildfil.",
+      "comment" : "TKB-fält: `../../../imageStructuredData` (`ImageStructuredDataType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture",
+      "short" : "PQType",
+      "definition" : "Anges som f/(enhetslöst).",
+      "comment" : "TKB-fält: `../../../../aperture` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime",
+      "short" : "PQType",
+      "definition" : "I sekunder",
+      "comment" : "TKB-fält: `../../../../exposureTime` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime",
+      "short" : "imageCreationTime",
+      "definition" : "Tid då bilden skapats.",
+      "comment" : "TKB-fält: `../../../../imageCreationTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.bodyPartExamined",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.bodyPartExamined",
+      "short" : "bodyPartExamined",
+      "definition" : "Kroppsdel. Bör anges med kod ur SNOMED CT (OID: 1.2.752.116.2.1.1). Om kodverk saknas kan kroppsdel anges i originalText.",
+      "comment" : "TKB-fält: `../../../../bodyPartExamined` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.contrastAgentUsed",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.contrastAgentUsed",
+      "short" : "contrastAgentUsed",
+      "definition" : "Kontrast som använts vid bildtagningen.",
+      "comment" : "TKB-fält: `../../../../contrastAgentUsed` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength",
+      "short" : "PQType",
+      "definition" : "Magnetisk fältsyrka i T.",
+      "comment" : "TKB-fält: `../../../../magneticFieldStrength` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength.value",
+      "short" : "value",
+      "definition" : "Mätetal mätt i enheten som anges av ”unit”.",
+      "comment" : "TKB-fält i PQType: `value` (`decimal-primitive`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength.unit",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength.unit",
+      "short" : "unit",
+      "definition" : "Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM]",
+      "comment" : "TKB-fält i PQType: `unit` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.copyright",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.copyright",
+      "short" : "copyright",
+      "definition" : "Copyright-ägare av bilden",
+      "comment" : "TKB-fält: `../../../../copyright` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData",
+      "short" : "ImageDataType",
+      "definition" : "Möjlighet att svara med en bild i något av de tillåtna formaten enligt HL7 multimediatyper (inkl. PDF).",
+      "comment" : "TKB-fält: `../../../../imageData` (`ImageDataType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType",
+      "short" : "mediaType",
+      "definition" : "Mediatyper enligt HL7 MediaType",
+      "comment" : "TKB-fält: `../../../../../mediaType` (`MediaTypeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** mediaType Tillåtna värden: application/dicom, application/msword, application/pdf, audio/basic, audio/k32adpcm, audio/mpeg, image/g3fax, image/gif, image/jpeg, image/png, image/tiff, model/vrml, multipart/x-hl7-cda-level1, text/html, text/plain, text/rtf, text/sgml, text/x-hl7-ft, text/xml, video/mpeg, video/x-avi.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.value",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.value",
+      "short" : "value",
+      "definition" : "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges.",
+      "comment" : "TKB-fält: `../../../../../value` (`base64Binary`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.reference",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.reference",
+      "short" : "reference",
+      "definition" : "Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient",
+      "comment" : "TKB-fält: `../../../../../reference` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.burnedInaAnnotations",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.burnedInaAnnotations",
+      "short" : "burnedInaAnnotations",
+      "definition" : "burnedInaAnnotations",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral",
+      "short" : "ECGReferralType",
+      "definition" : "Information om den remiss som ligger till grund för undersökningen och dess svar. Måste vara valfri eftersom tagning av Bild inte alltid remitteras",
+      "comment" : "TKB-fält: `../../referral` (`ReferralType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralId",
+      "short" : "referralId",
+      "definition" : "Remissens identitet som är unik inom det lokala avsändande systemet. Motsvarar vårdbegäran-id",
+      "comment" : "TKB-fält: `../../../referralId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralReason",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralReason",
+      "short" : "referralReason",
+      "definition" : "Text som anger frågeställningen",
+      "comment" : "TKB-fält: `../../../referralReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.anamnesis",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.anamnesis",
+      "short" : "anamnesis",
+      "definition" : "Text som anger bakgrund till frågeställningen",
+      "comment" : "TKB-fält: `../../../anamnesis` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.careContactId",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.careContactId",
+      "short" : "careContactId",
+      "definition" : "Identitet för den hälso-och sjukvårdskontakt som föranlett remissen. Identiteten är unik inom producernade system.",
+      "comment" : "TKB-fält: `../../../careContactId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "Information om den hälso-och sjukvårdspersonal som framställt remissen, nedan kallad remittent.",
+      "comment" : "TKB-fält: `../../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested",
+      "path" : "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested",
+      "short" : "attested",
+      "definition" : "Information om den som vidimerat mottaget svar på remissen",
+      "comment" : "TKB-fält: `../../../attested` (`LegalAuthenticatorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/LegalAuthenticatorType"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.result",
+      "path" : "getimagingoutcome.result",
+      "short" : "ResultType",
+      "definition" : "Innehåller information om begäran gick bra eller ej.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.result.resultCode",
+      "path" : "getimagingoutcome.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR.",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.result.errorCode",
+      "path" : "getimagingoutcome.result.errorCode",
+      "short" : "errorCode",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.result.logId",
+      "path" : "getimagingoutcome.result.logId",
+      "short" : "logId",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.result.subCode",
+      "path" : "getimagingoutcome.result.subCode",
+      "short" : "subCode",
+      "definition" : "Inga subkoder är specificerade.",
+      "comment" : "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getimagingoutcome.result.message",
+      "path" : "getimagingoutcome.result.message",
+      "short" : "message",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

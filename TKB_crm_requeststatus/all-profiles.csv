@@ -1,0 +1,280 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"DatePeriodType","DatePeriodType","DatePeriodType","","","",0,*,"","","","null {[]} {[]}
+","DatePeriodType","DatePeriodType enligt domänens schema: den gemensamma RIV-TA-typen DatePeriodType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"DatePeriodType","DatePeriodType.start","DatePeriodType.start","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","start","Startdatum (ÅÅÅÅMMDD). Typ i schemat: DateType.","","","","","","","","","",,,,,"",,,,"DatePeriodType.start",0,1,"",""
+"DatePeriodType","DatePeriodType.end","DatePeriodType.end","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","end","Slutdatum (ÅÅÅÅMMDD). Typ i schemat: DateType.","","","","","","","","","",,,,,"",,,,"DatePeriodType.end",0,1,"",""
+"getrequestactivities-request","getrequestactivities-request","getrequestactivities-request","","","",0,*,"","","","null {[]} {[]}
+","GetRequestActivities — Request","Logisk modell för requestparametrar i tjänstekontraktet GetRequestActivities
+(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getrequestactivities-request","getrequestactivities-request.careUnitHSAId","getrequestactivities-request.careUnitHSAId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careUnitHSAId","Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret.
+
+root sätts till OID (1.2.752.129.2.1.4.1) för HSA
+
+extension sätts till HSA-id på vårdenhet.","TKB-fält: `careUnitHSAId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getrequestactivities-request.careUnitHSAId",0,*,"",""
+"getrequestactivities-request","getrequestactivities-request.careGiverHSAId","getrequestactivities-request.careGiverHSAId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careGiverHSAId","Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider i svaret.
+
+root sätts till OID (1.2.752.129.2.1.4.1) för HSA
+
+extension sätts till HSA-id på vårdgivare.","TKB-fält: `careGiverHSAId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getrequestactivities-request.careGiverHSAId",0,*,"",""
+"getrequestactivities-request","getrequestactivities-request.patientId","getrequestactivities-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare.
+
+root sätts till OID för typ av personidentifierare.
+
+För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För andra typer av personidentifierare sätts root till aktuell OID.
+
+extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
+
+OBS lokal reservidentitet kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för lokal reservidentitet.
+
+En tjänstekonsument som vill begära mha. lokal reservidentitet måste därmed använda sig av systemadressering och ha vetskap om vilken OID för den specifika lokala reservidentitet som gäller vid anrop mot en specifik tjänsteproducent.","TKB-fält: `patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities-request.patientId",1,1,"",""
+"getrequestactivities-request","getrequestactivities-request.datePeriod","getrequestactivities-request.datePeriod","","","",0,1,"","","","https://fhir.inera.se/ig/crm-requeststatus/StructureDefinition/DatePeriodType {[]} {[]}
+","datePeriod","Begränsar sökningen till det angivna intervallet. Begränsningen innebär att samtliga statusrader för en remiss ska returneras där minst en av statusradernas body.eventTime ligger inom sökintervallets start- och slutdatum eller där en av statusradernas body.eventTime ligger före och en annan efter.
+
+Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum.
+
+OBS! Datumet gäller för remissen, dvs om någon statusrad faller inom intervallet så ska alla statusrader för denna remiss returneras.","TKB-fält: `datePeriod` (`DatePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities-request.datePeriod",0,1,"",""
+"getrequestactivities-request","getrequestactivities-request.sourceSystemHSAId","getrequestactivities-request.sourceSystemHSAId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","sourceSystemHSAId","Källsystemets id
+
+Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.
+
+Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
+
+Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.
+
+systemHSAId.root = 1.2.752.129.2.1.4.1
+
+(HSA-id OID)
+
+Ska anges vid begäran på reservnummer.","TKB-fält: `sourceSystemHSAId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities-request.sourceSystemHSAId",0,1,"",""
+"getrequestactivities-request","getrequestactivities-request.typeOfRequest","getrequestactivities-request.typeOfRequest","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","typeOfRequest","Remisstyp
+
+Kod som anger vilken typ av remiss som avses.
+
+KV framställantyp
+
+OID: 1.2.752.129.2.2.2.24
+
+Giltiga värden:
+
+1 = röntgenremiss
+
+2 = labbremiss
+
+4 = allmänremiss
+
+Se [R5].","TKB-fält: `typeOfRequest` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getrequestactivities-request.typeOfRequest",0,*,"",""
+"getrequestactivities","getrequestactivities","getrequestactivities","","","",0,*,"","","","null {[]} {[]}
+","GetRequestActivities","Logisk modell för tjänstekontraktet GetRequestActivities
+(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).
+Representerar responsens informationsstruktur — en lista med statusrader för en patients remisser.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getrequestactivities","getrequestactivities.requestActivity","getrequestactivities.requestActivity","","","",0,*,"","","","Base {[]} {[]}
+","RequestActivityType","Remisstatus som matchar begäran","TKB-fält: `requestActivity` (`RequestActivityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity",0,*,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header","getrequestactivities.requestActivity.header","","","",1,1,"","","","Base {[]} {[]}
+","HeaderType","Innehåller information som är gemensam för remisstatusen som tillgängliggörs, exempelvis information om vilken hälso- och sjukvårdspersonal som är angiven som författare av en remisstatus samt information om signering.","TKB-fält: `../header` (`HeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader","getrequestactivities.requestActivity.header.accessControlHeader","","","",1,1,"","","","Base {[]} {[]}
+","AccessControlHeaderType","Information som används för kontroll av åtkomst.","TKB-fält: `../../accessControlHeader` (`AccessControlHeaderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider","getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","accountableHealthcareProvider","Id för uppgiftsägande vårdgivare [R11].
+
+I första hand HSA-id, i andra hand organisationsnummer.
+
+Om HSA-id används:
+
+root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)
+
+extension sätts till HSA-id
+
+Om organisationsnummer används:
+
+root sätts till OID för organisationsnummer (1.2.752.29.4.3)
+
+extension sätts till organisationsnumret. Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.
+
+Regel 2.1","TKB-fält: `../../../accountableHealthcareProvider` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit","getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","accountableCareUnit","HSA-id för vårdenheten [R11] där uppgiften är dokumenterad.
+
+root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)
+
+extension sätts till HSA-id
+
+Regel 2.1","TKB-fält: `../../../accountableCareUnit` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId","getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","originalPatientId","Personidentifieraren som den tillgängliggjorda remisstatusen lagrades under då den skapades. Detta fält anges endast då det skiljer sig från patientId, exempelvis då patienten tidigare erhållit vård som dokumenterats under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.
+
+root sätts till OID för typ av personidentifierare.
+
+För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För andra typer av personidentifierare sätts root till aktuell OID.
+
+extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.","TKB-fält: `../../../originalPatientId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.careProcessId","getrequestactivities.requestActivity.header.accessControlHeader.careProcessId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careProcessId","Id för den individanpassade vårdprocess som remisstatusen journalförts inom ramen för. Består av ett lokalt genererat UUID.
+
+root sätts till UUID
+
+extension anges ej","TKB-fält: `../../../careProcessId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.careProcessId",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.lockTime","getrequestactivities.requestActivity.header.accessControlHeader.lockTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","lockTime","Ska ej användas!
+
+Regel 2.2","TKB-fält: `../../../lockTime` (`TimeStampType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.lockTime",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime","getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","blockComparisonTime","Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring. Gäller både yttre (mellan vårdgivare) och inre (mellan vårdenheter) spärr.
+
+Informationsägaren väljer själv en lämplig tidpunkt, t.ex. tidpunkten då remissen först skickades.","TKB-fält: `../../../blockComparisonTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient","getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","approvedForPatient","Ansvarig vårdpersonals beslut, alternativt verksamhetens policy och regler (men- och sekretessprövning), huruvida remisstatusen får delas till patient för ändamålet patients åtkomst (Individens direktåtkomst).
+
+Om remisstatusen beslutas delas sätts värdet till true, i annat fall till false. False innebär att uppgiften inte får delas till patient.
+
+Notera att värdet kan, för samma uppgift, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. I sådana fall skall källsystemet uppdatera engagemangsindex.","TKB-fält: `../../../approvedForPatient` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.sourceSystemId","getrequestactivities.requestActivity.header.sourceSystemId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","sourceSystemId","Det källsystem som remisstatusen lagras i.
+
+root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)
+
+extension sätts till källsystemets HSA-id","TKB-fält: `../../sourceSystemId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.sourceSystemId",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.record","getrequestactivities.requestActivity.header.record","","","",1,1,"","","","Base {[]} {[]}
+","RecordType","Information avseende remisstatusen som tillgängliggörs.","TKB-fält: `../../record` (`RecordType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.record",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.record.id","getrequestactivities.requestActivity.header.record.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Identifierare för remisstatus.
+
+Identifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska även vara konsistent och beständig mellan olika tjänstekontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.
+
+Root sätts till systemHSA-id
+
+Extension sätts till id för remissen","TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.record.id",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.record.timestamp","getrequestactivities.requestActivity.header.record.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Den tidpunkt då remisstatusen skapades i tjänsteproducentens källsystem.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.record.timestamp",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.author","getrequestactivities.requestActivity.header.author","","","",0,1,"","","","Base {[]} {[]}
+","AuthorType","Information avseende dokumentation av remisstatus som tillgängliggörs.
+
+Notera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses.","TKB-fält: `../../author` (`AuthorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.author",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.author.id","getrequestactivities.requestActivity.header.author.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","HSA-id för hälso- och sjukvårdspersonal som dokumenterat remisstatusen som tillgängliggörs.
+
+root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
+
+extension sätts till HSA-id","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.author.id",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.author.name","getrequestactivities.requestActivity.header.author.name","","","",0,1,"","","","string {[]} {[]}
+","name","Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.","TKB-fält: `../../../name` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.author.name",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.author.timestamp","getrequestactivities.requestActivity.header.author.timestamp","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timestamp","Tidpunkt då remisstatusen dokumenterades eller senast uppdaterades.
+
+I de fall då remisstatusen ursprungligen dokumenterats eller uppdaterats i ett annat informationssystem än tjänsteproducentens källsystem (t.ex. laboratorieinformationssystem), ska tidpunkten spegla informationen från systemet där remisstatusen ursprungligen dokumenterades.","TKB-fält: `../../../timestamp` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.author.timestamp",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.header.author.byRole","getrequestactivities.requestActivity.header.author.byRole","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","byRole","Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten.
+
+Anges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).
+
+Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText.","TKB-fält: `../../../byRole` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.header.author.byRole",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body","getrequestactivities.requestActivity.body","","","",1,1,"","","","Base {[]} {[]}
+","RequestActivityBodyType","body","TKB-fält: `../body` (`RequestActivityBodyType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.statusCode","getrequestactivities.requestActivity.body.statusCode","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","statusCode","Angivelse av vilken status remissen befinner sig i.
+
+Anges med Kv status vårdbegäran [R5]
+
+OID: 1.2.752.129.2.2.2.43
+
+Kodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på kontraktet uppdateras.","TKB-fält: `../../statusCode` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.statusCode",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.eventTime","getrequestactivities.requestActivity.body.eventTime","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","eventTime","Händelsetidpunkt
+
+Tidpunkt då en händelse inträffade, dvs när en ändring av remisstatus sker.","TKB-fält: `../../eventTime` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.eventTime",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request","getrequestactivities.requestActivity.body.request","","","",1,1,"","","","Base {[]} {[]}
+","RequestType","Den utfärdade remissen.","TKB-fält: `../../request` (`RequestType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.id","getrequestactivities.requestActivity.body.request.id","","","",1,1,"","","","string {[]} {[]}
+","id","Remiss-id. Unik identifierare av remissen.
+
+Vid kännedom om remittentens id på remissen ska detta anges för att kunna koppla ihop flera status och följa remissens status-information över tid.
+
+I det fall kännedom om remittentens id på remissen saknas ska källsystemets unika id på remissen anges.
+
+I det fall remissens id (sträng) består av flera delar, t.ex. enligt formatet ""källsystem-Id(HSA-ID)#lokalt-id"" så ska hela strängen anges.","TKB-fält: `../../../id` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.id",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.type","getrequestactivities.requestActivity.body.request.type","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","type","Remisstyp. Kod och klartext som anger vilken typ av remiss som avses.
+
+Anges med Kv framställantyp [R5]
+
+OID: 1.2.752.129.2.2.2.24
+
+Giltiga värden:
+
+1 = röntgenremiss
+
+2 = labbremiss
+
+4 = allmänremiss
+
+Exempel:
+
+request.type.codesystem = 1.2.752.129.2.2.2.24
+
+request.type.code = 4
+
+request.type.displayName = allmänremiss","TKB-fält: `../../../type` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.type",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.medium","getrequestactivities.requestActivity.body.request.medium","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","medium","Medium. Kod och klartext som anger medium för remissen.
+
+Anges med Kv Form av framställan [R5]
+
+OID: 1.2.752.129.2.2.2.7
+
+Giltiga värden:
+
+3 = skriftligt elektroniskt
+
+4 = skriftligt papper
+
+Exempel:
+
+medium.codesystem = 1.2.752.129.2.2.2.7
+
+medium.code = 3
+
+medium.displayName = skriftligt elektroniskt","TKB-fält: `../../../medium` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.medium",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.author","getrequestactivities.requestActivity.body.request.author","","","",0,1,"","","","Base {[]} {[]}
+","RequestAuthorType","Remittent
+
+Författare av remissen.","TKB-fält: `../../../author` (`RequestAuthorType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.author",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.author.name","getrequestactivities.requestActivity.body.request.author.name","","","",1,1,"","","","string {[]} {[]}
+","name","Remittentens namn","TKB-fält: `../../../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.author.name",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.author.organization","getrequestactivities.requestActivity.body.request.author.organization","","","",1,1,"","","","Base {[]} {[]}
+","OrganizationType","Remitterande enhet","TKB-fält: `../../../../organization` (`OrganizationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.author.organization",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.author.organization.id","getrequestactivities.requestActivity.body.request.author.organization.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Remitterande enhetens id
+
+root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
+
+extension sätts till HSA-id","TKB-fält: `../../../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.author.organization.id",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.author.organization.name","getrequestactivities.requestActivity.body.request.author.organization.name","","","",1,1,"","","","string {[]} {[]}
+","name","Remitterande enhetens namn.","TKB-fält: `../../../../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.author.organization.name",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.receivingOrganization","getrequestactivities.requestActivity.body.request.receivingOrganization","","","",1,1,"","","","Base {[]} {[]}
+","OrganizationType","Remissmottagande enhet.","TKB-fält: `../../../receivingOrganization` (`OrganizationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.receivingOrganization",1,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.receivingOrganization.id","getrequestactivities.requestActivity.body.request.receivingOrganization.id","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Remissmottagande enhets id
+
+Identitetsbeteckning för den som är angiven mottagare till remissen eller den faktiska mottagaren om detta ändras (om remissen har skickats vidare).
+
+root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
+
+extension sätts till HSA-id","TKB-fält: `../../../../id` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.receivingOrganization.id",0,1,"",""
+"getrequestactivities","getrequestactivities.requestActivity.body.request.receivingOrganization.name","getrequestactivities.requestActivity.body.request.receivingOrganization.name","","","",1,1,"","","","string {[]} {[]}
+","name","Remissmottagande enhetens namn.","TKB-fält: `../../../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getrequestactivities.requestActivity.body.request.receivingOrganization.name",1,1,"",""

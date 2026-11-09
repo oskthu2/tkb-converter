@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->    
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' 
+    xmlns:tns='urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2'                
+    xmlns:masterdatacitizencitizen='urn:riv:masterdata:citizen:citizen:2'
+    targetNamespace='urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2'
+    elementFormDefault='qualified'
+    attributeFormDefault='unqualified'
+    version='2.0'>
+
+    <xs:import schemaLocation='../../core_components/masterdata_citizen_citizen_2.0.xsd' namespace='urn:riv:masterdata:citizen:citizen:2' />
+
+
+    <xs:element name='LookupResidentsForProfile' type='tns:LookupResidentsForProfileType'/>
+
+    <xs:complexType name='LookupResidentsForProfileType'>
+        <xs:annotation>
+            <xs:documentation>
+                Tjänst för att hämta uppgifter för 1..* personidentiteter.
+                Mängden data i svaret är beroende av den profil som efterfrågas. Se kap 8 för mer information.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="personId" type="masterdatacitizencitizen:PersonalIdentityType" maxOccurs="unbounded"/>
+            <xs:element name="profile" type="masterdatacitizencitizen:LookupProfileType"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name='LookupResidentsForProfileResponse' type='tns:LookupResidentsForProfileResponseType'/>
+
+    <xs:complexType name='LookupResidentsForProfileResponseType'>
+        <xs:annotation>
+            <xs:documentation>
+                Tjänst för att hämta uppgifter för 1..* personidentiteter.
+                Mängden data i svaret är beroende av den profil som efterfrågas. Se kap 8 för mer information.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="lookupResidentsResponseType" type="masterdatacitizencitizen:LookupResidentsResponseType"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

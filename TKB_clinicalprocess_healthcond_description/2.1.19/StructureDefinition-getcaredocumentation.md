@@ -1,0 +1,555 @@
+# GetCareDocumentation - clinicalprocess: healthcond: description 2.1 v2.1.19
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCareDocumentation**
+
+## Logical Model: GetCareDocumentation 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation | *Version*:2.1 |
+| Active as of 2026-11-09 | *Computable Name*:GetCareDocumentation |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i tjänstekontraktet GetCareDocumentation version 2.1 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: hälso- och sjukvårdsdokument för en patient samt resultat. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-description|current/StructureDefinition/StructureDefinition-getcaredocumentation.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcaredocumentation.csv), [Excel](StructureDefinition-getcaredocumentation.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcaredocumentation",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation",
+  "version" : "2.1",
+  "name" : "GetCareDocumentation",
+  "title" : "GetCareDocumentation",
+  "status" : "active",
+  "date" : "2026-11-09T03:22:46+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i tjänstekontraktet GetCareDocumentation version 2.1 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: hälso- och sjukvårdsdokument för en patient samt resultat.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcaredocumentation",
+      "path" : "getcaredocumentation",
+      "short" : "GetCareDocumentation",
+      "definition" : "Logisk modell för svaret i tjänstekontraktet GetCareDocumentation version 2.1 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: hälso- och sjukvårdsdokument för en patient samt resultat."
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation",
+      "path" : "getcaredocumentation.careDocumentation",
+      "short" : "CareDocumentationType",
+      "definition" : "De hälso- och sjukvårdsdokument som matchar begäran.",
+      "comment" : "TKB-fält: `careDocumentation` (`CareDocumentationType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader",
+      "short" : "CPatientSummaryHeaderType",
+      "definition" : "Innehåller basinformation om dokumentet",
+      "comment" : "TKB-fält: `../careDocumentationHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.documentId",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.documentId",
+      "short" : "documentId",
+      "definition" : "Dokumentets identitet som är unik inom källsystemet.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+      "comment" : "TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.sourceSystemHSAid",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.sourceSystemHSAid",
+      "short" : "sourceSystemHSAid",
+      "definition" : "HSA-id för det system som dokumentet är skapat i.\n\nNotera att elementnamnet i de andra kontrakten är sourceSystemHSAId (med ett versalt I). Skälet till avvikelsen här är p.g.a. behovet av detta kontrakts bakåtkompatibilitet med kontraktet i version 2.0.",
+      "comment" : "TKB-fält: `../../sourceSystemHSAid` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTitle",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "Titel som beskriver den information som sänds i dokumentet.",
+      "comment" : "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTime",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "Händelsetidpunkt. Tidsangivelse för den händelse dokumentet gäller.",
+      "comment" : "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.patientId",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.patientId",
+      "short" : "patientId",
+      "definition" : "Identifierare för patient.",
+      "comment" : "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare.",
+      "comment" : "TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator",
+      "short" : "LegalAuthenticatorType",
+      "definition" : "Information om vem som signerat informationen i dokumentet.",
+      "comment" : "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.signatureTime",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.signatureTime",
+      "short" : "signatureTime",
+      "definition" : "Tidpunkt för signering",
+      "comment" : "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "legalAuthenticatorHSAId",
+      "definition" : "HSA-id för person som signerat dokumentet",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "legalAuthenticatorName",
+      "definition" : "Namnen i klartext för signerande person.",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.approvedForPatient",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+      "comment" : "TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.careContactId",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.careContactId",
+      "short" : "careContactId",
+      "definition" : "Identitetet för den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+      "comment" : "TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.nullified",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.nullified",
+      "short" : "nullified",
+      "definition" : "N/A",
+      "comment" : "TKB-fält: `../../nullified` (kardinalitet 0..0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationHeader.nullifiedReason",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "N/A",
+      "comment" : "TKB-fält: `../../nullifiedReason` (kardinalitet 0..0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody",
+      "short" : "CareDocumentationBodyType",
+      "definition" : "careDocumentationBody",
+      "comment" : "TKB-fält: `../careDocumentationBody` (`CareDocumentationBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote",
+      "short" : "ClinicalDocumentNoteType",
+      "definition" : "Dokument/anteckning.",
+      "comment" : "TKB-fält: `../../clinicalDocumentNote` (`ClinicalDocumentNoteType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "getcaredocumentation-notetext-or-multimedia",
+        "severity" : "error",
+        "human" : "Dokumentets innehåll får inte skickas både i clinicalDocumentNoteText och multimediaEntry (TKB 7.1.4).",
+        "expression" : "(clinicalDocumentNoteText.exists() and multimediaEntry.exists()).not()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation"
+      },
+      {
+        "key" : "getcaredocumentation-notecode-or-typecode",
+        "severity" : "error",
+        "human" : "clinicalDocumentNoteCode är obligatoriskt om clinicalDocumentTypeCode saknas och får annars inte anges samtidigt (TKB 7.1.4).",
+        "expression" : "clinicalDocumentNoteCode.exists() xor clinicalDocumentTypeCode.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteCode",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteCode",
+      "short" : "clinicalDocumentNoteCode",
+      "definition" : "Obligatoriskt om clinicalDocumentTypeCode saknas. Får annars inte anges samtidigt med clinicalDocumentTypeCode.\n\nTyp av hälso- och sjukvårdsdokument. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).\n\nTillåtna värden är:\n\nutr = Utredning,\n\natb = åtgärd/Behandling,\n\nsam = Sammanfattning,\n\nsao = Samordning,\n\nins = Inskrivning,\n\nslu = Slutanteckning,\n\nauf = Anteckning utan fysiskt möte,\n\nsva = Slutenvårdsanteckning,\n\nbes = Besöksanteckning.",
+      "comment" : "TKB-fält: `../../../clinicalDocumentNoteCode` (`ClinicalDocumentNoteCodeEnum`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/clinicaldocumentnotecode-vs"
+      }
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentTypeCode",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentTypeCode",
+      "short" : "clinicalDocumentTypeCode",
+      "definition" : "Obligatoriskt om clinicalDocumentNoteCode saknas. Får annars inte anges samtidigt med clinicalDocumentNoteCode.\n\nEpikris = epi\n\nIntagninganteckning = int\n\nDaganteckning = dag\n\nÖppenvårdsanteckning = ova Öppenvårdssammanfattning = ovs\n\nÖvrigt document = ovr",
+      "comment" : "TKB-fält: `../../../clinicalDocumentTypeCode` (`ClinicalDocumentTypeCodeEnum`, kardinalitet 0..0).\n\n**Modellanteckning:** clinicalDocumentTypeCode Tillåtna värden: epi, int, dag, ova, ovs, ovr.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteTitle",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteTitle",
+      "short" : "clinicalDocumentNoteTitle",
+      "definition" : "Titel på dokument",
+      "comment" : "TKB-fält: `../../../clinicalDocumentNoteTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteText",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.clinicalDocumentNoteText",
+      "short" : "clinicalDocumentNoteText",
+      "definition" : "Dokumentets innehåll i text.\n\nTexten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3.\n\nObs Man kan välja att skicka dokumentets innehåll i elementet clinicalDocumentNoteText eller i multimediaEntry enligt respektive elements regler, man får inte skicka med båda elementen. Regeln finns med i constraints.xml (schematron) under katalogen test-suites och kan valideras med testsviten.",
+      "comment" : "TKB-fält: `../../../clinicalDocumentNoteText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry",
+      "short" : "MultimediaType",
+      "definition" : "Dokumentets innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet.\n\nObs Man kan välja att skicka dokumentets innehåll i elementet clinicalDocumentNoteText eller i multimediaEntry enligt respektive elements regler, man får inte skicka med båda elementen. Regeln finns med i constraints.xml(schematron) under katalogen test-suites och kan valideras med testsviten.",
+      "comment" : "TKB-fält: `../../../multimediaEntry` (`MultimediaType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "getcaredocumentation-multimedia-value-xor-reference",
+        "severity" : "error",
+        "human" : "Ett och endast ett av value och reference ska anges i multimediaEntry (TKB 7.1.4).",
+        "expression" : "value.exists() xor reference.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.mediaType",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.mediaType",
+      "short" : "mediaType",
+      "definition" : "Typ av multimedia (enligt HL7).",
+      "comment" : "TKB-fält: `../../../../ mediaType` (`MediaTypeEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** mediaType Tillåtna värden: application/dicom, application/msword, application/pdf, audio/basic, audio/k32adpcm, audio/mpeg, image/g3fax, image/gif, image/jpeg, image/png, image/tiff, model/vrml, multipart/x-hl7-cda-level1, text/html, text/plain, text/rtf, text/sgml, text/x-hl7-ft, text/xml, video/mpeg, video/x-avi.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.value",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.value",
+      "short" : "value",
+      "definition" : "Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges.",
+      "comment" : "TKB-fält: `../../../../value` (`base64Binary`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.reference",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.multimediaEntry.reference",
+      "short" : "reference",
+      "definition" : "Referens till extern bild i form av en URL. Ett och endast ett av attributen value och reference ska anges.",
+      "comment" : "TKB-fält: `../../../../reference` (`anyURI`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion",
+      "short" : "DissentingOpinionType",
+      "definition" : "dissentintOpinion",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.opinionId",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.opinionId",
+      "short" : "opinionId",
+      "definition" : "opinionId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.authorTime",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.authorTime",
+      "short" : "authorTime",
+      "definition" : "authorTime",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.opinion",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.opinion",
+      "short" : "opinion",
+      "definition" : "opinion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.personId",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.personId",
+      "short" : "personId",
+      "definition" : "personId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.personName",
+      "path" : "getcaredocumentation.careDocumentation.careDocumentationBody.clinicalDocumentNote.dissentintOpinion.personName",
+      "short" : "personName",
+      "definition" : "personName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result",
+      "path" : "getcaredocumentation.result",
+      "short" : "(anonym typ)",
+      "definition" : "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.resultCode",
+      "path" : "getcaredocumentation.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.errorCode",
+      "path" : "getcaredocumentation.result.errorCode",
+      "short" : "errorCode",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.logId",
+      "path" : "getcaredocumentation.result.logId",
+      "short" : "logId",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.subCode",
+      "path" : "getcaredocumentation.result.subCode",
+      "short" : "subCode",
+      "definition" : "Inga subkoder är specificerade.",
+      "comment" : "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcaredocumentation.result.message",
+      "path" : "getcaredocumentation.result.message",
+      "short" : "message",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

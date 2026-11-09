@@ -1,0 +1,501 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"SearchBaseType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-searchbasetype-pattern:SearchBaseType ska följa mönstret i schemat: ([OUDCNLoudcnl]{1,2}=[0-9\p{L}\p{Zs}\-.]*,?)* {matches('^(?:(?:([OUDCNLoudcnl]{1,2}=[0-9\\p{L}\\p{Zs}\\-.]*,?)*))$')}"
+"SearchBaseType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"SearchBaseType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"SearchBaseType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"TelephoneNumberType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-telephonenumbertype-pattern:TelephoneNumberType ska följa mönstret i schemat: ([0-9])* {matches('^(?:(?:([0-9])*))$')}"
+"TelephoneNumberType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"TelephoneNumberType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"TelephoneNumberType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"gethsaperson-request","gethsaperson-request","gethsaperson-request","","","",0,*,"","","","null {[]} {[]}
+","GetHsaPerson — Request","Logisk modell för begäran i GetHsaPerson
+(urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","gethsapersonrequest-choice-1:Exakt ett av hsaIdentity, personalIdentityNumber ska anges (xs:choice i schemat). {hsaIdentity.exists() xor personalIdentityNumber.exists()}
+gethsaperson-request-hsaid-xor-pnr:Exakt ett av hsaIdentity och personalIdentityNumber ska anges (xs:choice i schemat). {hsaIdentity.exists() xor personalIdentityNumber.exists()}"
+"gethsaperson-request","gethsaperson-request.hsaIdentity","gethsaperson-request.hsaIdentity","","","",0,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson-request.hsaIdentity",0,1,"",""
+"gethsaperson-request","gethsaperson-request.personalIdentityNumber","gethsaperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","personalIdentityNumber","personalIdentityNumber","TKB-fält: `personalIdentityNumber` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson-request.personalIdentityNumber",0,1,"",""
+"gethsaperson-request","gethsaperson-request.searchBase","gethsaperson-request.searchBase","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType]]} {[]}
+","searchBase","searchBase","TKB-fält: `searchBase` (`SearchBaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson-request.searchBase",0,1,"",""
+"gethsaperson","gethsaperson","gethsaperson","","","",0,*,"","","","null {[]} {[]}
+","GetHsaPerson — Response","Logisk modell för svaret i GetHsaPerson
+(urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gethsaperson","gethsaperson.userInformations","gethsaperson.userInformations","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","userInformations","TKB-fält: `userInformations` (`userInformations`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation","gethsaperson.userInformations.userInformation","","","",0,*,"","","","Base {[]} {[]}
+","GetHsaPersonHsaUserType","userInformation","TKB-fält: `../userInformation` (`GetHsaPersonHsaUserType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.personalPrescriptionCode","gethsaperson.userInformations.userInformation.personalPrescriptionCode","","","",0,1,"","","","string {[]} {[]}
+","personalPrescriptionCode","personalPrescriptionCode","TKB-fält: `../../personalPrescriptionCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.personalPrescriptionCode",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.description","gethsaperson.userInformations.userInformation.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","TKB-fält: `../../description` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.description",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.paTitleCodes","gethsaperson.userInformations.userInformation.paTitleCodes","","","",1,1,"","","","Base {[]} {[]}
+","PaTitleCodesType","paTitleCodes","TKB-fält: `../../paTitleCodes` (`PaTitleCodesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.paTitleCodes",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.paTitleCodes.paTitleCode","gethsaperson.userInformations.userInformation.paTitleCodes.paTitleCode","","","",0,*,"","","","string {[]} {[]}
+","paTitleCode","paTitleCode","TKB-fält: `../../../paTitleCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.paTitleCodes.paTitleCode",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.paTitleNames","gethsaperson.userInformations.userInformation.paTitleNames","","","",1,1,"","","","Base {[]} {[]}
+","PaTitleNamesType","paTitleNames","TKB-fält: `../../paTitleNames` (`PaTitleNamesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.paTitleNames",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.paTitleNames.paTitleName","gethsaperson.userInformations.userInformation.paTitleNames.paTitleName","","","",0,*,"","","","string {[]} {[]}
+","paTitleName","paTitleName","TKB-fält: `../../../paTitleName` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.paTitleNames.paTitleName",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.mail","gethsaperson.userInformations.userInformation.mail","","","",0,1,"","","","string {[]} {[]}
+","mail","mail","TKB-fält: `../../mail` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.mail",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.givenName","gethsaperson.userInformations.userInformation.givenName","","","",1,1,"","","","string {[]} {[]}
+","givenName","givenName","TKB-fält: `../../givenName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.givenName",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.hsaIdentity","gethsaperson.userInformations.userInformation.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `../../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.hsaIdentity",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.hsaSwitchboardNumber","gethsaperson.userInformations.userInformation.hsaSwitchboardNumber","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","hsaSwitchboardNumber","hsaSwitchboardNumber","TKB-fält: `../../hsaSwitchboardNumber` (`TelephoneNumberType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.hsaSwitchboardNumber",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.hsaTelephoneNumbers","gethsaperson.userInformations.userInformation.hsaTelephoneNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","hsaTelephoneNumbers","TKB-fält: `../../hsaTelephoneNumbers` (`hsaTelephoneNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.hsaTelephoneNumbers",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.hsaTelephoneNumbers.hsaTelephoneNumber","gethsaperson.userInformations.userInformation.hsaTelephoneNumbers.hsaTelephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","hsaTelephoneNumber","hsaTelephoneNumber","TKB-fält: `../../../hsaTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.hsaTelephoneNumbers.hsaTelephoneNumber",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.labeledUri","gethsaperson.userInformations.userInformation.labeledUri","","","",0,1,"","","","string {[]} {[]}
+","labeledUri","labeledUri","TKB-fält: `../../labeledUri` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.labeledUri",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.languageKnowledgeCodes","gethsaperson.userInformations.userInformation.languageKnowledgeCodes","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","languageKnowledgeCodes","TKB-fält: `../../languageKnowledgeCodes` (`languageKnowledgeCodes`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.languageKnowledgeCodes",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.languageKnowledgeCodes.languageKnowledgeCode","gethsaperson.userInformations.userInformation.languageKnowledgeCodes.languageKnowledgeCode","","","",0,*,"","","","string {[]} {[]}
+","languageKnowledgeCode","languageKnowledgeCode","TKB-fält: `../../../languageKnowledgeCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.languageKnowledgeCodes.languageKnowledgeCode",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.mobileNumbers","gethsaperson.userInformations.userInformation.mobileNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","mobileNumbers","TKB-fält: `../../mobileNumbers` (`mobileNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.mobileNumbers",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.mobileNumbers.mobileNumber","gethsaperson.userInformations.userInformation.mobileNumbers.mobileNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","mobileNumber","mobileNumber","TKB-fält: `../../../mobileNumber` (`TelephoneNumberType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.mobileNumbers.mobileNumber",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers","gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","facsimileTelephoneNumbers","TKB-fält: `../../facsimileTelephoneNumbers` (`facsimileTelephoneNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers.facsimileTelephoneNumber","gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers.facsimileTelephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","facsimileTelephoneNumber","facsimileTelephoneNumber","TKB-fält: `../../../facsimileTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.facsimileTelephoneNumbers.facsimileTelephoneNumber",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.nickName","gethsaperson.userInformations.userInformation.nickName","","","",0,1,"","","","string {[]} {[]}
+","nickName","nickName","TKB-fält: `../../nickName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.nickName",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.smsTelephoneNumber","gethsaperson.userInformations.userInformation.smsTelephoneNumber","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","smsTelephoneNumber","smsTelephoneNumber","TKB-fält: `../../smsTelephoneNumber` (`TelephoneNumberType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.smsTelephoneNumber",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.specialityCodes","gethsaperson.userInformations.userInformation.specialityCodes","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","specialityCodes","TKB-fält: `../../specialityCodes` (`specialityCodes`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.specialityCodes",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.specialityCodes.specialityCode","gethsaperson.userInformations.userInformation.specialityCodes.specialityCode","","","",0,*,"","","","string {[]} {[]}
+","specialityCode","specialityCode","TKB-fält: `../../../specialityCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.specialityCodes.specialityCode",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.specialityNames","gethsaperson.userInformations.userInformation.specialityNames","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","specialityNames","TKB-fält: `../../specialityNames` (`specialityNames`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.specialityNames",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.specialityNames.specialityName","gethsaperson.userInformations.userInformation.specialityNames.specialityName","","","",0,*,"","","","string {[]} {[]}
+","specialityName","specialityName","TKB-fält: `../../../specialityName` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.specialityNames.specialityName",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.sn","gethsaperson.userInformations.userInformation.sn","","","",1,1,"","","","string {[]} {[]}
+","sn","sn","TKB-fält: `../../sn` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.sn",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours","gethsaperson.userInformations.userInformation.telephoneHours","","","",1,1,"","","","Base {[]} {[]}
+","TelephoneHoursType","telephoneHours","TKB-fält: `../../telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","telephoneHour","TKB-fält: `../../../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromDay","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromDay","","","",1,1,"","","","integer {[]} {[]}
+","fromDay","fromDay","TKB-fält: `../../../../fromDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromDay",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","fromTime","TKB-fält: `../../../../fromTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime2","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime2","","","",1,1,"","","","string {[]} {[]}
+","fromTime2","fromTime2","TKB-fält: `../../../../fromTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.fromTime2",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toDay","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toDay","","","",1,1,"","","","integer {[]} {[]}
+","toDay","toDay","TKB-fält: `../../../../toDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toDay",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","toTime","TKB-fält: `../../../../toTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime2","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime2","","","",1,1,"","","","string {[]} {[]}
+","toTime2","toTime2","TKB-fält: `../../../../toTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.toTime2",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.comment","gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../../../../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneHours.telephoneHour.comment",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneNumbers","gethsaperson.userInformations.userInformation.telephoneNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","telephoneNumbers","TKB-fält: `../../telephoneNumbers` (`telephoneNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneNumbers",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.telephoneNumbers.telephoneNumber","gethsaperson.userInformations.userInformation.telephoneNumbers.telephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","telephoneNumber","telephoneNumber","TKB-fält: `../../../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.telephoneNumbers.telephoneNumber",0,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.title","gethsaperson.userInformations.userInformation.title","","","",0,1,"","","","string {[]} {[]}
+","title","title","TKB-fält: `../../title` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.title",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.DN","gethsaperson.userInformations.userInformation.DN","","","",1,1,"","","","string {[]} {[]}
+","DN","DN","TKB-fält: `../../DN` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.DN",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.middleName","gethsaperson.userInformations.userInformation.middleName","","","",1,1,"","","","string {[]} {[]}
+","middleName","middleName","TKB-fält: `../../middleName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.middleName",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.postalAddress","gethsaperson.userInformations.userInformation.postalAddress","","","",0,1,"","","","Base {[]} {[]}
+","AddressType","postalAddress","TKB-fält: `../../postalAddress` (`AddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.postalAddress",0,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.postalAddress.addressLine","gethsaperson.userInformations.userInformation.postalAddress.addressLine","","","",1,*,"","","","string {[]} {[]}
+","addressLine","addressLine","TKB-fält: `../../../addressLine` (`string`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.postalAddress.addressLine",1,*,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.hsaTitles","gethsaperson.userInformations.userInformation.hsaTitles","","","",1,1,"","","","Base {[]} {[]}
+","HsaTitlesType","hsaTitles","TKB-fält: `../../hsaTitles` (`HsaTitlesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.hsaTitles",1,1,"",""
+"gethsaperson","gethsaperson.userInformations.userInformation.hsaTitles.hsaTitle","gethsaperson.userInformations.userInformation.hsaTitles.hsaTitle","","","",0,*,"","","","string {[]} {[]}
+","hsaTitle","hsaTitle","TKB-fält: `../../../hsaTitle` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaperson.userInformations.userInformation.hsaTitles.hsaTitle",0,*,"",""
+"gethsaunit-request","gethsaunit-request","gethsaunit-request","","","",0,*,"","","","null {[]} {[]}
+","GetHsaUnit — Request","Logisk modell för begäran i GetHsaUnit
+(urn:riv:orgmaster:hsa:GetHsaUnitResponder:1, GetHsaUnitType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gethsaunit-request","gethsaunit-request.hsaIdentity","gethsaunit-request.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit-request.hsaIdentity",1,1,"",""
+"gethsaunit-request","gethsaunit-request.searchBase","gethsaunit-request.searchBase","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType]]} {[]}
+","searchBase","searchBase","TKB-fält: `searchBase` (`SearchBaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit-request.searchBase",0,1,"",""
+"gethsaunit-request","gethsaunit-request.getParentInfo","gethsaunit-request.getParentInfo","","","",1,1,"","","","boolean {[]} {[]}
+","getParentInfo","getParentInfo","TKB-fält: `getParentInfo` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit-request.getParentInfo",1,1,"",""
+"gethsaunit","gethsaunit","gethsaunit","","","",0,*,"","","","null {[]} {[]}
+","GetHsaUnit — Response","Logisk modell för svaret i GetHsaUnit
+(urn:riv:orgmaster:hsa:GetHsaUnitResponder:1, GetHsaUnitResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gethsaunit","gethsaunit.careGiver","gethsaunit.careGiver","","","",0,1,"","","","string {[]} {[]}
+","careGiver","careGiver","TKB-fält: `careGiver` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.careGiver",0,1,"",""
+"gethsaunit","gethsaunit.parentHsaIdentity","gethsaunit.parentHsaIdentity","","","",0,1,"","","","string {[]} {[]}
+","parentHsaIdentity","parentHsaIdentity","TKB-fält: `parentHsaIdentity` (`HsaIdentityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.parentHsaIdentity",0,1,"",""
+"gethsaunit","gethsaunit.unitPrescriptionCodes","gethsaunit.unitPrescriptionCodes","","","",1,1,"","","","string {[]} {[]}
+","unitPrescriptionCodes","unitPrescriptionCodes","TKB-fält: `unitPrescriptionCodes` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitPrescriptionCodes",1,1,"",""
+"gethsaunit","gethsaunit.alternateNames","gethsaunit.alternateNames","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","alternateNames","TKB-fält: `alternateNames` (`alternateNames`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.alternateNames",0,1,"",""
+"gethsaunit","gethsaunit.alternateNames.alternateName","gethsaunit.alternateNames.alternateName","","","",0,*,"","","","string {[]} {[]}
+","alternateName","alternateName","TKB-fält: `../alternateName` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.alternateNames.alternateName",0,*,"",""
+"gethsaunit","gethsaunit.alternateText","gethsaunit.alternateText","","","",0,1,"","","","string {[]} {[]}
+","alternateText","alternateText","TKB-fält: `alternateText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.alternateText",0,1,"",""
+"gethsaunit","gethsaunit.businessClassifications","gethsaunit.businessClassifications","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","businessClassifications","TKB-fält: `businessClassifications` (`businessClassifications`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.businessClassifications",0,1,"",""
+"gethsaunit","gethsaunit.businessClassifications.businessClassification","gethsaunit.businessClassifications.businessClassification","","","",0,*,"","","","string {[]} {[]}
+","businessClassification","businessClassification","TKB-fält: `../businessClassification` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.businessClassifications.businessClassification",0,*,"",""
+"gethsaunit","gethsaunit.businessClassificationCodes","gethsaunit.businessClassificationCodes","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","businessClassificationCodes","TKB-fält: `businessClassificationCodes` (`businessClassificationCodes`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.businessClassificationCodes",0,1,"",""
+"gethsaunit","gethsaunit.businessClassificationCodes.businessClassificationCode","gethsaunit.businessClassificationCodes.businessClassificationCode","","","",0,*,"","","","string {[]} {[]}
+","businessClassificationCode","businessClassificationCode","TKB-fält: `../businessClassificationCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.businessClassificationCodes.businessClassificationCode",0,*,"",""
+"gethsaunit","gethsaunit.businessTypes","gethsaunit.businessTypes","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","businessTypes","TKB-fält: `businessTypes` (`businessTypes`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.businessTypes",0,1,"",""
+"gethsaunit","gethsaunit.businessTypes.businessType","gethsaunit.businessTypes.businessType","","","",0,*,"","","","string {[]} {[]}
+","businessType","businessType","TKB-fält: `../businessType` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.businessTypes.businessType",0,*,"",""
+"gethsaunit","gethsaunit.careTypes","gethsaunit.careTypes","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","careTypes","TKB-fält: `careTypes` (`careTypes`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.careTypes",0,1,"",""
+"gethsaunit","gethsaunit.careTypes.careType","gethsaunit.careTypes.careType","","","",0,*,"","","","string {[]} {[]}
+","careType","careType","TKB-fält: `../careType` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.careTypes.careType",0,*,"",""
+"gethsaunit","gethsaunit.county","gethsaunit.county","","","",0,1,"","","","string {[]} {[]}
+","county","county","TKB-fält: `county` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.county",0,1,"",""
+"gethsaunit","gethsaunit.countyCode","gethsaunit.countyCode","","","",0,1,"","","","string {[]} {[]}
+","countyCode","countyCode","TKB-fält: `countyCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.countyCode",0,1,"",""
+"gethsaunit","gethsaunit.description","gethsaunit.description","","","",0,1,"","","","string {[]} {[]}
+","description","description","TKB-fält: `description` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.description",0,1,"",""
+"gethsaunit","gethsaunit.directoryContact","gethsaunit.directoryContact","","","",0,1,"","","","string {[]} {[]}
+","directoryContact","directoryContact","TKB-fält: `directoryContact` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.directoryContact",0,1,"",""
+"gethsaunit","gethsaunit.displayOption","gethsaunit.displayOption","","","",0,1,"","","","string {[]} {[]}
+","displayOption","displayOption","TKB-fält: `displayOption` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.displayOption",0,1,"",""
+"gethsaunit","gethsaunit.dropInHours","gethsaunit.dropInHours","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","dropInHours","TKB-fält: `dropInHours` (`dropInHours`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours",0,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour","gethsaunit.dropInHours.dropInHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","dropInHour","TKB-fält: `../dropInHour` (`TimeSpanType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour",0,*,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.fromDay","gethsaunit.dropInHours.dropInHour.fromDay","","","",1,1,"","","","integer {[]} {[]}
+","fromDay","fromDay","TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.fromDay",1,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.fromTime","gethsaunit.dropInHours.dropInHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","fromTime","TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.fromTime",1,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.fromTime2","gethsaunit.dropInHours.dropInHour.fromTime2","","","",1,1,"","","","string {[]} {[]}
+","fromTime2","fromTime2","TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.fromTime2",1,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.toDay","gethsaunit.dropInHours.dropInHour.toDay","","","",1,1,"","","","integer {[]} {[]}
+","toDay","toDay","TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.toDay",1,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.toTime","gethsaunit.dropInHours.dropInHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","toTime","TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.toTime",1,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.toTime2","gethsaunit.dropInHours.dropInHour.toTime2","","","",1,1,"","","","string {[]} {[]}
+","toTime2","toTime2","TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.toTime2",1,1,"",""
+"gethsaunit","gethsaunit.dropInHours.dropInHour.comment","gethsaunit.dropInHours.dropInHour.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.dropInHours.dropInHour.comment",1,1,"",""
+"gethsaunit","gethsaunit.email","gethsaunit.email","","","",0,1,"","","","string {[]} {[]}
+","email","email","TKB-fält: `email` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.email",0,1,"",""
+"gethsaunit","gethsaunit.faxNumbers","gethsaunit.faxNumbers","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","faxNumbers","TKB-fält: `faxNumbers` (`faxNumbers`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.faxNumbers",0,1,"",""
+"gethsaunit","gethsaunit.faxNumbers.faxNumber","gethsaunit.faxNumbers.faxNumber","","","",0,*,"","","","string {[]} {[]}
+","faxNumber","faxNumber","TKB-fält: `../faxNumber` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.faxNumbers.faxNumber",0,*,"",""
+"gethsaunit","gethsaunit.geographicalCoordinatesRt90","gethsaunit.geographicalCoordinatesRt90","","","",0,1,"","","","Base {[]} {[]}
+","CoordinatesType","geographicalCoordinatesRt90","TKB-fält: `geographicalCoordinatesRt90` (`CoordinatesType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.geographicalCoordinatesRt90",0,1,"",""
+"gethsaunit","gethsaunit.geographicalCoordinatesRt90.type","gethsaunit.geographicalCoordinatesRt90.type","","","",1,1,"","","","string {[]} {[]}
+","type","type","TKB-fält: `../type` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.geographicalCoordinatesRt90.type",1,1,"",""
+"gethsaunit","gethsaunit.geographicalCoordinatesRt90.x","gethsaunit.geographicalCoordinatesRt90.x","","","",1,1,"","","","string {[]} {[]}
+","x","","TKB-fält: `../x` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.geographicalCoordinatesRt90.x",1,1,"",""
+"gethsaunit","gethsaunit.geographicalCoordinatesRt90.y","gethsaunit.geographicalCoordinatesRt90.y","","","",1,1,"","","","string {[]} {[]}
+","y","","TKB-fält: `../y` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.geographicalCoordinatesRt90.y",1,1,"",""
+"gethsaunit","gethsaunit.healthCareArea","gethsaunit.healthCareArea","","","",0,1,"","","","string {[]} {[]}
+","healthCareArea","healthCareArea","TKB-fält: `healthCareArea` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.healthCareArea",0,1,"",""
+"gethsaunit","gethsaunit.hsaDestinationIndicators","gethsaunit.hsaDestinationIndicators","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","hsaDestinationIndicators","TKB-fält: `hsaDestinationIndicators` (`hsaDestinationIndicators`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.hsaDestinationIndicators",1,1,"",""
+"gethsaunit","gethsaunit.hsaDestinationIndicators.hsaDestinationIndicator","gethsaunit.hsaDestinationIndicators.hsaDestinationIndicator","","","",0,*,"","","","string {[]} {[]}
+","hsaDestinationIndicator","hsaDestinationIndicator","TKB-fält: `../hsaDestinationIndicator` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.hsaDestinationIndicators.hsaDestinationIndicator",0,*,"",""
+"gethsaunit","gethsaunit.hsaIdentity","gethsaunit.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.hsaIdentity",1,1,"",""
+"gethsaunit","gethsaunit.hsaJpegLogotype","gethsaunit.hsaJpegLogotype","","","",0,1,"","","","string {[]} {[]}
+","hsaJpegLogotype","hsaJpegLogotype","TKB-fält: `hsaJpegLogotype` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.hsaJpegLogotype",0,1,"",""
+"gethsaunit","gethsaunit.invoiceAddress","gethsaunit.invoiceAddress","","","",0,1,"","","","Base {[]} {[]}
+","AddressType","invoiceAddress","TKB-fält: `invoiceAddress` (`AddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.invoiceAddress",0,1,"",""
+"gethsaunit","gethsaunit.invoiceAddress.addressLine","gethsaunit.invoiceAddress.addressLine","","","",1,*,"","","","string {[]} {[]}
+","addressLine","addressLine","TKB-fält: `../addressLine` (`string`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"gethsaunit.invoiceAddress.addressLine",1,*,"",""
+"gethsaunit","gethsaunit.jpegPhoto","gethsaunit.jpegPhoto","","","",0,1,"","","","string {[]} {[]}
+","jpegPhoto","jpegPhoto","TKB-fält: `jpegPhoto` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.jpegPhoto",0,1,"",""
+"gethsaunit","gethsaunit.labeledUri","gethsaunit.labeledUri","","","",0,1,"","","","string {[]} {[]}
+","labeledUri","labeledUri","TKB-fält: `labeledUri` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.labeledUri",0,1,"",""
+"gethsaunit","gethsaunit.location","gethsaunit.location","","","",0,1,"","","","string {[]} {[]}
+","location","location","TKB-fält: `location` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.location",0,1,"",""
+"gethsaunit","gethsaunit.webPage1177","gethsaunit.webPage1177","","","",0,1,"","","","string {[]} {[]}
+","webPage1177","webPage1177","TKB-fält: `webPage1177` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.webPage1177",0,1,"",""
+"gethsaunit","gethsaunit.managements","gethsaunit.managements","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","managements","TKB-fält: `managements` (`managements`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.managements",1,1,"",""
+"gethsaunit","gethsaunit.managements.management","gethsaunit.managements.management","","","",0,*,"","","","string {[]} {[]}
+","management","management","TKB-fält: `../management` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.managements.management",0,*,"",""
+"gethsaunit","gethsaunit.municipality","gethsaunit.municipality","","","",0,1,"","","","string {[]} {[]}
+","municipality","municipality","TKB-fält: `municipality` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.municipality",0,1,"",""
+"gethsaunit","gethsaunit.municipalityCode","gethsaunit.municipalityCode","","","",0,1,"","","","string {[]} {[]}
+","municipalityCode","municipalityCode","TKB-fält: `municipalityCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.municipalityCode",0,1,"",""
+"gethsaunit","gethsaunit.municipalitySection","gethsaunit.municipalitySection","","","",0,1,"","","","string {[]} {[]}
+","municipalitySection","municipalitySection","TKB-fält: `municipalitySection` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.municipalitySection",0,1,"",""
+"gethsaunit","gethsaunit.name","gethsaunit.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.name",1,1,"",""
+"gethsaunit","gethsaunit.patientInformation","gethsaunit.patientInformation","","","",0,1,"","","","string {[]} {[]}
+","patientInformation","patientInformation","TKB-fält: `patientInformation` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.patientInformation",0,1,"",""
+"gethsaunit","gethsaunit.postalAddress","gethsaunit.postalAddress","","","",0,1,"","","","Base {[]} {[]}
+","AddressType","postalAddress","TKB-fält: `postalAddress` (`AddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.postalAddress",0,1,"",""
+"gethsaunit","gethsaunit.postalAddress.addressLine","gethsaunit.postalAddress.addressLine","","","",1,*,"","","","string {[]} {[]}
+","addressLine","addressLine","TKB-fält: `../addressLine` (`string`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"gethsaunit.postalAddress.addressLine",1,*,"",""
+"gethsaunit","gethsaunit.postalCode","gethsaunit.postalCode","","","",0,1,"","","","string {[]} {[]}
+","postalCode","postalCode","TKB-fält: `postalCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.postalCode",0,1,"",""
+"gethsaunit","gethsaunit.priceInformation","gethsaunit.priceInformation","","","",0,1,"","","","string {[]} {[]}
+","priceInformation","priceInformation","TKB-fält: `priceInformation` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.priceInformation",0,1,"",""
+"gethsaunit","gethsaunit.publicName","gethsaunit.publicName","","","",1,1,"","","","string {[]} {[]}
+","publicName","publicName","TKB-fält: `publicName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.publicName",1,1,"",""
+"gethsaunit","gethsaunit.relatedUnits","gethsaunit.relatedUnits","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","relatedUnits","TKB-fält: `relatedUnits` (`relatedUnits`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.relatedUnits",1,1,"",""
+"gethsaunit","gethsaunit.relatedUnits.relatedUnit","gethsaunit.relatedUnits.relatedUnit","","","",0,*,"","","","string {[]} {[]}
+","relatedUnit","relatedUnit","TKB-fält: `../relatedUnit` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.relatedUnits.relatedUnit",0,*,"",""
+"gethsaunit","gethsaunit.route","gethsaunit.route","","","",0,1,"","","","string {[]} {[]}
+","route","route","TKB-fält: `route` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.route",0,1,"",""
+"gethsaunit","gethsaunit.street","gethsaunit.street","","","",0,1,"","","","string {[]} {[]}
+","street","street","TKB-fält: `street` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.street",0,1,"",""
+"gethsaunit","gethsaunit.surgeryHours","gethsaunit.surgeryHours","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","surgeryHours","TKB-fält: `surgeryHours` (`surgeryHours`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour","gethsaunit.surgeryHours.surgeryHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","surgeryHour","TKB-fält: `../surgeryHour` (`TimeSpanType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour",0,*,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.fromDay","gethsaunit.surgeryHours.surgeryHour.fromDay","","","",1,1,"","","","integer {[]} {[]}
+","fromDay","fromDay","TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.fromDay",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.fromTime","gethsaunit.surgeryHours.surgeryHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","fromTime","TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.fromTime",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.fromTime2","gethsaunit.surgeryHours.surgeryHour.fromTime2","","","",1,1,"","","","string {[]} {[]}
+","fromTime2","fromTime2","TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.fromTime2",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.toDay","gethsaunit.surgeryHours.surgeryHour.toDay","","","",1,1,"","","","integer {[]} {[]}
+","toDay","toDay","TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.toDay",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.toTime","gethsaunit.surgeryHours.surgeryHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","toTime","TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.toTime",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.toTime2","gethsaunit.surgeryHours.surgeryHour.toTime2","","","",1,1,"","","","string {[]} {[]}
+","toTime2","toTime2","TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.toTime2",1,1,"",""
+"gethsaunit","gethsaunit.surgeryHours.surgeryHour.comment","gethsaunit.surgeryHours.surgeryHour.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.surgeryHours.surgeryHour.comment",1,1,"",""
+"gethsaunit","gethsaunit.switchboardNumber","gethsaunit.switchboardNumber","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","switchboardNumber","switchboardNumber","TKB-fält: `switchboardNumber` (`TelephoneNumberType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.switchboardNumber",0,1,"",""
+"gethsaunit","gethsaunit.telephoneHours","gethsaunit.telephoneHours","","","",1,1,"","","","Base {[]} {[]}
+","TelephoneHoursType","telephoneHours","TKB-fält: `telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour","gethsaunit.telephoneHours.telephoneHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","telephoneHour","TKB-fält: `../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour",0,*,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.fromDay","gethsaunit.telephoneHours.telephoneHour.fromDay","","","",1,1,"","","","integer {[]} {[]}
+","fromDay","fromDay","TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.fromDay",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.fromTime","gethsaunit.telephoneHours.telephoneHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","fromTime","TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.fromTime",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.fromTime2","gethsaunit.telephoneHours.telephoneHour.fromTime2","","","",1,1,"","","","string {[]} {[]}
+","fromTime2","fromTime2","TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.fromTime2",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.toDay","gethsaunit.telephoneHours.telephoneHour.toDay","","","",1,1,"","","","integer {[]} {[]}
+","toDay","toDay","TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.toDay",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.toTime","gethsaunit.telephoneHours.telephoneHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","toTime","TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.toTime",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.toTime2","gethsaunit.telephoneHours.telephoneHour.toTime2","","","",1,1,"","","","string {[]} {[]}
+","toTime2","toTime2","TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.toTime2",1,1,"",""
+"gethsaunit","gethsaunit.telephoneHours.telephoneHour.comment","gethsaunit.telephoneHours.telephoneHour.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneHours.telephoneHour.comment",1,1,"",""
+"gethsaunit","gethsaunit.telephoneNumbers","gethsaunit.telephoneNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","telephoneNumbers","TKB-fält: `telephoneNumbers` (`telephoneNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneNumbers",1,1,"",""
+"gethsaunit","gethsaunit.telephoneNumbers.telephoneNumber","gethsaunit.telephoneNumbers.telephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","telephoneNumber","telephoneNumber","TKB-fält: `../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.telephoneNumbers.telephoneNumber",0,*,"",""
+"gethsaunit","gethsaunit.textTelephoneNumbers","gethsaunit.textTelephoneNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","textTelephoneNumbers","TKB-fält: `textTelephoneNumbers` (`textTelephoneNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.textTelephoneNumbers",1,1,"",""
+"gethsaunit","gethsaunit.textTelephoneNumbers.textTelephoneNumber","gethsaunit.textTelephoneNumbers.textTelephoneNumber","","","",0,*,"","","","string {[]} {[]}
+","textTelephoneNumber","textTelephoneNumber","TKB-fält: `../textTelephoneNumber` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.textTelephoneNumbers.textTelephoneNumber",0,*,"",""
+"gethsaunit","gethsaunit.unitExtraInformation","gethsaunit.unitExtraInformation","","","",0,1,"","","","string {[]} {[]}
+","unitExtraInformation","unitExtraInformation","TKB-fält: `unitExtraInformation` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitExtraInformation",0,1,"",""
+"gethsaunit","gethsaunit.unitFunctions","gethsaunit.unitFunctions","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","unitFunctions","TKB-fält: `unitFunctions` (`unitFunctions`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction","gethsaunit.unitFunctions.unitFunction","","","",0,*,"","","","Base {[]} {[]}
+","HsaUnitFunctionType","unitFunction","TKB-fält: `../unitFunction` (`HsaUnitFunctionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction",0,*,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.name","gethsaunit.unitFunctions.unitFunction.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.name",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours","gethsaunit.unitFunctions.unitFunction.telephoneHours","","","",1,1,"","","","Base {[]} {[]}
+","TelephoneHoursType","telephoneHours","TKB-fält: `../../telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","telephoneHour","TKB-fält: `../../../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour",0,*,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromDay","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromDay","","","",1,1,"","","","integer {[]} {[]}
+","fromDay","fromDay","TKB-fält: `../../../../fromDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromDay",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","fromTime","TKB-fält: `../../../../fromTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime2","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime2","","","",1,1,"","","","string {[]} {[]}
+","fromTime2","fromTime2","TKB-fält: `../../../../fromTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime2",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toDay","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toDay","","","",1,1,"","","","integer {[]} {[]}
+","toDay","toDay","TKB-fält: `../../../../toDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toDay",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","toTime","TKB-fält: `../../../../toTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime2","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime2","","","",1,1,"","","","string {[]} {[]}
+","toTime2","toTime2","TKB-fält: `../../../../toTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime2",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.comment","gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../../../../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.comment",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneNumbers","gethsaunit.unitFunctions.unitFunction.telephoneNumbers","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","telephoneNumbers","TKB-fält: `../../telephoneNumbers` (`telephoneNumbers`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneNumbers",1,1,"",""
+"gethsaunit","gethsaunit.unitFunctions.unitFunction.telephoneNumbers.telephoneNumber","gethsaunit.unitFunctions.unitFunction.telephoneNumbers.telephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType]]} {[]}
+","telephoneNumber","telephoneNumber","TKB-fält: `../../../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.unitFunctions.unitFunction.telephoneNumbers.telephoneNumber",0,*,"",""
+"gethsaunit","gethsaunit.unitTemporaryInformation","gethsaunit.unitTemporaryInformation","","","",0,1,"","","","Base {[]} {[]}
+","DateSpanType","unitTemporaryInformation","TKB-fält: `unitTemporaryInformation` (`DateSpanType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitTemporaryInformation",0,1,"",""
+"gethsaunit","gethsaunit.unitTemporaryInformation.fromDate","gethsaunit.unitTemporaryInformation.fromDate","","","",1,1,"","","","string {[]} {[]}
+","fromDate","fromDate","TKB-fält: `../fromDate` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitTemporaryInformation.fromDate",1,1,"",""
+"gethsaunit","gethsaunit.unitTemporaryInformation.toDate","gethsaunit.unitTemporaryInformation.toDate","","","",1,1,"","","","string {[]} {[]}
+","toDate","toDate","TKB-fält: `../toDate` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitTemporaryInformation.toDate",1,1,"",""
+"gethsaunit","gethsaunit.unitTemporaryInformation.comment","gethsaunit.unitTemporaryInformation.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.unitTemporaryInformation.comment",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours","gethsaunit.visitingHours","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","visitingHours","TKB-fält: `visitingHours` (`visitingHours`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour","gethsaunit.visitingHours.visitingHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","visitingHour","TKB-fält: `../visitingHour` (`TimeSpanType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour",0,*,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.fromDay","gethsaunit.visitingHours.visitingHour.fromDay","","","",1,1,"","","","integer {[]} {[]}
+","fromDay","fromDay","TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.fromDay",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.fromTime","gethsaunit.visitingHours.visitingHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","fromTime","TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.fromTime",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.fromTime2","gethsaunit.visitingHours.visitingHour.fromTime2","","","",1,1,"","","","string {[]} {[]}
+","fromTime2","fromTime2","TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.fromTime2",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.toDay","gethsaunit.visitingHours.visitingHour.toDay","","","",1,1,"","","","integer {[]} {[]}
+","toDay","toDay","TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.toDay",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.toTime","gethsaunit.visitingHours.visitingHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","toTime","TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.toTime",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.toTime2","gethsaunit.visitingHours.visitingHour.toTime2","","","",1,1,"","","","string {[]} {[]}
+","toTime2","toTime2","TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.toTime2",1,1,"",""
+"gethsaunit","gethsaunit.visitingHours.visitingHour.comment","gethsaunit.visitingHours.visitingHour.comment","","","",1,1,"","","","string {[]} {[]}
+","comment","comment","TKB-fält: `../../comment` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingHours.visitingHour.comment",1,1,"",""
+"gethsaunit","gethsaunit.visitingRuleAge","gethsaunit.visitingRuleAge","","","",0,1,"","","","Base {[]} {[]}
+","AgeSpanType","visitingRuleAge","TKB-fält: `visitingRuleAge` (`AgeSpanType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingRuleAge",0,1,"",""
+"gethsaunit","gethsaunit.visitingRuleAge.from","gethsaunit.visitingRuleAge.from","","","",1,1,"","","","integer {[]} {[]}
+","from","from","TKB-fält: `../from` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingRuleAge.from",1,1,"",""
+"gethsaunit","gethsaunit.visitingRuleAge.to","gethsaunit.visitingRuleAge.to","","","",1,1,"","","","integer {[]} {[]}
+","to","to","TKB-fält: `../to` (`integer`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingRuleAge.to",1,1,"",""
+"gethsaunit","gethsaunit.visitingRuleReferral","gethsaunit.visitingRuleReferral","","","",0,1,"","","","string {[]} {[]}
+","visitingRuleReferral","visitingRuleReferral","TKB-fält: `visitingRuleReferral` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingRuleReferral",0,1,"",""
+"gethsaunit","gethsaunit.visitingRules","gethsaunit.visitingRules","","","",0,1,"","","","string {[]} {[]}
+","visitingRules","visitingRules","TKB-fält: `visitingRules` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.visitingRules",0,1,"",""
+"gethsaunit","gethsaunit.referralReceiver","gethsaunit.referralReceiver","","","",0,1,"","","","boolean {[]} {[]}
+","referralReceiver","referralReceiver","TKB-fält: `referralReceiver` (`boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunit.referralReceiver",0,1,"",""
+"gethsaunit","gethsaunit.referralTypes","gethsaunit.referralTypes","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","referralTypes","TKB-fält: `referralTypes` (`referralTypes`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.referralTypes",1,1,"",""
+"gethsaunit","gethsaunit.referralTypes.referralType","gethsaunit.referralTypes.referralType","","","",0,*,"","","","string {[]} {[]}
+","referralType","referralType","TKB-fält: `../referralType` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunit.referralTypes.referralType",0,*,"",""
+"gethsaunit","gethsaunit.DN","gethsaunit.DN","","","",1,1,"","","","string {[]} {[]}
+","DN","DN","TKB-fält: `DN` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunit.DN",1,1,"",""
+"gethsaunitlist-request","gethsaunitlist-request","gethsaunitlist-request","","","",0,*,"","","","null {[]} {[]}
+","GetHsaUnitList — Request","Logisk modell för begäran i GetHsaUnitList
+(urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1, GetHsaUnitListType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gethsaunitlist-request","gethsaunitlist-request.hsaIdentity","gethsaunitlist-request.hsaIdentity","","","",0,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunitlist-request.hsaIdentity",0,1,"",""
+"gethsaunitlist-request","gethsaunitlist-request.searchBase","gethsaunitlist-request.searchBase","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType]]} {[]}
+","searchBase","searchBase","TKB-fält: `searchBase` (`SearchBaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunitlist-request.searchBase",0,1,"",""
+"gethsaunitlist","gethsaunitlist","gethsaunitlist","","","",0,*,"","","","null {[]} {[]}
+","GetHsaUnitList — Response","Logisk modell för svaret i GetHsaUnitList
+(urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1, GetHsaUnitListResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"gethsaunitlist","gethsaunitlist.UnitList","gethsaunitlist.UnitList","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","UnitList","TKB-fält: `UnitList` (`UnitList`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunitlist.UnitList",0,1,"",""
+"gethsaunitlist","gethsaunitlist.UnitList.unitListUnit","gethsaunitlist.UnitList.unitListUnit","","","",0,*,"","","","Base {[]} {[]}
+","UnitListUnit","unitListUnit","TKB-fält: `../unitListUnit` (`UnitListUnit`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"gethsaunitlist.UnitList.unitListUnit",0,*,"",""
+"gethsaunitlist","gethsaunitlist.UnitList.unitListUnit.hsaIdentity","gethsaunitlist.UnitList.unitListUnit.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `../../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunitlist.UnitList.unitListUnit.hsaIdentity",1,1,"",""
+"gethsaunitlist","gethsaunitlist.UnitList.unitListUnit.name","gethsaunitlist.UnitList.unitListUnit.name","","","",1,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"gethsaunitlist.UnitList.unitListUnit.name",1,1,"",""
+"gethsaunitlist","gethsaunitlist.UnitList.unitListUnit.parentHsaIdentity","gethsaunitlist.UnitList.unitListUnit.parentHsaIdentity","","","",0,1,"","","","string {[]} {[]}
+","parentHsaIdentity","parentHsaIdentity","TKB-fält: `../../parentHsaIdentity` (`HsaIdentityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"gethsaunitlist.UnitList.unitListUnit.parentHsaIdentity",0,1,"",""
+"getmiuforperson-request","getmiuforperson-request","getmiuforperson-request","","","",0,*,"","","","null {[]} {[]}
+","GetMiuForPerson — Request","Logisk modell för begäran i GetMiuForPerson
+(urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1, GetMiuForPersonType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","getmiuforpersonrequest-choice-1:Exakt ett av hsaIdentity, personalIdentityNumber ska anges (xs:choice i schemat). {hsaIdentity.exists() xor personalIdentityNumber.exists()}
+getmiuforperson-request-hsaid-xor-pnr:Exakt ett av hsaIdentity och personalIdentityNumber ska anges (xs:choice i schemat). {hsaIdentity.exists() xor personalIdentityNumber.exists()}"
+"getmiuforperson-request","getmiuforperson-request.hsaIdentity","getmiuforperson-request.hsaIdentity","","","",0,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmiuforperson-request.hsaIdentity",0,1,"",""
+"getmiuforperson-request","getmiuforperson-request.personalIdentityNumber","getmiuforperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","personalIdentityNumber","personalIdentityNumber","TKB-fält: `personalIdentityNumber` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmiuforperson-request.personalIdentityNumber",0,1,"",""
+"getmiuforperson-request","getmiuforperson-request.searchBase","getmiuforperson-request.searchBase","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType]]} {[]}
+","searchBase","searchBase","TKB-fält: `searchBase` (`SearchBaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmiuforperson-request.searchBase",0,1,"",""
+"getmiuforperson","getmiuforperson","getmiuforperson","","","",0,*,"","","","null {[]} {[]}
+","GetMiuForPerson — Response","Logisk modell för svaret i GetMiuForPerson
+(urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1, GetMiuForPersonResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getmiuforperson","getmiuforperson.MiuInformation","getmiuforperson.MiuInformation","","","",0,*,"","","","Base {[]} {[]}
+","MiuInformationType","MiuInformation","TKB-fält: `MiuInformation` (`MiuInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation",0,*,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.miuName","getmiuforperson.MiuInformation.miuName","","","",1,1,"","","","string {[]} {[]}
+","miuName","miuName","TKB-fält: `../miuName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.miuName",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.hsaIdentity","getmiuforperson.MiuInformation.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.hsaIdentity",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.miuPurpose","getmiuforperson.MiuInformation.miuPurpose","","","",1,1,"","","","string {[]} {[]}
+","miuPurpose","miuPurpose","TKB-fält: `../miuPurpose` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.miuPurpose",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.careUnitHsaIdentity","getmiuforperson.MiuInformation.careUnitHsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","careUnitHsaIdentity","careUnitHsaIdentity","TKB-fält: `../careUnitHsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.careUnitHsaIdentity",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.careUnitName","getmiuforperson.MiuInformation.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","careUnitName","TKB-fält: `../careUnitName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.careUnitName",0,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.careGiver","getmiuforperson.MiuInformation.careGiver","","","",1,1,"","","","string {[]} {[]}
+","careGiver","careGiver","TKB-fält: `../careGiver` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.careGiver",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.careGiverName","getmiuforperson.MiuInformation.careGiverName","","","",1,1,"","","","string {[]} {[]}
+","careGiverName","careGiverName","TKB-fält: `../careGiverName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.careGiverName",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.careGiverOrgNo","getmiuforperson.MiuInformation.careGiverOrgNo","","","",1,1,"","","","string {[]} {[]}
+","careGiverOrgNo","careGiverOrgNo","TKB-fält: `../careGiverOrgNo` (`orgNo`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.careGiverOrgNo",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.personalPrescriptionCode","getmiuforperson.MiuInformation.personalPrescriptionCode","","","",0,1,"","","","string {[]} {[]}
+","personalPrescriptionCode","personalPrescriptionCode","TKB-fält: `../personalPrescriptionCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.personalPrescriptionCode",0,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.hsaTitles","getmiuforperson.MiuInformation.hsaTitles","","","",1,1,"","","","Base {[]} {[]}
+","HsaTitlesType","hsaTitles","TKB-fält: `../hsaTitles` (`HsaTitlesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.hsaTitles",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.hsaTitles.hsaTitle","getmiuforperson.MiuInformation.hsaTitles.hsaTitle","","","",0,*,"","","","string {[]} {[]}
+","hsaTitle","hsaTitle","TKB-fält: `../../hsaTitle` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.hsaTitles.hsaTitle",0,*,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.miuRights","getmiuforperson.MiuInformation.miuRights","","","",1,1,"","","","Base {[]} {[]}
+","MiuRightsType","miuRights","TKB-fält: `../miuRights` (`MiuRightsType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.miuRights",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.miuRights.miuRight","getmiuforperson.MiuInformation.miuRights.miuRight","","","",0,*,"","","","string {[]} {[]}
+","miuRight","miuRight","TKB-fält: `../../miuRight` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.miuRights.miuRight",0,*,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.hsaSystemRoles","getmiuforperson.MiuInformation.hsaSystemRoles","","","",1,1,"","","","Base {[]} {[]}
+","HsaSystemRolesType","hsaSystemRoles","TKB-fält: `../hsaSystemRoles` (`HsaSystemRolesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.hsaSystemRoles",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.hsaSystemRoles.hsaSystemRole","getmiuforperson.MiuInformation.hsaSystemRoles.hsaSystemRole","","","",0,*,"","","","string {[]} {[]}
+","hsaSystemRole","hsaSystemRole","TKB-fält: `../../hsaSystemRole` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.hsaSystemRoles.hsaSystemRole",0,*,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.hsaIdentityPerson","getmiuforperson.MiuInformation.hsaIdentityPerson","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentityPerson","hsaIdentityPerson","TKB-fält: `../hsaIdentityPerson` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.hsaIdentityPerson",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.paTitleCodes","getmiuforperson.MiuInformation.paTitleCodes","","","",1,1,"","","","Base {[]} {[]}
+","PaTitleCodesType","paTitleCodes","TKB-fält: `../paTitleCodes` (`PaTitleCodesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.paTitleCodes",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.paTitleCodes.paTitleCode","getmiuforperson.MiuInformation.paTitleCodes.paTitleCode","","","",0,*,"","","","string {[]} {[]}
+","paTitleCode","paTitleCode","TKB-fält: `../../paTitleCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.paTitleCodes.paTitleCode",0,*,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.givenName","getmiuforperson.MiuInformation.givenName","","","",1,1,"","","","string {[]} {[]}
+","givenName","givenName","TKB-fält: `../givenName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.givenName",1,1,"",""
+"getmiuforperson","getmiuforperson.MiuInformation.middleAndSurName","getmiuforperson.MiuInformation.middleAndSurName","","","",1,1,"","","","string {[]} {[]}
+","middleAndSurName","middleAndSurName","TKB-fält: `../middleAndSurName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getmiuforperson.MiuInformation.middleAndSurName",1,1,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request","","","",0,*,"","","","null {[]} {[]}
+","GetPersonsWithCommissionAtHealthCareUnit — Request","Logisk modell för begäran i GetPersonsWithCommissionAtHealthCareUnit
+(urn:riv:orgmaster:hsa:GetPersonsWithCommissionAtHealthCareUnitResponder:1, GetPersonsWithCommissionAtHealthCareUnitType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request.hsaIdentity","getpersonswithcommissionathealthcareunit-request.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit-request.hsaIdentity",1,1,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request.searchBase","getpersonswithcommissionathealthcareunit-request.searchBase","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/SearchBaseType]]} {[]}
+","searchBase","searchBase","TKB-fält: `searchBase` (`SearchBaseType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit-request.searchBase",0,1,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request.paTitleCodes","getpersonswithcommissionathealthcareunit-request.paTitleCodes","","","",1,1,"","","","Base {[]} {[]}
+","PaTitleCodesType","paTitleCodes","TKB-fält: `paTitleCodes` (`PaTitleCodesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit-request.paTitleCodes",1,1,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request.paTitleCodes.paTitleCode","getpersonswithcommissionathealthcareunit-request.paTitleCodes.paTitleCode","","","",0,*,"","","","string {[]} {[]}
+","paTitleCode","paTitleCode","TKB-fält: `../paTitleCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit-request.paTitleCodes.paTitleCode",0,*,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request.hsaTitles","getpersonswithcommissionathealthcareunit-request.hsaTitles","","","",1,1,"","","","Base {[]} {[]}
+","HsaTitlesType","hsaTitles","TKB-fält: `hsaTitles` (`HsaTitlesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit-request.hsaTitles",1,1,"",""
+"getpersonswithcommissionathealthcareunit-request","getpersonswithcommissionathealthcareunit-request.hsaTitles.hsaTitle","getpersonswithcommissionathealthcareunit-request.hsaTitles.hsaTitle","","","",0,*,"","","","string {[]} {[]}
+","hsaTitle","hsaTitle","TKB-fält: `../hsaTitle` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit-request.hsaTitles.hsaTitle",0,*,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit","","","",0,*,"","","","null {[]} {[]}
+","GetPersonsWithCommissionAtHealthCareUnit — Response","Logisk modell för svaret i GetPersonsWithCommissionAtHealthCareUnit
+(urn:riv:orgmaster:hsa:GetPersonsWithCommissionAtHealthCareUnitResponder:1, GetPersonsWithCommissionAtHealthCareUnitResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList","getpersonswithcommissionathealthcareunit.PersonList","","","",0,1,"","","","Base {[]} {[]}
+","(anonym typ)","PersonList","TKB-fält: `PersonList` (`PersonList`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList",0,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson","getpersonswithcommissionathealthcareunit.PersonList.personListPerson","","","",0,*,"","","","Base {[]} {[]}
+","PersonListPerson","personListPerson","TKB-fält: `../personListPerson` (`PersonListPerson`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson",0,*,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaIdentity","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaIdentity","","","",1,1,"","","","string {[]} {[]}
+","hsaIdentity","hsaIdentity","TKB-fält: `../../hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaIdentity",1,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.givenName","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.givenName","","","",1,1,"","","","string {[]} {[]}
+","givenName","givenName","TKB-fält: `../../givenName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.givenName",1,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.sn","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.sn","","","",1,1,"","","","string {[]} {[]}
+","sn","sn","TKB-fält: `../../sn` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.sn",1,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.personalPrescriptionCode","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.personalPrescriptionCode","","","",0,1,"","","","string {[]} {[]}
+","personalPrescriptionCode","personalPrescriptionCode","TKB-fält: `../../personalPrescriptionCode` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.personalPrescriptionCode",0,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleCodes","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleCodes","","","",1,1,"","","","Base {[]} {[]}
+","PaTitleCodesType","paTitleCodes","TKB-fält: `../../paTitleCodes` (`PaTitleCodesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleCodes",1,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleCodes.paTitleCode","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleCodes.paTitleCode","","","",0,*,"","","","string {[]} {[]}
+","paTitleCode","paTitleCode","TKB-fält: `../../../paTitleCode` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleCodes.paTitleCode",0,*,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleNames","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleNames","","","",1,1,"","","","Base {[]} {[]}
+","PaTitleNamesType","paTitleNames","TKB-fält: `../../paTitleNames` (`PaTitleNamesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleNames",1,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleNames.paTitleName","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleNames.paTitleName","","","",0,*,"","","","string {[]} {[]}
+","paTitleName","paTitleName","TKB-fält: `../../../paTitleName` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.paTitleNames.paTitleName",0,*,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaTitles","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaTitles","","","",1,1,"","","","Base {[]} {[]}
+","HsaTitlesType","hsaTitles","TKB-fält: `../../hsaTitles` (`HsaTitlesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaTitles",1,1,"",""
+"getpersonswithcommissionathealthcareunit","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaTitles.hsaTitle","getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaTitles.hsaTitle","","","",0,*,"","","","string {[]} {[]}
+","hsaTitle","hsaTitle","TKB-fält: `../../../hsaTitle` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getpersonswithcommissionathealthcareunit.PersonList.personListPerson.hsaTitles.hsaTitle",0,*,"",""

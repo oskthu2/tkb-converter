@@ -1,0 +1,108 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcommissionsforperson-request","getcommissionsforperson-request","getcommissionsforperson-request","","","",0,*,"","","","null {[]} {[]}
+","GetCommissionsForPerson — Request","Logisk modell för requestparametrar i GetCommissionsForPerson
+(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).
+
+Exakt ett av fälten personalHsaId och personalIdentityNumber ska anges.
+Om inget av dessa anges, eller om värdet är ogiltigt, returneras statuskod VALIDATIONERROR.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","getcommissionsforperson-request-hsaid-xor-pnr:Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler). {personalHsaId.exists() xor personalIdentityNumber.exists()}
+"
+"getcommissionsforperson-request","getcommissionsforperson-request.personalHsaId","getcommissionsforperson-request.personalHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för den aktör som medarbetaruppdrag ska hämtas för","HSA-id för den aktör som medarbetaruppdrag ska hämtas för.","TKB-fält: `personalHsaId *)` (`commissionservice:HsaId`, kardinalitet 0..1).
+
+**Modellanteckning:** HSA-id för den person vars medarbetaruppdrag efterfrågas.
+Maxlängd: 32 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.","","","","","","","","",,,,,"",,,,"getcommissionsforperson-request.personalHsaId",0,1,"",""
+"getcommissionsforperson-request","getcommissionsforperson-request.personalIdentityNumber","getcommissionsforperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","Personnummer för den aktör som medarbetaruppdrag ska hämtas för","Personnummer för den aktör som medarbetaruppdrag ska hämtas för.","TKB-fält: `personalIdentityNumber *)` (`commissionservice:PersonalIdentityNumber`, kardinalitet 0..1).
+
+**Modellanteckning:** Personnummer eller samordningsnummer för den person vars medarbetaruppdrag efterfrågas.
+Maxlängd: 12 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.","","","","","","","","",,,,,"",,,,"getcommissionsforperson-request.personalIdentityNumber",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson","getcommissionsforperson","","","",0,*,"","","","null {[]} {[]}
+","GetCommissionsForPerson","Logisk modell för tjänstekontraktet GetCommissionsForPerson
+(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).
+Representerar responsens informationsstruktur (GetCommissionsForPersonResult).
+
+Tjänsten hämtar alla medarbetaruppdrag som personen är kopplad till,
+returnerar det senast valda uppdraget och anger om ett uppdrag valts
+inom de senaste 12 timmarna.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType","getcommissionsforperson.GetCommissionsForPersonResultType","","","",1,1,"","","","Base {[]} {[]}
+","GetCommissionsForPersonResultType","GetCommissionsForPersonResultType","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType",1,1,"","getcommissions-careprovider-xor:Antingen healthCareProviderHsaId eller healthCareProviderName ska anges {Commissions.HealthCareProviderHsaId.exists() or Commissions.HealthCareProviderName.exists()}
+"
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Result","getcommissionsforperson.GetCommissionsForPersonResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Result",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultCode","getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-commission/ValueSet/resultcode-vs","",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultCode",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultText","getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultText",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.LastSelectedCommissionHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.LastSelectedCommissionHsaId","","","",0,1,"","","","string {[]} {[]}
+","LastSelectedCommissionHsaId","LastSelectedCommissionHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.LastSelectedCommissionHsaId",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.SelectionPerformed","getcommissionsforperson.GetCommissionsForPersonResultType.SelectionPerformed","","","",0,1,"","","","boolean {[]} {[]}
+","SelectionPerformed","SelectionPerformed","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.SelectionPerformed",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions","","","",0,*,"","","","Base {[]} {[]}
+","CommissionType","Commissions","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions",0,*,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionHsaId","","","",1,1,"","","","string {[]} {[]}
+","CommissionHsaId","CommissionHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionHsaId",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionName","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionName","","","",1,1,"","","","string {[]} {[]}
+","CommissionName","CommissionName","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionName",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionPurpose","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionPurpose","","","",1,1,"","","","string {[]} {[]}
+","CommissionPurpose","CommissionPurpose","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionPurpose",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitHsaId","","","",0,1,"","","","string {[]} {[]}
+","HealthCareUnitHsaId","HealthCareUnitHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitHsaId",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitName","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitName","","","",0,1,"","","","string {[]} {[]}
+","HealthCareUnitName","HealthCareUnitName","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitName",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitStartDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareUnitStartDate","HealthCareUnitStartDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitStartDate",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitEndDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareUnitEndDate","HealthCareUnitEndDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitEndDate",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderHsaId","","","",0,1,"","","","string {[]} {[]}
+","HealthCareProviderHsaId","HealthCareProviderHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderHsaId",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderName","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderName","","","",0,1,"","","","string {[]} {[]}
+","HealthCareProviderName","HealthCareProviderName","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderName",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderOrgNo","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderOrgNo","","","",0,1,"","","","string {[]} {[]}
+","HealthCareProviderOrgNo","HealthCareProviderOrgNo","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderOrgNo",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderStartDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareProviderStartDate","HealthCareProviderStartDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderStartDate",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderEndDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareProviderEndDate","HealthCareProviderEndDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderEndDate",0,1,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request","setselectedcommissionforperson-request","","","",0,*,"","","","null {[]} {[]}
+","SetSelectedCommissionForPerson — Request","Logisk modell för requestparametrar i SetSelectedCommissionForPerson
+(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).
+
+Exakt ett av fälten personalHsaId och personalIdentityNumber ska anges.
+commissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning).","","","","","","","","","",,,,,"",,,,"Base",0,*,"","setselectedcommissionforperson-request-hsaid-xor-pnr:Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler). {personalHsaId.exists() xor personalIdentityNumber.exists()}
+"
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request.personalHsaId","setselectedcommissionforperson-request.personalHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för den aktör vars uppdragsval ska sättas","HSA-id för den aktör som medarbetaruppdrag ska hämtas för.","TKB-fält: `personalHsaId *)` (`commissionservice:HsaId`, kardinalitet 0..1).
+
+**Modellanteckning:** HSA-id för den person vars medarbetaruppdragsval ska registreras.
+Maxlängd: 32 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.personalHsaId",0,1,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request.personalIdentityNumber","setselectedcommissionforperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","Personnummer för den aktör vars uppdragsval ska sättas","Personnummer för den aktör som medarbetaruppdrag ska hämtas för.","TKB-fält: `personalIdentityNumber *)` (`commissionservice:PersonalIdentityNumber`, kardinalitet 0..1).
+
+**Modellanteckning:** Personnummer eller samordningsnummer för den person vars uppdragsval ska registreras.
+Maxlängd: 12 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.personalIdentityNumber",0,1,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request.commissionHsaId","setselectedcommissionforperson-request.commissionHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för det valda uppdraget","HsaId för vilket uppdrag som är valt. Om detta fält utelämnas, så blir inget uppdrag valt. Detta kan vara aktuellt vid utloggning från en tunn klient.","TKB-fält: `commissionHsaId` (`commissionservice:HsaId`, kardinalitet 0..1).
+
+**Modellanteckning:** HSA-id för det medarbetaruppdrag som ska väljas som aktivt.
+Om detta fält utelämnas nollställs uppdragsvalet.
+Detta kan användas av autentiseringstjänsten för att tvinga fram ett
+nytt uppdragsval (t.ex. funktionen Byta Uppdrag).
+Maxlängd: 32 tecken.","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.commissionHsaId",0,1,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson","setselectedcommissionforperson","","","",0,*,"","","","null {[]} {[]}
+","SetSelectedCommissionForPerson","Logisk modell för tjänstekontraktet SetSelectedCommissionForPerson
+(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).
+Representerar responsens informationsstruktur (Result).
+
+Tjänsten sätter vilket medarbetaruppdrag som valdes aktivt av en person.
+Valet är aktuellt under nästkommande 12 timmar.
+Möjlighet finns att nollställa valet genom att utelämna commissionHsaId.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson.ResultType","setselectedcommissionforperson.ResultType","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","ResultType","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson.ResultType",1,1,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson.ResultType.ResultCode","setselectedcommissionforperson.ResultType.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-commission/ValueSet/resultcode-vs","",,,,"setselectedcommissionforperson.ResultType.ResultCode",1,1,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson.ResultType.ResultText","setselectedcommissionforperson.ResultType.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson.ResultType.ResultText",1,1,"",""

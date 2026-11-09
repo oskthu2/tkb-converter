@@ -1,0 +1,347 @@
+# GetBlocksForPatient - ehr: blocking — Spärrhantering v3.2.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetBlocksForPatient**
+
+## Logical Model: GetBlocksForPatient 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetBlocksForPatient |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetBlocksForPatient (RIV-TA urn:riv:ehr:blocking:querying:GetBlocksForPatientResponder:2). Läser alla spärrar för en viss patient och organisation (lokal nivå). Representerar responsens informationsstruktur. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-blocking|current/StructureDefinition/StructureDefinition-getblocksforpatient.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getblocksforpatient.csv), [Excel](StructureDefinition-getblocksforpatient.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getblocksforpatient",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient",
+  "version" : "2.0",
+  "name" : "GetBlocksForPatient",
+  "title" : "GetBlocksForPatient",
+  "status" : "active",
+  "date" : "2026-11-09T03:28:23+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:querying:GetBlocksForPatientResponder:2).\nLäser alla spärrar för en viss patient och organisation (lokal nivå).\nRepresenterar responsens informationsstruktur.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getblocksforpatient",
+      "path" : "getblocksforpatient",
+      "short" : "GetBlocksForPatient",
+      "definition" : "Logisk modell för tjänstekontraktet GetBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:querying:GetBlocksForPatientResponder:2).\nLäser alla spärrar för en viss patient och organisation (lokal nivå).\nRepresenterar responsens informationsstruktur."
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType",
+      "path" : "getblocksforpatient.BlockHeaderType",
+      "short" : "BlockHeaderType",
+      "definition" : "BlockHeaderType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Result",
+      "path" : "getblocksforpatient.BlockHeaderType.Result",
+      "short" : "ResultType",
+      "definition" : "Result",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Result.ResultCode",
+      "path" : "getblocksforpatient.BlockHeaderType.Result.ResultCode",
+      "short" : "ResultCode",
+      "definition" : "ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Result.ResultText",
+      "path" : "getblocksforpatient.BlockHeaderType.Result.ResultText",
+      "short" : "ResultText",
+      "definition" : "ResultText",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks",
+      "short" : "BlockType",
+      "definition" : "Blocks",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.BlockId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.BlockId",
+      "short" : "BlockId",
+      "definition" : "BlockId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.BlockType",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.BlockType",
+      "short" : "BlockType",
+      "definition" : "BlockType Tillåtna värden: Inner, Outer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/ehr-blocking/ValueSet/blocktype-vs"
+      }
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.PatientId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.PatientId",
+      "short" : "PatientId",
+      "definition" : "PatientId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.InformationStartDate",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.InformationStartDate",
+      "short" : "InformationStartDate",
+      "definition" : "InformationStartDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.InformationEndDate",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.InformationEndDate",
+      "short" : "InformationEndDate",
+      "definition" : "InformationEndDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.InformationCareUnitId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.InformationCareUnitId",
+      "short" : "InformationCareUnitId",
+      "definition" : "InformationCareUnitId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.InformationCareProviderId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.InformationCareProviderId",
+      "short" : "InformationCareProviderId",
+      "definition" : "InformationCareProviderId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes",
+      "short" : "InformationTypeType",
+      "definition" : "ExcludedInformationTypes",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId",
+      "short" : "InfoTypeId",
+      "definition" : "InfoTypeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription",
+      "short" : "InfoTypeDescription",
+      "definition" : "InfoTypeDescription",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes",
+      "short" : "TemporaryRevokeType",
+      "definition" : "TemporaryRevokes",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId",
+      "short" : "TemporaryRevokeId",
+      "definition" : "TemporaryRevokeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.EndDate",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.EndDate",
+      "short" : "EndDate",
+      "definition" : "EndDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId",
+      "short" : "RevokedForCareUnitId",
+      "definition" : "RevokedForCareUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId",
+      "short" : "RevokedForEmployeeId",
+      "definition" : "RevokedForEmployeeId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId",
+      "short" : "OwnerId",
+      "definition" : "OwnerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.Blocks.OwnerId",
+      "path" : "getblocksforpatient.BlockHeaderType.Blocks.OwnerId",
+      "short" : "OwnerId",
+      "definition" : "OwnerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.NextCreatedOnOrAfter",
+      "path" : "getblocksforpatient.BlockHeaderType.NextCreatedOnOrAfter",
+      "short" : "NextCreatedOnOrAfter",
+      "definition" : "NextCreatedOnOrAfter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocksforpatient.BlockHeaderType.LatestCancellation",
+      "path" : "getblocksforpatient.BlockHeaderType.LatestCancellation",
+      "short" : "LatestCancellation",
+      "definition" : "LatestCancellation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    }]
+  }
+}
+
+```

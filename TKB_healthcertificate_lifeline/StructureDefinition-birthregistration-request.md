@@ -1,0 +1,722 @@
+# BirthRegistration — Request - healthcertificate: lifeline v1.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **BirthRegistration — Request**
+
+## Logical Model: BirthRegistration — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request | *Version*:1.0 |
+| Draft as of 2026-11-09 | *Computable Name*:BirthRegistrationRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i BirthRegistration (urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.healthcertificate-lifeline|current/StructureDefinition/StructureDefinition-birthregistration-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-birthregistration-request.csv), [Excel](StructureDefinition-birthregistration-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "birthregistration-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request",
+  "version" : "1.0",
+  "name" : "BirthRegistrationRequest",
+  "title" : "BirthRegistration — Request",
+  "status" : "draft",
+  "date" : "2026-11-09T03:33:43+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i BirthRegistration\n(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "birthregistration-request",
+      "path" : "birthregistration-request",
+      "short" : "BirthRegistration — Request",
+      "definition" : "Logisk modell för begäran i BirthRegistration\n(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "birthregistration-request.FodelseanmalanId",
+      "path" : "birthregistration-request.FodelseanmalanId",
+      "short" : "FodelseanmalanId",
+      "definition" : "Unikt id",
+      "comment" : "TKB-fält: `FodelseanmalanId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter",
+      "path" : "birthregistration-request.Dokumentuppgifter",
+      "short" : "DokumentuppgifterTYPE",
+      "definition" : "Dokumentuppgifter",
+      "comment" : "TKB-fält: `Dokumentuppgifter` (`DokumentuppgifterTYPE`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.Ingivarnamn",
+      "path" : "birthregistration-request.Dokumentuppgifter.Ingivarnamn",
+      "short" : "Ingivarnamn",
+      "definition" : "Namnet på sjukhus, klinik eller motsvarande samt namnet på barnmorska eller motsvarande. Max 100 tecken.",
+      "comment" : "TKB-fält: `Ingivarnamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.AnmalningsTyp",
+      "path" : "birthregistration-request.Dokumentuppgifter.AnmalningsTyp",
+      "short" : "AnmalningsTyp",
+      "definition" : "Får endast ha värde:\n\n\"NYANMALD\"\n\n\"RATTAD\"\n\n\"MAKULERAD \"",
+      "comment" : "TKB-fält: `AnmalningsTyp` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.AnmalningsId",
+      "path" : "birthregistration-request.Dokumentuppgifter.AnmalningsId",
+      "short" : "AnmalningsId",
+      "definition" : "Riksunikt id som sätts av vården själva. Vården bestämmer formatet. Max 80 tecken,",
+      "comment" : "TKB-fält: `AnmalningsId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.Ingivartelefon",
+      "path" : "birthregistration-request.Dokumentuppgifter.Ingivartelefon",
+      "short" : "Ingivartelefon",
+      "definition" : "Telefonnummer till den barnmorska/klinik som är ingivare av anmälan. Max 15 tecken",
+      "comment" : "TKB-fält: `Ingivartelefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter",
+      "path" : "birthregistration-request.Arendeuppgifter",
+      "short" : "ArendeuppgifterTYPE",
+      "definition" : "Arendeuppgifter",
+      "comment" : "TKB-fält: `Arendeuppgifter` (`ArendeuppgifterTYPE`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder",
+      "short" : "PersonTYPE",
+      "definition" : "Moder",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/Moder/` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "birthregistrationrequest-choice-1",
+        "severity" : "error",
+        "human" : "Exakt ett av Fodelsedatum, PersonNummer ska anges (xs:choice i schemat).",
+        "expression" : "Fodelsedatum.exists() xor PersonNummer.exists()",
+        "source" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+      },
+      {
+        "key" : "birthregistration-request-moder-id-choice",
+        "severity" : "error",
+        "human" : "Exakt ett av Fodelsedatum och PersonNummer ska anges för modern (xs:choice i schemat).",
+        "expression" : "Fodelsedatum.exists() xor PersonNummer.exists()",
+        "source" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn",
+      "short" : "NamnTYPE",
+      "definition" : "Namn",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/Moder/Namn` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn",
+      "short" : "Fornamn",
+      "definition" : "Fornamn",
+      "comment" : "TKB-fält: `../../../Fornamn` (`string100TYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn",
+      "short" : "Mellannamn",
+      "definition" : "Mellannamn",
+      "comment" : "TKB-fält: `../../../Mellannamn` (`string100TYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn",
+      "short" : "Efternamn",
+      "definition" : "Efternamn",
+      "comment" : "TKB-fält: `../../../Efternamn` (`string100TYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum",
+      "short" : "DatumTYPE",
+      "definition" : "Uppgift om födelsedatum ska lämnas i de fall modern saknar fullständigt personnummer",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/Moder/Fodelsedatum` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr",
+      "short" : "FodelseAr",
+      "definition" : "FodelseAr",
+      "comment" : "TKB-fält: `../../../FodelseAr` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad",
+      "short" : "FodelseManad",
+      "definition" : "FodelseManad",
+      "comment" : "TKB-fält: `../../../FodelseManad` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag",
+      "short" : "FodelseDag",
+      "definition" : "FodelseDag",
+      "comment" : "TKB-fält: `../../../FodelseDag` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.PersonNummer",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.PersonNummer",
+      "short" : "PersonNummer",
+      "definition" : "PersonNummer",
+      "comment" : "TKB-fält: `../../PersonNummer` (`PersonNummerTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake",
+      "short" : "PersonTYPE",
+      "definition" : "ModersMake",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/ModersMake/` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "birthregistrationrequest-choice-6",
+        "severity" : "error",
+        "human" : "Exakt ett av Fodelsedatum, PersonNummer ska anges (xs:choice i schemat).",
+        "expression" : "Fodelsedatum.exists() xor PersonNummer.exists()",
+        "source" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+      },
+      {
+        "key" : "birthregistration-request-modersmake-id-choice",
+        "severity" : "error",
+        "human" : "Exakt ett av Fodelsedatum och PersonNummer ska anges för moderns make (xs:choice i schemat).",
+        "expression" : "Fodelsedatum.exists() xor PersonNummer.exists()",
+        "source" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn",
+      "short" : "NamnTYPE",
+      "definition" : "Namn",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/ModersMake/Namn` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn",
+      "short" : "Fornamn",
+      "definition" : "Fornamn",
+      "comment" : "TKB-fält: `../../../Fornamn` (`string100TYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn",
+      "short" : "Mellannamn",
+      "definition" : "Mellannamn",
+      "comment" : "TKB-fält: `../../../Mellannamn` (`string100TYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn",
+      "short" : "Efternamn",
+      "definition" : "Efternamn",
+      "comment" : "TKB-fält: `../../../Efternamn` (`string100TYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum",
+      "short" : "DatumTYPE",
+      "definition" : "Uppgift om födelsedatum ska lämnas i de fall moderns make saknar fullständigt personnummer",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/ModersMake/Fodelsedatum` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr",
+      "short" : "FodelseAr",
+      "definition" : "FodelseAr",
+      "comment" : "TKB-fält: `../../../FodelseAr` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad",
+      "short" : "FodelseManad",
+      "definition" : "FodelseManad",
+      "comment" : "TKB-fält: `../../../FodelseManad` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag",
+      "short" : "FodelseDag",
+      "definition" : "FodelseDag",
+      "comment" : "TKB-fält: `../../../FodelseDag` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer",
+      "short" : "PersonNummer",
+      "definition" : "PersonNummer",
+      "comment" : "TKB-fält: `../../PersonNummer` (`PersonNummerTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn",
+      "short" : "BarnTYPE",
+      "definition" : "Barn",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/Barn` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "constraint" : [{
+        "key" : "birthregistration-request-barn-ordningsnr",
+        "severity" : "error",
+        "human" : "OrdningsNr och AntalBarn ska vara 1–9, och OrdningsNr får inte vara större än AntalBarn (TKB Fältregler, avsnitt 7.1.4 i IG:n).",
+        "expression" : "OrdningsNr >= 1 and OrdningsNr <= 9 and AntalBarn >= 1 and AntalBarn <= 9 and OrdningsNr <= AntalBarn",
+        "source" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.DatumFodelse",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.DatumFodelse",
+      "short" : "DatumFodelse",
+      "definition" : "Barnets födelsedatum. Får ej vara senare än dagens datum. Sekel inluderat. 10 tecken.\n\nÅÅÅÅ-MM-DD",
+      "comment" : "TKB-fält: `DatumFodelse` (`datum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.Kon",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.Kon",
+      "short" : "Kon",
+      "definition" : "Barnets kön. Då uppgift saknas lämnas elementet tomt.\n\nMax 6 tecken. Får endast ha värde\n\n\"FLICKA\"\n\n\"POJKE\"",
+      "comment" : "TKB-fält: `Kon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.OrdningsNr",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.OrdningsNr",
+      "short" : "OrdningsNr",
+      "definition" : "Födelseordningsnummer för barnet i förhållande till övriga syskon som fötts vid samma förlossningstillfä lle.\n\nDet har ingen betydelse om barnen (syskonen) var levande eller döda vid förlossningen. OrdningsNr ska beskriva i vilken ordning det aktuella barnet föddes fram.\n\nEx 1: Om modern fött trillingar och detta är det andra barnet av de tre anges värdet \"2\" som OrdningsNr för det aktuella barnet.\n\nEx 2: Om födelsen avser en singel födelse anges värdet \"1\" som OrdningsNr. *(Figur saknas: bilden i originalets tabellcell kan inte extraheras ur .doc-filen.)*\n\n1 tecken. Värdet ska finnas i intervallet 1-9.",
+      "comment" : "TKB-fält: `OrdningsNr` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.AntalBarn",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.AntalBarn",
+      "short" : "AntalBarn",
+      "definition" : "Totalt antal födda barn av samma moder vid förlossningen. Det har ingen betydelse om barnen var levande eller döda vid förlossningen. Samtliga barn ska ingå.\n\nEx 1: Om modern fött trillingar anges värdet \"3\" för elementet AntalBarn.\n\nEx 2: Om det är en singel födelse anges värdet \"1\".\n\nOBS: förhållandet mellan de värden som levereras i elementen OrdningsNr och AntalBarn måste vara rimligt. Det kan t ex aldrig förekomma OrdningsNr \"3\" tillsammans med AntalBarn \"2\".\n\nOrdningsNr kan bara vara mindre eller lika med AntalBarn.\n\n1 tecken. Värdet ska finnas i intervallet 1-9.",
+      "comment" : "TKB-fält: `AntalBarn` (`int`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.FodelseKommun",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.FodelseKommun",
+      "short" : "FodelseKommun",
+      "definition" : "Namnet på den kommun där barnet förlöstes I klartext.\n\nT.ex kommun där födelsekliniken är belägen eller den kommun där taxin befann sig då förlossningen skedde i en taxi.\n\nMax 30 tecken",
+      "comment" : "TKB-fält: `FodelseKommun` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.Levande",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.Levande",
+      "short" : "Levande",
+      "definition" : "Då barnet var levande vid födelsen anges värdet \"JA\" annars anges värdet \"NEJ\".\n\nEndast ett värde får anges:\n\nFår endast ha värde\n\n\"JA\"\n\n\"NEJ\"",
+      "comment" : "TKB-fält: `Levande` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress",
+      "short" : "AdressTYPE",
+      "definition" : "Om uppgift om Vistelseadress lämnas är AdressRad1 obligatorisk",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/Vistelseadress` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1",
+      "short" : "AdressRad1",
+      "definition" : "AdressRad1",
+      "comment" : "TKB-fält: `../../AdressRad1` (`AdressRadTYPE`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2",
+      "short" : "AdressRad2",
+      "definition" : "AdressRad2",
+      "comment" : "TKB-fält: `../../AdressRad2` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3",
+      "short" : "AdressRad3",
+      "definition" : "AdressRad3",
+      "comment" : "TKB-fält: `../../AdressRad3` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4",
+      "short" : "AdressRad4",
+      "definition" : "AdressRad4",
+      "comment" : "TKB-fält: `../../AdressRad4` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5",
+      "short" : "AdressRad5",
+      "definition" : "AdressRad5",
+      "comment" : "TKB-fält: `../../AdressRad5` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress",
+      "short" : "AdressTYPE",
+      "definition" : "Bostadsadress",
+      "comment" : "TKB-fält: `/BirthRegistration/Arendeuppgifter/Bostadsadress` (kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1",
+      "short" : "AdressRad1",
+      "definition" : "AdressRad1",
+      "comment" : "TKB-fält: `../../AdressRad1` (`AdressRadTYPE`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2",
+      "short" : "AdressRad2",
+      "definition" : "AdressRad2",
+      "comment" : "TKB-fält: `../../AdressRad2` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3",
+      "short" : "AdressRad3",
+      "definition" : "AdressRad3",
+      "comment" : "TKB-fält: `../../AdressRad3` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4",
+      "short" : "AdressRad4",
+      "definition" : "AdressRad4",
+      "comment" : "TKB-fält: `../../AdressRad4` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5",
+      "short" : "AdressRad5",
+      "definition" : "AdressRad5",
+      "comment" : "TKB-fält: `../../AdressRad5` (`AdressRadTYPE`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon",
+      "short" : "KontaktTelefon",
+      "definition" : "Max 20 tecken.\n\nTelefonnummer till moder.\n\nUppgiften används för att kunna nå en moder som inte är permanent bosatt I Sverige.",
+      "comment" : "TKB-fält: `KontaktTelefon` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon2",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon2",
+      "short" : "KontaktTelefon2",
+      "definition" : "Max 20 tecken",
+      "comment" : "TKB-fält: `KontaktTelefon2` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon3",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon3",
+      "short" : "KontaktTelefon3",
+      "definition" : "Max 20 tecken",
+      "comment" : "TKB-fält: `KontaktTelefon3` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon4",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon4",
+      "short" : "KontaktTelefon4",
+      "definition" : "Max 20 tecken",
+      "comment" : "TKB-fält: `KontaktTelefon4` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon5",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon5",
+      "short" : "KontaktTelefon5",
+      "definition" : "Max 20 tecken",
+      "comment" : "TKB-fält: `KontaktTelefon5` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

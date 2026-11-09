@@ -1,0 +1,149 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getdispenseddrugs","getdispenseddrugs","","","",0,*,"","","","null {[]} {[]}
+","GetDispensedDrugs","Logisk modell för tjänstekontraktet GetDispensedDrugs
+(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1).
+Representerar responsens informationsstruktur: patientens läkemedelsförteckning med viss
+ordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getdispenseddrugs.lakemedelsforteckning","getdispenseddrugs.lakemedelsforteckning","","","",0,*,"","","","Base {[]} {[]}
+","Receptexpeditionsrad","Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation. Om patienten saknar poster i läkemedelsförteckningen så returneras en tom lista.","TKB-fält: `lakemedelsforteckning` (`Receptexpeditionsrad`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning",0,*,"","getdispenseddrugs-borttagen-fields:borttagsdatum och borttagsorsak returneras endast om borttagen är sant {borttagen = false implies (borttagsdatum.empty() and borttagsorsak.empty())}
+"
+"getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId","getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId","","","",1,1,"","","","string {[]} {[]}
+","aktorsExpeditionsId","Aktörens expeditionsId.","TKB-fält i Receptexpeditionsrad: `aktorsExpeditionsId` (`string`, kardinalitet 1..1).
+
+**Fältlängder:** 1..35","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.antalForpackningar","getdispenseddrugs.lakemedelsforteckning.antalForpackningar","","","",0,1,"","","","integer {[]} {[]}
+","Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel.","Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel.","TKB-fält i Receptexpeditionsrad: `antalForpackningar` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.antalForpackningar",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext","getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext","","","",0,1,"","","","string {[]} {[]}
+","antalPillerKlartext","Antal avdelade doser inklusive enhet. Returneras om posten är en dosdispenserad artikel. Exempel: ""28 st"".","TKB-fält i Receptexpeditionsrad: `antalPillerKlartext` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..10","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation","getdispenseddrugs.lakemedelsforteckning.artikelinformation","","","",1,1,"","","","Base {[]} {[]}
+","Artikelinformation","Information om utlämnad artikel.","TKB-fält i Receptexpeditionsrad: `artikelinformation` (`Artikelinformation`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet","getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet","","","",0,1,"","","","string {[]} {[]}
+","antalEnhet","antalEnhet","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning","getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning","","","",0,1,"","","","decimal {[]} {[]}
+","antalIForpackning","Antal i förpackning. Numerisk angivelse, exempelvis 0,72. Exempel där antalForpackning ingår: ""6 x 5 x 0.72 milliliter"".","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning","getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning","","","",0,1,"","","","integer {[]} {[]}
+","antalYtterstaForpackning","Antal multipel 2. Antal yttersta förpackningar för artikeln, exempelvis 6. Exempel där antalForpackning ingår: ""6 x 5 x 0.72 milliliter"".","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning","getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning","","","",0,1,"","","","integer {[]} {[]}
+","antalYttreForpackning","Antal multipel 1. Antal yttre förpackningar som varan har, exempelvis 5. Exempel där antalYttreForpackning ingår: ""6 x 5 x 0.72 milliliter"".","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod","getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod","","","",0,1,"","","","string {[]} {[]}
+","atckod","atckod","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext","getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext","","","",0,1,"","","","string {[]} {[]}
+","atckodKlartext","atckodKlartext","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek","getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek","","","",0,1,"","","","string {[]} {[]}
+","forpackningsstorlek","forpackningsstorlek","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp","getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp","","","",0,1,"","","","string {[]} {[]}
+","forpackningstyp","forpackningstyp","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent","getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent","","","",0,1,"","","","string {[]} {[]}
+","intressent","intressent","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform","getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform","","","",0,1,"","","","string {[]} {[]}
+","lakemedelsform","lakemedelsform","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod","getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod","","","",0,1,"","","","string {[]} {[]}
+","lakemedelsformKod","lakemedelsformKod","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid","getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid","","","",1,1,"","","","string {[]} {[]}
+","nplPackid","nplPackid","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn","getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn","","","",0,1,"","","","string {[]} {[]}
+","produktnamn","produktnamn","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka","getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka","","","",0,1,"","","","decimal {[]} {[]}
+","Numerisk styrka. Exempel ""20.0"".","Numerisk styrka. Exempel ""20.0"".","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet","getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet","","","",0,1,"","","","string {[]} {[]}
+","styrkaEnhet","styrkaEnhet","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext","getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext","","","",0,1,"","","","string {[]} {[]}
+","styrkaKlartext","styrkaKlartext","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.borttagen","getdispenseddrugs.lakemedelsforteckning.borttagen","","","",1,1,"","","","boolean {[]} {[]}
+","Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.","Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.","TKB-fält i Receptexpeditionsrad: `borttagen` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.borttagen",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.borttagsdatum","getdispenseddrugs.lakemedelsforteckning.borttagsdatum","","","",0,1,"","","","dateTime {[]} {[]}
+","Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant.","Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant.","TKB-fält i Receptexpeditionsrad: `borttagsdatum` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.borttagsdatum",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.borttagsorsak","getdispenseddrugs.lakemedelsforteckning.borttagsorsak","","","",0,1,"","","","string {[]} {[]}
+","borttagsorsak","Kommentar för borttagen post. Returneras endast om borttagen är sant.","TKB-fält i Receptexpeditionsrad: `borttagsorsak` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..50","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.borttagsorsak",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.doseringstext","getdispenseddrugs.lakemedelsforteckning.doseringstext","","","",1,1,"","","","string {[]} {[]}
+","doseringstext","Doseringsanvisning: doseringstext inklusive ändamål.","TKB-fält i Receptexpeditionsrad: `doseringstext` (`string`, kardinalitet 1..1).
+
+**Fältlängder:** 1..1016","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.doseringstext",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.expeditionsId","getdispenseddrugs.lakemedelsforteckning.expeditionsId","","","",0,1,"","","","string {[]} {[]}
+","expeditionsId","Expeditionsid hämtat från eHälsomyndigheten.","TKB-fält i Receptexpeditionsrad: `expeditionsId` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..31","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.expeditionsId",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.expeditionsdatum","getdispenseddrugs.lakemedelsforteckning.expeditionsdatum","","","",1,1,"","","","dateTime {[]} {[]}
+","Datum för utlämning från apotek.","Datum för utlämning från apotek.","TKB-fält i Receptexpeditionsrad: `expeditionsdatum` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.expeditionsdatum",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn","getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn","","","",0,1,"","","","string {[]} {[]}
+","forskrivarensArbetsplatsnamn","Förskrivarens arbetsplats namn.","TKB-fält i Receptexpeditionsrad: `forskrivarensArbetsplatsnamn` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..35","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt","getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt","","","",0,1,"","","","string {[]} {[]}
+","forskrivarensArbetsplatsOrt","Förskrivarens arbetsplats ort.","TKB-fält i Receptexpeditionsrad: `forskrivarensArbetsplatsOrt` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..28","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivarnamn","getdispenseddrugs.lakemedelsforteckning.forskrivarnamn","","","",0,1,"","","","string {[]} {[]}
+","forskrivarnamn","Förskrivarens namn.","TKB-fält i Receptexpeditionsrad: `forskrivarnamn` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..71","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivarnamn",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress","getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress","","","",0,1,"","","","string {[]} {[]}
+","forskrivarpostadress","Förskrivarens postadress.","TKB-fält i Receptexpeditionsrad: `forskrivarpostadress` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..35","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer","getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer","","","",0,1,"","","","string {[]} {[]}
+","forskrivarpostnummer","Förskrivarens postnummer.","TKB-fält i Receptexpeditionsrad: `forskrivarpostnummer` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 5..6","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter","getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter","","","",0,*,"","","","string {[]} {[]}
+","forskrivarspecialiteter","Förskrivarens specialitet i klartext.","TKB-fält i Receptexpeditionsrad: `forskrivarspecialiteter` (`string`, kardinalitet 0..*).
+
+**Fältlängder:** 1..256","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter",0,*,"",""
+"getdispenseddrugs.lakemedelsforteckning.forskrivaryrke","getdispenseddrugs.lakemedelsforteckning.forskrivaryrke","","","",0,1,"","","","string {[]} {[]}
+","forskrivaryrke","Förskrivarens yrke i klartext.","TKB-fält i Receptexpeditionsrad: `forskrivaryrke` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..100","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.forskrivaryrke",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.mangd","getdispenseddrugs.lakemedelsforteckning.mangd","","","",1,1,"","","","string {[]} {[]}
+","mangd","Totalt expedierad mängd. Kan returneras som: antalPillerKlartext eller antalForpackningar + forpackningsstorlek. Exempel: ""28 st"" eller ""2x100 tabletter"".","TKB-fält i Receptexpeditionsrad: `mangd` (`string`, kardinalitet 1..1).
+
+**Fältlängder:** 1..100","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.mangd",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning","getdispenseddrugs.lakemedelsforteckning.ordinationsmappning","","","",0,1,"","","","Base {[]} {[]}
+","Ordinationsmappning","Information som behövs för att mappa en post i läkemedelsförteckningen till en ordination.","TKB-fält i Receptexpeditionsrad: `ordinationsmappning` (`Ordinationsmappning`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId","getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId","","","",1,1,"","","","string {[]} {[]}
+","Förskrivningens ordinationsid.","Förskrivningens ordinationsid.","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer","getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer","","","",0,1,"","","","integer {[]} {[]}
+","Tillhörande recepts eventuella prdradnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån.","Tillhörande recepts eventuella prdradnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån.","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer","getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer","","","",0,1,"","","","integer {[]} {[]}
+","Tillhörande recepts eventuella radnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån.","Tillhörande recepts eventuella radnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån.","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer",0,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.radid","getdispenseddrugs.lakemedelsforteckning.radid","","","",1,1,"","","","string {[]} {[]}
+","Unikt id för posten i läkemedelsförteckningen.","Unikt id för posten i läkemedelsförteckningen.","TKB-fält i Receptexpeditionsrad: `radid` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.radid",1,1,"",""
+"getdispenseddrugs.lakemedelsforteckning.radnummer","getdispenseddrugs.lakemedelsforteckning.radnummer","","","",0,1,"","","","integer {[]} {[]}
+","Radnummer för utlämnad vara i aktuell expedition.","Radnummer för utlämnad vara i aktuell expedition.","TKB-fält i Receptexpeditionsrad: `radnummer` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.lakemedelsforteckning.radnummer",0,1,"",""
+"getdispenseddrugs.patientinformation","getdispenseddrugs.patientinformation","","","",0,1,"","","","Base {[]} {[]}
+","Patientinformation","Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som 'Avliden' så returneras inga rader ur läkemedelsförteckningen.","TKB-fält: `patientinformation` (`Patientinformation`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation",0,1,"",""
+"getdispenseddrugs.patientinformation.patientidentifikation","getdispenseddrugs.patientinformation.patientidentifikation","","","",0,1,"","","","Base {[]} {[]}
+","Patientidentifikation","Patientidentifikationen kan enbart innehålla följande typ: Personnummer från kodverk med OID 1.2.752.129.2.1.3 och är enhetligt utformat unikt person-id registrerat i folkbokföringen. Tilldelas av skattekontoret.","TKB-fält i Patientinformation: `patientidentifikation` (`Patientidentifikation`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.patientidentifikation",0,1,"",""
+"getdispenseddrugs.patientinformation.patientidentifikation.kod","getdispenseddrugs.patientinformation.patientidentifikation.kod","","","",1,1,"","","","string {[]} {[]}
+","kod","kod","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.patientidentifikation.kod",1,1,"",""
+"getdispenseddrugs.patientinformation.patientidentifikation.kodverk","getdispenseddrugs.patientinformation.patientidentifikation.kodverk","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/OID]]} {[]}
+","Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.","Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.","","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.patientidentifikation.kodverk",1,1,"",""
+"getdispenseddrugs.patientinformation.fornamn","getdispenseddrugs.patientinformation.fornamn","","","",0,1,"","","","string {[]} {[]}
+","fornamn","Patientens förnamn. För patient med skyddad identitet visas inte förnamn.","TKB-fält i Patientinformation: `fornamn` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..80","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.fornamn",0,1,"",""
+"getdispenseddrugs.patientinformation.efternamn","getdispenseddrugs.patientinformation.efternamn","","","",0,1,"","","","string {[]} {[]}
+","efternamn","Patientens efternamn. För patient med skyddad identitet visas inte efternamn.","TKB-fält i Patientinformation: `efternamn` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..60","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.efternamn",0,1,"",""
+"getdispenseddrugs.patientinformation.redigeratNamn","getdispenseddrugs.patientinformation.redigeratNamn","","","",1,1,"","","","string {[]} {[]}
+","redigeratNamn","Redigerat namn i formatet ""mellannamn efternamn, förnamn"". Förkortat till 36 tecken.","TKB-fält i Patientinformation: `redigeratNamn` (`string`, kardinalitet 1..1).
+
+**Fältlängder:** 1..36","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.redigeratNamn",1,1,"",""
+"getdispenseddrugs.patientinformation.harRedigeratNamnForkortats","getdispenseddrugs.patientinformation.harRedigeratNamnForkortats","","","",1,1,"","","","boolean {[]} {[]}
+","Anger om redigeratNamn har förkortats.","Anger om redigeratNamn har förkortats.","TKB-fält i Patientinformation: `harRedigeratNamnForkortats` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.harRedigeratNamnForkortats",1,1,"",""
+"getdispenseddrugs.patientinformation.avliden","getdispenseddrugs.patientinformation.avliden","","","",1,1,"","","","boolean {[]} {[]}
+","Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt.","Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt.","TKB-fält i Patientinformation: `avliden` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.patientinformation.avliden",1,1,"",""
+"getdispenseddrugs.varningsnivaUppnadd","getdispenseddrugs.varningsnivaUppnadd","","","",1,1,"","","","boolean {[]} {[]}
+","varningsnivaUppnadd","Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt.","TKB-fält: `varningsnivaUppnadd` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getdispenseddrugs.varningsnivaUppnadd",1,1,"",""
+"getdispenseddrugs.resultCode","getdispenseddrugs.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod för anropet.","Resultatkod för anropet.","TKB-fält: `resultCode` (`resultCodeEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** Resultatkod för anropet. Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,,,,"",,,,"getdispenseddrugs.resultCode",1,1,"",""
+"getdispenseddrugs.comment","getdispenseddrugs.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Kommentar till eventuella fel eller varningar.","TKB-fält: `comment` (`string`, kardinalitet 0..1).
+
+**Fältlängder:** 1..1024","","","","","","","","",,,,,"",,,,"getdispenseddrugs.comment",0,1,"",""

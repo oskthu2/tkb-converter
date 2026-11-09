@@ -1,0 +1,40 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getconsentsforpatient","getconsentsforpatient","","","",0,*,"","","","null {[]} {[]}
+","GetConsentsForPatient","Logisk modell för tjänstekontraktet GetConsentsForPatient
+(RIV-TA urn:riv:ehr:patientconsent:querying:GetConsentsForPatientResponder:1).
+Representerar responsens informationsstruktur.
+
+Tjänst som läser giltiga samtyckesintyg för en viss patient och en viss vårdgivare med grundinformation.
+Med giltiga samtyckesintyg avses de samtyckesintyg, alternativt intyg om nödsituation, som används som
+underlag vid en kontroll gällande åtkomst (CheckConsents). Ogiltiga intyg (giltigt t o m har passerats,
+makulerade eller återkallade) returneras ej.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getconsentsforpatient.GetConsentsResultType","getconsentsforpatient.GetConsentsResultType","","","",1,1,"","","","Base {[]} {[]}
+","GetConsentsResultType","GetConsentsResultType","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.Result","getconsentsforpatient.GetConsentsResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.Result",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.Result.ResultCode","getconsentsforpatient.GetConsentsResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/resultcode-vs","",,,,"getconsentsforpatient.GetConsentsResultType.Result.ResultCode",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.Result.ResultText","getconsentsforpatient.GetConsentsResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.Result.ResultText",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions","getconsentsforpatient.GetConsentsResultType.PdlAssertions","","","",0,*,"","","","Base {[]} {[]}
+","PDLAssertionType","PdlAssertions","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions",0,*,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionId","getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionId","","","",1,1,"","","","string {[]} {[]}
+","AssertionId","AssertionId","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionId",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionType","getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionType","","","",1,1,"","","","code {[]} {[]}
+","AssertionType","AssertionType Tillåtna värden: Consent, Emergency.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/assertiontype-vs","",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.AssertionType",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.Scope","getconsentsforpatient.GetConsentsResultType.PdlAssertions.Scope","","","",1,1,"","","","code {[]} {[]}
+","Scope","Scope Tillåtna värden: NationalLevel.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/scope-vs","",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.Scope",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.PatientId","getconsentsforpatient.GetConsentsResultType.PdlAssertions.PatientId","","","",1,1,"","","","string {[]} {[]}
+","PatientId","PatientId","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.PatientId",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareProviderId","getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareProviderId","","","",1,1,"","","","string {[]} {[]}
+","CareProviderId","CareProviderId","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareProviderId",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareUnitId","getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareUnitId","","","",1,1,"","","","string {[]} {[]}
+","CareUnitId","CareUnitId","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.CareUnitId",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.EmployeeId","getconsentsforpatient.GetConsentsResultType.PdlAssertions.EmployeeId","","","",0,1,"","","","string {[]} {[]}
+","EmployeeId","EmployeeId","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.EmployeeId",0,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.StartDate","getconsentsforpatient.GetConsentsResultType.PdlAssertions.StartDate","","","",1,1,"","","","dateTime {[]} {[]}
+","StartDate","StartDate","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.StartDate",1,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.EndDate","getconsentsforpatient.GetConsentsResultType.PdlAssertions.EndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","EndDate","EndDate","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.EndDate",0,1,"",""
+"getconsentsforpatient.GetConsentsResultType.PdlAssertions.OwnerId","getconsentsforpatient.GetConsentsResultType.PdlAssertions.OwnerId","","","",0,1,"","","","string {[]} {[]}
+","OwnerId","OwnerId","","","","","","","","","",,,,,"",,,,"getconsentsforpatient.GetConsentsResultType.PdlAssertions.OwnerId",0,1,"",""

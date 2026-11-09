@@ -1,0 +1,118 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getemployeeincludingprotectedperson","getemployeeincludingprotectedperson","","","",0,*,"","","","null {[]} {[]}
+","GetEmployeeIncludingProtectedPerson","Logisk modell för tjänstekontraktet GetEmployeeIncludingProtectedPerson
+(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployeeIncludingProtectedPerson:4).
+Representerar responsens informationsstruktur (PersonInformationType).
+Returnerar information om en angiven person inklusive skyddade personer.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation","getemployeeincludingprotectedperson.personInformation","","","",0,*,"","","","Base {[]} {[]}
+","PersonInformationType","Information om personen. Om personen har flera person-objekt returneras en instans per objekt.","TKB-fält: `personInformation` (`PersonInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.personHsaId","getemployeeincludingprotectedperson.personInformation.personHsaId","","","",1,1,"","","","string {[]} {[]}
+","personHsaId","Personens HSA-id.
+
+Ref. HSA-id (hsaIdentity) [R5]","TKB-fält: `..personHsaId` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.personHsaId",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.givenName","getemployeeincludingprotectedperson.personInformation.givenName","","","",0,1,"","","","string {[]} {[]}
+","givenName","Tilltalsnamn.
+
+Ref. tilltalsnamn (givenName, gn) [R5]","TKB-fält: `..givenName` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.givenName",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.middleAndSurName","getemployeeincludingprotectedperson.personInformation.middleAndSurName","","","",1,1,"","","","string {[]} {[]}
+","middleAndSurName","Mellan- och Efternamn separerade med mellanslag. Ref. mellannamn (middleName) [R5]
+
+Ref. efternamn (sn, surName) [R5]","TKB-fält: `..middleAndSurName` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.middleAndSurName",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.nickName","getemployeeincludingprotectedperson.personInformation.nickName","","","",0,1,"","","","string {[]} {[]}
+","nickName","Smeknamn. Får ej användas för presentation, endast för sökning. Ref. smeknamn (nickName) [R5]","TKB-fält: `..nickName` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.nickName",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.mail","getemployeeincludingprotectedperson.personInformation.mail","","","",0,1,"","","","string {[]} {[]}
+","mail","E-postadress.
+
+Ref. e-postadress (mail) [R5]","TKB-fält: `..mail` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.mail",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneNumber","getemployeeincludingprotectedperson.personInformation.telephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType]]} {[]}
+","telephoneNumber","Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]","TKB-fält: `..telephoneNumber` (`Telefon`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneNumber",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.switchboardNumber","getemployeeincludingprotectedperson.personInformation.switchboardNumber","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType]]} {[]}
+","switchboardNumber","Telefonnummer till växel.
+
+Ref. växeltelefon (hsaSwitchboardNumber) [R5]","TKB-fält: `..switchboardNumber` (`Telefon`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.switchboardNumber",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.nonPublicTelephoneNumber","getemployeeincludingprotectedperson.personInformation.nonPublicTelephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType]]} {[]}
+","nonPublicTelephoneNumber","Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]","TKB-fält: `..nonPublicTelephoneNumber` (`Telefon`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.nonPublicTelephoneNumber",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.mobileNumber","getemployeeincludingprotectedperson.personInformation.mobileNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType]]} {[]}
+","mobileNumber","Mobiltelefonnummer.
+
+Ref. mobiltelefon (mobile) [R5]","TKB-fält: `..mobileNumber` (`Telefon`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.mobileNumber",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.facsimileTelephoneNumber","getemployeeincludingprotectedperson.personInformation.facsimileTelephoneNumber","","","",0,*,"","","","string {[CanonicalType[https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/TelephoneNumberType]]} {[]}
+","facsimileTelephoneNumber","Faxnummer.
+
+Ref. fax (facsimileTelephoneNumber) [R5]","TKB-fält: `..facsimileTelephoneNumber` (`Telefon`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.facsimileTelephoneNumber",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour","getemployeeincludingprotectedperson.personInformation.telephoneHour","","","",0,*,"","","","Base {[]} {[]}
+","TimeSpanType","Telefontider för publik telefon (telephoneNumber).
+
+Ref. telefontid (telephoneHours) [R5]","TKB-fält: `..telephoneHour` (`TimeSpan`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDay","getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDay","","","",1,1,"","","","string {[]} {[]}
+","fromDay","Från dag. Måndag (1) – Söndag (7).","TKB-fält: `.. ..fromDay` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDay",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.fromTime","getemployeeincludingprotectedperson.personInformation.telephoneHour.fromTime","","","",1,1,"","","","time {[]} {[]}
+","fromTime","Från tid. Format enligt ISO-8601.","TKB-fält: `.. ..fromTime` (`Time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.fromTime",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.toDay","getemployeeincludingprotectedperson.personInformation.telephoneHour.toDay","","","",1,1,"","","","string {[]} {[]}
+","toDay","Till dag. Måndag (1) – Söndag (7).","TKB-fält: `.. ..toDay` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.toDay",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.toTime","getemployeeincludingprotectedperson.personInformation.telephoneHour.toTime","","","",1,1,"","","","time {[]} {[]}
+","toTime","Till tid. Format enligt ISO-8601.","TKB-fält: `.. ..toTime` (`Time`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.toTime",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.comment","getemployeeincludingprotectedperson.personInformation.telephoneHour.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Information om aktuellt tidsintervall.","TKB-fält: `.. ..comment` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.comment",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDate","getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDate","","","",0,1,"","","","string {[]} {[]}
+","fromDate","Tiden gäller från och med detta datum.","TKB-fält: `.. ..fromDate` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.fromDate",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.telephoneHour.toDate","getemployeeincludingprotectedperson.personInformation.telephoneHour.toDate","","","",0,1,"","","","string {[]} {[]}
+","toDate","Tider gäller till och med detta datum.","TKB-fält: `.. ..toDate` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.telephoneHour.toDate",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.postalAddress","getemployeeincludingprotectedperson.personInformation.postalAddress","","","",0,1,"","","","Base {[]} {[]}
+","AddressType","Postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5]","TKB-fält: `..postalAddress` (`AddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.postalAddress",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.postalAddress.addressLine","getemployeeincludingprotectedperson.personInformation.postalAddress.addressLine","","","",1,*,"","","","string {[]} {[]}
+","addressLine","Adressrad.","TKB-fält: `.. ..addressLine` (`String`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.postalAddress.addressLine",1,*,"",""
+"getemployeeincludingprotectedperson.personInformation.description","getemployeeincludingprotectedperson.personInformation.description","","","",0,1,"","","","string {[]} {[]}
+","description","Generell beskrivning.
+
+Ref. beskrivning (description) [R5]","TKB-fält: `..description` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.description",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.title","getemployeeincludingprotectedperson.personInformation.title","","","",0,1,"","","","string {[]} {[]}
+","title","Titel i fritext. Ref. titel (title) [R5]","TKB-fält: `..title` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.title",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicence","getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicence","","","",0,*,"","","","string {[]} {[]}
+","healthCareProfessionalLicence","Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5]","TKB-fält: `..healthCareProfessionalLicence` (`String`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicence",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.paTitle","getemployeeincludingprotectedperson.personInformation.paTitle","","","",0,*,"","","","Base {[]} {[]}
+","PaTitleType","Personens befattning","TKB-fält: `..paTitle` (`PaTitleType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.paTitle",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.paTitle.paTitleName","getemployeeincludingprotectedperson.personInformation.paTitle.paTitleName","","","",0,1,"","","","string {[]} {[]}
+","paTitleName","Befattning. Ref. befattning (paTitleName) [R5]","TKB-fält: `.. ..paTitleName` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.paTitle.paTitleName",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.paTitle.paTitleCode","getemployeeincludingprotectedperson.personInformation.paTitle.paTitleCode","","","",0,1,"","","","string {[]} {[]}
+","paTitleCode","Befattningskod. Ref. befattningskod (paTitleCode) [R5]","TKB-fält: `.. ..paTitleCode` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.paTitle.paTitleCode",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.specialityName","getemployeeincludingprotectedperson.personInformation.specialityName","","","",0,*,"","","","string {[]} {[]}
+","specialityName","Specialistutbildning utöver grundutbildning för läkare eller tandläkare. Ref. specialitet (specialityName) [R5]","TKB-fält: `..specialityName` (`String`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.specialityName",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.specialityCode","getemployeeincludingprotectedperson.personInformation.specialityCode","","","",0,*,"","","","string {[]} {[]}
+","specialityCode","Klassificeringskod för specialistutbildning utöver grundutbildning. Ref. specialitetskod (specialityCode) [R5]","TKB-fält: `..specialityCode` (`String`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.specialityCode",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.dn","getemployeeincludingprotectedperson.personInformation.dn","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/DNType]]} {[]}
+","dn","""Distinguished Name"". Objektets placering (sökväg) i katalogen.","TKB-fält: `..dn` (`DN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.dn",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.protectedPerson","getemployeeincludingprotectedperson.personInformation.protectedPerson","","","",0,1,"","","","boolean {[]} {[]}
+","protectedPerson","true: om person har skyddad identitet. Ref. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]","TKB-fält: `..protectedPerson` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.protectedPerson",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.personStartDate","getemployeeincludingprotectedperson.personInformation.personStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","personStartDate","personStartDate","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.personStartDate",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.personEndDate","getemployeeincludingprotectedperson.personInformation.personEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","personEndDate","personEndDate","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.personEndDate",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.feignedPerson","getemployeeincludingprotectedperson.personInformation.feignedPerson","","","",0,1,"","","","boolean {[]} {[]}
+","feignedPerson","true: om personen är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedDataObject) [R5]","TKB-fält: `..feignedPerson` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.feignedPerson",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality","getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality","","","",0,*,"","","","Base {[]} {[]}
+","HealthCareProfessionalLicenceSpecialityType","Legitimerad yrkesgrupp och specialitet för läkare och tandläkare.","TKB-fält: `..healthCareProfessionalLicenceSpeciality` (`HealthCareProfessionalLicenceSpecialityType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality",0,*,"",""
+"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence","getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence","","","",1,1,"","","","string {[]} {[]}
+","healthCareProfessionalLicence","Kod för Legitimerad yrkesgrupp som nedanstående specialitet hör till.","TKB-fält: `.. ..healthCareProfessionalLicence` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode","getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode","","","",1,1,"","","","string {[]} {[]}
+","specialityCode","Kod för specialistutbildning utöver grundutbildning","TKB-fält: `.. ..specialityCode` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName","getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName","","","",1,1,"","","","string {[]} {[]}
+","specialityName","Klartext för namnet på specialistutbildning utöver grundutbildning","TKB-fält: `.. ..specialityName` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.age","getemployeeincludingprotectedperson.personInformation.age","","","",0,1,"","","","string {[]} {[]}
+","age","Personens ålder, anges i jämna år. Värdet hämtas från personens person- eller samordningsnummer.","TKB-fält: `..age *3)` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.age",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.gender","getemployeeincludingprotectedperson.personInformation.gender","","","",0,1,"","","","string {[]} {[]}
+","gender","Personens kön. 0=okänt, 1=man, 2=kvinna. Värdet beräknas från personens person- eller samordningsnummer.","TKB-fält: `..gender *3)` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.gender",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress","","","",0,1,"","","","Base {[]} {[]}
+","StructuredPostalAddressType","Vårdenhetens postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]","TKB-fält: `..structuredPostalAddress` (`structuredPostalAddressType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.addressee","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.addressee","","","",1,*,"","","","string {[]} {[]}
+","addressee","Adressat","TKB-fält: `.. ..addressee` (`String`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.addressee",1,*,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.street","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.street","","","",0,1,"","","","string {[]} {[]}
+","street","Gata","TKB-fält: `.. ..street` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.street",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.premisesNumber","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.premisesNumber","","","",0,1,"","","","string {[]} {[]}
+","premisesNumber","Adressplatsnummer","TKB-fält: `.. ..premisesNumber` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.premisesNumber",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.premisesLetter","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.premisesLetter","","","",0,1,"","","","string {[]} {[]}
+","premisesLetter","Adressplatslittera","TKB-fält: `.. ..premisesLetter` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.premisesLetter",0,1,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.postCode","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.postCode","","","",1,1,"","","","string {[]} {[]}
+","postCode","Postnummer","TKB-fält: `.. ..postCode` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.postCode",1,1,"",""
+"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.town","getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.town","","","",1,1,"","","","string {[]} {[]}
+","town","Postort","TKB-fält: `.. ..town` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson.personInformation.structuredPostalAddress.town",1,1,"",""

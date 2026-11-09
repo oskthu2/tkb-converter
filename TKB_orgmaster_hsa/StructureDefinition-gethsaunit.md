@@ -1,0 +1,1542 @@
+# GetHsaUnit — Response - orgmaster: hsa v1.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHsaUnit — Response**
+
+## Logical Model: GetHsaUnit — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaunit | *Version*:1.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetHsaUnit |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetHsaUnit (urn:riv:orgmaster:hsa:GetHsaUnitResponder:1, GetHsaUnitResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.orgmaster-hsa|current/StructureDefinition/StructureDefinition-gethsaunit.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethsaunit.csv), [Excel](StructureDefinition-gethsaunit.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethsaunit",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaunit",
+  "version" : "1.0",
+  "name" : "GetHsaUnit",
+  "title" : "GetHsaUnit — Response",
+  "status" : "draft",
+  "date" : "2026-11-09T03:45:34+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetHsaUnit\n(urn:riv:orgmaster:hsa:GetHsaUnitResponder:1, GetHsaUnitResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/gethsaunit",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethsaunit",
+      "path" : "gethsaunit",
+      "short" : "GetHsaUnit — Response",
+      "definition" : "Logisk modell för svaret i GetHsaUnit\n(urn:riv:orgmaster:hsa:GetHsaUnitResponder:1, GetHsaUnitResponseType)."
+    },
+    {
+      "id" : "gethsaunit.careGiver",
+      "path" : "gethsaunit.careGiver",
+      "short" : "careGiver",
+      "definition" : "careGiver",
+      "comment" : "TKB-fält: `careGiver` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.parentHsaIdentity",
+      "path" : "gethsaunit.parentHsaIdentity",
+      "short" : "parentHsaIdentity",
+      "definition" : "parentHsaIdentity",
+      "comment" : "TKB-fält: `parentHsaIdentity` (`HsaIdentityType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitPrescriptionCodes",
+      "path" : "gethsaunit.unitPrescriptionCodes",
+      "short" : "unitPrescriptionCodes",
+      "definition" : "unitPrescriptionCodes",
+      "comment" : "TKB-fält: `unitPrescriptionCodes` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.alternateNames",
+      "path" : "gethsaunit.alternateNames",
+      "short" : "(anonym typ)",
+      "definition" : "alternateNames",
+      "comment" : "TKB-fält: `alternateNames` (`alternateNames`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.alternateNames.alternateName",
+      "path" : "gethsaunit.alternateNames.alternateName",
+      "short" : "alternateName",
+      "definition" : "alternateName",
+      "comment" : "TKB-fält: `../alternateName` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.alternateText",
+      "path" : "gethsaunit.alternateText",
+      "short" : "alternateText",
+      "definition" : "alternateText",
+      "comment" : "TKB-fält: `alternateText` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.businessClassifications",
+      "path" : "gethsaunit.businessClassifications",
+      "short" : "(anonym typ)",
+      "definition" : "businessClassifications",
+      "comment" : "TKB-fält: `businessClassifications` (`businessClassifications`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.businessClassifications.businessClassification",
+      "path" : "gethsaunit.businessClassifications.businessClassification",
+      "short" : "businessClassification",
+      "definition" : "businessClassification",
+      "comment" : "TKB-fält: `../businessClassification` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.businessClassificationCodes",
+      "path" : "gethsaunit.businessClassificationCodes",
+      "short" : "(anonym typ)",
+      "definition" : "businessClassificationCodes",
+      "comment" : "TKB-fält: `businessClassificationCodes` (`businessClassificationCodes`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.businessClassificationCodes.businessClassificationCode",
+      "path" : "gethsaunit.businessClassificationCodes.businessClassificationCode",
+      "short" : "businessClassificationCode",
+      "definition" : "businessClassificationCode",
+      "comment" : "TKB-fält: `../businessClassificationCode` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.businessTypes",
+      "path" : "gethsaunit.businessTypes",
+      "short" : "(anonym typ)",
+      "definition" : "businessTypes",
+      "comment" : "TKB-fält: `businessTypes` (`businessTypes`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.businessTypes.businessType",
+      "path" : "gethsaunit.businessTypes.businessType",
+      "short" : "businessType",
+      "definition" : "businessType",
+      "comment" : "TKB-fält: `../businessType` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.careTypes",
+      "path" : "gethsaunit.careTypes",
+      "short" : "(anonym typ)",
+      "definition" : "careTypes",
+      "comment" : "TKB-fält: `careTypes` (`careTypes`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.careTypes.careType",
+      "path" : "gethsaunit.careTypes.careType",
+      "short" : "careType",
+      "definition" : "careType",
+      "comment" : "TKB-fält: `../careType` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.county",
+      "path" : "gethsaunit.county",
+      "short" : "county",
+      "definition" : "county",
+      "comment" : "TKB-fält: `county` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.countyCode",
+      "path" : "gethsaunit.countyCode",
+      "short" : "countyCode",
+      "definition" : "countyCode",
+      "comment" : "TKB-fält: `countyCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.description",
+      "path" : "gethsaunit.description",
+      "short" : "description",
+      "definition" : "description",
+      "comment" : "TKB-fält: `description` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.directoryContact",
+      "path" : "gethsaunit.directoryContact",
+      "short" : "directoryContact",
+      "definition" : "directoryContact",
+      "comment" : "TKB-fält: `directoryContact` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.displayOption",
+      "path" : "gethsaunit.displayOption",
+      "short" : "displayOption",
+      "definition" : "displayOption",
+      "comment" : "TKB-fält: `displayOption` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours",
+      "path" : "gethsaunit.dropInHours",
+      "short" : "(anonym typ)",
+      "definition" : "dropInHours",
+      "comment" : "TKB-fält: `dropInHours` (`dropInHours`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour",
+      "path" : "gethsaunit.dropInHours.dropInHour",
+      "short" : "TimeSpanType",
+      "definition" : "dropInHour",
+      "comment" : "TKB-fält: `../dropInHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.fromDay",
+      "path" : "gethsaunit.dropInHours.dropInHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.fromTime",
+      "path" : "gethsaunit.dropInHours.dropInHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.fromTime2",
+      "path" : "gethsaunit.dropInHours.dropInHour.fromTime2",
+      "short" : "fromTime2",
+      "definition" : "fromTime2",
+      "comment" : "TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.toDay",
+      "path" : "gethsaunit.dropInHours.dropInHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.toTime",
+      "path" : "gethsaunit.dropInHours.dropInHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.toTime2",
+      "path" : "gethsaunit.dropInHours.dropInHour.toTime2",
+      "short" : "toTime2",
+      "definition" : "toTime2",
+      "comment" : "TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.dropInHours.dropInHour.comment",
+      "path" : "gethsaunit.dropInHours.dropInHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.email",
+      "path" : "gethsaunit.email",
+      "short" : "email",
+      "definition" : "email",
+      "comment" : "TKB-fält: `email` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.faxNumbers",
+      "path" : "gethsaunit.faxNumbers",
+      "short" : "(anonym typ)",
+      "definition" : "faxNumbers",
+      "comment" : "TKB-fält: `faxNumbers` (`faxNumbers`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.faxNumbers.faxNumber",
+      "path" : "gethsaunit.faxNumbers.faxNumber",
+      "short" : "faxNumber",
+      "definition" : "faxNumber",
+      "comment" : "TKB-fält: `../faxNumber` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.geographicalCoordinatesRt90",
+      "path" : "gethsaunit.geographicalCoordinatesRt90",
+      "short" : "CoordinatesType",
+      "definition" : "geographicalCoordinatesRt90",
+      "comment" : "TKB-fält: `geographicalCoordinatesRt90` (`CoordinatesType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.geographicalCoordinatesRt90.type",
+      "path" : "gethsaunit.geographicalCoordinatesRt90.type",
+      "short" : "type",
+      "definition" : "type",
+      "comment" : "TKB-fält: `../type` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.geographicalCoordinatesRt90.x",
+      "path" : "gethsaunit.geographicalCoordinatesRt90.x",
+      "short" : "x",
+      "definition" : "x",
+      "comment" : "TKB-fält: `../x` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.geographicalCoordinatesRt90.y",
+      "path" : "gethsaunit.geographicalCoordinatesRt90.y",
+      "short" : "y",
+      "definition" : "y",
+      "comment" : "TKB-fält: `../y` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.healthCareArea",
+      "path" : "gethsaunit.healthCareArea",
+      "short" : "healthCareArea",
+      "definition" : "healthCareArea",
+      "comment" : "TKB-fält: `healthCareArea` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.hsaDestinationIndicators",
+      "path" : "gethsaunit.hsaDestinationIndicators",
+      "short" : "(anonym typ)",
+      "definition" : "hsaDestinationIndicators",
+      "comment" : "TKB-fält: `hsaDestinationIndicators` (`hsaDestinationIndicators`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.hsaDestinationIndicators.hsaDestinationIndicator",
+      "path" : "gethsaunit.hsaDestinationIndicators.hsaDestinationIndicator",
+      "short" : "hsaDestinationIndicator",
+      "definition" : "hsaDestinationIndicator",
+      "comment" : "TKB-fält: `../hsaDestinationIndicator` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.hsaIdentity",
+      "path" : "gethsaunit.hsaIdentity",
+      "short" : "hsaIdentity",
+      "definition" : "hsaIdentity",
+      "comment" : "TKB-fält: `hsaIdentity` (`HsaIdentityType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.hsaJpegLogotype",
+      "path" : "gethsaunit.hsaJpegLogotype",
+      "short" : "hsaJpegLogotype",
+      "definition" : "hsaJpegLogotype",
+      "comment" : "TKB-fält: `hsaJpegLogotype` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.invoiceAddress",
+      "path" : "gethsaunit.invoiceAddress",
+      "short" : "AddressType",
+      "definition" : "invoiceAddress",
+      "comment" : "TKB-fält: `invoiceAddress` (`AddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.invoiceAddress.addressLine",
+      "path" : "gethsaunit.invoiceAddress.addressLine",
+      "short" : "addressLine",
+      "definition" : "addressLine",
+      "comment" : "TKB-fält: `../addressLine` (`string`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.jpegPhoto",
+      "path" : "gethsaunit.jpegPhoto",
+      "short" : "jpegPhoto",
+      "definition" : "jpegPhoto",
+      "comment" : "TKB-fält: `jpegPhoto` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.labeledUri",
+      "path" : "gethsaunit.labeledUri",
+      "short" : "labeledUri",
+      "definition" : "labeledUri",
+      "comment" : "TKB-fält: `labeledUri` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.location",
+      "path" : "gethsaunit.location",
+      "short" : "location",
+      "definition" : "location",
+      "comment" : "TKB-fält: `location` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.webPage1177",
+      "path" : "gethsaunit.webPage1177",
+      "short" : "webPage1177",
+      "definition" : "webPage1177",
+      "comment" : "TKB-fält: `webPage1177` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.managements",
+      "path" : "gethsaunit.managements",
+      "short" : "(anonym typ)",
+      "definition" : "managements",
+      "comment" : "TKB-fält: `managements` (`managements`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.managements.management",
+      "path" : "gethsaunit.managements.management",
+      "short" : "management",
+      "definition" : "management",
+      "comment" : "TKB-fält: `../management` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.municipality",
+      "path" : "gethsaunit.municipality",
+      "short" : "municipality",
+      "definition" : "municipality",
+      "comment" : "TKB-fält: `municipality` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.municipalityCode",
+      "path" : "gethsaunit.municipalityCode",
+      "short" : "municipalityCode",
+      "definition" : "municipalityCode",
+      "comment" : "TKB-fält: `municipalityCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.municipalitySection",
+      "path" : "gethsaunit.municipalitySection",
+      "short" : "municipalitySection",
+      "definition" : "municipalitySection",
+      "comment" : "TKB-fält: `municipalitySection` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.name",
+      "path" : "gethsaunit.name",
+      "short" : "name",
+      "definition" : "name",
+      "comment" : "TKB-fält: `name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.patientInformation",
+      "path" : "gethsaunit.patientInformation",
+      "short" : "patientInformation",
+      "definition" : "patientInformation",
+      "comment" : "TKB-fält: `patientInformation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.postalAddress",
+      "path" : "gethsaunit.postalAddress",
+      "short" : "AddressType",
+      "definition" : "postalAddress",
+      "comment" : "TKB-fält: `postalAddress` (`AddressType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.postalAddress.addressLine",
+      "path" : "gethsaunit.postalAddress.addressLine",
+      "short" : "addressLine",
+      "definition" : "addressLine",
+      "comment" : "TKB-fält: `../addressLine` (`string`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.postalCode",
+      "path" : "gethsaunit.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "comment" : "TKB-fält: `postalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.priceInformation",
+      "path" : "gethsaunit.priceInformation",
+      "short" : "priceInformation",
+      "definition" : "priceInformation",
+      "comment" : "TKB-fält: `priceInformation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.publicName",
+      "path" : "gethsaunit.publicName",
+      "short" : "publicName",
+      "definition" : "publicName",
+      "comment" : "TKB-fält: `publicName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.relatedUnits",
+      "path" : "gethsaunit.relatedUnits",
+      "short" : "(anonym typ)",
+      "definition" : "relatedUnits",
+      "comment" : "TKB-fält: `relatedUnits` (`relatedUnits`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.relatedUnits.relatedUnit",
+      "path" : "gethsaunit.relatedUnits.relatedUnit",
+      "short" : "relatedUnit",
+      "definition" : "relatedUnit",
+      "comment" : "TKB-fält: `../relatedUnit` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.route",
+      "path" : "gethsaunit.route",
+      "short" : "route",
+      "definition" : "route",
+      "comment" : "TKB-fält: `route` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.street",
+      "path" : "gethsaunit.street",
+      "short" : "street",
+      "definition" : "street",
+      "comment" : "TKB-fält: `street` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours",
+      "path" : "gethsaunit.surgeryHours",
+      "short" : "(anonym typ)",
+      "definition" : "surgeryHours",
+      "comment" : "TKB-fält: `surgeryHours` (`surgeryHours`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour",
+      "path" : "gethsaunit.surgeryHours.surgeryHour",
+      "short" : "TimeSpanType",
+      "definition" : "surgeryHour",
+      "comment" : "TKB-fält: `../surgeryHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.fromDay",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.fromTime",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.fromTime2",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.fromTime2",
+      "short" : "fromTime2",
+      "definition" : "fromTime2",
+      "comment" : "TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.toDay",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.toTime",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.toTime2",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.toTime2",
+      "short" : "toTime2",
+      "definition" : "toTime2",
+      "comment" : "TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.surgeryHours.surgeryHour.comment",
+      "path" : "gethsaunit.surgeryHours.surgeryHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.switchboardNumber",
+      "path" : "gethsaunit.switchboardNumber",
+      "short" : "switchboardNumber",
+      "definition" : "switchboardNumber",
+      "comment" : "TKB-fält: `switchboardNumber` (`TelephoneNumberType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours",
+      "path" : "gethsaunit.telephoneHours",
+      "short" : "TelephoneHoursType",
+      "definition" : "telephoneHours",
+      "comment" : "TKB-fält: `telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour",
+      "path" : "gethsaunit.telephoneHours.telephoneHour",
+      "short" : "TimeSpanType",
+      "definition" : "telephoneHour",
+      "comment" : "TKB-fält: `../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.fromDay",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.fromTime",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.fromTime2",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.fromTime2",
+      "short" : "fromTime2",
+      "definition" : "fromTime2",
+      "comment" : "TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.toDay",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.toTime",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.toTime2",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.toTime2",
+      "short" : "toTime2",
+      "definition" : "toTime2",
+      "comment" : "TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneHours.telephoneHour.comment",
+      "path" : "gethsaunit.telephoneHours.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneNumbers",
+      "path" : "gethsaunit.telephoneNumbers",
+      "short" : "(anonym typ)",
+      "definition" : "telephoneNumbers",
+      "comment" : "TKB-fält: `telephoneNumbers` (`telephoneNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.telephoneNumbers.telephoneNumber",
+      "path" : "gethsaunit.telephoneNumbers.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "telephoneNumber",
+      "comment" : "TKB-fält: `../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "gethsaunit.textTelephoneNumbers",
+      "path" : "gethsaunit.textTelephoneNumbers",
+      "short" : "(anonym typ)",
+      "definition" : "textTelephoneNumbers",
+      "comment" : "TKB-fält: `textTelephoneNumbers` (`textTelephoneNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.textTelephoneNumbers.textTelephoneNumber",
+      "path" : "gethsaunit.textTelephoneNumbers.textTelephoneNumber",
+      "short" : "textTelephoneNumber",
+      "definition" : "textTelephoneNumber",
+      "comment" : "TKB-fält: `../textTelephoneNumber` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitExtraInformation",
+      "path" : "gethsaunit.unitExtraInformation",
+      "short" : "unitExtraInformation",
+      "definition" : "unitExtraInformation",
+      "comment" : "TKB-fält: `unitExtraInformation` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions",
+      "path" : "gethsaunit.unitFunctions",
+      "short" : "(anonym typ)",
+      "definition" : "unitFunctions",
+      "comment" : "TKB-fält: `unitFunctions` (`unitFunctions`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction",
+      "path" : "gethsaunit.unitFunctions.unitFunction",
+      "short" : "HsaUnitFunctionType",
+      "definition" : "unitFunction",
+      "comment" : "TKB-fält: `../unitFunction` (`HsaUnitFunctionType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.name",
+      "path" : "gethsaunit.unitFunctions.unitFunction.name",
+      "short" : "name",
+      "definition" : "name",
+      "comment" : "TKB-fält: `../../name` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours",
+      "short" : "TelephoneHoursType",
+      "definition" : "telephoneHours",
+      "comment" : "TKB-fält: `../../telephoneHours` (`TelephoneHoursType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour",
+      "short" : "TimeSpanType",
+      "definition" : "telephoneHour",
+      "comment" : "TKB-fält: `../../../telephoneHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromDay",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../../../fromDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime2",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.fromTime2",
+      "short" : "fromTime2",
+      "definition" : "fromTime2",
+      "comment" : "TKB-fält: `../../../../fromTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toDay",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../../../toDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime2",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.toTime2",
+      "short" : "toTime2",
+      "definition" : "toTime2",
+      "comment" : "TKB-fält: `../../../../toTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.comment",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneHours.telephoneHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../../../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneNumbers",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneNumbers",
+      "short" : "(anonym typ)",
+      "definition" : "telephoneNumbers",
+      "comment" : "TKB-fält: `../../telephoneNumbers` (`telephoneNumbers`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitFunctions.unitFunction.telephoneNumbers.telephoneNumber",
+      "path" : "gethsaunit.unitFunctions.unitFunction.telephoneNumbers.telephoneNumber",
+      "short" : "telephoneNumber",
+      "definition" : "telephoneNumber",
+      "comment" : "TKB-fält: `../../../telephoneNumber` (`TelephoneNumberType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/orgmaster-hsa/StructureDefinition/TelephoneNumberType"]
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitTemporaryInformation",
+      "path" : "gethsaunit.unitTemporaryInformation",
+      "short" : "DateSpanType",
+      "definition" : "unitTemporaryInformation",
+      "comment" : "TKB-fält: `unitTemporaryInformation` (`DateSpanType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitTemporaryInformation.fromDate",
+      "path" : "gethsaunit.unitTemporaryInformation.fromDate",
+      "short" : "fromDate",
+      "definition" : "fromDate",
+      "comment" : "TKB-fält: `../fromDate` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitTemporaryInformation.toDate",
+      "path" : "gethsaunit.unitTemporaryInformation.toDate",
+      "short" : "toDate",
+      "definition" : "toDate",
+      "comment" : "TKB-fält: `../toDate` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.unitTemporaryInformation.comment",
+      "path" : "gethsaunit.unitTemporaryInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours",
+      "path" : "gethsaunit.visitingHours",
+      "short" : "(anonym typ)",
+      "definition" : "visitingHours",
+      "comment" : "TKB-fält: `visitingHours` (`visitingHours`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour",
+      "path" : "gethsaunit.visitingHours.visitingHour",
+      "short" : "TimeSpanType",
+      "definition" : "visitingHour",
+      "comment" : "TKB-fält: `../visitingHour` (`TimeSpanType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.fromDay",
+      "path" : "gethsaunit.visitingHours.visitingHour.fromDay",
+      "short" : "fromDay",
+      "definition" : "fromDay",
+      "comment" : "TKB-fält: `../../fromDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.fromTime",
+      "path" : "gethsaunit.visitingHours.visitingHour.fromTime",
+      "short" : "fromTime",
+      "definition" : "fromTime",
+      "comment" : "TKB-fält: `../../fromTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.fromTime2",
+      "path" : "gethsaunit.visitingHours.visitingHour.fromTime2",
+      "short" : "fromTime2",
+      "definition" : "fromTime2",
+      "comment" : "TKB-fält: `../../fromTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.toDay",
+      "path" : "gethsaunit.visitingHours.visitingHour.toDay",
+      "short" : "toDay",
+      "definition" : "toDay",
+      "comment" : "TKB-fält: `../../toDay` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.toTime",
+      "path" : "gethsaunit.visitingHours.visitingHour.toTime",
+      "short" : "toTime",
+      "definition" : "toTime",
+      "comment" : "TKB-fält: `../../toTime` (`time`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "time"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.toTime2",
+      "path" : "gethsaunit.visitingHours.visitingHour.toTime2",
+      "short" : "toTime2",
+      "definition" : "toTime2",
+      "comment" : "TKB-fält: `../../toTime2` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingHours.visitingHour.comment",
+      "path" : "gethsaunit.visitingHours.visitingHour.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "comment" : "TKB-fält: `../../comment` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingRuleAge",
+      "path" : "gethsaunit.visitingRuleAge",
+      "short" : "AgeSpanType",
+      "definition" : "visitingRuleAge",
+      "comment" : "TKB-fält: `visitingRuleAge` (`AgeSpanType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingRuleAge.from",
+      "path" : "gethsaunit.visitingRuleAge.from",
+      "short" : "from",
+      "definition" : "from",
+      "comment" : "TKB-fält: `../from` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingRuleAge.to",
+      "path" : "gethsaunit.visitingRuleAge.to",
+      "short" : "to",
+      "definition" : "to",
+      "comment" : "TKB-fält: `../to` (`integer`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingRuleReferral",
+      "path" : "gethsaunit.visitingRuleReferral",
+      "short" : "visitingRuleReferral",
+      "definition" : "visitingRuleReferral",
+      "comment" : "TKB-fält: `visitingRuleReferral` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.visitingRules",
+      "path" : "gethsaunit.visitingRules",
+      "short" : "visitingRules",
+      "definition" : "visitingRules",
+      "comment" : "TKB-fält: `visitingRules` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.referralReceiver",
+      "path" : "gethsaunit.referralReceiver",
+      "short" : "referralReceiver",
+      "definition" : "referralReceiver",
+      "comment" : "TKB-fält: `referralReceiver` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "gethsaunit.referralTypes",
+      "path" : "gethsaunit.referralTypes",
+      "short" : "(anonym typ)",
+      "definition" : "referralTypes",
+      "comment" : "TKB-fält: `referralTypes` (`referralTypes`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "gethsaunit.referralTypes.referralType",
+      "path" : "gethsaunit.referralTypes.referralType",
+      "short" : "referralType",
+      "definition" : "referralType",
+      "comment" : "TKB-fält: `../referralType` (`string`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethsaunit.DN",
+      "path" : "gethsaunit.DN",
+      "short" : "DN",
+      "definition" : "DN",
+      "comment" : "TKB-fält: `DN` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

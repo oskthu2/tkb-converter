@@ -1,0 +1,72 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"sendcertificatetorecipient-request","sendcertificatetorecipient-request","","","",0,*,"","","","null {[]} {[]}
+","SendCertificateToRecipient — Request","Logisk modell för requestparametrar i SendCertificateToRecipient.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"sendcertificatetorecipient-request.skickatTidpunkt","sendcertificatetorecipient-request.skickatTidpunkt","","","",1,1,"","","","dateTime {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType]]} {[]}
+","skickatTidpunkt","Tidpunkt då begäran om att skicka intyg skickas.","TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
+
+**Mappning DIM:** -","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatTidpunkt",1,1,"",""
+"sendcertificatetorecipient-request.intygs-id","sendcertificatetorecipient-request.intygs-id","","","",1,1,"","","","Base {[]} {[]}
+","IntygId","Identitet på intyget.","TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intyg.intygs-id","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.intygs-id",1,1,"",""
+"sendcertificatetorecipient-request.patientPerson-id","sendcertificatetorecipient-request.patientPerson-id","","","",1,1,"","","","Base {[]} {[]}
+","PersonId","Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska skickas. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.","TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+
+**Mappning DIM:** Patient.person-id","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.patientPerson-id",1,1,"",""
+"sendcertificatetorecipient-request.mottagare","sendcertificatetorecipient-request.mottagare","","","",1,1,"","","","Base {[]} {[]}
+","Part","Kodat värde som anger den part i intygshanteringsprocessen som intyget ska skickas till.","TKB-fält: `mottagare` (`Part (se 7.2.9)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intygsmottagare.part","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.mottagare",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv","sendcertificatetorecipient-request.skickatAv","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","Identifierar den person som skickar meddelandet. Denna information loggas men lagras inte i Intygstjänsten.","TKB-fält: `skickatAv`.
+
+**Mappning DIM:** -","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv",1,1,"","sendcertificatetorecipientrequest-choice-1:Exakt ett av hosPersonal, person-id ska anges (xs:choice i schemat). {hosPersonal.exists() xor person-id.exists()}
+sendcertificatetorecipient-request-skickatav-choice:Exakt ett av hosPersonal och personId ska anges i skickatAv (xs:choice i schemat). {hosPersonal.exists() xor personId.exists()}"
+"sendcertificatetorecipient-request.skickatAv.hosPersonal","sendcertificatetorecipient-request.skickatAv.hosPersonal","","","",0,1,"","","","Base {[]} {[]}
+","HosPersonal","Skall anges när anrop görs från vården, och enbart då.","TKB-fält: `../hosPersonal` (`HoSPersonal (se 7.1.4)`, kardinalitet 0..1).
+
+**Mappning DIM:** HoS-personal, Enhet, Vårdgivare","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal",0,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.personal-id","sendcertificatetorecipient-request.skickatAv.hosPersonal.personal-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.personal-id",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.fullstandigtNamn","sendcertificatetorecipient-request.skickatAv.hosPersonal.fullstandigtNamn","","","",1,1,"","","","string {[]} {[]}
+","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.fullstandigtNamn",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.forskrivarkod","sendcertificatetorecipient-request.skickatAv.hosPersonal.forskrivarkod","","","",0,1,"","","","string {[]} {[]}
+","forskrivarkod","forskrivarkod","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.forskrivarkod",0,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.befattning","sendcertificatetorecipient-request.skickatAv.hosPersonal.befattning","","","",0,*,"","","","Base {[]} {[]}
+","Befattning","befattning","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.befattning",0,*,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet","","","",1,1,"","","","Base {[]} {[]}
+","Enhet","enhet","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.enhets-id","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.enhets-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.enhets-id",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.arbetsplatskod","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.arbetsplatskod","","","",1,1,"","","","Base {[]} {[]}
+","ArbetsplatsKod","o.i.d för arbetsplatskod är 1.2.752.29.4.71","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.arbetsplatskod",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.enhetsnamn","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.enhetsnamn","","","",1,1,"","","","string {[]} {[]}
+","enhetsnamn","enhetsnamn","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.enhetsnamn",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postadress","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postadress","","","",1,1,"","","","string {[]} {[]}
+","postadress","postadress","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postadress",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postnummer","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postnummer","","","",1,1,"","","","string {[]} {[]}
+","postnummer","postnummer","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postnummer",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postort","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postort","","","",1,1,"","","","string {[]} {[]}
+","postort","postort","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.postort",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.telefonnummer","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.telefonnummer","","","",1,1,"","","","string {[]} {[]}
+","telefonnummer","telefonnummer","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.telefonnummer",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.epost","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.epost","","","",0,1,"","","","string {[]} {[]}
+","epost","epost","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.epost",0,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare","","","",1,1,"","","","Base {[]} {[]}
+","Vardgivare","vardgivare","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare.vardgivare-id","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare.vardgivare-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare.vardgivare-id",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare.vardgivarnamn","sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare.vardgivarnamn","","","",1,1,"","","","string {[]} {[]}
+","vardgivarnamn","vardgivarnamn","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.enhet.vardgivare.vardgivarnamn",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens","sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens","","","",0,*,"","","","Base {[]} {[]}
+","Specialistkompetens","specialistkompetens","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens",0,*,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens.code","sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens.code",1,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens.displayName","sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.specialistkompetens.displayName",0,1,"",""
+"sendcertificatetorecipient-request.skickatAv.hosPersonal.legitimeratYrke","sendcertificatetorecipient-request.skickatAv.hosPersonal.legitimeratYrke","","","",0,*,"","","","Base {[]} {[]}
+","LegitimeratYrkeType","legitimeratYrke","","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.hosPersonal.legitimeratYrke",0,*,"",""
+"sendcertificatetorecipient-request.skickatAv.person-id","sendcertificatetorecipient-request.skickatAv.person-id","","","",0,1,"","","","Base {[]} {[]}
+","PersonId","Skall anges när anrop görs från en invånartjänst, och enbart då.","TKB-fält: `../person-id` (`PersonId (se 7.2.10)`, kardinalitet 0..1).
+
+**Mappning DIM:** Patient.person-id","","","","","","","","",,,,,"",,,,"sendcertificatetorecipient-request.skickatAv.person-id",0,1,"",""

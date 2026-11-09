@@ -1,0 +1,120 @@
+# SendMessageToRecipient - clinicalprocess: healthcond: certificate v4.1.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SendMessageToRecipient**
+
+## Logical Model: SendMessageToRecipient 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient | *Version*:2.1 |
+| Draft as of 2026-11-09 | *Computable Name*:SendMessageToRecipient |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet SendMessageToRecipient (RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SendMessageToRecipient:2). Representerar responsens informationsstruktur. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-certificate|current/StructureDefinition/StructureDefinition-sendmessagetorecipient.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-sendmessagetorecipient.csv), [Excel](StructureDefinition-sendmessagetorecipient.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "sendmessagetorecipient",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient",
+  "version" : "2.1",
+  "name" : "SendMessageToRecipient",
+  "title" : "SendMessageToRecipient",
+  "status" : "draft",
+  "date" : "2026-11-09T03:21:30+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet SendMessageToRecipient\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SendMessageToRecipient:2).\nRepresenterar responsens informationsstruktur.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "sendmessagetorecipient",
+      "path" : "sendmessagetorecipient",
+      "short" : "SendMessageToRecipient",
+      "definition" : "Logisk modell för tjänstekontraktet SendMessageToRecipient\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SendMessageToRecipient:2).\nRepresenterar responsens informationsstruktur."
+    },
+    {
+      "id" : "sendmessagetorecipient.result",
+      "path" : "sendmessagetorecipient.result",
+      "short" : "ResultType",
+      "definition" : "Information om anropets resultat (OK, ERROR, INFO)",
+      "comment" : "TKB-fält: `result` (`ResultType  (se 7.1.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** -",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient.result.resultCode",
+      "path" : "sendmessagetorecipient.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "resultCode Tillåtna värden: OK, INFO, ERROR.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient.result.resultText",
+      "path" : "sendmessagetorecipient.result.resultText",
+      "short" : "resultText",
+      "definition" : "resultText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "sendmessagetorecipient.result.errorId",
+      "path" : "sendmessagetorecipient.result.errorId",
+      "short" : "errorId",
+      "definition" : "errorId Tillåtna värden: VALIDATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR, REVOKED.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    }]
+  }
+}
+
+```

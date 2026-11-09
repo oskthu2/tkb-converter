@@ -1,0 +1,690 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request> a fhir:StructureDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "processexemptionstatuses-request"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureDefinition processexemptionstatuses-request</b></p><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"><tr style=\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"The logical name of the element\">Name</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Information about the use of the element\">Flags</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Minimum and Maximum # of times the element can appear in the instance\">Card.</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Reference to the type of the element\">Type</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Additional information about the element\">Description &amp; Constraints</a><span style=\"float: right\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/></a></span></th></tr><tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_element.gif\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Element\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request\" title=\"Logisk modell för begäran i ProcessExemptionStatuses#xA;(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL.\">processexemptionstatuses-request</a><a name=\"processexemptionstatuses-request\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><span style=\"opacity: 0.5\">0</span><span style=\"opacity: 0.5\">..</span><span style=\"opacity: 0.5\">*</span></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://build.fhir.org/types.html#Base\">Base</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">ProcessExemptionStatuses — Request<br/><span style=\"font-weight:bold\">Instances of this type can be the target of a Reference</span></td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.requestId\" title=\"Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses.\">requestId</a><a name=\"processexemptionstatuses-request.requestId\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-IIType.html\">IIType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">requestId</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_datatype.gif\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption\" title=\"Returnerar en patients högkostnadsskyddstatus\">feeExemption</a><a name=\"processexemptionstatuses-request.feeExemption\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..*</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Base</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">FeeExemptionType<br/></td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.patientId\" title=\"Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten.#xA;#xA;Dvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR.#xA;#xA;Fältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare.#xA;#xA;Fältet root sätts till typ av identifierare.#xA;#xA;För personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas.#xA;#xA;För samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas.#xA;#xA;För reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas.#xA;#xA;Exempel:#xA;#xA;`&lt;patientId>`#xA;#xA;`&lt;root>`1.2.752.129.2.1.3.1`&lt;/root>`#xA;#xA;`&lt;extension>`196705053723`&lt;/extension>`#xA;#xA;`&lt;/patientId>`\">patientId</a><a name=\"processexemptionstatuses-request.feeExemption.patientId\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-IIType.html\">IIType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">patientId</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck011.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_datatype.gif\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions\" title=\"transactions\">transactions</a><a name=\"processexemptionstatuses-request.feeExemption.transactions\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..*</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Base</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">TransactionType<br/></td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0111.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_datatype.gif\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.fee\" title=\"fee\">fee</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.fee\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Base</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">AmountType</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01110.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.fee.amount\" title=\"Belopp med högst två decimaler.\">amount</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.fee.amount\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R4/datatypes.html#decimal\">decimal</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">amount</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01100.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.fee.currency\" title=\"Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK.#xA;#xA;code: SEK#xA;#xA;codeSystem: ”1.0.4217”\">currency</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.fee.currency\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-CVType.html\">CVType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">currency</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.dateOfVisit\" title=\"dateOfVisit\">dateOfVisit</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.dateOfVisit\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-DateType.html\" title=\"string\">DateType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">dateOfVisit</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration\" title=\"timeOfRegistration\">timeOfRegistration</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimeStampType.html\" title=\"string\">TimeStampType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">timeOfRegistration</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.typeOfFee\" title=\"typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION.\">typeOfFee</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.typeOfFee\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R4/datatypes.html#code\">code</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">typeOfFee<br class=\"binding\"/><span style=\"font-weight:bold\" title=\"null\" class=\"binding\">Binding: </span><a href=\"ValueSet-patientfees-exemption-typeofexemption-vs.html\" title=\"https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs\" class=\"binding\">TypeOfExemption</a><span title=\"null\" class=\"binding\"> (</span><a href=\"http://hl7.org/fhir/R4/terminologies.html#required\" title=\"To be conformant, the concept in this element SHALL be from the specified value set.\" class=\"binding\">required</a><span title=\"null\" class=\"binding\">)</span></td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.careGiver\" title=\"careGiver\">careGiver</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.careGiver\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-IIType.html\">IIType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">careGiver</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0100.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vline.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.transactions.careUnit\" title=\"careUnit\">careUnit</a><a name=\"processexemptionstatuses-request.feeExemption.transactions.careUnit\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-IIType.html\">IIType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">careUnit</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck001.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_datatype.gif\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.exemptions\" title=\"exemptions\">exemptions</a><a name=\"processexemptionstatuses-request.feeExemption.exemptions\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..*</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Base</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">ExemptionType<br/></td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.exemptions.id\" title=\"id\">id</a><a name=\"processexemptionstatuses-request.feeExemption.exemptions.id\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R4/datatypes.html#string\">string</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">id</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod\" title=\"highCostProtectionPeriod\">highCostProtectionPeriod</a><a name=\"processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-DatePeriodType.html\">DatePeriodType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">highCostProtectionPeriod</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod\" title=\"exemptionPeriod\">exemptionPeriod</a><a name=\"processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-DatePeriodType.html\">DatePeriodType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">exemptionPeriod</td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption\" title=\"typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION.\">typeOfExemption</a><a name=\"processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R4/datatypes.html#code\">code</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">typeOfExemption<br class=\"binding\"/><span style=\"font-weight:bold\" title=\"null\" class=\"binding\">Binding: </span><a href=\"ValueSet-patientfees-exemption-typeofexemption-vs.html\" title=\"https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs\" class=\"binding\">TypeOfExemption</a><span title=\"null\" class=\"binding\"> (</span><a href=\"http://hl7.org/fhir/R4/terminologies.html#required\" title=\"To be conformant, the concept in this element SHALL be from the specified value set.\" class=\"binding\">required</a><span title=\"null\" class=\"binding\">)</span></td></tr>#xD;\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0000.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_blank.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_resource.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Resource\" class=\"hierarchy\"/> <a href=\"StructureDefinition-processexemptionstatuses-request-definitions.html#processexemptionstatuses-request.feeExemption.exemptions.region\" title=\"region\">region</a><a name=\"processexemptionstatuses-request.feeExemption.exemptions.region\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-IIType.html\">IIType</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">region</td></tr>#xD;\n<tr><td colspan=\"5\" class=\"hierarchy\"><br/><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/> Documentation for this format</a></td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics" ] ;
+     fhir:Extension.valueCode [ fhir:value "can-be-target" ]
+  ] ;
+  fhir:StructureDefinition.url [ fhir:value "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request"] ;
+  fhir:StructureDefinition.version [ fhir:value "1.0"] ;
+  fhir:StructureDefinition.name [ fhir:value "ProcessExemptionStatusesRequest"] ;
+  fhir:StructureDefinition.title [ fhir:value "ProcessExemptionStatuses — Request"] ;
+  fhir:StructureDefinition.status [ fhir:value "active"] ;
+  fhir:StructureDefinition.date [ fhir:value "2026-11-09T03:32:27+00:00"^^xsd:dateTime] ;
+  fhir:StructureDefinition.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Inera Arkitektur" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://www.inera.se" ]
+     ]
+  ] ;
+  fhir:StructureDefinition.description [ fhir:value "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL."] ;
+  fhir:StructureDefinition.copyright [ fhir:value "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."] ;
+  fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.1"] ;
+  fhir:StructureDefinition.kind [ fhir:value "logical"] ;
+  fhir:StructureDefinition.abstract [ fhir:value "false"^^xsd:boolean] ;
+  fhir:StructureDefinition.type [ fhir:value "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request"] ;
+  fhir:StructureDefinition.baseDefinition [
+     fhir:value "http://hl7.org/fhir/StructureDefinition/Base" ;
+     fhir:link <http://hl7.org/fhir/StructureDefinition/Base>
+  ] ;
+  fhir:StructureDefinition.derivation [ fhir:value "specialization"] ;
+  fhir:StructureDefinition.snapshot [
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version" ] ;
+       fhir:Extension.valueString [ fhir:value "4.0.1" ]
+     ] ;
+     fhir:StructureDefinition.snapshot.element [
+       fhir:index 0 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request" ] ;
+       fhir:ElementDefinition.short [ fhir:value "ProcessExemptionStatuses — Request" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "Base" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "*" ]
+       ] ;
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.requestId" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.requestId" ] ;
+       fhir:ElementDefinition.short [ fhir:value "requestId" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `requestId` (`IIType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.requestId" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption" ] ;
+       fhir:ElementDefinition.short [ fhir:value "FeeExemptionType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Returnerar en patients högkostnadsskyddstatus" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `feeExemption` (`FeeExemptionType`, kardinalitet 0..*)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "*" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.patientId" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.patientId" ] ;
+       fhir:ElementDefinition.short [ fhir:value "patientId" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten.\n\nDvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR.\n\nFältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare.\n\nFältet root sätts till typ av identifierare.\n\nFör personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas.\n\nExempel:\n\n`<patientId>`\n\n`<root>`1.2.752.129.2.1.3.1`</root>`\n\n`<extension>`196705053723`</extension>`\n\n`</patientId>`" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../patientId` (`IIType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.patientId" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions" ] ;
+       fhir:ElementDefinition.short [ fhir:value "TransactionType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "transactions" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../transactions` (`TransactionType`, kardinalitet 0..*)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "*" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee" ] ;
+       fhir:ElementDefinition.short [ fhir:value "AmountType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "fee" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../fee` (`AmountType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.amount" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.amount" ] ;
+       fhir:ElementDefinition.short [ fhir:value "amount" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Belopp med högst två decimaler." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../../amount` (`decimal`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.amount" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "decimal" ]
+       ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.currency" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.currency" ] ;
+       fhir:ElementDefinition.short [ fhir:value "currency" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK.\n\ncode: SEK\n\ncodeSystem: ”1.0.4217”" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../../currency*` (`CVType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.currency" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType" ]
+       ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit" ] ;
+       fhir:ElementDefinition.short [ fhir:value "dateOfVisit" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "dateOfVisit" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../dateOfVisit` (`DateType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ] ;
+         fhir:ElementDefinition.type.profile [
+           fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType" ;
+           fhir:index 0 ;
+           fhir:link <https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType>
+         ]
+       ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration" ] ;
+       fhir:ElementDefinition.short [ fhir:value "timeOfRegistration" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "timeOfRegistration" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../timeOfRegistration` (`TimeStampType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ] ;
+         fhir:ElementDefinition.type.profile [
+           fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType" ;
+           fhir:index 0 ;
+           fhir:link <https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType>
+         ]
+       ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.typeOfFee" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.typeOfFee" ] ;
+       fhir:ElementDefinition.short [ fhir:value "typeOfFee" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../typeOfFee` (`TypeOfExemptionEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.typeOfFee" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "code" ]
+       ] ;
+       fhir:ElementDefinition.binding [
+         fhir:ElementDefinition.binding.strength [ fhir:value "required" ] ;
+         fhir:ElementDefinition.binding.valueSet [
+           fhir:value "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs" ;
+           fhir:link <https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs>
+         ]
+       ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careGiver" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careGiver" ] ;
+       fhir:ElementDefinition.short [ fhir:value "careGiver" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "careGiver" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../careGiver` (`IIType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careGiver" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careUnit" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careUnit" ] ;
+       fhir:ElementDefinition.short [ fhir:value "careUnit" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "careUnit" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../careUnit` (`IIType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careUnit" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions" ] ;
+       fhir:ElementDefinition.short [ fhir:value "ExemptionType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "exemptions" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../exemptions` (`ExemptionType`, kardinalitet 0..*)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "*" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.id" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.id" ] ;
+       fhir:ElementDefinition.short [ fhir:value "id" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "id" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../id` (`string`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.id" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ]
+       ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.short [ fhir:value "highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../highCostProtectionPeriod` (`DatePeriodType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType" ]
+       ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod" ] ;
+       fhir:ElementDefinition.short [ fhir:value "exemptionPeriod" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "exemptionPeriod" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../exemptionPeriod` (`DatePeriodType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType" ]
+       ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption" ] ;
+       fhir:ElementDefinition.short [ fhir:value "typeOfExemption" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../typeOfExemption` (`TypeOfExemptionEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "code" ]
+       ] ;
+       fhir:ElementDefinition.binding [
+         fhir:ElementDefinition.binding.strength [ fhir:value "required" ] ;
+         fhir:ElementDefinition.binding.valueSet [
+           fhir:value "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs" ;
+           fhir:link <https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs>
+         ]
+       ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.region" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.region" ] ;
+       fhir:ElementDefinition.short [ fhir:value "region" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "region" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../region` (`IIType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.region" ] ;
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ]
+  ] ;
+  fhir:StructureDefinition.differential [
+     fhir:StructureDefinition.differential.element [
+       fhir:index 0 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request" ] ;
+       fhir:ElementDefinition.short [ fhir:value "ProcessExemptionStatuses — Request" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL." ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.requestId" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.requestId" ] ;
+       fhir:ElementDefinition.short [ fhir:value "requestId" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `requestId` (`IIType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption" ] ;
+       fhir:ElementDefinition.short [ fhir:value "FeeExemptionType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Returnerar en patients högkostnadsskyddstatus" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `feeExemption` (`FeeExemptionType`, kardinalitet 0..*)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.patientId" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.patientId" ] ;
+       fhir:ElementDefinition.short [ fhir:value "patientId" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten.\n\nDvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR.\n\nFältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare.\n\nFältet root sätts till typ av identifierare.\n\nFör personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas.\n\nFör samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas.\n\nFör reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas.\n\nExempel:\n\n`<patientId>`\n\n`<root>`1.2.752.129.2.1.3.1`</root>`\n\n`<extension>`196705053723`</extension>`\n\n`</patientId>`" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../patientId` (`IIType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions" ] ;
+       fhir:ElementDefinition.short [ fhir:value "TransactionType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "transactions" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../transactions` (`TransactionType`, kardinalitet 0..*)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee" ] ;
+       fhir:ElementDefinition.short [ fhir:value "AmountType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "fee" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../fee` (`AmountType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.amount" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.amount" ] ;
+       fhir:ElementDefinition.short [ fhir:value "amount" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Belopp med högst två decimaler." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../../amount` (`decimal`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "decimal" ]
+       ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.currency" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.fee.currency" ] ;
+       fhir:ElementDefinition.short [ fhir:value "currency" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK.\n\ncode: SEK\n\ncodeSystem: ”1.0.4217”" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../../currency*` (`CVType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType" ]
+       ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit" ] ;
+       fhir:ElementDefinition.short [ fhir:value "dateOfVisit" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "dateOfVisit" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../dateOfVisit` (`DateType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ] ;
+         fhir:ElementDefinition.type.profile [
+           fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType" ;
+           fhir:index 0 ;
+           fhir:link <https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType>
+         ]
+       ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration" ] ;
+       fhir:ElementDefinition.short [ fhir:value "timeOfRegistration" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "timeOfRegistration" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../timeOfRegistration` (`TimeStampType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ] ;
+         fhir:ElementDefinition.type.profile [
+           fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType" ;
+           fhir:index 0 ;
+           fhir:link <https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType>
+         ]
+       ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.typeOfFee" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.typeOfFee" ] ;
+       fhir:ElementDefinition.short [ fhir:value "typeOfFee" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../typeOfFee` (`TypeOfExemptionEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "code" ]
+       ] ;
+       fhir:ElementDefinition.binding [
+         fhir:ElementDefinition.binding.strength [ fhir:value "required" ] ;
+         fhir:ElementDefinition.binding.valueSet [
+           fhir:value "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs" ;
+           fhir:link <https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs>
+         ]
+       ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careGiver" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careGiver" ] ;
+       fhir:ElementDefinition.short [ fhir:value "careGiver" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "careGiver" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../careGiver` (`IIType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careUnit" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.transactions.careUnit" ] ;
+       fhir:ElementDefinition.short [ fhir:value "careUnit" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "careUnit" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../careUnit` (`IIType`, kardinalitet 0..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions" ] ;
+       fhir:ElementDefinition.short [ fhir:value "ExemptionType" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "exemptions" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../exemptions` (`ExemptionType`, kardinalitet 0..*)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "*" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "Base" ]
+       ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.id" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.id" ] ;
+       fhir:ElementDefinition.short [ fhir:value "id" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "id" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../id` (`string`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ]
+       ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.short [ fhir:value "highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "highCostProtectionPeriod" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../highCostProtectionPeriod` (`DatePeriodType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType" ]
+       ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod" ] ;
+       fhir:ElementDefinition.short [ fhir:value "exemptionPeriod" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "exemptionPeriod" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../exemptionPeriod` (`DatePeriodType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType" ]
+       ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption" ] ;
+       fhir:ElementDefinition.short [ fhir:value "typeOfExemption" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../typeOfExemption` (`TypeOfExemptionEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "code" ]
+       ] ;
+       fhir:ElementDefinition.binding [
+         fhir:ElementDefinition.binding.strength [ fhir:value "required" ] ;
+         fhir:ElementDefinition.binding.valueSet [
+           fhir:value "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs" ;
+           fhir:link <https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs>
+         ]
+       ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.id [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.region" ] ;
+       fhir:ElementDefinition.path [ fhir:value "processexemptionstatuses-request.feeExemption.exemptions.region" ] ;
+       fhir:ElementDefinition.short [ fhir:value "region" ] ;
+       fhir:ElementDefinition.definition [ fhir:value "region" ] ;
+       fhir:ElementDefinition.comment [ fhir:value "TKB-fält: `../../region` (`IIType`, kardinalitet 1..1)." ] ;
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ] ;
+       fhir:ElementDefinition.max [ fhir:value "1" ] ;
+       fhir:ElementDefinition.type [
+         fhir:index 0 ;
+         fhir:ElementDefinition.type.code [ fhir:value "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

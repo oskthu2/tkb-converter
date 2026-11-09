@@ -1,0 +1,28 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getofferingcatalogues-request","getofferingcatalogues-request","","","",0,*,"","","","null {[]} {[]}
+","GetOfferingCatalogues — Request","Logisk modell för begäran i GetOfferingCatalogues
+(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2, GetOfferingCataloguesType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getofferingcatalogues-request.providingOrganization","getofferingcatalogues-request.providingOrganization","","","",0,1,"","","","Base {[]} {[]}
+","SearchProvidingOrganizationType","Katalogansvarig organisation","TKB-fält: `providingOrganization` (`SearchProvidingOrganizationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization",0,1,"",""
+"getofferingcatalogues-request.providingOrganization.providingOrganizationId","getofferingcatalogues-request.providingOrganization.providingOrganizationId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","providingOrganizationId","Id på katalogansvarig organisation
+
+Id på katalogansvarig organisation
+
+Begränsar sökningen så att endast poster med angivet id för katalogansvarig organisation returneras.
+
+För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7)
+
+För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)","TKB-fält: `providingOrganizationId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization.providingOrganizationId",0,*,"",""
+"getofferingcatalogues-request.providingOrganization.management","getofferingcatalogues-request.providingOrganization.management","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","management","Ägarform
+
+Begränsar sökningen så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras.
+
+Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14].
+
+Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `management` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization.management",0,*,"",""
+"getofferingcatalogues-request.providingOrganization.publicProvider","getofferingcatalogues-request.providingOrganization.publicProvider","","","",0,1,"","","","boolean {[]} {[]}
+","publicProvider","Offentlig huvudman
+
+Om satt till ’true’ filtreras sökresultatet så att endast poster returneras där katalogansvarig organisation är en offentlig huvudman.","TKB-fält: `publicProvider*` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization.publicProvider",0,1,"",""

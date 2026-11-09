@@ -1,0 +1,98 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getlogs","getlogs","","","",0,*,"","","","null {[]} {[]}
+","GetLogs — Response","Logisk modell för svaret i GetLogs
+(urn:riv:informationsecurity:auditing:log:GetLogsResponder:2, GetLogsResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getlogs.logsResult","getlogs.logsResult","","","",1,1,"","","","Base {[]} {[]}
+","LogsResultType","Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.
+
+Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.","TKB-fält: `logsResult` (`urn:riv:informationsecurity:auditing:log:2:LogsResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult",1,1,"",""
+"getlogs.logsResult.reportResult","getlogs.logsResult.reportResult","","","",1,1,"","","","Base {[]} {[]}
+","ReportResultType","reportResult","TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult",1,1,"",""
+"getlogs.logsResult.reportResult.result","getlogs.logsResult.reportResult.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.","TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult.result",1,1,"",""
+"getlogs.logsResult.reportResult.result.resultCode","getlogs.logsResult.reportResult.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","",,"required","","https://fhir.inera.se/ig/informationsecurity-auditing-log/ValueSet/auditing-log-resultcode-vs","",,,,"getlogs.logsResult.reportResult.result.resultCode",1,1,"",""
+"getlogs.logsResult.reportResult.result.resultText","getlogs.logsResult.reportResult.result.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","resultText","TKB-fält: `../../../resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult.result.resultText",0,1,"",""
+"getlogs.logsResult.reportResult.startInterval","getlogs.logsResult.reportResult.startInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","startInterval","startInterval","TKB-fält: `../../startInterval` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult.startInterval",0,1,"",""
+"getlogs.logsResult.reportResult.endInterval","getlogs.logsResult.reportResult.endInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","endInterval","endInterval","TKB-fält: `../../endInterval` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult.endInterval",0,1,"",""
+"getlogs.logsResult.reportResult.queuedReportId","getlogs.logsResult.reportResult.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","queuedReportId","queuedReportId","TKB-fält: `../../queuedReportId` (`Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult.queuedReportId",0,1,"",""
+"getlogs.logsResult.reportResult.queueTime","getlogs.logsResult.reportResult.queueTime","","","",0,1,"","","","integer {[]} {[]}
+","queueTime","queueTime","TKB-fält: `../../queueTime` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.reportResult.queueTime",0,1,"",""
+"getlogs.logsResult.logs","getlogs.logsResult.logs","","","",0,1,"","","","Base {[]} {[]}
+","LogsType","Datatyp som håller lista med loggposter. Kan vara en tom lista","TKB-fält: `../logs` (`LogsType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs",0,1,"",""
+"getlogs.logsResult.logs.log","getlogs.logsResult.logs.log","","","",0,*,"","","","Base {[]} {[]}
+","LogType","Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost.","TKB-fält: `../../log` (`LogType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log",0,*,"",""
+"getlogs.logsResult.logs.log.logId","getlogs.logsResult.logs.log.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","logId","TKB-fält: `../../../logId` (`Id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.logId",1,1,"",""
+"getlogs.logsResult.logs.log.system","getlogs.logsResult.logs.log.system","","","",1,1,"","","","Base {[]} {[]}
+","SystemType","Datatyp som representerar ett system i loggposten. Det system som skapar loggposten.","TKB-fält: `../../../system` (`SystemType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.system",1,1,"",""
+"getlogs.logsResult.logs.log.system.systemId","getlogs.logsResult.logs.log.system.systemId","","","",1,1,"","","","string {[]} {[]}
+","systemId","systemId","TKB-fält: `../../../../systemId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.system.systemId",1,1,"",""
+"getlogs.logsResult.logs.log.system.systemName","getlogs.logsResult.logs.log.system.systemName","","","",0,1,"","","","string {[]} {[]}
+","systemName","systemName","TKB-fält: `../../../../systemName` (`SystemName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.system.systemName",0,1,"",""
+"getlogs.logsResult.logs.log.activity","getlogs.logsResult.logs.log.activity","","","",1,1,"","","","Base {[]} {[]}
+","ActivityType","Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå, tidpunkt samt syftet med aktiviteten.","TKB-fält: `../../../activity` (`ActivityType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.activity",1,1,"",""
+"getlogs.logsResult.logs.log.activity.activityType","getlogs.logsResult.logs.log.activity.activityType","","","",1,1,"","","","string {[]} {[]}
+","activityType","activityType","TKB-fält: `../../../../activityType` (`ActivityTypeValue`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.activity.activityType",1,1,"",""
+"getlogs.logsResult.logs.log.activity.activityLevel","getlogs.logsResult.logs.log.activity.activityLevel","","","",0,1,"","","","string {[]} {[]}
+","activityLevel","activityLevel","TKB-fält: `../../../../activityLevel` (`ActivityLevel`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.activity.activityLevel",0,1,"",""
+"getlogs.logsResult.logs.log.activity.activityArgs","getlogs.logsResult.logs.log.activity.activityArgs","","","",0,1,"","","","string {[]} {[]}
+","activityArgs","activityArgs","TKB-fält: `../../../../activityArgs` (`ActivityArgs`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.activity.activityArgs",0,1,"",""
+"getlogs.logsResult.logs.log.activity.startDate","getlogs.logsResult.logs.log.activity.startDate","","","",1,1,"","","","dateTime {[]} {[]}
+","startDate","startDate","TKB-fält: `../../../../startDate` (`dateTime`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.activity.startDate",1,1,"",""
+"getlogs.logsResult.logs.log.activity.purpose","getlogs.logsResult.logs.log.activity.purpose","","","",1,1,"","","","string {[]} {[]}
+","purpose","purpose","TKB-fält: `../../../../purpose` (`PurposeDescription`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.activity.purpose",1,1,"",""
+"getlogs.logsResult.logs.log.user","getlogs.logsResult.logs.log.user","","","",1,1,"","","","Base {[]} {[]}
+","UserType","Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost.","TKB-fält: `../../../user` (`UserType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user",1,1,"",""
+"getlogs.logsResult.logs.log.user.userId","getlogs.logsResult.logs.log.user.userId","","","",1,1,"","","","string {[]} {[]}
+","userId","userId","TKB-fält: `../../../../userId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.userId",1,1,"",""
+"getlogs.logsResult.logs.log.user.name","getlogs.logsResult.logs.log.user.name","","","",0,1,"","","","string {[]} {[]}
+","name","name","TKB-fält: `../../../../name` (`UserName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.name",0,1,"",""
+"getlogs.logsResult.logs.log.user.personId","getlogs.logsResult.logs.log.user.personId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","En universellt unik identifierare.","TKB-fält: `../../../../personId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.personId",0,1,"",""
+"getlogs.logsResult.logs.log.user.assignment","getlogs.logsResult.logs.log.user.assignment","","","",0,1,"","","","string {[]} {[]}
+","assignment","assignment","TKB-fält: `../../../../assignment` (`Assignment`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.assignment",0,1,"",""
+"getlogs.logsResult.logs.log.user.title","getlogs.logsResult.logs.log.user.title","","","",0,1,"","","","string {[]} {[]}
+","title","title","TKB-fält: `../../../../title` (`UserTitle`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.title",0,1,"",""
+"getlogs.logsResult.logs.log.user.careProvider","getlogs.logsResult.logs.log.user.careProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","Datatyp som representerar en vårdgivare.","TKB-fält: `../../../../careProvider` (`CareProviderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.careProvider",1,1,"",""
+"getlogs.logsResult.logs.log.user.careProvider.careProviderId","getlogs.logsResult.logs.log.user.careProvider.careProviderId","","","",1,1,"","","","string {[]} {[]}
+","careProviderId","careProviderId","TKB-fält: `../../../../../careProviderId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.careProvider.careProviderId",1,1,"",""
+"getlogs.logsResult.logs.log.user.careProvider.careProviderName","getlogs.logsResult.logs.log.user.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","careProviderName","careProviderName","TKB-fält: `../../../../../careProviderName` (`CareProviderName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.careProvider.careProviderName",0,1,"",""
+"getlogs.logsResult.logs.log.user.careUnit","getlogs.logsResult.logs.log.user.careUnit","","","",1,1,"","","","Base {[]} {[]}
+","CareUnitType","Datatyp som representerar en vårdenhet.","TKB-fält: `../../../../careUnit` (`CareUnitType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.careUnit",1,1,"",""
+"getlogs.logsResult.logs.log.user.careUnit.careUnitId","getlogs.logsResult.logs.log.user.careUnit.careUnitId","","","",1,1,"","","","string {[]} {[]}
+","careUnitId","careUnitId","TKB-fält: `../../../../../careUnitId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.careUnit.careUnitId",1,1,"",""
+"getlogs.logsResult.logs.log.user.careUnit.careUnitName","getlogs.logsResult.logs.log.user.careUnit.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","careUnitName","TKB-fält: `../../../../../careUnitName` (`CareUnitName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.user.careUnit.careUnitName",0,1,"",""
+"getlogs.logsResult.logs.log.resources","getlogs.logsResult.logs.log.resources","","","",1,1,"","","","Base {[]} {[]}
+","ResourcesType","Information om aktuella resurser. En loggpost kan hålla en eller flera resurser.","TKB-fält: `../../../resources` (`ResourcesType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources",1,1,"",""
+"getlogs.logsResult.logs.log.resources.resource","getlogs.logsResult.logs.log.resources.resource","","","",1,*,"","","","Base {[]} {[]}
+","ResourceType","Datatyp som representerar en resurs i loggposten.","TKB-fält: `../../../../resource` (`ResourceType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource",1,*,"",""
+"getlogs.logsResult.logs.log.resources.resource.resourceType","getlogs.logsResult.logs.log.resources.resource.resourceType","","","",1,1,"","","","string {[]} {[]}
+","resourceType","resourceType","TKB-fält: `../../../../../resourceType` (`ResourceTypeValue`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.resourceType",1,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.patient","getlogs.logsResult.logs.log.resources.resource.patient","","","",0,1,"","","","Base {[]} {[]}
+","PatientType","Datatyp som representerar en patient i en resurs.","TKB-fält: `../../../../../patient` (`PatientType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.patient",0,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.patient.patientId","getlogs.logsResult.logs.log.resources.resource.patient.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","En universellt unik identifierare.","TKB-fält: `../../../../../../patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.patient.patientId",1,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.patient.patientName","getlogs.logsResult.logs.log.resources.resource.patient.patientName","","","",0,1,"","","","string {[]} {[]}
+","patientName","patientName","TKB-fält: `../../../../../../patientName` (`PatientName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.patient.patientName",0,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.careProvider","getlogs.logsResult.logs.log.resources.resource.careProvider","","","",1,1,"","","","Base {[]} {[]}
+","CareProviderType","Datatyp som representerar en vårdgivare.","TKB-fält: `../../../../../careProvider` (`CareProviderType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.careProvider",1,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.careProvider.careProviderId","getlogs.logsResult.logs.log.resources.resource.careProvider.careProviderId","","","",1,1,"","","","string {[]} {[]}
+","careProviderId","careProviderId","TKB-fält: `../../../../../../careProviderId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.careProvider.careProviderId",1,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.careProvider.careProviderName","getlogs.logsResult.logs.log.resources.resource.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","careProviderName","careProviderName","TKB-fält: `../../../../../../careProviderName` (`CareProviderName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.careProvider.careProviderName",0,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.careUnit","getlogs.logsResult.logs.log.resources.resource.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","CareUnitType","Datatyp som representerar en vårdenhet.","TKB-fält: `../../../../../careUnit` (`CareUnitType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.careUnit",0,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.careUnit.careUnitId","getlogs.logsResult.logs.log.resources.resource.careUnit.careUnitId","","","",1,1,"","","","string {[]} {[]}
+","careUnitId","careUnitId","TKB-fält: `../../../../../../careUnitId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.careUnit.careUnitId",1,1,"",""
+"getlogs.logsResult.logs.log.resources.resource.careUnit.careUnitName","getlogs.logsResult.logs.log.resources.resource.careUnit.careUnitName","","","",0,1,"","","","string {[]} {[]}
+","careUnitName","careUnitName","TKB-fält: `../../../../../../careUnitName` (`CareUnitName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getlogs.logsResult.logs.log.resources.resource.careUnit.careUnitName",0,1,"",""

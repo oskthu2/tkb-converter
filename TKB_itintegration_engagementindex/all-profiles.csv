@@ -1,0 +1,251 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"RegisteredResidentIdentificationType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-registeredresidentidentificationtype-pattern:RegisteredResidentIdentificationType ska följa mönstret i schemat: [0-9]{8}[0-9A-Zptf]{4} {matches('^(?:(?:[0-9]{8}[0-9A-Zptf]{4}))$')}"
+"RegisteredResidentIdentificationType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"RegisteredResidentIdentificationType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"RegisteredResidentIdentificationType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"TS","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-ts-pattern:TS ska följa mönstret i schemat: [1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1} {matches('^(?:(?:[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}))$')}"
+"TS","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"TS","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"TS","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"findcontent-request","findcontent-request","findcontent-request","","","",0,*,"","","","null {[]} {[]}
+","FindContent — Request","Logisk modell för requestparametrar i tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Alla angivna attribut används för exakt matchningsfiltrering av sökresultatet.
+Åtkomst till FindContent i nationell EI-instans är begränsad till aggregerande
+tjänster i den nationella aggregeringsplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent-request","findcontent-request.registeredResidentIdentification","findcontent-request.registeredResidentIdentification","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType]]} {[]}
+","registeredResidentIdentification","Enligt formatregler i meddelandemodellen","TKB-fält: `registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent-request.registeredResidentIdentification",1,1,"",""
+"findcontent-request","findcontent-request.serviceDomain","findcontent-request.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","serviceDomain","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent-request.serviceDomain",1,1,"",""
+"findcontent-request","findcontent-request.categorization","findcontent-request.categorization","","","",0,1,"","","","string {[]} {[]}
+","categorization","Kodverk enligt tjänstedomänens dokumentation.","TKB-fält: `categorization` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.categorization",0,1,"",""
+"findcontent-request","findcontent-request.logicalAddress","findcontent-request.logicalAddress","","","",0,1,"","","","string {[]} {[]}
+","logicalAddress","Enligt tjänstedomänens dokumentation.","TKB-fält: `logicalAddress` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.logicalAddress",0,1,"",""
+"findcontent-request","findcontent-request.businessObjectInstanceIdentifier","findcontent-request.businessObjectInstanceIdentifier","","","",0,1,"","","","string {[]} {[]}
+","businessObjectInstanceIdentifier","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.businessObjectInstanceIdentifier",0,1,"",""
+"findcontent-request","findcontent-request.clinicalProcessInterestId","findcontent-request.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","Enligt tjänstedomänens dokumentation","TKB-fält: `clinicalProcessInterestId` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.clinicalProcessInterestId",0,1,"",""
+"findcontent-request","findcontent-request.mostRecentContent","findcontent-request.mostRecentContent","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","mostRecentContent","YYYYMMDDhhmmss.","TKB-fält: `mostRecentContent` (`TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.mostRecentContent",0,1,"",""
+"findcontent-request","findcontent-request.sourceSystem","findcontent-request.sourceSystem","","","",0,1,"","","","string {[]} {[]}
+","sourceSystem","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `sourceSystem` (`HSA-id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.sourceSystem",0,1,"",""
+"findcontent-request","findcontent-request.dataController","findcontent-request.dataController","","","",0,1,"","","","string {[]} {[]}
+","dataController","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.","TKB-fält: `dataController` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.dataController",0,1,"",""
+"findcontent-request","findcontent-request.owner","findcontent-request.owner","","","",0,1,"","","","string {[]} {[]}
+","owner","HSA-id för den organisations vars index tog emot uppdateringsbegäran.","TKB-fält: `owner` (`HSA-id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent-request.owner",0,1,"",""
+"findcontent","findcontent","findcontent","","","",0,*,"","","","null {[]} {[]}
+","FindContent","Logisk modell för tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Representerar responsens informationsstruktur — en lista av engagemangsposter
+som svarar mot sökkriterierna i begäran.
+Primärt använt av aggregerande tjänster i tjänsteplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent","findcontent.engagement","findcontent.engagement","","","",0,*,"","","","Base {[]} {[]}
+","EngagementType","engagement","TKB-fält: `engagement` (`EngagementType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"findcontent.engagement",0,*,"",""
+"findcontent","findcontent.engagement.registeredResidentIdentification","findcontent.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType]]} {[]}
+","registeredResidentIdentification","Enligt formatregler i meddelandemodell","TKB-fält: `engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.registeredResidentIdentification",1,1,"",""
+"findcontent","findcontent.engagement.serviceDomain","findcontent.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","serviceDomain","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `engagement.serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.serviceDomain",1,1,"",""
+"findcontent","findcontent.engagement.categorization","findcontent.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","categorization","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagement.categorization` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.categorization",1,1,"",""
+"findcontent","findcontent.engagement.logicalAddress","findcontent.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagement.logicalAddress` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.logicalAddress",1,1,"",""
+"findcontent","findcontent.engagement.businessObjectInstanceIdentifier","findcontent.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","businessObjectInstanceIdentifier","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"findcontent","findcontent.engagement.clinicalProcessInterestId","findcontent.engagement.clinicalProcessInterestId","","","",1,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagement.clinicalProcessInterestId` (`String`, kardinalitet 0..1).
+
+Obs: modellen anger 1..1 där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"findcontent.engagement.clinicalProcessInterestId",1,1,"",""
+"findcontent","findcontent.engagement.mostRecentContent","findcontent.engagement.mostRecentContent","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","mostRecentContent","YYYYMMDDhhmmss","TKB-fält: `engagement.mostRecentContent` (`TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.mostRecentContent",0,1,"",""
+"findcontent","findcontent.engagement.sourceSystem","findcontent.engagement.sourceSystem","","","",1,1,"","","","string {[]} {[]}
+","sourceSystem","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.sourceSystem",1,1,"",""
+"findcontent","findcontent.engagement.creationTime","findcontent.engagement.creationTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","creationTime","YYYYMMDDhhmmss","TKB-fält: `engagement.creationTime` (`TS`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"findcontent.engagement.creationTime",0,1,"",""
+"findcontent","findcontent.engagement.updateTime","findcontent.engagement.updateTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","updateTime","YYYYMMDDhhmmss","TKB-fält: `engagement.updateTime` (`TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.updateTime",0,1,"",""
+"findcontent","findcontent.engagement.dataController","findcontent.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","dataController","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.","TKB-fält: `engagement.dataController` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"findcontent.engagement.dataController",1,1,"",""
+"findcontent","findcontent.engagement.owner","findcontent.engagement.owner","","","",0,1,"","","","string {[]} {[]}
+","owner","HSA-id för den organisations vars index tog emot uppdateringsbegäran.","TKB-fält: `engagement.owner` (`HSA-id`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"findcontent.engagement.owner",0,1,"",""
+"processnotification-request","processnotification-request","processnotification-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessNotification — Request","Logisk modell för requestparametrar i tjänstekontraktet ProcessNotification
+(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).
+
+Används för konsolidering av indexinformation mellan engagemangsindexinstanser.
+Innehållet i begäran ska exakt spegla begäran i ursprunglig Update,
+med tillägg av owner, creationTime och updateTime (som INTE ingår i Update-begäran
+men är obligatoriska här).
+
+OBS: Ovanlig dubbel roll — engagemangsindex kan agera BÅDA producent och konsument
+för detta kontrakt. Fr.o.m. version 1.0.9 agerar nationellt EI enbart som producent
+(tar emot notifieringar). Lokala index agerar konsument och skickar till nationellt EI.
+
+Regel pR4: Om notifiering mottas där owner är samma som den egna instansen ska
+ingen uppdatering eller notifiering ske (för att undvika rundgång).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processnotification-request","processnotification-request.engagementTransaction","processnotification-request.engagementTransaction","","","",1,*,"","","","Base {[]} {[]}
+","EngagementTransactionType","engagementTransaction","TKB-fält: `engagementTransaction` (`EngagementTransactionType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction",1,*,"",""
+"processnotification-request","processnotification-request.engagementTransaction.deleteFlag","processnotification-request.engagementTransaction.deleteFlag","","","",1,1,"","","","boolean {[]} {[]}
+","deleteFlag","”true” anger att posten ska tas bort. False anger att posten ska skapas/uppdateras.","TKB-fält: `engagementTransaction.deleteFlag` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.deleteFlag",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement","processnotification-request.engagementTransaction.engagement","","","",1,1,"","","","Base {[]} {[]}
+","EngagementType","engagement","TKB-fält: `engagementTransaction .engagement` (`EngagementType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.registeredResidentIdentification","processnotification-request.engagementTransaction.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType]]} {[]}
+","registeredResidentIdentification","Enligt formatregler i meddelandemodell","TKB-fält: `engagementTransaction .engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.registeredResidentIdentification",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.serviceDomain","processnotification-request.engagementTransaction.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","serviceDomain","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `engagementTransaction .engagement.serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.serviceDomain",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.categorization","processnotification-request.engagementTransaction.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","categorization","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.categorization` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.categorization",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.logicalAddress","processnotification-request.engagementTransaction.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.logicalAddress` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.logicalAddress",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","businessObjectInstanceIdentifier","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId","processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId","","","",1,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.clinicalProcessInterestId` (`HSA-id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.mostRecentContent","processnotification-request.engagementTransaction.engagement.mostRecentContent","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","mostRecentContent","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.mostRecentContent` (`TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.mostRecentContent",0,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.sourceSystem","processnotification-request.engagementTransaction.engagement.sourceSystem","","","",1,1,"","","","string {[]} {[]}
+","sourceSystem","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `engagementTransaction .engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.sourceSystem",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.creationTime","processnotification-request.engagementTransaction.engagement.creationTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","creationTime","YYYYMMDDhhmmss","TKB-fält: `engagementTransaction .engagement.creationTime` (`TS`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.creationTime",0,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.updateTime","processnotification-request.engagementTransaction.engagement.updateTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","updateTime","YYYYMMDDhhmmss","TKB-fält: `engagementTransaction .engagement.updateTime` (`TS`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.updateTime",0,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.dataController","processnotification-request.engagementTransaction.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","dataController","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex.","TKB-fält: `engagementTransaction .engagement.dataController` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.dataController",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.owner","processnotification-request.engagementTransaction.engagement.owner","","","",0,1,"","","","string {[]} {[]}
+","owner","HSA-id för den organisations vars index tog emot ursprunglig uppdateringsbegäran.","TKB-fält: `engagementTransaction .engagement.owner` (`HSA-id`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.owner",0,1,"",""
+"processnotification","processnotification","processnotification","","","",0,*,"","","","null {[]} {[]}
+","ProcessNotification","Logisk modell för tjänstekontraktet ProcessNotification
+(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).
+Representerar responsens informationsstruktur — ett statusbesked
+på att notifieringen mottagits och behandlats.
+
+OBS: ProcessNotification har en ovanlig dubbel roll i arkitekturen:
+- Engagemangsindex agerar PRODUCENT för att TA EMOT notifieringar från andra index.
+- Engagemangsindex agerar KONSUMENT för att SKICKA notifieringar till andra index.
+Fr.o.m. version 1.0.9 agerar nationellt engagemangsindex ENBART som producent
+(tar emot notifieringar från lokala index). Nationellt EI skickar inte längre
+ProcessNotification till lokala index eller verksamhetssystem.
+Undantag: Formulärtjänsten och Tidbokning/Kallelser har tidsbegränsat undantag.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processnotification","processnotification.ResultCode","processnotification.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","Status enligt generell regel.","TKB-fält: `ResultCode` (`Kodverk`, kardinalitet 1..1).
+
+**Modellanteckning:** ResultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,,,,"",,,,"processnotification.ResultCode",1,1,"",""
+"processnotification","processnotification.comment","processnotification.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Meddelande enligt generell regel","TKB-fält: `comment` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processnotification.comment",0,1,"",""
+"update-request","update-request","update-request","","","",0,*,"","","","null {[]} {[]}
+","Update — Request","Logisk modell för requestparametrar i tjänstekontraktet Update
+(RIV-TA urn:riv:itintegration:engagementindex:Update:1).
+Kontraktet används av källsystem för att skapa, uppdatera och radera
+indexposter i ett engagemangsindex. Flera engagemangstransaktioner
+kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).
+
+Alla fält i EngagementType-typen ingår i modellen, inklusive fält som
+sätts av engagemangsindex och INTE ska populeras av konsumenten
+(creationTime, updateTime, owner). Se respektive fältbeskrivning.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"update-request","update-request.engagementTransaction","update-request.engagementTransaction","","","",1,*,"","","","Base {[]} {[]}
+","EngagementTransactionType","engagementTransaction","TKB-fält: `engagementTransaction` (`EngagementTransactionType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction",1,*,"",""
+"update-request","update-request.engagementTransaction.deleteFlag","update-request.engagementTransaction.deleteFlag","","","",1,1,"","","","boolean {[]} {[]}
+","deleteFlag","True anger att posten ska tas bort. False anger att posten ska skapas/uppdateras.","TKB-fält: `engagementTransaction.deleteFlag` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.deleteFlag",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement","update-request.engagementTransaction.engagement","","","",1,1,"","","","Base {[]} {[]}
+","EngagementType","engagement","TKB-fält: `engagementTransaction .engagement` (`EngagementType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.registeredResidentIdentification","update-request.engagementTransaction.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType]]} {[]}
+","registeredResidentIdentification","Enligt formatregler i meddelandemodellen","TKB-fält: `engagementTransaction .engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.registeredResidentIdentification",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.serviceDomain","update-request.engagementTransaction.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","serviceDomain","Namnrymd för Tjänstedomän
+
+exempel:
+
+urn:riv:clinicalprocess:activity:request","TKB-fält: `engagementTransaction .engagement.serviceDomain` (`URN`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.serviceDomain",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.categorization","update-request.engagementTransaction.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","categorization","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.categorization` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.categorization",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.logicalAddress","update-request.engagementTransaction.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.logicalAddress` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.logicalAddress",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","businessObjectInstanceIdentifier","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.clinicalProcessInterestId","update-request.engagementTransaction.engagement.clinicalProcessInterestId","","","",1,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.clinicalProcess InterestId` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.clinicalProcessInterestId",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.mostRecentContent","update-request.engagementTransaction.engagement.mostRecentContent","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","mostRecentContent","Enligt tjänstedomänens dokumentation.","TKB-fält: `engagementTransaction .engagement.mostRecentContent` (`TS`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.mostRecentContent",0,1,"",""
+"update-request","update-request.engagementTransaction.engagement.sourceSystem","update-request.engagementTransaction.engagement.sourceSystem","","","",1,1,"","","","string {[]} {[]}
+","sourceSystem","Källsystemet som innehåller den information som EI-posten pekar ut.
+
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.","TKB-fält: `engagementTransaction .engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.sourceSystem",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.creationTime","update-request.engagementTransaction.engagement.creationTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","creationTime","creationTime","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.creationTime",0,1,"",""
+"update-request","update-request.engagementTransaction.engagement.updateTime","update-request.engagementTransaction.engagement.updateTime","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS]]} {[]}
+","updateTime","updateTime","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.updateTime",0,1,"",""
+"update-request","update-request.engagementTransaction.engagement.dataController","update-request.engagementTransaction.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","dataController","Identitet för den PUA som ansvarar för postens innehåll.
+
+I första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)
+
+Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex.","TKB-fält: `engagementTransaction .engagement.dataController` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.dataController",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.owner","update-request.engagementTransaction.engagement.owner","","","",0,1,"","","","string {[]} {[]}
+","owner","owner","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.owner",0,1,"",""
+"update","update","update","","","",0,*,"","","","null {[]} {[]}
+","Update","Logisk modell för tjänstekontraktet Update
+(RIV-TA urn:riv:itintegration:engagementindex:Update:1).
+Representerar responsens informationsstruktur — ett statusbesked
+som anger om uppdateringsoperationen lyckades eller misslyckades.
+
+Kontraktet används av källsystem för att skapa, uppdatera och radera
+indexposter i ett engagemangsindex.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"update","update.ResultCode","update.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","Status enligt generell regel.","TKB-fält: `ResultCode` (`Kodverk`, kardinalitet 1..1).
+
+**Modellanteckning:** ResultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,,,,"",,,,"update.ResultCode",1,1,"",""
+"update","update.comment","update.comment","","","",0,1,"","","","string {[]} {[]}
+","comment","Meddelande enligt generell regel","TKB-fält: `comment` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"update.comment",0,1,"",""

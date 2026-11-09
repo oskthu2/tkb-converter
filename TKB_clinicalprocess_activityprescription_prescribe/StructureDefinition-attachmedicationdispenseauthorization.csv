@@ -1,0 +1,25 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"attachmedicationdispenseauthorization","attachmedicationdispenseauthorization","","","",0,*,"","","","null {[]} {[]}
+","AttachMedicationDispenseAuthorization","Logisk modell för tjänstekontraktet AttachMedicationDispenseAuthorization
+(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:AttachMedicationDispenseAuthorization:2).
+Representerar responsens informationsstruktur — kopplar ett expedieringsunderlag till en ordination.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"attachmedicationdispenseauthorization.medicationListVersion","attachmedicationdispenseauthorization.medicationListVersion","","","",1,1,"","","","Identifier {[]} {[]}
+","medicationListVersion","Version på patientens samlade läkemedelslista.
+
+Se kapitel 5.2 för exempel och regler kring format.","TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.medicationListVersion",1,1,"",""
+"attachmedicationdispenseauthorization.result","attachmedicationdispenseauthorization.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.result",1,1,"",""
+"attachmedicationdispenseauthorization.result.resultCode","attachmedicationdispenseauthorization.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.result.resultCode",1,1,"",""
+"attachmedicationdispenseauthorization.result.errorCode","attachmedicationdispenseauthorization.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.result.errorCode",0,1,"",""
+"attachmedicationdispenseauthorization.result.subcode","attachmedicationdispenseauthorization.result.subcode","","","",0,1,"","","","code {[]} {[]}
+","subcode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.result.subcode",0,1,"",""
+"attachmedicationdispenseauthorization.result.logId","attachmedicationdispenseauthorization.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.result.logId",1,1,"",""
+"attachmedicationdispenseauthorization.result.message","attachmedicationdispenseauthorization.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"attachmedicationdispenseauthorization.result.message",0,1,"",""

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:masterdata:citizen:patient:enums:1"
+    targetNamespace="urn:riv:masterdata:citizen:patient:enums:1"
+    elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+
+    <xs:simpleType name="ResultCodeEnumType">
+        <xs:annotation>
+            <xs:documentation>
+                OK - transaktionen har utförts enligt uppdraget i
+                frågemeddelandet. 
+                
+                INFO - transaktionen har utförts enligt uppdraget
+                i frågemeddelandet, men det finns ett meddelande som
+                tjänstekonsumenten måste visa upp för invånaren. 
+                Exempel på detta kan vara ”medtag legitimation vid besöket”. 
+                
+                ERROR - transaktionen
+                har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a.
+                logiskt fel. Det finns ett meddelande som konsumenten måste visa
+                upp. 
+                Exempel på detta kan vara ”ditt svar gick inte att hantera pga XXX”.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK"></xs:enumeration>
+            <xs:enumeration value="ERROR"></xs:enumeration>
+            <xs:enumeration value="INFO"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="TypeOfTelecomPatientEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för typ av kontakt.
+                Tillåtna värden från kodverk kv_tele_ekom_typ_13_v1.1 (1.2.752.129.2.2.1.30)
+                Utläst 2015-09-28 från: https://www.socialstyrelsen.se/SiteCollectionDocuments/kodverk-v-tim-2-2.xls
+
+                UNDANTAG: kod med värde 6 (hemsida) ska inte användas för detta tjänstekontrakt och är därför borttagen.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>telefon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>fax</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>mobiltelefon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation>personsökare</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>epost</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeOfTelecomContactPersonEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för typ av kontakt.
+                Tillåtna värden från kodverk kv_tele_ekom_typ_13_v1.1 (1.2.752.129.2.2.1.30)
+                Utläst 2015-09-28 från: https://www.socialstyrelsen.se/SiteCollectionDocuments/kodverk-v-tim-2-2.xls
+                UNDANTAG: kod med värde 5 (epost) skall inte användas för kontaktpersoner i den här versionen av tjänstekontraktet.
+                UNDANTAG: kod med värde 6 (hemsida) ska inte användas för detta tjänstekontrakt och är därför borttagen.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>telefon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>fax</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>mobiltelefon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation>personsökare</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>    
+    
+    
+    <xs:simpleType name="TypeOfContactEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för typ av kontakt.
+                Tillåtna värden från kodverk kv_tele_ekomkontakttyp_47_v1.1 (1.2.752.129.2.2.1.29)
+                Utläst 2015-09-28 från: https://www.socialstyrelsen.se/SiteCollectionDocuments/kodverk-v-tim-2-2.xls
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>privat</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>arbete</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeOfContactRelationEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Tjänstekontraktet kommer att tillåta och förmedla alla koderna för alla definierade kodverk som anger typ av kontaktrelation.
+                Vår rekommendation vid tillämpning av tjänstekontraktet är att för patienten visa upp de tre nuvarande kodverken i följande prioriteringsordning:
+                1. Släkt relation (OID 1.2.752.129.2.2.1.24)
+                2. Närstående relation (OID 1.2.752.129.2.2.1.8)
+                3. Företrädare (OID 1.2.752.129.2.2.1.23)
+                Detta eftersom de i denna ordning ger den mest specifika informationen om typ av relation. Se arkitekturellt beslut AB-2.6
+            </xs:documentation>
+        </xs:annotation>
+        <xs:union
+            memberTypes="tns:TypeOfRelativeEnum tns:TypeOfCloseRelationEnum tns:TypeOfRepresentativeEnum"
+        />
+    </xs:simpleType>
+        
+    <xs:simpleType name="TypeOfContactRelationCodeSystemEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Tjänstekontraktet kommer att tillåta och förmedla alla koderna för alla definierade kodverk som anger typ av kontaktrelation.
+                Vår rekommendation vid tillämpning av tjänstekontraktet är att för patienten visa upp de tre nuvarande kodverken i följande prioriteringsordning:
+                1. Släkt relation (OID 1.2.752.129.2.2.1.24)
+                2. Närstående relation (OID 1.2.752.129.2.2.1.8)
+                3. Företrädare (OID 1.2.752.129.2.2.1.23)
+                Detta eftersom de i denna ordning ger den mest specifika informationen om typ av relation. Se arkitekturellt beslut AB-2.6                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1.2.752.129.2.2.1.24">
+                <xs:annotation>
+                    <xs:documentation>Släktrelation</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1.2.752.129.2.2.1.8">
+                <xs:annotation>
+                    <xs:documentation>Närståenderelation</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="1.2.752.129.2.2.1.23">
+                <xs:annotation>
+                    <xs:documentation>Företrädare</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>            
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeOfRelativeEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för typ av släktrelation.
+                Tillåtna värden från kodverk kv_släktrelation_12_v1.0 (1.2.752.129.2.2.1.24)
+                Utläst 2015-09-28 från: https://www.socialstyrelsen.se/SiteCollectionDocuments/kodverk-v-tim-2-2.xls
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>mor</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>far</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>son</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation>dotter</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>syster</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="6">
+                <xs:annotation>
+                    <xs:documentation>bror</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="7">
+                <xs:annotation>
+                    <xs:documentation>farmor</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="8">
+                <xs:annotation>
+                    <xs:documentation>mormor</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="9">
+                <xs:annotation>
+                    <xs:documentation>farfar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="10">
+                <xs:annotation>
+                    <xs:documentation>morfar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="11">
+                <xs:annotation>
+                    <xs:documentation>barnbarn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:documentation>barnbarnsbarn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="13">
+                <xs:annotation>
+                    <xs:documentation>moster/morbror</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="14">
+                <xs:annotation>
+                    <xs:documentation>faster/farbror</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="15">
+                <xs:annotation>
+                    <xs:documentation>kusin</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeOfCloseRelationEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för typ av närståenderelation.
+                Tillåtna värden från kv_närståenderelation_11_v1.0 (1.2.752.129.2.2.1.8)
+                Utläst 2015-09-28 från: https://www.socialstyrelsen.se/SiteCollectionDocuments/kodverk-v-tim-2-2.xls
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>make/maka</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>partner</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>sambo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation>barn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>förälder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="6">
+                <xs:annotation>
+                    <xs:documentation>syskon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="7">
+                <xs:annotation>
+                    <xs:documentation>svärson/svärdotter</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="8">
+                <xs:annotation>
+                    <xs:documentation>barnbarn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="9">
+                <xs:annotation>
+                    <xs:documentation>mor/farförälder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="10">
+                <xs:annotation>
+                    <xs:documentation>granne</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="11">
+                <xs:annotation>
+                    <xs:documentation>arbetskamrat</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:documentation>vän</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="13">
+                <xs:annotation>
+                    <xs:documentation>övrig närstående</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="14">
+                <xs:annotation>
+                    <xs:documentation>adoptivbarn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="15">
+                <xs:annotation>
+                    <xs:documentation>adoptivförälder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="16">
+                <xs:annotation>
+                    <xs:documentation>styvbarn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="17">
+                <xs:annotation>
+                    <xs:documentation>styvförälder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="18">
+                <xs:annotation>
+                    <xs:documentation>fosterbarn</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="19">
+                <xs:annotation>
+                    <xs:documentation>fosterförälder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeOfRepresentativeEnum">
+        <xs:annotation>
+            <xs:documentation>
+                Kod för typ av företrädare.
+                Tillåtna värden från kv_företrädare_8_v1.0 (1.2.752.129.2.2.1.23)
+                Utläst 2015-09-28 från: https://www.socialstyrelsen.se/SiteCollectionDocuments/kodverk-v-tim-2-2.xls
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        vårdnadshavare - förälder eller av domstol särskilt utsedd person som har att utöva vårdnaden om ett barn
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>förmyndare - person som utövar förmynderskap</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="3">
+                <xs:annotation>
+                    <xs:documentation>ombud - person som har fullmakt att föra talan för annan person eller grupp och bevaka personens eller gruppens intressen</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="4">
+                <xs:annotation>
+                    <xs:documentation>god man - person som är utsedd att företräda en viss person som på grund av sjukdom, psykisk störning, 
+                        försvagat hälsotillstånd eller liknande förhållande behöver hjälp med att bevaka sin rätt, 
+                        förvalta sin egendom eller sörja för sin person utan att dennes rättshandlingsförmåga begränsas</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="5">
+                <xs:annotation>
+                    <xs:documentation>förvaltare - person som är utsedd att företräda en viss person som är ur stånd att vårda sig själv eller 
+                        sin egendom och där dennes rättshandlingsförmåga är begränsad</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>    
+   
+</xs:schema>

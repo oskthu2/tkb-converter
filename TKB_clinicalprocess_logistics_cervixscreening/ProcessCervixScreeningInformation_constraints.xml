@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<iso:schema
+        xmlns="http://purl.oclc.org/dsdl/schematron"
+        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+        queryBinding='xslt2'
+        schemaVersion='ISO19757-3'>
+
+    <iso:title>Validation for ProcesCervixScreeningInformation</iso:title>
+    <iso:ns prefix='urn' uri='urn:riv:clinicalprocess:logistics:ProcesCervixInformationResponder:1'/>
+
+    <!-- Rules for Response -->
+	
+	<iso:pattern id="Verify ProcesCervixScreeningInformation Response">
+        <iso:rule context="urn:ProcessCervixScreeningInformationResponse">
+			<assert test="(urn:resultCode = 'OK' or count(urn:resultText) = 1)">resultText must be given when resultCode is ERROR or INFO</assert>
+        </iso:rule>
+    </iso:pattern>
+	
+</iso:schema>

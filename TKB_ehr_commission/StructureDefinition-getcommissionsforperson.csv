@@ -1,0 +1,48 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcommissionsforperson","getcommissionsforperson","","","",0,*,"","","","null {[]} {[]}
+","GetCommissionsForPerson","Logisk modell för tjänstekontraktet GetCommissionsForPerson
+(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).
+Representerar responsens informationsstruktur (GetCommissionsForPersonResult).
+
+Tjänsten hämtar alla medarbetaruppdrag som personen är kopplad till,
+returnerar det senast valda uppdraget och anger om ett uppdrag valts
+inom de senaste 12 timmarna.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType","getcommissionsforperson.GetCommissionsForPersonResultType","","","",1,1,"","","","Base {[]} {[]}
+","GetCommissionsForPersonResultType","GetCommissionsForPersonResultType","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType",1,1,"","getcommissions-careprovider-xor:Antingen healthCareProviderHsaId eller healthCareProviderName ska anges {Commissions.HealthCareProviderHsaId.exists() or Commissions.HealthCareProviderName.exists()}
+"
+"getcommissionsforperson.GetCommissionsForPersonResultType.Result","getcommissionsforperson.GetCommissionsForPersonResultType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Result",1,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultCode","getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-commission/ValueSet/resultcode-vs","",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultCode",1,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultText","getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Result.ResultText",1,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.LastSelectedCommissionHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.LastSelectedCommissionHsaId","","","",0,1,"","","","string {[]} {[]}
+","LastSelectedCommissionHsaId","LastSelectedCommissionHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.LastSelectedCommissionHsaId",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.SelectionPerformed","getcommissionsforperson.GetCommissionsForPersonResultType.SelectionPerformed","","","",0,1,"","","","boolean {[]} {[]}
+","SelectionPerformed","SelectionPerformed","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.SelectionPerformed",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions","","","",0,*,"","","","Base {[]} {[]}
+","CommissionType","Commissions","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions",0,*,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionHsaId","","","",1,1,"","","","string {[]} {[]}
+","CommissionHsaId","CommissionHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionHsaId",1,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionName","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionName","","","",1,1,"","","","string {[]} {[]}
+","CommissionName","CommissionName","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionName",1,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionPurpose","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionPurpose","","","",1,1,"","","","string {[]} {[]}
+","CommissionPurpose","CommissionPurpose","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.CommissionPurpose",1,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitHsaId","","","",0,1,"","","","string {[]} {[]}
+","HealthCareUnitHsaId","HealthCareUnitHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitHsaId",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitName","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitName","","","",0,1,"","","","string {[]} {[]}
+","HealthCareUnitName","HealthCareUnitName","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitName",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitStartDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareUnitStartDate","HealthCareUnitStartDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitStartDate",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitEndDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareUnitEndDate","HealthCareUnitEndDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareUnitEndDate",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderHsaId","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderHsaId","","","",0,1,"","","","string {[]} {[]}
+","HealthCareProviderHsaId","HealthCareProviderHsaId","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderHsaId",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderName","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderName","","","",0,1,"","","","string {[]} {[]}
+","HealthCareProviderName","HealthCareProviderName","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderName",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderOrgNo","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderOrgNo","","","",0,1,"","","","string {[]} {[]}
+","HealthCareProviderOrgNo","HealthCareProviderOrgNo","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderOrgNo",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderStartDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareProviderStartDate","HealthCareProviderStartDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderStartDate",0,1,"",""
+"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderEndDate","getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","HealthCareProviderEndDate","HealthCareProviderEndDate","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.GetCommissionsForPersonResultType.Commissions.HealthCareProviderEndDate",0,1,"",""

@@ -1,0 +1,34 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getinfologs","getinfologs","","","",0,*,"","","","null {[]} {[]}
+","GetInfoLogs — Response","Logisk modell för svaret i GetInfoLogs
+(urn:riv:informationsecurity:auditing:log:GetInfoLogsResponder:2, GetInfoLogsResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getinfologs.infoLogsResult","getinfologs.infoLogsResult","","","",1,1,"","","","Base {[]} {[]}
+","InfoLogsResultType","Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK.
+
+Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.","TKB-fält: `infoLogsResult` (`urn:riv:informationsecurity:auditing:log:2:InfoLogsResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult",1,1,"",""
+"getinfologs.infoLogsResult.reportResult","getinfologs.infoLogsResult.reportResult","","","",1,1,"","","","Base {[]} {[]}
+","ReportResultType","reportResult","TKB-fält: `../reportResult` (`ReportResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult",1,1,"",""
+"getinfologs.infoLogsResult.reportResult.result","getinfologs.infoLogsResult.reportResult.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.","TKB-fält: `../../result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult.result",1,1,"",""
+"getinfologs.infoLogsResult.reportResult.result.resultCode","getinfologs.infoLogsResult.reportResult.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","TKB-fält: `../../../resultCode` (`ResultCodeType`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, INFO, ERROR, VALIDATION_ERROR, ACCESSDENIED, REPORT_ON_QUEUE, REPORT_IN_PROCESS, REPORT_NOT_FOUND, MAX_QUERY_RESULT_EXCEEDED.","","","","","","","","",,"required","","https://fhir.inera.se/ig/informationsecurity-auditing-log/ValueSet/auditing-log-resultcode-vs","",,,,"getinfologs.infoLogsResult.reportResult.result.resultCode",1,1,"",""
+"getinfologs.infoLogsResult.reportResult.result.resultText","getinfologs.infoLogsResult.reportResult.result.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","resultText","TKB-fält: `../../../resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult.result.resultText",0,1,"",""
+"getinfologs.infoLogsResult.reportResult.startInterval","getinfologs.infoLogsResult.reportResult.startInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","startInterval","startInterval","TKB-fält: `../../startInterval` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult.startInterval",0,1,"",""
+"getinfologs.infoLogsResult.reportResult.endInterval","getinfologs.infoLogsResult.reportResult.endInterval","","","",0,1,"","","","dateTime {[]} {[]}
+","endInterval","endInterval","TKB-fält: `../../endInterval` (`dateTime`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult.endInterval",0,1,"",""
+"getinfologs.infoLogsResult.reportResult.queuedReportId","getinfologs.infoLogsResult.reportResult.queuedReportId","","","",0,1,"","","","string {[]} {[]}
+","queuedReportId","queuedReportId","TKB-fält: `../../queuedReportId` (`Id`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult.queuedReportId",0,1,"",""
+"getinfologs.infoLogsResult.reportResult.queueTime","getinfologs.infoLogsResult.reportResult.queueTime","","","",0,1,"","","","integer {[]} {[]}
+","queueTime","queueTime","TKB-fält: `../../queueTime` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.reportResult.queueTime",0,1,"",""
+"getinfologs.infoLogsResult.careProviders","getinfologs.infoLogsResult.careProviders","","","",0,1,"","","","Base {[]} {[]}
+","CareProvidersType","Datatyp som håller lista med vårdgivare. Kan vara en tom lista.","TKB-fält: `../careProviders` (`CareProvidersType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.careProviders",0,1,"",""
+"getinfologs.infoLogsResult.careProviders.careProvider","getinfologs.infoLogsResult.careProviders.careProvider","","","",0,*,"","","","Base {[]} {[]}
+","CareProviderType","Datatyp som representerar en vårdgivare.","TKB-fält: `../../careProvider` (`CareProviderType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.careProviders.careProvider",0,*,"",""
+"getinfologs.infoLogsResult.careProviders.careProvider.careProviderId","getinfologs.infoLogsResult.careProviders.careProvider.careProviderId","","","",1,1,"","","","string {[]} {[]}
+","careProviderId","careProviderId","TKB-fält: `../../../careProviderId` (`HsaId`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.careProviders.careProvider.careProviderId",1,1,"",""
+"getinfologs.infoLogsResult.careProviders.careProvider.careProviderName","getinfologs.infoLogsResult.careProviders.careProvider.careProviderName","","","",0,1,"","","","string {[]} {[]}
+","careProviderName","careProviderName","TKB-fält: `../../../careProviderName` (`CareProviderName`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getinfologs.infoLogsResult.careProviders.careProvider.careProviderName",0,1,"",""

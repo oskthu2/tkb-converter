@@ -1,0 +1,16 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcaremanagers-request","getcaremanagers-request","","","",0,*,"","","","null {[]} {[]}
+","GetCareManagers — Request","Logisk modell för begäran i GetCareManagers
+(urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcaremanagers-request.patientId","getcaremanagers-request.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","PatientId för patient vars fasta kontakter ska hämtas","TKB-fält: `patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcaremanagers-request.patientId",1,1,"",""
+"getcaremanagers-request.careGiverId","getcaremanagers-request.careGiverId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careGiverId","Frivilligt fält för filtrering av svar baserat på given vårdgivare. Sätts till HSAId för vårdgivaren.","TKB-fält: `careGiverId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaremanagers-request.careGiverId",0,1,"",""
+"getcaremanagers-request.careUnitId","getcaremanagers-request.careUnitId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careUnitId","Frivilligt fält för filtrering av svar baserat på given vårdenhet. Sätts till HSAId för vårdenheten.","TKB-fält: `careUnitId` (`HSAIdType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaremanagers-request.careUnitId",0,1,"",""
+"getcaremanagers-request.careManagerType","getcaremanagers-request.careManagerType","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","careManagerType","Kod för att filtrera svaret, baserat på typ av fast kontakt. Se referens R7 – kodverk för Fasta kontakter. Konsument begär filtrering genom att ange vilken typ av fast kontakt i fältet careManagerType.code samt anger careManagerType.codeSystem = ” 1.2.752.129.5.1.69”. Övriga fält i careManagerType kan utelämnas.","TKB-fält: `careManagerType` (`CVType`, kardinalitet 0..1).
+
+Obs: modellen anger 0..* där TKB:n anger 0..1.","","","","","","","","",,,,,"",,,,"getcaremanagers-request.careManagerType",0,*,"",""
+"getcaremanagers-request.careProcessId","getcaremanagers-request.careProcessId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careProcessId","Unik identifierare för filtrering av svaret baserat på specifikt hälsoärende","TKB-fält: `careProcessId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcaremanagers-request.careProcessId",0,1,"",""

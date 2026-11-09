@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="getcarecontacts"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureDefinition getcarecontacts</b></p><table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance">Card.</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts" title="Logisk modell för tjänstekontraktet GetCareContacts
+(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).
+Representerar responsens informationsstruktur (GetCareContactsResponseType).
+En lista med CareContactType returneras, var och en med ett header och ett body.">getcarecontacts</a><a name="getcarecontacts"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">*</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://build.fhir.org/types.html#Base">Base</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">GetCareContacts<br/><span style="font-weight:bold">Instances of this type can be the target of a Reference</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact" title="De vårdkontakter som matchar begäran.">careContact</a><a name="getcarecontacts.careContact"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">CareContactType<br/></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck111.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader" title="Innehåller basinformation om dokumentet">careContactHeader</a><a name="getcarecontacts.careContact.careContactHeader"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">PatientSummaryHeaderType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.documentId" title="Vårdkontaktens identitet som är unik inom källsystemet.
+
+Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
+
+Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.">documentId</a><a name="getcarecontacts.careContact.careContactHeader.documentId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.sourceSystemHSAId" title="HSA-id för det system som dokumentet är skapat i.">sourceSystemHSAId</a><a name="getcarecontacts.careContact.careContactHeader.sourceSystemHSAId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-HSAIdType.html" title="string">HSAIdType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">sourceSystemHSAId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.documentTitle" title="Ska ej anges">documentTitle</a><a name="getcarecontacts.careContact.careContactHeader.documentTitle"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentTitle</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.documentTime" title="Ska ej anges">documentTime</a><a name="getcarecontacts.careContact.careContactHeader.documentTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimeStampType.html" title="string">TimeStampType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">documentTime</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.patientId" title="Id för patienten.">patientId</a><a name="getcarecontacts.careContact.careContactHeader.patientId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-PersonIdType.html">PersonIdType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">patientId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional" title="Hälso- och sjukvårdspersonalen som ansvarar för vårdkontakten.">accountableHealthcareProfessional</a><a name="getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-HealthcareProfessionalType.html">HealthcareProfessionalType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">accountableHealthcareProfessional</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1111.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.legalAuthenticator" title="Ska ej anges.">legalAuthenticator</a><a name="getcarecontacts.careContact.careContactHeader.legalAuthenticator"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">LegalAuthenticatorType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime" title="signatureTime">signatureTime</a><a name="getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimeStampType.html" title="string">TimeStampType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">signatureTime</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId" title="legalAuthenticatorHSAId">legalAuthenticatorHSAId</a><a name="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-HSAIdType.html" title="string">HSAIdType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">legalAuthenticatorHSAId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName" title="legalAuthenticatorName">legalAuthenticatorName</a><a name="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">legalAuthenticatorName</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.approvedForPatient" title="Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.
+
+Regel: Regel 3">approvedForPatient</a><a name="getcarecontacts.careContact.careContactHeader.approvedForPatient"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">approvedForPatient</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.nullified" title="nullified">nullified</a><a name="getcarecontacts.careContact.careContactHeader.nullified"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">nullified</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.nullifiedReason" title="nullifiedReason">nullifiedReason</a><a name="getcarecontacts.careContact.careContactHeader.nullifiedReason"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">nullifiedReason</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactHeader.careContactId" title="Ska ej anges.">careContactId</a><a name="getcarecontacts.careContact.careContactHeader.careContactId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck101.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody" title="careContactBody">careContactBody</a><a name="getcarecontacts.careContact.careContactBody"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">CareContactBodyType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.careContactCode" title="Kod som anger på vilket sätt vårdkontakten är planerad att ske, alternativt skedde. KV Vårdkontakttyp (1.2.752.129.2.2.2.25) ska användas. Se referens [R6].
+
+Utelämnat värde betyder att värdet är okänt.">careContactCode</a><a name="getcarecontacts.careContact.careContactBody.careContactCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-CVType.html">CVType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.careContactReason" title="Text som beskriver orsaken till vårdkontakt som patienten själv eller dess företrädare anger.">careContactReason</a><a name="getcarecontacts.careContact.careContactBody.careContactReason"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactReason</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.careContactOrgUnit" title="Den enhet som vårdkontakten utfördes vid eller planeras utföras vid.
+
+Regel: Regel 5">careContactOrgUnit</a><a name="getcarecontacts.careContact.careContactBody.careContactOrgUnit"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-OrgUnitType.html">OrgUnitType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactOrgUnit</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.careContactTimePeriod" title="Tidsintervall för vårdkontakt. Vid besök i öppenvård sätts careContactTimePeriod.start och careContactTimePeriod.end till samma tidpunkt (besökets startidpunkt).">careContactTimePeriod</a><a name="getcarecontacts.careContact.careContactBody.careContactTimePeriod"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdf4f4;; padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdf4f4;" href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( getcarecontacts-timeperiod-start-or-end )">C</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-TimePeriodType.html">TimePeriodType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactTimePeriod<br class="constraint"/><span title="null" class="constraint">Constraints: </span><span style="font-weight:bold" title="Minst ett av start och end ska anges i careContactTimePeriod." class="constraint">getcarecontacts-timeperiod-start-or-end</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.careContactStatus" title="Kod som anger aktuell status för vårdkontakten.
+
+Kodverket är definierat i SNOMED CT-SE med SCTID: 53761000052103 (Snomed CT finns tillgängligt via R11 där man kan se de publicerade koderna som är refererade)">careContactStatus</a><a name="getcarecontacts.careContact.careContactBody.careContactStatus"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-CVType.html">CVType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">careContactStatus</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1001.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.additionalPatientInformation" title="Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning.">additionalPatientInformation</a><a name="getcarecontacts.careContact.careContactBody.additionalPatientInformation"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">AdditionalPatientInformationType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth" title="Patientens födelsedatum.">dateOfBirth</a><a name="getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-PartialDateType.html">PartialDateType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">dateOfBirth</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_resource.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Resource" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender" title="Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas. Se referens [R6].">gender</a><a name="getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://oskthu2.github.io/tkb-converter/rivta-datatyper/StructureDefinition-CVType.html">CVType</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">gender</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.result" title="Innehåller information om begäran gick bra eller ej.">result</a><a name="getcarecontacts.result"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">ResultType</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.result.resultCode" title="Kan endast vara OK, INFO eller ERROR">resultCode</a><a name="getcarecontacts.result.resultCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">resultCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.result.errorCode" title="Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.">errorCode</a><a name="getcarecontacts.result.errorCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">errorCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.result.logId" title="En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.">logId</a><a name="getcarecontacts.result.logId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">logId</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.result.subCode" title="Inga subkoder är specificerade.">subCode</a><a name="getcarecontacts.result.subCode"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">subCode</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-getcarecontacts-definitions.html#getcarecontacts.result.message" title="En beskrivande text som kan visas för användaren.">message</a><a name="getcarecontacts.result.message"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">message</td></tr>
+<tr><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics">
+    <valueCode value="can-be-target"/>
+  </extension>
+  <url value="https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts"/>
+  <version value="3.0"/>
+  <name value="GetCareContacts"/>
+  <title value="GetCareContacts"/>
+  <status value="active"/>
+  <date value="2026-11-09T03:24:16+00:00"/>
+  <contact>
+    <name value="Inera Arkitektur"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Logisk modell för tjänstekontraktet GetCareContacts&#xA;(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).&#xA;Representerar responsens informationsstruktur (GetCareContactsResponseType).&#xA;En lista med CareContactType returneras, var och en med ett header och ett body."/>
+  <copyright value="Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."/>
+  <fhirVersion value="4.0.1"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Base"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version">
+      <valueString value="4.0.1"/>
+    </extension>
+    <element id="getcarecontacts">
+      <path value="getcarecontacts"/>
+      <short value="GetCareContacts"/>
+      <definition value="Logisk modell för tjänstekontraktet GetCareContacts&#xA;(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).&#xA;Representerar responsens informationsstruktur (GetCareContactsResponseType).&#xA;En lista med CareContactType returneras, var och en med ett header och ett body."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Base"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+    <element id="getcarecontacts.careContact">
+      <path value="getcarecontacts.careContact"/>
+      <short value="CareContactType"/>
+      <definition value="De vårdkontakter som matchar begäran."/>
+      <comment value="TKB-fält: `careContact` (`CareContactType`, kardinalitet 0..*)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="getcarecontacts.careContact"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader">
+      <path value="getcarecontacts.careContact.careContactHeader"/>
+      <short value="PatientSummaryHeaderType"/>
+      <definition value="Innehåller basinformation om dokumentet"/>
+      <comment value="TKB-fält: `../careContactHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.documentId">
+      <path value="getcarecontacts.careContact.careContactHeader.documentId"/>
+      <short value="documentId"/>
+      <definition value="Vårdkontaktens identitet som är unik inom källsystemet.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen."/>
+      <comment value="TKB-fält: `../../documentId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.documentId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.sourceSystemHSAId">
+      <path value="getcarecontacts.careContact.careContactHeader.sourceSystemHSAId"/>
+      <short value="sourceSystemHSAId"/>
+      <definition value="HSA-id för det system som dokumentet är skapat i."/>
+      <comment value="TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.sourceSystemHSAId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.documentTitle">
+      <path value="getcarecontacts.careContact.careContactHeader.documentTitle"/>
+      <short value="documentTitle"/>
+      <definition value="Ska ej anges"/>
+      <comment value="TKB-fält: `../../documentTitle` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.documentTitle"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.documentTime">
+      <path value="getcarecontacts.careContact.careContactHeader.documentTime"/>
+      <short value="documentTime"/>
+      <definition value="Ska ej anges"/>
+      <comment value="TKB-fält: `../../documentTime` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.documentTime"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.patientId">
+      <path value="getcarecontacts.careContact.careContactHeader.patientId"/>
+      <short value="patientId"/>
+      <definition value="Id för patienten."/>
+      <comment value="TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.patientId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional">
+      <path value="getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional"/>
+      <short value="accountableHealthcareProfessional"/>
+      <definition value="Hälso- och sjukvårdspersonalen som ansvarar för vårdkontakten."/>
+      <comment value="TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator"/>
+      <short value="LegalAuthenticatorType"/>
+      <definition value="Ska ej anges."/>
+      <comment value="TKB-fält: `../../legalAuthenticator` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime"/>
+      <short value="signatureTime"/>
+      <definition value="signatureTime"/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId"/>
+      <short value="legalAuthenticatorHSAId"/>
+      <definition value="legalAuthenticatorHSAId"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName"/>
+      <short value="legalAuthenticatorName"/>
+      <definition value="legalAuthenticatorName"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.approvedForPatient">
+      <path value="getcarecontacts.careContact.careContactHeader.approvedForPatient"/>
+      <short value="approvedForPatient"/>
+      <definition value="Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.&#xA;&#xA;Regel: Regel 3"/>
+      <comment value="TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.approvedForPatient"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.nullified">
+      <path value="getcarecontacts.careContact.careContactHeader.nullified"/>
+      <short value="nullified"/>
+      <definition value="nullified"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.nullified"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.nullifiedReason">
+      <path value="getcarecontacts.careContact.careContactHeader.nullifiedReason"/>
+      <short value="nullifiedReason"/>
+      <definition value="nullifiedReason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.nullifiedReason"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.careContactId">
+      <path value="getcarecontacts.careContact.careContactHeader.careContactId"/>
+      <short value="careContactId"/>
+      <definition value="Ska ej anges."/>
+      <comment value="TKB-fält: `../../careContactId` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactHeader.careContactId"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody">
+      <path value="getcarecontacts.careContact.careContactBody"/>
+      <short value="CareContactBodyType"/>
+      <definition value="careContactBody"/>
+      <comment value="TKB-fält: `../careContactBody` (`CareContactBodyType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactCode">
+      <path value="getcarecontacts.careContact.careContactBody.careContactCode"/>
+      <short value="careContactCode"/>
+      <definition value="Kod som anger på vilket sätt vårdkontakten är planerad att ske, alternativt skedde. KV Vårdkontakttyp (1.2.752.129.2.2.2.25) ska användas. Se referens [R6].&#xA;&#xA;Utelämnat värde betyder att värdet är okänt."/>
+      <comment value="TKB-fält: `../../careContactCode` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.careContactCode"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactReason">
+      <path value="getcarecontacts.careContact.careContactBody.careContactReason"/>
+      <short value="careContactReason"/>
+      <definition value="Text som beskriver orsaken till vårdkontakt som patienten själv eller dess företrädare anger."/>
+      <comment value="TKB-fält: `../../careContactReason` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.careContactReason"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactOrgUnit">
+      <path value="getcarecontacts.careContact.careContactBody.careContactOrgUnit"/>
+      <short value="careContactOrgUnit"/>
+      <definition value="Den enhet som vårdkontakten utfördes vid eller planeras utföras vid.&#xA;&#xA;Regel: Regel 5"/>
+      <comment value="TKB-fält: `../../careContactOrgUnit` (`OrgUnitType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.careContactOrgUnit"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactTimePeriod">
+      <path value="getcarecontacts.careContact.careContactBody.careContactTimePeriod"/>
+      <short value="careContactTimePeriod"/>
+      <definition value="Tidsintervall för vårdkontakt. Vid besök i öppenvård sätts careContactTimePeriod.start och careContactTimePeriod.end till samma tidpunkt (besökets startidpunkt)."/>
+      <comment value="TKB-fält: `../../careContactTimePeriod` (`TimePeriodType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.careContactTimePeriod"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType"/>
+      </type>
+      <constraint>
+        <key value="getcarecontacts-timeperiod-start-or-end"/>
+        <severity value="error"/>
+        <human value="Minst ett av start och end ska anges i careContactTimePeriod."/>
+        <expression value="start.exists() or end.exists()"/>
+        <source value="https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts"/>
+      </constraint>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactStatus">
+      <path value="getcarecontacts.careContact.careContactBody.careContactStatus"/>
+      <short value="careContactStatus"/>
+      <definition value="Kod som anger aktuell status för vårdkontakten.&#xA;&#xA;Kodverket är definierat i SNOMED CT-SE med SCTID: 53761000052103 (Snomed CT finns tillgängligt via R11 där man kan se de publicerade koderna som är refererade)"/>
+      <comment value="TKB-fält: `../../careContactStatus` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.careContactStatus"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.additionalPatientInformation">
+      <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation"/>
+      <short value="AdditionalPatientInformationType"/>
+      <definition value="Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning."/>
+      <comment value="TKB-fält: `../../additionalPatientInformation` (`AdditionalPatientInformationType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth">
+      <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth"/>
+      <short value="dateOfBirth"/>
+      <definition value="Patientens födelsedatum."/>
+      <comment value="TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PartialDateType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender">
+      <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender"/>
+      <short value="gender"/>
+      <definition value="Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas. Se referens [R6]."/>
+      <comment value="TKB-fält: `../../../gender` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result">
+      <path value="getcarecontacts.result"/>
+      <short value="ResultType"/>
+      <definition value="Innehåller information om begäran gick bra eller ej."/>
+      <comment value="TKB-fält: `result` (`ResultType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.result"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.resultCode">
+      <path value="getcarecontacts.result.resultCode"/>
+      <short value="resultCode"/>
+      <definition value="Kan endast vara OK, INFO eller ERROR"/>
+      <comment value="TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.result.resultCode"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.errorCode">
+      <path value="getcarecontacts.result.errorCode"/>
+      <short value="errorCode"/>
+      <definition value="Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information."/>
+      <comment value="TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).&#xA;&#xA;**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.result.errorCode"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.logId">
+      <path value="getcarecontacts.result.logId"/>
+      <short value="logId"/>
+      <definition value="En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."/>
+      <comment value="TKB-fält: `../logId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.result.logId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.subCode">
+      <path value="getcarecontacts.result.subCode"/>
+      <short value="subCode"/>
+      <definition value="Inga subkoder är specificerade."/>
+      <comment value="TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.result.subCode"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.message">
+      <path value="getcarecontacts.result.message"/>
+      <short value="message"/>
+      <definition value="En beskrivande text som kan visas för användaren."/>
+      <comment value="TKB-fält: `../message` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="getcarecontacts.result.message"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="getcarecontacts">
+      <path value="getcarecontacts"/>
+      <short value="GetCareContacts"/>
+      <definition value="Logisk modell för tjänstekontraktet GetCareContacts&#xA;(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).&#xA;Representerar responsens informationsstruktur (GetCareContactsResponseType).&#xA;En lista med CareContactType returneras, var och en med ett header och ett body."/>
+    </element>
+    <element id="getcarecontacts.careContact">
+      <path value="getcarecontacts.careContact"/>
+      <short value="CareContactType"/>
+      <definition value="De vårdkontakter som matchar begäran."/>
+      <comment value="TKB-fält: `careContact` (`CareContactType`, kardinalitet 0..*)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader">
+      <path value="getcarecontacts.careContact.careContactHeader"/>
+      <short value="PatientSummaryHeaderType"/>
+      <definition value="Innehåller basinformation om dokumentet"/>
+      <comment value="TKB-fält: `../careContactHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.documentId">
+      <path value="getcarecontacts.careContact.careContactHeader.documentId"/>
+      <short value="documentId"/>
+      <definition value="Vårdkontaktens identitet som är unik inom källsystemet.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.&#xA;&#xA;Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen."/>
+      <comment value="TKB-fält: `../../documentId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.sourceSystemHSAId">
+      <path value="getcarecontacts.careContact.careContactHeader.sourceSystemHSAId"/>
+      <short value="sourceSystemHSAId"/>
+      <definition value="HSA-id för det system som dokumentet är skapat i."/>
+      <comment value="TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.documentTitle">
+      <path value="getcarecontacts.careContact.careContactHeader.documentTitle"/>
+      <short value="documentTitle"/>
+      <definition value="Ska ej anges"/>
+      <comment value="TKB-fält: `../../documentTitle` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.documentTime">
+      <path value="getcarecontacts.careContact.careContactHeader.documentTime"/>
+      <short value="documentTime"/>
+      <definition value="Ska ej anges"/>
+      <comment value="TKB-fält: `../../documentTime` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.patientId">
+      <path value="getcarecontacts.careContact.careContactHeader.patientId"/>
+      <short value="patientId"/>
+      <definition value="Id för patienten."/>
+      <comment value="TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional">
+      <path value="getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional"/>
+      <short value="accountableHealthcareProfessional"/>
+      <definition value="Hälso- och sjukvårdspersonalen som ansvarar för vårdkontakten."/>
+      <comment value="TKB-fält: `../../accountableHealthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator"/>
+      <short value="LegalAuthenticatorType"/>
+      <definition value="Ska ej anges."/>
+      <comment value="TKB-fält: `../../legalAuthenticator` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.signatureTime"/>
+      <short value="signatureTime"/>
+      <definition value="signatureTime"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorHSAId"/>
+      <short value="legalAuthenticatorHSAId"/>
+      <definition value="legalAuthenticatorHSAId"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        <profile value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName">
+      <path value="getcarecontacts.careContact.careContactHeader.legalAuthenticator.legalAuthenticatorName"/>
+      <short value="legalAuthenticatorName"/>
+      <definition value="legalAuthenticatorName"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.approvedForPatient">
+      <path value="getcarecontacts.careContact.careContactHeader.approvedForPatient"/>
+      <short value="approvedForPatient"/>
+      <definition value="Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.&#xA;&#xA;Regel: Regel 3"/>
+      <comment value="TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.nullified">
+      <path value="getcarecontacts.careContact.careContactHeader.nullified"/>
+      <short value="nullified"/>
+      <definition value="nullified"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.nullifiedReason">
+      <path value="getcarecontacts.careContact.careContactHeader.nullifiedReason"/>
+      <short value="nullifiedReason"/>
+      <definition value="nullifiedReason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactHeader.careContactId">
+      <path value="getcarecontacts.careContact.careContactHeader.careContactId"/>
+      <short value="careContactId"/>
+      <definition value="Ska ej anges."/>
+      <comment value="TKB-fält: `../../careContactId` (kardinalitet 0..0)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody">
+      <path value="getcarecontacts.careContact.careContactBody"/>
+      <short value="CareContactBodyType"/>
+      <definition value="careContactBody"/>
+      <comment value="TKB-fält: `../careContactBody` (`CareContactBodyType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactCode">
+      <path value="getcarecontacts.careContact.careContactBody.careContactCode"/>
+      <short value="careContactCode"/>
+      <definition value="Kod som anger på vilket sätt vårdkontakten är planerad att ske, alternativt skedde. KV Vårdkontakttyp (1.2.752.129.2.2.2.25) ska användas. Se referens [R6].&#xA;&#xA;Utelämnat värde betyder att värdet är okänt."/>
+      <comment value="TKB-fält: `../../careContactCode` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactReason">
+      <path value="getcarecontacts.careContact.careContactBody.careContactReason"/>
+      <short value="careContactReason"/>
+      <definition value="Text som beskriver orsaken till vårdkontakt som patienten själv eller dess företrädare anger."/>
+      <comment value="TKB-fält: `../../careContactReason` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactOrgUnit">
+      <path value="getcarecontacts.careContact.careContactBody.careContactOrgUnit"/>
+      <short value="careContactOrgUnit"/>
+      <definition value="Den enhet som vårdkontakten utfördes vid eller planeras utföras vid.&#xA;&#xA;Regel: Regel 5"/>
+      <comment value="TKB-fält: `../../careContactOrgUnit` (`OrgUnitType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactTimePeriod">
+      <path value="getcarecontacts.careContact.careContactBody.careContactTimePeriod"/>
+      <short value="careContactTimePeriod"/>
+      <definition value="Tidsintervall för vårdkontakt. Vid besök i öppenvård sätts careContactTimePeriod.start och careContactTimePeriod.end till samma tidpunkt (besökets startidpunkt)."/>
+      <comment value="TKB-fält: `../../careContactTimePeriod` (`TimePeriodType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimePeriodType"/>
+      </type>
+      <constraint>
+        <key value="getcarecontacts-timeperiod-start-or-end"/>
+        <severity value="error"/>
+        <human value="Minst ett av start och end ska anges i careContactTimePeriod."/>
+        <expression value="start.exists() or end.exists()"/>
+        <source value="https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts"/>
+      </constraint>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.careContactStatus">
+      <path value="getcarecontacts.careContact.careContactBody.careContactStatus"/>
+      <short value="careContactStatus"/>
+      <definition value="Kod som anger aktuell status för vårdkontakten.&#xA;&#xA;Kodverket är definierat i SNOMED CT-SE med SCTID: 53761000052103 (Snomed CT finns tillgängligt via R11 där man kan se de publicerade koderna som är refererade)"/>
+      <comment value="TKB-fält: `../../careContactStatus` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.additionalPatientInformation">
+      <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation"/>
+      <short value="AdditionalPatientInformationType"/>
+      <definition value="Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning."/>
+      <comment value="TKB-fält: `../../additionalPatientInformation` (`AdditionalPatientInformationType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth">
+      <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation.dateOfBirth"/>
+      <short value="dateOfBirth"/>
+      <definition value="Patientens födelsedatum."/>
+      <comment value="TKB-fält: `../../../dateOfBirth` (`PartialDateType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PartialDateType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender">
+      <path value="getcarecontacts.careContact.careContactBody.additionalPatientInformation.gender"/>
+      <short value="gender"/>
+      <definition value="Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas. Se referens [R6]."/>
+      <comment value="TKB-fält: `../../../gender` (`CVType`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result">
+      <path value="getcarecontacts.result"/>
+      <short value="ResultType"/>
+      <definition value="Innehåller information om begäran gick bra eller ej."/>
+      <comment value="TKB-fält: `result` (`ResultType`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.resultCode">
+      <path value="getcarecontacts.result.resultCode"/>
+      <short value="resultCode"/>
+      <definition value="Kan endast vara OK, INFO eller ERROR"/>
+      <comment value="TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.errorCode">
+      <path value="getcarecontacts.result.errorCode"/>
+      <short value="errorCode"/>
+      <definition value="Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information."/>
+      <comment value="TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).&#xA;&#xA;**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.logId">
+      <path value="getcarecontacts.result.logId"/>
+      <short value="logId"/>
+      <definition value="En UUID som kan användas vid felanmälan för att användas vid felsökning av producent."/>
+      <comment value="TKB-fält: `../logId` (`string`, kardinalitet 1..1)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.subCode">
+      <path value="getcarecontacts.result.subCode"/>
+      <short value="subCode"/>
+      <definition value="Inga subkoder är specificerade."/>
+      <comment value="TKB-fält: `../subcode` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="getcarecontacts.result.message">
+      <path value="getcarecontacts.result.message"/>
+      <short value="message"/>
+      <definition value="En beskrivande text som kan visas för användaren."/>
+      <comment value="TKB-fält: `../message` (`string`, kardinalitet 0..1)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

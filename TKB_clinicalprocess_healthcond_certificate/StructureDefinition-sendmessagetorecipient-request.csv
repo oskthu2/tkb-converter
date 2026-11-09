@@ -1,0 +1,99 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"sendmessagetorecipient-request","sendmessagetorecipient-request","","","",0,*,"","","","null {[]} {[]}
+","SendMessageToRecipient — Request","Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"sendmessagetorecipient-request.meddelande-id","sendmessagetorecipient-request.meddelande-id","","","",1,1,"","","","string {[]} {[]}
+","meddelande-id","Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID.","TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.meddelande-id","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.meddelande-id",1,1,"",""
+"sendmessagetorecipient-request.referens-id","sendmessagetorecipient-request.referens-id","","","",0,1,"","","","string {[]} {[]}
+","referens-id","Valfri referens till entitet hos sändande part. Behöver ej vara unikt.","TKB-fält: `referens-id` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.referens-id","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.referens-id",0,1,"",""
+"sendmessagetorecipient-request.skickatTidpunkt","sendmessagetorecipient-request.skickatTidpunkt","","","",1,1,"","","","dateTime {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType]]} {[]}
+","skickatTidpunkt","Tidpunkt då meddelandet skickades.","TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.avsänt tidpunkt","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatTidpunkt",1,1,"",""
+"sendmessagetorecipient-request.intygs-id","sendmessagetorecipient-request.intygs-id","","","",1,1,"","","","Base {[]} {[]}
+","IntygId","Unikt ID för det intyg som meddelandet hör till.","TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intyg.intygs-id","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.intygs-id",1,1,"",""
+"sendmessagetorecipient-request.patientPerson-id","sendmessagetorecipient-request.patientPerson-id","","","",1,1,"","","","Base {[]} {[]}
+","PersonId","Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.","TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+
+**Mappning DIM:** Patient.person-id","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.patientPerson-id",1,1,"",""
+"sendmessagetorecipient-request.logiskAdressMottagare","sendmessagetorecipient-request.logiskAdressMottagare","","","",1,1,"","","","string {[]} {[]}
+","logiskAdressMottagare","Logisk adress för den intygsmottagare som intygstjänsten ska vidarebefordra meddelandet till.","TKB-fält: `logiskAdressMottagare` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Intygsmottagare.logisk adress","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.logiskAdressMottagare",1,1,"",""
+"sendmessagetorecipient-request.amne","sendmessagetorecipient-request.amne","","","",1,1,"","","","Base {[]} {[]}
+","Amneskod","Kodat värde som anger ämnet för frågan.","TKB-fält: `amne*` (`Amneskod (se 7.2.1)`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.ämne","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.amne",1,1,"",""
+"sendmessagetorecipient-request.rubrik","sendmessagetorecipient-request.rubrik","","","",0,1,"","","","string {[]} {[]}
+","rubrik","En valfri rubrik som beskriver meddelandet.","TKB-fält: `rubrik` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.rubrik","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.rubrik",0,1,"",""
+"sendmessagetorecipient-request.meddelande","sendmessagetorecipient-request.meddelande","","","",1,1,"","","","string {[]} {[]}
+","meddelande","Meddelandets text","TKB-fält: `meddelande` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.meddelande","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.meddelande",1,1,"",""
+"sendmessagetorecipient-request.paminnelseMeddelande-id","sendmessagetorecipient-request.paminnelseMeddelande-id","","","",0,1,"","","","string {[]} {[]}
+","paminnelseMeddelande-id","Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om.","TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.paminnelseMeddelande-id",0,1,"",""
+"sendmessagetorecipient-request.svarPa","sendmessagetorecipient-request.svarPa","","","",0,1,"","","","Base {[]} {[]}
+","MeddelandeReferens","Om detta meddelande är ett svar på en fråga från intygsmottagaren ska referens till frågan skickas","TKB-fält: `svarPa` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.svarPa",0,1,"",""
+"sendmessagetorecipient-request.svarPa.meddelande-id","sendmessagetorecipient-request.svarPa.meddelande-id","","","",1,1,"","","","string {[]} {[]}
+","meddelande-id","meddelande-id","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.svarPa.meddelande-id",1,1,"",""
+"sendmessagetorecipient-request.svarPa.referens-id","sendmessagetorecipient-request.svarPa.referens-id","","","",0,1,"","","","string {[]} {[]}
+","referens-id","referens-id","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.svarPa.referens-id",0,1,"",""
+"sendmessagetorecipient-request.skickatAv","sendmessagetorecipient-request.skickatAv","","","",1,1,"","","","Base {[]} {[]}
+","HosPersonal","Information om den hälso- och sjukvårdspersonal som skickar meddelandet. Anges eftersom det inte behöver vara samma som signerade intyget.","TKB-fält: `skickatAv` (`HosPersonal (se 7.1.4)`, kardinalitet 1..1).
+
+**Mappning DIM:** HoS-personal, Enhet, Vårdgivare","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.personal-id","sendmessagetorecipient-request.skickatAv.personal-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.personal-id",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.fullstandigtNamn","sendmessagetorecipient-request.skickatAv.fullstandigtNamn","","","",1,1,"","","","string {[]} {[]}
+","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.fullstandigtNamn",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.forskrivarkod","sendmessagetorecipient-request.skickatAv.forskrivarkod","","","",0,1,"","","","string {[]} {[]}
+","forskrivarkod","forskrivarkod","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.forskrivarkod",0,1,"",""
+"sendmessagetorecipient-request.skickatAv.befattning","sendmessagetorecipient-request.skickatAv.befattning","","","",0,*,"","","","Base {[]} {[]}
+","Befattning","befattning","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.befattning",0,*,"",""
+"sendmessagetorecipient-request.skickatAv.enhet","sendmessagetorecipient-request.skickatAv.enhet","","","",1,1,"","","","Base {[]} {[]}
+","Enhet","enhet","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.enhets-id","sendmessagetorecipient-request.skickatAv.enhet.enhets-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.enhets-id",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.arbetsplatskod","sendmessagetorecipient-request.skickatAv.enhet.arbetsplatskod","","","",1,1,"","","","Base {[]} {[]}
+","ArbetsplatsKod","o.i.d för arbetsplatskod är 1.2.752.29.4.71","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.arbetsplatskod",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.enhetsnamn","sendmessagetorecipient-request.skickatAv.enhet.enhetsnamn","","","",1,1,"","","","string {[]} {[]}
+","enhetsnamn","enhetsnamn","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.enhetsnamn",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.postadress","sendmessagetorecipient-request.skickatAv.enhet.postadress","","","",1,1,"","","","string {[]} {[]}
+","postadress","postadress","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.postadress",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.postnummer","sendmessagetorecipient-request.skickatAv.enhet.postnummer","","","",1,1,"","","","string {[]} {[]}
+","postnummer","postnummer","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.postnummer",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.postort","sendmessagetorecipient-request.skickatAv.enhet.postort","","","",1,1,"","","","string {[]} {[]}
+","postort","postort","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.postort",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.telefonnummer","sendmessagetorecipient-request.skickatAv.enhet.telefonnummer","","","",1,1,"","","","string {[]} {[]}
+","telefonnummer","telefonnummer","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.telefonnummer",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.epost","sendmessagetorecipient-request.skickatAv.enhet.epost","","","",0,1,"","","","string {[]} {[]}
+","epost","epost","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.epost",0,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.vardgivare","sendmessagetorecipient-request.skickatAv.enhet.vardgivare","","","",1,1,"","","","Base {[]} {[]}
+","Vardgivare","vardgivare","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.vardgivare",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivare-id","sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivare-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivare-id",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivarnamn","sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivarnamn","","","",1,1,"","","","string {[]} {[]}
+","vardgivarnamn","vardgivarnamn","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivarnamn",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.specialistkompetens","sendmessagetorecipient-request.skickatAv.specialistkompetens","","","",0,*,"","","","Base {[]} {[]}
+","Specialistkompetens","specialistkompetens","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.specialistkompetens",0,*,"",""
+"sendmessagetorecipient-request.skickatAv.specialistkompetens.code","sendmessagetorecipient-request.skickatAv.specialistkompetens.code","","","",1,1,"","","","string {[]} {[]}
+","code","code","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.specialistkompetens.code",1,1,"",""
+"sendmessagetorecipient-request.skickatAv.specialistkompetens.displayName","sendmessagetorecipient-request.skickatAv.specialistkompetens.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","displayName","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.specialistkompetens.displayName",0,1,"",""
+"sendmessagetorecipient-request.skickatAv.legitimeratYrke","sendmessagetorecipient-request.skickatAv.legitimeratYrke","","","",0,*,"","","","Base {[]} {[]}
+","LegitimeratYrkeType","legitimeratYrke","","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.skickatAv.legitimeratYrke",0,*,"",""
+"sendmessagetorecipient-request.sistaDatumForSvar","sendmessagetorecipient-request.sistaDatumForSvar","","","",0,1,"","","","date {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType]]} {[]}
+","sistaDatumForSvar","Datum då vården senast vill ha ett svar.","TKB-fält: `sistaDatumForSvar` (`DateType`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.sista datum för svar","","","","","","","","",,,,,"",,,,"sendmessagetorecipient-request.sistaDatumForSvar",0,1,"",""

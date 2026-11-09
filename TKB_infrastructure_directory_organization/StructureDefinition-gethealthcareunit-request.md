@@ -1,0 +1,112 @@
+# GetHealthCareUnit — Request - infrastructure: directory: organization v5.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetHealthCareUnit — Request**
+
+## Logical Model: GetHealthCareUnit — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit-request | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetHealthCareUnitRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i GetHealthCareUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-directory-organization|current/StructureDefinition/StructureDefinition-gethealthcareunit-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-gethealthcareunit-request.csv), [Excel](StructureDefinition-gethealthcareunit-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "gethealthcareunit-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit-request",
+  "version" : "2.0",
+  "name" : "GetHealthCareUnitRequest",
+  "title" : "GetHealthCareUnit — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:37:41+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i GetHealthCareUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "gethealthcareunit-request",
+      "path" : "gethealthcareunit-request",
+      "short" : "GetHealthCareUnit — Request",
+      "definition" : "Logisk modell för requestparametrar i GetHealthCareUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2)."
+    },
+    {
+      "id" : "gethealthcareunit-request.healthCareUnitMemberHsaId",
+      "path" : "gethealthcareunit-request.healthCareUnitMemberHsaId",
+      "short" : "healthCareUnitMemberHsaId",
+      "definition" : "HSA-id för en enhet eller funktion som är kopplad till en vårdenhet enligt PDL. Ref. HSA-id (hsaIdentity) [R5]",
+      "comment" : "TKB-fält: `healthCareUnitMemberHsaId` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "gethealthcareunit-request.searchBase",
+      "path" : "gethealthcareunit-request.searchBase",
+      "short" : "searchBase",
+      "definition" : "Sökbas. Om ingen sökbas anges används c=SE som sökbas.",
+      "comment" : "TKB-fält: `searchBase *1)` (`DN`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/DNType"]
+      }]
+    },
+    {
+      "id" : "gethealthcareunit-request.includeFeignedObject",
+      "path" : "gethealthcareunit-request.includeFeignedObject",
+      "short" : "includeFeignedObject",
+      "definition" : "true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.",
+      "comment" : "TKB-fält: `includeFeignedObject` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

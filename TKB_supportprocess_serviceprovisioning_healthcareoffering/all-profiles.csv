@@ -1,0 +1,1439 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"CVType","CVType","CVType","","","",0,*,"","","","null {[]} {[]}
+","CVType","CVType enligt domänens schema: den gemensamma RIV-TA-typen CVType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"CVType","CVType.code","CVType.code","","","",1,1,"","","","string {[]} {[]}
+","code","Koden i kodverket. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.code",0,1,"",""
+"CVType","CVType.codeSystem","CVType.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodverkets OID. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystem",0,1,"",""
+"CVType","CVType.codeSystemName","CVType.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Kodverkets namn i klartext. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystemName",0,1,"",""
+"CVType","CVType.codeSystemVersion","CVType.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Kodverkets version. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystemVersion",0,1,"",""
+"CVType","CVType.displayName","CVType.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Kodens klartext enligt kodverket. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.displayName",0,1,"",""
+"CVType","CVType.originalText","CVType.originalText","","","",0,1,"","","","string {[]} {[]}
+","originalText","Fritext när begreppet inte kan anges som kod (då anges inte code och codeSystem). Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.originalText",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request","getcareserviceofferings-request","","","",0,*,"","","","null {[]} {[]}
+","GetCareServiceOfferings — Request","Logisk modell för begäran i GetCareServiceOfferings
+(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.careServiceId","getcareserviceofferings-request.careServiceId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careServiceId","Vård- och omsorgstjänstens id
+
+Begränsar sökningen så att endast poster med angivet id för vård- och omsorgstjänst returneras.
+
+Om HSA-id används:
+
+careServiceId.root: 1.2.752.129.2.1.4.1
+
+careServiceId.extension: `<hsa-id>`
+
+Om ej HSA-id:
+
+careServiceId.root: `<UUID>`
+
+careServiceId.extension: Anges ej","TKB-fält: `careServiceId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.careServiceId",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.typeOfCareService","getcareserviceofferings-request.typeOfCareService","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfCareService","Typ av vård- och omsorgstjänst
+
+Begränsar sökningen så att endast poster med angiven typ av vård- och omsorgstjänst returneras.
+
+Exempel:
+
+Allergologisk konsultation
+
+Kognitiv beteendeterapi via internet
+
+Då Snomed CT används:
+
+typeOfCareService.codesystem: 1.2.752.116.2.1.1
+
+I första hand ska koder från det nationella utbudkodsurvalet användas men Snomed CT-koder från lokalt urval kan förekomma.
+
+Då verksamhetskod används: typeOfCareService.codesystem: 1.2.752.129.2.2.1.3
+
+Kod väljs från HSA verksamhetskodverk. Då en verksamhetskod används ska konsumenten logiskt lägga till prefixet ”Vårdtjänster inom verksamhetsområdet …” till klartexten för verksamhetskoden.","TKB-fält: `typeOfCareService*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.typeOfCareService",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.typeOfPlace","getcareserviceofferings-request.typeOfPlace","","","",1,1,"","","","Base {[]} {[]}
+","TypeOfPlaceType","Typ av plats
+
+Filtrerar sökresultatet så att endast poster med angiven typ av plats som vård-och omsorgstjänsten erbjuds på returneras.
+
+En av följande:
+
+PHYSICAL – endast fysisk plats
+
+VIRTUAL – endast virtuell plats
+
+ALL - både fysisk och virtuell plats","TKB-fält: `typeOfPlace` (`TypeOfPlaceType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.typeOfPlace",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.typeOfPlace.typeOfPlaceEnum","getcareserviceofferings-request.typeOfPlace.typeOfPlaceEnum","","","",1,1,"","","","code {[]} {[]}
+","typeOfPlaceEnum","typeOfPlaceEnum Tillåtna värden: ALL, PHYSICAL, VIRTUAL.","TKB-fält: `../typeOfPlaceEnum` (`TypeOfPlaceEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** typeOfPlaceEnum Tillåtna värden: ALL, PHYSICAL, VIRTUAL.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/ValueSet/healthcareoffering-typeofplace-vs","",,,,"getcareserviceofferings-request.typeOfPlace.typeOfPlaceEnum",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.typeOfBusiness","getcareserviceofferings-request.typeOfBusiness","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfBusiness","Typ av verksamhet
+
+Filtrerar sökresultatet så att endast poster med angiven typ av verksamhet returneras.
+
+Om HSA verksamhetskod
+
+typeOfBusiness.codeSystem:
+
+1.2.752.129.2.2.1.3","TKB-fält: `typeOfBusiness*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.typeOfBusiness",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.providingOrganization","getcareserviceofferings-request.providingOrganization","","","",0,1,"","","","Base {[]} {[]}
+","SearchProvidingOrganizationType","Katalogansvarig organisation","TKB-fält: `providingOrganization` (`searchProvidingOrganizationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.providingOrganization",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.providingOrganization.providingOrganizationId","getcareserviceofferings-request.providingOrganization.providingOrganizationId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","providingOrganizationId","Id på katalogansvarig organisation
+
+Filtrerar sökresultatet så att endast poster med angivet id för katalogansvarig organisation returneras.
+
+För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7)
+
+För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)","TKB-fält: `../providingOrganizationId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.providingOrganization.providingOrganizationId",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.providingOrganization.management","getcareserviceofferings-request.providingOrganization.management","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","management","Ägarform
+
+Filtrerar sökresultatet så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras.
+
+Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14].
+
+Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `../management` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.providingOrganization.management",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.providingOrganization.publicProvider","getcareserviceofferings-request.providingOrganization.publicProvider","","","",0,1,"","","","boolean {[]} {[]}
+","publicProvider","Offentlig huvudman
+
+Filtrerar sökresultatet så att endast poster där vård- och omsorgstjänst som erbjuds av en offentlig huvudman returneras om fältet sätts till true.
+
+Om fältet ej anges returneras vård- och omsorgstjänster som erbjuds av både offentlig och ej offentlig huvudman.","TKB-fält: `../publicProvider` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.providingOrganization.publicProvider",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.actorLanguage","getcareserviceofferings-request.actorLanguage","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","actorLanguage","Språk för aktör
+
+Filtrerar sökresultat så att poster med angivet språk returneras.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Endast texter som finns beskrivna på det angivna språket ska returneras. Om det saknas text för angivet språk, returneras texter på svenska.
+
+Det är endast beskrivningar som ska returneras på olika språk, ej displayName för CV-typerna.
+
+Om språk ej anges, ska samtliga texter returneras.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+actorLanguage.code: swe
+
+actorLanguage.displayName: Swedish
+
+actorLanguage.codeSystem: 1.0.639.3","TKB-fält: `actorLanguage*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.actorLanguage",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.actorRole","getcareserviceofferings-request.actorRole","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","actorRole","Roll för aktör
+
+Filtrerar sökresultatet så att poster med angiven roll returneras.
+
+Endast texter som finns beskrivna för den angivna rollen returneras. Om det saknas text för angiven roll, returneras texter anpassade för invånare (enskild person) som alltid ska finnas om beskrivningstext finns.
+
+Om roll ej anges, ska samtliga texter returneras.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1","TKB-fält: `actorRole*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.actorRole",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.performingOrganizationId","getcareserviceofferings-request.performingOrganizationId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","performingOrganizationId","performingOrganizationId","TKB-fält: `performingOrganizationId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.performingOrganizationId",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.targetGroupAge","getcareserviceofferings-request.targetGroupAge","","","",0,1,"","","","integer {[]} {[]}
+","targetGroupAge","Ålder
+
+Filtrerar sökresultatet så att endast poster med angiven ålder returneras.
+
+Åldern avser den person som söker hälso- och sjukvård eller socialtjänst.","TKB-fält: `targetGroupAge` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.targetGroupAge",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.targetGroupGender","getcareserviceofferings-request.targetGroupGender","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","targetGroupGender","Kön
+
+Filtrerar sökresultatet så att endast poster med angivet kön returneras.
+
+Könet avser den person som söker hälso- och sjukvård eller socialtjänst.
+
+Kodverk:
+
+Kv_kon
+
+1=man
+
+2=kvinna
+
+Koden ”Övrig” ej tillåten i detta attribut.
+
+Exempel
+
+targetGroupGender.code: 1
+
+targetGroupGender.codesystem: 1.2.752.129.2.2.1.1","TKB-fält: `targetGroupGender*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.targetGroupGender",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.targetGroupAttribute","getcareserviceofferings-request.targetGroupAttribute","","","",0,*,"","","","Base {[]} {[]}
+","TargetGroupAttributeType","Egenskap
+
+Filtrerar sökresultatet så att endast poster med angiven egenskap returneras. Egenskap avser ytterligare information om den person som söker hälso- och sjukvård eller socialtjänst.","TKB-fält: `,,/targetGroupAttribute` (`TargetGroupAttributeType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.targetGroupAttribute",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute","getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfPersonalAttribute","Typ av egenskap
+
+Filtrerar sökresultatet så att endast poster med angiven typ av egenskap returneras.
+
+Exempel:
+
+Graviditetsvecka
+
+Kod från Snomed CT hierarkin 363787002 | observerbar företeelse |","TKB-fält: `../../ typeOfPersonalAttribute*` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.targetGroupAttribute.attributeValue","getcareserviceofferings-request.targetGroupAttribute.attributeValue","","","",1,1,"","","","string {[]} {[]}
+","attributeValue","attributeValue","TKB-fält: `../attributeValue` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.targetGroupAttribute.attributeValue",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location","getcareserviceofferings-request.location","","","",0,1,"","","","Base {[]} {[]}
+","SearchLocationType","Sökområde
+
+Filtrerar sökresultatet så att endast poster med angivet sökområde för vård- och omsorgstjänsten returneras.
+
+Sökområdet kan vara ett geografiskt område, län eller kommun.
+
+I de fall flera sökområden anges ska samtliga vård- och omsorgstjänster med något av de angivna sökområdena returneras.","TKB-fält: `location` (`SearchLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.geographicalLocation","getcareserviceofferings-request.location.geographicalLocation","","","",0,1,"","","","Base {[]} {[]}
+","SearchGeographicalLocationType","Geografiskt område
+
+Filtrerar sökresultatet så att endast poster med angivet geografiskt område returneras. Till geografiskt område hör geografiska koordinater och radie som bildar en area. Producenter behöver inte svara baserat på polygoner i Övrigt område (otherLocation).
+
+Svaret ska returnera vård- och omsorgstjänster med utförandeplats inom den arean.","TKB-fält: `../geographicalLocation` (`SearchGeographicalLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.geographicalLocation",0,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates","getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates","","","",1,1,"","","","Base {[]} {[]}
+","GeoLocationType","Geografiska koordinater
+
+Geografisk lokalisering, dvs den punkt på en karta sökningen ska utgå ifrån.","TKB-fält: `../../geographicalCoordinates` (`GeoLocationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.north","getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.north","","","",1,1,"","","","string {[]} {[]}
+","north","Exempel
+
+geoLocation.north = 5407869","TKB-fält: `../../../north` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.north",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.east","getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.east","","","",1,1,"","","","string {[]} {[]}
+","east","Exempel
+
+geoLocation.east = 485784","TKB-fält: `../../../east` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.east",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.geographicalLocation.radius","getcareserviceofferings-request.location.geographicalLocation.radius","","","",1,1,"","","","integer {[]} {[]}
+","radius","Radie
+
+Radie utifrån den geografiska lokaliseringen angiven i positivt heltal och i antal meter.
+
+Används för att söka inom ett område från de geografiska koordinaterna.","TKB-fält: `../../radius` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.geographicalLocation.radius",1,1,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.county","getcareserviceofferings-request.location.county","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","county","Länskod
+
+Filtrerar sökresultatet så att endast poster med angivet län returneras. Länskod enligt SCB:s lista över län och ekomer, se referens R13.  Tvåställig kod.
+
+Exempel:
+
+county.code = 05
+
+county.codeSystem = 1.2.752.129.2.2.1.18
+
+county.displayName = Östergötlands län","TKB-fält: `../county*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.county",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.location.municipality","getcareserviceofferings-request.location.municipality","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","municipality","Kommunkod
+
+Sökning på kommun. Kommunkod enligt SCB’s lista över län och kommuner, se referens R13. Fyrställig kod.
+
+Exempel:
+
+municipality.code = 0126
+
+municipality.codeSystem = 1.2.752.129.2.2.1.17
+
+municipality.displayName = Huddinge","TKB-fält: `../municipality*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.location.municipality",0,*,"",""
+"getcareserviceofferings-request","getcareserviceofferings-request.searchTerm","getcareserviceofferings-request.searchTerm","","","",0,*,"","","","string {[]} {[]}
+","searchTerm","Fritextsökning för att filtrera på vård- och omsorgstjänst baserat på text i nedan listade fritextfält.
+
+För de beskrivande texter nedan som förekommer i flera språk ska sökningen ske i texten som motsvarar det språk som anges i actorLanguage.
+
+Anges inte actorLanguage ska texter för samtliga språk användas i sökningen.
+
+Sökningen ska innehålla minst 3 tecken. Vård- och omsorgstjänst där sökbegreppet överensstämmer med del av text i nedanstående fält ska returneras.
+
+I det fall fler sökbegrepp skickas med i begäran ska samtliga sökbegrepp återfinnas i något av nedanstående fält för att vård- och omsorgstjänsten ska returneras.
+
+Fritextsökning ska ske i fälten:
+
+careService.description.text
+
+careService.typeOfCareService.displayName
+
+careService.providingOrganization. Name
+
+careService.providingOrganization.description
+
+careService.performingOrganization.name
+
+careService.performingOrganization.description.text
+
+careService.performingOrganization.responibleOrganization.name
+
+careService. performingOrganization.responibleOrganization.description.text
+
+careService.location.geographicalLocation.municipality.displayName
+
+careService.location.geographicalLocation.county.displayName","TKB-fält: `searchTerm` (`string`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings-request.searchTerm",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings","getcareserviceofferings","","","",0,*,"","","","null {[]} {[]}
+","GetCareServiceOfferings — Response","Logisk modell för svaret i GetCareServiceOfferings
+(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService","getcareserviceofferings.careService","","","",0,*,"","","","Base {[]} {[]}
+","CareServiceType","Vård- och omsorgstjänst
+
+Den tjänst som erbjuds av en organisatorisk enhet för att tillgodose behov av hälso- och sjukvård eller socialtjänst hos invånare.","TKB-fält: `careService` (`CareServiceType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.careServiceId","getcareserviceofferings.careService.careServiceId","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careServiceId","Vård- och omsorgstjänstens id
+
+Innehåller vård- och omsorgstjänstens unika identifierare.
+
+Om HSA-id används:
+
+careServiceId.root: 1.2.752.129.2.1.4.1
+
+careServiceId.extension: `<hsa-id>`
+
+Om ej HSA-id:
+
+careServiceId.root: `<UUID>`
+
+careServiceId.extension: Anges ej","TKB-fält: `../careServiceId` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.careServiceId",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.typeOfCareService","getcareserviceofferings.careService.typeOfCareService","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfCareService","Typ av vård- och omsorgstjänst.
+
+Den specifika vård- och omsorgstjänsten som erbjuds.
+
+Exempel inom hälso- och sjukvård:
+
+- insättning av totalprotes i höftled
+
+- rehabiliteringsmedicinsk konsultation
+
+Exempel inom socialtjänsten:
+
+- hjälp med inköp
+
+- tillredning av måltider m.m.
+
+Då Snomed CT används:
+
+typeOfCareService.codesystem: 1.2.752.116.2.1.1
+
+/ I första hand ska koder från det nationella utbudkodsurvalet användas men Snomed CT-koder från lokalt urval kan förekomma.
+
+/ Då verksamhetskod används: typeOfCareService.codesystem: 1.2.752.129.2.2.1.3
+
+Kod väljs från HSA verksamhetskodverk.
+
+Då en verksamhetskod används ska konsumenten logiskt lägga till prefixet ”Vårdtjänster inom verksamhetsområdet …” till klartexten för verksamhetskoden.
+
+typeOfCareService.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.
+
+Framtagande av nationellt kodverk pågår.","TKB-fält: `../typeOfCareService` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.typeOfCareService",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.typeOfCareServiceDescription","getcareserviceofferings.careService.typeOfCareServiceDescription","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Nationellt överenskommen beskrivning av vård- och omsorgstjänsten.
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../typeOfCareServicedescription*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.typeOfCareServiceDescription",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.typeOfCareServiceDescription.text","getcareserviceofferings.careService.typeOfCareServiceDescription.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.typeOfCareServiceDescription.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.typeOfCareServiceDescription.language","getcareserviceofferings.careService.typeOfCareServiceDescription.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på.
+
+Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.typeOfCareServiceDescription.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.typeOfCareServiceDescription.role","getcareserviceofferings.careService.typeOfCareServiceDescription.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
+
+Om roll inte anges, riktas beskrivningen till samtliga roller.
+
+Urval ur Snomed CT:
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.typeOfCareServiceDescription.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.validity","getcareserviceofferings.careService.validity","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType {[]} {[]}
+","validity","Giltighet
+
+Giltighetstiden för vård- och omsorgstjänsten.
+
+Exempelvis höftledsoperation som utförs av den organisatoriska enheten x på platsen y erbjuds under perioden 20160101-20171231.
+
+Minst ett av periodens start och end i DatePeriodType ska anges.","TKB-fält: `../validity*` (`DatePeriodType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.validity",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.careServiceStatus","getcareserviceofferings.careService.careServiceStatus","","","",1,1,"","","","code {[]} {[]}
+","careServiceStatus","Status
+
+Status för vård- och omsorgstjänsten.
+
+En av följande:
+
+INACTIVE = innan vård- och omsorgstjänsten är färdig att erbjudas.
+
+ACTIVE = vård- och omsorgstjänsten är färdigbeskriven och kan erbjudas.
+
+DEPRECATED = vård- och omsorgstjänsten ska ej längre erbjudas","TKB-fält: `../careServiceStatus` (`CareServiceStatusEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/ValueSet/healthcareoffering-careservicestatus-vs","",,,,"getcareserviceofferings.careService.careServiceStatus",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.careOption","getcareserviceofferings.careService.careOption","","","",1,1,"","","","boolean {[]} {[]}
+","careOption","Vårdval
+
+Sätts till true om vård- och omsorgstjänsten ingår i valfrihetssystem.","TKB-fält: `../careOption` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.careOption",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.referralRequired","getcareserviceofferings.careService.referralRequired","","","",1,1,"","","","boolean {[]} {[]}
+","referralRequired","Remisskrav
+
+Anger om det finns krav på remiss för att uppsöka/ta del av vård- och omsorgstjänsten.
+
+För hälso- och sjukvården: Observera att den information som anges här är det eventuella krav på remiss från den organisation/region som ansvarar för att tillhandahålla vård- och omsorgstjänsten. Om remisskrav INTE finns för vård- och omsorgstjänsten, kan det ändå finnas krav från patientens hemregion för denna typ av vård- och omsorgstjänst. Om så är fallet behöver patienten en remiss från hemregionen för att utförare av den erbjudna vård- och omsorgstjänsten ska få ersättning från hemregionen.
+
+Reglerna för detta beskrivs i ""Riksavtalet för utomlänsvård från och med 1 januari 2015"" [R7] sidan 17 under rubriken ""Hemlandstingets remissregler tillämpas också i andra landsting"" och ""Vårdlandstingets remissregler tillämpas också för utomlänspatienter"".","TKB-fält: `../referralRequired` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.referralRequired",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.description","getcareserviceofferings.careService.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning av vård- och omsorgstjänsten som är ett lokalt tillägg till den nationellt överenskomna. Detta kan exempelvis i text detaljera hur en viss aktivitet utförs eller om det finns några tillägg till det nationellt överenskomna innehållet i en vård- och omsorgstjänst.
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.description.text","getcareserviceofferings.careService.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.description.language","getcareserviceofferings.careService.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på.
+
+Om fältet inte används antas beskrivningen avse svenska.
+
+Används för att returnera ett svar baserat på aktörens språk. Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.description.role","getcareserviceofferings.careService.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
+
+Om roll inte anges, riktas beskrivningen till samtliga roller.
+
+Urval ur Snomed CT:
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.indicator","getcareserviceofferings.careService.indicator","","","",0,*,"","","","Base {[]} {[]}
+","IndicatorType","Indikator
+
+Indikator håller referenser till mätningar från SKRs (Sveriges kommuner och regioner) öppna jämförelser som kan kopplas till en viss vård- och omsorgstjänst. Kan exempelvis vara väntetid eller kvalitetsindikator kopplat till den specifika vård- och omsorgstjänsten.","TKB-fält: `../indicator` (`IndicatorType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.indicator",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.indicator.indicatorId","getcareserviceofferings.careService.indicator.indicatorId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","indicatorId","Indikator id
+
+Identitetsbeteckning för indikator från SKRs öppna jämförelser som är kopplad till en vård- och omsorgstjänst.
+
+indicator.root = 1.2.826.0.1.3680043.9.4672.7","TKB-fält: `../../indicatorId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.indicator.indicatorId",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.indicator.logicalAddress","getcareserviceofferings.careService.indicator.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Logisk adress
+
+Logisk adress som ska användas för att nå den datakälla där indikatorn finns lagrad.","TKB-fält: `../../logicalAddress` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.indicator.logicalAddress",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.requestTemplate","getcareserviceofferings.careService.requestTemplate","","","",0,1,"","","","Base {[]} {[]}
+","RequestTemplateType","Remissanvisning
+
+Om vårdtjänsten har en fastställd remissanvisning som kan användas vid remittering, anges den adress som remissanvisningen kan hämtas ifrån. Remissanvisningen är ett stöd för att säkerställa att nödvändig information bifogas en remiss.","TKB-fält: `../requestTemplate` (`RequestTemplateType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.requestTemplate",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.requestTemplate.address","getcareserviceofferings.careService.requestTemplate.address","","","",1,1,"","","","uri {[]} {[]}
+","address","Adress till remissanvisning
+
+Adress som anger var en remissanvisning finns. Kan vara en URL.","TKB-fält: `../../address` (`anyURI`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.requestTemplate.address",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.requestTemplate.mandatory","getcareserviceofferings.careService.requestTemplate.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","mandatory","Obligatorisk
+
+Anger om det är obligatoriskt för en remittent att förstå och tillämpa remissanvisningen för att kunna nyttja vårdtjänsten.
+
+True = obligatoriskt att tillämpa remissanvisning vid remittering
+
+False = ej obligatoriskt att tillämpa remissmall vid remittering","TKB-fält: `../../mandatory` (`boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.requestTemplate.mandatory",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization","getcareserviceofferings.careService.providingOrganization","","","",1,1,"","","","Base {[]} {[]}
+","ProvidingOrganizationType","Katalogansvarig organisation
+
+Den organisation som är huvudansvarig och innehållsansvarig för det utbud som svaret visar.","TKB-fält: `../providingOrganization` (`ProvidingOrganizationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.id","getcareserviceofferings.careService.providingOrganization.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Organisation id
+
+Id för den katalogansvariga organisationen. Innehållet i id styrs av vilken typ av organisation det är
+
+För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7)
+
+För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)","TKB-fält: `../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.id",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.name","getcareserviceofferings.careService.providingOrganization.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn på den katalogansvariga organisationen.","TKB-fält: `../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.name",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.management","getcareserviceofferings.careService.providingOrganization.management","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","management","Ägarform
+
+Filtrerar sökresultatet så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras.
+
+Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14].
+
+management.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.
+
+Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `../../management` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.management",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.publicProvider","getcareserviceofferings.careService.providingOrganization.publicProvider","","","",1,1,"","","","boolean {[]} {[]}
+","publicProvider","Offentlig huvudman
+
+Anger om den katalogansvariga organisationen är offentlig huvudman.
+
+True=offentlig huvudman","TKB-fält: `../../publicProvider` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.publicProvider",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.description","getcareserviceofferings.careService.providingOrganization.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning av den katalogansvariga organisationen. Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.description.text","getcareserviceofferings.careService.providingOrganization.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.description.language","getcareserviceofferings.careService.providingOrganization.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på.
+
+Om fältet inte används antas beskrivningen avse svenska.
+
+Används för att returnera ett svar baserat på aktörens språk. Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.providingOrganization.description.role","getcareserviceofferings.careService.providingOrganization.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
+
+Om roll inte anges, riktas beskrivningen till samtliga roller.
+
+Om beskrivning anges, ska minst en beskrivning för invånare anges.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.providingOrganization.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization","getcareserviceofferings.careService.performingOrganization","","","",1,1,"","","","Base {[]} {[]}
+","PerformingOrganizationType","Utförande organisatorisk enhet
+
+Klassen motsvarar den organisatoriska enheten som utför en aktivitet som erbjudit i form av vård- och omsorgstjänst.","TKB-fält: `../performingOrganization` (`PerformingOrganizationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.id","getcareserviceofferings.careService.performingOrganization.id","","","",1,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Enhets-id
+
+Ett enhets-id på den utförande enheten ska returneras.
+
+Id på organisatoriska enheten kan vara HSA-id.
+
+Exempelvis HSA-id, organisationsnummer
+
+eller lokala id:n.
+
+Om HSA-id (exempel):
+
+id.root =1.2.752.129.2.1.4.1
+
+id.extension = SE2321000115-094882","TKB-fält: `../../id` (`IIType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.id",1,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.name","getcareserviceofferings.careService.performingOrganization.name","","","",0,*,"","","","string {[]} {[]}
+","name","Enhetsnamn
+
+Lista med namn på den organisatoriska enhet som erbjuder en vård- och omsorgstjänst
+
+Listan ska vara ordnad efter fallande prioritetsordning där det föredragna namnet kommer först.
+
+Namn måste innehålla minst 3 tecken.","TKB-fält: `../../name` (`String`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.name",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization","getcareserviceofferings.careService.performingOrganization.responsibleOrganization","","","",1,1,"","","","Base {[]} {[]}
+","ResponsibleOrganizationType","Organisation
+
+Den organisation som den utförande organisatoriska enheten är en del av.","TKB-fält: `../../responsibleOrganization` (`OrganizationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.id","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Id på organisationen.
+
+Om HSA-id (exempel):
+
+id.root =1.2.752.129.2.1.4.1
+
+id.extension = SE2321000115-094882","TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization.id",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.name","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn på organisationen.","TKB-fält: `../../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization.name",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning av organisationen.
+
+Beskrivning av den organisation som ansvarar för den utförande enheten.
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.text","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","text","TKB-fält: `../../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.language","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","language","TKB-fält: `../../../../language` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.role","getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","role","TKB-fält: `../../../../role` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.responsibleOrganization.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.availableTime","getcareserviceofferings.careService.performingOrganization.availableTime","","","",0,*,"","","","string {[]} {[]}
+","availableTime","Kalendertid
+
+Den tid som den utförande enheten är tillgänglig.
+
+Se avsnitt 5.2.2 för beskrivning av format.","TKB-fält: `../../availableTime` (`CalendarType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.availableTime",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.typeOfBusiness","getcareserviceofferings.careService.performingOrganization.typeOfBusiness","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfBusiness","Typ av verksamhet
+
+Kod för den typ av verksamhet som bedrivs.
+
+Om HSA verksamhetskod
+
+typeOfBusiness.codeSystem:
+
+1.2.752.129.2.2.1.3
+
+typeOfBusiness.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../typeOfBusiness` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.typeOfBusiness",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.description","getcareserviceofferings.careService.performingOrganization.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning
+
+Beskrivning av den enhet som erbjuder vård- och omsorgstjänsten.
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.description.text","getcareserviceofferings.careService.performingOrganization.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.description.language","getcareserviceofferings.careService.performingOrganization.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.performingOrganization.description.role","getcareserviceofferings.careService.performingOrganization.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
+
+Om roll inte anges, riktas beskrivningen till samtliga roller.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.performingOrganization.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.patientFee","getcareserviceofferings.careService.patientFee","","","",0,1,"","","","Base {[]} {[]}
+","MOType","Patientavgift
+
+Den avgift som ska betalas av patienten.
+
+Valutan anges i SEK enligt ISO 4217.
+
+Exempel:
+
+patientFee.value: 125
+
+patientFee.currency: SEK","TKB-fält: `../patientFee` (`MOType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.patientFee",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.patientFee.value","getcareserviceofferings.careService.patientFee.value","","","",1,1,"","","","decimal {[]} {[]}
+","value","value","TKB-fält: `../../value` (`decimal`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.patientFee.value",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.patientFee.currency","getcareserviceofferings.careService.patientFee.currency","","","",1,1,"","","","string {[]} {[]}
+","currency","currency","TKB-fält: `../../currency` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.patientFee.currency",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup","getcareserviceofferings.careService.targetGroup","","","",0,*,"","","","Base {[]} {[]}
+","TargetGroupType","Målgrupp för vård- och omsorgstjänsten","TKB-fält: `../targetGroup` (`TargetGroupType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.age","getcareserviceofferings.careService.targetGroup.age","","","",0,1,"","","","Base {[]} {[]}
+","PositiveIntPeriodType","Intervall för den åldersgrupp som vård- och omsorgstjänsten riktas till.
+
+Exempelvis: Vård- och omsorgstjänsten erbjuds endast till barn upp till 5 år.
+
+Intervallet blir då ”0‒5” år.
+
+Om vård- och omsorgstjänsten gäller alla åldersgrupper, används ej detta attribut.","TKB-fält: `../../age` (`PositiveIntPeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.age",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.age.start","getcareserviceofferings.careService.targetGroup.age.start","","","",0,1,"","","","integer {[]} {[]}
+","start","start","TKB-fält: `../../../start` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.age.start",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.age.end","getcareserviceofferings.careService.targetGroup.age.end","","","",0,1,"","","","integer {[]} {[]}
+","end","end","TKB-fält: `../../../end` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.age.end",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.gender","getcareserviceofferings.careService.targetGroup.gender","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","gender","Kön
+
+Det kön som vård- och omsorgstjänsten riktas till.
+
+Kodverk:
+
+Kv_kon
+
+1=man
+
+2=kvinna
+
+Koden ”övrigt” tillåts ej i detta attribut.
+
+Exempel code: 1
+
+targetGroupGender.codeSystem: 1.2.752.129.2.2.1.1
+
+gender.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../gender` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.gender",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.targetGroupAttribute","getcareserviceofferings.careService.targetGroup.targetGroupAttribute","","","",0,*,"","","","Base {[]} {[]}
+","TargetGroupAttributeType","Egenskaper
+
+Egenskaper för målgruppen.","TKB-fält: `../../targetGroupAttribute` (`TargetGroupAttributeType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.targetGroupAttribute",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute","getcareserviceofferings.careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfPersonalAttribute","Typ av egenskap
+
+Innehåller någon specifik egenskap som identifierar den målgrupp som tjänsten riktas till.
+
+Exempel:
+
+Gravida i veckointervall X-Y
+
+Kod från Snomed CT hierarkin 363787002 | observerbar företeelse |
+
+typeOfPersonalAttribute.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../ typeOfPersonalAttribute` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.targetGroupAttribute.typeOfPersonalAttribute",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.targetGroup.targetGroupAttribute.attributeValue","getcareserviceofferings.careService.targetGroup.targetGroupAttribute.attributeValue","","","",1,1,"","","","string {[]} {[]}
+","attributeValue","Värde
+
+Innehåller detaljer om den specifika egenskapen.
+
+Exempel:
+
+0-20","TKB-fält: `../../../attributeValue` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.targetGroup.targetGroupAttribute.attributeValue",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location","getcareserviceofferings.careService.location","","","",1,*,"","","","Base {[]} {[]}
+","LocationType","Plats
+
+Plats där vård- och omsorgstjänsten erbjuds.
+
+Anges med geografiskt område, fysisk plats eller virtuell plats.","TKB-fält: `../location*` (`LocationType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location",1,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation","getcareserviceofferings.careService.location.geographicalLocation","","","",0,1,"","","","Base {[]} {[]}
+","GeographicalLocationType","Geografiskt område
+
+Anger det geografiska område där vård- och omsorgstjänsten erbjuds.
+
+Anges med län, kommun eller övrigt område.","TKB-fält: `../../geographicalLocation*` (`GeographicalLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.county","getcareserviceofferings.careService.location.geographicalLocation.county","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","county","Länskod enligt SCB:s lista över län och kommuner, se referens R13. Tvåställig kod.
+
+Exempel:
+
+county.code = 05
+
+county.codeSystem = 1.2.752.129.2.2.1.18
+
+county.displayName = Östergötlands län
+
+county.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../county` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.county",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.municipality","getcareserviceofferings.careService.location.geographicalLocation.municipality","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","municipality","Kommunkod enligt SCB:s lista över län och kommuner, se referens R13. Fyrställig kod.
+
+Exempel:
+
+municipality.code =  0126
+
+municipality.codeSystem =1.2.752.129.2.2.1.17
+
+municipality.displayName = Huddinge
+
+municipality.displayName returnerar endast svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../municipality` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.municipality",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.otherLocation","getcareserviceofferings.careService.location.geographicalLocation.otherLocation","","","",0,1,"","","","Base {[]} {[]}
+","OtherLocationType","Övrigt område är ett begränsat område som vård- och omsorgstjänsten erbjuds inom.","TKB-fält: `../../../otherLocation` (`OtherLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.otherLocation",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon","","","",3,*,"","","","Base {[]} {[]}
+","GeoLocationType","Polygon
+
+Det område som avgränsas med minst 3 punkter med sina respektive koordinater.","TKB-fält: `../../../../polygon` (`GeoLocationType`, kardinalitet 3..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon",3,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon.north","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon.north","","","",1,1,"","","","string {[]} {[]}
+","north","Exempel
+
+geoLocation.north = 6407869","TKB-fält: `../../../../../north` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon.north",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon.east","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon.east","","","",1,1,"","","","string {[]} {[]}
+","east","Exempel
+
+geoLocation.east = 485748","TKB-fält: `../../../../../east` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.otherLocation.polygon.east",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.name","getcareserviceofferings.careService.location.geographicalLocation.otherLocation.name","","","",0,1,"","","","string {[]} {[]}
+","name","Benämning på övrigt område.
+
+Exempelvis kommundel.","TKB-fält: `../../../../name` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.geographicalLocation.otherLocation.name",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.physicalLocation","getcareserviceofferings.careService.location.physicalLocation","","","",0,1,"","","","Base {[]} {[]}
+","PhysicalLocationType","Fysisk plats
+
+Den fysiska plats där vård- och omsorgstjänsten erbjuds. Anges med besöksadress och/eller geografiska koordinater.","TKB-fält: `../../physicalLocation` (`PhysicalLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.physicalLocation",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.physicalLocation.locationAddress","getcareserviceofferings.careService.location.physicalLocation.locationAddress","","","",0,1,"","","","string {[]} {[]}
+","locationAddress","Belägenhetsadress.
+
+Adress för fysisk plats där vård- och omsorgstjänsten erbjuds.
+
+Minst ett av attributen locationAddress eller geographicalCoordinates ska anges.","TKB-fält: `../../../locationAddress` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.physicalLocation.locationAddress",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates","getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates","","","",0,1,"","","","Base {[]} {[]}
+","GeoLocationType","Geografiska koordinater som avgränsar Fysisk plats.
+
+Minst ett av attributen locationAddress eller geographicalCoordinates ska anges.","TKB-fält: `../../../ geographicalCoordinates` (`GeoLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates.north","getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates.north","","","",1,1,"","","","string {[]} {[]}
+","north","north","TKB-fält: `../../../../north` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates.north",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates.east","getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates.east","","","",1,1,"","","","string {[]} {[]}
+","east","east","TKB-fält: `../../../../east` (`long`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.physicalLocation.geographicalCoordinates.east",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.virtualLocation","getcareserviceofferings.careService.location.virtualLocation","","","",0,1,"","","","Base {[]} {[]}
+","VirtualLocationType","Virtuell plats
+
+Adress till en viss vård- och omsorgstjänst om den bedrivs virtuellt. Kan exempelvis vara webbadress eller adress där det går att ladda ner en applikation.","TKB-fält: `../../virtualLocation` (`VirtualLocationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.virtualLocation",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.virtualLocation.id","getcareserviceofferings.careService.location.virtualLocation.id","","","",1,1,"","","","uri {[]} {[]}
+","id","Id på virtuell plats.
+
+Identifierare för den plats där vård- och omsorgstjänsten bedrivs virtuellt.","TKB-fält: `../../.. /id` (`anyURI`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.virtualLocation.id",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.description","getcareserviceofferings.careService.location.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning av platsen (län, kommun, fysisk eller virtuell plats).
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.description.text","getcareserviceofferings.careService.location.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.description.language","getcareserviceofferings.careService.location.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.location.description.role","getcareserviceofferings.careService.location.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare (enskild person) eller hälso- och sjukvårdspersonal.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.location.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation","getcareserviceofferings.careService.contactInformation","","","",0,*,"","","","Base {[]} {[]}
+","ContactInformationType","Kontaktuppgift till den organisatoriska enhet som erbjuder en viss vård- och omsorgstjänst.","TKB-fält: `../contactInformation` (`ContactInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.ranking","getcareserviceofferings.careService.contactInformation.ranking","","","",0,1,"","","","integer {[]} {[]}
+","ranking","Rangordning för kontaktuppgifterna. Om det finns flera kontaktuppgifter används rangordning för att visa vilken som föredras framför en annan.
+
+Anges med siffror där 1 innebär högst rangordning osv.
+
+Exempelvis om en e-postadress ska användas i första hand och ett telefonnummer ska användas i andra hand, används rangordning 1 för e-postadressen och rangordning 2 för telefonnumret.","TKB-fält: `../../ranking` (`integer`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.ranking",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.forRole","getcareserviceofferings.careService.contactInformation.forRole","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","forRole","För roll
+
+Attributet anger om kontaktuppgiften avser en viss roll.
+
+En roll kan vara en invånare (enskild person), personal inom socialtjänst eller hälso- och sjukvårdspersonal.
+
+Ett telefonnummer som finns registrerat för en vård- och omsorgstjänst ska i vissa fall endast användas för invånare och ett annat telefonnummer, avseende samma vård- och omsorgstjänst, ska användas av hälso- och sjukvårdspersonal.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../forRole` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.forRole",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.purpose","getcareserviceofferings.careService.contactInformation.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","Syfte
+
+Angivelse av syftet med kontaktuppgiften.
+
+Exempelvis avbokning, ombokning, receptförnyelse.","TKB-fält: `../../purpose` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.purpose",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.address","getcareserviceofferings.careService.contactInformation.address","","","",0,1,"","","","string {[]} {[]}
+","address","Postadress
+
+Den adress som kan användas för att kontakta en organisatorisk enhet gällande en vård- och omsorgstjänst. Kan exempelvis vara adress dit en pappersremiss ska skickas.
+
+Observera att detta ej är besöksadress (återfinns i Fysisk plats).
+
+Adress är obligatoriskt om det är möjligt att remittera till vård- och omsorgstjänsten.","TKB-fält: `../../address` (`Address`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.address",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.availableTime","getcareserviceofferings.careService.contactInformation.availableTime","","","",0,*,"","","","string {[]} {[]}
+","availableTime","Kalendertid
+
+Den tid som kontaktuppgiften är tillgänglig.
+
+Det kan vara möjligt att ringa mån – fre 08.00-17.00 på ett telefonnummer.
+
+Se avsnitt 5.2.2 för beskrivning av format.","TKB-fält: `../../availableTime` (`CalendarType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.availableTime",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.telecom","getcareserviceofferings.careService.contactInformation.telecom","","","",0,1,"","","","Base {[]} {[]}
+","TelecomType","Adress för telekommunikation
+
+Innehåller den elektroniska adressinformation som ska användas för att kontakta en organisatorisk enhet gällande en viss vård- och omsorgstjänst.","TKB-fält: `../../telecom` (`TelecomType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.telecom",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.telecom.typeOfTelecom","getcareserviceofferings.careService.contactInformation.telecom.typeOfTelecom","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfTelecom","Typ av medium
+
+Vilken typ av medium för telekommunikation som avses.
+
+Anges med kod från kodverket Kv tele ekom typ (OID: 1.2.752.129.2.2.1.30) [R14].
+
+Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.
+
+typeOfTelecom.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../typeOfTelecom` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.telecom.typeOfTelecom",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.telecom.contactPoint","getcareserviceofferings.careService.contactInformation.telecom.contactPoint","","","",1,1,"","","","string {[]} {[]}
+","contactPoint","Värde
+
+Angivelse av värde i klartext för typen av medium.
+
+Exempelvis 070-707070 som telefonnummer, epost@epost.se som e-postadress etc.","TKB-fält: `../../../contactPoint*` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.telecom.contactPoint",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.description","getcareserviceofferings.careService.contactInformation.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning
+
+Ytterligare information om kontaktuppgiften.
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.description.text","getcareserviceofferings.careService.contactInformation.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.description.language","getcareserviceofferings.careService.contactInformation.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.contactInformation.description.role","getcareserviceofferings.careService.contactInformation.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänst  eller hälso- och sjukvårdspersonal.
+
+Om beskrivning anges, ska minst en beskrivning för invånare anges.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.contactInformation.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation","getcareserviceofferings.careService.cooperation","","","",0,*,"","","","Base {[]} {[]}
+","CooperationType","Samverkan
+
+Håller information om vilken organisatorisk enhet som samverkar med annan organisatorisk enhet kring en vård- och omsorgstjänst och vad samverkan avser.
+
+Ett exempel på samverkan är när två organisatoriska enheter samverkar kring öppettider avseende en viss typ av vård- ocn omsorgstjänst så att en patient kan hänvisas rätt utanför normala öppettider, exempelvis från vårdcentral till närakut.","TKB-fält: `../cooperation` (`CooperationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.typeOfCooperation","getcareserviceofferings.careService.cooperation.typeOfCooperation","","","",1,1,"","","","string {[]} {[]}
+","typeOfCooperation","Typ av samverkan
+
+Vilken typ av samverkan organisationerna har mellan varandra.","TKB-fält: `../../typeOfCooperation` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.typeOfCooperation",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.validity","getcareserviceofferings.careService.cooperation.validity","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType {[]} {[]}
+","validity","Giltighet
+
+Giltighetsperioden för samverkan mellan organisationerna.
+
+Om samverkan exempelvis gäller vid semesterstängt, kan giltigheten exempelvis vara 20160601‒20160831.","TKB-fält: `../../validity*` (`DatePeriodType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.validity",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.referenceToCareServiceId","getcareserviceofferings.careService.cooperation.referenceToCareServiceId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","referenceToCareServiceId","Referens till vård- och omsorgstjänst
+
+Unikt id som identifierar den vård och- omsorgstjänst som två organisationer samverkar kring.
+
+Om HSA-id används:
+
+careServiceId.root: 1.2.752.129.2.1.4.1
+
+careServiceId.extension: `<hsa-id>`
+
+Om ej HSA-id:
+
+careServiceId.root: `<UUID>`
+
+careServiceId.extension: Anges ej","TKB-fält: `../../referenceToCareServiceId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.referenceToCareServiceId",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.description","getcareserviceofferings.careService.cooperation.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning
+
+Ytterligare information om samverkan.
+
+Om beskrivning anges ska det åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.description.text","getcareserviceofferings.careService.cooperation.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.description.language","getcareserviceofferings.careService.cooperation.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.cooperation.description.role","getcareserviceofferings.careService.cooperation.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal.
+
+Om roll inte anges, riktas beskrivningen till samtliga roller.
+
+Om beskrivning anges, ska minst en beskrivning för invånare anges.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.cooperation.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource","getcareserviceofferings.careService.resource","","","",0,*,"","","","Base {[]} {[]}
+","ResourceType","Resurs
+
+Vilken resurs som kan erbjudas med en vård- och omsorgstjänst.","TKB-fält: `../resource` (`ResourceType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.typeOfResource","getcareserviceofferings.careService.resource.typeOfResource","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfResource","Typ av resurs
+
+Exempelvis bassäng eller vård- och omsorgspersonal med särskild kompetens.
+
+Kod från Snomed CT hierarkin 308916002 | område eller geografisk plats |, 260787004 | fysiskt objekt | eller 106288005 | läkare, tandläkare, veterinär eller motsvarande yrke |
+
+typeOfResource.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../typeOfResource` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.typeOfResource",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.resourceAttribute","getcareserviceofferings.careService.resource.resourceAttribute","","","",0,1,"","","","string {[]} {[]}
+","resourceAttribute","Egenskap
+
+Värdet på resursen. Exempelvis om tolk så anges vilket språk.","TKB-fält: `../../resourceAttribute` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.resourceAttribute",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.availableTime","getcareserviceofferings.careService.resource.availableTime","","","",0,*,"","","","string {[]} {[]}
+","availableTime","Kalendertid
+
+Vilken tid resursen är tillgänglig.
+
+Se avsnitt 5.2.2 för beskrivning av format.","TKB-fält: `../../availableTime` (`CalendarType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.availableTime",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.description","getcareserviceofferings.careService.resource.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning
+
+Ytterligare information om resursen.
+
+Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.description",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.description.text","getcareserviceofferings.careService.resource.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.description.language","getcareserviceofferings.careService.resource.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.resource.description.role","getcareserviceofferings.careService.resource.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten  eller hälso- och sjukvårdspersonal.
+
+Om beskrivning anges, ska minst en beskrivning för invånare anges.
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.resource.description.role",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation","getcareserviceofferings.careService.interferenceInformation","","","",0,*,"","","","Base {[]} {[]}
+","InterferenceInformationType","Störningsinformation.
+
+Information om omständigheter som innebär en avvikelse i tillgängligheten för en viss vård- och omsorgstjänst.","TKB-fält: `../interferenceInformation` (`InterferenceInformationType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation",0,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation.datePeriod","getcareserviceofferings.careService.interferenceInformation.datePeriod","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType {[]} {[]}
+","datePeriod","Datumperiod
+
+Start- och sluttid för det inträffade, där starttid är obligatorisk och sluttid valfri.","TKB-fält: `../../datePeriod*` (`DatePeriodType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation.datePeriod",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation.typeOfInterference","getcareserviceofferings.careService.interferenceInformation.typeOfInterference","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","typeOfInterference","Typ av störning
+
+Vilken typ av avvikelse. Exempelvis ombyggnation, semester.
+
+Kod från Snomed CT hierarkin 272379006 | händelse |
+
+typeOfInterference.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../typeOfInterference` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation.typeOfInterference",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation.description","getcareserviceofferings.careService.interferenceInformation.description","","","",1,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning
+
+Ytterligare information om avvikelser.
+
+Det ska åtminstone finnas beskrivning på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description*` (`DescriptionType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation.description",1,*,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation.description.text","getcareserviceofferings.careService.interferenceInformation.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","Text
+
+Den textuella beskrivningen.","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation.description.text",1,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation.description.language","getcareserviceofferings.careService.interferenceInformation.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","Språk
+
+Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska.
+
+Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages -- Part 3: Alpha-3 code for
+
+comprehensive coverage of languages”.
+
+Exempel på code:
+
+swe (svenska)
+
+eng (engelska)
+
+deu (tyska)
+
+language.code: swe
+
+language.displayname: Swedish
+
+language.codesystem: 1.0.639.3","TKB-fält: `../../../language*` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation.description.language",0,1,"",""
+"getcareserviceofferings","getcareserviceofferings.careService.interferenceInformation.description.role","getcareserviceofferings.careService.interferenceInformation.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","Roll
+
+Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten  eller hälso- och sjukvårdspersonal.
+
+Om beskrivning anges, ska minst en beskrivning för invånare anges.
+
+Urval ur Snomed CT:
+
+role.code: 223366009
+
+role.displayname: hälso- och sjukvårdspersonal
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 257513009
+
+role.displayname: enskild person
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.code: 224611006
+
+role.displayname: personal inom socialtjänsten
+
+role.codesystem:  1.2.752.116.2.1.1
+
+role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.","TKB-fält: `../../../role*` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getcareserviceofferings.careService.interferenceInformation.description.role",0,*,"",""
+"getofferingcatalogues-request","getofferingcatalogues-request","getofferingcatalogues-request","","","",0,*,"","","","null {[]} {[]}
+","GetOfferingCatalogues — Request","Logisk modell för begäran i GetOfferingCatalogues
+(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2, GetOfferingCataloguesType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getofferingcatalogues-request","getofferingcatalogues-request.providingOrganization","getofferingcatalogues-request.providingOrganization","","","",0,1,"","","","Base {[]} {[]}
+","SearchProvidingOrganizationType","Katalogansvarig organisation","TKB-fält: `providingOrganization` (`SearchProvidingOrganizationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization",0,1,"",""
+"getofferingcatalogues-request","getofferingcatalogues-request.providingOrganization.providingOrganizationId","getofferingcatalogues-request.providingOrganization.providingOrganizationId","","","",0,*,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","providingOrganizationId","Id på katalogansvarig organisation
+
+Id på katalogansvarig organisation
+
+Begränsar sökningen så att endast poster med angivet id för katalogansvarig organisation returneras.
+
+För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7)
+
+För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)","TKB-fält: `providingOrganizationId` (`IIType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization.providingOrganizationId",0,*,"",""
+"getofferingcatalogues-request","getofferingcatalogues-request.providingOrganization.management","getofferingcatalogues-request.providingOrganization.management","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","management","Ägarform
+
+Begränsar sökningen så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras.
+
+Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14].
+
+Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `management` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization.management",0,*,"",""
+"getofferingcatalogues-request","getofferingcatalogues-request.providingOrganization.publicProvider","getofferingcatalogues-request.providingOrganization.publicProvider","","","",0,1,"","","","boolean {[]} {[]}
+","publicProvider","Offentlig huvudman
+
+Om satt till ’true’ filtreras sökresultatet så att endast poster returneras där katalogansvarig organisation är en offentlig huvudman.","TKB-fält: `publicProvider*` (`Boolean`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues-request.providingOrganization.publicProvider",0,1,"",""
+"getofferingcatalogues","getofferingcatalogues","getofferingcatalogues","","","",0,*,"","","","null {[]} {[]}
+","GetOfferingCatalogues — Response","Logisk modell för svaret i GetOfferingCatalogues
+(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2, GetOfferingCataloguesResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue","getofferingcatalogues.offeringCatalogue","","","",0,*,"","","","Base {[]} {[]}
+","OfferingCatalogueType","Utbudskatalog","TKB-fält: `OfferingCatalogue` (`OfferingCatalogueType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue",0,*,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization","getofferingcatalogues.offeringCatalogue.providingOrganization","","","",1,*,"","","","Base {[]} {[]}
+","ProvidingOrganizationType","Katalogansvarig organisation","TKB-fält: `../providingOrganization` (`ProvidingOrganizationType`, kardinalitet 1..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization",1,*,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.id","getofferingcatalogues.offeringCatalogue.providingOrganization.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Organisation id
+
+Id för den katalogansvariga organisationen. Innehållet i id styrs av vilken typ av organisation det är.
+
+För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7)
+
+För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)","TKB-fält: `../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.id",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.name","getofferingcatalogues.offeringCatalogue.providingOrganization.name","","","",1,1,"","","","string {[]} {[]}
+","name","Namn på katalogansvarig organisation.","TKB-fält: `../../name` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.name",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.management","getofferingcatalogues.offeringCatalogue.providingOrganization.management","","","",1,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","management","Ägarform
+
+Anger ägarform för den katalogansvariga organisationen.
+
+Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14].
+
+Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.","TKB-fält: `../../management` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.management",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.publicProvider","getofferingcatalogues.offeringCatalogue.providingOrganization.publicProvider","","","",1,1,"","","","boolean {[]} {[]}
+","publicProvider","Offentlig huvudman
+
+Anger om den katalogansvariga organisationen är en offentlig huvudman.
+
+true = offentlig huvudman","TKB-fält: `../../publicProvider*` (`Boolean`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.publicProvider",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.description","getofferingcatalogues.offeringCatalogue.providingOrganization.description","","","",0,*,"","","","Base {[]} {[]}
+","DescriptionType","Beskrivning av den katalogansvariga organisationen. Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare.
+
+Det får endast finnas en beskrivning med samma kombination av språk och roll.","TKB-fält: `../../description` (`DescriptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.description",0,*,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.description.text","getofferingcatalogues.offeringCatalogue.providingOrganization.description.text","","","",1,1,"","","","string {[]} {[]}
+","text","text","TKB-fält: `../../../text` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.description.text",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.description.language","getofferingcatalogues.offeringCatalogue.providingOrganization.description.language","","","",0,1,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","language","language","TKB-fält: `../../../language` (`CVType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.description.language",0,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.providingOrganization.description.role","getofferingcatalogues.offeringCatalogue.providingOrganization.description.role","","","",0,*,"","","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/CVType {[]} {[]}
+","role","role","TKB-fält: `../../../role` (`CVType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.providingOrganization.description.role",0,*,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.interaction","getofferingcatalogues.offeringCatalogue.interaction","","","",1,1,"","","","Base {[]} {[]}
+","InteractionType","Interaktion
+
+Pekar på var utbudskatalogen finns.
+
+En katalogansvarig organisation kan ha flera kataloger med olika systemadresser.","TKB-fält: `../interaction` (`InteractionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.interaction",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.interaction.logicalAddress","getofferingcatalogues.offeringCatalogue.interaction.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","logicalAddress","Logisk adress
+
+Logisk adress som ska användas vid adressering.","TKB-fält: `../../logicalAddress` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.interaction.logicalAddress",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.interaction.name","getofferingcatalogues.offeringCatalogue.interaction.name","","","",1,1,"","","","uri {[]} {[]}
+","name","Namn på interaktion","TKB-fält: `../../name` (`anyURI`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.interaction.name",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.interaction.majorVersion","getofferingcatalogues.offeringCatalogue.interaction.majorVersion","","","",1,1,"","","","integer {[]} {[]}
+","majorVersion","Den majorversion som stöds","TKB-fält: `../../majorVersion` (`int`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.interaction.majorVersion",1,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.interaction.minorVersion","getofferingcatalogues.offeringCatalogue.interaction.minorVersion","","","",0,1,"","","","integer {[]} {[]}
+","minorVersion","Den minorversion som stöds","TKB-fält: `../../minorVersion` (`int`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getofferingcatalogues.offeringCatalogue.interaction.minorVersion",0,1,"",""
+"getofferingcatalogues","getofferingcatalogues.offeringCatalogue.interaction.rivtaVersion","getofferingcatalogues.offeringCatalogue.interaction.rivtaVersion","","","",1,1,"","","","code {[]} {[]}
+","rivtaVersion","Rivtaversion
+
+Version av RIVTA [2.0, 2.1]","TKB-fält: `../../rivtaVersion` (`RIVTAVersionEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** rivtaVersion Tillåtna värden: 2.1.","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/ValueSet/healthcareoffering-rivtaversion-vs","",,,,"getofferingcatalogues.offeringCatalogue.interaction.rivtaVersion",1,1,"",""

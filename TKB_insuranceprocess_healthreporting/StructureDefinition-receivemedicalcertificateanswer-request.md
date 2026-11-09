@@ -1,0 +1,670 @@
+# ReceiveMedicalCertificateAnswer — Request - insuranceprocess: healthreporting v3.1.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ReceiveMedicalCertificateAnswer — Request**
+
+## Logical Model: ReceiveMedicalCertificateAnswer — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/receivemedicalcertificateanswer-request | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:ReceiveMedicalCertificateAnswerRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateAnswer (RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1). Tar emot svar från Försäkringskassan på en tidigare skickad fråga från vården. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.insuranceprocess-healthreporting|current/StructureDefinition/StructureDefinition-receivemedicalcertificateanswer-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-receivemedicalcertificateanswer-request.csv), [Excel](StructureDefinition-receivemedicalcertificateanswer-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "receivemedicalcertificateanswer-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/receivemedicalcertificateanswer-request",
+  "version" : "1.0",
+  "name" : "ReceiveMedicalCertificateAnswerRequest",
+  "title" : "ReceiveMedicalCertificateAnswer — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:41:48+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateAnswer\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1).\nTar emot svar från Försäkringskassan på en tidigare skickad fråga från vården.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/receivemedicalcertificateanswer-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "receivemedicalcertificateanswer-request",
+      "path" : "receivemedicalcertificateanswer-request",
+      "short" : "ReceiveMedicalCertificateAnswer — Request",
+      "definition" : "Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateAnswer\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1).\nTar emot svar från Försäkringskassan på en tidigare skickad fråga från vården."
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer",
+      "path" : "receivemedicalcertificateanswer-request.Answer",
+      "short" : "AnswerFromFkType",
+      "definition" : "Answer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.vardReferens-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.vardReferens-id",
+      "short" : "vardReferens-id",
+      "definition" : "Referens-id för den fråga från vården som detta svar gäller. *",
+      "comment" : "TKB-fält: `vardReferens-id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.fkReferens-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.fkReferens-id",
+      "short" : "fkReferens-id",
+      "definition" : "Försäkringskassans referens-id. *",
+      "comment" : "TKB-fält: `fkReferens-id` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.amne",
+      "path" : "receivemedicalcertificateanswer-request.Answer.amne",
+      "short" : "amne",
+      "definition" : "Ämne som fråga/svar gäller.",
+      "comment" : "TKB-fält: `amne` (`Amne typ`, kardinalitet 1..1).\n\n**Modellanteckning:** amne Tillåtna värden: Komplettering_av_lakarintyg, Makulering_av_lakarintyg, Avstamningsmote, Kontakt, Arbetstidsforlaggning, Paminnelse, Ovrigt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.fraga",
+      "path" : "receivemedicalcertificateanswer-request.Answer.fraga",
+      "short" : "innehallType",
+      "definition" : "Frågan",
+      "comment" : "TKB-fält: `fraga` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.fraga.meddelandeText",
+      "path" : "receivemedicalcertificateanswer-request.Answer.fraga.meddelandeText",
+      "short" : "meddelandeText",
+      "definition" : "Frågetexten rörande det angivna läkarintyg",
+      "comment" : "TKB-fält: `fraga.meddelandeText` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.fraga.signeringsTidpunkt",
+      "path" : "receivemedicalcertificateanswer-request.Answer.fraga.signeringsTidpunkt",
+      "short" : "signeringsTidpunkt",
+      "definition" : "Signeringstidpunkt för själva frågan",
+      "comment" : "TKB-fält: `fraga.signeringsTidpunkt` (`datumtid`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.svar",
+      "path" : "receivemedicalcertificateanswer-request.Answer.svar",
+      "short" : "innehallType",
+      "definition" : "Svaret",
+      "comment" : "TKB-fält: `svar` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.svar.meddelandeText",
+      "path" : "receivemedicalcertificateanswer-request.Answer.svar.meddelandeText",
+      "short" : "meddelandeText",
+      "definition" : "Själva svaret på ställd fråga",
+      "comment" : "TKB-fält: `svar.meddelandeText` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.svar.signeringsTidpunkt",
+      "path" : "receivemedicalcertificateanswer-request.Answer.svar.signeringsTidpunkt",
+      "short" : "signeringsTidpunkt",
+      "definition" : "Signeringstidpunkt för själva svaret",
+      "comment" : "TKB-fält: `svar.signeringsTidpunkt` (`datumtid`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.avsantTidpunkt",
+      "path" : "receivemedicalcertificateanswer-request.Answer.avsantTidpunkt",
+      "short" : "avsantTidpunkt",
+      "definition" : "Tidpunkt då svaret skickades från Försäkringskassan",
+      "comment" : "TKB-fält: `avsantTidpunkt` (`datumtid`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.fkKontaktInfo",
+      "path" : "receivemedicalcertificateanswer-request.Answer.fkKontaktInfo",
+      "short" : "fkKontaktType",
+      "definition" : "Rader med kontaktinformation",
+      "comment" : "TKB-fält: `fkKontaktInfo` (kardinalitet 0..n).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.fkKontaktInfo.kontakt",
+      "path" : "receivemedicalcertificateanswer-request.Answer.fkKontaktInfo.kontakt",
+      "short" : "kontakt",
+      "definition" : "Mer detaljerad kontaktinformation för den person som svarat från Försäkringskassan.",
+      "comment" : "TKB-fält: `fkKontaktInfo.kontakt` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard",
+      "short" : "vardAdresseringsType",
+      "definition" : "Vårdadress",
+      "comment" : "TKB-fält: `adressVard` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal",
+      "short" : "hosPersonalType",
+      "definition" : "Vårdpersonal",
+      "comment" : "TKB-fält: `adressVard.hosPersonal` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id",
+      "short" : "II",
+      "definition" : "Hsa-Id för Hos-person som ställde frågan.",
+      "comment" : "TKB-fält: `..hosPersonal.personal-id` (`hsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id.root",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id.root",
+      "short" : "root",
+      "definition" : "root (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id.extension",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id.identifierName",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.personal-id.identifierName",
+      "short" : "identifierName",
+      "definition" : "identifierName (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.fullstandigtNamn",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.fullstandigtNamn",
+      "short" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "definition" : "Namn för Hos-person som ställde frågan.",
+      "comment" : "TKB-fält: `..hosPersonal.fullstandigtNamn` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.forskrivarkod",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "Används ej",
+      "comment" : "TKB-fält: `..hosPersonal.forskrivarkod` (`string`, kardinalitet 0..0).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet",
+      "short" : "enhetType",
+      "definition" : "Vårdenhet",
+      "comment" : "TKB-fält: `..hosPersonal.enhet`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id",
+      "short" : "II",
+      "definition" : "Hsa-Id för Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.enhets-id` (`hsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id.root",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id.root",
+      "short" : "root",
+      "definition" : "root (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id.extension",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id.identifierName",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhets-id.identifierName",
+      "short" : "identifierName",
+      "definition" : "identifierName (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod",
+      "short" : "II",
+      "definition" : "Används ej",
+      "comment" : "TKB-fält: `..enhet.arbetsplatskod` (`string`, kardinalitet 0..0).\n\n**Modellanteckning:** o.i.d för arbetsplatskod är 1.2.752.29.4.71",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod.root",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod.root",
+      "short" : "root",
+      "definition" : "root (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod.extension",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod.identifierName",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.arbetsplatskod.identifierName",
+      "short" : "identifierName",
+      "definition" : "identifierName (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhetsnamn",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.enhetsnamn",
+      "short" : "enhetsnamn",
+      "definition" : "Namn på Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.enhets-namn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.postadress",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.postadress",
+      "short" : "postadress",
+      "definition" : "Postadress för Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.postadress` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.postnummer",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.postnummer",
+      "short" : "postnummer",
+      "definition" : "Postnummer för Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.postnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.postort",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.postort",
+      "short" : "postort",
+      "definition" : "Postort för Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.postort` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.telefonnummer",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "Telefonnummer till Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.telefonnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.epost",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.epost",
+      "short" : "epost",
+      "definition" : "Epost adress för Hos-vårdenhet varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..enhet.epost` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare",
+      "short" : "vardgivareType",
+      "definition" : "Vårdgivare",
+      "comment" : "TKB-fält: `..enhet.vardgivare` (kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id",
+      "short" : "II",
+      "definition" : "Hsa-Id för Hos-vårdgivare varifrån frågan ställdes",
+      "comment" : "TKB-fält: `..vardgivare.vardgivare-id` (`hsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.root",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.root",
+      "short" : "root",
+      "definition" : "root (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.extension",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.identifierName",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivare-id.identifierName",
+      "short" : "identifierName",
+      "definition" : "identifierName (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivarnamn",
+      "path" : "receivemedicalcertificateanswer-request.Answer.adressVard.hosPersonal.enhet.vardgivare.vardgivarnamn",
+      "short" : "vardgivarnamn",
+      "definition" : "vardgivarnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande",
+      "short" : "lakarutlatandeEnkelType",
+      "definition" : "lakarutlatande",
+      "comment" : "TKB-fält: `lakarutlatande` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.lakarutlatande-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.lakarutlatande-id",
+      "short" : "lakarutlatande-id",
+      "definition" : "Unikt id för läkarintyget som fråga/svar gäller",
+      "comment" : "TKB-fält: `lakarutlatande.lakarutlatande-id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.signeringsTidpunkt",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.signeringsTidpunkt",
+      "short" : "signeringsTidpunkt",
+      "definition" : "Signeringstidpunkt för läkarintyget som fråga/svar gäller",
+      "comment" : "TKB-fält: `lakarutlatande.signeringsTidpunkt` (`datumtid`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient",
+      "short" : "patientType",
+      "definition" : "patient",
+      "comment" : "TKB-fält: `lakarutlatande.patient` (kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id",
+      "short" : "II",
+      "definition" : "Patientens personnummer eller samordningnummer",
+      "comment" : "TKB-fält: `..patient.person-id` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id.root",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id.root",
+      "short" : "root",
+      "definition" : "root (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id.extension",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id.extension",
+      "short" : "extension",
+      "definition" : "extension (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id.identifierName",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.person-id.identifierName",
+      "short" : "identifierName",
+      "definition" : "identifierName (XML-attribut)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.fullstandigtNamn",
+      "path" : "receivemedicalcertificateanswer-request.Answer.lakarutlatande.patient.fullstandigtNamn",
+      "short" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "definition" : "Patientens namn",
+      "comment" : "TKB-fält: `..patient.fullstandigtNamn` (`string`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

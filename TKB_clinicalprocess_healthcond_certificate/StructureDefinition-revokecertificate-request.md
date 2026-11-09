@@ -1,0 +1,356 @@
+# RevokeCertificate — Request - clinicalprocess: healthcond: certificate v4.1.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **RevokeCertificate — Request**
+
+## Logical Model: RevokeCertificate — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/revokecertificate-request | *Version*:2.1 |
+| Draft as of 2026-11-09 | *Computable Name*:RevokeCertificateRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i RevokeCertificate. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-certificate|current/StructureDefinition/StructureDefinition-revokecertificate-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-revokecertificate-request.csv), [Excel](StructureDefinition-revokecertificate-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "revokecertificate-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/revokecertificate-request",
+  "version" : "2.1",
+  "name" : "RevokeCertificateRequest",
+  "title" : "RevokeCertificate — Request",
+  "status" : "draft",
+  "date" : "2026-11-09T03:21:30+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i RevokeCertificate.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/revokecertificate-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "revokecertificate-request",
+      "path" : "revokecertificate-request",
+      "short" : "RevokeCertificate — Request",
+      "definition" : "Logisk modell för requestparametrar i RevokeCertificate."
+    },
+    {
+      "id" : "revokecertificate-request.meddelande",
+      "path" : "revokecertificate-request.meddelande",
+      "short" : "meddelande",
+      "definition" : "Beskrivning av orsak till makuleringen.",
+      "comment" : "TKB-fält: `meddelande` (`string`, kardinalitet 0..1).\n\n**Mappning DIM:** Makulering.meddelande",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatTidpunkt",
+      "path" : "revokecertificate-request.skickatTidpunkt",
+      "short" : "skickatTidpunkt",
+      "definition" : "Tidpunkt då makuleringen skickades från vården.",
+      "comment" : "TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).\n\n**Mappning DIM:** Makulering.tidpunkt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime",
+        "profile" : ["https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.intygs-id",
+      "path" : "revokecertificate-request.intygs-id",
+      "short" : "IntygId",
+      "definition" : "Unikt ID för det intyg som skall makuleras.",
+      "comment" : "TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).\n\n**Mappning DIM:** Intyg.intygs-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.patientPerson-id",
+      "path" : "revokecertificate-request.patientPerson-id",
+      "short" : "PersonId",
+      "definition" : "Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som ska makuleras. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.",
+      "comment" : "TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).\n\n**Mappning DIM:** Patient.person-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv",
+      "path" : "revokecertificate-request.skickatAv",
+      "short" : "HosPersonal",
+      "definition" : "Identifierar den som utför makuleringen.",
+      "comment" : "TKB-fält: `skickatAv` (`HoSPersonal (se 7.1.4)`, kardinalitet 1..1).\n\n**Mappning DIM:** HoS-personal, Enhet, Vårdgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.personal-id",
+      "path" : "revokecertificate-request.skickatAv.personal-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.fullstandigtNamn",
+      "path" : "revokecertificate-request.skickatAv.fullstandigtNamn",
+      "short" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "definition" : "Förnamn + efternamn sammanslaget. Är tomt om personen har en skyddad identitet.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.forskrivarkod",
+      "path" : "revokecertificate-request.skickatAv.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.befattning",
+      "path" : "revokecertificate-request.skickatAv.befattning",
+      "short" : "Befattning",
+      "definition" : "befattning",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet",
+      "path" : "revokecertificate-request.skickatAv.enhet",
+      "short" : "Enhet",
+      "definition" : "enhet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.enhets-id",
+      "path" : "revokecertificate-request.skickatAv.enhet.enhets-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.arbetsplatskod",
+      "path" : "revokecertificate-request.skickatAv.enhet.arbetsplatskod",
+      "short" : "ArbetsplatsKod",
+      "definition" : "o.i.d för arbetsplatskod är 1.2.752.29.4.71",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.enhetsnamn",
+      "path" : "revokecertificate-request.skickatAv.enhet.enhetsnamn",
+      "short" : "enhetsnamn",
+      "definition" : "enhetsnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.postadress",
+      "path" : "revokecertificate-request.skickatAv.enhet.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.postnummer",
+      "path" : "revokecertificate-request.skickatAv.enhet.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.postort",
+      "path" : "revokecertificate-request.skickatAv.enhet.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.telefonnummer",
+      "path" : "revokecertificate-request.skickatAv.enhet.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "telefonnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.epost",
+      "path" : "revokecertificate-request.skickatAv.enhet.epost",
+      "short" : "epost",
+      "definition" : "epost",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.vardgivare",
+      "path" : "revokecertificate-request.skickatAv.enhet.vardgivare",
+      "short" : "Vardgivare",
+      "definition" : "vardgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.vardgivare.vardgivare-id",
+      "path" : "revokecertificate-request.skickatAv.enhet.vardgivare.vardgivare-id",
+      "short" : "HsaId",
+      "definition" : "HSA-id, o.i.d för HSA-id är 1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.enhet.vardgivare.vardgivarnamn",
+      "path" : "revokecertificate-request.skickatAv.enhet.vardgivare.vardgivarnamn",
+      "short" : "vardgivarnamn",
+      "definition" : "vardgivarnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.specialistkompetens",
+      "path" : "revokecertificate-request.skickatAv.specialistkompetens",
+      "short" : "Specialistkompetens",
+      "definition" : "specialistkompetens",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.specialistkompetens.code",
+      "path" : "revokecertificate-request.skickatAv.specialistkompetens.code",
+      "short" : "code",
+      "definition" : "code",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.specialistkompetens.displayName",
+      "path" : "revokecertificate-request.skickatAv.specialistkompetens.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "revokecertificate-request.skickatAv.legitimeratYrke",
+      "path" : "revokecertificate-request.skickatAv.legitimeratYrke",
+      "short" : "LegitimeratYrkeType",
+      "definition" : "legitimeratYrke",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    }]
+  }
+}
+
+```

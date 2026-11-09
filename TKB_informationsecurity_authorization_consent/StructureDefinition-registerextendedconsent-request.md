@@ -1,0 +1,347 @@
+# RegisterExtendedConsent — Request - informationsecurity: authorization: consent v2.0.4
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **RegisterExtendedConsent — Request**
+
+## Logical Model: RegisterExtendedConsent — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/informationsecurity-authorization-consent/StructureDefinition/registerextendedconsent-request | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:RegisterExtendedConsentRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i RegisterExtendedConsent (urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.informationsecurity-authorization-consent|current/StructureDefinition/StructureDefinition-registerextendedconsent-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-registerextendedconsent-request.csv), [Excel](StructureDefinition-registerextendedconsent-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "registerextendedconsent-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/informationsecurity-authorization-consent/StructureDefinition/registerextendedconsent-request",
+  "version" : "2.0",
+  "name" : "RegisterExtendedConsentRequest",
+  "title" : "RegisterExtendedConsent — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:35:51+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i RegisterExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/informationsecurity-authorization-consent/StructureDefinition/registerextendedconsent-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "registerextendedconsent-request",
+      "path" : "registerextendedconsent-request",
+      "short" : "RegisterExtendedConsent — Request",
+      "definition" : "Logisk modell för begäran i RegisterExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "registerextendedconsent-request.assertionId",
+      "path" : "registerextendedconsent-request.assertionId",
+      "short" : "assertionId",
+      "definition" : "Unik, global identifierare för intyget. Tjänstekonsumenten ansvarar för att generera id:et.",
+      "comment" : "TKB-fält: `assertionId` (`urn:riv:informationsecurity:authorization:consent:2:Id`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.assertionType",
+      "path" : "registerextendedconsent-request.assertionType",
+      "short" : "assertionType",
+      "definition" : "Typ av intyg som ger direktåtkomst till information från andra vård-/omsorgsgivare enligt SVOD. Kan vara patientens/brukarens samtycke eller nödsituation.",
+      "comment" : "TKB-fält: `assertionType` (`urn:riv:informationsecurity:authorization:consent:2:AssertionTypeType`, kardinalitet 1..1).\n\n**Modellanteckning:** assertionType Tillåtna värden: Consent, Emergency.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-consent/ValueSet/authorization-consent-assertiontype-vs"
+      }
+    },
+    {
+      "id" : "registerextendedconsent-request.scope",
+      "path" : "registerextendedconsent-request.scope",
+      "short" : "scope",
+      "definition" : "Omfånget/tillämpningsområde på intyget.",
+      "comment" : "TKB-fält: `scope` (`urn:riv:informationsecurity:authorization:consent:2:ScopeType`, kardinalitet 1..1).\n\n**Modellanteckning:** scope Tillåtna värden: NationalLevel.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-consent/ValueSet/authorization-consent-scope-vs"
+      }
+    },
+    {
+      "id" : "registerextendedconsent-request.patientId",
+      "path" : "registerextendedconsent-request.patientId",
+      "short" : "patientId",
+      "definition" : "Personidentitet på patienten/brukaren på vilket samtycket ska registreras.",
+      "comment" : "TKB-fält: `patientId` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.careProviderId",
+      "path" : "registerextendedconsent-request.careProviderId",
+      "short" : "careProviderId",
+      "definition" : "Id på den vård-/omsorgsgivare som intyget gäller för/kopplas till.",
+      "comment" : "TKB-fält: `careProviderId` (`urn:riv:informationsecurity:authorization:consent:2:HsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.careUnitId",
+      "path" : "registerextendedconsent-request.careUnitId",
+      "short" : "careUnitId",
+      "definition" : "Id på den enhet som intyget gäller för/kopplas till.",
+      "comment" : "TKB-fält: `careUnitId` (`urn:riv:informationsecurity:authorization:consent:2:HsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.employeeId",
+      "path" : "registerextendedconsent-request.employeeId",
+      "short" : "employeeId",
+      "definition" : "MedarbetarId. Om samtycket är personligt anges id för den medarbetare som samtycket skall gälla för. Om samtycket gäller all behörig personal på angiven vårdenhet, skall inget medarbetarid anges.",
+      "comment" : "TKB-fält: `employeeId` (`urn:riv:informationsecurity:authorization:consent:2:HsaId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.startDate",
+      "path" : "registerextendedconsent-request.startDate",
+      "short" : "startDate",
+      "definition" : "Ej obligatoriskt startdatum för intygets giltighetstid. Om ett startdatum är angivet gäller intyget fr.o.m denna tidpunkt, annars gäller samtycket fr.o.m aktuell tidpunkt (registreringstidpunkt).",
+      "comment" : "TKB-fält: `startDate` (`xs:DateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.endDate",
+      "path" : "registerextendedconsent-request.endDate",
+      "short" : "endDate",
+      "definition" : "Ej obligatoriskt slutdatum för intygets giltighetstid. Om ett slutdatum är angivet gäller intyget t.o.m denna tidpunkt. Om inget slutdatum anges, gäller samtycket tills det blir avslutat eller makulerat.",
+      "comment" : "TKB-fält: `endDate` (`xs:DateTime`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.representedBy",
+      "path" : "registerextendedconsent-request.representedBy",
+      "short" : "representedBy",
+      "definition" : "Ej obligatorisk personidentitet på företrädare/vårdnadshavare som företräder patienten/brukaren. Värdet ska anges om samtycket är inhämtat från företrädare/vårdnadshavare.",
+      "comment" : "TKB-fält: `representedBy` (`urn:riv:informationsecurity:authorization:consent:2:IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction",
+      "path" : "registerextendedconsent-request.registrationAction",
+      "short" : "ActionType",
+      "definition" : "Identifierar de personer som begärt och registrerat intyget samt tidpunkter för dessa.",
+      "comment" : "TKB-fält: `registrationAction` (`urn:riv:informationsecurity:authorization:consent:2:ActionType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.requestDate",
+      "path" : "registerextendedconsent-request.registrationAction.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "comment" : "TKB-fält: `../requestDate` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.requestedBy",
+      "path" : "registerextendedconsent-request.registrationAction.requestedBy",
+      "short" : "ActorType",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "comment" : "TKB-fält: `../requestedBy` (`ActorType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.requestedBy.employeeId",
+      "path" : "registerextendedconsent-request.registrationAction.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "comment" : "TKB-fält: `../../employeeId` (`HsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.requestedBy.assignmentId",
+      "path" : "registerextendedconsent-request.registrationAction.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "comment" : "TKB-fält: `../../assignmentId` (`HsaId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.requestedBy.assignmentName",
+      "path" : "registerextendedconsent-request.registrationAction.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "comment" : "TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.registrationDate",
+      "path" : "registerextendedconsent-request.registrationAction.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "comment" : "TKB-fält: `../registrationDate` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.registeredBy",
+      "path" : "registerextendedconsent-request.registrationAction.registeredBy",
+      "short" : "ActorType",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "comment" : "TKB-fält: `../registeredBy` (`ActorType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.registeredBy.employeeId",
+      "path" : "registerextendedconsent-request.registrationAction.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "comment" : "TKB-fält: `../../employeeId` (`HsaId`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.registeredBy.assignmentId",
+      "path" : "registerextendedconsent-request.registrationAction.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "comment" : "TKB-fält: `../../assignmentId` (`HsaId`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.registeredBy.assignmentName",
+      "path" : "registerextendedconsent-request.registrationAction.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "comment" : "TKB-fält: `../../assignmentName` (`AssignmentNameType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registerextendedconsent-request.registrationAction.reasonText",
+      "path" : "registerextendedconsent-request.registrationAction.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "comment" : "TKB-fält: `../reasonText` (`ReasonText`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,70 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processexemptionstatuses-request","processexemptionstatuses-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessExemptionStatuses — Request","Logisk modell för begäran i ProcessExemptionStatuses
+(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processexemptionstatuses-request.requestId","processexemptionstatuses-request.requestId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","requestId","Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses.","TKB-fält: `requestId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.requestId",1,1,"",""
+"processexemptionstatuses-request.feeExemption","processexemptionstatuses-request.feeExemption","","","",0,*,"","","","Base {[]} {[]}
+","FeeExemptionType","Returnerar en patients högkostnadsskyddstatus","TKB-fält: `feeExemption` (`FeeExemptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption",0,*,"",""
+"processexemptionstatuses-request.feeExemption.patientId","processexemptionstatuses-request.feeExemption.patientId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","patientId","Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten.
+
+Dvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR.
+
+Fältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare.
+
+Fältet root sätts till typ av identifierare.
+
+För personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas.
+
+Exempel:
+
+`<patientId>`
+
+`<root>`1.2.752.129.2.1.3.1`</root>`
+
+`<extension>`196705053723`</extension>`
+
+`</patientId>`","TKB-fält: `../patientId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.patientId",1,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions","processexemptionstatuses-request.feeExemption.transactions","","","",0,*,"","","","Base {[]} {[]}
+","TransactionType","transactions","TKB-fält: `../transactions` (`TransactionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions",0,*,"",""
+"processexemptionstatuses-request.feeExemption.transactions.fee","processexemptionstatuses-request.feeExemption.transactions.fee","","","",0,1,"","","","Base {[]} {[]}
+","AmountType","fee","TKB-fält: `../../fee` (`AmountType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.fee",0,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.fee.amount","processexemptionstatuses-request.feeExemption.transactions.fee.amount","","","",1,1,"","","","decimal {[]} {[]}
+","amount","Belopp med högst två decimaler.","TKB-fält: `../../../amount` (`decimal`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.fee.amount",1,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.fee.currency","processexemptionstatuses-request.feeExemption.transactions.fee.currency","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType {[]} {[]}
+","currency","Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK.
+
+code: SEK
+
+codeSystem: ”1.0.4217”","TKB-fält: `../../../currency*` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.fee.currency",1,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.dateOfVisit","processexemptionstatuses-request.feeExemption.transactions.dateOfVisit","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","dateOfVisit","dateOfVisit","TKB-fält: `../../dateOfVisit` (`DateType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.dateOfVisit",0,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration","processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType]]} {[]}
+","timeOfRegistration","timeOfRegistration","TKB-fält: `../../timeOfRegistration` (`TimeStampType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration",0,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.typeOfFee","processexemptionstatuses-request.feeExemption.transactions.typeOfFee","","","",1,1,"","","","code {[]} {[]}
+","typeOfFee","typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION.","TKB-fält: `../../typeOfFee` (`TypeOfExemptionEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** typeOfFee Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION.","","","","","","","","",,"required","","https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs","",,,,"processexemptionstatuses-request.feeExemption.transactions.typeOfFee",1,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.careGiver","processexemptionstatuses-request.feeExemption.transactions.careGiver","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careGiver","careGiver","TKB-fält: `../../careGiver` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.careGiver",0,1,"",""
+"processexemptionstatuses-request.feeExemption.transactions.careUnit","processexemptionstatuses-request.feeExemption.transactions.careUnit","","","",0,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","careUnit","careUnit","TKB-fält: `../../careUnit` (`IIType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.transactions.careUnit",0,1,"",""
+"processexemptionstatuses-request.feeExemption.exemptions","processexemptionstatuses-request.feeExemption.exemptions","","","",0,*,"","","","Base {[]} {[]}
+","ExemptionType","exemptions","TKB-fält: `../exemptions` (`ExemptionType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.exemptions",0,*,"",""
+"processexemptionstatuses-request.feeExemption.exemptions.id","processexemptionstatuses-request.feeExemption.exemptions.id","","","",1,1,"","","","string {[]} {[]}
+","id","id","TKB-fält: `../../id` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.exemptions.id",1,1,"",""
+"processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod","processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType {[]} {[]}
+","highCostProtectionPeriod","highCostProtectionPeriod","TKB-fält: `../../highCostProtectionPeriod` (`DatePeriodType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod",1,1,"",""
+"processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod","processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DatePeriodType {[]} {[]}
+","exemptionPeriod","exemptionPeriod","TKB-fält: `../../exemptionPeriod` (`DatePeriodType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod",1,1,"",""
+"processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption","processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption","","","",1,1,"","","","code {[]} {[]}
+","typeOfExemption","typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION.","TKB-fält: `../../typeOfExemption` (`TypeOfExemptionEnum`, kardinalitet 1..1).
+
+**Modellanteckning:** typeOfExemption Tillåtna värden: CARE_VISIT, TECHNICAL_AID, TRANSPORTATION.","","","","","","","","",,"required","","https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs","",,,,"processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption",1,1,"",""
+"processexemptionstatuses-request.feeExemption.exemptions.region","processexemptionstatuses-request.feeExemption.exemptions.region","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","region","region","TKB-fält: `../../region` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processexemptionstatuses-request.feeExemption.exemptions.region",1,1,"",""

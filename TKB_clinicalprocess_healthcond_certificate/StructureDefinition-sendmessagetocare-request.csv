@@ -1,0 +1,85 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"sendmessagetocare-request","sendmessagetocare-request","","","",0,*,"","","","null {[]} {[]}
+","SendMessageToCare — Request","Logisk modell för requestparametrar i SendMessageToCare (meddelande från intygsmottagare till vården).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"sendmessagetocare-request.meddelande-id","sendmessagetocare-request.meddelande-id","","","",1,1,"","","","string {[]} {[]}
+","meddelande-id","Unikt ID för meddelandet. ”Meddelande” syftar här på själva requestet. Är en GUID.","TKB-fält: `meddelande-id` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.meddelande-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.meddelande-id",1,1,"",""
+"sendmessagetocare-request.referens-id","sendmessagetocare-request.referens-id","","","",0,1,"","","","string {[]} {[]}
+","referens-id","Valfri referens till entitet hos sändande part. Behöver ej vara unikt.","TKB-fält: `referens-id` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.referens-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.referens-id",0,1,"",""
+"sendmessagetocare-request.skickatTidpunkt","sendmessagetocare-request.skickatTidpunkt","","","",1,1,"","","","dateTime {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/TimeStampType]]} {[]}
+","skickatTidpunkt","Tidpunkt då meddelandet skickades.","TKB-fält: `skickatTidpunkt` (`TimeStampType`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.avsänt tidpunkt","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatTidpunkt",1,1,"",""
+"sendmessagetocare-request.intygs-id","sendmessagetocare-request.intygs-id","","","",1,1,"","","","Base {[]} {[]}
+","IntygId","Unikt ID för det intyg som meddelandet hör till.","TKB-fält: `intygs-id` (`IntygId (se 7.2.6)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intyg.intygs-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.intygs-id",1,1,"",""
+"sendmessagetocare-request.patientPerson-id","sendmessagetocare-request.patientPerson-id","","","",1,1,"","","","Base {[]} {[]}
+","PersonId","Person- eller samordningsnummer för patienten. Ska överensstämma med person-id på intyget som meddelandet hör till. Inkluderas här för att förenkla för systemlösningar som vill använda detta begrepp som nyckel istället för intygs-id.","TKB-fält: `patientPerson-Id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+
+**Mappning DIM:** Patient.person-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.patientPerson-id",1,1,"",""
+"sendmessagetocare-request.logiskAdressMottagare","sendmessagetocare-request.logiskAdressMottagare","","","",1,1,"","","","string {[]} {[]}
+","logiskAdressMottagare","Logisk adress för den vårdenhet som intygstjänsten ska vidarebefordra meddelandet till.","TKB-fält: `logiskAdressMottagare*` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Enhet.Enhets-id.extension","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.logiskAdressMottagare",1,1,"",""
+"sendmessagetocare-request.amne","sendmessagetocare-request.amne","","","",1,1,"","","","Base {[]} {[]}
+","Amneskod","Kodat värde som anger ämnet för frågan.","TKB-fält: `amne*` (`Amneskod (se 7.2.1)`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.ämne","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.amne",1,1,"",""
+"sendmessagetocare-request.rubrik","sendmessagetocare-request.rubrik","","","",0,1,"","","","string {[]} {[]}
+","rubrik","En valfri rubrik som beskriver meddelandet.","TKB-fält: `rubrik` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.rubrik","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.rubrik",0,1,"",""
+"sendmessagetocare-request.meddelande","sendmessagetocare-request.meddelande","","","",1,1,"","","","string {[]} {[]}
+","meddelande","Meddelandets text.
+
+Om meddelandet är av ämne “Komplettering” ska det via det här fältet skickas det generella kompletteringsmeddelandet. Kompletteringmeddelandet som gäller en specifik fråga i intyget ska skickas via fältet komplettering/text","TKB-fält: `meddelande*` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Meddelande.meddelande","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.meddelande",1,1,"",""
+"sendmessagetocare-request.paminnelseMeddelande-id","sendmessagetocare-request.paminnelseMeddelande-id","","","",0,1,"","","","string {[]} {[]}
+","paminnelseMeddelande-id","Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om.","TKB-fält: `paminnelseMeddelande-id*` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.paminnelseMeddelande-id",0,1,"",""
+"sendmessagetocare-request.svarPa","sendmessagetocare-request.svarPa","","","",0,1,"","","","Base {[]} {[]}
+","MeddelandeReferens","Om detta meddelande är ett svar på en fråga från vården ska referens till frågan skickas","TKB-fält: `svarPa` (`MeddelandeReferens (se 7.1.7)`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.meddelande-id, Meddelande.referens-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.svarPa",0,1,"",""
+"sendmessagetocare-request.svarPa.meddelande-id","sendmessagetocare-request.svarPa.meddelande-id","","","",1,1,"","","","string {[]} {[]}
+","meddelande-id","meddelande-id","","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.svarPa.meddelande-id",1,1,"",""
+"sendmessagetocare-request.svarPa.referens-id","sendmessagetocare-request.svarPa.referens-id","","","",0,1,"","","","string {[]} {[]}
+","referens-id","referens-id","","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.svarPa.referens-id",0,1,"",""
+"sendmessagetocare-request.skickatAv","sendmessagetocare-request.skickatAv","","","",1,1,"","","","Base {[]} {[]}
+","(anonym typ)","","TKB-fält: `skickatAv` (`-`, kardinalitet 1..1).
+
+**Mappning DIM:** -","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatAv",1,1,"",""
+"sendmessagetocare-request.skickatAv.part","sendmessagetocare-request.skickatAv.part","","","",1,1,"","","","Base {[]} {[]}
+","Part","Kodat värde som anger den part i intygshanteringsprocessen som skickar meddelandet.","TKB-fält: `../part` (`Part (se 7.2.9)`, kardinalitet 1..1).
+
+**Mappning DIM:** Intygsmottagare.part","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatAv.part",1,1,"",""
+"sendmessagetocare-request.skickatAv.kontaktInfo","sendmessagetocare-request.skickatAv.kontaktInfo","","","",0,*,"","","","string {[]} {[]}
+","kontaktInfo","Rader med kontaktinformation. Vilken information som skickas kan variera för olika intygsmottagare, och måste överenskommas mellan vården och intygsmottagaren.","TKB-fält: `../kontaktInfo` (`string`, kardinalitet 0..*).
+
+**Mappning DIM:** Intygsmottagare. kontaktuppgift","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.skickatAv.kontaktInfo",0,*,"",""
+"sendmessagetocare-request.komplettering","sendmessagetocare-request.komplettering","","","",0,*,"","","","Base {[]} {[]}
+","(anonym typ)","Komplettering","TKB-fält: `komplettering*` (`-`, kardinalitet 0..*).
+
+**Mappning DIM:** -","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering",0,*,"",""
+"sendmessagetocare-request.komplettering.frage-id","sendmessagetocare-request.komplettering.frage-id","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/FrageIdType]]} {[]}
+","frage-id","Identitet på den fråga som intygsmottagaren önskar få kompletterad.","TKB-fält: `../frage-id` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Fråga.fråge-id","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering.frage-id",1,1,"",""
+"sendmessagetocare-request.komplettering.instans","sendmessagetocare-request.komplettering.instans","","","",0,1,"","","","integer {[]} {[]}
+","instans","Instansnummer för en fråga som förekommer i flera instanser.","TKB-fält: `../instans*` (`int`, kardinalitet 0..1).
+
+**Mappning DIM:** Svar.instans","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering.instans",0,1,"",""
+"sendmessagetocare-request.komplettering.text","sendmessagetocare-request.komplettering.text","","","",1,1,"","","","string {[]} {[]}
+","text","Kompletteringsmeddelande som gäller en specifik fråga i intyget. Texten ska inte vara redundant med den texten som skickades via fältet meddelande","TKB-fält: `../text*` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Kompletteringsfråga.kompletteringsfråga","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.komplettering.text",1,1,"",""
+"sendmessagetocare-request.sistaDatumForSvar","sendmessagetocare-request.sistaDatumForSvar","","","",0,1,"","","","date {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType]]} {[]}
+","sistaDatumForSvar","Datum då intygsmottagaren senast vill ha ett svar.","TKB-fält: `sistaDatumForSvar` (`DateType`, kardinalitet 0..1).
+
+**Mappning DIM:** Meddelande.sista datum för svar","","","","","","","","",,,,,"",,,,"sendmessagetocare-request.sistaDatumForSvar",0,1,"",""

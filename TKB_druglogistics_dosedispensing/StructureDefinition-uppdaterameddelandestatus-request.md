@@ -1,0 +1,251 @@
+# UppdateraMeddelandeStatus — Request - druglogistics: dosedispensing — Dosdispensering v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **UppdateraMeddelandeStatus — Request**
+
+## Logical Model: UppdateraMeddelandeStatus — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/uppdaterameddelandestatus-request | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:UppdateraMeddelandeStatusRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i UppdateraMeddelandeStatus (urn:riv:druglogistics:dosedispensing:UppdateraMeddelandeStatusResponder:1, UppdateraMeddelandeStatusType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.druglogistics-dosedispensing|current/StructureDefinition/StructureDefinition-uppdaterameddelandestatus-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-uppdaterameddelandestatus-request.csv), [Excel](StructureDefinition-uppdaterameddelandestatus-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "uppdaterameddelandestatus-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/uppdaterameddelandestatus-request",
+  "version" : "1.0",
+  "name" : "UppdateraMeddelandeStatusRequest",
+  "title" : "UppdateraMeddelandeStatus — Request",
+  "status" : "active",
+  "date" : "2026-11-09T03:27:17+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i UppdateraMeddelandeStatus\n(urn:riv:druglogistics:dosedispensing:UppdateraMeddelandeStatusResponder:1, UppdateraMeddelandeStatusType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/uppdaterameddelandestatus-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "uppdaterameddelandestatus-request",
+      "path" : "uppdaterameddelandestatus-request",
+      "short" : "UppdateraMeddelandeStatus — Request",
+      "definition" : "Logisk modell för begäran i UppdateraMeddelandeStatus\n(urn:riv:druglogistics:dosedispensing:UppdateraMeddelandeStatusResponder:1, UppdateraMeddelandeStatusType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.glnkod",
+      "path" : "uppdaterameddelandestatus-request.glnkod",
+      "short" : "glnkod",
+      "definition" : "glnkod",
+      "comment" : "TKB-fält: `glnkod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation",
+      "short" : "BehorighetsinfoRequest",
+      "definition" : "Behorighetsinformation",
+      "comment" : "TKB-fält: `Behorighetsinformation` (`BehorighetsinfoRequest`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.fornamn",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "comment" : "TKB-fält: `../fornamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.efternamn",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "comment" : "TKB-fält: `../efternamn` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.forskrivarkod",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "comment" : "TKB-fält: `../forskrivarkod` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.yrkeskod",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.yrkeskod",
+      "short" : "yrkeskod",
+      "definition" : "yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
+      "comment" : "TKB-fält: `../yrkeskod` (`YrkesKodEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** yrkeskod Tillåtna värden: LK, TL, BM, SJ, RS, TH.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-yrkeskod-vs"
+      }
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.arbetsplatskod",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "comment" : "TKB-fält: `../arbetsplatskod` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.hsaid",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "comment" : "TKB-fält: `../hsaid` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.personnummer",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.personnummer",
+      "short" : "personnummer",
+      "definition" : "personnummer",
+      "comment" : "TKB-fält: `../personnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Behorighetsinformation.organisationsnummer",
+      "path" : "uppdaterameddelandestatus-request.Behorighetsinformation.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "comment" : "TKB-fält: `../organisationsnummer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Meddelandeninfo",
+      "path" : "uppdaterameddelandestatus-request.Meddelandeninfo",
+      "short" : "UppdateraMeddelandestatus",
+      "definition" : "Meddelandeninfo",
+      "comment" : "TKB-fält: `Meddelandeninfo` (`UppdateraMeddelandestatus`, kardinalitet 1..*).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Meddelandeninfo.meddelandeid",
+      "path" : "uppdaterameddelandestatus-request.Meddelandeninfo.meddelandeid",
+      "short" : "meddelandeid",
+      "definition" : "meddelandeid",
+      "comment" : "TKB-fält: `../meddelandeid` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Meddelandeninfo.meddelandestatus",
+      "path" : "uppdaterameddelandestatus-request.Meddelandeninfo.meddelandestatus",
+      "short" : "meddelandestatus",
+      "definition" : "meddelandestatus Tillåtna värden: L, O, B, BLO, LO, BL.",
+      "comment" : "TKB-fält: `../meddelandestatus` (`MeddelandeStatusEnum`, kardinalitet 1..1).\n\n**Modellanteckning:** meddelandestatus Tillåtna värden: L, O, B, BLO, LO, BL.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-meddelandestatus-vs"
+      }
+    },
+    {
+      "id" : "uppdaterameddelandestatus-request.Meddelandeninfo.statustidpunkt",
+      "path" : "uppdaterameddelandestatus-request.Meddelandeninfo.statustidpunkt",
+      "short" : "statustidpunkt",
+      "definition" : "statustidpunkt",
+      "comment" : "TKB-fält: `../statustidpunkt` (`dateTime`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    }]
+  }
+}
+
+```

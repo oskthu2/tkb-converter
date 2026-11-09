@@ -1,0 +1,1091 @@
+# GetVaccinationHistory - clinicalprocess: activityprescription: actoutcome v2.2.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetVaccinationHistory**
+
+## Logical Model: GetVaccinationHistory 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory | *Version*:2.0 |
+| Active as of 2026-11-09 | *Computable Name*:GetVaccinationHistory |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetVaccinationHistory (RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2). Representerar responsens informationsstruktur — vaccinationsjournal per patient. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-actoutcome|current/StructureDefinition/StructureDefinition-getvaccinationhistory.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getvaccinationhistory.csv), [Excel](StructureDefinition-getvaccinationhistory.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getvaccinationhistory",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory",
+  "version" : "2.0",
+  "name" : "GetVaccinationHistory",
+  "title" : "GetVaccinationHistory",
+  "status" : "active",
+  "date" : "2026-11-09T03:15:05+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetVaccinationHistory\n(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2).\nRepresenterar responsens informationsstruktur — vaccinationsjournal per patient.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getvaccinationhistory",
+      "path" : "getvaccinationhistory",
+      "short" : "GetVaccinationHistory",
+      "definition" : "Logisk modell för tjänstekontraktet GetVaccinationHistory\n(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2).\nRepresenterar responsens informationsstruktur — vaccinationsjournal per patient."
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord",
+      "short" : "VaccinationMedicalRecordType",
+      "definition" : "En strukturerad vaccinationsjournal.",
+      "comment" : "TKB-fält: `vaccinationMedicalRecord` (`VaccinationMedicalRecordType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader",
+      "short" : "PatientSummaryHeaderType",
+      "definition" : "Innehåller basinformation om dokumentet.",
+      "comment" : "TKB-fält: `../vaccinationMedicalRecordHeader` (`PatientSummaryHeaderType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentId",
+      "short" : "documentId",
+      "definition" : "Identifierare för uppgift i patientjournal.\n\nIdentifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.\n\nIdentifieraren ska även vara konsistent och beständig mellan olika tjänstekontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.",
+      "comment" : "TKB-fält: `../../documentId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.sourceSystemHSAId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.sourceSystemHSAId",
+      "short" : "sourceSystemHSAId",
+      "definition" : "Det källsystem som uppgiften lagras i.\n\nSätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)",
+      "comment" : "TKB-fält: `../../sourceSystemHSAId` (`HSAIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTitle",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "Titel som beskriver den information som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../documentTitle` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "Händelsetidpunkt. Tidsangivelse för den vaccinationstidpunkt dokumentet gäller.",
+      "comment" : "TKB-fält: `../../documentTime` (`TimeStampType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId",
+      "short" : "patientId",
+      "definition" : "Personidentifierare för patienten.",
+      "comment" : "TKB-fält: `../../patientId` (`PersonIdType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PersonIdType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional",
+      "short" : "accountableHealthcareProfessional",
+      "definition" : "Information avseende dokumentation av uppgiften som tillgängliggörs.\n\nNotera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses.",
+      "comment" : "TKB-fält: `../../accountableHealthCareProfessional` (`HealthCareProfessionalType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HealthcareProfessionalType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator",
+      "short" : "LegalAuthenticatorType",
+      "definition" : "Information avseende signering av uppgiften som tillgängliggörs.",
+      "comment" : "TKB-fält: `../../legalAuthenticator` (`LegalAuthenticatorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "short" : "signatureTime",
+      "definition" : "Tidpunkt då uppgiften signerades.",
+      "comment" : "TKB-fält: `../../../signatureTime` (`TimeStampType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "legalAuthenticatorHSAId",
+      "definition" : "HSA-id för hälso- och sjukvårdspersonal som signerat uppgiften som tillgängliggörs.\n\nI de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorHSAId` (`HSAIdType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "legalAuthenticatorName",
+      "definition" : "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+      "comment" : "TKB-fält: `../../../legalAuthenticatorName` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.approvedForPatient",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.approvedForPatient",
+      "short" : "approvedForPatient",
+      "definition" : "Ansvarig vårdpersonals beslut, alternativt verksamhetens policy och regler (men- och sekretessprövning), huruvida uppgiften får delas till patient för ändamålet patients åtkomst (Individens direktåtkomst).\n\nOm uppgiften beslutas delas sätts värdet till true, i annat fall till false. False innebär att uppgiften inte får delas till patient.\n\nNotera att värdet kan, för samma uppgift, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. I sådana fall skall källsystemet uppdatera engagemangsindex.",
+      "comment" : "TKB-fält: `../../approvedForPatient` (`boolean`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId",
+      "short" : "careContactId",
+      "definition" : "Identitetet för den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+      "comment" : "TKB-fält: `../../careContactId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified",
+      "short" : "nullified",
+      "definition" : "Anger om dokumentet makulerats i källsystemet. Sätts i så fall till true annars false. Används bl.a. i statistik-/rapportuttag med hjälp av tjänstekontrakten.",
+      "comment" : "TKB-fält: `../../nullified` (`boolean`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "Anger orsak till makulering. Får endast anges i kombination med att nullified = true",
+      "comment" : "TKB-fält: `../../nullifiedReason` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody",
+      "short" : "VaccinationMedicalRecordBodyType",
+      "definition" : "Består av en registrationData med ytterligare administrativ information samt en eller flera vaccinationData om utförda vaccinationer vid vaccinationstillfället.",
+      "comment" : "TKB-fält: `../vaccinationMedicalRecordBody` (`VaccinationMedicalRecordBodyType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord",
+      "short" : "RegistrationRecordType",
+      "definition" : "Annan information än ovan som registreras vid eller relaterat till vaccinationstillfället",
+      "comment" : "TKB-fält: `../../registrationRecord` (`RegistrationRecordType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg",
+      "short" : "careGiverOrg",
+      "definition" : "Information om juridisk vårdgivare; hsaid (om finns) och kontaktuppgifter namn, e-post, tel, adress etc.",
+      "comment" : "TKB-fält: `../../../careGiverOrg` (`OrgUnitType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact",
+      "short" : "ActorType",
+      "definition" : "Kontaktperson hos juridiskt ansvarig vårdgivare",
+      "comment" : "TKB-fält: `../../../careGiverContact` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.hsaid",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personName",
+      "short" : "personName",
+      "definition" : "personName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personEmail",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personEmail",
+      "short" : "personEmail",
+      "definition" : "personEmail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personTelecom",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personTelecom",
+      "short" : "personTelecom",
+      "definition" : "personTelecom",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personAddress",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personAddress",
+      "short" : "personAddress",
+      "definition" : "personAddress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemName",
+      "short" : "sourceSystemName",
+      "definition" : "Klartextnamn på källsystemet.\n\nDetta fält fylls med namnet på den organisationen som ansvarar för vaccinationen, till exempel privat företag eller vårdgivarens huvudman.",
+      "comment" : "TKB-fält: `../../../sourceSystemName` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductName",
+      "short" : "sourceSystemProductName",
+      "definition" : "Klartextnamn på källsystemets produktnamn",
+      "comment" : "TKB-fält: `../../../sourceSystemProductName` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductVersion",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductVersion",
+      "short" : "sourceSystemProductVersion",
+      "definition" : "Klartextnamn på källsystemets produktversion",
+      "comment" : "TKB-fält: `../../../sourceSystemProductVersion` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact",
+      "short" : "ActorType",
+      "definition" : "Kontaktuppgifter till källsystemsansvarig",
+      "comment" : "TKB-fält: `../../../sourceSystemContact` (`ActorType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.hsaid",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personName",
+      "short" : "personName",
+      "definition" : "personName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personEmail",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personEmail",
+      "short" : "personEmail",
+      "definition" : "personEmail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personTelecom",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personTelecom",
+      "short" : "personTelecom",
+      "definition" : "personTelecom",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personAddress",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personAddress",
+      "short" : "personAddress",
+      "definition" : "personAddress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId",
+      "short" : "careUnitSmiId",
+      "definition" : "Utförande vårdenhetens registreringsId hos SMI",
+      "comment" : "TKB-fält: `../../../careUnitSmiId` (`String`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date",
+      "short" : "date",
+      "definition" : "Datum då nedan vaccination(er) gavs",
+      "comment" : "TKB-fält: `../../../date` (`DateType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode",
+      "short" : "patientPostalCode",
+      "definition" : "Postnummer för patientens senast kända bostadsadress",
+      "comment" : "TKB-fält: `../../../patientPostalCode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote",
+      "short" : "vaccinationUnstructuredNote",
+      "definition" : "Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade information kan också använda här.\n\nNot: Om endast ostrukturerad vaccinationsinformation finns, kan, detta kontrakt produceras men i så fall inga administrationRecords nedan returneras.",
+      "comment" : "TKB-fält: `../../../vaccinationUnstructuredNote` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory",
+      "short" : "riskCategory",
+      "definition" : "Information om patientens eventuella riskgruppstillhörighet, känd vid vaccinationstillfället, baserad på i förekommande fall patientens hälsodeklaration",
+      "comment" : "TKB-fält: `../../../riskCategory` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect",
+      "short" : "patientAdverseEffect",
+      "definition" : "Information om patienten erfarit någon eller några reaktioner hänför bara till vaccinationstillfället men ej specifik vaccination (i fall som när flera vaccin givits vid samma tillfälle)",
+      "comment" : "TKB-fält: `../../../patientAdverseEffect` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord",
+      "short" : "AdministrationRecordType",
+      "definition" : "Information om utförd(a) vaccination(er) vid tillfället. Ordinerad men av någon anledning ej given vaccination kan inkluderas.",
+      "comment" : "TKB-fält: `../../administrationRecord` (`AdministrationRecordType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationProgramName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationProgramName",
+      "short" : "vaccinationProgramName",
+      "definition" : "Information om vaccinationsprogram om vaccinationen är del av sådant program. Tillåter kodat värde liksom endast namn genom bruk av originalText i CVType.",
+      "comment" : "TKB-fält: `../../../vaccinationProgramName` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg",
+      "short" : "prescriberOrg",
+      "definition" : "Information om var vaccinationen ordinerats (eller i fallet med förskrivna vaccinationsläkemedel, förskrivits)",
+      "comment" : "TKB-fält: `../../../prescriberOrg` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson",
+      "short" : "ActorType",
+      "definition" : "Information om vem som ordinerat/förskrivit vaccinationen",
+      "comment" : "TKB-fält: `../../../prescriberPerson` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.hsaid",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personName",
+      "short" : "personName",
+      "definition" : "personName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personEmail",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personEmail",
+      "short" : "personEmail",
+      "definition" : "personEmail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personTelecom",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personTelecom",
+      "short" : "personTelecom",
+      "definition" : "personTelecom",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personAddress",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personAddress",
+      "short" : "personAddress",
+      "definition" : "personAddress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg",
+      "short" : "performerOrg",
+      "definition" : "Information om vårdenhet som utfört vaccinationen",
+      "comment" : "TKB-fält: `../../../performerOrg` (`OrgUnitType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/OrgUnitType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer",
+      "short" : "ActorType",
+      "definition" : "Information om vem som utfört (administrerat) vaccineringen",
+      "comment" : "TKB-fält: `../../../performer` (`ActorType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.hsaid",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/HSAIdType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personName",
+      "short" : "personName",
+      "definition" : "personName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personEmail",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personEmail",
+      "short" : "personEmail",
+      "definition" : "personEmail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personTelecom",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personTelecom",
+      "short" : "personTelecom",
+      "definition" : "personTelecom",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personAddress",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personAddress",
+      "short" : "personAddress",
+      "definition" : "personAddress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.anatomicalSite",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.anatomicalSite",
+      "short" : "anatomicalSite",
+      "definition" : "Information om var på kroppen vaccinet givits.",
+      "comment" : "TKB-fält: `../../../anatomicalSite` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.route",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.route",
+      "short" : "route",
+      "definition" : "Information om hur vaccinet givits. Ibland kallat ”administrationsväg”",
+      "comment" : "TKB-fält: `../../../route` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose",
+      "short" : "DoseType",
+      "definition" : "Mängd vaccin som givits",
+      "comment" : "TKB-fält: `../../../dose` (`DoseType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.quantity",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.quantity",
+      "short" : "PQType",
+      "definition" : "Mängd preparat som givits dvs 1 ml etc.\n\nSka anges om möjligt i denna strukturerade form med värde(float) samt enhet. Annars i nästa fält om det endast finns angivet som text.",
+      "comment" : "TKB-fält: `../../../../quantity` (`PQType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.quantity.value",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.quantity.value",
+      "short" : "value",
+      "definition" : "value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.quantity.unit",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.quantity.unit",
+      "short" : "unit",
+      "definition" : "unit",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.displayName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dose.displayName",
+      "short" : "displayName",
+      "definition" : "Fritextbeskrivning av mängd vaccin som givits. T ex ”1 ml”\n\nAnges även om quantity angivits ovan.",
+      "comment" : "TKB-fält: `../../../../displayName` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.isDoseComplete",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.isDoseComplete",
+      "short" : "isDoseComplete",
+      "definition" : "True om vaccineringen räknas som hel dos eller efter flera delvaccinationer fullt utförd. Annars false (dvs för de fall som ytterligare delvaccinationer ska ges innan full dos är uppnådd)",
+      "comment" : "TKB-fält: `../../../isDoseComplete` (`boolean`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.doseOrdinalNumber",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.doseOrdinalNumber",
+      "short" : "doseOrdinalNumber",
+      "definition" : "Anger vilken dos i ordningen som administrerats då vaccineringen är en del av flera vaccinationer som ska utföras för att räknas som full dos uppnådd. Värden 1,2,3,… 1 om endast en vaccinering utgör full dos.\n\nExempel: om tre doser krävs för att vaccinationen ska uppnå full dos och patient erhåller den andra i ordningen anges detta värde som 2.",
+      "comment" : "TKB-fält: `../../../doseOrdinalNumber` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.numberOfPrescribedDoses",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.numberOfPrescribedDoses",
+      "short" : "numberOfPrescribedDoses",
+      "definition" : "Anger antalet delvaccinationer som ska utföras för att vaccinationen ska räknas som full dos uppnådd. Värden 1,2,3,… 1 om endast en vaccinering utgör full dos\n\nExempel: om tre doser krävs för att vaccinationen ska uppnå full dos anges detta värde som 3.",
+      "comment" : "TKB-fält: `../../../numberOfPrescribedDoses` (`integer`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.sourceDescription",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.sourceDescription",
+      "short" : "sourceDescription",
+      "definition" : "Fritextinformation som anger källa för vaccinering som efterregistrerats. T ex namn på annan vårdenhet, intyg, land el. dyl.",
+      "comment" : "TKB-fält: `../../../sourceDescription` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentPrescription",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentPrescription",
+      "short" : "commentPrescription",
+      "definition" : "Fritextinformation. T.ex. instruktioner som noterats i ordinationen av vaccineringen",
+      "comment" : "TKB-fält: `../../../commentPrescription` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentAdministration",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentAdministration",
+      "short" : "commentAdministration",
+      "definition" : "Fritextinformation. Generella kommentarer gjorde vid vaccineringen av den som utfört den",
+      "comment" : "TKB-fält: `../../../commentAdministration` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.patientAdverseEffect",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.patientAdverseEffect",
+      "short" : "patientAdverseEffect",
+      "definition" : "Information om patienten erfarit någon eller några reaktioner hänför bara till den specifika administreringen",
+      "comment" : "TKB-fält: `../../../patientAdverseEffect` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.typeOfVaccine",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.typeOfVaccine",
+      "short" : "typeOfVaccine",
+      "definition" : "Information om givet vaccin. Beskriver vaccintyp i praktiken genom att beskriva vilka sjukdomar som vaccinet skyddar emot (exempel på koder: Hep A, MPR och säsongsinfluensa).",
+      "comment" : "TKB-fält: `../../../typeOfVaccine` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineName",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineName",
+      "short" : "vaccineName",
+      "definition" : "Information om givet vaccins produktnamn. I code ska anges företrädelsevis NPL-id (codeSystem =1.2.752.129.2.1.5.1, codeSystemName = ”NPL”). Om standardkodverk ej används anges endast namnet på vaccinet i attributet originalText.",
+      "comment" : "TKB-fält: `../../../vaccineName` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineBatchId",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineBatchId",
+      "short" : "vaccineBatchId",
+      "definition" : "Identifiering av batchnummer för vaccinets tillverkning",
+      "comment" : "TKB-fält: `../../../vaccineBatchId` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineManufacturer",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineManufacturer",
+      "short" : "vaccineManufacturer",
+      "definition" : "Namn på tillverkaren av vaccinet.",
+      "comment" : "TKB-fält: `../../../vaccineManufacturer` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineTargetDisease",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineTargetDisease",
+      "short" : "vaccineTargetDisease",
+      "definition" : "Information om den/de sjukdomar vaccinet skyddar emot.",
+      "comment" : "TKB-fält: `../../../vaccineTargetDisease` (`CVType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationUniqueReference",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationUniqueReference",
+      "short" : "vaccinationUniqueReference",
+      "definition" : "Unika referensen till källsystemets vaccinationsinformation.",
+      "comment" : "TKB-fält: `../../../vaccinationUniqueReference` (`IIType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.additionalPatientInformation",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.additionalPatientInformation",
+      "short" : "AdditionalPatientInformationType",
+      "definition" : "Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning.",
+      "comment" : "TKB-fält: `../../additionalPatientInformation` (`AdditionalPatientInformationType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.additionalPatientInformation.dateOfBirth",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.additionalPatientInformation.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Patientens födelsedatum.",
+      "comment" : "TKB-fält: `../../../dateOfBirth` (`DateType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"]
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.additionalPatientInformation.gender",
+      "path" : "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.additionalPatientInformation.gender",
+      "short" : "gender",
+      "definition" : "Patientens kön. KV Kön (1.2.752.129.2.2.1.1) bör användas.",
+      "comment" : "TKB-fält: `../../../gender` (`CVType`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/CVType"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.result",
+      "path" : "getvaccinationhistory.result",
+      "short" : "ResultType",
+      "definition" : "Innehåller information om begäran gick bra eller ej.",
+      "comment" : "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.result.resultCode",
+      "path" : "getvaccinationhistory.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "Kan endast vara OK, INFO eller ERROR",
+      "comment" : "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getvaccinationhistory.result.errorCode",
+      "path" : "getvaccinationhistory.result.errorCode",
+      "short" : "errorCode",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+      "comment" : "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).\n\n**Modellanteckning:** errorCode Tillåtna värden: INVALID_REQUEST.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/errorcode-vs"
+      }
+    },
+    {
+      "id" : "getvaccinationhistory.result.logId",
+      "path" : "getvaccinationhistory.result.logId",
+      "short" : "logId",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "comment" : "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.result.subCode",
+      "path" : "getvaccinationhistory.result.subCode",
+      "short" : "subCode",
+      "definition" : "Inga subkoder är specificerade.",
+      "comment" : "TKB-fält: `../subcode` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getvaccinationhistory.result.message",
+      "path" : "getvaccinationhistory.result.message",
+      "short" : "message",
+      "definition" : "En beskrivande text som kan visas för användaren.",
+      "comment" : "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,26 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"setmedicationlistreviewed","setmedicationlistreviewed","","","",0,*,"","","","null {[]} {[]}
+","SetMedicationListReviewed","Logisk modell för tjänstekontraktet SetMedicationListReviewed
+(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:SetMedicationListReviewed:1).
+Representerar responsens informationsstruktur.
+Används för att markera att en läkemedelslista är genomgången (läkemedelsavstämning).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"setmedicationlistreviewed.medicationListVersion","setmedicationlistreviewed.medicationListVersion","","","",1,1,"","","","Identifier {[]} {[]}
+","medicationListVersion","Version på patientens samlade läkemedelslista.
+
+Se kapitel 5.2 för exempel och regler kring format.","TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.medicationListVersion",1,1,"",""
+"setmedicationlistreviewed.result","setmedicationlistreviewed.result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Innehåller information om begäran gick bra eller ej.","TKB-fält: `result` (`ResultType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.result",1,1,"",""
+"setmedicationlistreviewed.result.resultCode","setmedicationlistreviewed.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR","TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.result.resultCode",1,1,"",""
+"setmedicationlistreviewed.result.errorCode","setmedicationlistreviewed.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","errorCode","Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.","TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).
+
+**Modellanteckning:** errorCode Tillåtna värden: VALIDATION_ERROR, ACCESS_DENIED, NOT_FOUND, ALREADY_EXISTS, INVALID_STATE, MAXIMUM_REQUEST_REACHED.","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.result.errorCode",0,1,"",""
+"setmedicationlistreviewed.result.subcode","setmedicationlistreviewed.result.subcode","","","",0,1,"","","","code {[]} {[]}
+","subcode","Inga subkoder är specificerade.","TKB-fält: `../subcode` (`string`, kardinalitet 0..1).
+
+**Modellanteckning:** subcode Tillåtna värden: SUB_RR_ERROR.","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.result.subcode",0,1,"",""
+"setmedicationlistreviewed.result.logId","setmedicationlistreviewed.result.logId","","","",1,1,"","","","string {[]} {[]}
+","logId","En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.","TKB-fält: `../logId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.result.logId",1,1,"",""
+"setmedicationlistreviewed.result.message","setmedicationlistreviewed.result.message","","","",0,1,"","","","string {[]} {[]}
+","message","En beskrivande text som kan visas för användaren.","TKB-fält: `../message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"setmedicationlistreviewed.result.message",0,1,"",""

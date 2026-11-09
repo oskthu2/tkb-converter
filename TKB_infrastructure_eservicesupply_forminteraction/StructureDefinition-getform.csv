@@ -1,0 +1,361 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getform","getform","","","",0,*,"","","","null {[]} {[]}
+","GetForm","Logisk modell för tjänstekontraktet GetForm
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetForm:2).
+Representerar responsens informationsstruktur — returnerar ett specifikt formulär med aktuell sida.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getform.form","getform.form","","","",0,1,"","","","Base {[]} {[]}
+","FormType","form","","","","","","","","","",,,,,"",,,,"getform.form",0,1,"",""
+"getform.form.createdDateTime","getform.form.createdDateTime","","","",1,1,"","","","string {[]} {[]}
+","createdDateTime","createdDateTime","","","","","","","","","",,,,,"",,,,"getform.form.createdDateTime",1,1,"",""
+"getform.form.clinicalProcessInterestId","getform.form.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","clinicalProcessInterestId","Hsa-id för framställarens enhet/process + unik identifierare. Globalt/nationellt hälsoärende ID. Hälsoärende är ett begrepp för det som håller samman information i en kärnprocess för en vård- och omsorgstagare, tvärs över organisatoriska enhetsgränser.","","","","","","","","","",,,,,"",,,,"getform.form.clinicalProcessInterestId",0,1,"",""
+"getform.form.expireDate","getform.form.expireDate","","","",0,1,"","","","string {[]} {[]}
+","expireDate","expireDate","","","","","","","","","",,,,,"",,,,"getform.form.expireDate",0,1,"",""
+"getform.form.formId","getform.form.formId","","","",1,1,"","","","string {[]} {[]}
+","formId","Formulärets unika ID (källsystemets unika id/GUID). T.ex. MHV1 har FormID = 3B2DF0C0-BC22-11DE-823D-00155D316606 Måste genereras slumpmässigt för att vara unikt.","","","","","","","","","",,,,,"",,,,"getform.form.formId",1,1,"",""
+"getform.form.formStatus","getform.form.formStatus","","","",1,1,"","","","code {[]} {[]}
+","formStatus","formStatus Tillåtna värden: COMPLETED, PENDING_COMPLETION, ONGOING.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs","",,,,"getform.form.formStatus",1,1,"",""
+"getform.form.formTemplate","getform.form.formTemplate","","","",1,1,"","","","Base {[]} {[]}
+","FormTemplateInfoType","formTemplate","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate",1,1,"",""
+"getform.form.formTemplate.anonymousForm","getform.form.formTemplate.anonymousForm","","","",1,1,"","","","boolean {[]} {[]}
+","anonymousForm","Attributet styr huruvida formulärmotorn stöder anonym användning av formuläret. Värden True = Tillåter anonym användning. ""SubjectOfCare"" får inte användas. False = Tillåter inte anonym användning. ""SubjectOfCare"" är obligatorisk attribut.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.anonymousForm",1,1,"",""
+"getform.form.formTemplate.category","getform.form.formTemplate.category","","","",1,1,"","","","string {[]} {[]}
+","Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration","Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.category",1,1,"",""
+"getform.form.formTemplate.code","getform.form.formTemplate.code","","","",0,1,"","","","Base {[]} {[]}
+","CodeType","code","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.code",0,1,"",""
+"getform.form.formTemplate.code.codeValue","getform.form.formTemplate.code.codeValue","","","",1,1,"","","","string {[]} {[]}
+","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.code.codeValue",1,1,"",""
+"getform.form.formTemplate.code.codeSystem","getform.form.formTemplate.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","Identifierar vilket kodverk som används.","Identifierar vilket kodverk som används.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.code.codeSystem",1,1,"",""
+"getform.form.formTemplate.description","getform.form.formTemplate.description","","","",0,1,"","","","string {[]} {[]}
+","Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.","Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.description",0,1,"",""
+"getform.form.formTemplate.formCompleteText","getform.form.formTemplate.formCompleteText","","","",0,1,"","","","string {[]} {[]}
+","formCompleteText","formCompleteText","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.formCompleteText",0,1,"",""
+"getform.form.formTemplate.formName","getform.form.formTemplate.formName","","","",1,1,"","","","string {[]} {[]}
+","Mallens namn. T.ex. Hälsodeklaration Mödravård","Mallens namn. T.ex. Hälsodeklaration Mödravård","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.formName",1,1,"",""
+"getform.form.formTemplate.formTitle","getform.form.formTemplate.formTitle","","","",0,1,"","","","string {[]} {[]}
+","Mallens/formulärets rubrik. Används på formulärets introduktionssida.","Mallens/formulärets rubrik. Används på formulärets introduktionssida.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.formTitle",0,1,"",""
+"getform.form.formTemplate.language","getform.form.formTemplate.language","","","",1,1,"","","","string {[]} {[]}
+","Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.","Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.language",1,1,"",""
+"getform.form.formTemplate.media","getform.form.formTemplate.media","","","",0,1,"","","","Base {[]} {[]}
+","MediaType","media","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.media",0,1,"",""
+"getform.form.formTemplate.media.mediaURL","getform.form.formTemplate.media.mediaURL","","","",1,1,"","","","string {[]} {[]}
+","URL eller adress till media.","URL eller adress till media.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.media.mediaURL",1,1,"",""
+"getform.form.formTemplate.media.mediaType","getform.form.formTemplate.media.mediaType","","","",1,1,"","","","string {[]} {[]}
+","Giltiga MIME typer.","Giltiga MIME typer.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.media.mediaType",1,1,"",""
+"getform.form.formTemplate.media.mediaAlt","getform.form.formTemplate.media.mediaAlt","","","",0,1,"","","","string {[]} {[]}
+","alternativ text som beskriver det element som attributet hör till","alternativ text som beskriver det element som attributet hör till","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.media.mediaAlt",0,1,"",""
+"getform.form.formTemplate.media.mediaCaption","getform.form.formTemplate.media.mediaCaption","","","",0,1,"","","","string {[]} {[]}
+","URL eller adress till undertext.","URL eller adress till undertext.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.media.mediaCaption",0,1,"",""
+"getform.form.formTemplate.maxNumberOfQuestions","getform.form.formTemplate.maxNumberOfQuestions","","","",1,1,"","","","integer {[]} {[]}
+","Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10","Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.maxNumberOfQuestions",1,1,"",""
+"getform.form.formTemplate.minNumberOfQuestions","getform.form.formTemplate.minNumberOfQuestions","","","",1,1,"","","","integer {[]} {[]}
+","minNumberOfQuestions","minNumberOfQuestions","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.minNumberOfQuestions",1,1,"",""
+"getform.form.formTemplate.maxNumberOfPages","getform.form.formTemplate.maxNumberOfPages","","","",1,1,"","","","integer {[]} {[]}
+","maxNumberOfPages","maxNumberOfPages","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.maxNumberOfPages",1,1,"",""
+"getform.form.formTemplate.minNumberOfPages","getform.form.formTemplate.minNumberOfPages","","","",1,1,"","","","integer {[]} {[]}
+","minNumberOfPages","minNumberOfPages","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.minNumberOfPages",1,1,"",""
+"getform.form.formTemplate.mandatory","getform.form.formTemplate.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","mandatory","Indikerar om formuläret är obligatoriskt att fylla i av användaren. T.ex. Ett obligatoriskt formulär kan indikerar att formuläret är en del av en vårdprocess. True = obligatoriskt False = Frivilligt","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.mandatory",1,1,"",""
+"getform.form.formTemplate.publishStatus","getform.form.formTemplate.publishStatus","","","",1,1,"","","","string {[]} {[]}
+","publishStatus","publishStatus","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.publishStatus",1,1,"",""
+"getform.form.formTemplate.templateVersion","getform.form.formTemplate.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","templateVersion","templateVersion","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.templateVersion",1,1,"",""
+"getform.form.formTemplate.templateId","getform.form.formTemplate.templateId","","","",1,1,"","","","string {[]} {[]}
+","templateId","templateId","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.templateId",1,1,"",""
+"getform.form.formTemplate.term","getform.form.formTemplate.term","","","",1,1,"","","","string {[]} {[]}
+","term","Villkor kopplade till formuläret. T.ex. Villkorstext som användaren/patienten måste godkänna innan formuläret kan besvaras.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.term",1,1,"",""
+"getform.form.formText","getform.form.formText","","","",0,1,"","","","string {[]} {[]}
+","formText","Unik text för Formulär. Används t.ex. ""CreateFormRequest"" för att bifoga en unik text för formuläret. T.ex. ""Hälsoundersökning inför besök X"".","","","","","","","","","",,,,,"",,,,"getform.form.formText",0,1,"",""
+"getform.form.healthcare-CareGiver","getform.form.healthcare_CareGiver","","","",0,1,"","","","string {[]} {[]}
+","Ansvarig vårdgivare (huvudman). T.ex. Landsting","Ansvarig vårdgivare (huvudman). T.ex. Landsting","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_CareGiver",0,1,"",""
+"getform.form.healthcare-MedUnit","getform.form.healthcare_MedUnit","","","",0,1,"","","","string {[]} {[]}
+","Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik","Medicinsk ansvarig klinik/vårdcentral eller motsvarande. T.ex. Medicinklinik","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_MedUnit",0,1,"",""
+"getform.form.healthcare-facility-CareUnit","getform.form.healthcare_facility_CareUnit","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility_CareUnit","Vårdenheten som erbjuder/tillhandahåller formuläret. Fysisk mottagning. T.ex. Den avdelning som formuläret: se2321000016-1hz3","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_facility_CareUnit",1,1,"",""
+"getform.form.healthcare-facility-CareUnitName","getform.form.healthcare_facility_CareUnitName","","","",1,1,"","","","string {[]} {[]}
+","Vårdenhetens namn. T.ex. Testvårdcentral A, Medicinmottagningen USÖ","Vårdenhetens namn. T.ex. Testvårdcentral A, Medicinmottagningen USÖ","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_facility_CareUnitName",1,1,"",""
+"getform.form.healthcare-systemID","getform.form.healthcare_systemID","","","",0,1,"","","","string {[]} {[]}
+","Hsa-id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem","Hsa-id för att identifiera mottagande system. T.ex. Ett hsa-id uttaget för en instans av ett journalsystem","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_systemID",0,1,"",""
+"getform.form.keepUntil","getform.form.keepUntil","","","",0,1,"","","","string {[]} {[]}
+","keepUntil","keepUntil","","","","","","","","","",,,,,"",,,,"getform.form.keepUntil",0,1,"",""
+"getform.form.currentPage","getform.form.currentPage","","","",0,1,"","","","Base {[]} {[]}
+","PageType","currentPage","","","","","","","","","",,,,,"",,,,"getform.form.currentPage",0,1,"",""
+"getform.form.currentPage.questionBlocks","getform.form.currentPage.questionBlocks","","","",1,*,"","","","Base {[]} {[]}
+","QuestionBlockType","questionBlocks","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks",1,*,"",""
+"getform.form.currentPage.questionBlocks.blockNumber","getform.form.currentPage.questionBlocks.blockNumber","","","",1,1,"","","","integer {[]} {[]}
+","blockNumber","Grupperingsbegrepp av frågor. Frågans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.blockNumber",1,1,"",""
+"getform.form.currentPage.questionBlocks.description","getform.form.currentPage.questionBlocks.description","","","",0,1,"","","","string {[]} {[]}
+","description","Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet!! T.ex här skall du lämna information kring din medicinering.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.description",0,1,"",""
+"getform.form.currentPage.questionBlocks.gridConfig","getform.form.currentPage.questionBlocks.gridConfig","","","",0,1,"","","","Base {[]} {[]}
+","GridConfigType","gridConfig","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.gridConfig",0,1,"",""
+"getform.form.currentPage.questionBlocks.gridConfig.cols","getform.form.currentPage.questionBlocks.gridConfig.cols","","","",1,1,"","","","integer {[]} {[]}
+","cols","cols","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.gridConfig.cols",1,1,"",""
+"getform.form.currentPage.questionBlocks.gridConfig.rows","getform.form.currentPage.questionBlocks.gridConfig.rows","","","",1,1,"","","","integer {[]} {[]}
+","rows","rows","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.gridConfig.rows",1,1,"",""
+"getform.form.currentPage.questionBlocks.informationURL","getform.form.currentPage.questionBlocks.informationURL","","","",0,1,"","","","string {[]} {[]}
+","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.informationURL",0,1,"",""
+"getform.form.currentPage.questionBlocks.numberOfQuestions","getform.form.currentPage.questionBlocks.numberOfQuestions","","","",1,1,"","","","integer {[]} {[]}
+","Antal frågor tillhörande blocket. T.ex. 10","Antal frågor tillhörande blocket. T.ex. 10","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.numberOfQuestions",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions","getform.form.currentPage.questionBlocks.questions","","","",1,*,"","","","Base {[]} {[]}
+","QuestionType","questions","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions",1,*,"",""
+"getform.form.currentPage.questionBlocks.questions.answers","getform.form.currentPage.questionBlocks.questions.answers","","","",0,*,"","","","Base {[]} {[]}
+","AnswerType","answers","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answers",0,*,"",""
+"getform.form.currentPage.questionBlocks.questions.answers.answerAlternativeNumber","getform.form.currentPage.questionBlocks.questions.answers.answerAlternativeNumber","","","",0,1,"","","","integer {[]} {[]}
+","Svarsalternativets id/nummer.","Svarsalternativets id/nummer.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answers.answerAlternativeNumber",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answers.answerStatus","getform.form.currentPage.questionBlocks.questions.answers.answerStatus","","","",0,1,"","","","Base {[]} {[]}
+","AnswerStatusType","answerStatus","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answers.answerStatus",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answers.answerStatus.resultCode","getform.form.currentPage.questionBlocks.questions.answers.answerStatus.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Signalerar om frågan är ifylld på ett felaktigt sätt. Felkod. OK - Transaktion utförd INFO - Transaktion utförd med kommentar. ERROR - Transaktion ej genomförd Tillåtna värden: OK, ERROR, INFO.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answers.answerStatus.resultCode",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answers.answerStatus.resultCodeText","getform.form.currentPage.questionBlocks.questions.answers.answerStatus.resultCodeText","","","",1,1,"","","","string {[]} {[]}
+","Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.","Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answers.answerStatus.resultCodeText",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answers.value","getform.form.currentPage.questionBlocks.questions.answers.value","","","",0,1,"","","","string {[]} {[]}
+","Patientens/användarens svar.","Patientens/användarens svar.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answers.value",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives","getform.form.currentPage.questionBlocks.questions.answerAlternatives","","","",0,*,"","","","Base {[]} {[]}
+","AnswerAlternativeType","answerAlternatives","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives",0,*,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.alternativeValue","getform.form.currentPage.questionBlocks.questions.answerAlternatives.alternativeValue","","","",1,1,"","","","string {[]} {[]}
+","Valbart svarsalternativ.","Valbart svarsalternativ.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.alternativeValue",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.answerAlternativeNumber","getform.form.currentPage.questionBlocks.questions.answerAlternatives.answerAlternativeNumber","","","",1,1,"","","","integer {[]} {[]}
+","Svarsalternativets id.","Svarsalternativets id.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.answerAlternativeNumber",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.answerHelp","getform.form.currentPage.questionBlocks.questions.answerAlternatives.answerHelp","","","",0,1,"","","","string {[]} {[]}
+","Hjälptext till svarsalternativet. (placeholder)","Hjälptext till svarsalternativet. (placeholder)","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.answerHelp",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.code","getform.form.currentPage.questionBlocks.questions.answerAlternatives.code","","","",0,1,"","","","Base {[]} {[]}
+","CodeType","Objekt för att definiera kodverk kopplat till fråga.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.code",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.code.codeValue","getform.form.currentPage.questionBlocks.questions.answerAlternatives.code.codeValue","","","",1,1,"","","","string {[]} {[]}
+","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.code.codeValue",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.code.codeSystem","getform.form.currentPage.questionBlocks.questions.answerAlternatives.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","Identifierar vilket kodverk som används.","Identifierar vilket kodverk som används.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.code.codeSystem",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media","getform.form.currentPage.questionBlocks.questions.answerAlternatives.media","","","",0,1,"","","","Base {[]} {[]}
+","MediaType","Svarsalternativ i bildform.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaURL","getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaURL","","","",1,1,"","","","string {[]} {[]}
+","URL eller adress till media.","URL eller adress till media.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaURL",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaType","getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaType","","","",1,1,"","","","string {[]} {[]}
+","Giltiga MIME typer.","Giltiga MIME typer.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaType",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaAlt","getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaAlt","","","",0,1,"","","","string {[]} {[]}
+","alternativ text som beskriver det element som attributet hör till","alternativ text som beskriver det element som attributet hör till","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaAlt",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaCaption","getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaCaption","","","",0,1,"","","","string {[]} {[]}
+","URL eller adress till undertext.","URL eller adress till undertext.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerAlternatives.media.mediaCaption",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerMax","getform.form.currentPage.questionBlocks.questions.answerMax","","","",0,1,"","","","integer {[]} {[]}
+","answerMax","Specificerar maxvärde för inmatning. (Gäller typ: number, date) T.ex: Ett värde får inte överskrida 10. Blodtryck, rimlighetsparameter.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerMax",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerMin","getform.form.currentPage.questionBlocks.questions.answerMin","","","",0,1,"","","","integer {[]} {[]}
+","Specificerar minvärde för inmatning. (Gäller typ: number, date)","Specificerar minvärde för inmatning. (Gäller typ: number, date)","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerMin",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerMaxLength","getform.form.currentPage.questionBlocks.questions.answerMaxLength","","","",0,1,"","","","integer {[]} {[]}
+","answerMaxLength","Specificerar maxvärdelängd för inmatning. (Gäller typ: number) T.ex: En inmatning (text) får inte vara större än 100 tecken.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerMaxLength",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerPattern","getform.form.currentPage.questionBlocks.questions.answerPattern","","","",0,1,"","","","string {[]} {[]}
+","Inmatningsvalidering (Regular expresson). T.ex: pattern=""[A-z]{3}"" tillåter endast 3 teckan A-z.","Inmatningsvalidering (Regular expresson). T.ex: pattern=""[A-z]{3}"" tillåter endast 3 teckan A-z.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerPattern",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.answerStep","getform.form.currentPage.questionBlocks.questions.answerStep","","","",0,1,"","","","integer {[]} {[]}
+","answerStep","Specificerar giltiga intervall för inmatning. (Gäller typ: number, range, date, datetime, datetime-local, month, time och week) T.ex: Skalningsfaktor för en ”slide” kontroll. Ange värde för temperatur 35-40.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.answerStep",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.code","getform.form.currentPage.questionBlocks.questions.code","","","",0,1,"","","","Base {[]} {[]}
+","CodeType","code","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.code",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.code.codeValue","getform.form.currentPage.questionBlocks.questions.code.codeValue","","","",1,1,"","","","string {[]} {[]}
+","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.code.codeValue",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.code.codeSystem","getform.form.currentPage.questionBlocks.questions.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","Identifierar vilket kodverk som används.","Identifierar vilket kodverk som används.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.code.codeSystem",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.description","getform.form.currentPage.questionBlocks.questions.description","","","",0,1,"","","","string {[]} {[]}
+","Frågans beskrivande text eller instruktion till användaren/patient.","Frågans beskrivande text eller instruktion till användaren/patient.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.description",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.gridValue","getform.form.currentPage.questionBlocks.questions.gridValue","","","",0,1,"","","","Base {[]} {[]}
+","GridValueType","gridValue","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.gridValue",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.gridValue.col","getform.form.currentPage.questionBlocks.questions.gridValue.col","","","",1,1,"","","","integer {[]} {[]}
+","col","col","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.gridValue.col",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.gridValue.row","getform.form.currentPage.questionBlocks.questions.gridValue.row","","","",1,1,"","","","integer {[]} {[]}
+","row","row","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.gridValue.row",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.input","getform.form.currentPage.questionBlocks.questions.input","","","",1,1,"","","","string {[]} {[]}
+","input","Beskriver frågans inmatningstyp. Kodverk inmatningstyp. Text textarea Checkbox Radio Select SelectMultiple Number URL Date and time Date Month Week Time Local date and time Range Image","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.input",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.inputUnit","getform.form.currentPage.questionBlocks.questions.inputUnit","","","",0,1,"","","","string {[]} {[]}
+","inputUnit","Typ av enhet. Grundenheter samt härledda SI-enheter beskrivs med dess beteckning. T.ex. km, m, cm, kg, mm Hg etc Måttenheter enligt SI-systemet. SWEDAC (STAFS 2009:26)","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.inputUnit",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.media","getform.form.currentPage.questionBlocks.questions.media","","","",0,1,"","","","Base {[]} {[]}
+","MediaType","URL till bild. Bilden kan används för att illustrera en fråga. (QuestionType Image)","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.media",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.media.mediaURL","getform.form.currentPage.questionBlocks.questions.media.mediaURL","","","",1,1,"","","","string {[]} {[]}
+","URL eller adress till media.","URL eller adress till media.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.media.mediaURL",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.media.mediaType","getform.form.currentPage.questionBlocks.questions.media.mediaType","","","",1,1,"","","","string {[]} {[]}
+","Giltiga MIME typer.","Giltiga MIME typer.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.media.mediaType",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.media.mediaAlt","getform.form.currentPage.questionBlocks.questions.media.mediaAlt","","","",0,1,"","","","string {[]} {[]}
+","alternativ text som beskriver det element som attributet hör till","alternativ text som beskriver det element som attributet hör till","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.media.mediaAlt",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.media.mediaCaption","getform.form.currentPage.questionBlocks.questions.media.mediaCaption","","","",0,1,"","","","string {[]} {[]}
+","URL eller adress till undertext.","URL eller adress till undertext.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.media.mediaCaption",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.informationURL","getform.form.currentPage.questionBlocks.questions.informationURL","","","",0,1,"","","","string {[]} {[]}
+","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.informationURL",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.mandatory","getform.form.currentPage.questionBlocks.questions.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga","Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.mandatory",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.maxNumberOfChoices","getform.form.currentPage.questionBlocks.questions.maxNumberOfChoices","","","",0,1,"","","","integer {[]} {[]}
+","Indikerar max antal värden som användaren får välja vid checkbox/multivärde.","Indikerar max antal värden som användaren får välja vid checkbox/multivärde.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.maxNumberOfChoices",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.minNumberOfChoices","getform.form.currentPage.questionBlocks.questions.minNumberOfChoices","","","",0,1,"","","","integer {[]} {[]}
+","Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.","Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.minNumberOfChoices",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.questionNumber","getform.form.currentPage.questionBlocks.questions.questionNumber","","","",1,1,"","","","integer {[]} {[]}
+","questionNumber","Frågans nummer i nummer serie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.questionNumber",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.subject","getform.form.currentPage.questionBlocks.questions.subject","","","",1,1,"","","","string {[]} {[]}
+","Frågans rubrik. T.ex Ange din blodgrupp.","Frågans rubrik. T.ex Ange din blodgrupp.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.subject",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.questionSuperior","getform.form.currentPage.questionBlocks.questions.questionSuperior","","","",0,1,"","","","Base {[]} {[]}
+","QuestionSuperiorType","questionSuperior","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.questionSuperior",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers","getform.form.currentPage.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers","","","",0,*,"","","","integer {[]} {[]}
+","superiorAnswerAlternativeNumbers","superiorAnswerAlternativeNumbers","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers",0,*,"",""
+"getform.form.currentPage.questionBlocks.questions.questionSuperior.superiorQuestionNumber","getform.form.currentPage.questionBlocks.questions.questionSuperior.superiorQuestionNumber","","","",1,1,"","","","integer {[]} {[]}
+","superiorQuestionNumber","superiorQuestionNumber","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.questionSuperior.superiorQuestionNumber",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.validationEvents","getform.form.currentPage.questionBlocks.questions.validationEvents","","","",0,*,"","","","Base {[]} {[]}
+","ValidationEventType","validationEvents","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.validationEvents",0,*,"",""
+"getform.form.currentPage.questionBlocks.questions.validationEvents.event","getform.form.currentPage.questionBlocks.questions.validationEvents.event","","","",1,1,"","","","string {[]} {[]}
+","event","Följande events är giltiga: mandatory answerMax answerMin answerMaxLength answerPattern maxNumberOfChoises minNumberOfChoises answerSuperior","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.validationEvents.event",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.validationEvents.text","getform.form.currentPage.questionBlocks.questions.validationEvents.text","","","",1,1,"","","","string {[]} {[]}
+","Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.","Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.validationEvents.text",1,1,"",""
+"getform.form.currentPage.questionBlocks.questions.questionAlign","getform.form.currentPage.questionBlocks.questions.questionAlign","","","",0,1,"","","","string {[]} {[]}
+","questionAlign","questionAlign","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.questionAlign",0,1,"",""
+"getform.form.currentPage.questionBlocks.questions.questionId","getform.form.currentPage.questionBlocks.questions.questionId","","","",0,1,"","","","string {[]} {[]}
+","questionId","questionId","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.questions.questionId",0,1,"",""
+"getform.form.currentPage.questionBlocks.subject","getform.form.currentPage.questionBlocks.subject","","","",0,1,"","","","string {[]} {[]}
+","Blockets rubrik. T.ex Medicin.","Blockets rubrik. T.ex Medicin.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.questionBlocks.subject",0,1,"",""
+"getform.form.currentPage.description","getform.form.currentPage.description","","","",0,1,"","","","string {[]} {[]}
+","Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).","Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.description",0,1,"",""
+"getform.form.currentPage.informationURL","getform.form.currentPage.informationURL","","","",0,1,"","","","string {[]} {[]}
+","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.informationURL",0,1,"",""
+"getform.form.currentPage.lastPage","getform.form.currentPage.lastPage","","","",1,1,"","","","boolean {[]} {[]}
+","lastPage","Indikerar om ytterligare frågeblock/page finns. Detta ger indikation för konsumerande system att presentera en knapp för att ”Avsluta och skicka” formuläret. True = Indikerar att detta är det sistea frågeblocket/page. False = Indikerar att ytterligare frågeblock/page .","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.lastPage",1,1,"",""
+"getform.form.currentPage.subject","getform.form.currentPage.subject","","","",0,1,"","","","string {[]} {[]}
+","Sidans rubrik. Information till invånaren/användaren.","Sidans rubrik. Information till invånaren/användaren.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.subject",0,1,"",""
+"getform.form.currentPage.pageNumber","getform.form.currentPage.pageNumber","","","",1,1,"","","","integer {[]} {[]}
+","pageNumber","Grupperingsbegrepp av sida (page). Sidans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Sida nummer 1 (av 10).","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.pageNumber",1,1,"",""
+"getform.form.answeredPages","getform.form.answeredPages","","","",0,*,"","","","Base {[]} {[]}
+","PageType","answeredPages","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages",0,*,"",""
+"getform.form.answeredPages.questionBlocks","getform.form.answeredPages.questionBlocks","","","",1,*,"","","","Base {[]} {[]}
+","QuestionBlockType","questionBlocks","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks",1,*,"",""
+"getform.form.answeredPages.questionBlocks.blockNumber","getform.form.answeredPages.questionBlocks.blockNumber","","","",1,1,"","","","integer {[]} {[]}
+","blockNumber","Grupperingsbegrepp av frågor. Frågans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.blockNumber",1,1,"",""
+"getform.form.answeredPages.questionBlocks.description","getform.form.answeredPages.questionBlocks.description","","","",0,1,"","","","string {[]} {[]}
+","description","Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet!! T.ex här skall du lämna information kring din medicinering.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.description",0,1,"",""
+"getform.form.answeredPages.questionBlocks.gridConfig","getform.form.answeredPages.questionBlocks.gridConfig","","","",0,1,"","","","Base {[]} {[]}
+","GridConfigType","gridConfig","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.gridConfig",0,1,"",""
+"getform.form.answeredPages.questionBlocks.gridConfig.cols","getform.form.answeredPages.questionBlocks.gridConfig.cols","","","",1,1,"","","","integer {[]} {[]}
+","cols","cols","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.gridConfig.cols",1,1,"",""
+"getform.form.answeredPages.questionBlocks.gridConfig.rows","getform.form.answeredPages.questionBlocks.gridConfig.rows","","","",1,1,"","","","integer {[]} {[]}
+","rows","rows","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.gridConfig.rows",1,1,"",""
+"getform.form.answeredPages.questionBlocks.informationURL","getform.form.answeredPages.questionBlocks.informationURL","","","",0,1,"","","","string {[]} {[]}
+","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.informationURL",0,1,"",""
+"getform.form.answeredPages.questionBlocks.numberOfQuestions","getform.form.answeredPages.questionBlocks.numberOfQuestions","","","",1,1,"","","","integer {[]} {[]}
+","Antal frågor tillhörande blocket. T.ex. 10","Antal frågor tillhörande blocket. T.ex. 10","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.numberOfQuestions",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions","getform.form.answeredPages.questionBlocks.questions","","","",1,*,"","","","Base {[]} {[]}
+","QuestionType","questions","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions",1,*,"",""
+"getform.form.answeredPages.questionBlocks.questions.answers","getform.form.answeredPages.questionBlocks.questions.answers","","","",0,*,"","","","Base {[]} {[]}
+","AnswerType","answers","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answers",0,*,"",""
+"getform.form.answeredPages.questionBlocks.questions.answers.answerAlternativeNumber","getform.form.answeredPages.questionBlocks.questions.answers.answerAlternativeNumber","","","",0,1,"","","","integer {[]} {[]}
+","Svarsalternativets id/nummer.","Svarsalternativets id/nummer.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answers.answerAlternativeNumber",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answers.answerStatus","getform.form.answeredPages.questionBlocks.questions.answers.answerStatus","","","",0,1,"","","","Base {[]} {[]}
+","AnswerStatusType","answerStatus","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answers.answerStatus",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answers.answerStatus.resultCode","getform.form.answeredPages.questionBlocks.questions.answers.answerStatus.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Signalerar om frågan är ifylld på ett felaktigt sätt. Felkod. OK - Transaktion utförd INFO - Transaktion utförd med kommentar. ERROR - Transaktion ej genomförd Tillåtna värden: OK, ERROR, INFO.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answers.answerStatus.resultCode",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answers.answerStatus.resultCodeText","getform.form.answeredPages.questionBlocks.questions.answers.answerStatus.resultCodeText","","","",1,1,"","","","string {[]} {[]}
+","Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.","Felmeddelande, förklarande text. Vid INFO eller ERROR. T.ex. INFO – Medtag legitimation.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answers.answerStatus.resultCodeText",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answers.value","getform.form.answeredPages.questionBlocks.questions.answers.value","","","",0,1,"","","","string {[]} {[]}
+","Patientens/användarens svar.","Patientens/användarens svar.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answers.value",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives","getform.form.answeredPages.questionBlocks.questions.answerAlternatives","","","",0,*,"","","","Base {[]} {[]}
+","AnswerAlternativeType","answerAlternatives","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives",0,*,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.alternativeValue","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.alternativeValue","","","",1,1,"","","","string {[]} {[]}
+","Valbart svarsalternativ.","Valbart svarsalternativ.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.alternativeValue",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.answerAlternativeNumber","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.answerAlternativeNumber","","","",1,1,"","","","integer {[]} {[]}
+","Svarsalternativets id.","Svarsalternativets id.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.answerAlternativeNumber",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.answerHelp","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.answerHelp","","","",0,1,"","","","string {[]} {[]}
+","Hjälptext till svarsalternativet. (placeholder)","Hjälptext till svarsalternativet. (placeholder)","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.answerHelp",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code","","","",0,1,"","","","Base {[]} {[]}
+","CodeType","Objekt för att definiera kodverk kopplat till fråga.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code.codeValue","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code.codeValue","","","",1,1,"","","","string {[]} {[]}
+","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code.codeValue",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code.codeSystem","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","Identifierar vilket kodverk som används.","Identifierar vilket kodverk som används.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.code.codeSystem",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media","","","",0,1,"","","","Base {[]} {[]}
+","MediaType","Svarsalternativ i bildform.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaURL","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaURL","","","",1,1,"","","","string {[]} {[]}
+","URL eller adress till media.","URL eller adress till media.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaURL",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaType","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaType","","","",1,1,"","","","string {[]} {[]}
+","Giltiga MIME typer.","Giltiga MIME typer.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaType",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaAlt","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaAlt","","","",0,1,"","","","string {[]} {[]}
+","alternativ text som beskriver det element som attributet hör till","alternativ text som beskriver det element som attributet hör till","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaAlt",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaCaption","getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaCaption","","","",0,1,"","","","string {[]} {[]}
+","URL eller adress till undertext.","URL eller adress till undertext.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerAlternatives.media.mediaCaption",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerMax","getform.form.answeredPages.questionBlocks.questions.answerMax","","","",0,1,"","","","integer {[]} {[]}
+","answerMax","Specificerar maxvärde för inmatning. (Gäller typ: number, date) T.ex: Ett värde får inte överskrida 10. Blodtryck, rimlighetsparameter.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerMax",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerMin","getform.form.answeredPages.questionBlocks.questions.answerMin","","","",0,1,"","","","integer {[]} {[]}
+","Specificerar minvärde för inmatning. (Gäller typ: number, date)","Specificerar minvärde för inmatning. (Gäller typ: number, date)","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerMin",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerMaxLength","getform.form.answeredPages.questionBlocks.questions.answerMaxLength","","","",0,1,"","","","integer {[]} {[]}
+","answerMaxLength","Specificerar maxvärdelängd för inmatning. (Gäller typ: number) T.ex: En inmatning (text) får inte vara större än 100 tecken.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerMaxLength",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerPattern","getform.form.answeredPages.questionBlocks.questions.answerPattern","","","",0,1,"","","","string {[]} {[]}
+","Inmatningsvalidering (Regular expresson). T.ex: pattern=""[A-z]{3}"" tillåter endast 3 teckan A-z.","Inmatningsvalidering (Regular expresson). T.ex: pattern=""[A-z]{3}"" tillåter endast 3 teckan A-z.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerPattern",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.answerStep","getform.form.answeredPages.questionBlocks.questions.answerStep","","","",0,1,"","","","integer {[]} {[]}
+","answerStep","Specificerar giltiga intervall för inmatning. (Gäller typ: number, range, date, datetime, datetime-local, month, time och week) T.ex: Skalningsfaktor för en ”slide” kontroll. Ange värde för temperatur 35-40.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.answerStep",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.code","getform.form.answeredPages.questionBlocks.questions.code","","","",0,1,"","","","Base {[]} {[]}
+","CodeType","code","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.code",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.code.codeValue","getform.form.answeredPages.questionBlocks.questions.code.codeValue","","","",1,1,"","","","string {[]} {[]}
+","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","Kod som används (Kodverk).Kod identifieras av ""codeSystem"".","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.code.codeValue",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.code.codeSystem","getform.form.answeredPages.questionBlocks.questions.code.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","Identifierar vilket kodverk som används.","Identifierar vilket kodverk som används.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.code.codeSystem",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.description","getform.form.answeredPages.questionBlocks.questions.description","","","",0,1,"","","","string {[]} {[]}
+","Frågans beskrivande text eller instruktion till användaren/patient.","Frågans beskrivande text eller instruktion till användaren/patient.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.description",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.gridValue","getform.form.answeredPages.questionBlocks.questions.gridValue","","","",0,1,"","","","Base {[]} {[]}
+","GridValueType","gridValue","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.gridValue",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.gridValue.col","getform.form.answeredPages.questionBlocks.questions.gridValue.col","","","",1,1,"","","","integer {[]} {[]}
+","col","col","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.gridValue.col",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.gridValue.row","getform.form.answeredPages.questionBlocks.questions.gridValue.row","","","",1,1,"","","","integer {[]} {[]}
+","row","row","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.gridValue.row",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.input","getform.form.answeredPages.questionBlocks.questions.input","","","",1,1,"","","","string {[]} {[]}
+","input","Beskriver frågans inmatningstyp. Kodverk inmatningstyp. Text textarea Checkbox Radio Select SelectMultiple Number URL Date and time Date Month Week Time Local date and time Range Image","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.input",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.inputUnit","getform.form.answeredPages.questionBlocks.questions.inputUnit","","","",0,1,"","","","string {[]} {[]}
+","inputUnit","Typ av enhet. Grundenheter samt härledda SI-enheter beskrivs med dess beteckning. T.ex. km, m, cm, kg, mm Hg etc Måttenheter enligt SI-systemet. SWEDAC (STAFS 2009:26)","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.inputUnit",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.media","getform.form.answeredPages.questionBlocks.questions.media","","","",0,1,"","","","Base {[]} {[]}
+","MediaType","URL till bild. Bilden kan används för att illustrera en fråga. (QuestionType Image)","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.media",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.media.mediaURL","getform.form.answeredPages.questionBlocks.questions.media.mediaURL","","","",1,1,"","","","string {[]} {[]}
+","URL eller adress till media.","URL eller adress till media.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.media.mediaURL",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.media.mediaType","getform.form.answeredPages.questionBlocks.questions.media.mediaType","","","",1,1,"","","","string {[]} {[]}
+","Giltiga MIME typer.","Giltiga MIME typer.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.media.mediaType",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.media.mediaAlt","getform.form.answeredPages.questionBlocks.questions.media.mediaAlt","","","",0,1,"","","","string {[]} {[]}
+","alternativ text som beskriver det element som attributet hör till","alternativ text som beskriver det element som attributet hör till","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.media.mediaAlt",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.media.mediaCaption","getform.form.answeredPages.questionBlocks.questions.media.mediaCaption","","","",0,1,"","","","string {[]} {[]}
+","URL eller adress till undertext.","URL eller adress till undertext.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.media.mediaCaption",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.informationURL","getform.form.answeredPages.questionBlocks.questions.informationURL","","","",0,1,"","","","string {[]} {[]}
+","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.informationURL",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.mandatory","getform.form.answeredPages.questionBlocks.questions.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga","Indikerar om frågan är obligatorisk. True = obligatorisk fråga False = Frivillig fråga","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.mandatory",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.maxNumberOfChoices","getform.form.answeredPages.questionBlocks.questions.maxNumberOfChoices","","","",0,1,"","","","integer {[]} {[]}
+","Indikerar max antal värden som användaren får välja vid checkbox/multivärde.","Indikerar max antal värden som användaren får välja vid checkbox/multivärde.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.maxNumberOfChoices",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.minNumberOfChoices","getform.form.answeredPages.questionBlocks.questions.minNumberOfChoices","","","",0,1,"","","","integer {[]} {[]}
+","Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.","Indikerar min. antal värden som användaren får välja vid checkbox/multivärde.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.minNumberOfChoices",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.questionNumber","getform.form.answeredPages.questionBlocks.questions.questionNumber","","","",1,1,"","","","integer {[]} {[]}
+","questionNumber","Frågans nummer i nummer serie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Fråga nummer 1 (av 10).","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.questionNumber",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.subject","getform.form.answeredPages.questionBlocks.questions.subject","","","",1,1,"","","","string {[]} {[]}
+","Frågans rubrik. T.ex Ange din blodgrupp.","Frågans rubrik. T.ex Ange din blodgrupp.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.subject",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.questionSuperior","getform.form.answeredPages.questionBlocks.questions.questionSuperior","","","",0,1,"","","","Base {[]} {[]}
+","QuestionSuperiorType","questionSuperior","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.questionSuperior",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers","getform.form.answeredPages.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers","","","",0,*,"","","","integer {[]} {[]}
+","superiorAnswerAlternativeNumbers","superiorAnswerAlternativeNumbers","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.questionSuperior.superiorAnswerAlternativeNumbers",0,*,"",""
+"getform.form.answeredPages.questionBlocks.questions.questionSuperior.superiorQuestionNumber","getform.form.answeredPages.questionBlocks.questions.questionSuperior.superiorQuestionNumber","","","",1,1,"","","","integer {[]} {[]}
+","superiorQuestionNumber","superiorQuestionNumber","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.questionSuperior.superiorQuestionNumber",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.validationEvents","getform.form.answeredPages.questionBlocks.questions.validationEvents","","","",0,*,"","","","Base {[]} {[]}
+","ValidationEventType","validationEvents","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.validationEvents",0,*,"",""
+"getform.form.answeredPages.questionBlocks.questions.validationEvents.event","getform.form.answeredPages.questionBlocks.questions.validationEvents.event","","","",1,1,"","","","string {[]} {[]}
+","event","Följande events är giltiga: mandatory answerMax answerMin answerMaxLength answerPattern maxNumberOfChoises minNumberOfChoises answerSuperior","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.validationEvents.event",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.validationEvents.text","getform.form.answeredPages.questionBlocks.questions.validationEvents.text","","","",1,1,"","","","string {[]} {[]}
+","Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.","Valideringstext/meddelande. Informationen skall presenteras för användaren vid valideringsfel.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.validationEvents.text",1,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.questionAlign","getform.form.answeredPages.questionBlocks.questions.questionAlign","","","",0,1,"","","","string {[]} {[]}
+","questionAlign","questionAlign","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.questionAlign",0,1,"",""
+"getform.form.answeredPages.questionBlocks.questions.questionId","getform.form.answeredPages.questionBlocks.questions.questionId","","","",0,1,"","","","string {[]} {[]}
+","questionId","questionId","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.questions.questionId",0,1,"",""
+"getform.form.answeredPages.questionBlocks.subject","getform.form.answeredPages.questionBlocks.subject","","","",0,1,"","","","string {[]} {[]}
+","Blockets rubrik. T.ex Medicin.","Blockets rubrik. T.ex Medicin.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.questionBlocks.subject",0,1,"",""
+"getform.form.answeredPages.description","getform.form.answeredPages.description","","","",0,1,"","","","string {[]} {[]}
+","Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).","Beskrivande text. Stöder kodverk ”DocBook” Se tidbokningskontraktet för formatering (Todo).","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.description",0,1,"",""
+"getform.form.answeredPages.informationURL","getform.form.answeredPages.informationURL","","","",0,1,"","","","string {[]} {[]}
+","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","URL till ytterligare/relevant information. Länk till publik information utan krav på autentisering.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.informationURL",0,1,"",""
+"getform.form.answeredPages.lastPage","getform.form.answeredPages.lastPage","","","",1,1,"","","","boolean {[]} {[]}
+","lastPage","Indikerar om ytterligare frågeblock/page finns. Detta ger indikation för konsumerande system att presentera en knapp för att ”Avsluta och skicka” formuläret. True = Indikerar att detta är det sistea frågeblocket/page. False = Indikerar att ytterligare frågeblock/page .","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.lastPage",1,1,"",""
+"getform.form.answeredPages.subject","getform.form.answeredPages.subject","","","",0,1,"","","","string {[]} {[]}
+","Sidans rubrik. Information till invånaren/användaren.","Sidans rubrik. Information till invånaren/användaren.","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.subject",0,1,"",""
+"getform.form.answeredPages.pageNumber","getform.form.answeredPages.pageNumber","","","",1,1,"","","","integer {[]} {[]}
+","pageNumber","Grupperingsbegrepp av sida (page). Sidans nummer i nummerserie. Används för att indikera hur långt användaren har kommit i formuläret. T.ex Sida nummer 1 (av 10).","","","","","","","","","",,,,,"",,,,"getform.form.answeredPages.pageNumber",1,1,"",""
+"getform.form.lastSavedDate","getform.form.lastSavedDate","","","",0,1,"","","","string {[]} {[]}
+","lastSavedDate","lastSavedDate","","","","","","","","","",,,,,"",,,,"getform.form.lastSavedDate",0,1,"",""
+"getform.form.subjectOfCare","getform.form.subjectOfCare","","","",0,1,"","","","string {[]} {[]}
+","subjectOfCare","Patienten formuläret avser. Personnummer format yyyymmddnnnn. T.ex. 191212121212. FormTemplate.anonymousForm styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.","","","","","","","","","",,,,,"",,,,"getform.form.subjectOfCare",0,1,"",""
+"getform.form.calculationOutcomes","getform.form.calculationOutcomes","","","",0,*,"","","","Base {[]} {[]}
+","CalculationOutcomeType","calculationOutcomes","","","","","","","","","",,,,,"",,,,"getform.form.calculationOutcomes",0,*,"",""
+"getform.form.calculationOutcomes.calculationId","getform.form.calculationOutcomes.calculationId","","","",1,1,"","","","string {[]} {[]}
+","calculationId","calculationId","","","","","","","","","",,,,,"",,,,"getform.form.calculationOutcomes.calculationId",1,1,"",""
+"getform.form.calculationOutcomes.outcome","getform.form.calculationOutcomes.outcome","","","",0,1,"","","","decimal {[]} {[]}
+","outcome","outcome","","","","","","","","","",,,,,"",,,,"getform.form.calculationOutcomes.outcome",0,1,"",""
+"getform.form.calculationOutcomes.errorMessage","getform.form.calculationOutcomes.errorMessage","","","",0,1,"","","","string {[]} {[]}
+","errorMessage","errorMessage","","","","","","","","","",,,,,"",,,,"getform.form.calculationOutcomes.errorMessage",0,1,"",""

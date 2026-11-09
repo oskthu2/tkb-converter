@@ -1,0 +1,27 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"skapadosmottagare","skapadosmottagare","","","",0,*,"","","","null {[]} {[]}
+","SkapaDosmottagare — Response","Logisk modell för svaret i SkapaDosmottagare
+(urn:riv:se.apotekensservice:expo:SkapaDosmottagareResponder:4, SkapaDosmottagareResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"","skapadosmottagare-adress-when-d:adress och postort ska anges när typ = 'D' (direktleverans). {typ = 'D' implies (adress.exists() and postort.exists())}
+"
+"skapadosmottagare.adress","skapadosmottagare.adress","","","",0,1,"","","","string {[]} {[]}
+","Adress till dosmottagare. Obligatorisk om typ = 'D'.","Adress till dosmottagare. Obligatorisk om typ = 'D'.","TKB-fält: `adress` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.adress",0,1,"",""
+"skapadosmottagare.apoteksIdDosmottagare","skapadosmottagare.apoteksIdDosmottagare","","","",0,1,"","","","string {[]} {[]}
+","Apoteks-id för dosmottagare om dosmottagare är av typen apotek.","Apoteks-id för dosmottagare om dosmottagare är av typen apotek.","TKB-fält: `apoteksIdDosmottagare` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.apoteksIdDosmottagare",0,1,"",""
+"skapadosmottagare.arbetsplatskod","skapadosmottagare.arbetsplatskod","","","",0,1,"","","","string {[]} {[]}
+","Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning.","Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning.","TKB-fält: `arbetsplatskod` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.arbetsplatskod",0,1,"",""
+"skapadosmottagare.avdelning","skapadosmottagare.avdelning","","","",0,1,"","","","string {[]} {[]}
+","Avdelning inom dosmottagare.","Avdelning inom dosmottagare.","TKB-fält: `avdelning` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.avdelning",0,1,"",""
+"skapadosmottagare.dosmottagarId","skapadosmottagare.dosmottagarId","","","",1,1,"","","","string {[]} {[]}
+","Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket.","Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket.","TKB-fält: `dosmottagarId` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.dosmottagarId",1,1,"",""
+"skapadosmottagare.kommunkod","skapadosmottagare.kommunkod","","","",0,1,"","","","string {[]} {[]}
+","Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB.","Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB.","TKB-fält: `kommunkod` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.kommunkod",0,1,"",""
+"skapadosmottagare.lanskod","skapadosmottagare.lanskod","","","",0,1,"","","","string {[]} {[]}
+","Länskod till vilken dosmottagaren tillhör. Kod enligt SCB.","Länskod till vilken dosmottagaren tillhör. Kod enligt SCB.","TKB-fält: `lanskod` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.lanskod",0,1,"",""
+"skapadosmottagare.mottagarnamn","skapadosmottagare.mottagarnamn","","","",1,1,"","","","string {[]} {[]}
+","Namn på dosmottagare.","Namn på dosmottagare.","TKB-fält: `mottagarnamn` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.mottagarnamn",1,1,"",""
+"skapadosmottagare.postnummer","skapadosmottagare.postnummer","","","",0,1,"","","","string {[]} {[]}
+","Postnummer till dosmottagare.","Postnummer till dosmottagare.","TKB-fält: `postnummer` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.postnummer",0,1,"",""
+"skapadosmottagare.postort","skapadosmottagare.postort","","","",0,1,"","","","string {[]} {[]}
+","Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'.","Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'.","TKB-fält: `postort` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.postort",0,1,"",""
+"skapadosmottagare.typ","skapadosmottagare.typ","","","",1,1,"","","","string {[]} {[]}
+","typ","Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek).","TKB-fält: `typ` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"skapadosmottagare.typ",1,1,"",""

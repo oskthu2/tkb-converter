@@ -1,0 +1,598 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"SubjectOfCareIdType","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-subjectofcareidtype-pattern:SubjectOfCareIdType ska följa mönstret i schemat: [0-9]{8}[0-9pPtTfF][0-9]{3} {matches('^(?:(?:[0-9]{8}[0-9pPtTfF][0-9]{3}))$')}"
+"SubjectOfCareIdType","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"SubjectOfCareIdType","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"SubjectOfCareIdType","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"TS","string","string","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+local-ts-pattern:TS ska följa mönstret i schemat: [1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1} {matches('^(?:(?:[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}))$')}"
+"TS","string.id","string.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"TS","string.extension","string.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"TS","string.value","string.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"cancelbooking-request","cancelbooking-request","cancelbooking-request","","","",0,*,"","","","null {[]} {[]}
+","CancelBooking — Request","Logisk modell för requestparametrar i CancelBooking.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"cancelbooking-request","cancelbooking-request.healthcare-facility","cancelbooking-request.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"cancelbooking-request.healthcare_facility",1,1,"",""
+"cancelbooking-request","cancelbooking-request.bookingId","cancelbooking-request.bookingId","","","",1,1,"","","","string {[]} {[]}
+","bookingId","Intern bokningsidentitet","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"cancelbooking-request.bookingId",1,1,"",""
+"cancelbooking-request","cancelbooking-request.message","cancelbooking-request.message","","","",0,1,"","","","string {[]} {[]}
+","message","Invånarens beskrivning av orsak för avbokning. Fältet kan bara skickas om värdet på message_allowed är ”true” i svaret från GetBookingDetails.","TKB-fält: `message` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"cancelbooking-request.message",0,1,"",""
+"cancelbooking","cancelbooking","cancelbooking","","","",0,*,"","","","null {[]} {[]}
+","CancelBooking","Logisk modell för tjänstekontraktet CancelBooking
+(RIV-TA urn:riv:crm:scheduling:CancelBooking:1).
+Representerar responsens informationsstruktur.
+Tjänst för att avboka en bokning vid en vårdenhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"cancelbooking","cancelbooking.resultCode","cancelbooking.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Status för den gjorda avbokningen.","TKB-fält: `resultCode` (`ResultCodeEnum (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,"required","","https://fhir.inera.se/ig/crm-scheduling/ValueSet/result-code-vs","",,,,"cancelbooking.resultCode",1,1,"",""
+"cancelbooking","cancelbooking.resultText","cancelbooking.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Ev. meddelande kopplat till resultatkoden.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"cancelbooking.resultText",0,1,"",""
+"getallcaretypes-request","getallcaretypes-request","getallcaretypes-request","","","",0,*,"","","","null {[]} {[]}
+","GetAllCareTypes — Request","Logisk modell för requestparametrar i GetAllCareTypes.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallcaretypes-request","getallcaretypes-request.healthcare-facility","getallcaretypes-request.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getallcaretypes-request.healthcare_facility",1,1,"",""
+"getallcaretypes-request","getallcaretypes-request.timeTypeIDs","getallcaretypes-request.timeTypeIDs","","","",0,*,"","","","string {[]} {[]}
+","timeTypeIDs","Lista med tidstyper.","TKB-fält: `timeTypeIDs` (`TimeTypeIDType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getallcaretypes-request.timeTypeIDs",0,*,"",""
+"getallcaretypes-request","getallcaretypes-request.performer","getallcaretypes-request.performer","","","",0,*,"","","","string {[]} {[]}
+","performer","HSA-id för medarbetaren.","TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getallcaretypes-request.performer",0,*,"",""
+"getallcaretypes-request","getallcaretypes-request.subject-of-care","getallcaretypes-request.subject_of_care","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","Personnummer enl. yyyymmddxxxx.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getallcaretypes-request.subject_of_care",1,1,"",""
+"getallcaretypes","getallcaretypes","getallcaretypes","","","",0,*,"","","","null {[]} {[]}
+","GetAllCareTypes","Logisk modell för tjänstekontraktet GetAllCareTypes
+(RIV-TA urn:riv:crm:scheduling:GetAllCareTypes:1).
+Representerar responsens informationsstruktur.
+Tjänst att för invånaren kunna visa en lista över vilka typer av vård
+som kan bokas hos en viss vårdenhet/mottagning.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallcaretypes","getallcaretypes.careTypes","getallcaretypes.careTypes","","","",0,*,"","","","Base {[]} {[]}
+","CareTypeType","careTypes","","","","","","","","","",,,,,"",,,,"getallcaretypes.careTypes",0,*,"",""
+"getallcaretypes","getallcaretypes.careTypes.careTypeName","getallcaretypes.careTypes.careTypeName","","","",1,1,"","","","string {[]} {[]}
+","careTypeName","careTypeName","","","","","","","","","",,,,,"",,,,"getallcaretypes.careTypes.careTypeName",1,1,"",""
+"getallcaretypes","getallcaretypes.careTypes.careTypeId","getallcaretypes.careTypes.careTypeId","","","",1,1,"","","","string {[]} {[]}
+","careTypeId","careTypeId","","","","","","","","","",,,,,"",,,,"getallcaretypes.careTypes.careTypeId",1,1,"",""
+"getallhealthcarefacilities-request","getallhealthcarefacilities-request","getallhealthcarefacilities-request","","","",0,*,"","","","null {[]} {[]}
+","GetAllHealthcareFacilities — Request","Logisk modell för requestparametrar i GetAllHealthcareFacilities.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallhealthcarefacilities-request","getallhealthcarefacilities-request.healthcare-facility","getallhealthcarefacilities-request.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getallhealthcarefacilities-request.healthcare_facility",1,1,"",""
+"getallhealthcarefacilities-request","getallhealthcarefacilities-request.subject-of-care","getallhealthcarefacilities-request.subject_of_care","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","Personnummer enl. yyyymmddxxxx.
+
+Kan användas för att filtrera vad en tjänsteproducent ska returnera för en viss invånare (även vid nybokning).","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getallhealthcarefacilities-request.subject_of_care",1,1,"",""
+"getallhealthcarefacilities-request","getallhealthcarefacilities-request.bookingId","getallhealthcarefacilities-request.bookingId","","","",0,1,"","","","string {[]} {[]}
+","bookingId","Internt bokningsid. Obligatoriskt när förfrågan gäller ombokning. Detta bokningsid behövs för tjänsteproducenten ska kunna filtrera på egenskaper för en grundbokning","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getallhealthcarefacilities-request.bookingId",0,1,"",""
+"getallhealthcarefacilities","getallhealthcarefacilities","getallhealthcarefacilities","","","",0,*,"","","","null {[]} {[]}
+","GetAllHealthcareFacilities","Logisk modell för tjänstekontraktet GetAllHealthcareFacilities
+(RIV-TA urn:riv:crm:scheduling:GetAllHealthcareFacilities:1).
+Representerar responsens informationsstruktur.
+Tjänst för att hämta alla vårdenheter som erbjuds för ombokning eller nybokning för aktuell invånare.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallhealthcarefacilities","getallhealthcarefacilities.healthcareFacilityInfos","getallhealthcarefacilities.healthcareFacilityInfos","","","",0,*,"","","","Base {[]} {[]}
+","HealthcareFacilityInfoType","healthcareFacilityInfos","","","","","","","","","",,,,,"",,,,"getallhealthcarefacilities.healthcareFacilityInfos",0,*,"",""
+"getallhealthcarefacilities","getallhealthcarefacilities.healthcareFacilityInfos.healthcare-facility","getallhealthcarefacilities.healthcareFacilityInfos.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","","","","","","","","","",,,,,"",,,,"getallhealthcarefacilities.healthcareFacilityInfos.healthcare_facility",1,1,"",""
+"getallhealthcarefacilities","getallhealthcarefacilities.healthcareFacilityInfos.healthcare-facility-name","getallhealthcarefacilities.healthcareFacilityInfos.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility_name","healthcare_facility_name","","","","","","","","","",,,,,"",,,,"getallhealthcarefacilities.healthcareFacilityInfos.healthcare_facility_name",0,1,"",""
+"getallperformers-request","getallperformers-request","getallperformers-request","","","",0,*,"","","","null {[]} {[]}
+","GetAllPerformers — Request","Logisk modell för requestparametrar i GetAllPerformers.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallperformers-request","getallperformers-request.healthcare-facility","getallperformers-request.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getallperformers-request.healthcare_facility",1,1,"",""
+"getallperformers-request","getallperformers-request.timeTypeIDs","getallperformers-request.timeTypeIDs","","","",0,*,"","","","string {[]} {[]}
+","timeTypeIDs","Tidstypid för att begränsa svarslistan.","TKB-fält: `timeTypeIDs` (`TimeTypeIDType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getallperformers-request.timeTypeIDs",0,*,"",""
+"getallperformers-request","getallperformers-request.careTypeIDs","getallperformers-request.careTypeIDs","","","",0,*,"","","","string {[]} {[]}
+","careTypeIDs","Vårdtypsid för att begränsa svarslistan. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeIDs` (`CareTypeIDType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getallperformers-request.careTypeIDs",0,*,"",""
+"getallperformers-request","getallperformers-request.subject-of-care","getallperformers-request.subject_of_care","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","Personnummer enl. yyyymmddxxxx för begränsa/utöka svarslistan.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getallperformers-request.subject_of_care",1,1,"",""
+"getallperformers","getallperformers","getallperformers","","","",0,*,"","","","null {[]} {[]}
+","GetAllPerformers","Logisk modell för tjänstekontraktet GetAllPerformers
+(RIV-TA urn:riv:crm:scheduling:GetAllPerformers:1).
+Representerar responsens informationsstruktur.
+Tjänst för att hämta en lista över medarbetare i vårdprofessionen som är bokningsbara online hos angiven vårdenhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallperformers","getallperformers.performerInfos","getallperformers.performerInfos","","","",0,*,"","","","Base {[]} {[]}
+","PerformerInfoType","performerInfos","","","","","","","","","",,,,,"",,,,"getallperformers.performerInfos",0,*,"",""
+"getallperformers","getallperformers.performerInfos.perfomer","getallperformers.performerInfos.perfomer","","","",1,1,"","","","string {[]} {[]}
+","perfomer","perfomer","","","","","","","","","",,,,,"",,,,"getallperformers.performerInfos.perfomer",1,1,"",""
+"getallperformers","getallperformers.performerInfos.firstName","getallperformers.performerInfos.firstName","","","",1,1,"","","","string {[]} {[]}
+","firstName","firstName","","","","","","","","","",,,,,"",,,,"getallperformers.performerInfos.firstName",1,1,"",""
+"getallperformers","getallperformers.performerInfos.lastName","getallperformers.performerInfos.lastName","","","",1,1,"","","","string {[]} {[]}
+","lastName","lastName","","","","","","","","","",,,,,"",,,,"getallperformers.performerInfos.lastName",1,1,"",""
+"getallperformers","getallperformers.performerInfos.title","getallperformers.performerInfos.title","","","",0,1,"","","","string {[]} {[]}
+","title","title","","","","","","","","","",,,,,"",,,,"getallperformers.performerInfos.title",0,1,"",""
+"getalltimetypes-request","getalltimetypes-request","getalltimetypes-request","","","",0,*,"","","","null {[]} {[]}
+","GetAllTimeTypes — Request","Logisk modell för requestparametrar i GetAllTimeTypes.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getalltimetypes-request","getalltimetypes-request.healthcare-facility","getalltimetypes-request.healthcare_facility","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för mottagning/vårdenhet","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getalltimetypes-request.healthcare_facility",1,1,"",""
+"getalltimetypes-request","getalltimetypes-request.careTypeIDs","getalltimetypes-request.careTypeIDs","","","",0,*,"","","","string {[]} {[]}
+","Vårdtypsidentitet för att begränsa sökningen","Vårdtypsidentitet för att begränsa sökningen. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeIDs` (`CareTypeIDType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getalltimetypes-request.careTypeIDs",0,*,"",""
+"getalltimetypes-request","getalltimetypes-request.subject-of-care","getalltimetypes-request.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","Personnummer enl. yyyymmddxxxx","Personnummer enl. yyyymmddxxxx.
+
+Kan användas för att filtrera vad tjänsteproducenten ska returnera för en viss invånare. (T.ex. patient som pga. av sjukdom måste erbjudas enstaka speciella tidstyper, som inte erbjuds alla patienter).","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** Personnummer för invånaren.","","","","","","","","",,,,,"",,,,"getalltimetypes-request.subject_of_care",1,1,"",""
+"getalltimetypes","getalltimetypes","getalltimetypes","","","",0,*,"","","","null {[]} {[]}
+","GetAllTimeTypes","Logisk modell för tjänstekontraktet GetAllTimeTypes
+(RIV-TA urn:riv:crm:scheduling:GetAllTimeTypes:1).
+Representerar responsens informationsstruktur.
+Tjänsten hämtar alla tidstyper som kan användas vid nybokning hos angiven vårdenhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getalltimetypes","getalltimetypes.listOfTimeTypes","getalltimetypes.listOfTimeTypes","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Lista med tillgängliga tidstyper","Lista med tillgängliga tidstyper (TimeTypeType).
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"getalltimetypes.listOfTimeTypes",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getalltimetypes","getalltimetypes.listOfTimeTypes.id","getalltimetypes.listOfTimeTypes.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getalltimetypes","getalltimetypes.listOfTimeTypes.extension","getalltimetypes.listOfTimeTypes.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getalltimetypes","getalltimetypes.listOfTimeTypes.modifierExtension","getalltimetypes.listOfTimeTypes.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getalltimetypes","getalltimetypes.listOfTimeTypes.timeTypeName","getalltimetypes.listOfTimeTypes.timeTypeName","","","",1,1,"","","","string {[]} {[]}
+","Namnet på tidstypen","Namnet på tidstypen att visas för användaren.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getalltimetypes.listOfTimeTypes.timeTypeName",1,1,"",""
+"getalltimetypes","getalltimetypes.listOfTimeTypes.timeTypeId","getalltimetypes.listOfTimeTypes.timeTypeId","","","",1,1,"","","","string {[]} {[]}
+","Identifierare för tidstypen","Identifierare för tidstypen (TimeTypeIDType).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getalltimetypes.listOfTimeTypes.timeTypeId",1,1,"",""
+"getavailabledates-request","getavailabledates-request","getavailabledates-request","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableDates — Request","Logisk modell för requestparametrar i GetAvailableDates.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailabledates-request","getavailabledates-request.healthcare-facility","getavailabledates-request.healthcare_facility","","","",1,1,"","","","Identifier {[]} {[]}
+","Hsa-Id för mottagning/vårdenhet","Hsa-Id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.healthcare_facility",1,1,"",""
+"getavailabledates-request","getavailabledates-request.bookingId","getavailabledates-request.bookingId","","","",0,1,"","","","string {[]} {[]}
+","Intern bokningsidentitet","Intern bokningsidentitet. Används för att indikera ombokning, så att tjänsteproducenten kan anpassa svaret till tider som är giltiga för ombokning av angiven bokning.","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.bookingId",0,1,"",""
+"getavailabledates-request","getavailabledates-request.startDateInclusive","getavailabledates-request.startDateInclusive","","","",1,1,"","","","string {[]} {[]}
+","Datum från och med (ÅÅÅÅMMDD)","Datum från och med för de lediga tider som skall sökas ut, på formatet ÅÅÅÅMMDD.","TKB-fält: `startDateInclusive` (`DT (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.startDateInclusive",1,1,"",""
+"getavailabledates-request","getavailabledates-request.endDateInclusive","getavailabledates-request.endDateInclusive","","","",1,1,"","","","string {[]} {[]}
+","Datum till och med (ÅÅÅÅMMDD)","Datum till och med för de lediga tider som skall sökas ut, på formatet ÅÅÅÅMMDD.","TKB-fält: `endDateInclusive` (`DT (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.endDateInclusive",1,1,"",""
+"getavailabledates-request","getavailabledates-request.performer","getavailabledates-request.performer","","","",0,*,"","","","Identifier {[]} {[]}
+","HSA-id för HoS-personal","HSA-id för HoS-personal.","TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailabledates-request.performer",0,*,"",""
+"getavailabledates-request","getavailabledates-request.timeTypeName","getavailabledates-request.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","Namn på tidstyp","Namn på tidstyp.","TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.timeTypeName",0,1,"",""
+"getavailabledates-request","getavailabledates-request.timeTypeID","getavailabledates-request.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för tidstyp","Identifierare för tidstyp","TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.timeTypeID",0,1,"",""
+"getavailabledates-request","getavailabledates-request.careTypeName","getavailabledates-request.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","Namn på vårdtyp","Namn på vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.careTypeName",0,1,"",""
+"getavailabledates-request","getavailabledates-request.careTypeID","getavailabledates-request.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identitet för vårdtyp","Identitet för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabledates-request.careTypeID",0,1,"",""
+"getavailabledates-request","getavailabledates-request.subject-of-care","getavailabledates-request.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","Personnummer enl. yyyymmddxxxx","Personnummer enl. yyyymmddxxxx.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** Personnummer för invånaren.","","","","","","","","",,,,,"",,,,"getavailabledates-request.subject_of_care",1,1,"",""
+"getavailabledates","getavailabledates","getavailabledates","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableDates","Logisk modell för tjänstekontraktet GetAvailableDates
+(RIV-TA urn:riv:crm:scheduling:GetAvailableDates:1).
+Representerar responsens informationsstruktur.
+Tjänsten hämtar datum med lediga tider för angivet datumintervall.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate","getavailabledates.performerAvailabilityByDate","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Lista med tillgängliga tider per datum","Lista med tillgängliga tider (PerformerAvailabilityByDateType).
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getavailabledates","getavailabledates.performerAvailabilityByDate.id","getavailabledates.performerAvailabilityByDate.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.extension","getavailabledates.performerAvailabilityByDate.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getavailabledates","getavailabledates.performerAvailabilityByDate.modifierExtension","getavailabledates.performerAvailabilityByDate.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getavailabledates","getavailabledates.performerAvailabilityByDate.healthcare-facility","getavailabledates.performerAvailabilityByDate.healthcare_facility","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för mottagning/vårdenhet","HSA-id för mottagning/vårdenhet.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.healthcare_facility",1,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.performer","getavailabledates.performerAvailabilityByDate.performer","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för HoS-personal","HSA-id för HoS-personal.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.performer",0,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.date","getavailabledates.performerAvailabilityByDate.date","","","",1,1,"","","","string {[]} {[]}
+","Datum där lediga tider finns (ÅÅÅÅMMDD)","Ett datum där lediga tider finns, på formatet ÅÅÅÅMMDD.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.date",1,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.resourceName","getavailabledates.performerAvailabilityByDate.resourceName","","","",0,1,"","","","string {[]} {[]}
+","Namn på resurs","Namn på resurs.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.resourceName",0,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.resourceID","getavailabledates.performerAvailabilityByDate.resourceID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för resurs","Identifierare för resurs.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.resourceID",0,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.timeTypeName","getavailabledates.performerAvailabilityByDate.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","Namn på tidstyp","Namn på tidstyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.timeTypeName",0,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.timeTypeID","getavailabledates.performerAvailabilityByDate.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för tidstyp","Identifierare för tidstyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.timeTypeID",0,1,"",""
+"getavailabledates","getavailabledates.performerAvailabilityByDate.careTypeName","getavailabledates.performerAvailabilityByDate.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","Namn på vårdtyp","Namn på vårdtyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabledates.performerAvailabilityByDate.careTypeName",0,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request","getavailabletimeslots-request","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableTimeslots — Request","Logisk modell för requestparametrar i GetAvailableTimeslots.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.healthcare-facility","getavailabletimeslots-request.healthcare_facility","","","",1,1,"","","","Identifier {[]} {[]}
+","Hsa-ID för mottagning/vårdenhet","Hsa-ID för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.healthcare_facility",1,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.bookingId","getavailabletimeslots-request.bookingId","","","",0,1,"","","","string {[]} {[]}
+","Intern bokningsidentitet","Intern bokningsidentitet. Används för att indikera ombokning, så att tjänsteproducenten kan anpassa svaret till tider som är giltiga för ombokning av angiven bokning.","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.bookingId",0,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.startDateInclusive","getavailabletimeslots-request.startDateInclusive","","","",1,1,"","","","string {[]} {[]}
+","Datum från och med (ÅÅÅÅMMDD)","Datum från och med för de lediga tider som skall sökas ut, på formatet ÅÅÅÅMMDD.","TKB-fält: `startDateInclusive` (`DT (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.startDateInclusive",1,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.endDateInclusive","getavailabletimeslots-request.endDateInclusive","","","",1,1,"","","","string {[]} {[]}
+","Datum till och med (ÅÅÅÅMMDD)","Datum till och med för de lediga tider som skall sökas ut, på formatet ÅÅÅÅMMDD.","TKB-fält: `endDateInclusive` (`DT (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.endDateInclusive",1,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.performer","getavailabletimeslots-request.performer","","","",0,*,"","","","Identifier {[]} {[]}
+","HSA-id för HoS-personal","HSA-id för HoS-personal.","TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.performer",0,*,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.timeTypeName","getavailabletimeslots-request.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","Namn på tidstyp","Namn på tidstyp.","TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.timeTypeName",0,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.timeTypeID","getavailabletimeslots-request.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för tidstyp","Identifierare för tidstyp.","TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.timeTypeID",0,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.careTypeName","getavailabletimeslots-request.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","Namn på vårdtyp","Namn på vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.careTypeName",0,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.careTypeID","getavailabletimeslots-request.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för vårdtyp","Identifierare för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.careTypeID",0,1,"",""
+"getavailabletimeslots-request","getavailabletimeslots-request.subject-of-care","getavailabletimeslots-request.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","Personnummer enl. yyyymmddxxxx","Personnummer enl. yyyymmddxxxx.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** Personnummer för invånaren.","","","","","","","","",,,,,"",,,,"getavailabletimeslots-request.subject_of_care",1,1,"",""
+"getavailabletimeslots","getavailabletimeslots","getavailabletimeslots","","","",0,*,"","","","null {[]} {[]}
+","GetAvailableTimeslots","Logisk modell för tjänstekontraktet GetAvailableTimeslots
+(RIV-TA urn:riv:crm:scheduling:GetAvailableTimeslots:1).
+Representerar responsens informationsstruktur.
+Tjänsten hämtar lediga tider för angivet datumintervall.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail","getavailabletimeslots.timeslotDetail","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Lista med tillgängliga tider (TimeslotType)","Lista med tillgängliga tider.
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.id","getavailabletimeslots.timeslotDetail.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.extension","getavailabletimeslots.timeslotDetail.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.modifierExtension","getavailabletimeslots.timeslotDetail.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.startTimeInclusive","getavailabletimeslots.timeslotDetail.startTimeInclusive","","","",1,1,"","","","string {[]} {[]}
+","Startdatum och klockslag (ÅÅÅÅMMDDttmmss)","Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.startTimeInclusive",1,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.endTimeExclusive","getavailabletimeslots.timeslotDetail.endTimeExclusive","","","",1,1,"","","","string {[]} {[]}
+","Slutdatum och klockslag (ÅÅÅÅMMDDttmmss)","Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.endTimeExclusive",1,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.healthcare-facility","getavailabletimeslots.timeslotDetail.healthcare_facility","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för mottagning/vårdenhet","HSA-id för mottagning/vårdenhet.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.healthcare_facility",1,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.performer","getavailabletimeslots.timeslotDetail.performer","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för Hos-person","HSA-id för Hos-person som besöket är bokat hos.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.performer",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.bookingId","getavailabletimeslots.timeslotDetail.bookingId","","","",0,1,"","","","string {[]} {[]}
+","Bokningsidentitet","Bokningsidentitet för det bokade besöket.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.bookingId",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.purpose","getavailabletimeslots.timeslotDetail.purpose","","","",0,1,"","","","string {[]} {[]}
+","Beskrivning av besöksorsak angiven av vårdenhet","Beskrivning av besöksorsak angiven av vårdenhet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.purpose",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.reason","getavailabletimeslots.timeslotDetail.reason","","","",0,1,"","","","string {[]} {[]}
+","Kontaktorsak som invånare uppger vid bokning","Kontaktorsak som invånare uppger vid bokning.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.reason",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.resourceName","getavailabletimeslots.timeslotDetail.resourceName","","","",0,1,"","","","string {[]} {[]}
+","Namn på resurs","Namn på resurs.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.resourceName",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.healthcare-facility-name","getavailabletimeslots.timeslotDetail.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","Namn på bokad mottagning/vårdenhet","Namn på bokad mottagning/vårdenhet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.healthcare_facility_name",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.performerName","getavailabletimeslots.timeslotDetail.performerName","","","",0,1,"","","","string {[]} {[]}
+","Namn på HoS-person","Namn på HoS-person som besöket är bokat hos.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.performerName",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.resourceID","getavailabletimeslots.timeslotDetail.resourceID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för resurs","Identifierare för resurs.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.resourceID",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.timeTypeName","getavailabletimeslots.timeslotDetail.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","Tidstyp för det bokade besöket","Tidstyp för det bokade besöket.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.timeTypeName",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.timeTypeID","getavailabletimeslots.timeslotDetail.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för tidstyp","Identifierare för tidstyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.timeTypeID",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.careTypeName","getavailabletimeslots.timeslotDetail.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","Klartext för vårdtyp","Klartext för vårdtyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.careTypeName",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.careTypeID","getavailabletimeslots.timeslotDetail.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identifierare för vårdtyp","Identifierare för vårdtyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.careTypeID",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.cancel-booking-allowed","getavailabletimeslots.timeslotDetail.cancel_booking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","Om bokningen kan avbokas","Sätts av producenten. Anger om bokningen kan avbokas.
+Avbokning är inte tillåten om värdet saknas eller är false.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.cancel_booking_allowed",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.rebooking-allowed","getavailabletimeslots.timeslotDetail.rebooking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","Om bokningen kan ombokas","Sätts av producenten. Anger om bokningen kan ombokas.
+Ombokning är inte tillåten om värdet saknas eller är false.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.rebooking_allowed",0,1,"",""
+"getavailabletimeslots","getavailabletimeslots.timeslotDetail.message-allowed","getavailabletimeslots.timeslotDetail.message_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","Om orsak till av/ombokning kan skickas","Sätts av producenten. Anger om orsak till av- eller ombokning kan skickas med i berörda tjänster.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getavailabletimeslots.timeslotDetail.message_allowed",0,1,"",""
+"getbookingdetails-request","getbookingdetails-request","getbookingdetails-request","","","",0,*,"","","","null {[]} {[]}
+","GetBookingDetails — Request","Logisk modell för requestparametrar i GetBookingDetails.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getbookingdetails-request","getbookingdetails-request.healthcare-facility","getbookingdetails-request.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getbookingdetails-request.healthcare_facility",1,1,"",""
+"getbookingdetails-request","getbookingdetails-request.bookingId","getbookingdetails-request.bookingId","","","",1,1,"","","","string {[]} {[]}
+","bookingId","Intern bokningsidentitet.","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getbookingdetails-request.bookingId",1,1,"",""
+"getbookingdetails","getbookingdetails","getbookingdetails","","","",0,*,"","","","null {[]} {[]}
+","GetBookingDetails","Logisk modell för tjänstekontraktet GetBookingDetails
+(RIV-TA urn:riv:crm:scheduling:GetBookingDetails:1).
+Representerar responsens informationsstruktur.
+Tjänsten hämtar detaljinformation för en befintlig bokning vid en vårdenhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail","getbookingdetails.timeslotDetail","","","",1,1,"","","","Base {[]} {[]}
+","TimeslotType","timeslotDetail","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail",1,1,"","getbookingdetails-purpose-required:purpose ska anges om isInvitation är true (kallelse) {isInvitation = true implies purpose.exists()}
+"
+"getbookingdetails","getbookingdetails.timeslotDetail.startTimeInclusive","getbookingdetails.timeslotDetail.startTimeInclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","startTimeInclusive","startTimeInclusive","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.startTimeInclusive",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.endTimeExclusive","getbookingdetails.timeslotDetail.endTimeExclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","endTimeExclusive","endTimeExclusive","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.endTimeExclusive",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.healthcare-facility","getbookingdetails.timeslotDetail.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.healthcare_facility",1,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.performer","getbookingdetails.timeslotDetail.performer","","","",0,1,"","","","string {[]} {[]}
+","performer","performer","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.performer",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.bookingId","getbookingdetails.timeslotDetail.bookingId","","","",0,1,"","","","string {[]} {[]}
+","bookingId","bookingId","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.bookingId",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.subject-of-care","getbookingdetails.timeslotDetail.subject_of_care","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","subject_of_care","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.subject_of_care",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.purpose","getbookingdetails.timeslotDetail.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","purpose","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.purpose",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.reason","getbookingdetails.timeslotDetail.reason","","","",0,1,"","","","string {[]} {[]}
+","reason","reason","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.reason",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.resourceName","getbookingdetails.timeslotDetail.resourceName","","","",0,1,"","","","string {[]} {[]}
+","resourceName","resourceName","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.resourceName",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.healthcare-facility-name","getbookingdetails.timeslotDetail.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility_name","healthcare_facility_name","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.healthcare_facility_name",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.performerName","getbookingdetails.timeslotDetail.performerName","","","",0,1,"","","","string {[]} {[]}
+","performerName","performerName","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.performerName",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.resourceID","getbookingdetails.timeslotDetail.resourceID","","","",0,1,"","","","string {[]} {[]}
+","resourceID","resourceID","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.resourceID",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.timeTypeName","getbookingdetails.timeslotDetail.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","timeTypeName","timeTypeName","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.timeTypeName",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.timeTypeID","getbookingdetails.timeslotDetail.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","timeTypeID","timeTypeID","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.timeTypeID",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.careTypeName","getbookingdetails.timeslotDetail.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","careTypeName","careTypeName","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.careTypeName",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.careTypeID","getbookingdetails.timeslotDetail.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","careTypeID","careTypeID","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.careTypeID",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.cancel-booking-allowed","getbookingdetails.timeslotDetail.cancel_booking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","cancel_booking_allowed","cancel_booking_allowed","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.cancel_booking_allowed",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.rebooking-allowed","getbookingdetails.timeslotDetail.rebooking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","rebooking_allowed","rebooking_allowed","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.rebooking_allowed",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.message-allowed","getbookingdetails.timeslotDetail.message_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","message_allowed","message_allowed","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.message_allowed",0,1,"",""
+"getbookingdetails","getbookingdetails.timeslotDetail.isInvitation","getbookingdetails.timeslotDetail.isInvitation","","","",0,1,"","","","boolean {[]} {[]}
+","isInvitation","isInvitation","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.isInvitation",0,1,"",""
+"getsubjectofcareschedule-request","getsubjectofcareschedule-request","getsubjectofcareschedule-request","","","",0,*,"","","","null {[]} {[]}
+","GetSubjectOfCareSchedule — Request","Logisk modell för requestparametrar i GetSubjectOfCareSchedule.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getsubjectofcareschedule-request","getsubjectofcareschedule-request.healthcare-facility","getsubjectofcareschedule-request.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.
+
+Observera att vid adressering av aggregerande tjänst kommer detta fält att ignoreras av den aggregerande tjänsten. Fältet måste ändå finnas med av kompatibilitetsskäl.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule-request.healthcare_facility",1,1,"",""
+"getsubjectofcareschedule-request","getsubjectofcareschedule-request.subject-of-care","getsubjectofcareschedule-request.subject_of_care","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","Personnummer enl. yyyymmddxxxx.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule-request.subject_of_care",1,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule","getsubjectofcareschedule","","","",0,*,"","","","null {[]} {[]}
+","GetSubjectOfCareSchedule","Logisk modell för tjänstekontraktet GetSubjectOfCareSchedule
+(RIV-TA urn:riv:crm:scheduling:GetSubjectOfCareSchedule:1).
+Representerar responsens informationsstruktur.
+Tjänsten hämtar alla bokade tider för en invånare.
+Öppna kallelser ingår inte i svaret.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail","getsubjectofcareschedule.timeslotDetail","","","",0,*,"","","","Base {[]} {[]}
+","TimeslotType","timeslotDetail","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail",0,*,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.startTimeInclusive","getsubjectofcareschedule.timeslotDetail.startTimeInclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","startTimeInclusive","startTimeInclusive","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.startTimeInclusive",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.endTimeExclusive","getsubjectofcareschedule.timeslotDetail.endTimeExclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","endTimeExclusive","endTimeExclusive","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.endTimeExclusive",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.healthcare-facility","getsubjectofcareschedule.timeslotDetail.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","healthcare_facility","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.healthcare_facility",1,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.performer","getsubjectofcareschedule.timeslotDetail.performer","","","",0,1,"","","","string {[]} {[]}
+","performer","performer","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.performer",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.bookingId","getsubjectofcareschedule.timeslotDetail.bookingId","","","",0,1,"","","","string {[]} {[]}
+","bookingId","bookingId","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.bookingId",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.subject-of-care","getsubjectofcareschedule.timeslotDetail.subject_of_care","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","subject_of_care","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.subject_of_care",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.purpose","getsubjectofcareschedule.timeslotDetail.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","purpose","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.purpose",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.reason","getsubjectofcareschedule.timeslotDetail.reason","","","",0,1,"","","","string {[]} {[]}
+","reason","reason","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.reason",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.resourceName","getsubjectofcareschedule.timeslotDetail.resourceName","","","",0,1,"","","","string {[]} {[]}
+","resourceName","resourceName","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.resourceName",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.healthcare-facility-name","getsubjectofcareschedule.timeslotDetail.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility_name","healthcare_facility_name","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.healthcare_facility_name",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.performerName","getsubjectofcareschedule.timeslotDetail.performerName","","","",0,1,"","","","string {[]} {[]}
+","performerName","performerName","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.performerName",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.resourceID","getsubjectofcareschedule.timeslotDetail.resourceID","","","",0,1,"","","","string {[]} {[]}
+","resourceID","resourceID","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.resourceID",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.timeTypeName","getsubjectofcareschedule.timeslotDetail.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","timeTypeName","timeTypeName","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.timeTypeName",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.timeTypeID","getsubjectofcareschedule.timeslotDetail.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","timeTypeID","timeTypeID","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.timeTypeID",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.careTypeName","getsubjectofcareschedule.timeslotDetail.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","careTypeName","careTypeName","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.careTypeName",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.careTypeID","getsubjectofcareschedule.timeslotDetail.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","careTypeID","careTypeID","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.careTypeID",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.cancel-booking-allowed","getsubjectofcareschedule.timeslotDetail.cancel_booking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","cancel_booking_allowed","cancel_booking_allowed","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.cancel_booking_allowed",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.rebooking-allowed","getsubjectofcareschedule.timeslotDetail.rebooking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","rebooking_allowed","rebooking_allowed","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.rebooking_allowed",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.message-allowed","getsubjectofcareschedule.timeslotDetail.message_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","message_allowed","message_allowed","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.message_allowed",0,1,"",""
+"getsubjectofcareschedule","getsubjectofcareschedule.timeslotDetail.isInvitation","getsubjectofcareschedule.timeslotDetail.isInvitation","","","",0,1,"","","","boolean {[]} {[]}
+","isInvitation","isInvitation","","","","","","","","","",,,,,"",,,,"getsubjectofcareschedule.timeslotDetail.isInvitation",0,1,"",""
+"makebooking-request","makebooking-request","makebooking-request","","","",0,*,"","","","null {[]} {[]}
+","MakeBooking — Request","Logisk modell för requestparametrar i MakeBooking.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"makebooking-request","makebooking-request.healthcare-facility-med","makebooking-request.healthcare_facility_med","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility_med","healthcare_facility_med","TKB-fält: `healthcare_facility_med` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"makebooking-request.healthcare_facility_med",1,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot","makebooking-request.requestedTimeslot","","","",1,1,"","","","Base {[]} {[]}
+","TimeslotType","Information för aktuell bokning.","TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot",1,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.startTimeInclusive","makebooking-request.requestedTimeslot.startTimeInclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","startTimeInclusive","Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.","TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.startTimeInclusive",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.endTimeExclusive","makebooking-request.requestedTimeslot.endTimeExclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","endTimeExclusive","Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.","TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.endTimeExclusive",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.healthcare-facility","makebooking-request.requestedTimeslot.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.healthcare_facility",1,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.performer","makebooking-request.requestedTimeslot.performer","","","",0,1,"","","","string {[]} {[]}
+","performer","HSA-id för Hos-person som besöket är bokat hos.","TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.performer",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.bookingId","makebooking-request.requestedTimeslot.bookingId","","","",0,1,"","","","string {[]} {[]}
+","bookingId","Bokningsidentitet för det bokade besöket.","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.bookingId",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.subject-of-care","makebooking-request.requestedTimeslot.subject_of_care","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","Personnummer enl. yyyymmddxxxx.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.subject_of_care",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.purpose","makebooking-request.requestedTimeslot.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","Beskrivning av besöksorsak angiven av vårdenhet.","TKB-fält: `purpose` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.purpose",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.reason","makebooking-request.requestedTimeslot.reason","","","",0,1,"","","","string {[]} {[]}
+","reason","Kontaktorsak som invånare uppger vid bokning.","TKB-fält: `reason` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.reason",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.resourceName","makebooking-request.requestedTimeslot.resourceName","","","",0,1,"","","","string {[]} {[]}
+","resourceName","Namn på resurs.","TKB-fält: `resourceName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.resourceName",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.healthcare-facility-name","makebooking-request.requestedTimeslot.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility_name","Namn på bokad mottagning/vårdenhet.","TKB-fält: `healthcare_facility_name` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.healthcare_facility_name",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.performerName","makebooking-request.requestedTimeslot.performerName","","","",0,1,"","","","string {[]} {[]}
+","performerName","Namn på HoS-person som besöket är bokat hos. Ska innehålla en blank-tecken-separerad sammanslagning av yrkestitel, förnamn, mellannamn, efternamn.","TKB-fält: `performerName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.performerName",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.resourceID","makebooking-request.requestedTimeslot.resourceID","","","",0,1,"","","","string {[]} {[]}
+","resourceID","Identitet för resurs.","TKB-fält: `resourceID` (`ResourceIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.resourceID",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.timeTypeName","makebooking-request.requestedTimeslot.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","timeTypeName","Tidstyp för det bokade besöket.","TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.timeTypeName",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.timeTypeID","makebooking-request.requestedTimeslot.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","timeTypeID","Identitet för tidstyp.","TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.timeTypeID",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.careTypeName","makebooking-request.requestedTimeslot.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","careTypeName","Klartext för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.careTypeName",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.careTypeID","makebooking-request.requestedTimeslot.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","careTypeID","Identitet för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.careTypeID",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.cancel-booking-allowed","makebooking-request.requestedTimeslot.cancel_booking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","cancel_booking_allowed","cancel_booking_allowed","","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.cancel_booking_allowed",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.rebooking-allowed","makebooking-request.requestedTimeslot.rebooking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","rebooking_allowed","rebooking_allowed","","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.rebooking_allowed",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.message-allowed","makebooking-request.requestedTimeslot.message_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","message_allowed","message_allowed","","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.message_allowed",0,1,"",""
+"makebooking-request","makebooking-request.requestedTimeslot.isInvitation","makebooking-request.requestedTimeslot.isInvitation","","","",0,1,"","","","boolean {[]} {[]}
+","isInvitation","isInvitation","","","","","","","","","",,,,,"",,,,"makebooking-request.requestedTimeslot.isInvitation",0,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info","makebooking-request.subject_of_care_info","","","",1,1,"","","","Base {[]} {[]}
+","SubjectOfCareType","subject_of_care_info.firstName and subject_of_care_info.lastName are mandatory in this request and must be in sync with the master at Riksskatteverket with no more delay than 5 days.","TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 1..1).
+
+**Modellanteckning:** subject_of_care_info.firstName and subject_of_care_info.lastName are mandatory in this request and must be in sync with the master at Riksskatteverket with no more delay than 5 days.","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info",1,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.phone","makebooking-request.subject_of_care_info.phone","","","",0,1,"","","","string {[]} {[]}
+","phone","Telefonnummer.","TKB-fält: `phone` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.phone",0,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.email","makebooking-request.subject_of_care_info.email","","","",0,1,"","","","string {[]} {[]}
+","email","Email-adress.","TKB-fält: `email` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.email",0,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.address","makebooking-request.subject_of_care_info.address","","","",0,1,"","","","string {[]} {[]}
+","address","Adress.","TKB-fält: `address` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.address",0,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.coaddress","makebooking-request.subject_of_care_info.coaddress","","","",0,1,"","","","string {[]} {[]}
+","coaddress","Co-adress.","TKB-fält: `coaddress` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.coaddress",0,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.firstName","makebooking-request.subject_of_care_info.firstName","","","",1,1,"","","","string {[]} {[]}
+","firstName","Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).","TKB-fält: `firstName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.firstName",1,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.middleName","makebooking-request.subject_of_care_info.middleName","","","",0,1,"","","","string {[]} {[]}
+","middleName","Invånarens mellannamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).","TKB-fält: `middleName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.middleName",0,1,"",""
+"makebooking-request","makebooking-request.subject-of-care-info.lastName","makebooking-request.subject_of_care_info.lastName","","","",1,1,"","","","string {[]} {[]}
+","lastName","Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).","TKB-fält: `lastName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"makebooking-request.subject_of_care_info.lastName",1,1,"",""
+"makebooking-request","makebooking-request.notification","makebooking-request.notification","","","",0,1,"","","","string {[]} {[]}
+","notification","Notifiering till producent","TKB-fält: `notification` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking-request.notification",0,1,"",""
+"makebooking","makebooking","makebooking","","","",0,*,"","","","null {[]} {[]}
+","MakeBooking","Logisk modell för tjänstekontraktet MakeBooking
+(RIV-TA urn:riv:crm:scheduling:MakeBooking:1).
+Representerar responsens informationsstruktur.
+Tjänst för nybokning vid en vårdenhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"makebooking","makebooking.bookingId","makebooking.bookingId","","","",0,1,"","","","string {[]} {[]}
+","bookingId","Id för skapad bokning. Ska anges vid genomförd bokning (resultCode OK eller INFO), annars inte (ERROR).","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking.bookingId",0,1,"",""
+"makebooking","makebooking.resultCode","makebooking.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Status för den gjorda avbokningen.","TKB-fält: `resultCode` (`ResultCodeEnum (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,"required","","https://fhir.inera.se/ig/crm-scheduling/ValueSet/result-code-vs","",,,,"makebooking.resultCode",1,1,"",""
+"makebooking","makebooking.resultText","makebooking.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Ev. meddelande kopplat till resultatkoden.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"makebooking.resultText",0,1,"",""
+"updatebooking-request","updatebooking-request","updatebooking-request","","","",0,*,"","","","null {[]} {[]}
+","UpdateBooking — Request","Logisk modell för requestparametrar i UpdateBooking.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot","updatebooking-request.requestedTimeslot","","","",1,1,"","","","Base {[]} {[]}
+","TimeslotType","requestedTimeslot","TKB-fält: `requestedTimeslot` (`TimeslotType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot",1,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.startTimeInclusive","updatebooking-request.requestedTimeslot.startTimeInclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","startTimeInclusive","Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.","TKB-fält: `startTimeInclusive` (`TS (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.startTimeInclusive",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.endTimeExclusive","updatebooking-request.requestedTimeslot.endTimeExclusive","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/TS]]} {[]}
+","endTimeExclusive","Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.","TKB-fält: `endTimeExclusive` (`TS (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.endTimeExclusive",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.healthcare-facility","updatebooking-request.requestedTimeslot.healthcare_facility","","","",1,1,"","","","string {[]} {[]}
+","healthcare_facility","HSA-id för mottagning/vårdenhet.","TKB-fält: `healthcare_facility` (`HsaIdType (string)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.healthcare_facility",1,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.performer","updatebooking-request.requestedTimeslot.performer","","","",0,1,"","","","string {[]} {[]}
+","performer","HSA-id för Hos-person som besöket är bokat hos.","TKB-fält: `performer` (`HsaIdType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.performer",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.bookingId","updatebooking-request.requestedTimeslot.bookingId","","","",0,1,"","","","string {[]} {[]}
+","bookingId","Bokningsidentitet för det bokade besöket.","TKB-fält: `bookingId` (`BookingIdType (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.bookingId",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.subject-of-care","updatebooking-request.requestedTimeslot.subject_of_care","","","",0,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/SubjectOfCareIdType]]} {[]}
+","subject_of_care","Personnummer enl. yyyymmddxxxx.","TKB-fält: `subject_of_care` (`SubjectOfCareIdType (string)`, kardinalitet 1..1).
+
+Obs: modellen anger 0..1 där TKB:n anger 1..1.","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.subject_of_care",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.purpose","updatebooking-request.requestedTimeslot.purpose","","","",0,1,"","","","string {[]} {[]}
+","purpose","Beskrivning av besöksorsak angiven av vårdenhet.","TKB-fält: `purpose` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.purpose",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.reason","updatebooking-request.requestedTimeslot.reason","","","",0,1,"","","","string {[]} {[]}
+","reason","Kontaktorsak som invånare uppger vid bokning.","TKB-fält: `reason` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.reason",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.resourceName","updatebooking-request.requestedTimeslot.resourceName","","","",0,1,"","","","string {[]} {[]}
+","resourceName","Namn på resurs.","TKB-fält: `resourceName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.resourceName",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.healthcare-facility-name","updatebooking-request.requestedTimeslot.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","healthcare_facility_name","Namn på bokad mottagning/vårdenhet.","TKB-fält: `healthcare_facility_name` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.healthcare_facility_name",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.performerName","updatebooking-request.requestedTimeslot.performerName","","","",0,1,"","","","string {[]} {[]}
+","performerName","Namn på HoS-person som besöket är bokat hos. Ska innehålla en blank-tecken-separerad sammanslagning av yrkestitel, förnamn, mellannamn, efternamn.","TKB-fält: `performerName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.performerName",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.resourceID","updatebooking-request.requestedTimeslot.resourceID","","","",0,1,"","","","string {[]} {[]}
+","resourceID","Identitet för resurs.","TKB-fält: `resourceID` (`ResourceIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.resourceID",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.timeTypeName","updatebooking-request.requestedTimeslot.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","timeTypeName","Tidstyp för det bokade besöket.","TKB-fält: `timeTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.timeTypeName",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.timeTypeID","updatebooking-request.requestedTimeslot.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","timeTypeID","Identitet för tidstyp.","TKB-fält: `timeTypeID` (`TimeTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.timeTypeID",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.careTypeName","updatebooking-request.requestedTimeslot.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","careTypeName","Klartext för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.careTypeName",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.careTypeID","updatebooking-request.requestedTimeslot.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","careTypeID","Identitet för vårdtyp. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes.","TKB-fält: `careTypeID` (`CareTypeIDType (string)`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.careTypeID",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.cancel-booking-allowed","updatebooking-request.requestedTimeslot.cancel_booking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","cancel_booking_allowed","cancel_booking_allowed","","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.cancel_booking_allowed",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.rebooking-allowed","updatebooking-request.requestedTimeslot.rebooking_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","rebooking_allowed","rebooking_allowed","","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.rebooking_allowed",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.message-allowed","updatebooking-request.requestedTimeslot.message_allowed","","","",0,1,"","","","boolean {[]} {[]}
+","message_allowed","message_allowed","","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.message_allowed",0,1,"",""
+"updatebooking-request","updatebooking-request.requestedTimeslot.isInvitation","updatebooking-request.requestedTimeslot.isInvitation","","","",0,1,"","","","boolean {[]} {[]}
+","isInvitation","isInvitation","","","","","","","","","",,,,,"",,,,"updatebooking-request.requestedTimeslot.isInvitation",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info","updatebooking-request.subject_of_care_info","","","",0,1,"","","","Base {[]} {[]}
+","SubjectOfCareType","subject_of_care_info","TKB-fält: `subject_of_care_info` (`SubjectOfCareType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.phone","updatebooking-request.subject_of_care_info.phone","","","",0,1,"","","","string {[]} {[]}
+","phone","Telefonnummer.","TKB-fält: `phone` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.phone",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.email","updatebooking-request.subject_of_care_info.email","","","",0,1,"","","","string {[]} {[]}
+","email","Email-adress.","TKB-fält: `email` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.email",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.address","updatebooking-request.subject_of_care_info.address","","","",0,1,"","","","string {[]} {[]}
+","address","Adress.","TKB-fält: `address` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.address",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.coaddress","updatebooking-request.subject_of_care_info.coaddress","","","",0,1,"","","","string {[]} {[]}
+","coaddress","Co-adress.","TKB-fält: `coaddress` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.coaddress",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.firstName","updatebooking-request.subject_of_care_info.firstName","","","",1,1,"","","","string {[]} {[]}
+","firstName","Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).","TKB-fält: `firstName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.firstName",1,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.middleName","updatebooking-request.subject_of_care_info.middleName","","","",0,1,"","","","string {[]} {[]}
+","middleName","Invånarens mellannamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).","TKB-fält: `middleName` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.middleName",0,1,"",""
+"updatebooking-request","updatebooking-request.subject-of-care-info.lastName","updatebooking-request.subject_of_care_info.lastName","","","",1,1,"","","","string {[]} {[]}
+","lastName","Invånarens förnamn enligt definition och aktuellt värde hos Skatteverket (högst 5 dagar efter senaste ändring hos Skatteverket).","TKB-fält: `lastName` (`string`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.subject_of_care_info.lastName",1,1,"",""
+"updatebooking-request","updatebooking-request.notification","updatebooking-request.notification","","","",0,1,"","","","string {[]} {[]}
+","notification","Avisering","TKB-fält: `notification` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking-request.notification",0,1,"",""
+"updatebooking","updatebooking","updatebooking","","","",0,*,"","","","null {[]} {[]}
+","UpdateBooking","Logisk modell för tjänstekontraktet UpdateBooking
+(RIV-TA urn:riv:crm:scheduling:UpdateBooking:1).
+Representerar responsens informationsstruktur.
+Tjänst för att uppdatera en bokning med nytt datum och tid (ombokning).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"updatebooking","updatebooking.resultCode","updatebooking.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Status för den gjorda avbokningen.","TKB-fält: `resultCode` (`ResultCodeEnum (string)`, kardinalitet 1..1).
+
+**Modellanteckning:** resultCode Tillåtna värden: OK, ERROR, INFO.","","","","","","","","",,"required","","https://fhir.inera.se/ig/crm-scheduling/ValueSet/result-code-vs","",,,,"updatebooking.resultCode",1,1,"",""
+"updatebooking","updatebooking.resultText","updatebooking.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Ev. meddelande kopplat till resultatkoden.","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"updatebooking.resultText",0,1,"",""

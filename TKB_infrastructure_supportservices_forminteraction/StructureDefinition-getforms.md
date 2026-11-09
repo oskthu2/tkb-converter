@@ -1,0 +1,486 @@
+# GetForms - infrastructure: supportservices: forminteraction v2.0.0-snapshot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetForms**
+
+## Logical Model: GetForms 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getforms | *Version*:2.0 |
+| Draft as of 2026-11-09 | *Computable Name*:GetForms |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svar (response) i tjänstekontraktet GetForms (RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2). Returnerar lista med formulär (summering, ej komplett formulär med frågor). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-supportservices-forminteraction|current/StructureDefinition/StructureDefinition-getforms.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getforms.csv), [Excel](StructureDefinition-getforms.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getforms",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getforms",
+  "version" : "2.0",
+  "name" : "GetForms",
+  "title" : "GetForms",
+  "status" : "draft",
+  "date" : "2026-11-09T03:41:01+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svar (response) i tjänstekontraktet GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nReturnerar lista med formulär (summering, ej komplett formulär med frågor).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getforms",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getforms",
+      "path" : "getforms",
+      "short" : "GetForms",
+      "definition" : "Logisk modell för svar (response) i tjänstekontraktet GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nReturnerar lista med formulär (summering, ej komplett formulär med frågor)."
+    },
+    {
+      "id" : "getforms.forms",
+      "path" : "getforms.forms",
+      "short" : "FormsType",
+      "definition" : "forms",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getforms.forms.createdDateTime",
+      "path" : "getforms.forms.createdDateTime",
+      "short" : "createdDateTime",
+      "definition" : "createdDateTime",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.expireDate",
+      "path" : "getforms.forms.expireDate",
+      "short" : "expireDate",
+      "definition" : "expireDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formId",
+      "path" : "getforms.forms.formId",
+      "short" : "formId",
+      "definition" : "formId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formStatus",
+      "path" : "getforms.forms.formStatus",
+      "short" : "formStatus",
+      "definition" : "formStatus Tillåtna värden: COMPLETED, PENDING_COMPLETION, ONGOING.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
+      }
+    },
+    {
+      "id" : "getforms.forms.healthcare-CareGiver",
+      "path" : "getforms.forms.healthcare_CareGiver",
+      "short" : "healthcare_CareGiver",
+      "definition" : "healthcare_CareGiver",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.healthcare-MedUnit",
+      "path" : "getforms.forms.healthcare_MedUnit",
+      "short" : "healthcare_MedUnit",
+      "definition" : "healthcare_MedUnit",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.healthcare-facility-CareUnit",
+      "path" : "getforms.forms.healthcare_facility_CareUnit",
+      "short" : "healthcare_facility_CareUnit",
+      "definition" : "healthcare_facility_CareUnit",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.healthcare-facility-CareUnitName",
+      "path" : "getforms.forms.healthcare_facility_CareUnitName",
+      "short" : "healthcare_facility_CareUnitName",
+      "definition" : "healthcare_facility_CareUnitName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.healthcare-systemID",
+      "path" : "getforms.forms.healthcare_systemID",
+      "short" : "healthcare_systemID",
+      "definition" : "healthcare_systemID",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.clinicalProcessInterestId",
+      "path" : "getforms.forms.clinicalProcessInterestId",
+      "short" : "clinicalProcessInterestId",
+      "definition" : "clinicalProcessInterestId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.keepUntil",
+      "path" : "getforms.forms.keepUntil",
+      "short" : "keepUntil",
+      "definition" : "keepUntil",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.lastSavedDate",
+      "path" : "getforms.forms.lastSavedDate",
+      "short" : "lastSavedDate",
+      "definition" : "lastSavedDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.subjectOfCare",
+      "path" : "getforms.forms.subjectOfCare",
+      "short" : "subjectOfCare",
+      "definition" : "subjectOfCare",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate",
+      "path" : "getforms.forms.formTemplate",
+      "short" : "FormTemplateInfoType",
+      "definition" : "formTemplate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.anonymousForm",
+      "path" : "getforms.forms.formTemplate.anonymousForm",
+      "short" : "anonymousForm",
+      "definition" : "Attributet styr huruvida formulärmotorn stöder anonym användning av formuläret. Värden True = Tillåter anonym användning. \"SubjectOfCare\" får inte användas. False = Tillåter inte anonym användning. \"SubjectOfCare\" är obligatorisk attribut.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.category",
+      "path" : "getforms.forms.formTemplate.category",
+      "short" : "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration",
+      "definition" : "Formulärets kategori T.ex. Anmälan, registrering, hälsodeklaration",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.code",
+      "path" : "getforms.forms.formTemplate.code",
+      "short" : "CodeType",
+      "definition" : "code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.code.codeValue",
+      "path" : "getforms.forms.formTemplate.code.codeValue",
+      "short" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "definition" : "Kod som används (Kodverk).Kod identifieras av \"codeSystem\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.code.codeSystem",
+      "path" : "getforms.forms.formTemplate.code.codeSystem",
+      "short" : "Identifierar vilket kodverk som används.",
+      "definition" : "Identifierar vilket kodverk som används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.description",
+      "path" : "getforms.forms.formTemplate.description",
+      "short" : "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.",
+      "definition" : "Formulärets beskrivning och instruktioner. T.ex. Formuläret skall besvaras innan du besöker mottageningen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.formCompleteText",
+      "path" : "getforms.forms.formTemplate.formCompleteText",
+      "short" : "formCompleteText",
+      "definition" : "formCompleteText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.formName",
+      "path" : "getforms.forms.formTemplate.formName",
+      "short" : "Mallens namn. T.ex. Hälsodeklaration Mödravård",
+      "definition" : "Mallens namn. T.ex. Hälsodeklaration Mödravård",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.formTitle",
+      "path" : "getforms.forms.formTemplate.formTitle",
+      "short" : "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+      "definition" : "Mallens/formulärets rubrik. Används på formulärets introduktionssida.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.language",
+      "path" : "getforms.forms.formTemplate.language",
+      "short" : "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.",
+      "definition" : "Kodverk för språk Innehåller språkkoder som utgår från SS-ISO 639-1:2005.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.media",
+      "path" : "getforms.forms.formTemplate.media",
+      "short" : "MediaType",
+      "definition" : "media",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.media.mediaURL",
+      "path" : "getforms.forms.formTemplate.media.mediaURL",
+      "short" : "URL eller adress till media.",
+      "definition" : "URL eller adress till media.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.media.mediaType",
+      "path" : "getforms.forms.formTemplate.media.mediaType",
+      "short" : "Giltiga MIME typer.",
+      "definition" : "Giltiga MIME typer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.maxNumberOfQuestion",
+      "path" : "getforms.forms.formTemplate.maxNumberOfQuestion",
+      "short" : "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10",
+      "definition" : "Beskriver hur många frågor formuläret maximalt kan innehåller. T.ex. 10",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.minNumberOfQuestion",
+      "path" : "getforms.forms.formTemplate.minNumberOfQuestion",
+      "short" : "minNumberOfQuestion",
+      "definition" : "minNumberOfQuestion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.maxNumberOfPages",
+      "path" : "getforms.forms.formTemplate.maxNumberOfPages",
+      "short" : "maxNumberOfPages",
+      "definition" : "maxNumberOfPages",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.minNumberOfPages",
+      "path" : "getforms.forms.formTemplate.minNumberOfPages",
+      "short" : "minNumberOfPages",
+      "definition" : "minNumberOfPages",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.mandatory",
+      "path" : "getforms.forms.formTemplate.mandatory",
+      "short" : "mandatory",
+      "definition" : "Indikerar om formuläret är obligatoriskt att fylla i av användaren. T.ex. Ett obligatoriskt formulär kan indikerar att formuläret är en del av en vårdprocess. True = obligatoriskt False = Frivilligt",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.publishStatus",
+      "path" : "getforms.forms.formTemplate.publishStatus",
+      "short" : "publishStatus",
+      "definition" : "publishStatus",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.templateVersion",
+      "path" : "getforms.forms.formTemplate.templateVersion",
+      "short" : "templateVersion",
+      "definition" : "templateVersion",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.templateId",
+      "path" : "getforms.forms.formTemplate.templateId",
+      "short" : "Typ av formulär. Kodverk för standardiserade id för formulärtyper. T.ex. Mödrahälsovårdsjournal 1 - MHV1. Kodverk!",
+      "definition" : "Typ av formulär. Kodverk för standardiserade id för formulärtyper. T.ex. Mödrahälsovårdsjournal 1 - MHV1. Kodverk!",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getforms.forms.formTemplate.term",
+      "path" : "getforms.forms.formTemplate.term",
+      "short" : "term",
+      "definition" : "Villkor kopplade till formuläret. T.ex. Villkorstext som användaren/patienten måste godkänna innan formuläret kan besvaras.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

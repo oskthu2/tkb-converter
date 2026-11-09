@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->    
+<wsdl:definitions name='GetBlocksInteraction'
+    xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+    xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+    xmlns:xs='http://www.w3.org/2001/XMLSchema'
+    xmlns:tjsr='urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4'
+    xmlns:itr='urn:riv:itintegration:registry:1'
+    xmlns:tns='urn:riv:informationsecurity:authorization:blocking:GetBlocks:4:rivtabp21'
+    targetNamespace='urn:riv:informationsecurity:authorization:blocking:GetBlocks:4:rivtabp21'>
+
+    <wsdl:documentation>
+         Tjänsteinteraktionens namn: GetBlocks
+         Beskrivning: 
+           Tjänst som hämtar registrerade spärrar för en patient och/eller vårdgivare. Endast aktiva spärrar returneras (ej makulerade eller permanent hävda). Varje spärr kompletteras också med aktiva tillfälliga hävningar om sådana finns.     
+           Det går även att ange ett datum (CreatedOnOrAfter) från när man önskar inhämta nyare uppgifter och på så sätt undvika att inhämta data som redan hämtats vid ett tidigare tillfälle. Detta inkluderar även tillfälliga hävningar som skett efter angivet datum. Här avses datum då spärruppgiften lagrades i tjänsten.
+           Tjänsten realiseras på nationell och lokal nivå.
+         Revisioner: 
+         Tjänstedomän: informationsecurity:authorization:blocking
+         Tjänsteinteraktionstyp: Fråga-Svar
+         WS-profil: RIVTABP21
+         Förvaltas av: Inera AB
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <xs:schema targetNamespace='urn:riv:informationsecurity:authorization:blocking:GetBlocks:4:rivtabp21'>
+            <xs:import schemaLocation='GetBlocksResponder_4.0.xsd' namespace='urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4' />
+            <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
+        </xs:schema>
+    </wsdl:types>
+    
+        
+    <wsdl:message name='GetBlocksRequest'>
+        <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+            <wsdl:documentation>Om anropet sker på nationell nivå används SE165565594230-1000, i annat fall anges HSA-id för den organisation vars tjänst adresseras (t ex HSA-id för Region Skåne) Undantagsvis kan s.k. källsystembaserad adressering användas, (t ex. HSA-id för Region Skånes lokala spärrtjänst).</wsdl:documentation>
+        </wsdl:part>
+    
+        <wsdl:part name='parameters' element='tjsr:GetBlocks' />
+    </wsdl:message>
+
+    <wsdl:message name='GetBlocksResponse'>
+        <wsdl:part name='parameters' element='tjsr:GetBlocksResponse' />
+    </wsdl:message>
+
+    <wsdl:portType name='GetBlocksResponderInterface'>
+        <wsdl:operation name='GetBlocks'>
+            <wsdl:input message='tns:GetBlocksRequest' />
+            <wsdl:output message='tns:GetBlocksResponse' />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name='GetBlocksResponderBinding' type='tns:GetBlocksResponderInterface'>
+        <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+        <wsdl:operation name='GetBlocks'>
+            <soap:operation soapAction='urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4:GetBlocks' style='document' />
+            <wsdl:input>
+                <soap:header use='literal' message='tns:GetBlocksRequest' part='LogicalAddress' />
+                <soap:body use='literal' parts='parameters' />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use='literal' />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name='GetBlocksResponderService'>
+        <wsdl:port name='GetBlocksResponderPort' binding='tns:GetBlocksResponderBinding'>
+            <soap:address location='http://tempuri.org' />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,93 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"listsickleavesforcare","listsickleavesforcare","","","",0,*,"","","","null {[]} {[]}
+","ListSickLeavesForCare","Logisk modell för tjänstekontraktet ListSickLeavesForCare
+(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListSickLeavesForCare:1).
+Representerar responsens lista med pågående sjukfall på en enhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"listsickleavesforcare.sjukfallLista","listsickleavesforcare.sjukfallLista","","","",1,1,"","","","Base {[]} {[]}
+","SjukfallLista","Lista med sjukfall.","TKB-fält: `sjukfallLista` (`SjukfallLista (lokalt definierad i kontraktet)`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall","listsickleavesforcare.sjukfallLista.sjukfall","","","",0,*,"","","","Base {[]} {[]}
+","Sjukfall","Pågående sjukfall.","TKB-fält: `../sjukfall` (`Sjukfall (lokalt definierad i kontraktet)`, kardinalitet 0..*).
+
+**Mappning DIM:** Sjukfall","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall",0,*,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.person-id","listsickleavesforcare.sjukfallLista.sjukfall.person-id","","","",1,1,"","","","Base {[]} {[]}
+","PersonId","Patientens person- eller samordningsnummer.","TKB-fält: `../../person-id` (`PersonId (se 7.2.10)`, kardinalitet 1..1).
+
+**Mappning DIM:** Patient.person.id","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.person-id",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.patientFullstandigtNamn","listsickleavesforcare.sjukfallLista.sjukfall.patientFullstandigtNamn","","","",0,1,"","","","string {[]} {[]}
+","patientFullstandigtNamn","Patientens namn.","TKB-fält: `../../patientFullstandigtnamn` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Patient.förnamn
+
+Patient.mellannamn
+
+Patient.efternamn","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.patientFullstandigtNamn",0,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.enhets-id","listsickleavesforcare.sjukfallLista.sjukfall.enhets-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id för enhet.","TKB-fält: `../../enhets-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
+
+**Mappning DIM:** Enhet.enhets-id","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.enhets-id",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.personal-id","listsickleavesforcare.sjukfallLista.sjukfall.personal-id","","","",1,1,"","","","Base {[]} {[]}
+","HsaId","HSA-id för HoS-person som har signerat nuvarande intyg i sjukfallet.","TKB-fält: `../../personal-id` (`HsaId (se 7.2.5)`, kardinalitet 1..1).
+
+**Mappning DIM:** HoS-personal.personal-id","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.personal-id",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.startdatum","listsickleavesforcare.sjukfallLista.sjukfall.startdatum","","","",1,1,"","","","date {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType]]} {[]}
+","startdatum","Datum då sjukfallet startade.","TKB-fält: `../../startdatum` (`DateType`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.startdatum","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.startdatum",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.slutdatum","listsickleavesforcare.sjukfallLista.sjukfall.slutdatum","","","",1,1,"","","","date {[CanonicalType[https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/DateType]]} {[]}
+","slutdatum","Datum då sjukfallet kommer att avslutas om det inte förlängs av nya intyg.","TKB-fält: `../../slutdatum` (`DateType`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.slutdatum","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.slutdatum",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod","","","",1,1,"","","","Base {[]} {[]}
+","Diagnoskod","Huvuddiagnoskod i det intyg som är giltigt vid datum för hämtning av sjukfall.","TKB-fält: `../../diagnoskod` (`Diagnoskod`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.code","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.code","","","",1,1,"","","","string {[]} {[]}
+","code","Diagnoskod.","TKB-fält: `../../../code` (`string`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.code",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystem","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystem","","","",0,1,"","","","string {[]} {[]}
+","codeSystem","Identifierare för kodsystem, om känt.","TKB-fält: `../../../codeSystem` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystem",0,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemName","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Namn på kodsystem. Används ej.","TKB-fält: `../../../codeSystemName` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemName",0,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemVersion","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Version på kodsystem. Används ej.","TKB-fält: `../../../codeSystemVersion` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.codeSystemVersion",0,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.displayName","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Klartext för kod. Används ej.","TKB-fält: `../../../displayName` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.displayName",0,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.originalText","listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.originalText","","","",0,1,"","","","string {[]} {[]}
+","originalText","Beskrivande text. Används ej.","TKB-fält: `../../../originalText` (`string`, kardinalitet 0..1).
+
+**Mappning DIM:** Sjukfall.diagnoskod","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.diagnoskod.originalText",0,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.antalIntyg","listsickleavesforcare.sjukfallLista.sjukfall.antalIntyg","","","",1,1,"","","","integer {[]} {[]}
+","antalIntyg","Antal intyg som ingår i sjukfallet.","TKB-fält: `../../antalintyg` (`int`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.antal intyg","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.antalIntyg",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningslangd","listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningslangd","","","",1,1,"","","","integer {[]} {[]}
+","sjukskrivningslangd","Sjukfallets totala längd i dagar.","TKB-fält: `../../sjukskrivningslangd` (`int`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.sjukskrivningslängd","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningslangd",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad","listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad","","","",1,1,"","","","Base {[]} {[]}
+","Sjukskrivningsgrad","Platshållare för information om sjukfallets sjukskrivningsgrad.","TKB-fält: `../../sjukskrivningsgrad` (`Sjukskrivningsgrad`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.sjukskrivningsgrad
+
+Sjukfall.aktiv sjukskrivnignsgrad","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad","listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad","","","",1,1,"","","","integer {[]} {[]}
+","aktivGrad","Den sjukskrivningsgrad som är giltig vid datum för hämtning av sjukfall.","TKB-fält: `../../../aktivGrad` (`int`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.aktiv sjukskrivnignsgrad","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.aktivGrad",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader","listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader","","","",1,1,"","","","Base {[]} {[]}
+","Sjukskrivningsgrader","Platshållare för information om samtliga sjukskrivningsgrader i det intyg som är giltigt vid datum för hämtning av sjukfall.","TKB-fält: `../../../grader` (`Sjukskrivningsgrader`, kardinalitet 1..1).
+
+**Mappning DIM:** Sjukfall.sjukskrivningsgrad","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader",1,1,"",""
+"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad","listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad","","","",1,4,"","","","integer {[]} {[]}
+","grad","Samtliga sjukskrivningsgrader i det intyg som är giltigt vid datum för hämtning av sjukfall.","TKB-fält: `../../../../grad` (`int`, kardinalitet 1..4).
+
+**Mappning DIM:** Sjukfall.sjukskrivningsgrad","","","","","","","","",,,,,"",,,,"listsickleavesforcare.sjukfallLista.sjukfall.sjukskrivningsgrad.grader.grad",1,4,"",""

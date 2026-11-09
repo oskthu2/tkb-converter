@@ -1,0 +1,239 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"CVType","CVType","CVType","","","",0,*,"","","","null {[]} {[]}
+","CVType","CVType enligt domänens schema: den gemensamma RIV-TA-typen CVType med snävare kardinalitet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"CVType","CVType.code","CVType.code","","","",1,1,"","","","string {[]} {[]}
+","code","Koden i kodverket. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.code",0,1,"",""
+"CVType","CVType.codeSystem","CVType.codeSystem","","","",1,1,"","","","string {[]} {[]}
+","codeSystem","Kodverkets OID. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystem",0,1,"",""
+"CVType","CVType.codeSystemName","CVType.codeSystemName","","","",0,1,"","","","string {[]} {[]}
+","codeSystemName","Kodverkets namn i klartext. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystemName",0,1,"",""
+"CVType","CVType.codeSystemVersion","CVType.codeSystemVersion","","","",0,1,"","","","string {[]} {[]}
+","codeSystemVersion","Kodverkets version. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.codeSystemVersion",0,1,"",""
+"CVType","CVType.displayName","CVType.displayName","","","",0,1,"","","","string {[]} {[]}
+","displayName","Kodens klartext enligt kodverket. Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.displayName",0,1,"",""
+"CVType","CVType.originalText","CVType.originalText","","","",0,1,"","","","string {[]} {[]}
+","originalText","Fritext när begreppet inte kan anges som kod (då anges inte code och codeSystem). Typ i schemat: string.","","","","","","","","","",,,,,"",,,,"CVType.originalText",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request","processcervixscreeninginformation-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessCervixScreeningInformation — Request","Logisk modell för begäran i ProcessCervixScreeningInformation
+(urn:riv:clinicalprocess:logistics:cervixscreening:ProcessCervixScreeningInformationResponder:1, ProcessCervixScreeningInformationType), inklusive SOAP-huvuden enligt WSDL.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation","processcervixscreeninginformation-request.cervixScreeningInformation","","","",1,1,"","","","Base {[]} {[]}
+","CervixScreeningInformationType","Kallelsegrundande information för cervixscreening.","TKB-fält: `CervixScreeningInformation` (`CervixScreeningInformationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.subjectOfCare","processcervixscreeninginformation-request.cervixScreeningInformation.subjectOfCare","","","",1,1,"","","","Base {[]} {[]}
+","PersonType","Folkbokförd person med svenskt personnummer
+
+Personnummer skall anges på formatet ÅÅÅÅMMDDNNNN.","TKB-fält: `../subjectOfCare` (`PersonType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.subjectOfCare",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.subjectOfCare.personId","processcervixscreeninginformation-request.cervixScreeningInformation.subjectOfCare.personId","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","personId","Personnummer:
+
+root:  1.2.752.129.2.1.3.1
+
+extension: `<personnummer>`
+
+Endast svenskt personnummer är tillåtet","TKB-fält: `../../personId` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.subjectOfCare.personId",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion","","","",1,1,"","","","Base {[]} {[]}
+","RegionType","Region som gör utlämnandet.","TKB-fält: `../sendingRegion` (`RegionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Region.","TKB-fält: `../../region` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region.id","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region.name","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region.name","","","",1,1,"","","","string {[]} {[]}
+","name","Regionens namn i klartext.","TKB-fält: `../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.region.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Skall ej anges.","TKB-fält: `../../careGiver` (`OrganisationType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver.id","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Skall ej anges.","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver.name","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver.name","","","",1,1,"","","","string {[]} {[]}
+","name","Skall ej anges.","TKB-fält: `../../../name` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careGiver.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Skall ej anges.","TKB-fält: `../../careUnit` (`OrganisationType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit.id","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Skall ej anges.","TKB-fält: `../../../id` (`IIType`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit.name","processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit.name","","","",1,1,"","","","string {[]} {[]}
+","name","Skall ej anges.","TKB-fält: `../../../name` (`String`, kardinalitet 0..0).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.sendingRegion.careUnit.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion","","","",0,1,"","","","Base {[]} {[]}
+","ExclusionType","Information om exkludering från kallelse.","TKB-fält: `../exclusion` (`ExclusionType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.reason","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.reason","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-logistics-cervixscreening/StructureDefinition/CVType {[]} {[]}
+","reason","Orsak till att kvinnan ska exkluderas från kallelser.
+
+Urval ur SNOMED CT:
+
+code: [31021000119100|116140006|702371008]
+
+codeSystem: 1.2.752.116.2.1.1
+
+codeSystemName: Används ej
+
+codeSystemVersion: Används ej
+
+displayName: Valfritt (kan anges)
+
+originalText: Används ej
+
+Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet.","TKB-fält: `../../reason` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.reason",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.registeredAt","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.registeredAt","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","registeredAt","Datum då det ursprungligen registrerades att kvinnan ska exkluderas från kallelse.
+
+Datum anges på format ”ÅÅÅÅMMDD”","TKB-fält: `../../registeredAt` (`DateType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.registeredAt",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion","","","",1,1,"","","","Base {[]} {[]}
+","RegionType","Organisation varifrån information om exkludering ursprungligen härstammar.","TKB-fält: `../../originalRegion` (`RegionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Region.","TKB-fält: `../../../region` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region.id","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region.name","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region.name","","","",1,1,"","","","string {[]} {[]}
+","name","Regionens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.region.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Vårdgivare.","TKB-fält: `../../../careGiver` (`OrganisationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver.id","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver.name","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver.name","","","",1,1,"","","","string {[]} {[]}
+","name","Vårdgivarens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careGiver.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Vårdenhet.","TKB-fält: `../../../careUnit` (`OrganisationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit.id","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit.name","processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit.name","","","",1,1,"","","","string {[]} {[]}
+","name","Vårdenhetens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.exclusion.originalRegion.careUnit.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups","","","",0,*,"","","","Base {[]} {[]}
+","FollowUpGroupType","Information om uppföljningsgrupp (kontrollfil) för kvinna.","TKB-fält: `../followUpGroups` (`FollowUpGroupType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups",0,*,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.type","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.type","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-logistics-cervixscreening/StructureDefinition/CVType {[]} {[]}
+","type","Typ av uppföljningsgrupp (kontrollfil).
+
+Urval ur SNOMED CT:
+
+code: [59461000052109| 59291000052102|59321000052109|59301000052103]
+
+codeSystem: 1.2.752.116.2.1.1
+
+codeSystemName: Används ej
+
+codeSystemVersion: Används ej
+
+displayName: Valfritt (kan anges)
+
+originalText: Används ej
+
+Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet.","TKB-fält: `../../type` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.type",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.inclusionDate","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.inclusionDate","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","inclusionDate","Datum då kvinna inkluderades i uppföljningsgrupp (kontrollfil).
+
+Datum anges på format ”ÅÅÅÅMMDD”","TKB-fält: `../../inclusionDate` (`DateType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.inclusionDate",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion","","","",1,1,"","","","Base {[]} {[]}
+","RegionType","Organisation varifrån information om tillhörighet till uppföljningsgrupp (kontrollfil) ursprungligen härstammar.","TKB-fält: `../../originalRegion` (`RegionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Region.","TKB-fält: `../../../region` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region.id","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region.name","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region.name","","","",1,1,"","","","string {[]} {[]}
+","name","Regionens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.region.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Vårdgivare.","TKB-fält: `../../../careGiver` (`OrganisationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver.id","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver.name","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver.name","","","",1,1,"","","","string {[]} {[]}
+","name","Vårdgivarens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careGiver.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Vårdenhet.","TKB-fält: `../../../careUnit` (`OrganisationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit.id","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit.name","processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit.name","","","",1,1,"","","","string {[]} {[]}
+","name","Vårdenhetens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.followUpGroups.originalRegion.careUnit.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation","processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation","","","",0,1,"","","","Base {[]} {[]}
+","PlannedInvitationType","Förmedlar det individuella kallelsedatum som frångår vårdprogrammets ordinarie kallelseintervall och har satts för en enskild kvinna","TKB-fält: `../plannedInvitation` (`PlannedInvitationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation.date","processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation.date","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","date","Planerat individuellt kallelsedatum","TKB-fält: `../../date` (`DateType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation.date",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation.reason","processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation.reason","","","",0,1,"","","","string {[]} {[]}
+","reason","Beskrivning av orsaken till att kvinnan har ett individuellt kallelsedatum istället för vårdprogrammets ordinarie kallelse-intervall.","TKB-fält: `../../reason` (`String`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.plannedInvitation.reason",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen","processcervixscreeninginformation-request.cervixScreeningInformation.specimen","","","",0,1,"","","","Base {[]} {[]}
+","SpecimenType","Gynekologiska cellprovtagning som ledde till ett bedömbart prov.","TKB-fält: `../specimen` (`SpecimenType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.specimenDate","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.specimenDate","","","",1,1,"","","","string {[CanonicalType[https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType]]} {[]}
+","specimenDate","Tidpunkt för senaste provtagning som ledde till ett bedömbart prov.","TKB-fält: `../../specimenDate` (`TimeStampType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.specimenDate",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion","","","",1,1,"","","","Base {[]} {[]}
+","RegionType","Organisation varifrån information om provtagning ursprungligen härstammar.","TKB-fält: `../../originalRegion` (`RegionType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region","","","",1,1,"","","","Base {[]} {[]}
+","OrganisationType","Region.","TKB-fält: `../../../region` (`OrganisationType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region.id","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region.name","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region.name","","","",1,1,"","","","string {[]} {[]}
+","name","Regionens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.region.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Vårdgivare.","TKB-fält: `../../../careGiver` (`OrganisationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver.id","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver.name","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver.name","","","",1,1,"","","","string {[]} {[]}
+","name","Vårdgivarens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careGiver.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit","","","",0,1,"","","","Base {[]} {[]}
+","OrganisationType","Vårdnhet.","TKB-fält: `../../../careUnit` (`OrganisationType`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit",0,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit.id","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit.id","","","",1,1,"","","","https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/IIType {[]} {[]}
+","id","Anges med HSA-id.
+
+root: 1.2.752.129.2.1.4.1
+
+extension: `<hsa-id>`","TKB-fält: `../../../../id` (`IIType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit.id",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit.name","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit.name","","","",1,1,"","","","string {[]} {[]}
+","name","Vårdenhetens namn i klartext.","TKB-fält: `../../../../name` (`String`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.originalRegion.careUnit.name",1,1,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.HPVstatusList","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.HPVstatusList","","","",0,*,"","","","Base {[]} {[]}
+","HPVstatusType","Provets HPV-status.
+
+Skall anges om och endast om provet har analyserats för HPV.","TKB-fält: `../../HPVstatusList` (`HPVstatusType`, kardinalitet 0..*).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.HPVstatusList",0,*,"",""
+"processcervixscreeninginformation-request","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.HPVstatusList.value","processcervixscreeninginformation-request.cervixScreeningInformation.specimen.HPVstatusList.value","","","",1,1,"","","","https://fhir.inera.se/ig/clinicalprocess-logistics-cervixscreening/StructureDefinition/CVType {[]} {[]}
+","value","Värde för HPV-status.
+
+Urval ur SNOMED CT:
+
+code: [59291000052102|59321000052109|59301000052103|59311000052101]
+
+codeSystem: 1.2.752.116.2.1.1
+
+codeSystemName: Används ej
+
+codeSystemVersion: Används ej
+
+displayName: Valfritt (kan anges)
+
+originalText: Används ej
+
+Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet.","TKB-fält: `../../../value` (`CVType`, kardinalitet 1..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation-request.cervixScreeningInformation.specimen.HPVstatusList.value",1,1,"",""
+"processcervixscreeninginformation","processcervixscreeninginformation","processcervixscreeninginformation","","","",0,*,"","","","null {[]} {[]}
+","ProcessCervixScreeningInformation — Response","Logisk modell för svaret i ProcessCervixScreeningInformation
+(urn:riv:clinicalprocess:logistics:cervixscreening:ProcessCervixScreeningInformationResponder:1, ProcessCervixScreeningInformationResponseType).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processcervixscreeninginformation","processcervixscreeninginformation.resultCode","processcervixscreeninginformation.resultCode","","","",1,1,"","","","code {[]} {[]}
+","resultCode","Kan endast vara OK, INFO eller ERROR.","TKB-fält: `resultCode` (`ResultCodeEnum`, kardinalitet 1..1).","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-logistics-cervixscreening/ValueSet/CervixScreening-resultcode-vs","",,,,"processcervixscreeninginformation.resultCode",1,1,"",""
+"processcervixscreeninginformation","processcervixscreeninginformation.resultText","processcervixscreeninginformation.resultText","","","",0,1,"","","","string {[]} {[]}
+","resultText","Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR","TKB-fält: `resultText` (`string`, kardinalitet 0..1).","","","","","","","","",,,,,"",,,,"processcervixscreeninginformation.resultText",0,1,"",""

@@ -1,0 +1,53 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getallblocks","getallblocks","","","",0,*,"","","","null {[]} {[]}
+","GetAllBlocks","Logisk modell för tjänstekontraktet GetAllBlocks
+(RIV-TA urn:riv:ehr:blocking:querying:GetAllBlocksResponder:2).
+Läser alla nationellt kända/lagrade spärrar. Representerar responsens informationsstruktur.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getallblocks.BlockHeaderType","getallblocks.BlockHeaderType","","","",1,1,"","","","Base {[]} {[]}
+","BlockHeaderType","BlockHeaderType","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType",1,1,"",""
+"getallblocks.BlockHeaderType.Result","getallblocks.BlockHeaderType.Result","","","",1,1,"","","","Base {[]} {[]}
+","ResultType","Result","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Result",1,1,"",""
+"getallblocks.BlockHeaderType.Result.ResultCode","getallblocks.BlockHeaderType.Result.ResultCode","","","",1,1,"","","","code {[]} {[]}
+","ResultCode","ResultCode Tillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED, NOTFOUND, ALREADYEXISTS, INVALIDSTATE.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs","",,,,"getallblocks.BlockHeaderType.Result.ResultCode",1,1,"",""
+"getallblocks.BlockHeaderType.Result.ResultText","getallblocks.BlockHeaderType.Result.ResultText","","","",1,1,"","","","string {[]} {[]}
+","ResultText","ResultText","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Result.ResultText",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks","getallblocks.BlockHeaderType.Blocks","","","",0,*,"","","","Base {[]} {[]}
+","BlockType","Blocks","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks",0,*,"",""
+"getallblocks.BlockHeaderType.Blocks.BlockId","getallblocks.BlockHeaderType.Blocks.BlockId","","","",1,1,"","","","string {[]} {[]}
+","BlockId","BlockId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.BlockId",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.BlockType","getallblocks.BlockHeaderType.Blocks.BlockType","","","",1,1,"","","","code {[]} {[]}
+","BlockType","BlockType Tillåtna värden: Inner, Outer.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-blocking/ValueSet/blocktype-vs","",,,,"getallblocks.BlockHeaderType.Blocks.BlockType",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.PatientId","getallblocks.BlockHeaderType.Blocks.PatientId","","","",1,1,"","","","string {[]} {[]}
+","PatientId","PatientId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.PatientId",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.InformationStartDate","getallblocks.BlockHeaderType.Blocks.InformationStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","InformationStartDate","InformationStartDate","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.InformationStartDate",0,1,"",""
+"getallblocks.BlockHeaderType.Blocks.InformationEndDate","getallblocks.BlockHeaderType.Blocks.InformationEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","InformationEndDate","InformationEndDate","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.InformationEndDate",0,1,"",""
+"getallblocks.BlockHeaderType.Blocks.InformationCareUnitId","getallblocks.BlockHeaderType.Blocks.InformationCareUnitId","","","",0,1,"","","","string {[]} {[]}
+","InformationCareUnitId","InformationCareUnitId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.InformationCareUnitId",0,1,"",""
+"getallblocks.BlockHeaderType.Blocks.InformationCareProviderId","getallblocks.BlockHeaderType.Blocks.InformationCareProviderId","","","",1,1,"","","","string {[]} {[]}
+","InformationCareProviderId","InformationCareProviderId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.InformationCareProviderId",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes","getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes","","","",0,*,"","","","Base {[]} {[]}
+","InformationTypeType","ExcludedInformationTypes","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes",0,*,"",""
+"getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId","getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId","","","",1,1,"","","","string {[]} {[]}
+","InfoTypeId","InfoTypeId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeId",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription","getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription","","","",1,1,"","","","string {[]} {[]}
+","InfoTypeDescription","InfoTypeDescription","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.ExcludedInformationTypes.InfoTypeDescription",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes","getallblocks.BlockHeaderType.Blocks.TemporaryRevokes","","","",0,*,"","","","Base {[]} {[]}
+","TemporaryRevokeType","TemporaryRevokes","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes",0,*,"",""
+"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId","getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId","","","",1,1,"","","","string {[]} {[]}
+","TemporaryRevokeId","TemporaryRevokeId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.TemporaryRevokeId",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.EndDate","getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.EndDate","","","",1,1,"","","","dateTime {[]} {[]}
+","EndDate","EndDate","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.EndDate",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId","getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId","","","",1,1,"","","","string {[]} {[]}
+","RevokedForCareUnitId","RevokedForCareUnitId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForCareUnitId",1,1,"",""
+"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId","getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId","","","",0,1,"","","","string {[]} {[]}
+","RevokedForEmployeeId","RevokedForEmployeeId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.RevokedForEmployeeId",0,1,"",""
+"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId","getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId","","","",0,1,"","","","string {[]} {[]}
+","OwnerId","OwnerId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.TemporaryRevokes.OwnerId",0,1,"",""
+"getallblocks.BlockHeaderType.Blocks.OwnerId","getallblocks.BlockHeaderType.Blocks.OwnerId","","","",0,1,"","","","string {[]} {[]}
+","OwnerId","OwnerId","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.Blocks.OwnerId",0,1,"",""
+"getallblocks.BlockHeaderType.NextCreatedOnOrAfter","getallblocks.BlockHeaderType.NextCreatedOnOrAfter","","","",1,1,"","","","dateTime {[]} {[]}
+","NextCreatedOnOrAfter","NextCreatedOnOrAfter","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.NextCreatedOnOrAfter",1,1,"",""
+"getallblocks.BlockHeaderType.LatestCancellation","getallblocks.BlockHeaderType.LatestCancellation","","","",1,1,"","","","dateTime {[]} {[]}
+","LatestCancellation","LatestCancellation","","","","","","","","","",,,,,"",,,,"getallblocks.BlockHeaderType.LatestCancellation",1,1,"",""

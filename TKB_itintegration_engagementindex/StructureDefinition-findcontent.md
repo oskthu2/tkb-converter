@@ -1,0 +1,235 @@
+# FindContent - itintegration: engagementindex v1.0.10
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **FindContent**
+
+## Logical Model: FindContent 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent | *Version*:1.0 |
+| Active as of 2026-11-09 | *Computable Name*:FindContent |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet FindContent (RIV-TA urn:riv:itintegration:engagementindex:FindContent:1). Representerar responsens informationsstruktur — en lista av engagemangsposter som svarar mot sökkriterierna i begäran. Primärt använt av aggregerande tjänster i tjänsteplattformen. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.itintegration-engagementindex|current/StructureDefinition/StructureDefinition-findcontent.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-findcontent.csv), [Excel](StructureDefinition-findcontent.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "findcontent",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent",
+  "version" : "1.0",
+  "name" : "FindContent",
+  "title" : "FindContent",
+  "status" : "active",
+  "date" : "2026-11-09T03:42:52+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nRepresenterar responsens informationsstruktur — en lista av engagemangsposter\nsom svarar mot sökkriterierna i begäran.\nPrimärt använt av aggregerande tjänster i tjänsteplattformen.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "findcontent",
+      "path" : "findcontent",
+      "short" : "FindContent",
+      "definition" : "Logisk modell för tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nRepresenterar responsens informationsstruktur — en lista av engagemangsposter\nsom svarar mot sökkriterierna i begäran.\nPrimärt använt av aggregerande tjänster i tjänsteplattformen."
+    },
+    {
+      "id" : "findcontent.engagement",
+      "path" : "findcontent.engagement",
+      "short" : "EngagementType",
+      "definition" : "engagement",
+      "comment" : "TKB-fält: `engagement` (`EngagementType`, kardinalitet 0..*).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.registeredResidentIdentification",
+      "path" : "findcontent.engagement.registeredResidentIdentification",
+      "short" : "registeredResidentIdentification",
+      "definition" : "Enligt formatregler i meddelandemodell",
+      "comment" : "TKB-fält: `engagement.registeredResidentIdentification` (`Nationell accepterad personidentitet`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/RegisteredResidentIdentificationType"]
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.serviceDomain",
+      "path" : "findcontent.engagement.serviceDomain",
+      "short" : "serviceDomain",
+      "definition" : "Namnrymd för Tjänstedomän\n\nexempel:\n\nurn:riv:clinicalprocess:activity:request",
+      "comment" : "TKB-fält: `engagement.serviceDomain` (`URN`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.categorization",
+      "path" : "findcontent.engagement.categorization",
+      "short" : "categorization",
+      "definition" : "Enligt tjänstedomänens dokumentation.",
+      "comment" : "TKB-fält: `engagement.categorization` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.logicalAddress",
+      "path" : "findcontent.engagement.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "Enligt tjänstedomänens dokumentation.",
+      "comment" : "TKB-fält: `engagement.logicalAddress` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.businessObjectInstanceIdentifier",
+      "path" : "findcontent.engagement.businessObjectInstanceIdentifier",
+      "short" : "businessObjectInstanceIdentifier",
+      "definition" : "Enligt tjänstedomänens dokumentation.",
+      "comment" : "TKB-fält: `engagementTransaction .engagement.businessObjectInstanceIdentifier` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.clinicalProcessInterestId",
+      "path" : "findcontent.engagement.clinicalProcessInterestId",
+      "short" : "clinicalProcessInterestId",
+      "definition" : "Enligt tjänstedomänens dokumentation.",
+      "comment" : "TKB-fält: `engagement.clinicalProcessInterestId` (`String`, kardinalitet 0..1).\n\nObs: modellen anger 1..1 där TKB:n anger 0..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.mostRecentContent",
+      "path" : "findcontent.engagement.mostRecentContent",
+      "short" : "mostRecentContent",
+      "definition" : "YYYYMMDDhhmmss",
+      "comment" : "TKB-fält: `engagement.mostRecentContent` (`TS`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.sourceSystem",
+      "path" : "findcontent.engagement.sourceSystem",
+      "short" : "sourceSystem",
+      "definition" : "Källsystemet som innehåller den information som EI-posten pekar ut.\n\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.",
+      "comment" : "TKB-fält: `engagement.sourceSystem` (`HSA-id`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.creationTime",
+      "path" : "findcontent.engagement.creationTime",
+      "short" : "creationTime",
+      "definition" : "YYYYMMDDhhmmss",
+      "comment" : "TKB-fält: `engagement.creationTime` (`TS`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.updateTime",
+      "path" : "findcontent.engagement.updateTime",
+      "short" : "updateTime",
+      "definition" : "YYYYMMDDhhmmss",
+      "comment" : "TKB-fält: `engagement.updateTime` (`TS`, kardinalitet 0..1).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string",
+        "profile" : ["https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/TS"]
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.dataController",
+      "path" : "findcontent.engagement.dataController",
+      "short" : "dataController",
+      "definition" : "Identitet för den PUA som ansvarar för postens innehåll.\n\nI första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.)\n\nViktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.",
+      "comment" : "TKB-fält: `engagement.dataController` (`String`, kardinalitet 1..1).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "findcontent.engagement.owner",
+      "path" : "findcontent.engagement.owner",
+      "short" : "owner",
+      "definition" : "HSA-id för den organisations vars index tog emot uppdateringsbegäran.",
+      "comment" : "TKB-fält: `engagement.owner` (`HSA-id`, kardinalitet 1..1).\n\nObs: modellen anger 0..1 där TKB:n anger 1..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```
